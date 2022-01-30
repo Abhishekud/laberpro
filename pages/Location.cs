@@ -156,7 +156,7 @@ namespace laberpro.pages
             IWebElement elementggrs = SeleniumDriver.driver().FindElement(By.XPath(LocationProfiles));//a[contains(text(),'New')]
             elementggrs.Click();
             Thread.Sleep(3000);
-            IWebElement yjntg = SeleniumDriver.driver().FindElement(By.XPath("//tr[@role='row']/td[5]")) ;
+            IWebElement yjntg = SeleniumDriver.driver().FindElement(By.XPath("//div[@id='app']//div[@role='grid']/div[2]/div[@role='presentation']//table[@role='presentation']/tbody/tr[1]/td[5]")) ;
             yjntg.Click();
             IWebElement ejh = SeleniumDriver.driver().FindElement(By.XPath(Delete));
             ejh.Click();
