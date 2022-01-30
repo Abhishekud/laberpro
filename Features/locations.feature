@@ -12,24 +12,59 @@ Feature: Verify Locations Module Functionality
       | ajaykhadke@benchmarkit.solutions | Ajay2021$$ | success |
 
   @Regression @Smoke
-  Scenario Outline: 2. verify_add_location
+  Scenario Outline: 2. verify_add_location_when_enter_blank_details  
+    
+  Given  User Enters the HomePage
+  Then User navigates to the Profiling  tab
+  Then User navigates to the location tab
+  Then User presses on Add location Button
+  When user  enter  blank details  
+  Then Verify Alert Message: "<message>"
+  
+   @Regression @Smoke
+  Scenario Outline: 3. verify_add_location_when_enter_correc_details 
+    
+  Given User press cancel Button
+  Then User opens the form again by pressing Add Location button
+  Then User enters value in Name:"<name>" tag  and press submit button
+  Then Verify validation Message: "<message>"
+  
+
+   @Regression @Smoke
+  Scenario Outline: 4. verify_add_location_when_enter_existing_details
+    
+  Given User press cancel Button
+  Then User opens the form again by pressing Add location button
+  Then User enters value in Name:"<name>" tag the value entered is already present in database and press submit button
+  Then Verify validation Message: "<message>"
  
-  When user enter  blank details  
-  When user enter existing details it show error
-  When user enter correct details it shows error
 
 
   @Regression @Smoke
-  Scenario Outline: 3. verify_edit_location
-    When user enter edit  blank details 
-  When user enter edit existing details it show error
-  When user enter edit correct details it shows error
+  Scenario Outline: 5. verify_edit_location_blank_Details
+   When user click on profile it open a profile
+   Then  User enters empty value in Name:"<name>" tag   and press submit button
+     Then Verify validation Message: "<message>"
+
 
   @Regression @Smoke
-  Scenario Outline: 4. verify_delete_location
+  Scenario Outline: 6. verify_edit_location_existing_Details
+   When user click on profile it open a profile
+   Then  User enters existing value in Name:"<name>" tag   and press submit button
+     Then Verify validation Message: "<message>"
+
+
+  @Regression @Smoke
+  Scenario Outline: 7. verify_edit_location_correct_Details
+   When user click on profile it open a profile
+   Then  User enters  value in Name:"<name>" tag   and press submit button
+     Then Verify validation Message: "<message>"
+
+  @Regression @Smoke
+  Scenario Outline: 8. verify_delete_location
   When seect a location it selects location and on delete it  
     
   @Cleanup @Regression @Smoke
-  Scenario: 5. Logout and Close Browser
+  Scenario: 9. Logout and Close Browser
     When User logout from the application
     Then User close browser
