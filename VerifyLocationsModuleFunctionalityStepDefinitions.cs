@@ -1,4 +1,3 @@
-using laberpro.pages;
 using System;
 using TechTalk.SpecFlow;
 
@@ -7,46 +6,100 @@ namespace laberpro
     [Binding]
     public class VerifyLocationsModuleFunctionalityStepDefinitions
     {
-        [When(@"user enter  blank details")]
+        [Given(@"User Enters the HomePage")]
+        public void GivenUserEntersTheHomePage()
+        {
+            throw new PendingStepException();
+        }
+
+        [Then(@"User navigates to the Profiling  tab")]
+        public void ThenUserNavigatesToTheProfilingTab()
+        {
+            throw new PendingStepException();
+        }
+
+        [Then(@"User navigates to the location tab")]
+        public void ThenUserNavigatesToTheLocationTab()
+        {
+            throw new PendingStepException();
+        }
+
+        [Then(@"User presses on Add location Button")]
+        public void ThenUserPressesOnAddLocationButton()
+        {
+            throw new PendingStepException();
+        }
+
+        [When(@"user  enter  blank details")]
         public void WhenUserEnterBlankDetails()
         {
-            location.addlocaton();
+            throw new PendingStepException();
         }
 
-        [When(@"user enter existing details it show error")]
-        public void WhenUserEnterExistingDetailsItShowError()
+        [Then(@"Verify Alert Message: ""([^""]*)""")]
+        public void ThenVerifyAlertMessage(string message)
         {
-           location.addlocatonp();
+            throw new PendingStepException();
         }
 
-        [When(@"user enter correct details it shows error")]
-        public void WhenUserEnterCorrectDetailsItShowsError()
+        [Given(@"User press cancel Button")]
+        public void GivenUserPressCancelButton()
         {
-            location.addlocatonq();
+            throw new PendingStepException();
         }
 
-        [When(@"user enter edit  blank details")]
-        public void WhenUserEnterEditBlankDetails()
+        [Then(@"User opens the form again by pressing Add Location button")]
+        public void ThenUserOpensTheFormAgainByPressingAddLocationButton()
         {
-            location.editlocation();
+            throw new PendingStepException();
         }
 
-        [When(@"user enter edit existing details it show error")]
-        public void WhenUserEnterEditExistingDetailsItShowError()
+        [Then(@"User enters value in Name:""([^""]*)"" tag  and press submit button")]
+        public void ThenUserEntersValueInNameTagAndPressSubmitButton(string name)
         {
-          location.editlocationp(); 
+            throw new PendingStepException();
         }
 
-        [When(@"user enter edit correct details it shows error")]
-        public void WhenUserEnterEditCorrectDetailsItShowsError()
+        [Then(@"Verify validation Message: ""([^""]*)""")]
+        public void ThenVerifyValidationMessage(string message)
         {
-        location.editlocationq();
+            throw new PendingStepException();
         }
 
-        [When(@"seect a location it selects location and on delete it")]
-        public void WhenSeectALocationItSelectsLocationAndOnDeleteIt()
+        [Then(@"User opens the form again by pressing Add location button")]
+        public void ThenUserOpensTheFormAgainByPressingAddLocationButton()
         {
-           location.delete();
+            throw new PendingStepException();
+        }
+
+        [Then(@"User enters value in Name:""([^""]*)"" tag the value entered is already present in database and press submit button")]
+        public void ThenUserEntersValueInNameTagTheValueEnteredIsAlreadyPresentInDatabaseAndPressSubmitButton(string name)
+        {
+            throw new PendingStepException();
+        }
+
+        [When(@"user click on profile it open a profile")]
+        public void WhenUserClickOnProfileItOpenAProfile()
+        {
+            throw new PendingStepException();
+        }
+
+        [Then(@"User enters empty value in Name:""([^""]*)"" tag   and press submit button")]
+        public void ThenUserEntersEmptyValueInNameTagAndPressSubmitButton(string name)
+        {
+            throw new PendingStepException();
+        }
+
+        [Then(@"User enters existing value in Name:""([^""]*)"" tag   and press submit button")]
+        public void ThenUserEntersExistingValueInNameTagAndPressSubmitButton(string name)
+        {
+            throw new PendingStepException();
+        }
+
+        [Then(@"User enters  value in Name:""([^""]*)"" tag   and press submit button")]
+        public void ThenUserEntersValueInNameTagAndPressSubmitButton(string name)
+        {
+            throw new PendingStepException();
         }
     }
 }
