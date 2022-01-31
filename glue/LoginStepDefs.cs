@@ -61,7 +61,7 @@ namespace SpecFlowSelenium.glue
 
         [Then(@"Verify Login message: ""([^""]*)""")]
         public void ThenVerifyLoginMessage(string message)
-        { 
+        {  
         }
 
 
