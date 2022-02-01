@@ -2,7 +2,8 @@ using laberpro.pages;
 using System;
 using TechTalk.SpecFlow;
 
-namespace laberpro
+
+namespace SpecFlowSelenium.glue
 {
     [Binding]
     public class VerifyLocationsModuleFunctionalityStepDefinitions
@@ -40,8 +41,7 @@ namespace laberpro
         }
 
         [Given(@"User press cancel Button")]
-        public void GivenUserPressCancelButton() => location.addlocatonwithcorrect();
-       
+        public void GivenUserPressCancelButton() { }
 
         [Then(@"User opens the form again by pressing Add Location button")]
         public void ThenUserOpensTheFormAgainByPressingAddLocationButton()
@@ -50,10 +50,9 @@ namespace laberpro
         }
 
         [Then(@"User enters value in Name:""([^""]*)"" tag  and press submit button")]
-        public void ThenUserEntersValueInNameTagAndPressSubmitButton(string labor)
-        {
-            
-        }
+        public void ThenUserEntersValueInNameTagAndPressSubmitButton(string labor)  => location.addlocatonwithcorrect(labor);
+       
+         
 
         [Then(@"Verify validation Message: ""([^""]*)""")]
         public void ThenVerifyValidationMessage(string message)
@@ -62,7 +61,7 @@ namespace laberpro
         }
 
         [Given(@"User press cancel Buttons")]
-        public void GivenUserPressCancelButtons()=> location.addlocatonwithexisting();
+        public void GivenUserPressCancelButtons() { }// 
         
 
         [Then(@"User opens the form again by pressing Add location buttons")]
@@ -72,13 +71,13 @@ namespace laberpro
         }
 
         [Then(@"User enters value in Name:""([^""]*)"" tag the value entered is already present in database and press submit button")]
-        public void ThenUserEntersValueInNameTagTheValueEnteredIsAlreadyPresentInDatabaseAndPressSubmitButton(string labor)
-        {
+        public void ThenUserEntersValueInNameTagTheValueEnteredIsAlreadyPresentInDatabaseAndPressSubmitButton(string labor)=> location.addlocatonwithexisting(labor);
+        
             
-        }
+   
 
         [Given(@"User press cancel Butto")]
-        public void GivenUserPressCancelButto()=>location.editlocationblank();
+        public void GivenUserPressCancelButto()   =>location.editlocationblank();
        
 
         [When(@"user click on profile it opens a profile")]
@@ -94,9 +93,7 @@ namespace laberpro
         }
 
         [Given(@"User press cancel Button after previous test case")]
-        public void GivenUserPressCancelButtonAfterPreviousTestCase()=>location.editlocationcorrect();
-      
-
+        public void GivenUserPressCancelButtonAfterPreviousTestCase() { }// 
         [When(@"user click on profile it open a profile")]
         public void WhenUserClickOnProfileItOpenAProfile()
         {
@@ -104,13 +101,12 @@ namespace laberpro
         }
 
         [Then(@"User enters existing value in Name:""([^""]*)"" tag   and press submit button")]
-        public void ThenUserEntersExistingValueInNameTagAndPressSubmitButton(string labor)
-        {
-            
-        }
+        public void ThenUserEntersExistingValueInNameTagAndPressSubmitButton(string labor)  =>location.editlocationexisting(labor);
+      
+ 
 
         [Given(@"User will press previous button")]
-        public void GivenUserWillPressPreviousButton()=>location.editlocationexisting();
+        public void GivenUserWillPressPreviousButton() { }// 
      
 
         [When(@"user click on profile it open a profiles")]
@@ -120,13 +116,11 @@ namespace laberpro
         }
 
         [Then(@"User enters  value in Name:""([^""]*)"" tag and press submit")]
-        public void ThenUserEntersValueInNameTagAndPressSubmit(string labor)
-        {
-            
-        }
+        public void ThenUserEntersValueInNameTagAndPressSubmit(string labor) =>location.editlocationcorrect(labor);
+     
 
         [Given(@"User will press cancel button")]
-        public void GivenUserWillPressCancelButton()=>location.delete();
+        public void GivenUserWillPressCancelButton()  =>location.delete();
        
 
         [When(@"select a location it selects location and on deletes it")]

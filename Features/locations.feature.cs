@@ -21,7 +21,7 @@ namespace laberpro.Features
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Verify Locations Module Functionality")]
-    [NUnit.Framework.CategoryAttribute("LaberPro")]
+    [NUnit.Framework.CategoryAttribute("laborPro")]
     [NUnit.Framework.CategoryAttribute("Login")]
     public partial class VerifyLocationsModuleFunctionalityFeature
     {
@@ -29,7 +29,7 @@ namespace laberpro.Features
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private string[] _featureTags = new string[] {
-                "LaberPro",
+                "laborPro",
                 "Login"};
         
 #line 1 "locations.feature"
@@ -40,7 +40,7 @@ namespace laberpro.Features
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Verify Locations Module Functionality", null, ProgrammingLanguage.CSharp, new string[] {
-                        "LaberPro",
+                        "laborPro",
                         "Login"});
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -194,12 +194,19 @@ namespace laberpro.Features
         [NUnit.Framework.DescriptionAttribute("3. verify_add_location_when_enter_correc_details")]
         [NUnit.Framework.CategoryAttribute("Regression")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _3_Verify_Add_Location_When_Enter_Correc_Details()
+        [NUnit.Framework.TestCaseAttribute("Abhi", null)]
+        public virtual void _3_Verify_Add_Location_When_Enter_Correc_Details(string labor, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
+            string[] @__tags = new string[] {
                     "Regression",
                     "Smoke"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("labor", labor);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3. verify_add_location_when_enter_correc_details", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 25
   this.ScenarioInitialize(scenarioInfo);
@@ -228,7 +235,7 @@ namespace laberpro.Features
   testRunner.Then("User opens the form again by pressing Add Location button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 29
-  testRunner.Then("User enters value in Name:\"Labor\" tag  and press submit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then(string.Format("User enters value in Name:\"{0}\" tag  and press submit button", labor), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 30
   testRunner.Then("Verify validation Message: \"<message>\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -241,14 +248,21 @@ namespace laberpro.Features
         [NUnit.Framework.DescriptionAttribute("4. verify_add_location_when_enter_existing_details")]
         [NUnit.Framework.CategoryAttribute("Regression")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _4_Verify_Add_Location_When_Enter_Existing_Details()
+        [NUnit.Framework.TestCaseAttribute("Abhi", null)]
+        public virtual void _4_Verify_Add_Location_When_Enter_Existing_Details(string labor, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
+            string[] @__tags = new string[] {
                     "Regression",
                     "Smoke"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("labor", labor);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("4. verify_add_location_when_enter_existing_details", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 34
+#line 37
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -268,17 +282,17 @@ namespace laberpro.Features
             else
             {
                 this.ScenarioStart();
-#line 36
+#line 39
   testRunner.Given("User press cancel Buttons", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 37
+#line 40
   testRunner.Then("User opens the form again by pressing Add location buttons", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 38
-  testRunner.Then("User enters value in Name:\"Labor\" tag the value entered is already present in dat" +
-                        "abase and press submit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 41
+  testRunner.Then(string.Format("User enters value in Name:\"{0}\" tag the value entered is already present in datab" +
+                            "ase and press submit button", labor), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 39
+#line 42
   testRunner.Then("Verify validation Message: \"<message>\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -296,7 +310,7 @@ namespace laberpro.Features
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("5. verify_edit_location_blank_Details", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 44
+#line 50
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -316,16 +330,16 @@ namespace laberpro.Features
             else
             {
                 this.ScenarioStart();
-#line 45
+#line 51
     testRunner.Given("User press cancel Butto", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 46
+#line 52
     testRunner.When("user click on profile it opens a profile", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 47
-   testRunner.Then("User enters empty value in Name:\"Labor\" tag   and press submit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 53
+   testRunner.Then("User enters empty value in Name:\"<labor>\" tag   and press submit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 48
+#line 54
      testRunner.Then("Verify validation Message: \"<message>\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -336,14 +350,21 @@ namespace laberpro.Features
         [NUnit.Framework.DescriptionAttribute("6. verify_edit_location_existing_Details")]
         [NUnit.Framework.CategoryAttribute("Regression")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _6_Verify_Edit_Location_Existing_Details()
+        [NUnit.Framework.TestCaseAttribute("Abhi2", null)]
+        public virtual void _6_Verify_Edit_Location_Existing_Details(string labor, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
+            string[] @__tags = new string[] {
                     "Regression",
                     "Smoke"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("labor", labor);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("6. verify_edit_location_existing_Details", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 52
+#line 58
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -363,16 +384,16 @@ namespace laberpro.Features
             else
             {
                 this.ScenarioStart();
-#line 53
+#line 59
     testRunner.Given("User press cancel Button after previous test case", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 54
+#line 60
     testRunner.When("user click on profile it open a profile", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 55
-   testRunner.Then("User enters existing value in Name:\"Labor\" tag   and press submit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 61
+   testRunner.Then(string.Format("User enters existing value in Name:\"{0}\" tag   and press submit button", labor), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 56
+#line 62
      testRunner.Then("Verify validation Message: \"<message>\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -383,14 +404,21 @@ namespace laberpro.Features
         [NUnit.Framework.DescriptionAttribute("7. verify_edit_location_correct_Details")]
         [NUnit.Framework.CategoryAttribute("Regression")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _7_Verify_Edit_Location_Correct_Details()
+        [NUnit.Framework.TestCaseAttribute("Abhi2", null)]
+        public virtual void _7_Verify_Edit_Location_Correct_Details(string labor, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
+            string[] @__tags = new string[] {
                     "Regression",
                     "Smoke"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("labor", labor);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("7. verify_edit_location_correct_Details", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 60
+#line 69
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -410,16 +438,16 @@ namespace laberpro.Features
             else
             {
                 this.ScenarioStart();
-#line 61
+#line 70
   testRunner.Given("User will press previous button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 62
+#line 71
   testRunner.When("user click on profile it open a profiles", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 63
-   testRunner.Then("User enters  value in Name:\"Labor\" tag and press submit", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 72
+   testRunner.Then(string.Format("User enters  value in Name:\"{0}\" tag and press submit", labor), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 64
+#line 73
      testRunner.Then("Verify validation Message: \"<message>\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -437,7 +465,7 @@ namespace laberpro.Features
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("8. verify_delete_location", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 67
+#line 79
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -457,10 +485,10 @@ namespace laberpro.Features
             else
             {
                 this.ScenarioStart();
-#line 68
+#line 80
   testRunner.Given("User will press cancel button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 69
+#line 81
   testRunner.When("select a location it selects location and on deletes it", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             }
@@ -480,7 +508,7 @@ namespace laberpro.Features
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("9. Logout and Close Browser", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 72
+#line 84
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -500,10 +528,10 @@ namespace laberpro.Features
             else
             {
                 this.ScenarioStart();
-#line 73
+#line 85
     testRunner.When("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 74
+#line 86
     testRunner.Then("User close browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

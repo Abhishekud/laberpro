@@ -35,6 +35,7 @@ namespace laberpro.pages
 
         public static void PerformLogout()
         {
+            Thread.Sleep(5000);
             ClickOnModule("Account");
             PerformModuleAction("Log Out");
             Thread.Sleep(3000);

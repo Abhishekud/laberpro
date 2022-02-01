@@ -1,4 +1,4 @@
-﻿@LaberPro @Login
+﻿@laborPro @Login
 Feature: Verify Locations Module Functionality
 
   @Setup @Regression @Smoke
@@ -26,8 +26,11 @@ Feature: Verify Locations Module Functionality
     
   Given User press cancel Button
   Then User opens the form again by pressing Add Location button
-  Then User enters value in Name:"Labor" tag  and press submit button
+  Then User enters value in Name:"<labor>" tag  and press submit button
   Then Verify validation Message: "<message>"
+  Examples:
+      |labor  |
+      | Abhi |
   
 
    @Regression @Smoke
@@ -35,8 +38,11 @@ Feature: Verify Locations Module Functionality
     
   Given User press cancel Buttons
   Then User opens the form again by pressing Add location buttons
-  Then User enters value in Name:"Labor" tag the value entered is already present in database and press submit button
+  Then User enters value in Name:"<labor>" tag the value entered is already present in database and press submit button
   Then Verify validation Message: "<message>"
+    Examples:
+      |labor  |
+      | Abhi |
  
 
 
@@ -44,7 +50,7 @@ Feature: Verify Locations Module Functionality
   Scenario Outline: 5. verify_edit_location_blank_Details
     Given User press cancel Butto 
     When user click on profile it opens a profile
-   Then  User enters empty value in Name:"Labor" tag   and press submit button
+   Then  User enters empty value in Name:"<labor>" tag   and press submit button
      Then Verify validation Message: "<message>"
 
 
@@ -52,16 +58,22 @@ Feature: Verify Locations Module Functionality
   Scenario Outline: 6. verify_edit_location_existing_Details
     Given User press cancel Button after previous test case
     When user click on profile it open a profile
-   Then  User enters existing value in Name:"Labor" tag   and press submit button
+   Then  User enters existing value in Name:"<labor>" tag   and press submit button
      Then Verify validation Message: "<message>"
+       Examples:
+      |labor  |
+      | Abhi2 |
 
 
   @Regression @Smoke
   Scenario Outline: 7. verify_edit_location_correct_Details
   Given User will press previous button 
   When user click on profile it open a profiles
-   Then  User enters  value in Name:"Labor" tag and press submit 
+   Then  User enters  value in Name:"<labor>" tag and press submit 
      Then Verify validation Message: "<message>"
+       Examples:
+      |labor  |
+      | Abhi2 |
 
   @Regression @Smoke
   Scenario Outline: 8. verify_delete_location
