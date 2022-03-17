@@ -18,9 +18,9 @@ namespace laborpro.drivers
         const string DEFAULT_BROSWER = "chrome";
         public static IWebDriver Setup(string browser)
         {
-            if(browser.StartsWith("$"))
+            if (browser.StartsWith("$"))
             {
-                string browserParameter = Environment.GetEnvironmentVariable("broswer");
+                string browserParameter = Environment.GetEnvironmentVariable("browser");
                 if (browserParameter == null)
                 {
                     browser = DEFAULT_BROSWER;
@@ -31,10 +31,10 @@ namespace laborpro.drivers
                 }
                 Console.WriteLine("Launching broswer - {0}", browser);
             }
-            if(webDriver.Value==null)
+            if (webDriver.Value == null)
             {
                 IWebDriver driver;
-                 
+
                 switch (browser.ToLower())
                 {
                     case "chrome":
@@ -44,14 +44,14 @@ namespace laborpro.drivers
 
                     case "firefox":
                         new WebDriverManager.DriverManager().SetUpDriver(new FirefoxConfig());
-                        driver = new FirefoxDriver();
+                        driver = new FirefoxDriver(GetFirefoxOptions());
                         break;
                     case "edge":
                         new WebDriverManager.DriverManager().SetUpDriver(new EdgeConfig());
-                        driver = new EdgeDriver();
+                        driver = new EdgeDriver(GetEdgeOptions());
                         break;
                     default:
-                        new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());                       
+                        new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
                         driver = new ChromeDriver(GetChromeOptions());
                         break;
                 }
@@ -66,12 +66,39 @@ namespace laborpro.drivers
         {
             ChromeOptions options = new ChromeOptions();
             string headless = Environment.GetEnvironmentVariable("headless");
-            if (headless!=null && headless.ToLower().Equals("true"))
+            if (headless != null && headless.ToLower().Equals("true"))
             {
                 options.AddArguments("--headless", "--disable-gpu", "--window-size=1920,1200",
                 "--ignore-certificate-errors", "--disable-extensions", "--no-sandbox", "--disable-dev-shm-usage");
-            }            
+            }
             return options;
+        }
+
+        public static FirefoxOptions GetFirefoxOptions()
+        {
+            FirefoxOptions options = new FirefoxOptions();
+            string headless = Environment.GetEnvironmentVariable("headless");
+            if (headless != null && headless.ToLower().Equals("true"))
+            {
+                options.AddArgument("--headless");
+            }
+            return options;
+        }
+
+        public static EdgeOptions GetEdgeOptions()
+        {
+
+            EdgeOptions options = new EdgeOptions();
+            string headless = Environment.GetEnvironmentVariable("headless");
+            if (headless != null && headless.ToLower().Equals("true"))
+            {
+
+                options.AddArgument("headless");
+                options.AddArgument("disable-gpu");
+            }
+            return options;
+
+
         }
 
         public static IWebDriver Driver()

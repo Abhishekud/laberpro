@@ -68,7 +68,7 @@ Feature: Verify VolumeDriverMapping Module
   
   @Smoke
   Scenario: 06. Verify_that_respective_'VolumeDriver'_& _UOM""_available_in_dropdown_is_deleted
-    Given User navigates to the List Management tab
+ 
     Given User navigates to the VolumeDriver tab
       And User delete created VolumeDriver by name "VolumeDriver via Automation"
      When User selects "Units of Measure"

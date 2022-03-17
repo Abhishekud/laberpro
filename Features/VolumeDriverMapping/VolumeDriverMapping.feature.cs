@@ -429,9 +429,6 @@ namespace laborpro.Features.VolumeDriverMapping
             else
             {
                 this.ScenarioStart();
-#line 71
-    testRunner.Given("User navigates to the List Management tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
 #line 72
     testRunner.Given("User navigates to the VolumeDriver tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
