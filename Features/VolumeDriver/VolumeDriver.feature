@@ -22,7 +22,7 @@ Feature: Verify VolumeDrivers Module
 Given User navigates to the VolumeDriver tab
   When User create new VolumeDriver with below input
     | Key               | Value |
-    | Name              | ACreated via Automation |
+    | Name              | VolumeDriver via Automation |
    Then Verify validation Message: "Department is required."
     And User click on cancel Button
   
@@ -32,34 +32,34 @@ Given User navigates to the VolumeDriver tab
    Then User selects Department
     When User create new Department with below input
     | Key               | Value |
-    | Name              | ACreated via Automation |
-    Then User verify created Department "ACreated via Automation"
+    | Name              | Department to verify VolumeDriver |
+    Then User verify created Department "Department to verify VolumeDriver"
      Given User navigates to the VolumeDriver tab
   When User create new VolumeDriver with below input
     | Key               | Value |
-    | Name              | ACreated via Automation |
-    | Department        |  ACreated via Automation |
-    Then User verify created VolumeDriver by name "ACreated via Automation"
-     And User delete created VolumeDriver by name "ACreated via Automation" 
+    | Name              | VolumeDriver via Automation        |
+    | Department        |  Department to verify VolumeDriver |
+    Then User verify created VolumeDriver by name "VolumeDriver via Automation"
+     And User delete created VolumeDriver by name "VolumeDriver via Automation" 
  
 
   Scenario: 05. verify_add_VolumeDriver_if_Name_already_exist_for_respective_department
    Given User navigates to the VolumeDriver tab
     When User create new VolumeDriver with below input
     | Key               | Value |
-    | Name              |AATest VolumeDriver Exist Scenario |
-    | Department        |  ACreated via Automation |
-    Then User verify created VolumeDriver by name "AATest VolumeDriver Exist Scenario"
+    | Name              |  VolumeDriver Exist Scenario       |
+    | Department        |  Department to verify VolumeDriver |
+    Then User verify created VolumeDriver by name "VolumeDriver Exist Scenario"
    Given User navigates to the VolumeDriver tab
     When User create new VolumeDriver with below input
     | Key               | Value |
-       | Name              |AATest VolumeDriver Exist Scenario |
-    | Department        |  ACreated via Automation |
+       | Name           |  VolumeDriver Exist Scenario       |
+    | Department        |  Department to verify VolumeDriver |
     Then Verify validation Message: "Name already exists in this Department."
     And User click on cancel Button
-    And User delete created VolumeDriver by name "AATest VolumeDriver Exist Scenario"
+    And User delete created VolumeDriver by name "VolumeDriver Exist Scenario"
      Then User selects Department
-      And User delete created Department "ACreated via Automation"
+      And User delete created Department "Department to verify VolumeDriver"
 
  
       

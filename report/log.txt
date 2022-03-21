@@ -1,0 +1,84 @@
+10:36:23 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing step: User navigates to the Locations tab
+10:36:26 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing step: User go to application https://laborpro-client-bits.azurewebsites.net
+10:36:43 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing step: User enter email: bits.auto.qa1+3@gmail.com and password: **********
+10:36:43 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing LoginPage.PerformLogin
+10:36:44 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing step: Verify Login message: success
+10:36:44 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing LoginPage.VerifyLoginSuccess
+10:36:49 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing Step: User navigates to the List Management tab  
+10:36:49 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.CloseDepartmentForm
+10:36:50 PM Sunday, March 20, 2022 -> ParallelWorker#6 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+10:36:51 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.ClickOnListManagementTab
+10:36:52 PM Sunday, March 20, 2022 -> ParallelWorker#6 : no such element: Unable to locate element: {"method":"xpath","selector":"//h3[contains(text(),'Departments')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+10:36:53 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing Step: User selects Department
+10:36:53 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.ClickOnDepartment
+10:36:54 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing User create new Department with below input | Key  | Value |
+| Name |       |
+
+10:36:54 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.AddNewDepartmentWithGivenInput
+10:36:54 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.ClickOnAddButton
+10:36:54 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.UserClickOnNewDepartmentMenuLink
+10:36:54 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing step: Verify validation Message: Name is required
+10:36:54 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing AllowancesPage.VerifyAddAllowanceErrorMessage
+10:36:55 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Exceuting Step User clicks cancel button
+10:36:55 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.CloseDepartmentForm
+10:36:55 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing Step: User navigates to the List Management tab  
+10:36:55 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.CloseDepartmentForm
+10:36:56 PM Sunday, March 20, 2022 -> ParallelWorker#6 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+10:36:57 PM Sunday, March 20, 2022 -> ParallelWorker#6 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+10:36:57 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.ClickOnListManagementTab
+10:36:58 PM Sunday, March 20, 2022 -> ParallelWorker#6 : no such element: Unable to locate element: {"method":"xpath","selector":"//h3[@class='page-title' and contains(text(),'Units Of Measure')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+10:36:59 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing Step: User selects Department
+10:36:59 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.ClickOnDepartment
+10:36:59 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing User create new Department with below input | Key  | Value                           |
+| Name | Department to verify Department |
+
+10:36:59 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.AddNewDepartmentWithGivenInput
+10:36:59 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.ClickOnAddButton
+10:36:59 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.UserClickOnNewDepartmentMenuLink
+10:37:00 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing Step User verify created Department by nameDepartment to verify Department
+10:37:00 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.VerifyCreatedDepartment
+10:37:00 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing Step User delete created Department by nameDepartment to verify Department
+10:37:00 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.DeleteCreatedDepartment
+10:37:00 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.CloseDepartmentDetailSideBar
+10:37:03 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing Step: User navigates to the List Management tab  
+10:37:03 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.CloseDepartmentForm
+10:37:04 PM Sunday, March 20, 2022 -> ParallelWorker#6 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+10:37:05 PM Sunday, March 20, 2022 -> ParallelWorker#6 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+10:37:05 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.ClickOnListManagementTab
+10:37:06 PM Sunday, March 20, 2022 -> ParallelWorker#6 : no such element: Unable to locate element: {"method":"xpath","selector":"//h3[@class='page-title' and contains(text(),'Units Of Measure')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+10:37:07 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing Step: User selects Department
+10:37:07 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.ClickOnDepartment
+10:37:08 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing User create new Department with below input | Key  | Value                     |
+| Name | Department Exist Scenario |
+
+10:37:08 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.AddNewDepartmentWithGivenInput
+10:37:08 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.ClickOnAddButton
+10:37:08 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.UserClickOnNewDepartmentMenuLink
+10:37:08 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing Step User verify created Department by nameDepartment Exist Scenario
+10:37:08 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.VerifyCreatedDepartment
+10:37:09 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing User create new Department with below input | Key  | Value                     |
+| Name | Department Exist Scenario |
+
+10:37:09 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.AddNewDepartmentWithGivenInput
+10:37:09 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.ClickOnAddButton
+10:37:09 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.UserClickOnNewDepartmentMenuLink
+10:37:09 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing step: Verify validation Message: Name already exists
+10:37:09 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing AllowancesPage.VerifyAddAllowanceErrorMessage
+10:37:10 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Exceuting Step User clicks cancel button
+10:37:10 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.CloseDepartmentForm
+10:37:10 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing Step User delete created Department by nameDepartment Exist Scenario
+10:37:10 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.DeleteCreatedDepartment
+10:37:10 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.CloseDepartmentDetailSideBar
+10:37:13 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing step: User logout from the application
+10:37:13 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DashboardPage.PerformLogout..
+10:37:13 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DashboardPage.ClickOnModule(Account)
+10:37:13 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DashboardPage.PerformModuleAction(Log Out)
+10:37:18 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing step: User close browser

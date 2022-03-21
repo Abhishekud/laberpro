@@ -221,15 +221,15 @@ namespace laborpro.Features.Department
                             "Value"});
                 table27.AddRow(new string[] {
                             "Name",
-                            "ACreated via Automation"});
+                            "Department to verify Department"});
 #line 24
    testRunner.Then("User create new Department with below input", ((string)(null)), table27, "Then ");
 #line hidden
 #line 27
-    testRunner.And("User verify created Department \"ACreated via Automation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("User verify created Department \"Department to verify Department\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 28
-    testRunner.Then("User delete created Department \"ACreated via Automation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("User delete created Department \"Department to verify Department\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -273,19 +273,19 @@ namespace laborpro.Features.Department
                             "Value"});
                 table28.AddRow(new string[] {
                             "Name",
-                            "AATest Department Exist Scenario"});
+                            "Department Exist Scenario"});
 #line 33
     testRunner.And("User create new Department with below input", ((string)(null)), table28, "And ");
 #line hidden
 #line 36
-    testRunner.Then("User verify created Department \"AATest Department Exist Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("User verify created Department \"Department Exist Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
                 TechTalk.SpecFlow.Table table29 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
                 table29.AddRow(new string[] {
                             "Name",
-                            "AATest Department Exist Scenario"});
+                            "Department Exist Scenario"});
 #line 37
     testRunner.Then("User create new Department with below input", ((string)(null)), table29, "Then ");
 #line hidden
@@ -296,7 +296,7 @@ namespace laborpro.Features.Department
     testRunner.And("User clicks cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 42
-    testRunner.And("User delete created Department \"AATest Department Exist Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("User delete created Department \"Department Exist Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

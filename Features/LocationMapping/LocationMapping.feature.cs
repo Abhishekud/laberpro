@@ -114,7 +114,7 @@ namespace laborpro.Features.LocationMapping
             {
                 this.ScenarioStart();
 #line 6
-    testRunner.Given("User launched \"chrome\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("User launched \"edge\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 7
      testRunner.When("User go to application \"$url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
