@@ -4,7 +4,7 @@ Feature: Verify Allowances Module
 
   @Setup @Smoke
   Scenario: 01. Launch Browser and Login to the Application
-    Given User launched "edge"
+    Given User launched "$browser"
     When User go to application "$url"
     Then User enter email: "$username_1" and password: "$password_1"
     And Verify Login message: "success"
@@ -18,6 +18,7 @@ Feature: Verify Allowances Module
     Then Verify validation Message: "Name is required"
     And User click on cancel Button
     
+
   Scenario: 03. verify_add_allowance_name_already_exist
     Given User navigates to the Allowance tab
     When User add allowance using below input if not exist
@@ -35,7 +36,7 @@ Feature: Verify Allowances Module
     And User click on previous link
     When User add allowance using below input 
     | Key       | Value |
-	| Name      | Allowance to verify duplicate |
+	| Name      | Allowance to verify duplicate record |
     Then Verify validation Message: "Name already exists"
     And User click on cancel Button
     And User delete created allowance: "Allowance to verify duplicate record" 
@@ -84,7 +85,7 @@ Feature: Verify Allowances Module
     Then Verify validation Message: "Paid Time must be between 200 and 720"
     And User click on cancel Button
 
-  Scenario: 07. verify_add_allowance_paid_time_value_getting_added_when_value_is_supplied_in_range
+    Scenario: 07. verify_add_allowance_paid_time_value_getting_added_when_value_is_supplied_in_range
     Given User navigates to the Allowance tab
     When User add allowance using below input if not exist
     | Key                                          | Value |
@@ -99,8 +100,8 @@ Feature: Verify Allowances Module
     | Incentive Opportunity Allowance (Percent)    | 80    |
     Then User verify created allowance name "Allowance paid time value in range"
     And User delete allowance record 
- 
-  Scenario: 08. verify_add_allowance_Incentive_Opportunity_Allowance_Percent
+
+   Scenario: 08. verify_add_allowance_Incentive_Opportunity_Allowance_Percent
     Given User navigates to the Allowance tab
     When User add allowance using below input if not exist
     | Key                                          | Value |
@@ -116,7 +117,7 @@ Feature: Verify Allowances Module
     Then User verify created allowance name "Allowance Incentive Opportunity Percent"
     And User delete allowance record
 
-  Scenario: 09. verify_Add_allowance_Minor_Unavoidable_delay_percent_and_Additional_Percent_range_value_less_than_100
+   Scenario: 09. verify_Add_allowance_Minor_Unavoidable_delay_percent_and_Additional_Percent_range_value_less_than_100
     Given User navigates to the Allowance tab
     When User add allowance using below input
     | Key                                          | Value |

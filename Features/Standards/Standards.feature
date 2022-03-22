@@ -6,9 +6,9 @@ A short summary of the feature
 
  @Setup @Smoke
   Scenario: 01. Launch Browser and Login to the Application
-    Given User launched "edge"
+    Given User launched "$browser"
     When User go to application "$url"
-    Then User enter email: "$username_1" and password: "$password_1"
+    Then User enter email: "$username_4" and password: "$password_4"
     And Verify Login message: "success"
 
     @Smoke 
@@ -32,7 +32,7 @@ A short summary of the feature
     Then User click cancel Button
 
     @Smoke
-    Scenario: 04. verify_add_new_standards_name_by_adding_correct_record_of_name
+     Scenario: 04. verify_add_new_standards_name_by_adding_correct_record_of_name
     Given User navigates to the List Management tab
     And User selects Department
     Then User create new Department with below input

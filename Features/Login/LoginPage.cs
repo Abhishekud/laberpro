@@ -21,7 +21,7 @@ namespace laborpro.pages
         const string HOME_PAGE_BUTTON = "//a[.//*[text()='Home']]";
         const string ERROR = "//*[contains(@class,'textError')]";
         const string ERROR_MESSAGE_XPATH = "//*[contains(@class,'textError') and contains(text(),'{0}')]";
-
+        const string ERROR_ALERT_TOAST_XPATH = "//*[@class='toast toast-error']";
         public static void PerformLogin(String userName, String password)
         {
             LogWriter.WriteLog("Executing LoginPage.PerformLogin");
@@ -37,6 +37,15 @@ namespace laborpro.pages
                 String.Format("Unable to locate login button - [{0}]", LOGIN_BUTTON));
             WebDriverUtil.WaitForWebElementClickable(LOGIN_BUTTON, WebDriverUtil.DEFAULT_WAIT, WebDriverUtil.NO_MESSAGE);
             login.Click();
+            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TWO_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (alert != null)
+            {
+                login = WebDriverUtil.GetWebElement(LOGIN_BUTTON, WebDriverUtil.DEFAULT_WAIT,
+                String.Format("Unable to locate login button - [{0}]", LOGIN_BUTTON));
+                WebDriverUtil.WaitForWebElementClickable(LOGIN_BUTTON, WebDriverUtil.DEFAULT_WAIT, WebDriverUtil.NO_MESSAGE);
+                login.Click();
+            }
+
         }
         public static void VerifyLoginSuccess()
         {

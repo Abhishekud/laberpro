@@ -1,0 +1,56 @@
+Given User navigates to the Locations tab
+5:41:11 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: User navigates to the Locations tab
+5:41:11 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing LocationsPage.CloseLocationForm
+5:41:11 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing LocationsPage.WaitForLocationAlertCloseIfAny
+5:41:12 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+5:41:13 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+5:41:13 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing LocationsPage.ClickOnProfilingTab
+5:41:14 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Profiling')]"}
+  (Session info: chrome=99.0.4844.82)
+5:41:14 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing LocationsPage.ClickOnLocationsTab
+5:41:14 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing LocationsPage.ClickOnProfilingTab
+5:41:15 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//button[@title='Clear All Filters']"}
+  (Session info: chrome=99.0.4844.82)
+5:41:27 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//button[.//*[text()='Unsort']]"}
+  (Session info: chrome=99.0.4844.82)
+-> done: LocationsSteps.NavigatesToTheLocationsTab() (15.9s)
+When User create new location with below input if not exist
+  --- table step argument ---
+  | Key  | Value                           |
+  | Name | Location Created via Automation |
+5:41:27 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: User create new location with below input if not exist - | Key  | Value                           |
+| Name | Location Created via Automation |
+
+5:41:27 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing LocationsPage.AddNewLocationWithGivenInputIfNotExist
+-> done: LocationsSteps.AddNewLocationWithGivenInputIfNotExist(<table>) (1.3s)
+Then User verify created location by name "Location Created via Automation"
+5:41:28 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: User verify created location by name Location Created via Automation
+5:41:28 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing LocationsPage.VerifyCreatedLocation
+-> done: LocationsSteps.VerifyCreatedLocation("Location Created ...") (0.6s)
+Project base directory path : C:\Users\abhishekd\source\repos\abhi\laberpro
+And User edit location "Location Created via Automation" with below input
+  --- table step argument ---
+  | Key  | Value |
+  | Name |       |
+5:41:29 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: User edit location Location Created via Automation with below input - | Key  | Value |
+| Name |       |
+
+5:41:29 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing LocationsPage.EditLocationWithGivenInput
+5:41:29 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing LocationsPage.CloseLocationDetailSideBar
+5:41:33 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[contains(@class,'locations-list-edit-sidebar')]//button[text()='Cancel']"}
+  (Session info: chrome=99.0.4844.82)
+5:41:35 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//button[.//*[text()='Unsort']]"}
+  (Session info: chrome=99.0.4844.82)
+5:41:37 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : The given key 'Description' was not present in the dictionary.
+5:41:37 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : The given key 'Location Profile' was not present in the dictionary.
+5:41:37 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : The given key 'Brand' was not present in the dictionary.
+5:41:37 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : The given key 'Active Date' was not present in the dictionary.
+5:41:37 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : The given key 'Inactive Date' was not present in the dictionary.
+-> done: LocationsSteps.EditLocationWithGivenInput("Location Created ...", <table>) (9.3s)
+Then Verify validation Message: "Name is required"
+5:41:38 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: Verify validation Message: Name is required
+5:41:38 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.VerifyAddAllowanceErrorMessage
+-> done: AllowancesSteps.VerifyValidationMessage("Name is required") (0.4s)
+Project base directory path : C:\Users\abhishekd\source\repos\abhi\laberpro

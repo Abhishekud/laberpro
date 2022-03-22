@@ -1,0 +1,89 @@
+Given User navigates to the Allowance tab
+5:38:48 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing step: User navigates to the Allowance tab
+5:38:48 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.CloseAllowanceForm
+5:38:48 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+5:38:51 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+5:38:52 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+5:38:52 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.ClickOnStandardTab
+5:38:53 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=99.0.4844.82)
+5:38:53 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.ClickOnAllowanceTab
+5:38:54 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Allowances')]"}
+  (Session info: chrome=99.0.4844.82)
+5:38:54 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.ClickOnCalculatorTab
+-> done: AllowancesSteps.UserNavigatesToTheAllowanceTab() (5.6s)
+When User add allowance using below input if not exist
+  --- table step argument ---
+  | Key                                       | Value                                |
+  | Name                                      | Allowance to verify duplicate record |
+  | Paid Time (Minutes)                       | 300                                  |
+  | Excluded Paid Breaks (Minutes)            | 10                                   |
+  | Relief Time (Minutes)                     | 1                                    |
+  | Included Paid Breaks (Minutes)            | 20                                   |
+  | Rest Calculation                          | 5                                    |
+  | Minor Unavoidable Delay (Percent)         | 10                                   |
+  | Additional Delay (Percent)                | 20                                   |
+  | Incentive Opportunity Allowance (Percent) | 80                                   |
+5:38:54 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing step: User add allowance using below input if not exist - | Key                                       | Value                                |
+| Name                                      | Allowance to verify duplicate record |
+| Paid Time (Minutes)                       | 300                                  |
+| Excluded Paid Breaks (Minutes)            | 10                                   |
+| Relief Time (Minutes)                     | 1                                    |
+| Included Paid Breaks (Minutes)            | 20                                   |
+| Rest Calculation                          | 5                                    |
+| Minor Unavoidable Delay (Percent)         | 10                                   |
+| Additional Delay (Percent)                | 20                                   |
+| Incentive Opportunity Allowance (Percent) | 80                                   |
+
+5:38:54 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.AddAllowanceWithGivenInputIfNotExist
+5:38:55 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@role='row' and .//*[text()='Allowance to verify duplicate record']]"}
+  (Session info: chrome=99.0.4844.82)
+5:38:55 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.AddAllowanceWithGivenInput
+5:38:55 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.ClickOnAddAllowanceButton
+-> done: AllowancesSteps.AddAllowanceWithGivenInputIfNotExist(<table>) (10.6s)
+Then User verify created allowance name "Allowance to verify duplicate record"
+5:39:05 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing step: User verify created allowance name Allowance to verify duplicate record
+5:39:05 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.VerifyCreatedAllowance
+-> done: AllowancesSteps.UserVerifyCreatedAllowance("Allowance to veri...") (1.5s)
+Project base directory path : C:\Users\abhishekd\source\repos\abhi\laberpro
+And User click on previous link
+5:39:07 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing step: User click on previous link
+5:39:07 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.ClickOnPreviousLink
+-> done: AllowancesSteps.ClickOnPreviousButton() (2.7s)
+When User add allowance using below input
+  --- table step argument ---
+  | Key  | Value                                |
+  | Name | Allowance to verify duplicate record |
+5:39:09 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing step: User add allowance using below input - | Key  | Value                                |
+| Name | Allowance to verify duplicate record |
+
+5:39:09 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.AddAllowanceWithGivenInput
+5:39:09 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.ClickOnAddAllowanceButton
+5:39:16 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : The given key 'Paid Time (Minutes)' was not present in the dictionary.
+5:39:16 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : The given key 'Excluded Paid Breaks (Minutes)' was not present in the dictionary.
+5:39:16 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : The given key 'Relief Time (Minutes)' was not present in the dictionary.
+5:39:16 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : The given key 'Included Paid Breaks (Minutes)' was not present in the dictionary.
+5:39:16 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : The given key 'Rest Calculation' was not present in the dictionary.
+5:39:16 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : The given key 'Minor Unavoidable Delay (Percent)' was not present in the dictionary.
+5:39:16 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : The given key 'Additional Delay (Percent)' was not present in the dictionary.
+5:39:16 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : The given key 'Incentive Opportunity Allowance (Percent)' was not present in the dictionary.
+-> done: AllowancesSteps.AddAllowanceWithGivenInput(<table>) (7.4s)
+Then Verify validation Message: "Name already exists"
+5:39:17 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing step: Verify validation Message: Name already exists
+5:39:17 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.VerifyAddAllowanceErrorMessage
+-> done: AllowancesSteps.VerifyValidationMessage("Name already exists") (1.4s)
+Project base directory path : C:\Users\abhishekd\source\repos\abhi\laberpro
+And User click on cancel Button
+5:39:19 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing step: User click on cancel Button
+5:39:19 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.CloseAllowanceForm
+5:39:19 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+5:39:20 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+-> done: AllowancesSteps.UserPressCancelButton() (3.3s)
+And User delete created allowance: "Allowance to verify duplicate record"
+5:39:22 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing step: User delete created allowance: Allowance to verify duplicate record
+5:39:22 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.UserDeleteCreatedAllowance
+5:39:24 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.DeleteAllowance..
+-> done: AllowancesSteps.DeleteCreatedAllowance("Allowance to veri...") (8.2s)

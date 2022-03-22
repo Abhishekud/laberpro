@@ -10869,11 +10869,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\abhishekd\\source\\repos\\New folder (2)\\laborpro\\laborpro.csproj",
+      "projectUniqueName": "C:\\Users\\abhishekd\\source\\repos\\abhi\\laberpro\\laborpro.csproj",
       "projectName": "laborpro",
-      "projectPath": "C:\\Users\\abhishekd\\source\\repos\\New folder (2)\\laborpro\\laborpro.csproj",
+      "projectPath": "C:\\Users\\abhishekd\\source\\repos\\abhi\\laberpro\\laborpro.csproj",
       "packagesPath": "C:\\Users\\abhishekd\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\abhishekd\\source\\repos\\New folder (2)\\laborpro\\obj\\",
+      "outputPath": "C:\\Users\\abhishekd\\source\\repos\\abhi\\laberpro\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\abhishekd\\AppData\\Roaming\\NuGet\\NuGet.Config",

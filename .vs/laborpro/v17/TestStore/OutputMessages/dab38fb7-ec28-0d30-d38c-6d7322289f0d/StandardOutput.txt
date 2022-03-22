@@ -1,0 +1,94 @@
+Given User navigates to the List Management tab
+5:59:28 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User navigates to the List Management tab  
+5:59:28 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.CloseDepartmentForm
+5:59:29 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+5:59:30 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=99.0.4844.82)
+5:59:30 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.ClickOnListManagementTab
+5:59:31 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//h3[contains(text(),'Departments')]"}
+  (Session info: chrome=99.0.4844.82)
+-> done: DepartmentSteps.UserNavigatesToTheListManagementTab() (4.6s)
+When User selects "Units of Measure"
+5:59:32 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step User selects Units of Measure
+5:59:32 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing UnitOfMeasurePage.SelectListManagement
+5:59:33 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//h3[@class='page-title' and contains(text(),'Units Of Measure')]"}
+  (Session info: chrome=99.0.4844.82)
+-> done: UnitsOfMeasureSteps.SelectunitsOfMeasure("Units of Measure") (3.1s)
+Then User Selects Created Department "department for standards"
+5:59:35 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step User Selects Created Department department for standards
+5:59:35 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing UnitOfMeasurePage.SelectCreatedDepartment
+-> done: UnitsOfMeasureSteps.SelectDepartment("department for st...") (2.2s)
+When User adds Unit Of Measure using below input
+  --- table step argument ---
+  | Key  | Value    |
+  | Name | Demo Uom |
+5:59:38 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step User adds Unit Of Measure using below input| Key  | Value    |
+| Name | Demo Uom |
+
+5:59:38 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing UnitsOfMeasurePage.AddUnitOfMeasureWithGivenInput
+5:59:38 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing UnitsOfMeasurePage.clickOnAddUnitOfMeasure
+-> done: UnitsOfMeasureSteps.AddUnitOfMeasure(<table>) (1.6s)
+Then User verify Added Unit of Measure "Demo Uom"
+5:59:39 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step User verify Added Unit of MeasureDemo Uom
+5:59:39 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing UnitOfMeasurePage.VerifyCreatedUnitOfMeasure
+-> done: UnitsOfMeasureSteps.VerifyUnitOfMeasure("Demo Uom") (0.0s)
+Project base directory path : C:\Users\abhishekd\source\repos\abhi\laberpro
+Given User navigates to the standards tab
+5:59:39 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User navigates to the standards tab
+5:59:39 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.CloseAllowanceForm
+5:59:39 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+5:59:40 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+5:59:41 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+5:59:41 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.ClickOnStandardTab
+5:59:42 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=99.0.4844.82)
+5:59:42 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.ClickOnStandardsTab
+5:59:43 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Timed out after 1 seconds
+-> done: StandardsSteps.NavigatesToStandardsTab() (5.4s)
+When User search standard by name "name to verify"
+5:59:45 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User search standard by namename to verify
+5:59:45 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing LocationsPage.ClickOnProfilingTab
+-> done: StandardsSteps.searchstandard("name to verify") (4.2s)
+Then User selects standard by name "name to verify"
+5:59:49 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User selects created standard by namename to verify
+5:59:49 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.selectStandard
+-> done: StandardsSteps.SelectCreatedStandard("name to verify") (2.2s)
+Then User clicks New Standard Element
+5:59:51 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User clicks New Standard Element
+5:59:51 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.NewStandardElement
+-> done: StandardsSteps.ClickNewStandardElement() (1.2s)
+And User Selects Standard Element type "Estimate"
+5:59:52 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User Selects Element type Estimate
+5:59:52 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandaradPage.selectElementType
+-> done: StandardsSteps.SelectElementType("Estimate") (0.2s)
+When User adds new Standard Element Using Below input
+  --- table step argument ---
+  | Key  | Value |
+  | Name |       |
+5:59:53 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User adds new Standard Element Using Below input | Key  | Value |
+| Name |       |
+
+5:59:53 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.AddStandardElement
+5:59:53 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : The given key 'Frequency' was not present in the dictionary.
+5:59:53 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : The given key 'Unit of Measure' was not present in the dictionary.
+5:59:53 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : The given key 'Time (Seconds)' was not present in the dictionary.
+-> done: StandardsSteps.AddNewStandardElement(<table>) (5.1s)
+Then Verify validation Message: "Name is required"
+5:59:58 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: Verify validation Message: Name is required
+5:59:58 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.VerifyAddAllowanceErrorMessage
+-> done: AllowancesSteps.VerifyValidationMessage("Name is required") (0.4s)
+Project base directory path : C:\Users\abhishekd\source\repos\abhi\laberpro
+And User click on cancel button
+5:59:58 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: User click on cancel button
+5:59:58 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.CloseAllowanceForm
+5:59:58 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+5:59:59 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+-> done: AllowancesSteps.UserWillPressCancelButton() (2.1s)
+Then User click on previous link
+6:00:00 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: User click on previous link
+6:00:00 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.ClickOnPreviousLink
+-> done: AllowancesSteps.ClickOnPreviousButton() (1.2s)

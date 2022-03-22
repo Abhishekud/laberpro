@@ -1,0 +1,92 @@
+Given User navigates to the standards tab
+6:01:16 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User navigates to the standards tab
+6:01:16 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.CloseAllowanceForm
+6:01:16 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+6:01:17 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+6:01:18 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+6:01:18 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.ClickOnStandardTab
+6:01:19 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=99.0.4844.82)
+6:01:19 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.ClickOnStandardsTab
+-> done: StandardsSteps.NavigatesToStandardsTab() (3.2s)
+When User search standard by name "name to verify"
+6:01:19 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User search standard by namename to verify
+6:01:19 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing LocationsPage.ClickOnProfilingTab
+-> done: StandardsSteps.searchstandard("name to verify") (4.1s)
+Then User selects standard by name "name to verify"
+6:01:23 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User selects created standard by namename to verify
+6:01:23 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.selectStandard
+-> done: StandardsSteps.SelectCreatedStandard("name to verify") (2.1s)
+Then User clicks New Standard Element
+6:01:25 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User clicks New Standard Element
+6:01:25 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.NewStandardElement
+-> done: StandardsSteps.ClickNewStandardElement() (1.1s)
+And User Selects Standard Element type "Estimate"
+6:01:26 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User Selects Element type Estimate
+6:01:26 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandaradPage.selectElementType
+-> done: StandardsSteps.SelectElementType("Estimate") (0.1s)
+When User adds new Standard Element Using Below input
+  --- table step argument ---
+  | Key             | Value    |
+  | Name            | Dummy    |
+  | Frequency       | 16       |
+  | Unit of Measure | Demo Uom |
+6:01:26 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User adds new Standard Element Using Below input | Key             | Value    |
+| Name            | Dummy    |
+| Frequency       | 16       |
+| Unit of Measure | Demo Uom |
+
+6:01:26 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.AddStandardElement
+6:01:27 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : The given key 'Time (Seconds)' was not present in the dictionary.
+-> done: StandardsSteps.AddNewStandardElement(<table>) (5.3s)
+Then User verify standard element by name "Dummy"
+6:01:32 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User verify standard element by nameDummy
+6:01:32 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.VerifyCreatedStandardElement
+-> done: StandardsSteps.VerifyStandardElement("Dummy") (0.1s)
+Project base directory path : C:\Users\abhishekd\source\repos\abhi\laberpro
+And User delete standard element
+6:01:32 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User delete standard element 
+6:01:32 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.DeleteStandardElementByName
+6:01:33 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Timed out after 1 seconds
+-> done: StandardsSteps.DeleteStandardElement() (4.5s)
+Then User Delete created Standards
+6:01:36 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Standard: User Delete created Standards
+6:01:36 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.DeleteCreatedStandard 
+6:01:37 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Timed out after 1 seconds
+-> done: StandardsSteps.DeleteCreatedStandard() (11.3s)
+Given User navigates to the List Management tab
+6:01:48 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User navigates to the List Management tab  
+6:01:48 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.CloseDepartmentForm
+6:01:49 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+6:01:50 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=99.0.4844.82)
+6:01:50 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.ClickOnListManagementTab
+6:01:51 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//h3[contains(text(),'Departments')]"}
+  (Session info: chrome=99.0.4844.82)
+-> done: DepartmentSteps.UserNavigatesToTheListManagementTab() (4.7s)
+When User selects "Units of Measure"
+6:01:52 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step User selects Units of Measure
+6:01:52 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing UnitOfMeasurePage.SelectListManagement
+-> done: UnitsOfMeasureSteps.SelectunitsOfMeasure("Units of Measure") (0.0s)
+Then User Selects Created Department "department for standards"
+6:01:52 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step User Selects Created Department department for standards
+6:01:52 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing UnitOfMeasurePage.SelectCreatedDepartment
+-> done: UnitsOfMeasureSteps.SelectDepartment("department for st...") (2.2s)
+And User delete UOM by name "Demo Uom"
+6:01:55 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User delete UOM by nameDemo Uom
+6:01:55 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing UnitOfMeasurePage.DeleteUnitOfMeasureByName
+6:01:56 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing UnitOfMeasurePage.DeleteCreatedUnitOfMeasure
+-> done: StandardsSteps.DeleteUOMByName("Demo Uom") (5.8s)
+When User selects Department
+6:02:00 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User selects Department
+6:02:00 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.ClickOnDepartment
+-> done: DepartmentSteps.UserClickOnDepartment() (0.2s)
+Then User delete created Department "department for standards"
+6:02:01 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step User delete created Department by namedepartment for standards
+6:02:01 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.DeleteCreatedDepartment
+6:02:01 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.CloseDepartmentDetailSideBar
+6:02:02 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Timed out after 1 seconds
+-> done: DepartmentSteps.UserDeleteCreatedDepartment("department for st...") (4.0s)

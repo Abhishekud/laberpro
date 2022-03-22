@@ -1,0 +1,47 @@
+Given User navigates to the Allowance tab
+5:39:47 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing step: User navigates to the Allowance tab
+5:39:47 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.CloseAllowanceForm
+5:39:47 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+5:39:49 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+5:39:50 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+5:39:50 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.ClickOnStandardTab
+5:39:51 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=99.0.4844.82)
+5:39:51 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.ClickOnAllowanceTab
+5:39:52 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Allowances')]"}
+  (Session info: chrome=99.0.4844.82)
+5:39:52 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.ClickOnCalculatorTab
+-> done: AllowancesSteps.UserNavigatesToTheAllowanceTab() (4.9s)
+When User add allowance using below input
+  --- table step argument ---
+  | Key                 | Value                                 |
+  | Name                | Allowance by adding without paid time |
+  | Paid Time (Minutes) |                                       |
+5:39:52 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing step: User add allowance using below input - | Key                 | Value                                 |
+| Name                | Allowance by adding without paid time |
+| Paid Time (Minutes) |                                       |
+
+5:39:52 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.AddAllowanceWithGivenInput
+5:39:52 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.ClickOnAddAllowanceButton
+5:39:55 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : The given key 'Excluded Paid Breaks (Minutes)' was not present in the dictionary.
+5:39:55 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : The given key 'Relief Time (Minutes)' was not present in the dictionary.
+5:39:55 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : The given key 'Included Paid Breaks (Minutes)' was not present in the dictionary.
+5:39:55 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : The given key 'Rest Calculation' was not present in the dictionary.
+5:39:55 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : The given key 'Minor Unavoidable Delay (Percent)' was not present in the dictionary.
+5:39:55 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : The given key 'Additional Delay (Percent)' was not present in the dictionary.
+5:39:55 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : The given key 'Incentive Opportunity Allowance (Percent)' was not present in the dictionary.
+-> done: AllowancesSteps.AddAllowanceWithGivenInput(<table>) (3.0s)
+Then Verify validation Message: "Paid Time must be between 200 and 720"
+5:39:55 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing step: Verify validation Message: Paid Time must be between 200 and 720
+5:39:55 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.VerifyAddAllowanceErrorMessage
+-> done: AllowancesSteps.VerifyValidationMessage("Paid Time must be...") (0.9s)
+Project base directory path : C:\Users\abhishekd\source\repos\abhi\laberpro
+And User click on cancel Button
+5:39:56 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing step: User click on cancel Button
+5:39:56 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.CloseAllowanceForm
+5:39:56 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+5:39:57 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+-> done: AllowancesSteps.UserPressCancelButton() (2.2s)

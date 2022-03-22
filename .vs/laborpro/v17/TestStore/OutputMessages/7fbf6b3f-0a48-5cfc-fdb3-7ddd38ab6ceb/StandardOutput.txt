@@ -1,0 +1,44 @@
+Given User navigates to the Allowance tab
+5:38:31 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing step: User navigates to the Allowance tab
+5:38:31 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.CloseAllowanceForm
+5:38:31 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+5:38:32 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+5:38:33 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+5:38:33 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.ClickOnStandardTab
+5:38:35 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.ClickOnAllowanceTab
+5:38:37 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.ClickOnCalculatorTab
+5:38:38 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='page-title' and text()='Allowances']"}
+  (Session info: chrome=99.0.4844.82)
+-> done: AllowancesSteps.UserNavigatesToTheAllowanceTab() (8.9s)
+When User add allowance using below input
+  --- table step argument ---
+  | Key  | Value |
+  | Name |       |
+5:38:40 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing step: User add allowance using below input - | Key  | Value |
+| Name |       |
+
+5:38:40 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.AddAllowanceWithGivenInput
+5:38:40 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.ClickOnAddAllowanceButton
+5:38:44 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : The given key 'Paid Time (Minutes)' was not present in the dictionary.
+5:38:44 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : The given key 'Excluded Paid Breaks (Minutes)' was not present in the dictionary.
+5:38:44 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : The given key 'Relief Time (Minutes)' was not present in the dictionary.
+5:38:44 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : The given key 'Included Paid Breaks (Minutes)' was not present in the dictionary.
+5:38:44 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : The given key 'Rest Calculation' was not present in the dictionary.
+5:38:44 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : The given key 'Minor Unavoidable Delay (Percent)' was not present in the dictionary.
+5:38:44 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : The given key 'Additional Delay (Percent)' was not present in the dictionary.
+5:38:44 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : The given key 'Incentive Opportunity Allowance (Percent)' was not present in the dictionary.
+-> done: AllowancesSteps.AddAllowanceWithGivenInput(<table>) (4.1s)
+Then Verify validation Message: "Name is required"
+5:38:44 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing step: Verify validation Message: Name is required
+5:38:44 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.VerifyAddAllowanceErrorMessage
+-> done: AllowancesSteps.VerifyValidationMessage("Name is required") (1.1s)
+Project base directory path : C:\Users\abhishekd\source\repos\abhi\laberpro
+And User click on cancel Button
+5:38:46 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing step: User click on cancel Button
+5:38:46 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.CloseAllowanceForm
+5:38:46 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+5:38:47 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+-> done: AllowancesSteps.UserPressCancelButton() (2.9s)

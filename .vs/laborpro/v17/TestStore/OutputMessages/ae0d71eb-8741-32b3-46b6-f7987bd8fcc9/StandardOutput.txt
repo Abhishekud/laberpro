@@ -1,0 +1,54 @@
+Given User navigates to the Allowance tab
+5:39:59 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing step: User navigates to the Allowance tab
+5:39:59 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.CloseAllowanceForm
+5:39:59 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+5:40:00 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+5:40:01 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+5:40:01 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.ClickOnStandardTab
+5:40:02 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=99.0.4844.82)
+5:40:02 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.ClickOnAllowanceTab
+5:40:03 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Allowances')]"}
+  (Session info: chrome=99.0.4844.82)
+5:40:03 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.ClickOnCalculatorTab
+-> done: AllowancesSteps.UserNavigatesToTheAllowanceTab() (4.2s)
+When User add allowance using below input
+  --- table step argument ---
+  | Key                                       | Value                                |
+  | Name                                      | Verify add allowance paid time range |
+  | Paid Time (Minutes)                       | 150                                  |
+  | Excluded Paid Breaks (Minutes)            | 10                                   |
+  | Relief Time (Minutes)                     | 1                                    |
+  | Included Paid Breaks (Minutes)            | 20                                   |
+  | Rest Calculation                          | 5                                    |
+  | Minor Unavoidable Delay (Percent)         | 10                                   |
+  | Additional Delay (Percent)                | 20                                   |
+  | Incentive Opportunity Allowance (Percent) | 80                                   |
+5:40:03 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing step: User add allowance using below input - | Key                                       | Value                                |
+| Name                                      | Verify add allowance paid time range |
+| Paid Time (Minutes)                       | 150                                  |
+| Excluded Paid Breaks (Minutes)            | 10                                   |
+| Relief Time (Minutes)                     | 1                                    |
+| Included Paid Breaks (Minutes)            | 20                                   |
+| Rest Calculation                          | 5                                    |
+| Minor Unavoidable Delay (Percent)         | 10                                   |
+| Additional Delay (Percent)                | 20                                   |
+| Incentive Opportunity Allowance (Percent) | 80                                   |
+
+5:40:03 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.AddAllowanceWithGivenInput
+5:40:03 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.ClickOnAddAllowanceButton
+-> done: AllowancesSteps.AddAllowanceWithGivenInput(<table>) (4.2s)
+Then Verify validation Message: "Paid Time must be between 200 and 720"
+5:40:07 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing step: Verify validation Message: Paid Time must be between 200 and 720
+5:40:07 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.VerifyAddAllowanceErrorMessage
+-> done: AllowancesSteps.VerifyValidationMessage("Paid Time must be...") (0.9s)
+Project base directory path : C:\Users\abhishekd\source\repos\abhi\laberpro
+And User click on cancel Button
+5:40:08 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing step: User click on cancel Button
+5:40:08 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.CloseAllowanceForm
+5:40:08 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+5:40:10 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+-> done: AllowancesSteps.UserPressCancelButton() (2.3s)

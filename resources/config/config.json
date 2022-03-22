@@ -26,7 +26,7 @@
     "password_5": "Bits1234$$"
   },
   "stage": {
-    "url": "https://laborpro.benchmarkit.solutions/log-in?stage",
+    "url": "https://laborpro.benchmarkit.solutions/log-in",
     "username_1": "bits.auto.qa1@gmail.com",
     "password_1": "Bits1234$$",
     "username_2": "bits.auto.qa1+1@gmail.com",

@@ -1,0 +1,63 @@
+Given User navigates to the List Management tab
+5:58:45 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User navigates to the List Management tab  
+5:58:45 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.CloseDepartmentForm
+5:58:46 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+5:58:47 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=99.0.4844.82)
+5:58:47 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.ClickOnListManagementTab
+5:58:48 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//h3[contains(text(),'Departments')]"}
+  (Session info: chrome=99.0.4844.82)
+-> done: DepartmentSteps.UserNavigatesToTheListManagementTab() (4.3s)
+And User selects Department
+5:58:50 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User selects Department
+5:58:50 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.ClickOnDepartment
+-> done: DepartmentSteps.UserClickOnDepartment() (0.2s)
+Then User create new Department with below input
+  --- table step argument ---
+  | Key  | Value                    |
+  | Name | department for standards |
+5:58:50 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User create new Department with below input | Key  | Value                    |
+| Name | department for standards |
+
+5:58:50 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.AddNewDepartmentWithGivenInput
+5:58:50 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.ClickOnAddButton
+5:58:50 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.UserClickOnNewDepartmentMenuLink
+-> done: DepartmentSteps.AddNewDepartmentWithGivenInput(<table>) (0.7s)
+Then User verify created Department "department for standards"
+5:58:50 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step User verify created Department by namedepartment for standards
+5:58:50 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.VerifyCreatedDepartment
+-> done: DepartmentSteps.UserVerifyCreatedDepartment("department for st...") (0.4s)
+Project base directory path : C:\Users\abhishekd\source\repos\abhi\laberpro
+Then User navigates to the standards tab
+5:58:51 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User navigates to the standards tab
+5:58:51 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.CloseAllowanceForm
+5:58:51 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+5:58:52 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+5:58:53 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+5:58:53 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.ClickOnStandardTab
+5:58:54 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=99.0.4844.82)
+5:58:54 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.ClickOnStandardsTab
+5:58:55 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Timed out after 1 seconds
+-> done: StandardsSteps.NavigatesToStandardsTab() (5.4s)
+And User add new standards using below input
+  --- table step argument ---
+  | Key        | Value                     |
+  | Name       | name to verify add record |
+  | Department | department for standards  |
+5:58:56 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User add new standards using below input 
+5:58:56 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.AddStandardWithGivenInput
+5:58:56 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.clickOnAddAttribute
+-> done: StandardsSteps.AddNewStandard(<table>) (6.8s)
+Then User verify created standards name "name to verify add record"
+5:59:03 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User verify created standards namename to verify add record
+5:59:03 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.VerifyCreatedStandard
+-> done: StandardsSteps.VerifyCreatedStandard("name to verify ad...") (0.1s)
+Project base directory path : C:\Users\abhishekd\source\repos\abhi\laberpro
+And User Delete created Standards
+5:59:03 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Standard: User Delete created Standards
+5:59:03 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.DeleteCreatedStandard 
+-> done: StandardsSteps.DeleteCreatedStandard() (9.1s)

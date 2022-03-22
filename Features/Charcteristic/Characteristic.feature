@@ -3,7 +3,7 @@ Feature: Verify Characteristics Module
 
 @Setup @Smoke
   Scenario: 01. Launch Browser and Login to the Application
-    Given User launched "chrome"
+    Given User launched "edge"
      When User go to application "$url"
      Then User enter email: "$username_2" and password: "$password_2"
       And Verify Login message: "success"
@@ -61,7 +61,7 @@ Feature: Verify Characteristics Module
       | Key  | Value              | 
       | Name | CharacteristicTest | 
      Then User verify created Characteristic by name "CharacteristicTest"
-     Then User navigates to the Characteristic tab
+     When User navigates to the Characteristic tab
      Then User select the Department "Department to verify Characteristic"
       And User click on Characteristic
      When User create new Characteristic with below input
@@ -89,8 +89,8 @@ Feature: Verify Characteristics Module
       And User click on Characteristic set
      When User create new Characteristic with below input
       | Key  | Value | 
-      | Name | ATest | 
-     Then User verify created Characteristic by name "ATest"
+      | Name | Test | 
+     Then User verify created Characteristic by name "Test"
   
   Scenario: 09. verify_add_Characteristic_set_when_enter_existing_details 
   

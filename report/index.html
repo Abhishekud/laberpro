@@ -49,7 +49,7 @@
           </li>
             <li class="m-r-10">
                 <a href="#">
-                    <span class="badge badge-primary">3/20/2022 10:36:22 PM</span>
+                    <span class="badge badge-primary">3/22/2022 5:57:30 AM</span>
                 </a>
             </li>
         </ul>
@@ -118,21 +118,24 @@
 						</div>
 						<div class="open-test">
 							<div class="test-detail"> 
-								<p class="name">Verify Departments Module</p> 
-								<p class="duration text-sm">0h:0m:56s+571ms</p> 
-								<span class="datetime">22:36:23 PM</span>
+								<p class="name">Verify Standards Module</p> 
+								<p class="duration text-sm">0h:4m:39s+028ms</p> 
+								<span class="datetime">05:57:31 AM</span>
 							</div>
 						</div>
 						<div class="test-contents d-none">
 							<div class="detail-head">
 								<div class="p-v-10 d-inline-block">	
 									<div class="info">
-										<h5 class="test-status text-pass">Verify Departments Module</h5>
-										<span class='badge badge-success'>3/20/2022 10:36:23 PM</span>
-										<span class='badge badge-danger'>3/20/2022 10:37:20 PM</span>
-										<span class='badge badge-default'>0h:0m:56s+571ms</span>
+										<h5 class="test-status text-pass">Verify Standards Module</h5>
+										<span class='badge badge-success'>3/22/2022 5:57:31 AM</span>
+										<span class='badge badge-danger'>3/22/2022 6:02:10 AM</span>
+										<span class='badge badge-default'>0h:4m:39s+028ms</span>
 									</div>
-																	</div>
+																		<div class="m-t-10 m-l-5">
+										A short summary of the feature
+									</div>
+								</div>
 							</div>
 
 <div class="accordion mt-4">
@@ -151,7 +154,7 @@
                                 <span class="alert-icon pass-bg">
                                     <i class="fa fa-check text-white"></i>
                                 </span>
-                                <span>Given User launched "edge"</span>
+                                <span>Given User launched "$browser"</span>
                             </div>
 			<div class="details"></div>
                             <div class="d-flex align-items-center justify-content-start when" title="">
@@ -175,13 +178,99 @@
                                 <span>Then Verify Login message: "success"</span>
                             </div>
 			<div class="details"></div>
-<img class='r-img' title='' onerror='this.style.display="none"' data-featherlight='screenshots/VerifyDepartmentsModule_1647841009_01LaunchBrowserandLogintotheApplication.png' src='screenshots/VerifyDepartmentsModule_1647841009_01LaunchBrowserandLogintotheApplication.png' data-src='screenshots/VerifyDepartmentsModule_1647841009_01LaunchBrowserandLogintotheApplication.png'>                    </div>
+<img class='r-img' title='' onerror='this.style.display="none"' data-featherlight='screenshots/VerifyStandardsModule_1647953899_01LaunchBrowserandLogintotheApplication.png' src='screenshots/VerifyStandardsModule_1647953899_01LaunchBrowserandLogintotheApplication.png' data-src='screenshots/VerifyStandardsModule_1647953899_01LaunchBrowserandLogintotheApplication.png'>                    </div>
 				</div>
 	</div>
 	<div class="card">
 		<div class="card-header" role="tab">
 			<div class="card-title pl-3">
-				<div class="node">Scenario: 02. verify_add_Department_when_enter_blank_details</div>
+				<div class="node">Scenario: 02. verify_add_new_standards_name_is_required</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</div>
+		</div>
+				<div class="collapse">
+                    <div class="card-body">
+                                                    <div class="d-flex align-items-center justify-content-start given" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Given User navigates to the standards tab</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User add new standards using below input
+{"Name": []}</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then Verify Validation Message:"Name is required"</span>
+                            </div>
+			<div class="details"></div>
+<img class='r-img' title='' onerror='this.style.display="none"' data-featherlight='screenshots/VerifyStandardsModule_1647953912_02verify_add_new_standards_name_is_requi.png' src='screenshots/VerifyStandardsModule_1647953912_02verify_add_new_standards_name_is_requi.png' data-src='screenshots/VerifyStandardsModule_1647953912_02verify_add_new_standards_name_is_requi.png'>                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User click cancel Button</span>
+                            </div>
+			<div class="details"></div>
+                    </div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<div class="card-title pl-3">
+				<div class="node">Scenario: 03. verify_add_new_standards_Department_is_required</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</div>
+		</div>
+				<div class="collapse">
+                    <div class="card-body">
+                                                    <div class="d-flex align-items-center justify-content-start given" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Given User navigates to the standards tab</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User add new standards using below input
+{"Name": [name to verify department is required],"Department": []}</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then Verify Validation Message:"Department is required"</span>
+                            </div>
+			<div class="details"></div>
+<img class='r-img' title='' onerror='this.style.display="none"' data-featherlight='screenshots/VerifyStandardsModule_1647953924_03verify_add_new_standards_Department_is.png' src='screenshots/VerifyStandardsModule_1647953924_03verify_add_new_standards_Department_is.png' data-src='screenshots/VerifyStandardsModule_1647953924_03verify_add_new_standards_Department_is.png'>                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User click cancel Button</span>
+                            </div>
+			<div class="details"></div>
+                    </div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<div class="card-title pl-3">
+				<div class="node">Scenario: 04. verify_add_new_standards_name_by_adding_correct_record_of_name</div>
 				<div class="status-avatar float-left pass-bg">
 					<i class="fa fa-check text-white"></i>
 				</div>
@@ -208,21 +297,43 @@
                                     <i class="fa fa-check text-white"></i>
                                 </span>
                                 <span>Then User create new Department with below input
-{"Name": []}</span>
+{"Name": [department for standards]}</span>
                             </div>
 			<div class="details"></div>
                             <div class="d-flex align-items-center justify-content-start then" title="">
                                 <span class="alert-icon pass-bg">
                                     <i class="fa fa-check text-white"></i>
                                 </span>
-                                <span>Then Verify validation Message: "Name is required"</span>
+                                <span>Then User verify created Department "department for standards"</span>
                             </div>
 			<div class="details"></div>
-<img class='r-img' title='' onerror='this.style.display="none"' data-featherlight='screenshots/VerifyDepartmentsModule_1647841015_02verify_add_Department_when_enter_blank.png' src='screenshots/VerifyDepartmentsModule_1647841015_02verify_add_Department_when_enter_blank.png' data-src='screenshots/VerifyDepartmentsModule_1647841015_02verify_add_Department_when_enter_blank.png'>                            <div class="d-flex align-items-center justify-content-start then" title="">
+<img class='r-img' title='' onerror='this.style.display="none"' data-featherlight='screenshots/VerifyStandardsModule_1647953931_04verify_add_new_standards_name_by_addin.png' src='screenshots/VerifyStandardsModule_1647953931_04verify_add_new_standards_name_by_addin.png' data-src='screenshots/VerifyStandardsModule_1647953931_04verify_add_new_standards_name_by_addin.png'>                            <div class="d-flex align-items-center justify-content-start then" title="">
                                 <span class="alert-icon pass-bg">
                                     <i class="fa fa-check text-white"></i>
                                 </span>
-                                <span>Then User clicks cancel Button</span>
+                                <span>Then User navigates to the standards tab</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User add new standards using below input
+{"Name": [name to verify add record],"Department": [department for standards]}</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User verify created standards name "name to verify add record"</span>
+                            </div>
+			<div class="details"></div>
+<img class='r-img' title='' onerror='this.style.display="none"' data-featherlight='screenshots/VerifyStandardsModule_1647953943_04verify_add_new_standards_name_by_addin.png' src='screenshots/VerifyStandardsModule_1647953943_04verify_add_new_standards_name_by_addin.png' data-src='screenshots/VerifyStandardsModule_1647953943_04verify_add_new_standards_name_by_addin.png'>                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User Delete created Standards</span>
                             </div>
 			<div class="details"></div>
                     </div>
@@ -231,7 +342,78 @@
 	<div class="card">
 		<div class="card-header" role="tab">
 			<div class="card-title pl-3">
-				<div class="node">Scenario: 03. verify_add_Department_when_enter_correct_details</div>
+				<div class="node">Scenario: 05. verify_add_new_element_to_created_standard_select_standard_element_pop_up_is_open</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</div>
+		</div>
+				<div class="collapse">
+                    <div class="card-body">
+                                                    <div class="d-flex align-items-center justify-content-start given" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Given User navigates to the standards tab</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start when" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>When User add new standards using below input
+{"Name": [name to verify],"Department": [department for standards]}</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User verify created standards name "name to verify"</span>
+                            </div>
+			<div class="details"></div>
+<img class='r-img' title='' onerror='this.style.display="none"' data-featherlight='screenshots/VerifyStandardsModule_1647953963_05verify_add_new_element_to_created_stan.png' src='screenshots/VerifyStandardsModule_1647953963_05verify_add_new_element_to_created_stan.png' data-src='screenshots/VerifyStandardsModule_1647953963_05verify_add_new_element_to_created_stan.png'>                            <div class="d-flex align-items-center justify-content-start when" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>When User clicks New Standard Element</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User Verify standard element popup by name "Select Standard Element Type"</span>
+                            </div>
+			<div class="details"></div>
+<img class='r-img' title='' onerror='this.style.display="none"' data-featherlight='screenshots/VerifyStandardsModule_1647953964_05verify_add_new_element_to_created_stan.png' src='screenshots/VerifyStandardsModule_1647953964_05verify_add_new_element_to_created_stan.png' data-src='screenshots/VerifyStandardsModule_1647953964_05verify_add_new_element_to_created_stan.png'>                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User Selects Standard Element type "Estimate"</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User click on cancel Button</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User click on previous link</span>
+                            </div>
+			<div class="details"></div>
+                    </div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<div class="card-title pl-3">
+				<div class="node">Scenario: 06. verify_add_new_element_to_created_standard_name_is_empty</div>
 				<div class="status-avatar float-left pass-bg">
 					<i class="fa fa-check text-white"></i>
 				</div>
@@ -250,29 +432,93 @@
                                 <span class="alert-icon pass-bg">
                                     <i class="fa fa-check text-white"></i>
                                 </span>
-                                <span>When User selects Department</span>
+                                <span>When User selects "Units of Measure"</span>
                             </div>
 			<div class="details"></div>
                             <div class="d-flex align-items-center justify-content-start then" title="">
                                 <span class="alert-icon pass-bg">
                                     <i class="fa fa-check text-white"></i>
                                 </span>
-                                <span>Then User create new Department with below input
-{"Name": [Department to verify Department]}</span>
+                                <span>Then User Selects Created Department "department for standards"</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start when" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>When User adds Unit Of Measure using below input
+{"Name": [Demo Uom]}</span>
                             </div>
 			<div class="details"></div>
                             <div class="d-flex align-items-center justify-content-start then" title="">
                                 <span class="alert-icon pass-bg">
                                     <i class="fa fa-check text-white"></i>
                                 </span>
-                                <span>Then User verify created Department "Department to verify Department"</span>
+                                <span>Then User verify Added Unit of Measure "Demo Uom"</span>
                             </div>
 			<div class="details"></div>
-<img class='r-img' title='' onerror='this.style.display="none"' data-featherlight='screenshots/VerifyDepartmentsModule_1647841020_03verify_add_Department_when_enter_corre.png' src='screenshots/VerifyDepartmentsModule_1647841020_03verify_add_Department_when_enter_corre.png' data-src='screenshots/VerifyDepartmentsModule_1647841020_03verify_add_Department_when_enter_corre.png'>                            <div class="d-flex align-items-center justify-content-start then" title="">
+<img class='r-img' title='' onerror='this.style.display="none"' data-featherlight='screenshots/VerifyStandardsModule_1647953979_06verify_add_new_element_to_created_stan.png' src='screenshots/VerifyStandardsModule_1647953979_06verify_add_new_element_to_created_stan.png' data-src='screenshots/VerifyStandardsModule_1647953979_06verify_add_new_element_to_created_stan.png'>                            <div class="d-flex align-items-center justify-content-start given" title="">
                                 <span class="alert-icon pass-bg">
                                     <i class="fa fa-check text-white"></i>
                                 </span>
-                                <span>Then User delete created Department "Department to verify Department"</span>
+                                <span>Given User navigates to the standards tab</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start when" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>When User search standard by name "name to verify"</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User selects standard by name "name to verify"</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User clicks New Standard Element</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User Selects Standard Element type "Estimate"</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start when" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>When User adds new Standard Element Using Below input
+{"Name": []}</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then Verify validation Message: "Name is required"</span>
+                            </div>
+			<div class="details"></div>
+<img class='r-img' title='' onerror='this.style.display="none"' data-featherlight='screenshots/VerifyStandardsModule_1647953998_06verify_add_new_element_to_created_stan.png' src='screenshots/VerifyStandardsModule_1647953998_06verify_add_new_element_to_created_stan.png' data-src='screenshots/VerifyStandardsModule_1647953998_06verify_add_new_element_to_created_stan.png'>                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User click on cancel button</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User click on previous link</span>
                             </div>
 			<div class="details"></div>
                     </div>
@@ -281,7 +527,7 @@
 	<div class="card">
 		<div class="card-header" role="tab">
 			<div class="card-title pl-3">
-				<div class="node">Scenario: 04. verify_add_Department_when_enter_existing_details</div>
+				<div class="node">Scenario: 07. verify_add_new_element_to_created_standard_unit_of_measure_is_empty</div>
 				<div class="status-avatar float-left pass-bg">
 					<i class="fa fa-check text-white"></i>
 				</div>
@@ -293,58 +539,64 @@
                                 <span class="alert-icon pass-bg">
                                     <i class="fa fa-check text-white"></i>
                                 </span>
-                                <span>Given User navigates to the List Management tab</span>
+                                <span>Given User navigates to the standards tab</span>
                             </div>
 			<div class="details"></div>
-                            <div class="d-flex align-items-center justify-content-start given" title="">
+                            <div class="d-flex align-items-center justify-content-start when" title="">
                                 <span class="alert-icon pass-bg">
                                     <i class="fa fa-check text-white"></i>
                                 </span>
-                                <span>Given User selects Department</span>
-                            </div>
-			<div class="details"></div>
-                            <div class="d-flex align-items-center justify-content-start given" title="">
-                                <span class="alert-icon pass-bg">
-                                    <i class="fa fa-check text-white"></i>
-                                </span>
-                                <span>Given User create new Department with below input
-{"Name": [Department Exist Scenario]}</span>
+                                <span>When User search standard by name "name to verify"</span>
                             </div>
 			<div class="details"></div>
                             <div class="d-flex align-items-center justify-content-start then" title="">
                                 <span class="alert-icon pass-bg">
                                     <i class="fa fa-check text-white"></i>
                                 </span>
-                                <span>Then User verify created Department "Department Exist Scenario"</span>
-                            </div>
-			<div class="details"></div>
-<img class='r-img' title='' onerror='this.style.display="none"' data-featherlight='screenshots/VerifyDepartmentsModule_1647841029_04verify_add_Department_when_enter_exist.png' src='screenshots/VerifyDepartmentsModule_1647841029_04verify_add_Department_when_enter_exist.png' data-src='screenshots/VerifyDepartmentsModule_1647841029_04verify_add_Department_when_enter_exist.png'>                            <div class="d-flex align-items-center justify-content-start then" title="">
-                                <span class="alert-icon pass-bg">
-                                    <i class="fa fa-check text-white"></i>
-                                </span>
-                                <span>Then User create new Department with below input
-{"Name": [Department Exist Scenario]}</span>
+                                <span>Then User selects standard by name "name to verify"</span>
                             </div>
 			<div class="details"></div>
                             <div class="d-flex align-items-center justify-content-start then" title="">
                                 <span class="alert-icon pass-bg">
                                     <i class="fa fa-check text-white"></i>
                                 </span>
-                                <span>Then Verify validation Message: "Name already exists"</span>
-                            </div>
-			<div class="details"></div>
-<img class='r-img' title='' onerror='this.style.display="none"' data-featherlight='screenshots/VerifyDepartmentsModule_1647841030_04verify_add_Department_when_enter_exist.png' src='screenshots/VerifyDepartmentsModule_1647841030_04verify_add_Department_when_enter_exist.png' data-src='screenshots/VerifyDepartmentsModule_1647841030_04verify_add_Department_when_enter_exist.png'>                            <div class="d-flex align-items-center justify-content-start then" title="">
-                                <span class="alert-icon pass-bg">
-                                    <i class="fa fa-check text-white"></i>
-                                </span>
-                                <span>Then User clicks cancel Button</span>
+                                <span>Then User clicks New Standard Element</span>
                             </div>
 			<div class="details"></div>
                             <div class="d-flex align-items-center justify-content-start then" title="">
                                 <span class="alert-icon pass-bg">
                                     <i class="fa fa-check text-white"></i>
                                 </span>
-                                <span>Then User delete created Department "Department Exist Scenario"</span>
+                                <span>Then User Selects Standard Element type "Estimate"</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start when" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>When User adds new Standard Element Using Below input
+{"Name": [dummy],"Frequency": [4]}</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then Verify validation Message: "Unit of Measure is required"</span>
+                            </div>
+			<div class="details"></div>
+<img class='r-img' title='' onerror='this.style.display="none"' data-featherlight='screenshots/VerifyStandardsModule_1647954018_07verify_add_new_element_to_created_stan.png' src='screenshots/VerifyStandardsModule_1647954018_07verify_add_new_element_to_created_stan.png' data-src='screenshots/VerifyStandardsModule_1647954018_07verify_add_new_element_to_created_stan.png'>                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User click on cancel button</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User click on previous link</span>
                             </div>
 			<div class="details"></div>
                     </div>
@@ -353,7 +605,353 @@
 	<div class="card">
 		<div class="card-header" role="tab">
 			<div class="card-title pl-3">
-				<div class="node">Scenario: 05. Logout and Close Browser</div>
+				<div class="node">Scenario: 08. verify_add_new_element_to_created_standard_frequency_is_empty</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</div>
+		</div>
+				<div class="collapse">
+                    <div class="card-body">
+                                                    <div class="d-flex align-items-center justify-content-start given" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Given User navigates to the standards tab</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start when" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>When User search standard by name "name to verify"</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User selects standard by name "name to verify"</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User clicks New Standard Element</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User Selects Standard Element type "Estimate"</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start when" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>When User adds new Standard Element Using Below input
+{"Name": [dummy],"Frequency": [],"Unit of Measure": [Demo Uom]}</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User Verify Frequency is empty</span>
+                            </div>
+			<div class="details"></div>
+<img class='r-img' title='' onerror='this.style.display="none"' data-featherlight='screenshots/VerifyStandardsModule_1647954038_08verify_add_new_element_to_created_stan.png' src='screenshots/VerifyStandardsModule_1647954038_08verify_add_new_element_to_created_stan.png' data-src='screenshots/VerifyStandardsModule_1647954038_08verify_add_new_element_to_created_stan.png'>                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User click on cancel button</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User click on previous link</span>
+                            </div>
+			<div class="details"></div>
+                    </div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<div class="card-title pl-3">
+				<div class="node">Scenario: 09. verify_add_new_element_to_created_standard_Units_of_measure_dropdown_showing_available_Units_of_measure</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</div>
+		</div>
+				<div class="collapse">
+                    <div class="card-body">
+                                                    <div class="d-flex align-items-center justify-content-start given" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Given User navigates to the standards tab</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start when" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>When User search standard by name "name to verify"</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User selects standard by name "name to verify"</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User clicks New Standard Element</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start when" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>When User Selects Standard Element type "Estimate"</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User Verify Unit Of measure in DropDown "Demo Uom"</span>
+                            </div>
+			<div class="details"></div>
+<img class='r-img' title='' onerror='this.style.display="none"' data-featherlight='screenshots/VerifyStandardsModule_1647954052_09verify_add_new_element_to_created_stan.png' src='screenshots/VerifyStandardsModule_1647954052_09verify_add_new_element_to_created_stan.png' data-src='screenshots/VerifyStandardsModule_1647954052_09verify_add_new_element_to_created_stan.png'>                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User click on cancel button</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User click on previous link</span>
+                            </div>
+			<div class="details"></div>
+                    </div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<div class="card-title pl-3">
+				<div class="node">Scenario: 10.verify_add_new_element_to_created_standard_time_must_be_greater_than_or_equal_to_zero</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</div>
+		</div>
+				<div class="collapse">
+                    <div class="card-body">
+                                                    <div class="d-flex align-items-center justify-content-start given" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Given User navigates to the standards tab</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start when" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>When User search standard by name "name to verify"</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User selects standard by name "name to verify"</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User clicks New Standard Element</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start when" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>When User Selects Standard Element type "Estimate"</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User adds new Standard Element Using Below input
+{"Name": [dummy],"Frequency": [4],"Unit of Measure": [Demo Uom],"Time (Seconds)": [-1]}</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then Verify validation Message: "Measured Time must be greater than or equal to 0"</span>
+                            </div>
+			<div class="details"></div>
+<img class='r-img' title='' onerror='this.style.display="none"' data-featherlight='screenshots/VerifyStandardsModule_1647954072_10verify_add_new_element_to_created_stan.png' src='screenshots/VerifyStandardsModule_1647954072_10verify_add_new_element_to_created_stan.png' data-src='screenshots/VerifyStandardsModule_1647954072_10verify_add_new_element_to_created_stan.png'>                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User click on cancel button</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User click on previous link</span>
+                            </div>
+			<div class="details"></div>
+                    </div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<div class="card-title pl-3">
+				<div class="node">Scenario: 11. verify_add_new_element_to_created_standard_by_adding_correct_record</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</div>
+		</div>
+				<div class="collapse">
+                    <div class="card-body">
+                                                    <div class="d-flex align-items-center justify-content-start given" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Given User navigates to the standards tab</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start when" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>When User search standard by name "name to verify"</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User selects standard by name "name to verify"</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User clicks New Standard Element</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User Selects Standard Element type "Estimate"</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start when" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>When User adds new Standard Element Using Below input
+{"Name": [Dummy],"Frequency": [16],"Unit of Measure": [Demo Uom]}</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User verify standard element by name "Dummy"</span>
+                            </div>
+			<div class="details"></div>
+<img class='r-img' title='' onerror='this.style.display="none"' data-featherlight='screenshots/VerifyStandardsModule_1647954092_11verify_add_new_element_to_created_stan.png' src='screenshots/VerifyStandardsModule_1647954092_11verify_add_new_element_to_created_stan.png' data-src='screenshots/VerifyStandardsModule_1647954092_11verify_add_new_element_to_created_stan.png'>                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User delete standard element</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User Delete created Standards</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start given" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Given User navigates to the List Management tab</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start when" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>When User selects "Units of Measure"</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User Selects Created Department "department for standards"</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User delete UOM by name "Demo Uom"</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start when" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>When User selects Department</span>
+                            </div>
+			<div class="details"></div>
+                            <div class="d-flex align-items-center justify-content-start then" title="">
+                                <span class="alert-icon pass-bg">
+                                    <i class="fa fa-check text-white"></i>
+                                </span>
+                                <span>Then User delete created Department "department for standards"</span>
+                            </div>
+			<div class="details"></div>
+                    </div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<div class="card-title pl-3">
+				<div class="node">Scenario: 12. Logout and Close Browser</div>
 				<div class="status-avatar float-left pass-bg">
 					<i class="fa fa-check text-white"></i>
 				</div>
@@ -368,7 +966,7 @@
                                 <span>When User logout from the application</span>
                             </div>
 			<div class="details"></div>
-<img class='r-img' title='' onerror='this.style.display="none"' data-featherlight='screenshots/VerifyDepartmentsModule_1647841038_05LogoutandCloseBrowser.png' src='screenshots/VerifyDepartmentsModule_1647841038_05LogoutandCloseBrowser.png' data-src='screenshots/VerifyDepartmentsModule_1647841038_05LogoutandCloseBrowser.png'>                            <div class="d-flex align-items-center justify-content-start then" title="">
+<img class='r-img' title='' onerror='this.style.display="none"' data-featherlight='screenshots/VerifyStandardsModule_1647954130_12LogoutandCloseBrowser.png' src='screenshots/VerifyStandardsModule_1647954130_12LogoutandCloseBrowser.png' data-src='screenshots/VerifyStandardsModule_1647954130_12LogoutandCloseBrowser.png'>                            <div class="d-flex align-items-center justify-content-start then" title="">
                                 <span class="alert-icon pass-bg">
                                     <i class="fa fa-check text-white"></i>
                                 </span>
@@ -434,7 +1032,7 @@
 	                </div>
 	            </div>
 	            <div class="card-footer">
-	                <div><small data-tooltip='100%'><b>5</b> scenarios passed</small></div>
+	                <div><small data-tooltip='100%'><b>12</b> scenarios passed</small></div>
 	                <div>
 	                    <small data-tooltip='0%'><b>0</b> scenarios failed, 
 	                    <b data-tooltip='0%'>0</b> others
@@ -454,7 +1052,7 @@
 	                </div>
 	            </div>
 	            <div class="card-footer">
-	                <div><small data-tooltip='100%'><b>24</b> steps passed</small></div>
+	                <div><small data-tooltip='100%'><b>94</b> steps passed</small></div>
 	                <div>
 	                    <small data-tooltip='0%'><b>0</b> steps failed, 
 	                    <b data-tooltip='0%'>0</b> others
@@ -490,7 +1088,7 @@
 	                <div class="media justify-content-between">
 						<div>
 							<h6 class="card-title">Scenarios</h6>
-							<h2 class="font-size-28 font-weight-light">5</h2>
+							<h2 class="font-size-28 font-weight-light">12</h2>
 							<span class="text-semibold text-success font-size-15">
 							<i class="ti-arrow-up font-size-11"></i> 
 								<span>100%</span>
@@ -509,7 +1107,7 @@
 	                <div class="media justify-content-between">
 						<div>
 							<h6 class="card-title">Start</h6>
-							<h6 class="font-weight-light">3/20/2022 10:36:22 PM</h6>
+							<h6 class="font-weight-light">3/22/2022 5:57:30 AM</h6>
 							<span class="text-semibold text-success font-size-15">
 						</div>
 						<div class="align-self-end">
@@ -525,7 +1123,7 @@
 	                <div class="media justify-content-between">
 						<div>
 							<h6 class="card-title">Duration</h6>
-							<h6 class="font-weight-light">00:00:57.9333505</h6>
+							<h6 class="font-weight-light">00:04:40.2531632</h6>
 							<span class="text-semibold text-danger font-size-15">
 						</div>
 						<div class="align-self-end">
@@ -549,8 +1147,8 @@
 		warningParent: 0,
 		skipParent: 0,
 		exceptionsParent: 0,
-		childCount: 5,
-		passChild: 5,
+		childCount: 12,
+		passChild: 12,
 		failChild: 0,
 		fatalChild: 0,
 		errorChild: 0,
@@ -559,8 +1157,8 @@
 		infoChild: 0,
 		debugChild: 0,
 		exceptionsChild: 0,
-		grandChildCount: 24,
-		passGrandChild: 24,
+		grandChildCount: 94,
+		passGrandChild: 94,
 		failGrandChild: 0,
 		fatalGrandChild: 0,
 		errorGrandChild: 0,

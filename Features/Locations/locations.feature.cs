@@ -114,13 +114,13 @@ namespace laborpro.Features.Locations
             {
                 this.ScenarioStart();
 #line 6
-    testRunner.Given("User launched \"edge\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("User launched \"$browser\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 7
     testRunner.When("User go to application \"$url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 8
-    testRunner.Then("User enter email: \"$username_5\" and password: \"$password_5\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("User enter email: \"$username_3\" and password: \"$password_3\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 9
     testRunner.And("Verify Login message: \"success\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -136,7 +136,7 @@ namespace laborpro.Features.Locations
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02. verify_add_location_when_enter_blank_details", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 11
+#line 12
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -156,22 +156,22 @@ namespace laborpro.Features.Locations
             else
             {
                 this.ScenarioStart();
-#line 12
+#line 13
     testRunner.Given("User navigates to the Locations tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table38 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table30 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table38.AddRow(new string[] {
+                table30.AddRow(new string[] {
                             "Name",
                             ""});
-#line 13
-    testRunner.When("User create new location with below input", ((string)(null)), table38, "When ");
-#line hidden
-#line 16
-    testRunner.Then("Verify validation Message: \"Name is required\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 14
+    testRunner.When("User create new location with below input", ((string)(null)), table30, "When ");
 #line hidden
 #line 17
+    testRunner.Then("Verify validation Message: \"Name is required\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 18
     testRunner.And("User click on cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -187,7 +187,7 @@ namespace laborpro.Features.Locations
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03. verify_add_location_when_enter_correct_details", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 20
+#line 21
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -207,22 +207,22 @@ namespace laborpro.Features.Locations
             else
             {
                 this.ScenarioStart();
-#line 21
+#line 22
     testRunner.Given("User navigates to the Locations tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 22
+#line 23
     testRunner.And("User delete location by name \"Location Created via Automation\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table39 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table31 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table39.AddRow(new string[] {
+                table31.AddRow(new string[] {
                             "Name",
                             "Location Created via Automation"});
-#line 23
-    testRunner.When("User create new location with below input", ((string)(null)), table39, "When ");
+#line 24
+    testRunner.When("User create new location with below input", ((string)(null)), table31, "When ");
 #line hidden
-#line 26
+#line 27
     testRunner.Then("User verify created location by name \"Location Created via Automation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -236,7 +236,7 @@ namespace laborpro.Features.Locations
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04. verify_add_location_when_enter_existing_details", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 28
+#line 30
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -256,37 +256,37 @@ namespace laborpro.Features.Locations
             else
             {
                 this.ScenarioStart();
-#line 29
+#line 31
     testRunner.Given("User navigates to the Locations tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table40 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table32 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table40.AddRow(new string[] {
+                table32.AddRow(new string[] {
                             "Name",
                             "Test Location Exist Scenario"});
-#line 30
-    testRunner.When("User create new location with below input if not exist", ((string)(null)), table40, "When ");
+#line 32
+    testRunner.When("User create new location with below input if not exist", ((string)(null)), table32, "When ");
 #line hidden
-#line 33
+#line 35
     testRunner.Then("User verify created location by name \"Test Location Exist Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table41 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table33 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table41.AddRow(new string[] {
+                table33.AddRow(new string[] {
                             "Name",
                             "Test Location Exist Scenario"});
-#line 34
-    testRunner.When("User create new location with below input", ((string)(null)), table41, "When ");
-#line hidden
-#line 37
-    testRunner.Then("Verify validation Message: \"Name already exists\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 38
-    testRunner.And("User click on cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 36
+    testRunner.When("User create new location with below input", ((string)(null)), table33, "When ");
 #line hidden
 #line 39
+    testRunner.Then("Verify validation Message: \"Name already exists\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 40
+    testRunner.And("User click on cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 41
     testRunner.Then("User delete created location by name \"Test Location Exist Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -300,7 +300,7 @@ namespace laborpro.Features.Locations
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05. verify_edit_location_blank_Details", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 41
+#line 44
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -320,31 +320,31 @@ namespace laborpro.Features.Locations
             else
             {
                 this.ScenarioStart();
-#line 42
+#line 45
     testRunner.Given("User navigates to the Locations tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table42 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table34 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table42.AddRow(new string[] {
+                table34.AddRow(new string[] {
                             "Name",
                             "Location Created via Automation"});
-#line 43
-    testRunner.When("User create new location with below input if not exist", ((string)(null)), table42, "When ");
-#line hidden
 #line 46
+    testRunner.When("User create new location with below input if not exist", ((string)(null)), table34, "When ");
+#line hidden
+#line 49
     testRunner.Then("User verify created location by name \"Location Created via Automation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table43 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table35 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table43.AddRow(new string[] {
+                table35.AddRow(new string[] {
                             "Name",
                             ""});
-#line 47
-    testRunner.And("User edit location \"Location Created via Automation\" with below input", ((string)(null)), table43, "And ");
-#line hidden
 #line 50
+    testRunner.And("User edit location \"Location Created via Automation\" with below input", ((string)(null)), table35, "And ");
+#line hidden
+#line 53
     testRunner.Then("Verify validation Message: \"Name is required\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -358,7 +358,7 @@ namespace laborpro.Features.Locations
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06. verify_edit_location_existing_Details", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 52
+#line 55
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -378,34 +378,34 @@ namespace laborpro.Features.Locations
             else
             {
                 this.ScenarioStart();
-#line 53
+#line 56
     testRunner.Given("User navigates to the Locations tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table44 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table36 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table44.AddRow(new string[] {
+                table36.AddRow(new string[] {
                             "Name",
                             "Created Location via Automation"});
-#line 54
-    testRunner.And("User create new location with below input if not exist", ((string)(null)), table44, "And ");
-#line hidden
 #line 57
+    testRunner.And("User create new location with below input if not exist", ((string)(null)), table36, "And ");
+#line hidden
+#line 60
     testRunner.Then("User verify created location by name \"Created Location via Automation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table45 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table37 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table45.AddRow(new string[] {
+                table37.AddRow(new string[] {
                             "Name",
                             "Location Created via Automation"});
-#line 58
-    testRunner.And("User edit location \"Created Location via Automation\" with below input", ((string)(null)), table45, "And ");
-#line hidden
 #line 61
+    testRunner.And("User edit location \"Created Location via Automation\" with below input", ((string)(null)), table37, "And ");
+#line hidden
+#line 64
     testRunner.Then("Verify validation Message: \"Name already exists\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 62
+#line 65
     testRunner.And("User delete created location by name \"Created Location via Automation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -421,7 +421,7 @@ namespace laborpro.Features.Locations
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("07. verify_edit_location_correct_Details", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 65
+#line 68
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -441,20 +441,23 @@ namespace laborpro.Features.Locations
             else
             {
                 this.ScenarioStart();
-#line 66
+#line 69
     testRunner.Given("User navigates to the Locations tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 67
+#line 70
     testRunner.When("User verify created location by name \"Location Created via Automation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table46 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table38 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table46.AddRow(new string[] {
+                table38.AddRow(new string[] {
                             "Name",
                             "Updated Location Created via Automation"});
-#line 68
-    testRunner.And("User edit location \"Location Created via Automation\" with below input", ((string)(null)), table46, "And ");
+#line 71
+    testRunner.And("User edit location \"Location Created via Automation\" with below input", ((string)(null)), table38, "And ");
+#line hidden
+#line 74
+   testRunner.Then("User delete created location by name \"Updated Location Created via Automation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -469,7 +472,7 @@ namespace laborpro.Features.Locations
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("08. verify_delete_location", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 73
+#line 77
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -489,11 +492,25 @@ namespace laborpro.Features.Locations
             else
             {
                 this.ScenarioStart();
-#line 74
+#line 78
     testRunner.Given("User navigates to the Locations tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 75
-    testRunner.Then("User delete created location by name \"Updated Location Created via Automation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+                TechTalk.SpecFlow.Table table39 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Key",
+                            "Value"});
+                table39.AddRow(new string[] {
+                            "Name",
+                            "Created Location via Automation for deletion"});
+#line 79
+    testRunner.And("User create new location with below input if not exist", ((string)(null)), table39, "And ");
+#line hidden
+#line 82
+    testRunner.Then("User verify created location by name \"Created Location via Automation for deletio" +
+                        "n\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 83
+    testRunner.And("User delete created location by name \"Created Location via Automation for deletio" +
+                        "n\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -510,7 +527,7 @@ namespace laborpro.Features.Locations
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("09. Logout and Close Browser", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 78
+#line 87
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -530,10 +547,10 @@ namespace laborpro.Features.Locations
             else
             {
                 this.ScenarioStart();
-#line 79
+#line 88
     testRunner.When("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 80
+#line 89
     testRunner.Then("User close browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

@@ -1,0 +1,58 @@
+Given User navigates to the List Management tab
+5:48:48 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User navigates to the List Management tab  
+5:48:48 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.CloseDepartmentForm
+5:48:49 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+5:48:50 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.ClickOnListManagementTab
+5:48:51 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//h3[contains(text(),'Departments')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+-> done: DepartmentSteps.UserNavigatesToTheListManagementTab() (4.3s)
+When User selects Department
+5:48:52 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User selects Department
+5:48:52 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.ClickOnDepartment
+-> done: DepartmentSteps.UserClickOnDepartment() (0.2s)
+Then User create new Department with below input
+  --- table step argument ---
+  | Key  | Value                                 |
+  | Name | Department To verify Units of Measure |
+5:48:53 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User create new Department with below input | Key  | Value                                 |
+| Name | Department To verify Units of Measure |
+
+5:48:53 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.AddNewDepartmentWithGivenInput
+5:48:53 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.ClickOnAddButton
+5:48:53 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.UserClickOnNewDepartmentMenuLink
+-> done: DepartmentSteps.AddNewDepartmentWithGivenInput(<table>) (0.8s)
+And User verify created Department "Department To verify Units of Measure"
+5:48:53 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step User verify created Department by nameDepartment To verify Units of Measure
+5:48:53 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.VerifyCreatedDepartment
+-> done: DepartmentSteps.UserVerifyCreatedDepartment("Department To ver...") (0.5s)
+Project base directory path : C:\Users\abhishekd\source\repos\abhi\laberpro
+When User selects "Units of Measure"
+5:48:54 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step User selects Units of Measure
+5:48:54 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing UnitOfMeasurePage.SelectListManagement
+5:48:55 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//h3[@class='page-title' and contains(text(),'Units Of Measure')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+-> done: UnitsOfMeasureSteps.SelectunitsOfMeasure("Units of Measure") (3.2s)
+Then User Selects Created Department "Department To verify Units of Measure"
+5:48:57 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step User Selects Created Department Department To verify Units of Measure
+5:48:57 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing UnitOfMeasurePage.SelectCreatedDepartment
+-> done: UnitsOfMeasureSteps.SelectDepartment("Department To ver...") (2.2s)
+And User adds Unit Of Measure using below input
+  --- table step argument ---
+  | Key  | Value |
+  | Name |       |
+5:49:00 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step User adds Unit Of Measure using below input| Key  | Value |
+| Name |       |
+
+5:49:00 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing UnitsOfMeasurePage.AddUnitOfMeasureWithGivenInput
+5:49:00 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing UnitsOfMeasurePage.clickOnAddUnitOfMeasure
+-> done: UnitsOfMeasureSteps.AddUnitOfMeasure(<table>) (1.3s)
+Then Verify validation Message: "Name is required"
+5:49:01 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: Verify validation Message: Name is required
+5:49:01 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.VerifyAddAllowanceErrorMessage
+-> done: AllowancesSteps.VerifyValidationMessage("Name is required") (0.7s)
+Project base directory path : C:\Users\abhishekd\source\repos\abhi\laberpro
+And User click cancel Button
+5:49:02 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Exceuting Step: User click cancel Button
+5:49:02 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AttributePage.CloseAttributeForm
+-> done: AttributeSteps.UserClickCancelButton() (1.1s)

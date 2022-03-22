@@ -1,0 +1,43 @@
+Given User navigates to the Characteristic tab
+5:55:23 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage UserNavigatesToTheCharacteristicTab 
+5:55:23 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage CloseCharacteristicForm
+5:55:23 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage WaitForCharacteristicAlertCloseIfAny 
+5:55:24 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+5:55:25 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+5:55:25 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage ClickOnStandardTab
+5:55:26 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+5:55:26 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage  ClickOnCharacteristicTab
+5:55:26 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage CloseCharacteristicDetailSideBar()
+5:55:27 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : no such element: Unable to locate element: {"method":"xpath","selector":"//button[contains(@class, 'cancel')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+-> done: CharacteristicSteps.UserNavigatesToTheCharacteristicTab() (4.2s)
+Then User select the Department "Department to verify Characteristic"
+5:55:27 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing Step:User select the DepartmentDepartment to verify Characteristic
+5:55:27 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing AttributePage.SelectTheDepartment
+-> done: AttributeSteps.SelectDepartment("Department to ver...") (1.3s)
+And User click on Characteristic
+5:55:28 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage UserClickOnCharacteristic 
+5:55:28 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage ClickOnCharacteristic
+5:55:28 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage ClickOnAddButton
+5:55:28 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage UserClickOnNewCharacteristicMenuLink
+-> done: CharacteristicSteps.UserClickOnCharacteristic() (0.2s)
+When User create new Characteristic with below input
+  --- table step argument ---
+  | Key  | Value          |
+  | Name | Characteristic |
+5:55:29 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage AddNewCharacteristicWithGivenInput
+5:55:29 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage AddNewCharacteristicWithGivenInput
+-> done: CharacteristicSteps.AddNewCharacteristicWithGivenInput(<table>) (0.7s)
+Then User verify created Characteristic by name "Characteristic"
+5:55:29 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage UserVerifyCreatedCharacteristic
+5:55:29 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage VerifyCreatedCharacteristic
+-> done: CharacteristicSteps.UserVerifyCreatedCharacteristic("Characteristic") (1.6s)
+Project base directory path : C:\Users\abhishekd\source\repos\abhi\laberpro
+And User delete created Characteristic by name "Characteristic"
+5:55:31 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage UserDeleteCreatedCharacteristic
+5:55:31 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage DeleteCreatedCharacteristict
+5:55:31 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage CloseCharacteristicDetailSideBar()
+-> done: CharacteristicSteps.UserDeleteCreatedCharacteristic("Characteristic") (2.9s)

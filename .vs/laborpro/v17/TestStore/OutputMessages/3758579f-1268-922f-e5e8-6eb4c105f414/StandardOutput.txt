@@ -1,0 +1,49 @@
+Given User navigates to the Locations tab
+5:38:52 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: User navigates to the Locations tab
+5:38:52 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing LocationsPage.CloseLocationForm
+5:38:52 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing LocationsPage.WaitForLocationAlertCloseIfAny
+5:38:53 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+5:38:54 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+5:38:54 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing LocationsPage.ClickOnProfilingTab
+5:38:55 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing LocationsPage.ClickOnLocationsTab
+5:38:56 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='page-title' and text()='Locations']"}
+  (Session info: chrome=99.0.4844.82)
+5:39:20 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing LocationsPage.ClickOnProfilingTab
+5:39:22 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//button[@title='Clear All Filters']"}
+  (Session info: chrome=99.0.4844.82)
+5:39:24 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//button[.//*[text()='Unsort']]"}
+  (Session info: chrome=99.0.4844.82)
+-> done: LocationsSteps.NavigatesToTheLocationsTab() (32.1s)
+When User create new location with below input
+  --- table step argument ---
+  | Key  | Value |
+  | Name |       |
+5:39:24 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: User create new location with below input
+5:39:24 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing LocationsPage.AddNewLocationWithGivenInput
+5:39:25 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing LocationsPage.ClickOnAddButton
+5:39:25 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing LocationsPage.CloseLocationDetailSideBar
+5:39:26 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[contains(@class,'locations-list-edit-sidebar')]//button[text()='Close']"}
+  (Session info: chrome=99.0.4844.82)
+5:39:27 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[contains(@class,'locations-list-edit-sidebar')]//button[text()='Cancel']"}
+  (Session info: chrome=99.0.4844.82)
+5:39:29 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing LocationsPage.ClickOnNewLocationMenuLink
+5:39:32 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : The given key 'Description' was not present in the dictionary.
+5:39:32 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : The given key 'Location Profile' was not present in the dictionary.
+5:39:32 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : The given key 'Brand' was not present in the dictionary.
+5:39:32 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : The given key 'Active Date' was not present in the dictionary.
+5:39:32 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : The given key 'Inactive Date' was not present in the dictionary.
+-> done: LocationsSteps.AddNewLocationWithGivenInput(<table>) (9.8s)
+Then Verify validation Message: "Name is required"
+5:39:34 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: Verify validation Message: Name is required
+5:39:34 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.VerifyAddAllowanceErrorMessage
+-> done: AllowancesSteps.VerifyValidationMessage("Name is required") (0.7s)
+Project base directory path : C:\Users\abhishekd\source\repos\abhi\laberpro
+And User click on cancel Button
+5:39:35 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: User click on cancel Button
+5:39:35 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.CloseAllowanceForm
+5:39:35 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+5:39:36 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+-> done: AllowancesSteps.UserPressCancelButton() (2.9s)

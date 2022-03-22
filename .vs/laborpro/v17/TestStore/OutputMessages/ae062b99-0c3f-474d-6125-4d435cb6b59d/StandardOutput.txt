@@ -1,0 +1,89 @@
+Given User navigates to the Characteristic tab
+5:55:44 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage UserNavigatesToTheCharacteristicTab 
+5:55:44 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage CloseCharacteristicForm
+5:55:44 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage WaitForCharacteristicAlertCloseIfAny 
+5:55:45 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+5:55:46 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+5:55:46 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage ClickOnStandardTab
+5:55:47 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+5:55:47 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage  ClickOnCharacteristicTab
+5:55:47 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage CloseCharacteristicDetailSideBar()
+5:55:48 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : no such element: Unable to locate element: {"method":"xpath","selector":"//button[contains(@class, 'cancel')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+-> done: CharacteristicSteps.UserNavigatesToTheCharacteristicTab() (4.2s)
+Then User select the Department "Department to verify Characteristic"
+5:55:48 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing Step:User select the DepartmentDepartment to verify Characteristic
+5:55:48 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing AttributePage.SelectTheDepartment
+-> done: AttributeSteps.SelectDepartment("Department to ver...") (1.3s)
+And User click on Characteristic
+5:55:50 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage UserClickOnCharacteristic 
+5:55:50 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage ClickOnCharacteristic
+5:55:50 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage ClickOnAddButton
+5:55:50 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage UserClickOnNewCharacteristicMenuLink
+-> done: CharacteristicSteps.UserClickOnCharacteristic() (0.1s)
+When User create new Characteristic with below input
+  --- table step argument ---
+  | Key  | Value              |
+  | Name | CharacteristicTest |
+5:55:50 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage AddNewCharacteristicWithGivenInput
+5:55:50 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage AddNewCharacteristicWithGivenInput
+-> done: CharacteristicSteps.AddNewCharacteristicWithGivenInput(<table>) (0.6s)
+Then User verify created Characteristic by name "CharacteristicTest"
+5:55:51 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage UserVerifyCreatedCharacteristic
+5:55:51 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage VerifyCreatedCharacteristic
+-> done: CharacteristicSteps.UserVerifyCreatedCharacteristic("CharacteristicTest") (1.0s)
+Project base directory path : C:\Users\abhishekd\source\repos\abhi\laberpro
+When User navigates to the Characteristic tab
+5:55:52 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage UserNavigatesToTheCharacteristicTab 
+5:55:52 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage CloseCharacteristicForm
+5:55:52 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage WaitForCharacteristicAlertCloseIfAny 
+5:55:53 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+5:55:54 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+5:55:54 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage ClickOnStandardTab
+5:55:55 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+5:55:55 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage  ClickOnCharacteristicTab
+5:55:55 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage CloseCharacteristicDetailSideBar()
+-> done: CharacteristicSteps.UserNavigatesToTheCharacteristicTab() (4.2s)
+Then User select the Department "Department to verify Characteristic"
+5:55:56 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing Step:User select the DepartmentDepartment to verify Characteristic
+5:55:56 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing AttributePage.SelectTheDepartment
+-> done: AttributeSteps.SelectDepartment("Department to ver...") (1.3s)
+And User click on Characteristic
+5:55:57 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage UserClickOnCharacteristic 
+5:55:57 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage ClickOnCharacteristic
+5:55:57 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage ClickOnAddButton
+5:55:57 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage UserClickOnNewCharacteristicMenuLink
+-> done: CharacteristicSteps.UserClickOnCharacteristic() (0.1s)
+When User create new Characteristic with below input
+  --- table step argument ---
+  | Key  | Value              |
+  | Name | CharacteristicTest |
+5:55:57 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage AddNewCharacteristicWithGivenInput
+5:55:57 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage AddNewCharacteristicWithGivenInput
+-> done: CharacteristicSteps.AddNewCharacteristicWithGivenInput(<table>) (0.7s)
+Then Verify validation Message: "Name already exists in the specified Department"
+5:55:58 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing step: Verify validation Message: Name already exists in the specified Department
+5:55:58 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing AllowancesPage.VerifyAddAllowanceErrorMessage
+5:55:59 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Timed out after 1 seconds
+-> done: AllowancesSteps.VerifyValidationMessage("Name already exis...") (1.1s)
+Project base directory path : C:\Users\abhishekd\source\repos\abhi\laberpro
+And User click on cancel button
+5:55:59 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing step: User click on cancel button
+5:55:59 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing AllowancesPage.CloseAllowanceForm
+5:55:59 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+5:56:00 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+-> done: AllowancesSteps.UserWillPressCancelButton() (2.1s)
+And User delete created Characteristic by name "CharacteristicTest"
+5:56:01 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage UserDeleteCreatedCharacteristic
+5:56:01 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage DeleteCreatedCharacteristict
+5:56:01 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage CloseCharacteristicDetailSideBar()
+5:56:02 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : no such element: Unable to locate element: {"method":"xpath","selector":"//button[contains(@class, 'cancel')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+-> done: CharacteristicSteps.UserDeleteCreatedCharacteristic("CharacteristicTest") (3.5s)

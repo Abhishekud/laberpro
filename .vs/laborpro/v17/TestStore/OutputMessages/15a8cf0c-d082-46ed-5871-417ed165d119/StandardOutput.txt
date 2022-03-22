@@ -1,0 +1,54 @@
+Given User navigates to the List Management tab
+5:55:01 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing Step: User navigates to the List Management tab  
+5:55:01 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing DepartmentPage.CloseDepartmentForm
+5:55:02 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+5:55:03 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing DepartmentPage.ClickOnListManagementTab
+5:55:04 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : no such element: Unable to locate element: {"method":"xpath","selector":"//h3[contains(text(),'Departments')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+-> done: DepartmentSteps.UserNavigatesToTheListManagementTab() (4.3s)
+Then User selects Department
+5:55:05 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing Step: User selects Department
+5:55:05 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing DepartmentPage.ClickOnDepartment
+-> done: DepartmentSteps.UserClickOnDepartment() (0.5s)
+When User create new Department with below input
+  --- table step argument ---
+  | Key  | Value                               |
+  | Name | Department to verify Characteristic |
+5:55:06 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing User create new Department with below input | Key  | Value                               |
+| Name | Department to verify Characteristic |
+
+5:55:06 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing DepartmentPage.AddNewDepartmentWithGivenInput
+5:55:06 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing DepartmentPage.ClickOnAddButton
+5:55:06 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing DepartmentPage.UserClickOnNewDepartmentMenuLink
+-> done: DepartmentSteps.AddNewDepartmentWithGivenInput(<table>) (1.0s)
+Then User verify created Department "Department to verify Characteristic"
+5:55:07 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing Step User verify created Department by nameDepartment to verify Characteristic
+5:55:07 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing DepartmentPage.VerifyCreatedDepartment
+-> done: DepartmentSteps.UserVerifyCreatedDepartment("Department to ver...") (0.0s)
+Project base directory path : C:\Users\abhishekd\source\repos\abhi\laberpro
+Then User navigates to the Characteristic tab
+5:55:07 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage UserNavigatesToTheCharacteristicTab 
+5:55:07 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage CloseCharacteristicForm
+5:55:07 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage WaitForCharacteristicAlertCloseIfAny 
+5:55:08 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+5:55:08 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage ClickOnStandardTab
+5:55:09 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+5:55:09 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage  ClickOnCharacteristicTab
+5:55:09 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage CloseCharacteristicDetailSideBar()
+5:55:10 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : no such element: Unable to locate element: {"method":"xpath","selector":"//button[contains(@class, 'cancel')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+5:55:11 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='page-title' and contains(text(),'Characteristics')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+-> done: CharacteristicSteps.UserNavigatesToTheCharacteristicTab() (5.4s)
+Then User select the Department "Department to verify Characteristic"
+5:55:12 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing Step:User select the DepartmentDepartment to verify Characteristic
+5:55:12 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing AttributePage.SelectTheDepartment
+-> done: AttributeSteps.SelectDepartment("Department to ver...") (1.4s)
+And Verify Record Of Selected Dept "No records available"
+5:55:13 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage Verify Record Of Selected Dept 
+5:55:13 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing  CharacteristicsPagee.VerifyRecordOfSelectedDept
+-> done: CharacteristicSteps.ThenVerifyRecordOfSelectedDept("No records available") (0.0s)
+Project base directory path : C:\Users\abhishekd\source\repos\abhi\laberpro

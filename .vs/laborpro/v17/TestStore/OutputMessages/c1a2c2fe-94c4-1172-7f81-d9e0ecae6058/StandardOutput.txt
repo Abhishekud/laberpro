@@ -1,0 +1,45 @@
+Given User navigates to the Characteristic tab
+5:55:14 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage UserNavigatesToTheCharacteristicTab 
+5:55:14 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage CloseCharacteristicForm
+5:55:14 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage WaitForCharacteristicAlertCloseIfAny 
+5:55:15 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+5:55:16 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+5:55:16 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage ClickOnStandardTab
+5:55:17 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+5:55:17 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage  ClickOnCharacteristicTab
+5:55:17 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage CloseCharacteristicDetailSideBar()
+5:55:18 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : no such element: Unable to locate element: {"method":"xpath","selector":"//button[contains(@class, 'cancel')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+-> done: CharacteristicSteps.UserNavigatesToTheCharacteristicTab() (4.1s)
+Then User select the Department "Department to verify Characteristic"
+5:55:18 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing Step:User select the DepartmentDepartment to verify Characteristic
+5:55:18 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing AttributePage.SelectTheDepartment
+-> done: AttributeSteps.SelectDepartment("Department to ver...") (1.3s)
+And User click on Characteristic
+5:55:19 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage UserClickOnCharacteristic 
+5:55:19 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage ClickOnCharacteristic
+5:55:19 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage ClickOnAddButton
+5:55:19 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage UserClickOnNewCharacteristicMenuLink
+-> done: CharacteristicSteps.UserClickOnCharacteristic() (0.2s)
+When User create new Characteristic with below input
+  --- table step argument ---
+  | Key  | Value |
+  | Name |       |
+5:55:19 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage AddNewCharacteristicWithGivenInput
+5:55:19 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage AddNewCharacteristicWithGivenInput
+-> done: CharacteristicSteps.AddNewCharacteristicWithGivenInput(<table>) (0.5s)
+Then Verify validation Message: "Name is required"
+5:55:20 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing step: Verify validation Message: Name is required
+5:55:20 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing AllowancesPage.VerifyAddAllowanceErrorMessage
+-> done: AllowancesSteps.VerifyValidationMessage("Name is required") (0.8s)
+Project base directory path : C:\Users\abhishekd\source\repos\abhi\laberpro
+And User click on cancel button
+5:55:21 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing step: User click on cancel button
+5:55:21 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing AllowancesPage.CloseAllowanceForm
+5:55:21 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+5:55:22 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+-> done: AllowancesSteps.UserWillPressCancelButton() (2.1s)

@@ -1,0 +1,59 @@
+Given User navigates to the standards tab
+6:00:22 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User navigates to the standards tab
+6:00:22 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.CloseAllowanceForm
+6:00:22 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+6:00:23 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+6:00:24 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+6:00:24 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.ClickOnStandardTab
+6:00:25 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=99.0.4844.82)
+6:00:25 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.ClickOnStandardsTab
+-> done: StandardsSteps.NavigatesToStandardsTab() (3.2s)
+When User search standard by name "name to verify"
+6:00:25 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User search standard by namename to verify
+6:00:25 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing LocationsPage.ClickOnProfilingTab
+-> done: StandardsSteps.searchstandard("name to verify") (4.0s)
+Then User selects standard by name "name to verify"
+6:00:29 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User selects created standard by namename to verify
+6:00:29 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.selectStandard
+-> done: StandardsSteps.SelectCreatedStandard("name to verify") (2.2s)
+Then User clicks New Standard Element
+6:00:31 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User clicks New Standard Element
+6:00:31 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.NewStandardElement
+-> done: StandardsSteps.ClickNewStandardElement() (1.2s)
+And User Selects Standard Element type "Estimate"
+6:00:32 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User Selects Element type Estimate
+6:00:32 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandaradPage.selectElementType
+-> done: StandardsSteps.SelectElementType("Estimate") (0.2s)
+When User adds new Standard Element Using Below input
+  --- table step argument ---
+  | Key             | Value    |
+  | Name            | dummy    |
+  | Frequency       |          |
+  | Unit of Measure | Demo Uom |
+6:00:32 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User adds new Standard Element Using Below input | Key             | Value    |
+| Name            | dummy    |
+| Frequency       |          |
+| Unit of Measure | Demo Uom |
+
+6:00:32 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.AddStandardElement
+6:00:32 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : The given key 'Time (Seconds)' was not present in the dictionary.
+-> done: StandardsSteps.AddNewStandardElement(<table>) (5.3s)
+Then User Verify Frequency is empty
+6:00:38 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User Verify Frequency is empty
+6:00:38 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandaradPage.VerifyFrequencyIsEmpty
+-> done: StandardsSteps.VerifyFrequencyInStandardElement() (0.1s)
+Project base directory path : C:\Users\abhishekd\source\repos\abhi\laberpro
+And User click on cancel button
+6:00:38 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: User click on cancel button
+6:00:38 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.CloseAllowanceForm
+6:00:38 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+6:00:39 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+-> done: AllowancesSteps.UserWillPressCancelButton() (2.1s)
+Then User click on previous link
+6:00:40 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: User click on previous link
+6:00:40 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.ClickOnPreviousLink
+-> done: AllowancesSteps.ClickOnPreviousButton() (1.2s)

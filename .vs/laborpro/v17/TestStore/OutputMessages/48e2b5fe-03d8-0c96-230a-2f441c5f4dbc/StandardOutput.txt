@@ -1,0 +1,48 @@
+Given User navigates to the attribute tab
+5:39:41 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing Step: User navigates to the attribute tab
+5:39:41 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing AttributePage.CloseAttributeForm
+5:39:42 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : no such element: Unable to locate element: {"method":"xpath","selector":"//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+5:39:42 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing AttributePage.ClickonProfilingtab
+5:39:44 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing AttributePage.ClickOnAttributeTab
+-> done: AttributeSteps.UserNavigatesTotheAttributeTab() (2.2s)
+When User add new attribute using below input
+  --- table step argument ---
+  | Key  | Value |
+  | Name | AJP   |
+5:39:44 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing Step:User add new attribute using below input-| Key  | Value |
+| Name | AJP   |
+
+5:39:44 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing AttributePage.AddAttributeWithGivenInput
+5:39:44 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing AttributePage.clickOnAddAttribute
+-> done: AttributeSteps.AddAttributeWithGivenInput(<table>) (1.8s)
+Then User verify created attribute name "AJP"
+5:39:45 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing Step:User verify created attribute nameAJP
+5:39:45 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing AttributePage.VerifyCreatedAttribute
+-> done: AttributeSteps.UserVerifyCreatedAttribute("AJP") (1.6s)
+Project base directory path : C:\Users\abhishekd\source\repos\abhi\laberpro
+And User delete created attribute:"AJP"
+5:39:47 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing Step:User delete created attribute:AJP
+5:39:47 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing AttributPage.DeleteCreatedAttribute
+-> done: AttributeSteps.DeleteCreatedAttribute("AJP") (23.1s)
+Then User navigates to the List Management tab
+5:40:10 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing Step: User navigates to the List Management tab  
+5:40:10 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing DepartmentPage.CloseDepartmentForm
+5:40:12 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+5:40:13 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=99.0.4844.82)
+5:40:13 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing DepartmentPage.ClickOnListManagementTab
+5:40:14 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : no such element: Unable to locate element: {"method":"xpath","selector":"//h3[contains(text(),'Departments')]"}
+  (Session info: chrome=99.0.4844.82)
+-> done: DepartmentSteps.UserNavigatesToTheListManagementTab() (4.8s)
+And User selects Department
+5:40:15 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing Step: User selects Department
+5:40:15 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing DepartmentPage.ClickOnDepartment
+-> done: DepartmentSteps.UserClickOnDepartment() (0.6s)
+Then User delete created Department "Department to verify attribute"
+5:40:16 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing Step User delete created Department by nameDepartment to verify attribute
+5:40:16 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing DepartmentPage.DeleteCreatedDepartment
+5:40:16 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing DepartmentPage.CloseDepartmentDetailSideBar
+5:40:17 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Timed out after 1 seconds
+-> done: DepartmentSteps.UserDeleteCreatedDepartment("Department to ver...") (4.7s)

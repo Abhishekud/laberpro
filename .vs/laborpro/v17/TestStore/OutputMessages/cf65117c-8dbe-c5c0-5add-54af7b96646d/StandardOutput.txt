@@ -1,0 +1,56 @@
+Given User navigates to the List Management tab
+5:38:55 AM Tuesday, March 22, 2022 -> ParallelWorker#2 : Executing Step: User navigates to the List Management tab  
+5:38:55 AM Tuesday, March 22, 2022 -> ParallelWorker#2 : Executing DepartmentPage.CloseDepartmentForm
+5:38:56 AM Tuesday, March 22, 2022 -> ParallelWorker#2 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+5:38:57 AM Tuesday, March 22, 2022 -> ParallelWorker#2 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+5:38:57 AM Tuesday, March 22, 2022 -> ParallelWorker#2 : Executing DepartmentPage.ClickOnListManagementTab
+5:38:58 AM Tuesday, March 22, 2022 -> ParallelWorker#2 : no such element: Unable to locate element: {"method":"xpath","selector":"//h3[@class='page-title' and contains(text(),'Units Of Measure')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+-> done: DepartmentSteps.UserNavigatesToTheListManagementTab() (5.3s)
+And User selects Department
+5:39:00 AM Tuesday, March 22, 2022 -> ParallelWorker#2 : Executing Step: User selects Department
+5:39:00 AM Tuesday, March 22, 2022 -> ParallelWorker#2 : Executing DepartmentPage.ClickOnDepartment
+-> done: DepartmentSteps.UserClickOnDepartment() (1.0s)
+And User create new Department with below input
+  --- table step argument ---
+  | Key  | Value                     |
+  | Name | Department Exist Scenario |
+5:39:01 AM Tuesday, March 22, 2022 -> ParallelWorker#2 : Executing User create new Department with below input | Key  | Value                     |
+| Name | Department Exist Scenario |
+
+5:39:01 AM Tuesday, March 22, 2022 -> ParallelWorker#2 : Executing DepartmentPage.AddNewDepartmentWithGivenInput
+5:39:01 AM Tuesday, March 22, 2022 -> ParallelWorker#2 : Executing DepartmentPage.ClickOnAddButton
+5:39:02 AM Tuesday, March 22, 2022 -> ParallelWorker#2 : Executing DepartmentPage.UserClickOnNewDepartmentMenuLink
+-> done: DepartmentSteps.AddNewDepartmentWithGivenInput(<table>) (2.2s)
+Then User verify created Department "Department Exist Scenario"
+5:39:04 AM Tuesday, March 22, 2022 -> ParallelWorker#2 : Executing Step User verify created Department by nameDepartment Exist Scenario
+5:39:04 AM Tuesday, March 22, 2022 -> ParallelWorker#2 : Executing DepartmentPage.VerifyCreatedDepartment
+-> done: DepartmentSteps.UserVerifyCreatedDepartment("Department Exist ...") (1.1s)
+Project base directory path : C:\Users\abhishekd\source\repos\abhi\laberpro
+Then User create new Department with below input
+  --- table step argument ---
+  | Key  | Value                     |
+  | Name | Department Exist Scenario |
+5:39:05 AM Tuesday, March 22, 2022 -> ParallelWorker#2 : Executing User create new Department with below input | Key  | Value                     |
+| Name | Department Exist Scenario |
+
+5:39:05 AM Tuesday, March 22, 2022 -> ParallelWorker#2 : Executing DepartmentPage.AddNewDepartmentWithGivenInput
+5:39:05 AM Tuesday, March 22, 2022 -> ParallelWorker#2 : Executing DepartmentPage.ClickOnAddButton
+5:39:06 AM Tuesday, March 22, 2022 -> ParallelWorker#2 : Executing DepartmentPage.UserClickOnNewDepartmentMenuLink
+-> done: DepartmentSteps.AddNewDepartmentWithGivenInput(<table>) (3.4s)
+Then Verify validation Message: "Name already exists"
+5:39:09 AM Tuesday, March 22, 2022 -> ParallelWorker#2 : Executing step: Verify validation Message: Name already exists
+5:39:09 AM Tuesday, March 22, 2022 -> ParallelWorker#2 : Executing AllowancesPage.VerifyAddAllowanceErrorMessage
+-> done: AllowancesSteps.VerifyValidationMessage("Name already exists") (1.4s)
+Project base directory path : C:\Users\abhishekd\source\repos\abhi\laberpro
+And User clicks cancel Button
+5:39:11 AM Tuesday, March 22, 2022 -> ParallelWorker#2 : Exceuting Step User clicks cancel button
+5:39:11 AM Tuesday, March 22, 2022 -> ParallelWorker#2 : Executing DepartmentPage.CloseDepartmentForm
+-> done: DepartmentSteps.UserClickCancelButton() (1.1s)
+And User delete created Department "Department Exist Scenario"
+5:39:12 AM Tuesday, March 22, 2022 -> ParallelWorker#2 : Executing Step User delete created Department by nameDepartment Exist Scenario
+5:39:12 AM Tuesday, March 22, 2022 -> ParallelWorker#2 : Executing DepartmentPage.DeleteCreatedDepartment
+5:39:12 AM Tuesday, March 22, 2022 -> ParallelWorker#2 : Executing DepartmentPage.CloseDepartmentDetailSideBar
+-> done: DepartmentSteps.UserDeleteCreatedDepartment("Department Exist ...") (7.3s)

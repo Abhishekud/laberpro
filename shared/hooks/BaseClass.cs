@@ -8,7 +8,7 @@ using NUnit.Framework;
 using laborpro.util;
 
 [assembly: Parallelizable(ParallelScope.Fixtures)]
-[assembly: LevelOfParallelism(8)]
+[assembly: LevelOfParallelism(5)]
 
 namespace laborpro.hooks
 {

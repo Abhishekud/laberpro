@@ -34,6 +34,7 @@ namespace laborpro.pages
         public static readonly string CHARACTERISTIC_DELETE_CONFIRM_POPUP = "//*[@class='modal-dialog']//*[contains(text(),'Please confirm that you want to delete')]";
         public static readonly string CHARACTERISTIC_DELETE_CONFIRM_POPUP_ACCEPT = "//*[@class='modal-dialog']//button[text()='Confirm']";
         public static readonly string CLOSE_BUTTON = "//button[@id='newCHARACTERISTICs']";
+        public static readonly string CHARACTERISTIC_POPUP = "//*[@class='modal-dialog']//*[contains(text(),'New Characteristic')]";
 
         public static readonly string CHARACTERISTIC_PAGE = "//*[@class='page-title' and contains(text(),'Characteristics')]";
         public static void VerifyRecordOfSelectedDept(string message)
@@ -62,18 +63,14 @@ namespace laborpro.pages
         public static void CloseCharacteristicDetailSideBar()
         {
             LogWriter.WriteLog("Executing CharacteristicsPage CloseCharacteristicDetailSideBar()");
-            IWebElement CharacteristicDetailsSideBar = WebDriverUtil.GetWebElement(CLOSE_CHARACTERISTIC_DETAILS, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement CharacteristicDetailsSideBar = WebDriverUtil.GetWebElement(CANCEL_CHARACTERISTIC_DETAILS, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (CharacteristicDetailsSideBar != null)
             {
                 CharacteristicDetailsSideBar.Click();
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             }
-            CharacteristicDetailsSideBar = WebDriverUtil.GetWebElement(CANCEL_CHARACTERISTIC_DETAILS, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (CharacteristicDetailsSideBar != null)
-            {
-                CharacteristicDetailsSideBar.Click();
-                WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            }
+        
+
         }
         public static void DeleteCreatedCharacteristicset(string CharacteristicsetName)
         {
@@ -115,19 +112,22 @@ namespace laborpro.pages
         public static void DeleteCreatedCharacteristic(string CharacteristicName)
         {
             LogWriter.WriteLog("Executing CharacteristicsPage DeleteCreatedCharacteristict");
-
-            WebDriverUtil.GetWebElement(String.Format(CHARACTERISTIC_RECORD, CharacteristicName), WebDriverUtil.TWO_SECOND_WAIT,
+            CloseCharacteristicDetailSideBar();
+            WebDriverUtil.WaitForWebElementClickable(String.Format(CHARACTERISTIC_RECORD, CharacteristicName), WebDriverUtil.DEFAULT_WAIT, WebDriverUtil.NO_MESSAGE);
+     
+            WebDriverUtil.GetWebElement(String.Format(CHARACTERISTIC_RECORD, CharacteristicName), WebDriverUtil.NO_WAIT,
             String.Format("Unable to locate Characteristic record on Characteristics page - {0}", String.Format(CHARACTERISTIC_RECORD, CharacteristicName))).Click();
 
+ 
 
-            WebDriverUtil.GetWebElement(String.Format(CHARACTERISTIC_DELETE_BUTTON, CharacteristicName), WebDriverUtil.ONE_SECOND_WAIT,
+            WebDriverUtil.GetWebElement(String.Format(CHARACTERISTIC_DELETE_BUTTON, CharacteristicName), WebDriverUtil.NO_WAIT,
             String.Format("Unable to locate Characteristic delete button on Characteristic details - {0}", String.Format(CHARACTERISTIC_DELETE_BUTTON, CharacteristicName))).Click();
 
 
-            IWebElement confirmationPopup = WebDriverUtil.GetWebElement(CHARACTERISTIC_DELETE_CONFIRM_POPUP, WebDriverUtil.TWO_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement confirmationPopup = WebDriverUtil.GetWebElement(CHARACTERISTIC_DELETE_CONFIRM_POPUP, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (confirmationPopup != null)
             {
-                WebDriverUtil.GetWebElement(CHARACTERISTIC_DELETE_CONFIRM_POPUP_ACCEPT, WebDriverUtil.TWO_SECOND_WAIT,
+                WebDriverUtil.GetWebElement(CHARACTERISTIC_DELETE_CONFIRM_POPUP_ACCEPT, WebDriverUtil.ONE_SECOND_WAIT,
                     String.Format("Unable to locate Confirm button on delete confirmation popup - {0}", CHARACTERISTIC_DELETE_CONFIRM_POPUP_ACCEPT)).Click();
                 WebDriverUtil.WaitForWebElementInvisible(CHARACTERISTIC_DELETE_CONFIRM_POPUP, WebDriverUtil.DEFAULT_WAIT, WebDriverUtil.NO_MESSAGE);
             }
@@ -138,7 +138,7 @@ namespace laborpro.pages
             WebDriverUtil.GetWebElement(String.Format(CHARACTERISTIC_RECORD, CharacteristicName), WebDriverUtil.DEFAULT_WAIT,
             String.Format("Unable to locate record Characteristics page - {0}", String.Format(CHARACTERISTIC_RECORD, CharacteristicName)));
             BaseClass._AttachScreenshot.Value = true;
-            CloseCharacteristicDetailSideBar();
+            
         }
 
 
@@ -153,14 +153,14 @@ namespace laborpro.pages
 
             if (Util.ReadKey(dictionary, "Name") != null)
             {
-                WebDriverUtil.GetWebElement(NAME_INPUT, WebDriverUtil.NO_WAIT,
+                  WebDriverUtil.GetWebElement(NAME_INPUT, WebDriverUtil.ONE_SECOND_WAIT,
                 String.Format("Unable to locate Name input Characteristics page  - {0}", NAME_INPUT))
                     .SendKeys(dictionary["Name"]);
             }
 
 
 
-            WebDriverUtil.GetWebElementAndScroll(SAVE_BUTTON, WebDriverUtil.NO_WAIT,
+            WebDriverUtil.GetWebElementAndScroll(SAVE_BUTTON, WebDriverUtil.ONE_SECOND_WAIT,
                 String.Format("Unable to locate save button Characteristics page - {0}", SAVE_BUTTON)).Click();
 
         }

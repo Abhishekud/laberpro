@@ -24,8 +24,8 @@ Feature: Verify Departments Module
    Then User create new Department with below input
     | Key               | Value |
     | Name              | Department to verify Department |
-    And User verify created Department "Department to verify Department"
-    Then User delete created Department "Department to verify Department" 
+  And User verify created Department "Department to verify Department"
+  Then User delete created Department "Department to verify Department" 
   
   Scenario: 04. verify_add_Department_when_enter_existing_details
     Given User navigates to the List Management tab

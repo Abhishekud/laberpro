@@ -1,84 +1,364 @@
-10:36:23 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing step: User navigates to the Locations tab
-10:36:26 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing step: User go to application https://laborpro-client-bits.azurewebsites.net
-10:36:43 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing step: User enter email: bits.auto.qa1+3@gmail.com and password: **********
-10:36:43 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing LoginPage.PerformLogin
-10:36:44 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing step: Verify Login message: success
-10:36:44 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing LoginPage.VerifyLoginSuccess
-10:36:49 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing Step: User navigates to the List Management tab  
-10:36:49 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.CloseDepartmentForm
-10:36:50 PM Sunday, March 20, 2022 -> ParallelWorker#6 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
-  (Session info: MicrosoftEdge=99.0.1150.46)
-10:36:51 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.ClickOnListManagementTab
-10:36:52 PM Sunday, March 20, 2022 -> ParallelWorker#6 : no such element: Unable to locate element: {"method":"xpath","selector":"//h3[contains(text(),'Departments')]"}
-  (Session info: MicrosoftEdge=99.0.1150.46)
-10:36:53 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing Step: User selects Department
-10:36:53 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.ClickOnDepartment
-10:36:54 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing User create new Department with below input | Key  | Value |
+5:57:31 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: User navigates to the Locations tab
+5:57:34 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: User go to application https://laborpro.benchmarkit.solutions/log-in
+5:58:12 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: User enter email: bits.auto.qa1+3@gmail.com and password: **********
+5:58:12 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing LoginPage.PerformLogin
+5:58:16 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Timed out after 2 seconds
+5:58:16 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: Verify Login message: success
+5:58:16 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing LoginPage.VerifyLoginSuccess
+5:58:19 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User navigates to the standards tab
+5:58:19 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.CloseAllowanceForm
+5:58:19 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+5:58:20 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+5:58:21 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+5:58:21 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.ClickOnStandardTab
+5:58:22 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.ClickOnStandardsTab
+5:58:23 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Timed out after 1 seconds
+5:58:24 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User add new standards using below input 
+5:58:24 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.AddStandardWithGivenInput
+5:58:24 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.clickOnAddAttribute
+5:58:25 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : The given key 'Department' was not present in the dictionary.
+5:58:31 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step:Verify Validation Message:Name is required
+5:58:31 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AttributePage.VerifyAddAttributeErrorMessage
+5:58:32 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Timed out after 1 seconds
+5:58:32 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Exceuting Step: User click cancel Button
+5:58:32 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AttributePage.CloseAttributeForm
+5:58:33 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User navigates to the standards tab
+5:58:33 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.CloseAllowanceForm
+5:58:33 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+5:58:34 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+5:58:35 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+5:58:35 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.ClickOnStandardTab
+5:58:36 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=99.0.4844.82)
+5:58:36 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.ClickOnStandardsTab
+5:58:36 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User add new standards using below input 
+5:58:36 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.AddStandardWithGivenInput
+5:58:36 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.clickOnAddAttribute
+5:58:43 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step:Verify Validation Message:Department is required
+5:58:43 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AttributePage.VerifyAddAttributeErrorMessage
+5:58:44 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Timed out after 1 seconds
+5:58:44 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Exceuting Step: User click cancel Button
+5:58:44 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AttributePage.CloseAttributeForm
+5:58:45 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User navigates to the List Management tab  
+5:58:45 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.CloseDepartmentForm
+5:58:46 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+5:58:47 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=99.0.4844.82)
+5:58:47 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.ClickOnListManagementTab
+5:58:48 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//h3[contains(text(),'Departments')]"}
+  (Session info: chrome=99.0.4844.82)
+5:58:50 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User selects Department
+5:58:50 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.ClickOnDepartment
+5:58:50 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User create new Department with below input | Key  | Value                    |
+| Name | department for standards |
+
+5:58:50 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.AddNewDepartmentWithGivenInput
+5:58:50 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.ClickOnAddButton
+5:58:50 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.UserClickOnNewDepartmentMenuLink
+5:58:50 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step User verify created Department by namedepartment for standards
+5:58:50 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.VerifyCreatedDepartment
+5:58:51 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User navigates to the standards tab
+5:58:51 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.CloseAllowanceForm
+5:58:51 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+5:58:52 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+5:58:53 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+5:58:53 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.ClickOnStandardTab
+5:58:54 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=99.0.4844.82)
+5:58:54 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.ClickOnStandardsTab
+5:58:55 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Timed out after 1 seconds
+5:58:56 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User add new standards using below input 
+5:58:56 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.AddStandardWithGivenInput
+5:58:56 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.clickOnAddAttribute
+5:59:03 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User verify created standards namename to verify add record
+5:59:03 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.VerifyCreatedStandard
+5:59:03 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Standard: User Delete created Standards
+5:59:03 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.DeleteCreatedStandard 
+5:59:13 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User navigates to the standards tab
+5:59:13 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.CloseAllowanceForm
+5:59:13 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+5:59:14 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+5:59:15 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+5:59:15 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.ClickOnStandardTab
+5:59:16 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=99.0.4844.82)
+5:59:16 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.ClickOnStandardsTab
+5:59:16 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User add new standards using below input 
+5:59:16 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.AddStandardWithGivenInput
+5:59:16 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.clickOnAddAttribute
+5:59:23 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User verify created standards namename to verify
+5:59:23 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.VerifyCreatedStandard
+5:59:23 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User clicks New Standard Element
+5:59:23 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.NewStandardElement
+5:59:24 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User Verify standard element popup by name Select Standard Element Type
+5:59:24 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.VerifyNewStandardElementPopup
+5:59:24 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User Selects Element type Estimate
+5:59:24 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandaradPage.selectElementType
+5:59:24 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: User click on cancel Button
+5:59:24 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.CloseAllowanceForm
+5:59:24 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+5:59:25 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+5:59:26 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: User click on previous link
+5:59:26 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.ClickOnPreviousLink
+5:59:28 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User navigates to the List Management tab  
+5:59:28 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.CloseDepartmentForm
+5:59:29 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+5:59:30 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=99.0.4844.82)
+5:59:30 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.ClickOnListManagementTab
+5:59:31 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//h3[contains(text(),'Departments')]"}
+  (Session info: chrome=99.0.4844.82)
+5:59:32 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step User selects Units of Measure
+5:59:32 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing UnitOfMeasurePage.SelectListManagement
+5:59:33 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//h3[@class='page-title' and contains(text(),'Units Of Measure')]"}
+  (Session info: chrome=99.0.4844.82)
+5:59:35 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step User Selects Created Department department for standards
+5:59:35 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing UnitOfMeasurePage.SelectCreatedDepartment
+5:59:38 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step User adds Unit Of Measure using below input| Key  | Value    |
+| Name | Demo Uom |
+
+5:59:38 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing UnitsOfMeasurePage.AddUnitOfMeasureWithGivenInput
+5:59:38 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing UnitsOfMeasurePage.clickOnAddUnitOfMeasure
+5:59:39 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step User verify Added Unit of MeasureDemo Uom
+5:59:39 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing UnitOfMeasurePage.VerifyCreatedUnitOfMeasure
+5:59:39 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User navigates to the standards tab
+5:59:39 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.CloseAllowanceForm
+5:59:39 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+5:59:40 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+5:59:41 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+5:59:41 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.ClickOnStandardTab
+5:59:42 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=99.0.4844.82)
+5:59:42 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.ClickOnStandardsTab
+5:59:43 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Timed out after 1 seconds
+5:59:45 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User search standard by namename to verify
+5:59:45 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing LocationsPage.ClickOnProfilingTab
+5:59:49 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User selects created standard by namename to verify
+5:59:49 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.selectStandard
+5:59:51 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User clicks New Standard Element
+5:59:51 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.NewStandardElement
+5:59:52 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User Selects Element type Estimate
+5:59:52 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandaradPage.selectElementType
+5:59:53 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User adds new Standard Element Using Below input | Key  | Value |
 | Name |       |
 
-10:36:54 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.AddNewDepartmentWithGivenInput
-10:36:54 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.ClickOnAddButton
-10:36:54 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.UserClickOnNewDepartmentMenuLink
-10:36:54 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing step: Verify validation Message: Name is required
-10:36:54 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing AllowancesPage.VerifyAddAllowanceErrorMessage
-10:36:55 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Exceuting Step User clicks cancel button
-10:36:55 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.CloseDepartmentForm
-10:36:55 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing Step: User navigates to the List Management tab  
-10:36:55 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.CloseDepartmentForm
-10:36:56 PM Sunday, March 20, 2022 -> ParallelWorker#6 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
-  (Session info: MicrosoftEdge=99.0.1150.46)
-10:36:57 PM Sunday, March 20, 2022 -> ParallelWorker#6 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
-  (Session info: MicrosoftEdge=99.0.1150.46)
-10:36:57 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.ClickOnListManagementTab
-10:36:58 PM Sunday, March 20, 2022 -> ParallelWorker#6 : no such element: Unable to locate element: {"method":"xpath","selector":"//h3[@class='page-title' and contains(text(),'Units Of Measure')]"}
-  (Session info: MicrosoftEdge=99.0.1150.46)
-10:36:59 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing Step: User selects Department
-10:36:59 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.ClickOnDepartment
-10:36:59 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing User create new Department with below input | Key  | Value                           |
-| Name | Department to verify Department |
+5:59:53 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.AddStandardElement
+5:59:53 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : The given key 'Frequency' was not present in the dictionary.
+5:59:53 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : The given key 'Unit of Measure' was not present in the dictionary.
+5:59:53 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : The given key 'Time (Seconds)' was not present in the dictionary.
+5:59:58 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: Verify validation Message: Name is required
+5:59:58 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.VerifyAddAllowanceErrorMessage
+5:59:58 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: User click on cancel button
+5:59:58 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.CloseAllowanceForm
+5:59:58 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+5:59:59 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+6:00:00 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: User click on previous link
+6:00:00 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.ClickOnPreviousLink
+6:00:02 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User navigates to the standards tab
+6:00:02 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.CloseAllowanceForm
+6:00:02 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+6:00:03 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+6:00:04 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+6:00:04 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.ClickOnStandardTab
+6:00:05 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=99.0.4844.82)
+6:00:05 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.ClickOnStandardsTab
+6:00:05 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User search standard by namename to verify
+6:00:05 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing LocationsPage.ClickOnProfilingTab
+6:00:09 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User selects created standard by namename to verify
+6:00:09 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.selectStandard
+6:00:11 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User clicks New Standard Element
+6:00:11 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.NewStandardElement
+6:00:12 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User Selects Element type Estimate
+6:00:12 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandaradPage.selectElementType
+6:00:12 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User adds new Standard Element Using Below input | Key       | Value |
+| Name      | dummy |
+| Frequency | 4     |
 
-10:36:59 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.AddNewDepartmentWithGivenInput
-10:36:59 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.ClickOnAddButton
-10:36:59 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.UserClickOnNewDepartmentMenuLink
-10:37:00 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing Step User verify created Department by nameDepartment to verify Department
-10:37:00 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.VerifyCreatedDepartment
-10:37:00 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing Step User delete created Department by nameDepartment to verify Department
-10:37:00 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.DeleteCreatedDepartment
-10:37:00 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.CloseDepartmentDetailSideBar
-10:37:03 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing Step: User navigates to the List Management tab  
-10:37:03 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.CloseDepartmentForm
-10:37:04 PM Sunday, March 20, 2022 -> ParallelWorker#6 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
-  (Session info: MicrosoftEdge=99.0.1150.46)
-10:37:05 PM Sunday, March 20, 2022 -> ParallelWorker#6 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
-  (Session info: MicrosoftEdge=99.0.1150.46)
-10:37:05 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.ClickOnListManagementTab
-10:37:06 PM Sunday, March 20, 2022 -> ParallelWorker#6 : no such element: Unable to locate element: {"method":"xpath","selector":"//h3[@class='page-title' and contains(text(),'Units Of Measure')]"}
-  (Session info: MicrosoftEdge=99.0.1150.46)
-10:37:07 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing Step: User selects Department
-10:37:07 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.ClickOnDepartment
-10:37:08 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing User create new Department with below input | Key  | Value                     |
-| Name | Department Exist Scenario |
+6:00:12 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.AddStandardElement
+6:00:12 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : The given key 'Unit of Measure' was not present in the dictionary.
+6:00:12 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : The given key 'Time (Seconds)' was not present in the dictionary.
+6:00:18 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: Verify validation Message: Unit of Measure is required
+6:00:18 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.VerifyAddAllowanceErrorMessage
+6:00:18 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: User click on cancel button
+6:00:18 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.CloseAllowanceForm
+6:00:18 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+6:00:19 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+6:00:20 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: User click on previous link
+6:00:20 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.ClickOnPreviousLink
+6:00:22 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User navigates to the standards tab
+6:00:22 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.CloseAllowanceForm
+6:00:22 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+6:00:23 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+6:00:24 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+6:00:24 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.ClickOnStandardTab
+6:00:25 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=99.0.4844.82)
+6:00:25 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.ClickOnStandardsTab
+6:00:25 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User search standard by namename to verify
+6:00:25 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing LocationsPage.ClickOnProfilingTab
+6:00:29 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User selects created standard by namename to verify
+6:00:29 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.selectStandard
+6:00:31 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User clicks New Standard Element
+6:00:31 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.NewStandardElement
+6:00:32 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User Selects Element type Estimate
+6:00:32 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandaradPage.selectElementType
+6:00:32 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User adds new Standard Element Using Below input | Key             | Value    |
+| Name            | dummy    |
+| Frequency       |          |
+| Unit of Measure | Demo Uom |
 
-10:37:08 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.AddNewDepartmentWithGivenInput
-10:37:08 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.ClickOnAddButton
-10:37:08 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.UserClickOnNewDepartmentMenuLink
-10:37:08 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing Step User verify created Department by nameDepartment Exist Scenario
-10:37:08 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.VerifyCreatedDepartment
-10:37:09 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing User create new Department with below input | Key  | Value                     |
-| Name | Department Exist Scenario |
+6:00:32 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.AddStandardElement
+6:00:32 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : The given key 'Time (Seconds)' was not present in the dictionary.
+6:00:38 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User Verify Frequency is empty
+6:00:38 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandaradPage.VerifyFrequencyIsEmpty
+6:00:38 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: User click on cancel button
+6:00:38 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.CloseAllowanceForm
+6:00:38 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+6:00:39 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+6:00:40 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: User click on previous link
+6:00:40 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.ClickOnPreviousLink
+6:00:41 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User navigates to the standards tab
+6:00:41 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.CloseAllowanceForm
+6:00:41 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+6:00:42 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+6:00:43 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+6:00:43 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.ClickOnStandardTab
+6:00:44 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=99.0.4844.82)
+6:00:44 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.ClickOnStandardsTab
+6:00:44 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User search standard by namename to verify
+6:00:44 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing LocationsPage.ClickOnProfilingTab
+6:00:48 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User selects created standard by namename to verify
+6:00:48 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.selectStandard
+6:00:50 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User clicks New Standard Element
+6:00:50 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.NewStandardElement
+6:00:52 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User Selects Element type Estimate
+6:00:52 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandaradPage.selectElementType
+6:00:52 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User Verify Unit Of measure in DropDownDemo Uom
+6:00:52 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.VerifyUOMInDropDown
+6:00:52 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: User click on cancel button
+6:00:52 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.CloseAllowanceForm
+6:00:52 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+6:00:53 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+6:00:54 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: User click on previous link
+6:00:54 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.ClickOnPreviousLink
+6:00:56 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User navigates to the standards tab
+6:00:56 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.CloseAllowanceForm
+6:00:56 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+6:00:57 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+6:00:58 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+6:00:58 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.ClickOnStandardTab
+6:00:59 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=99.0.4844.82)
+6:00:59 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.ClickOnStandardsTab
+6:00:59 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User search standard by namename to verify
+6:00:59 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing LocationsPage.ClickOnProfilingTab
+6:01:03 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User selects created standard by namename to verify
+6:01:03 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.selectStandard
+6:01:05 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User clicks New Standard Element
+6:01:05 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.NewStandardElement
+6:01:06 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User Selects Element type Estimate
+6:01:06 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandaradPage.selectElementType
+6:01:06 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User adds new Standard Element Using Below input | Key             | Value    |
+| Name            | dummy    |
+| Frequency       | 4        |
+| Unit of Measure | Demo Uom |
+| Time (Seconds)  | -1       |
 
-10:37:09 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.AddNewDepartmentWithGivenInput
-10:37:09 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.ClickOnAddButton
-10:37:09 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.UserClickOnNewDepartmentMenuLink
-10:37:09 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing step: Verify validation Message: Name already exists
-10:37:09 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing AllowancesPage.VerifyAddAllowanceErrorMessage
-10:37:10 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Exceuting Step User clicks cancel button
-10:37:10 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.CloseDepartmentForm
-10:37:10 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing Step User delete created Department by nameDepartment Exist Scenario
-10:37:10 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.DeleteCreatedDepartment
-10:37:10 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DepartmentPage.CloseDepartmentDetailSideBar
-10:37:13 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing step: User logout from the application
-10:37:13 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DashboardPage.PerformLogout..
-10:37:13 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DashboardPage.ClickOnModule(Account)
-10:37:13 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing DashboardPage.PerformModuleAction(Log Out)
-10:37:18 PM Sunday, March 20, 2022 -> ParallelWorker#6 : Executing step: User close browser
+6:01:06 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.AddStandardElement
+6:01:12 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: Verify validation Message: Measured Time must be greater than or equal to 0
+6:01:12 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.VerifyAddAllowanceErrorMessage
+6:01:12 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: User click on cancel button
+6:01:12 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.CloseAllowanceForm
+6:01:12 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+6:01:13 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+6:01:14 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: User click on previous link
+6:01:14 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.ClickOnPreviousLink
+6:01:16 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User navigates to the standards tab
+6:01:16 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.CloseAllowanceForm
+6:01:16 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+6:01:17 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+6:01:18 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+6:01:18 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing AllowancesPage.ClickOnStandardTab
+6:01:19 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=99.0.4844.82)
+6:01:19 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.ClickOnStandardsTab
+6:01:19 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User search standard by namename to verify
+6:01:19 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing LocationsPage.ClickOnProfilingTab
+6:01:23 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User selects created standard by namename to verify
+6:01:23 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.selectStandard
+6:01:25 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User clicks New Standard Element
+6:01:25 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.NewStandardElement
+6:01:26 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User Selects Element type Estimate
+6:01:26 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandaradPage.selectElementType
+6:01:26 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User adds new Standard Element Using Below input | Key             | Value    |
+| Name            | Dummy    |
+| Frequency       | 16       |
+| Unit of Measure | Demo Uom |
+
+6:01:26 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.AddStandardElement
+6:01:27 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : The given key 'Time (Seconds)' was not present in the dictionary.
+6:01:32 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User verify standard element by nameDummy
+6:01:32 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.VerifyCreatedStandardElement
+6:01:32 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User delete standard element 
+6:01:32 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.DeleteStandardElementByName
+6:01:33 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Timed out after 1 seconds
+6:01:36 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Standard: User Delete created Standards
+6:01:36 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing StandardPage.DeleteCreatedStandard 
+6:01:37 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Timed out after 1 seconds
+6:01:48 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User navigates to the List Management tab  
+6:01:48 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.CloseDepartmentForm
+6:01:49 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+6:01:50 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=99.0.4844.82)
+6:01:50 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.ClickOnListManagementTab
+6:01:51 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//h3[contains(text(),'Departments')]"}
+  (Session info: chrome=99.0.4844.82)
+6:01:52 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step User selects Units of Measure
+6:01:52 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing UnitOfMeasurePage.SelectListManagement
+6:01:52 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step User Selects Created Department department for standards
+6:01:52 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing UnitOfMeasurePage.SelectCreatedDepartment
+6:01:55 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing User delete UOM by nameDemo Uom
+6:01:55 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing UnitOfMeasurePage.DeleteUnitOfMeasureByName
+6:01:56 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing UnitOfMeasurePage.DeleteCreatedUnitOfMeasure
+6:02:00 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step: User selects Department
+6:02:00 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.ClickOnDepartment
+6:02:01 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing Step User delete created Department by namedepartment for standards
+6:02:01 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.DeleteCreatedDepartment
+6:02:01 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DepartmentPage.CloseDepartmentDetailSideBar
+6:02:02 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Timed out after 1 seconds
+6:02:05 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: User logout from the application
+6:02:05 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DashboardPage.PerformLogout..
+6:02:05 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DashboardPage.ClickOnModule(Account)
+6:02:05 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing DashboardPage.PerformModuleAction(Log Out)
+6:02:10 AM Tuesday, March 22, 2022 -> ParallelWorker#3 : Executing step: User close browser

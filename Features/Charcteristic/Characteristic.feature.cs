@@ -114,7 +114,7 @@ namespace laborpro.Features.Charcteristic
             {
                 this.ScenarioStart();
 #line 6
-    testRunner.Given("User launched \"chrome\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("User launched \"edge\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 7
      testRunner.When("User go to application \"$url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -406,7 +406,7 @@ namespace laborpro.Features.Charcteristic
      testRunner.Then("User verify created Characteristic by name \"CharacteristicTest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 64
-     testRunner.Then("User navigates to the Characteristic tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+     testRunner.When("User navigates to the Characteristic tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 65
      testRunner.Then("User select the Department \"Department to verify Characteristic\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -532,12 +532,12 @@ namespace laborpro.Features.Charcteristic
                             "Value"});
                 table23.AddRow(new string[] {
                             "Name",
-                            "ATest"});
+                            "Test"});
 #line 90
      testRunner.When("User create new Characteristic with below input", ((string)(null)), table23, "When ");
 #line hidden
 #line 93
-     testRunner.Then("User verify created Characteristic by name \"ATest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+     testRunner.Then("User verify created Characteristic by name \"Test\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

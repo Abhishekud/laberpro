@@ -66,8 +66,6 @@ namespace laborpro.Features.Attribute
         }
 
         [Then(@"User select the Department ""([^""]*)""")]
-        [When(@"User select the Department ""(.*)""")]
-        [Then(@"User select the Department ""(.*)""")]
         public void SelectDepartment(string departmentName)
         {
             LogWriter.WriteLog("Executing Step:User select the Department" + departmentName);

@@ -226,10 +226,10 @@ namespace laborpro.Features.Department
    testRunner.Then("User create new Department with below input", ((string)(null)), table27, "Then ");
 #line hidden
 #line 27
-    testRunner.And("User verify created Department \"Department to verify Department\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("User verify created Department \"Department to verify Department\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 28
-    testRunner.Then("User delete created Department \"Department to verify Department\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("User delete created Department \"Department to verify Department\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

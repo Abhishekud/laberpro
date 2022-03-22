@@ -1,0 +1,50 @@
+Given User navigates to the List Management tab
+5:38:40 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing Step: User navigates to the List Management tab  
+5:38:40 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing DepartmentPage.CloseDepartmentForm
+5:38:42 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+5:38:43 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing DepartmentPage.ClickOnListManagementTab
+5:38:44 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : no such element: Unable to locate element: {"method":"xpath","selector":"//h3[contains(text(),'Departments')]"}
+  (Session info: chrome=99.0.4844.82)
+-> done: DepartmentSteps.UserNavigatesToTheListManagementTab() (5.5s)
+And User selects Department
+5:38:46 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing Step: User selects Department
+5:38:46 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing DepartmentPage.ClickOnDepartment
+-> done: DepartmentSteps.UserClickOnDepartment() (0.7s)
+And User create new Department with below input
+  --- table step argument ---
+  | Key  | Value                          |
+  | Name | Department to verify attribute |
+5:38:47 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing User create new Department with below input | Key  | Value                          |
+| Name | Department to verify attribute |
+
+5:38:47 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing DepartmentPage.AddNewDepartmentWithGivenInput
+5:38:47 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing DepartmentPage.ClickOnAddButton
+5:38:47 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing DepartmentPage.UserClickOnNewDepartmentMenuLink
+-> done: DepartmentSteps.AddNewDepartmentWithGivenInput(<table>) (2.2s)
+Then User verify created Department "Department to verify attribute"
+5:38:49 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing Step User verify created Department by nameDepartment to verify attribute
+5:38:49 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing DepartmentPage.VerifyCreatedDepartment
+-> done: DepartmentSteps.UserVerifyCreatedDepartment("Department to ver...") (0.6s)
+Project base directory path : C:\Users\abhishekd\source\repos\abhi\laberpro
+Then User navigates to the attribute tab
+5:38:50 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing Step: User navigates to the attribute tab
+5:38:50 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing AttributePage.CloseAttributeForm
+5:38:51 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : no such element: Unable to locate element: {"method":"xpath","selector":"//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+5:38:51 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing AttributePage.ClickonProfilingtab
+5:38:52 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing AttributePage.ClickOnAttributeTab
+5:38:53 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='page-title' and text()='Attributes']"}
+  (Session info: chrome=99.0.4844.82)
+-> done: AttributeSteps.UserNavigatesTotheAttributeTab() (4.8s)
+And User select the Department "Department to verify attribute"
+5:38:55 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing Step:User select the DepartmentDepartment to verify attribute
+5:38:55 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing AttributePage.SelectTheDepartment
+-> done: AttributeSteps.SelectDepartment("Department to ver...") (1.8s)
+Then Verify selected Department "Department to verify attribute"
+5:38:56 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Exceuting Step: Verify selected DepartmentDepartment to verify attribute
+5:38:56 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing AttributePage.verifyTheDepartment
+5:38:56 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing AttributePage.clickOnAddAttribute
+5:38:59 AM Tuesday, March 22, 2022 -> ParallelWorker#1 : Executing AttributePage.CloseAttributeForm
+-> done: AttributeSteps.verifySelectedDepartment("Department to ver...") (3.9s)
+Project base directory path : C:\Users\abhishekd\source\repos\abhi\laberpro

@@ -1,0 +1,45 @@
+Given User navigates to the Characteristic tab
+5:55:34 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage UserNavigatesToTheCharacteristicTab 
+5:55:34 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage CloseCharacteristicForm
+5:55:34 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage WaitForCharacteristicAlertCloseIfAny 
+5:55:35 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+5:55:36 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+5:55:36 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage ClickOnStandardTab
+5:55:38 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+5:55:38 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage  ClickOnCharacteristicTab
+5:55:38 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage CloseCharacteristicDetailSideBar()
+5:55:39 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : no such element: Unable to locate element: {"method":"xpath","selector":"//button[contains(@class, 'cancel')]"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+-> done: CharacteristicSteps.UserNavigatesToTheCharacteristicTab() (4.6s)
+Then User select the Department "Department to verify Characteristic"
+5:55:39 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing Step:User select the DepartmentDepartment to verify Characteristic
+5:55:39 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing AttributePage.SelectTheDepartment
+-> done: AttributeSteps.SelectDepartment("Department to ver...") (1.3s)
+And User click on Characteristic
+5:55:40 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage UserClickOnCharacteristic 
+5:55:40 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage ClickOnCharacteristic
+5:55:40 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage ClickOnAddButton
+5:55:40 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage UserClickOnNewCharacteristicMenuLink
+-> done: CharacteristicSteps.UserClickOnCharacteristic() (0.2s)
+When User create new Characteristic with below input
+  --- table step argument ---
+  | Key  | Value                  |
+  | Name | CharacteristicTest 123 |
+5:55:40 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage AddNewCharacteristicWithGivenInput
+5:55:40 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing CharacteristicsPage AddNewCharacteristicWithGivenInput
+-> done: CharacteristicSteps.AddNewCharacteristicWithGivenInput(<table>) (0.7s)
+Then Verify validation Message: "Name may only contain letters, numbers and underscores"
+5:55:41 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing step: Verify validation Message: Name may only contain letters, numbers and underscores
+5:55:41 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing AllowancesPage.VerifyAddAllowanceErrorMessage
+-> done: AllowancesSteps.VerifyValidationMessage("Name may only con...") (1.2s)
+Project base directory path : C:\Users\abhishekd\source\repos\abhi\laberpro
+And User click on cancel button
+5:55:42 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing step: User click on cancel button
+5:55:42 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing AllowancesPage.CloseAllowanceForm
+5:55:42 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+5:55:43 AM Tuesday, March 22, 2022 -> ParallelWorker#4 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: MicrosoftEdge=99.0.1150.46)
+-> done: AllowancesSteps.UserWillPressCancelButton() (2.1s)

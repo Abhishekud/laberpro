@@ -1,0 +1,92 @@
+Given User navigates to the Allowance tab
+5:40:46 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing step: User navigates to the Allowance tab
+5:40:46 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.CloseAllowanceForm
+5:40:46 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+5:40:47 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=99.0.4844.82)
+5:40:49 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+5:40:49 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.ClickOnStandardTab
+5:40:50 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=99.0.4844.82)
+5:40:50 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.ClickOnAllowanceTab
+5:40:51 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Allowances')]"}
+  (Session info: chrome=99.0.4844.82)
+5:40:51 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.ClickOnCalculatorTab
+-> done: AllowancesSteps.UserNavigatesToTheAllowanceTab() (4.2s)
+When User add allowance using below input
+  --- table step argument ---
+  | Key                                       | Value                               |
+  | Name                                      | Verify Calculated Allowance Percent |
+  | Paid Time (Minutes)                       | 300                                 |
+  | Excluded Paid Breaks (Minutes)            | 10                                  |
+  | Relief Time (Minutes)                     | 1                                   |
+  | Included Paid Breaks (Minutes)            | 20                                  |
+  | Rest Calculation                          | 5                                   |
+  | Minor Unavoidable Delay (Percent)         | 200                                 |
+  | Additional Delay (Percent)                | 20                                  |
+  | Incentive Opportunity Allowance (Percent) | 125                                 |
+5:40:51 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing step: User add allowance using below input - | Key                                       | Value                               |
+| Name                                      | Verify Calculated Allowance Percent |
+| Paid Time (Minutes)                       | 300                                 |
+| Excluded Paid Breaks (Minutes)            | 10                                  |
+| Relief Time (Minutes)                     | 1                                   |
+| Included Paid Breaks (Minutes)            | 20                                  |
+| Rest Calculation                          | 5                                   |
+| Minor Unavoidable Delay (Percent)         | 200                                 |
+| Additional Delay (Percent)                | 20                                  |
+| Incentive Opportunity Allowance (Percent) | 125                                 |
+
+5:40:51 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.AddAllowanceWithGivenInput
+5:40:51 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.ClickOnAddAllowanceButton
+-> done: AllowancesSteps.AddAllowanceWithGivenInput(<table>) (4.4s)
+Then User verify error alert message: "Calculated Allowance Percent must be less than 100%"
+5:40:55 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing step: User verify error alert message: Calculated Allowance Percent must be less than 100%
+5:40:55 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.VerifyErrorAlertMessage
+Calculated Allowance Percent must be less than 100%
+Calculated PR&D Allowance Factor cannot be less than 0
+-> done: AllowancesSteps.VerifyErrorAlertMessage("Calculated Allowa...") (0.9s)
+Project base directory path : C:\Users\abhishekd\source\repos\abhi\laberpro
+And User click on cancel Button
+5:40:56 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing step: User click on cancel Button
+5:40:56 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.CloseAllowanceForm
+5:40:56 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+-> done: AllowancesSteps.UserPressCancelButton() (5.1s)
+When User add allowance using below input
+  --- table step argument ---
+  | Key                                       | Value |
+  | Name                                      | Dummy |
+  | Paid Time (Minutes)                       | 300   |
+  | Excluded Paid Breaks (Minutes)            | 10    |
+  | Relief Time (Minutes)                     | 1     |
+  | Included Paid Breaks (Minutes)            | 20    |
+  | Rest Calculation                          | 5     |
+  | Minor Unavoidable Delay (Percent)         | 20    |
+  | Additional Delay (Percent)                | 200   |
+  | Incentive Opportunity Allowance (Percent) | 125   |
+5:41:01 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing step: User add allowance using below input - | Key                                       | Value |
+| Name                                      | Dummy |
+| Paid Time (Minutes)                       | 300   |
+| Excluded Paid Breaks (Minutes)            | 10    |
+| Relief Time (Minutes)                     | 1     |
+| Included Paid Breaks (Minutes)            | 20    |
+| Rest Calculation                          | 5     |
+| Minor Unavoidable Delay (Percent)         | 20    |
+| Additional Delay (Percent)                | 200   |
+| Incentive Opportunity Allowance (Percent) | 125   |
+
+5:41:01 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.AddAllowanceWithGivenInput
+5:41:01 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.ClickOnAddAllowanceButton
+-> done: AllowancesSteps.AddAllowanceWithGivenInput(<table>) (3.5s)
+Then User verify error alert message: "Calculated Allowance Percent must be less than 100%"
+5:41:05 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing step: User verify error alert message: Calculated Allowance Percent must be less than 100%
+5:41:05 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.VerifyErrorAlertMessage
+Calculated Allowance Percent must be less than 100%
+Calculated PR&D Allowance Factor cannot be less than 0
+-> done: AllowancesSteps.VerifyErrorAlertMessage("Calculated Allowa...") (0.7s)
+Project base directory path : C:\Users\abhishekd\source\repos\abhi\laberpro
+And User click on cancel Button
+5:41:06 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing step: User click on cancel Button
+5:41:06 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.CloseAllowanceForm
+5:41:06 AM Tuesday, March 22, 2022 -> ParallelWorker#5 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+-> done: AllowancesSteps.UserPressCancelButton() (4.6s)
