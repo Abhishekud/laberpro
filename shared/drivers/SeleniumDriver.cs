@@ -20,7 +20,7 @@ namespace laborpro.drivers
         {
             if(browser.StartsWith("$"))
             {
-                string browserParameter = Environment.GetEnvironmentVariable("broswer");
+                string browserParameter = Environment.GetEnvironmentVariable("browser");
                 if (browserParameter == null)
                 {
                     browser = DEFAULT_BROSWER;
@@ -29,7 +29,7 @@ namespace laborpro.drivers
                 {
                     browser = browserParameter;
                 }
-                Console.WriteLine("Launching broswer - {0}", browser);
+                Console.WriteLine("Launching browser - {0}", browser);
             }
             if(webDriver.Value==null)
             {

@@ -32,6 +32,22 @@ namespace laborpro.util
             }
             return null;
         }
+
+        public static TestScenario ReadKey(Dictionary<string, TestScenario> dictionary, string key)
+        {
+            if (dictionary != null)
+            {
+                try
+                {
+                    return dictionary[key];
+                }
+                catch (Exception ex)
+                {
+                    LogWriter.WriteLog(ex.Message);
+                }
+            }
+            return null;
+        }
         public static string DictionaryToString(Dictionary<string, string> dictionary) 
         {
             var entries = dictionary.Select(d =>
