@@ -1,0 +1,212 @@
+4:54:13 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing step: User navigates to the Locations tab
+4:54:13 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing step: User navigates to the Locations tab
+4:54:15 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing step: User go to application https://laborpro.benchmarkit.solutions/log-in
+4:54:36 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing step: User enter email: bits.auto.qa1+1@gmail.com and password: **********
+4:54:36 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing LoginPage.PerformLogin
+4:54:37 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing step: Verify Login message: success
+4:54:37 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing LoginPage.VerifyLoginSuccess
+4:54:42 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing Step: User navigates to the List Management tab  
+4:54:42 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing DepartmentPage.CloseDepartmentForm
+4:54:43 AM Friday, March 25, 2022 -> ParallelWorker#2 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+4:54:44 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing DepartmentPage.ClickOnListManagementTab
+4:54:45 AM Friday, March 25, 2022 -> ParallelWorker#2 : no such element: Unable to locate element: {"method":"xpath","selector":"//h3[contains(text(),'Departments')]"}
+  (Session info: chrome=99.0.4844.82)
+4:54:46 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing Step: User selects Department
+4:54:46 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing DepartmentPage.ClickOnDepartment
+4:54:46 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing step: User create new Department with below input if not exist - | Key  | Value                                 |
+| Name | Department To verify Units of Measure |
+
+4:54:46 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing LocationsPage.AddNewLocationWithGivenInputIfNotExist
+4:54:47 AM Friday, March 25, 2022 -> ParallelWorker#2 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@role='row' and .//*[text()='Department To verify Units of Measure']]"}
+  (Session info: chrome=99.0.4844.82)
+4:54:47 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing DepartmentPage.AddNewDepartmentWithGivenInput
+4:54:47 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing DepartmentPage.ClickOnAddButton
+4:54:47 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing DepartmentPage.UserClickOnNewDepartmentMenuLink
+4:54:49 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing Step User verify created Department by nameDepartment To verify Units of Measure
+4:54:49 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing DepartmentPage.VerifyCreatedDepartment
+4:54:50 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing Step User selects Units of Measure
+4:54:50 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing UnitOfMeasurePage.SelectListManagement
+4:54:51 AM Friday, March 25, 2022 -> ParallelWorker#2 : no such element: Unable to locate element: {"method":"xpath","selector":"//h3[@class='page-title' and contains(text(),'Units Of Measure')]"}
+  (Session info: chrome=99.0.4844.82)
+4:54:53 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing Step User Selects Created Department Department To verify Units of Measure
+4:54:53 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing UnitOfMeasurePage.SelectCreatedDepartment
+4:54:53 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing step: User enter email: bits.auto.qa1+3@gmail.com and password: **********
+4:54:53 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing LoginPage.PerformLogin
+4:54:54 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing step: Verify Login message: success
+4:54:54 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing LoginPage.VerifyLoginSuccess
+4:54:55 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing Step User adds Unit Of Measure using below input| Key  | Value |
+| Name |       |
+
+4:54:55 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing UnitsOfMeasurePage.AddUnitOfMeasureWithGivenInput
+4:54:55 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing UnitsOfMeasurePage.clickOnAddUnitOfMeasure
+4:54:59 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing Step: User navigates to the List Management tab  
+4:54:59 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DepartmentPage.CloseDepartmentForm
+4:55:00 AM Friday, March 25, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+4:55:01 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DepartmentPage.ClickOnListManagementTab
+4:55:01 AM Friday, March 25, 2022 -> ParallelWorker#2 : Timed out after 5 seconds
+4:55:01 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing step: Verify validation Message: Name is required
+4:55:01 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing AllowancesPage.VerifyAddAllowanceErrorMessage
+4:55:02 AM Friday, March 25, 2022 -> ParallelWorker#2 : Exceuting Step: User click cancel Button
+4:55:02 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing AttributePage.CloseAttributeForm
+4:55:02 AM Friday, March 25, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//h3[contains(text(),'Departments')]"}
+  (Session info: chrome=99.0.4844.82)
+4:55:03 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing Step: User navigates to the List Management tab  
+4:55:03 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing DepartmentPage.CloseDepartmentForm
+4:55:04 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing Step: User selects Department
+4:55:04 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DepartmentPage.ClickOnDepartment
+4:55:04 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing User create new Department with below input | Key  | Value |
+| Name |       |
+
+4:55:04 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DepartmentPage.AddNewDepartmentWithGivenInput
+4:55:04 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DepartmentPage.ClickOnAddButton
+4:55:04 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DepartmentPage.UserClickOnNewDepartmentMenuLink
+4:55:04 AM Friday, March 25, 2022 -> ParallelWorker#2 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+4:55:05 AM Friday, March 25, 2022 -> ParallelWorker#2 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=99.0.4844.82)
+4:55:05 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing DepartmentPage.ClickOnListManagementTab
+4:55:06 AM Friday, March 25, 2022 -> ParallelWorker#2 : no such element: Unable to locate element: {"method":"xpath","selector":"//h3[contains(text(),'Departments')]"}
+  (Session info: chrome=99.0.4844.82)
+4:55:07 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing Step User selects Units of Measure
+4:55:07 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing UnitOfMeasurePage.SelectListManagement
+4:55:07 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing Step User Selects Created Department Department To verify Units of Measure
+4:55:07 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing UnitOfMeasurePage.SelectCreatedDepartment
+4:55:09 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing Step User adds Unit Of Measure using below input| Key  | Value |
+| Name | UOM   |
+
+4:55:09 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing UnitsOfMeasurePage.AddUnitOfMeasureWithGivenInput
+4:55:09 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing UnitsOfMeasurePage.clickOnAddUnitOfMeasure
+4:55:09 AM Friday, March 25, 2022 -> ParallelWorker#5 : Timed out after 5 seconds
+4:55:09 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing step: Verify validation Message: Name is required
+4:55:09 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing AllowancesPage.VerifyAddAllowanceErrorMessage
+4:55:10 AM Friday, March 25, 2022 -> ParallelWorker#5 : Exceuting Step User clicks cancel button
+4:55:10 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DepartmentPage.CloseDepartmentForm
+4:55:10 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing Step: User navigates to the List Management tab  
+4:55:10 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DepartmentPage.CloseDepartmentForm
+4:55:11 AM Friday, March 25, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+4:55:12 AM Friday, March 25, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=99.0.4844.82)
+4:55:12 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DepartmentPage.ClickOnListManagementTab
+4:55:13 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing Step User verify Added Unit of MeasureUOM
+4:55:13 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing UnitOfMeasurePage.VerifyCreatedUnitOfMeasure
+4:55:13 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing Step User delete created Unit Of Measure
+4:55:13 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing UnitOfMeasurePage.DeleteCreatedUnitOfMeasure
+4:55:13 AM Friday, March 25, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//h3[@class='page-title' and contains(text(),'Units Of Measure')]"}
+  (Session info: chrome=99.0.4844.82)
+4:55:14 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing Step: User selects Department
+4:55:14 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DepartmentPage.ClickOnDepartment
+4:55:14 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing step: User create new Department with below input if not exist - | Key  | Value                           |
+| Name | Department to verify Department |
+
+4:55:14 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing LocationsPage.AddNewLocationWithGivenInputIfNotExist
+4:55:15 AM Friday, March 25, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@role='row' and .//*[text()='Department to verify Department']]"}
+  (Session info: chrome=99.0.4844.82)
+4:55:15 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DepartmentPage.AddNewDepartmentWithGivenInput
+4:55:15 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DepartmentPage.ClickOnAddButton
+4:55:15 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DepartmentPage.UserClickOnNewDepartmentMenuLink
+4:55:18 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing Step User verify created Department by nameDepartment to verify Department
+4:55:18 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DepartmentPage.VerifyCreatedDepartment
+4:55:19 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing Step User delete created Department by nameDepartment to verify Department
+4:55:19 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DepartmentPage.DeleteCreatedDepartment
+4:55:19 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DepartmentPage.CloseDepartmentDetailSideBar
+4:55:19 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing Step: User navigates to the List Management tab  
+4:55:19 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing DepartmentPage.CloseDepartmentForm
+4:55:20 AM Friday, March 25, 2022 -> ParallelWorker#2 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+4:55:21 AM Friday, March 25, 2022 -> ParallelWorker#2 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=99.0.4844.82)
+4:55:21 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing DepartmentPage.ClickOnListManagementTab
+4:55:22 AM Friday, March 25, 2022 -> ParallelWorker#2 : no such element: Unable to locate element: {"method":"xpath","selector":"//h3[contains(text(),'Departments')]"}
+  (Session info: chrome=99.0.4844.82)
+4:55:23 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing Step User selects Units of Measure
+4:55:23 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing UnitOfMeasurePage.SelectListManagement
+4:55:23 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing Step User Selects Created Department Department To verify Units of Measure
+4:55:23 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing UnitOfMeasurePage.SelectCreatedDepartment
+4:55:25 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing Step User verify the Department recordNo records available
+4:55:25 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing UnitOfMeasurePage.VerifyRecordOfSelectedDept
+4:55:25 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing Step: User navigates to the List Management tab  
+4:55:25 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing DepartmentPage.CloseDepartmentForm
+4:55:26 AM Friday, March 25, 2022 -> ParallelWorker#2 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+4:55:27 AM Friday, March 25, 2022 -> ParallelWorker#2 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=99.0.4844.82)
+4:55:27 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing DepartmentPage.ClickOnListManagementTab
+4:55:28 AM Friday, March 25, 2022 -> ParallelWorker#2 : no such element: Unable to locate element: {"method":"xpath","selector":"//h3[contains(text(),'Departments')]"}
+  (Session info: chrome=99.0.4844.82)
+4:55:29 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing Step User selects Units of Measure
+4:55:29 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing UnitOfMeasurePage.SelectListManagement
+4:55:29 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing Step User Selects Created Department Department To verify Units of Measure
+4:55:29 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing UnitOfMeasurePage.SelectCreatedDepartment
+4:55:31 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing Step User adds Unit Of Measure using below input| Key  | Value |
+| Name | UOM   |
+
+4:55:31 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing UnitsOfMeasurePage.AddUnitOfMeasureWithGivenInput
+4:55:31 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing UnitsOfMeasurePage.clickOnAddUnitOfMeasure
+4:55:34 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing Step User verify Added Unit of MeasureUOM
+4:55:34 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing UnitOfMeasurePage.VerifyCreatedUnitOfMeasure
+4:55:35 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing Step User adds Unit Of Measure using below input| Key  | Value |
+| Name | UOM   |
+
+4:55:35 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing UnitsOfMeasurePage.AddUnitOfMeasureWithGivenInput
+4:55:35 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing UnitsOfMeasurePage.clickOnAddUnitOfMeasure
+4:55:41 AM Friday, March 25, 2022 -> ParallelWorker#2 : Timed out after 5 seconds
+4:55:41 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing step: Verify validation Message: Name already exists
+4:55:41 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing AllowancesPage.VerifyAddAllowanceErrorMessage
+4:55:41 AM Friday, March 25, 2022 -> ParallelWorker#2 : Exceuting Step: User click cancel Button
+4:55:41 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing AttributePage.CloseAttributeForm
+4:55:42 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing Step User delete created Unit Of Measure
+4:55:42 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing UnitOfMeasurePage.DeleteCreatedUnitOfMeasure
+4:55:49 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing Step: User navigates to the List Management tab  
+4:55:49 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DepartmentPage.CloseDepartmentForm
+4:55:50 AM Friday, March 25, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=99.0.4844.82)
+4:55:51 AM Friday, March 25, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=99.0.4844.82)
+4:55:51 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DepartmentPage.ClickOnListManagementTab
+4:55:52 AM Friday, March 25, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//h3[@class='page-title' and contains(text(),'Units Of Measure')]"}
+  (Session info: chrome=99.0.4844.82)
+4:55:52 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing Step: User selects Department
+4:55:52 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing DepartmentPage.ClickOnDepartment
+4:55:53 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing Step User delete created Department by nameDepartment To verify Units of Measure
+4:55:53 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing DepartmentPage.DeleteCreatedDepartment
+4:55:53 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing DepartmentPage.CloseDepartmentDetailSideBar
+4:55:53 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing Step: User selects Department
+4:55:53 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DepartmentPage.ClickOnDepartment
+4:55:53 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing step: User create new Department with below input if not exist - | Key  | Value                     |
+| Name | Department Exist Scenario |
+
+4:55:53 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing LocationsPage.AddNewLocationWithGivenInputIfNotExist
+4:55:55 AM Friday, March 25, 2022 -> ParallelWorker#5 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@role='row' and .//*[text()='Department Exist Scenario']]"}
+  (Session info: chrome=99.0.4844.82)
+4:55:55 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DepartmentPage.AddNewDepartmentWithGivenInput
+4:55:55 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DepartmentPage.ClickOnAddButton
+4:55:55 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DepartmentPage.UserClickOnNewDepartmentMenuLink
+4:55:57 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing Step User verify created Department by nameDepartment Exist Scenario
+4:55:57 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DepartmentPage.VerifyCreatedDepartment
+4:55:57 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing User create new Department with below input | Key  | Value                     |
+| Name | Department Exist Scenario |
+
+4:55:57 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DepartmentPage.AddNewDepartmentWithGivenInput
+4:55:57 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DepartmentPage.ClickOnAddButton
+4:55:57 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DepartmentPage.UserClickOnNewDepartmentMenuLink
+4:56:03 AM Friday, March 25, 2022 -> ParallelWorker#5 : Timed out after 5 seconds
+4:56:03 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing step: Verify validation Message: Name already exists
+4:56:03 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing AllowancesPage.VerifyAddAllowanceErrorMessage
+4:56:03 AM Friday, March 25, 2022 -> ParallelWorker#5 : Exceuting Step User clicks cancel button
+4:56:03 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DepartmentPage.CloseDepartmentForm
+4:56:03 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing Step User delete created Department by nameDepartment Exist Scenario
+4:56:03 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DepartmentPage.DeleteCreatedDepartment
+4:56:03 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DepartmentPage.CloseDepartmentDetailSideBar
+4:56:32 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing step: User logout from the application
+4:56:32 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing DashboardPage.PerformLogout..
+4:56:32 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing DashboardPage.ClickOnModule(Account)
+4:56:32 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing DashboardPage.PerformModuleAction(Log Out)
+4:56:40 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing step: User logout from the application
+4:56:40 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DashboardPage.PerformLogout..
+4:56:40 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DashboardPage.ClickOnModule(Account)
+4:56:40 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing DashboardPage.PerformModuleAction(Log Out)
+4:57:01 AM Friday, March 25, 2022 -> ParallelWorker#5 : Executing step: User close browser
+4:57:13 AM Friday, March 25, 2022 -> ParallelWorker#2 : Executing step: User close browser
