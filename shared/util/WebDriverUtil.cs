@@ -13,7 +13,7 @@ namespace laborpro.util
     internal class WebDriverUtil
     {
         public static readonly int NO_WAIT = 0;
-        public static readonly int DEFAULT_WAIT = 180;
+        public static readonly int DEFAULT_WAIT = 200;
         public static readonly int ONE_SECOND_WAIT = 1;
         public static readonly int TWO_SECOND_WAIT = 2;
         public static readonly int FIVE_SECOND_WAIT = 5;
