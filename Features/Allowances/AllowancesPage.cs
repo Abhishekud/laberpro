@@ -215,7 +215,7 @@ namespace laborpro.pages
 
             WebDriverUtil.GetWebElement(SAVE_BUTTON, WebDriverUtil.NO_WAIT,
                 String.Format("Unable to locate save button on create allowance page - {0}", SAVE_BUTTON)).Click();
-            if (Util.ReadKey(dictionary, "Name") == null)
+            if (Util.ReadKey(dictionary, "Name") != null)
             {
                 WebDriverUtil.WaitForWebElementInvisible(ALLOWANCE_POPUP, WebDriverUtil.FIVE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
 
