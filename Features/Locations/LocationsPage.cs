@@ -38,6 +38,7 @@ namespace laborpro.pages
         const string CLOSE_LOCATION_DETAILS = "//*[contains(@class,'locations-list-edit-sidebar')]//button[text()='Close']";
         const string CANCEL_LOCATION_DETAILS = "//*[contains(@class,'locations-list-edit-sidebar')]//button[text()='Cancel']";
         const string LOCATION_RECORD = "//*[@role='row']//*[text()='{0}']";
+        const string LOCATION_POPUP = "//*[@role='dialog']//*[@class='modal-title' and contains(text(), 'New Location')]";
         const string LOCATION_DELETE_BUTTON = "//*[contains(@class,'locations-list-edit-sidebar')]//button[contains(@class,'delete')]";
         const string LOCATION_DELETE_CONFIRM_POPUP = "//*[@class='modal-dialog']//*[contains(text(),'Please confirm that you want to delete')]";
         const string LOCATION_DELETE_CONFIRM_POPUP_ACCEPT = "//*[@class='modal-dialog']//button[text()='Confirm']";
@@ -56,7 +57,7 @@ namespace laborpro.pages
                 locationDetailsSideBar.Click();
                 WaitForLoading();
             }
-            
+
         }
         public static void ClickOnProfilingTab()
         {
@@ -65,7 +66,7 @@ namespace laborpro.pages
             if (profilingtab != null)
             {
                 profilingtab.Click();
-                WebDriverUtil.WaitForAWhile(); 
+                WebDriverUtil.WaitForAWhile();
             }
         }
         public static void ClickOnLocationsTab()
@@ -87,7 +88,7 @@ namespace laborpro.pages
                 IWebElement nametag = WebDriverUtil.GetWebElementAndScroll(NAME_INPUT);
                 if (nametag != null)
                 {
-                    nametag.Click();    
+                    nametag.Click();
                 }
                 WebDriverUtil.WaitForWebElementInvisible(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             }
@@ -110,7 +111,7 @@ namespace laborpro.pages
             WebDriverUtil.GetWebElement(ADD_BUTTON, WebDriverUtil.NO_WAIT,
             String.Format("Unable to locate add button on Locations page - {0}", ADD_BUTTON)).Click();
             WebDriverUtil.WaitForAWhile();
-        } 
+        }
         public static void ClickOnNewLocationMenuLink()
         {
             LogWriter.WriteLog("Executing LocationsPage.ClickOnNewLocationMenuLink");
@@ -130,9 +131,9 @@ namespace laborpro.pages
             }
             else
             {
-                record.Click(); 
+                record.Click();
             }
-                
+
         }
         public static void AddNewLocationWithGivenInput(Table inputData)
         {
@@ -184,10 +185,20 @@ namespace laborpro.pages
                  String.Format("Unable to locate Included Paid Breaks (Minutes) input on create location page - {0}", INACTIVE_DATE_INPUT))
                      .SendKeys(dictionary["Inactive Date"]);
             }
-            
+
             WebDriverUtil.GetWebElementAndScroll(SAVE_BUTTON, WebDriverUtil.NO_WAIT,
                 String.Format("Unable to locate save button on create allowance page - {0}", SAVE_BUTTON)).Click();
-            WebDriverUtil.WaitForAWhile();
+
+            if (Util.ReadKey(dictionary, "Name") == null)
+            {
+                WebDriverUtil.WaitForWebElementInvisible(LOCATION_POPUP, WebDriverUtil.TWO_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+
+            }
+            else
+            {
+                WebDriverUtil.WaitForWebElementInvisible(LOCATION_POPUP, WebDriverUtil.DEFAULT_WAIT, WebDriverUtil.NO_MESSAGE);
+            }
+
         }
         public static void EditLocationWithGivenInput(string locationName, Table inputData)
         {
@@ -205,7 +216,7 @@ namespace laborpro.pages
             if (Util.ReadKey(dictionary, "Name") != null)
             {
                 element = WebDriverUtil.GetWebElement(NAME_INPUT, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-                if (element==null)
+                if (element == null)
                 {
                     WebDriverUtil.GetWebElement(String.Format(LOCATION_RECORD, locationName), WebDriverUtil.NO_WAIT,
                     String.Format("Unable to locate location record on locations page - {0}", String.Format(LOCATION_RECORD, locationName))).Click();
@@ -227,9 +238,9 @@ namespace laborpro.pages
             }
             if (Util.ReadKey(dictionary, "Location Profile") != null)
             {
-               new SelectElement(WebDriverUtil.GetWebElement(LOCATION_PROFILE_DROPDOWN, WebDriverUtil.NO_WAIT,
-               String.Format("Unable to locate Location Profile input on create location page - {0}", LOCATION_PROFILE_DROPDOWN)))
-                   .SelectByValue(dictionary["Location Profile"]);
+                new SelectElement(WebDriverUtil.GetWebElement(LOCATION_PROFILE_DROPDOWN, WebDriverUtil.NO_WAIT,
+                String.Format("Unable to locate Location Profile input on create location page - {0}", LOCATION_PROFILE_DROPDOWN)))
+                    .SelectByValue(dictionary["Location Profile"]);
             }
             if (Util.ReadKey(dictionary, "Brand") != null)
             {
@@ -251,7 +262,7 @@ namespace laborpro.pages
                 element.Clear();
                 element.SendKeys(dictionary["Inactive Date"]);
             }
-            
+
             WebDriverUtil.GetWebElementAndScroll(SAVE_BUTTON, WebDriverUtil.NO_WAIT,
                 String.Format("Unable to locate save button on create allowance page - {0}", SAVE_BUTTON)).Click();
             WebDriverUtil.WaitForAWhile();
@@ -271,7 +282,7 @@ namespace laborpro.pages
             WebDriverUtil.GetWebElementAndScroll(String.Format(LOCATION_RECORD, locationName), WebDriverUtil.NO_WAIT,
             String.Format("Unable to locate location record on locations page - {0}", String.Format(LOCATION_RECORD, locationName))).Click();
             WebDriverUtil.WaitForAWhile();
-            if(WebDriverUtil.GetWebElement(String.Format(LOCATION_DELETE_BUTTON, locationName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE)==null)
+            if (WebDriverUtil.GetWebElement(String.Format(LOCATION_DELETE_BUTTON, locationName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) == null)
             {
                 KeepRecordUnsort();
                 WebDriverUtil.GetWebElementAndScroll(String.Format(LOCATION_RECORD, locationName), WebDriverUtil.NO_WAIT,
@@ -295,7 +306,7 @@ namespace laborpro.pages
             LogWriter.WriteLog("Executing LocationsPage.DeleteLocationIfExist");
             //CloseLocationDetailSideBar();
             IWebElement record = WebDriverUtil.GetWebElement(String.Format(LOCATION_RECORD, locationName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if(record != null)
+            if (record != null)
             {
                 //CloseLocationDetailSideBar();
                 KeepRecordUnsort();
@@ -321,7 +332,7 @@ namespace laborpro.pages
                     WebDriverUtil.WaitForWebElementInvisible(LOCATION_DELETE_CONFIRM_POPUP, WebDriverUtil.DEFAULT_WAIT, WebDriverUtil.NO_MESSAGE);
                 }
             }
-            
+
         }
 
         public static void WaitForLoading()
@@ -355,11 +366,11 @@ namespace laborpro.pages
             WebDriverUtil.WaitForAWhile();
             WebDriverUtil.GetWebElement(CONFIG_GRID_SECTION, WebDriverUtil.NO_WAIT,
                     String.Format("Unable to locate configure grid section on location page - {0}", CONFIG_GRID_SECTION));
-            IWebElement newestBrandSwithOn = WebDriverUtil.GetWebElement(CONFIG_NEWEST_BRAND, WebDriverUtil.NO_WAIT,WebDriverUtil.NO_MESSAGE);
-            if(newestBrandSwithOn != null)
+            IWebElement newestBrandSwithOn = WebDriverUtil.GetWebElement(CONFIG_NEWEST_BRAND, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (newestBrandSwithOn != null)
                 newestBrandSwithOn.Click();
-            IWebElement newBrandSwithOn = WebDriverUtil.GetWebElement(CONFIG_NEW_BRAND, WebDriverUtil.NO_WAIT,WebDriverUtil.NO_MESSAGE);
-            if(newBrandSwithOn != null)
+            IWebElement newBrandSwithOn = WebDriverUtil.GetWebElement(CONFIG_NEW_BRAND, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (newBrandSwithOn != null)
                 newBrandSwithOn.Click();
             WebDriverUtil.GetWebElement(CONFIG_GRID_BUTTON, WebDriverUtil.NO_WAIT,
                     String.Format("Unable to locate configure grid button on location page - {0}", CONFIG_GRID_BUTTON)).Click();
@@ -375,6 +386,6 @@ namespace laborpro.pages
                 WaitForLoading();
             }
         }
-    }       
-    
+    }
+
 }

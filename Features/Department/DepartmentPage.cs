@@ -113,10 +113,15 @@ namespace laborpro.pages
 
             WebDriverUtil.GetWebElementAndScroll(SAVE_BUTTON, WebDriverUtil.NO_WAIT,
                 String.Format("Unable to locate save button Departments page - {0}", SAVE_BUTTON)).Click();
-   
-            
+
+            if (Util.ReadKey(dictionary, "Name") != null)
+            {
                 WebDriverUtil.WaitForWebElementInvisible(DEPARTMENTS_POPUP, WebDriverUtil.FIVE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-            
+            }
+            else
+            {
+                WebDriverUtil.WaitForWebElementInvisible(DEPARTMENTS_POPUP, WebDriverUtil.DEFAULT_WAIT , WebDriverUtil.NO_MESSAGE);
+            }
         }
 
         public static void UserClickOnNewDepartmentMenuLink()

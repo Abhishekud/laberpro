@@ -38,22 +38,23 @@ namespace laborpro.pages
         const string ERROR_ALERT_TOAST_XPATH = "//*[@class='toast toast-error']";
         const string ALLOWANCE_DETAILS_PAGE_PREBVIOUS_LINK = "//a[.//*[@class='fa fa-caret-left']]";
         const string ALLOWANCE_RECORD = "//*[@role='row' and .//*[text()='{0}']]";
+        const string ALLOWANCE_POPUP = "//*[@role='dialog']//*[@class='modal-title' and contains(text(), 'New Allowance')]";
         public static void ClickOnPreviousLink()
         {
             LogWriter.WriteLog("Executing AllowancesPage.ClickOnPreviousLink");
             WebDriverUtil.GetWebElement(ALLOWANCE_DETAILS_PAGE_PREBVIOUS_LINK, WebDriverUtil.ONE_SECOND_WAIT,
                 String.Format("Unable to locate previous button on Allowance details page - {0}", ALLOWANCE_DETAILS_PAGE_PREBVIOUS_LINK)).Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            
+
         }
-        public static void VerifyErrorAlertMessage(String expectedMessage) 
+        public static void VerifyErrorAlertMessage(String expectedMessage)
         {
             LogWriter.WriteLog("Executing AllowancesPage.VerifyErrorAlertMessage");
             IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-            if(alert != null)
+            if (alert != null)
             {
                 Console.WriteLine(alert.Text);
-                if(!alert.Text.Contains(expectedMessage))
+                if (!alert.Text.Contains(expectedMessage))
                     throw new Exception(string.Format("Error message is not being matched as we expected it should be - {0}", expectedMessage));
                 BaseClass._AttachScreenshot.Value = true;
             }
@@ -65,18 +66,18 @@ namespace laborpro.pages
             if (alert != null)
             {
                 IWebElement nametag = WebDriverUtil.GetWebElementAndScroll(NAMETAG_INPUT);
-                if(nametag != null)
+                if (nametag != null)
                 {
                     nametag.Click();
                 }
                 WebDriverUtil.WaitForWebElementInvisible(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             }
         }
-        public static void VerifyAddAllowanceErrorMessage(string message) 
+        public static void VerifyAddAllowanceErrorMessage(string message)
         {
             LogWriter.WriteLog("Executing AllowancesPage.VerifyAddAllowanceErrorMessage");
             IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FORM_INPUT_FIEND_ERROR_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-            if(errorMessage!=null)
+            if (errorMessage != null)
             {
                 string actualError = errorMessage.Text;
                 if (!(actualError.ToLower()).Equals(message.ToLower()))
@@ -89,7 +90,7 @@ namespace laborpro.pages
         {
             LogWriter.WriteLog("Executing AllowancesPage.ClickOnStandardTab");
             IWebElement standardtab = WebDriverUtil.GetWebElement(STANDARD_COLLAPSED_TAB, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if(standardtab!=null)
+            if (standardtab != null)
             {
                 standardtab.Click();
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
@@ -99,7 +100,7 @@ namespace laborpro.pages
         {
             LogWriter.WriteLog("Executing AllowancesPage.ClickOnAllowanceTab");
             IWebElement allowanceTab = WebDriverUtil.GetWebElement(ALLOWANCE_COLLAPSED_TAB, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (allowanceTab!= null)
+            if (allowanceTab != null)
             {
                 allowanceTab.Click();
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
@@ -108,7 +109,7 @@ namespace laborpro.pages
         public static void ClickOnCalculatorTab()
         {
             LogWriter.WriteLog("Executing AllowancesPage.ClickOnCalculatorTab");
-            if (WebDriverUtil.GetWebElement(ALLOWANCES_PAGE, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE)==null)
+            if (WebDriverUtil.GetWebElement(ALLOWANCES_PAGE, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) == null)
             {
                 WebDriverUtil.GetWebElement(CALCULATOR_TAB, WebDriverUtil.DEFAULT_WAIT, String.Format("Unable to locate Calculator tab - {0}", CALCULATOR_TAB)).Click();
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
@@ -129,7 +130,7 @@ namespace laborpro.pages
         {
             LogWriter.WriteLog("Executing AllowancesPage.ClickOnAddAllowanceButton");
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.GetWebElement(ADD_ALLOWANCE_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, 
+            WebDriverUtil.GetWebElement(ADD_ALLOWANCE_BUTTON, WebDriverUtil.ONE_SECOND_WAIT,
                 String.Format("Unable to locate add allowance button on Allowance page - {0}", ADD_ALLOWANCE_BUTTON)).Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
         }
@@ -141,8 +142,8 @@ namespace laborpro.pages
             if (record == null)
             {
                 AddAllowanceWithGivenInput(inputData);
-            } 
-            else 
+            }
+            else
             {
                 record.Click();
             }
@@ -155,11 +156,11 @@ namespace laborpro.pages
             var dictionary = Util.ConvertToDictionary(inputData);
             BaseClass._TestData.Value = Util.DictionaryToString(dictionary);
             //Enter allowance name if provided
-            if(Util.ReadKey(dictionary, "Name")!=null)
+            if (Util.ReadKey(dictionary, "Name") != null)
             {
                 WebDriverUtil.GetWebElement(NAMETAG_INPUT, WebDriverUtil.NO_WAIT,
                 String.Format("Unable to locate name input on create allowance page - {0}", NAMETAG_INPUT))
-                    .SendKeys(dictionary["Name"]);   
+                    .SendKeys(dictionary["Name"]);
             }
 
             if (Util.ReadKey(dictionary, "Paid Time (Minutes)") != null)
@@ -214,6 +215,16 @@ namespace laborpro.pages
 
             WebDriverUtil.GetWebElement(SAVE_BUTTON, WebDriverUtil.NO_WAIT,
                 String.Format("Unable to locate save button on create allowance page - {0}", SAVE_BUTTON)).Click();
+            if (Util.ReadKey(dictionary, "Name") == null)
+            {
+                WebDriverUtil.WaitForWebElementInvisible(ALLOWANCE_POPUP, WebDriverUtil.FIVE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+
+            }
+            else
+            {
+                WebDriverUtil.WaitForWebElementInvisible(ALLOWANCE_POPUP, WebDriverUtil.DEFAULT_WAIT, WebDriverUtil.NO_MESSAGE);
+            }
+
         }
         public static void DeleteAllowance()
         {
@@ -238,7 +249,7 @@ namespace laborpro.pages
         public static void UserDeleteCreatedAllowance(string allowanceName)
         {
             LogWriter.WriteLog("Executing AllowancesPage.UserDeleteCreatedAllowance");
-            WebDriverUtil.GetWebElement(String.Format(ALLOWANCE_RECORD,allowanceName), WebDriverUtil.NO_WAIT,
+            WebDriverUtil.GetWebElement(String.Format(ALLOWANCE_RECORD, allowanceName), WebDriverUtil.NO_WAIT,
             String.Format("Unable to locate allowance record allowance page - {0}", String.Format(ALLOWANCE_RECORD, allowanceName))).Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             DeleteAllowance();

@@ -32,12 +32,14 @@ namespace laborpro.Features.Attribute
         const string CHECK_ATTRIBUTE_CREATED_FORM = "//div[contains(@class,'sidebar-header')]";
         const string DEPARTMENT_DROPDOWN_VALUE = "//select[contains(@id,'departmentId')]//option[contains(text(),'{0}')]";
         const string NEW_ATTRIBUTE_FORM = "//h4[contains(text(),'New Attribute in {0}')]";
+        const string ATTRIBUTE_MODAL = "//*[@role='dialog']//*[@class='modal-title' and contains(text(),'New Attribute')]";
+        const string FORM_INPUT_FIELD_VALIDATION = "//*[contains(@class,'validation-error')]";
 
         public static void ClickOnProfilingTab()
         {
             LogWriter.WriteLog("Executing AttributePage.ClickonProfilingtab");
             IWebElement profilingTab = WebDriverUtil.GetWebElement(PROFILING_COLLAPSED_TAB, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if(profilingTab != null)
+            if (profilingTab != null)
             {
                 profilingTab.Click();
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
@@ -49,26 +51,26 @@ namespace laborpro.Features.Attribute
         {
 
             LogWriter.WriteLog("Executing AttributePage.ClickOnAttributeTab");
-            if (WebDriverUtil.GetWebElement(ATTRIBUTE_PAGE, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE )== null) 
+            if (WebDriverUtil.GetWebElement(ATTRIBUTE_PAGE, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) == null)
             {
                 WebDriverUtil.GetWebElement(ATTRIBUTE_TAB, WebDriverUtil.DEFAULT_WAIT, String.Format("Unable to locate Attribute tab - {0}", ATTRIBUTE_TAB)).Click();
                 WebDriverUtil.WaitForAWhile();
             }
         }
 
-        public static void clickOnAddAttribute() 
+        public static void clickOnAddAttribute()
         {
             LogWriter.WriteLog("Executing AttributePage.clickOnAddAttribute");
             IWebElement AddAttribute = WebDriverUtil.GetWebElement(ADD_ATTRIBUTE_BUTTON, WebDriverUtil.NO_WAIT,
                 String.Format("Unable to Locate Add Attribute Button - {0}", ADD_ATTRIBUTE_BUTTON));
             IWebElement NewAttribute = WebDriverUtil.GetWebElement(NEW_ATTRIBUTE_BUTTON, WebDriverUtil.NO_WAIT,
                 String.Format("Unable to locate the New Attribute Button - {0}", NEW_ATTRIBUTE_BUTTON));
-            if(AddAttribute != null || NewAttribute != null) 
+            if (AddAttribute != null || NewAttribute != null)
             {
                 AddAttribute.Click();
                 NewAttribute.Click();
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            
+
             }
 
 
@@ -78,7 +80,7 @@ namespace laborpro.Features.Attribute
             LogWriter.WriteLog("Executing AttributePage.CloseAttributeForm");
             IWebElement formCloseButton = WebDriverUtil.GetWebElement(CANCEL_BUTTON, WebDriverUtil.NO_WAIT,
                 WebDriverUtil.NO_MESSAGE);
-            if(formCloseButton != null)
+            if (formCloseButton != null)
             {
                 formCloseButton.Click();
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
@@ -89,37 +91,48 @@ namespace laborpro.Features.Attribute
             LogWriter.WriteLog("Executing AttributePage.AddAttributeWithGivenInput");
             clickOnAddAttribute();
             var dictionary = Util.ConvertToDictionary(inputData);
-            BaseClass._TestData.Value =  Util.DictionaryToString(dictionary);   
+            BaseClass._TestData.Value = Util.DictionaryToString(dictionary);
 
-            if(Util.ReadKey(dictionary, "Name") != null)
+            if (Util.ReadKey(dictionary, "Name") != null)
             {
-                WebDriverUtil.GetWebElement(NAMETAG_INPUT, WebDriverUtil.NO_WAIT, 
-                    String.Format("Unable to locate name input on create attribute page - {0}",NAMETAG_INPUT)).SendKeys(dictionary["Name"]);
+                WebDriverUtil.GetWebElement(NAMETAG_INPUT, WebDriverUtil.NO_WAIT,
+                    String.Format("Unable to locate name input on create attribute page - {0}", NAMETAG_INPUT)).SendKeys(dictionary["Name"]);
             }
 
             WebDriverUtil.GetWebElement(SAVE_BUTTON,
                 WebDriverUtil.NO_WAIT,
                 String.Format("Unable to locate Save Button- {0}", SAVE_BUTTON)).Click();
+
+            if (Util.ReadKey(dictionary, "Name") == null)
+            {
+                WebDriverUtil.WaitForWebElementInvisible(ATTRIBUTE_MODAL, WebDriverUtil.FIVE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+
+            }
+            else
+            {
+                WebDriverUtil.WaitForWebElementInvisible(ATTRIBUTE_MODAL, WebDriverUtil.DEFAULT_WAIT, WebDriverUtil.NO_MESSAGE);
+            }
+
         }
 
         public static void VerifyCreatedAttribute(string attributeName)
         {
             LogWriter.WriteLog("Executing AttributePage.VerifyCreatedAttribute");
-           
-                WebDriverUtil.GetWebElement(CHECK_ATTRIBUTE_OF_RESPECTIVE_DEPARTMENT,
-               WebDriverUtil.NO_WAIT,
-               String.Format
-               ("Unable to locate the check attribute of respective department- {0}",
-               CHECK_ATTRIBUTE_OF_RESPECTIVE_DEPARTMENT)).Click();
 
-                WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.GetWebElement(CHECK_ATTRIBUTE_OF_RESPECTIVE_DEPARTMENT,
+           WebDriverUtil.NO_WAIT,
+           String.Format
+           ("Unable to locate the check attribute of respective department- {0}",
+           CHECK_ATTRIBUTE_OF_RESPECTIVE_DEPARTMENT)).Click();
 
-                IWebElement attributeData = WebDriverUtil.GetWebElement(String.Format(CREATED_ATTRIBUTE, attributeName),
-                  WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate attribute record on attribute page - {0}"
-                     , String.Format(CREATED_ATTRIBUTE, attributeName)));
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+
+            IWebElement attributeData = WebDriverUtil.GetWebElement(String.Format(CREATED_ATTRIBUTE, attributeName),
+              WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate attribute record on attribute page - {0}"
+                 , String.Format(CREATED_ATTRIBUTE, attributeName)));
 
 
-                BaseClass._AttachScreenshot.Value = true;
+            BaseClass._AttachScreenshot.Value = true;
 
             WebDriverUtil.GetWebElement(CHECK_ATTRIBUTE_OF_RESPECTIVE_DEPARTMENT,
                WebDriverUtil.NO_WAIT,
@@ -151,13 +164,13 @@ namespace laborpro.Features.Attribute
 
         }
 
-        
+
 
         public static void DeleteCreatedAttribute(string attributeName)
         {
             LogWriter.WriteLog("Executing AttributPage.DeleteCreatedAttribute");
-          
-            
+
+
             WebDriverUtil.GetWebElement(CHECK_ATTRIBUTE_OF_RESPECTIVE_DEPARTMENT,
                 WebDriverUtil.NO_WAIT,
                 String.Format
@@ -169,30 +182,30 @@ namespace laborpro.Features.Attribute
                 WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate attribute record on attribute page - {0}"
             , String.Format(EDIT_BUTTON, attributeName))).Click();
 
-          WebDriverUtil.GetWebElement(DELETE_BUTTON,
-                WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate delete button - {0}",DELETE_BUTTON)).Click();
+            WebDriverUtil.GetWebElement(DELETE_BUTTON,
+                  WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate delete button - {0}", DELETE_BUTTON)).Click();
             if (WebDriverUtil.GetWebElement(ATTRIBUTE_CONFIRM_POPUP, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
-                WebDriverUtil.GetWebElement(CONFIRM_POPUP_BUTTON,WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
+                WebDriverUtil.GetWebElement(CONFIRM_POPUP_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
                 WebDriverUtil.WaitForWebElementInvisible(ATTRIBUTE_CONFIRM_POPUP, WebDriverUtil.DEFAULT_WAIT, WebDriverUtil.NO_MESSAGE);
-                
+
 
             }
 
 
-           
+
 
             WebDriverUtil.GetWebElement(CHECK_ATTRIBUTE_OF_RESPECTIVE_DEPARTMENT,
                WebDriverUtil.ONE_SECOND_WAIT,
                String.Format
                ("Unable to locate the check attribute of respective department- {0}",
                CHECK_ATTRIBUTE_OF_RESPECTIVE_DEPARTMENT)).Click();
-            
+
 
 
 
         }
-        
+
         public static void SelectTheDepartment(string departmentName)
         {
             LogWriter.WriteLog("Executing AttributePage.SelectTheDepartment");
@@ -207,13 +220,13 @@ namespace laborpro.Features.Attribute
 
         public static void VerifyTheDepartment(string departmentName)
         {
-               LogWriter.WriteLog("Executing AttributePage.verifyTheDepartment");
-               clickOnAddAttribute();
-           
-            IWebElement attributeTitle= WebDriverUtil.GetWebElement(String.Format(NEW_ATTRIBUTE_FORM, departmentName),
+            LogWriter.WriteLog("Executing AttributePage.verifyTheDepartment");
+            clickOnAddAttribute();
+
+            IWebElement attributeTitle = WebDriverUtil.GetWebElement(String.Format(NEW_ATTRIBUTE_FORM, departmentName),
                 WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate - {0}",
                 String.Format(NEW_ATTRIBUTE_FORM, departmentName)));
-            
+
             if (attributeTitle == null)
             {
                 attributeTitle = WebDriverUtil.GetWebElement(ATTRIBUTE_PAGE, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);

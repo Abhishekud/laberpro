@@ -14,6 +14,7 @@ namespace laborpro.Features.Standards
     {
         const string STANDARDS_TAB = "//a[@href='/standards']";
         const string STANDARD_PAGE = "//h3[contains(text(),'Standards')]";
+        const string STANDARD_POPUP = "//*[@role='dialog']//*[@class='modal-title' and contains(text(), 'New Standard')]";
         const string CLOSE_STANDARDS_FORM_BUTTON = "//*[@class='modal-dialog']//button[contains(text(),'Cancel')]";
         const string ERROR_ALERT_TOAST_XPATH = "//*[@class='toast toast-error']";
         const string NAMETAG_INPUT = "//*[@id='name']";
@@ -121,9 +122,9 @@ namespace laborpro.Features.Standards
 
             if (Util.ReadKey(dictionary, "Department") != null)
             {
-               new SelectElement( WebDriverUtil.GetWebElement(DEPARTMENT_INPUT, WebDriverUtil.NO_WAIT,
-                    String.Format("Unable to locate DEPARTMENT input on create attribute page - {0}", DEPARTMENT_INPUT))).SelectByText(dictionary["Department"]);
-               
+                new SelectElement(WebDriverUtil.GetWebElement(DEPARTMENT_INPUT, WebDriverUtil.NO_WAIT,
+                     String.Format("Unable to locate DEPARTMENT input on create attribute page - {0}", DEPARTMENT_INPUT))).SelectByText(dictionary["Department"]);
+
             }
 
 
@@ -149,21 +150,21 @@ namespace laborpro.Features.Standards
             LogWriter.WriteLog("Executing StandardPage.DeleteCreatedStandard ");
             if (WebDriverUtil.GetWebElement(OPEN_EDIT_SIDEBAR_FORM, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) == null)
             {
-                WebDriverUtil.GetWebElement(STANDARD_DETAILS_SIDEBAR_BUTTON, 
-                WebDriverUtil.ONE_SECOND_WAIT, 
+                WebDriverUtil.GetWebElement(STANDARD_DETAILS_SIDEBAR_BUTTON,
+                WebDriverUtil.ONE_SECOND_WAIT,
                 String.Format("Unable to locate standard details sidebar button - {0}",
                 STANDARD_DETAILS_SIDEBAR_BUTTON)).Click();
 
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             }
-            WebDriverUtil.GetWebElement(EDIT_BUTTON_SIDEBAR,WebDriverUtil.NO_WAIT,String.Format("Unable to locate edit button - {0}",EDIT_BUTTON_SIDEBAR)).Click();
+            WebDriverUtil.GetWebElement(EDIT_BUTTON_SIDEBAR, WebDriverUtil.NO_WAIT, String.Format("Unable to locate edit button - {0}", EDIT_BUTTON_SIDEBAR)).Click();
             WebDriverUtil.GetWebElement(DELETE_BUTTON, WebDriverUtil.NO_WAIT, String.Format("Unable to locate DELETE button - {0}", DELETE_BUTTON)).Click();
             if (WebDriverUtil.GetWebElement(CONFIRM_POPUP, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
                 WebDriverUtil.GetWebElement(CONFIRM_POPUP_BUTTON, WebDriverUtil.NO_WAIT, String.Format("Unable to locate confirm button - {0}", CONFIRM_POPUP_BUTTON)).Click();
                 WebDriverUtil.WaitForWebElementInvisible(CONFIRM_POPUP, WebDriverUtil.DEFAULT_WAIT, WebDriverUtil.NO_MESSAGE);
             }
-      
+
 
 
         }
@@ -186,7 +187,7 @@ namespace laborpro.Features.Standards
                 throw new Exception(String.Format("We supposed to get standard element title - {0} but found - {1}", value, standardelementPopup.Text));
             }
 
-            
+
             BaseClass._AttachScreenshot.Value = true;
         }
         public static void selectElementType(string value)
@@ -194,7 +195,7 @@ namespace laborpro.Features.Standards
             LogWriter.WriteLog("Executing StandaradPage.selectElementType");
             if (WebDriverUtil.GetWebElement(STANDARD_ELEMENT_POPUP, WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate standard element popup - {0}", STANDARD_ELEMENT_POPUP)) != null)
             {
-                new SelectElement(WebDriverUtil.GetWebElement(STANDARD_ELEMENT_DROPDOWN, WebDriverUtil.ONE_SECOND_WAIT, 
+                new SelectElement(WebDriverUtil.GetWebElement(STANDARD_ELEMENT_DROPDOWN, WebDriverUtil.ONE_SECOND_WAIT,
                     WebDriverUtil.NO_MESSAGE)).SelectByText(value);
                 WebDriverUtil.GetWebElement(STANDARD_ELEMENT_OK_BUTTON, WebDriverUtil.NO_WAIT, string.Format("UNABLE TO LOCATE OK BUTTON - {0}", STANDARD_ELEMENT_OK_BUTTON)).Click();
             }
@@ -203,7 +204,7 @@ namespace laborpro.Features.Standards
         public static void selectStandarad(string Standard)
         {
             LogWriter.WriteLog("Executing StandardPage.selectStandard");
-            if(WebDriverUtil.GetWebElement(STANDARD_PAGE, WebDriverUtil.ONE_SECOND_WAIT,WebDriverUtil.NO_MESSAGE) != null)
+            if (WebDriverUtil.GetWebElement(STANDARD_PAGE, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
                 WebDriverUtil.GetWebElement(String.Format(STANDARAD_BYNAME, Standard), WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate the Stanadard By name - {0}", String.Format(STANDARAD_BYNAME, Standard))).Click();
                 WebDriverUtil.WaitFor(WebDriverUtil.TWO_SECOND_WAIT);
@@ -221,7 +222,7 @@ namespace laborpro.Features.Standards
                     String.Format("Unable to locate name input - {0}", STANDARD_ELEMENT_NAME_TAG)).SendKeys(dictionary["Name"]);
             }
 
-            if(Util.ReadKey(dictionary, "Frequency") != null)
+            if (Util.ReadKey(dictionary, "Frequency") != null)
             {
                 WebDriverUtil.GetWebElement(STANDARD_ELEMENT_FREQUENCY_TAG, WebDriverUtil.NO_WAIT,
                     String.Format("Unable to locate frequency input - {0}", STANDARD_ELEMENT_FREQUENCY_TAG)).SendKeys(dictionary["Frequency"]);
@@ -247,7 +248,15 @@ namespace laborpro.Features.Standards
             WebDriverUtil.GetWebElement(SAVE_BUTTON,
                 WebDriverUtil.NO_WAIT,
                 String.Format("Unable to locate Save Button- {0}", SAVE_BUTTON)).Click();
-            WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
+            if (Util.ReadKey(dictionary, "Name") == null)
+            {
+                WebDriverUtil.WaitForWebElementInvisible(STANDARD_POPUP, WebDriverUtil.FIVE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+
+            }
+            else
+            {
+                WebDriverUtil.WaitForWebElementInvisible(STANDARD_POPUP, WebDriverUtil.DEFAULT_WAIT, WebDriverUtil.NO_MESSAGE);
+            }
 
         }
         public static void VerifyCreatedStandardElement(string StandardElement)
@@ -255,7 +264,7 @@ namespace laborpro.Features.Standards
             LogWriter.WriteLog("Executing StandardPage.VerifyCreatedStandardElement");
             if (WebDriverUtil.GetWebElement(STANDARD_ELEMENT_CONTENT, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
-                WebDriverUtil.GetWebElement(String.Format(CREATED_STANDARD_ELEMENT,StandardElement),
+                WebDriverUtil.GetWebElement(String.Format(CREATED_STANDARD_ELEMENT, StandardElement),
                     WebDriverUtil.TWO_SECOND_WAIT, String.Format("Unable to locate the Standard element - {0}", String.Format(CREATED_STANDARD_ELEMENT, StandardElement)));
 
             }
@@ -264,24 +273,24 @@ namespace laborpro.Features.Standards
         public static void DeleteStandardElement()
         {
             LogWriter.WriteLog("Executing StandardPage.DeleteStandardElementByName");
-            if(WebDriverUtil.GetWebElement(STANDARD_DETAILS_SIDEBAR, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
+            if (WebDriverUtil.GetWebElement(STANDARD_DETAILS_SIDEBAR, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
-                WebDriverUtil.GetWebElement(STANDARD_SIDEBAR, WebDriverUtil.ONE_SECOND_WAIT, 
+                WebDriverUtil.GetWebElement(STANDARD_SIDEBAR, WebDriverUtil.ONE_SECOND_WAIT,
                     String.Format("Unable to locate standard sidebar button {0}", STANDARD_SIDEBAR)).Click();
             }
             WebDriverUtil.GetWebElement
                 (STANDARD_ELEMENT_DROPDOWN_BUTTON,
-                WebDriverUtil.ONE_SECOND_WAIT, 
+                WebDriverUtil.ONE_SECOND_WAIT,
                 String.Format("Unable to locate the standard element dropdown button - {0}", STANDARD_ELEMENT_DROPDOWN_BUTTON)).Click();
 
-            WebDriverUtil.GetWebElement(STANDARD_ELEMENT_DELETE_BUTTON, 
-            WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate delete button - {0}", 
+            WebDriverUtil.GetWebElement(STANDARD_ELEMENT_DELETE_BUTTON,
+            WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate delete button - {0}",
             STANDARD_ELEMENT_DELETE_BUTTON)).Click();
 
-            if(WebDriverUtil.GetWebElement(STANDARD_ELEMENT_CONFIRM_POPUP, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
+            if (WebDriverUtil.GetWebElement(STANDARD_ELEMENT_CONFIRM_POPUP, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
                 WebDriverUtil.GetWebElement(CONFIRM_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate confirm button - {0}", CONFIRM_BUTTON)).Click();
-                WebDriverUtil.WaitForWebElementInvisible(STANDARD_ELEMENT_CONFIRM_POPUP, WebDriverUtil.DEFAULT_WAIT, WebDriverUtil.NO_MESSAGE); 
+                WebDriverUtil.WaitForWebElementInvisible(STANDARD_ELEMENT_CONFIRM_POPUP, WebDriverUtil.DEFAULT_WAIT, WebDriverUtil.NO_MESSAGE);
             }
 
         }
@@ -310,10 +319,10 @@ namespace laborpro.Features.Standards
         public static void VerifyFrequencyIsEmpty()
         {
             LogWriter.WriteLog("Executing StandaradPage.VerifyFrequencyIsEmpty");
-            if(WebDriverUtil.GetWebElement(NEW_STANDARD_ELEMENT_FORM, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
+            if (WebDriverUtil.GetWebElement(NEW_STANDARD_ELEMENT_FORM, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
                 WebDriverUtil.GetWebElement(STANDARD_ELEMENT_FREQUENCY_ALERT, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-               
+
             }
             BaseClass._AttachScreenshot.Value = true;
 
@@ -322,16 +331,16 @@ namespace laborpro.Features.Standards
         public static void VerifyUOMInDropDown(string UOM)
         {
             LogWriter.WriteLog("Executing StandardPage.VerifyUOMInDropDown");
-            if(WebDriverUtil.GetWebElement(NEW_STANDARD_ELEMENT_FORM, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
+            if (WebDriverUtil.GetWebElement(NEW_STANDARD_ELEMENT_FORM, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
-                WebDriverUtil.GetWebElement(STANDARD_ELEMENT_UOM_TAG, 
-                 WebDriverUtil.ONE_SECOND_WAIT, 
-                 String.Format("unable to locate units of measure in standard element - {0}", 
+                WebDriverUtil.GetWebElement(STANDARD_ELEMENT_UOM_TAG,
+                 WebDriverUtil.ONE_SECOND_WAIT,
+                 String.Format("unable to locate units of measure in standard element - {0}",
                  STANDARD_ELEMENT_FREQUENCY_TAG)).Click();
 
-                WebDriverUtil.GetWebElement(String.Format(STANDARD_ELEMENT_UOM_VALUE_IN_DROPDOWN, UOM), 
-                    WebDriverUtil.ONE_SECOND_WAIT, 
-                    String.Format("Unable to locate UOM value in standard element dropdown - {0}", 
+                WebDriverUtil.GetWebElement(String.Format(STANDARD_ELEMENT_UOM_VALUE_IN_DROPDOWN, UOM),
+                    WebDriverUtil.ONE_SECOND_WAIT,
+                    String.Format("Unable to locate UOM value in standard element dropdown - {0}",
                     String.Format(STANDARD_ELEMENT_UOM_VALUE_IN_DROPDOWN, UOM)));
 
             }

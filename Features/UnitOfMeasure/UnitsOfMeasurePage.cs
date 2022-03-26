@@ -33,7 +33,8 @@ namespace laborpro.Features.UnitOfMeasure
         public static void SelectListMangement(string ListManagementValue)
         {
             LogWriter.WriteLog("Executing UnitOfMeasurePage.SelectListManagement");
-            if (WebDriverUtil.GetWebElement(UNITSOFMEASURE_PAGE, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) == null) {
+            if (WebDriverUtil.GetWebElement(UNITSOFMEASURE_PAGE, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) == null)
+            {
                 new SelectElement(WebDriverUtil.GetWebElement(LIST_MANAGEMENT_DROPDOWN, WebDriverUtil.NO_WAIT,
                     String.Format("Unable to locate the list maangemement dropdown - {0}", LIST_MANAGEMENT_DROPDOWN))).SelectByText(ListManagementValue);
                 WebDriverUtil.WaitFor(WebDriverUtil.TWO_SECOND_WAIT);
@@ -41,19 +42,19 @@ namespace laborpro.Features.UnitOfMeasure
         }
         public static void SelectCreatedDepartment(string deptName)
         {
-          
+
             LogWriter.WriteLog("Executing UnitOfMeasurePage.SelectCreatedDepartment");
 
             if (WebDriverUtil.GetWebElement(UNITSOFMEASURE_PAGE, WebDriverUtil.TWO_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
-               new SelectElement( WebDriverUtil.GetWebElement(DEPARTMENT_DROPDOWN, WebDriverUtil.TWO_SECOND_WAIT,
-                 String.Format("Unable to locate the department dropdown - {0}",DEPARTMENT_DROPDOWN))).SelectByText(deptName);
+                new SelectElement(WebDriverUtil.GetWebElement(DEPARTMENT_DROPDOWN, WebDriverUtil.TWO_SECOND_WAIT,
+                  String.Format("Unable to locate the department dropdown - {0}", DEPARTMENT_DROPDOWN))).SelectByText(deptName);
                 WebDriverUtil.WaitFor(WebDriverUtil.TWO_SECOND_WAIT);
             }
         }
         public static void clickOnAddUnitOfMeasure()
         {
-          
+
             LogWriter.WriteLog("Executing UnitsOfMeasurePage.clickOnAddUnitOfMeasure");
             IWebElement AddUnitOfMeasure = WebDriverUtil.GetWebElement(ADD_UNITS_OF_MEASURE, WebDriverUtil.NO_WAIT,
                 String.Format("Unable to Locate Add Attribute Button - {0}", ADD_UNITS_OF_MEASURE));
@@ -81,27 +82,37 @@ namespace laborpro.Features.UnitOfMeasure
                     String.Format("Unable to locate name input on create attribute page - {0}", NAMETAG_INPUT)).SendKeys(dictionary["Name"]);
             }
 
-            WebDriverUtil.GetWebElement(SAVE_BUTTON,WebDriverUtil.NO_WAIT,
+            WebDriverUtil.GetWebElement(SAVE_BUTTON, WebDriverUtil.NO_WAIT,
                 String.Format("Unable to locate Save Button- {0}", SAVE_BUTTON)).Click();
-            WebDriverUtil.WaitForWebElementInvisible(UNITS_OF_MEASURE_POPUP, WebDriverUtil. FIVE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+
+            if (Util.ReadKey(dictionary, "Name") == null)
+            {
+                WebDriverUtil.WaitForWebElementInvisible(UNITS_OF_MEASURE_POPUP, WebDriverUtil.FIVE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            }
+            else
+            {
+                WebDriverUtil.WaitForWebElementInvisible(UNITS_OF_MEASURE_POPUP, WebDriverUtil.DEFAULT_WAIT, WebDriverUtil.NO_MESSAGE);
+            }
+
+
         }
         public static void CloseUOMEditForm()
         {
-                 WebDriverUtil.GetWebElement(EDIT_FORM_CLOSE_BUTTON,
-                     WebDriverUtil.NO_WAIT,
-                     String.Format
-                     ("Unable to locate close button in edit form - {0}", EDIT_FORM_CLOSE_BUTTON)).Click();
+            WebDriverUtil.GetWebElement(EDIT_FORM_CLOSE_BUTTON,
+                WebDriverUtil.NO_WAIT,
+                String.Format
+                ("Unable to locate close button in edit form - {0}", EDIT_FORM_CLOSE_BUTTON)).Click();
         }
         public static void VerifyCreatedUnitOfMeasure(string UOM)
         {
             LogWriter.WriteLog("Executing UnitOfMeasurePage.VerifyCreatedUnitOfMeasure");
-         
-             IWebElement UOMDATA = WebDriverUtil.GetWebElement(String.Format(UOM_VALUE_IN_EDITFORM, UOM),
-             WebDriverUtil.TWO_SECOND_WAIT, String.Format("Unable to locate the unit of measure value - {0}", String.Format(UOM_VALUE_IN_EDITFORM, UOM)));
-                BaseClass._AttachScreenshot.Value = true;
 
-            
-         
+            IWebElement UOMDATA = WebDriverUtil.GetWebElement(String.Format(UOM_VALUE_IN_EDITFORM, UOM),
+            WebDriverUtil.TWO_SECOND_WAIT, String.Format("Unable to locate the unit of measure value - {0}", String.Format(UOM_VALUE_IN_EDITFORM, UOM)));
+            BaseClass._AttachScreenshot.Value = true;
+
+
+
         }
         public static void DeleteCreatedUnitOfMeasure()
         {
@@ -113,12 +124,12 @@ namespace laborpro.Features.UnitOfMeasure
                 WebDriverUtil.WaitForWebElementInvisible(UOM_CONFIRM_POPUP, WebDriverUtil.DEFAULT_WAIT, WebDriverUtil.NO_MESSAGE);
 
             }
-     
+
         }
         public static void VerifyRecordOfSelectedDept(string message)
         {
             LogWriter.WriteLog("Executing UnitOfMeasurePage.VerifyRecordOfSelectedDept");
-         
+
             if (WebDriverUtil.GetWebElement(UNITSOFMEASURE_PAGE, WebDriverUtil.TWO_SECOND_WAIT, String.Format("Unable to locate the page - {0}", UNITSOFMEASURE_PAGE)) != null)
             {
                 IWebElement recordOfDept = WebDriverUtil.GetWebElement(String.Format(RECORD_FOR_DEPT, message), WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate record - {0}", String.Format(RECORD_FOR_DEPT, message)));
@@ -129,12 +140,12 @@ namespace laborpro.Features.UnitOfMeasure
         public static void DeleteUnitOfMeasureByName(string UOM)
         {
             LogWriter.WriteLog("Executing UnitOfMeasurePage.DeleteUnitOfMeasureByName");
-            if(WebDriverUtil.GetWebElement(UNITSOFMEASURE_PAGE, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
+            if (WebDriverUtil.GetWebElement(UNITSOFMEASURE_PAGE, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
-                WebDriverUtil.GetWebElement(String.Format(UNITS_OF_MEASURE,UOM),
-                WebDriverUtil.ONE_SECOND_WAIT, 
-                String.Format("Unable to locate Unit Of measure - {0}", 
-                String.Format(UNITS_OF_MEASURE,UOM))).Click();
+                WebDriverUtil.GetWebElement(String.Format(UNITS_OF_MEASURE, UOM),
+                WebDriverUtil.ONE_SECOND_WAIT,
+                String.Format("Unable to locate Unit Of measure - {0}",
+                String.Format(UNITS_OF_MEASURE, UOM))).Click();
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             }
             DeleteCreatedUnitOfMeasure();
