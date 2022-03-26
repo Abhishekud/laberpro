@@ -85,7 +85,7 @@ namespace laborpro.Features.UnitOfMeasure
             WebDriverUtil.GetWebElement(SAVE_BUTTON, WebDriverUtil.NO_WAIT,
                 String.Format("Unable to locate Save Button- {0}", SAVE_BUTTON)).Click();
 
-            if (Util.ReadKey(dictionary, "Name") == null)
+            if (Util.ReadKey(dictionary, "Name") != null)
             {
                 WebDriverUtil.WaitForWebElementInvisible(UNITS_OF_MEASURE_POPUP, WebDriverUtil.FIVE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             }
