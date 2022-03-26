@@ -87,7 +87,7 @@ namespace laborpro.Features.UnitOfMeasure
 
             if (Util.ReadKey(dictionary, "Name") != null)
             {
-                WebDriverUtil.WaitForWebElementInvisible(UNITS_OF_MEASURE_POPUP, WebDriverUtil.FIVE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                WebDriverUtil.WaitForWebElementInvisible(UNITS_OF_MEASURE_POPUP, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             }
             else
             {
