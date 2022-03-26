@@ -103,7 +103,7 @@ namespace laborpro.Features.Attribute
                 WebDriverUtil.NO_WAIT,
                 String.Format("Unable to locate Save Button- {0}", SAVE_BUTTON)).Click();
 
-            if (Util.ReadKey(dictionary, "Name") == null)
+            if (Util.ReadKey(dictionary, "Name") != null)
             {
                 WebDriverUtil.WaitForWebElementInvisible(ATTRIBUTE_MODAL, WebDriverUtil.FIVE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
 
