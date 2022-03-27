@@ -250,7 +250,7 @@ namespace laborpro.Features.Standards
                 String.Format("Unable to locate Save Button- {0}", SAVE_BUTTON)).Click();
             if (Util.ReadKey(dictionary, "Name") != null)
             {
-                WebDriverUtil.WaitForWebElementInvisible(STANDARD_POPUP, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                WebDriverUtil.WaitForWebElementInvisible(STANDARD_POPUP, WebDriverUtil.FIVE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
 
             }
             else
