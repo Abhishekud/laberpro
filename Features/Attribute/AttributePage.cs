@@ -105,7 +105,7 @@ namespace laborpro.Features.Attribute
 
             if (Util.ReadKey(dictionary, "Name") != null)
             {
-                WebDriverUtil.WaitForWebElementInvisible(ATTRIBUTE_MODAL, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                WebDriverUtil.WaitForWebElementInvisible(ATTRIBUTE_MODAL, WebDriverUtil.FIVE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
 
             }
             else
