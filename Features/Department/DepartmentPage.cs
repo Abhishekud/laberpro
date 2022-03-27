@@ -116,7 +116,7 @@ namespace laborpro.pages
 
             if (Util.ReadKey(dictionary, "Name") != null)
             {
-                WebDriverUtil.WaitForWebElementInvisible(DEPARTMENTS_POPUP,WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                WebDriverUtil.WaitForWebElementInvisible(DEPARTMENTS_POPUP,WebDriverUtil.FIVE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             }
             else
             {
