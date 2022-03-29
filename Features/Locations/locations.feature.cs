@@ -159,14 +159,14 @@ namespace laborpro.Features.Locations
 #line 13
     testRunner.Given("User navigates to the Locations tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table30 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table20.AddRow(new string[] {
+                table30.AddRow(new string[] {
                             "Name",
                             ""});
 #line 14
-    testRunner.When("User create new location with below input", ((string)(null)), table20, "When ");
+    testRunner.When("User create new location with below input", ((string)(null)), table30, "When ");
 #line hidden
 #line 17
     testRunner.Then("Verify validation Message: \"Name is required\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -213,14 +213,14 @@ namespace laborpro.Features.Locations
 #line 23
     testRunner.And("User delete location by name \"Location Created via Automation\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table31 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table21.AddRow(new string[] {
+                table31.AddRow(new string[] {
                             "Name",
                             "Location Created via Automation"});
 #line 24
-    testRunner.When("User create new location with below input", ((string)(null)), table21, "When ");
+    testRunner.When("User create new location with below input", ((string)(null)), table31, "When ");
 #line hidden
 #line 27
     testRunner.Then("User verify created location by name \"Location Created via Automation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -259,26 +259,26 @@ namespace laborpro.Features.Locations
 #line 31
     testRunner.Given("User navigates to the Locations tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table32 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table22.AddRow(new string[] {
+                table32.AddRow(new string[] {
                             "Name",
                             "Test Location Exist Scenario"});
 #line 32
-    testRunner.When("User create new location with below input if not exist", ((string)(null)), table22, "When ");
+    testRunner.When("User create new location with below input if not exist", ((string)(null)), table32, "When ");
 #line hidden
 #line 35
     testRunner.Then("User verify created location by name \"Test Location Exist Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table23 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table33 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table23.AddRow(new string[] {
+                table33.AddRow(new string[] {
                             "Name",
                             "Test Location Exist Scenario"});
 #line 36
-    testRunner.When("User create new location with below input", ((string)(null)), table23, "When ");
+    testRunner.When("User create new location with below input", ((string)(null)), table33, "When ");
 #line hidden
 #line 39
     testRunner.Then("Verify validation Message: \"Name already exists\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -323,26 +323,26 @@ namespace laborpro.Features.Locations
 #line 45
     testRunner.Given("User navigates to the Locations tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table24 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table34 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table24.AddRow(new string[] {
+                table34.AddRow(new string[] {
                             "Name",
                             "Location Created via Automation"});
 #line 46
-    testRunner.When("User create new location with below input if not exist", ((string)(null)), table24, "When ");
+    testRunner.When("User create new location with below input if not exist", ((string)(null)), table34, "When ");
 #line hidden
 #line 49
     testRunner.Then("User verify created location by name \"Location Created via Automation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table25 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table35 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table25.AddRow(new string[] {
+                table35.AddRow(new string[] {
                             "Name",
                             ""});
 #line 50
-    testRunner.And("User edit location \"Location Created via Automation\" with below input", ((string)(null)), table25, "And ");
+    testRunner.And("User edit location \"Location Created via Automation\" with below input", ((string)(null)), table35, "And ");
 #line hidden
 #line 53
     testRunner.Then("Verify validation Message: \"Name is required\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -381,26 +381,26 @@ namespace laborpro.Features.Locations
 #line 56
     testRunner.Given("User navigates to the Locations tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table36 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table26.AddRow(new string[] {
+                table36.AddRow(new string[] {
                             "Name",
                             "Created Location via Automation"});
 #line 57
-    testRunner.And("User create new location with below input if not exist", ((string)(null)), table26, "And ");
+    testRunner.And("User create new location with below input if not exist", ((string)(null)), table36, "And ");
 #line hidden
 #line 60
     testRunner.Then("User verify created location by name \"Created Location via Automation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table27 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table37 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table27.AddRow(new string[] {
+                table37.AddRow(new string[] {
                             "Name",
                             "Location Created via Automation"});
 #line 61
-    testRunner.And("User edit location \"Created Location via Automation\" with below input", ((string)(null)), table27, "And ");
+    testRunner.And("User edit location \"Created Location via Automation\" with below input", ((string)(null)), table37, "And ");
 #line hidden
 #line 64
     testRunner.Then("Verify validation Message: \"Name already exists\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -447,14 +447,14 @@ namespace laborpro.Features.Locations
 #line 70
     testRunner.When("User verify created location by name \"Location Created via Automation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table28 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table38 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table28.AddRow(new string[] {
+                table38.AddRow(new string[] {
                             "Name",
                             "Updated Location Created via Automation"});
 #line 71
-    testRunner.And("User edit location \"Location Created via Automation\" with below input", ((string)(null)), table28, "And ");
+    testRunner.And("User edit location \"Location Created via Automation\" with below input", ((string)(null)), table38, "And ");
 #line hidden
             }
             this.ScenarioCleanup();

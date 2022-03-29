@@ -13,6 +13,7 @@ namespace laborpro.util
         private static string logFilePath = null;
         public static void WriteLog(string logMessage)
         {
+            Console.WriteLine(logMessage);
             try
             {
                 using (StreamWriter w = File.AppendText(logFilePath))

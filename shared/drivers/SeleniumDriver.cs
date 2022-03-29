@@ -41,7 +41,7 @@ namespace laborpro.drivers
 
                 switch (browser.ToLower())
                 {
-                    case "Google_Chrome":
+                    case "google_chrome":
                         new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
                         driver = new ChromeDriver(GetChromeOptions());
                         break;
@@ -50,7 +50,7 @@ namespace laborpro.drivers
                         new WebDriverManager.DriverManager().SetUpDriver(new FirefoxConfig());
                         driver = new FirefoxDriver(GetFirefoxOptions());
                         break;
-                    case "Microsoft_Edge":
+                    case "microsoft_edge":
                         new WebDriverManager.DriverManager().SetUpDriver(new EdgeConfig());
                         driver = new EdgeDriver(GetEdgeOptions());
                         break;
