@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace laborpro.Features.Charcteristic
+namespace laborpro.Features.Characteristic
 {
     using TechTalk.SpecFlow;
     using System;
@@ -41,7 +41,7 @@ namespace laborpro.Features.Charcteristic
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Charcteristic", "Verify Characteristics Module", null, ProgrammingLanguage.CSharp, new string[] {
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Characteristic", "Verify Characteristics Module", null, ProgrammingLanguage.CSharp, new string[] {
                         "laborPro",
                         "Regression",
                         "Characteristics"});
