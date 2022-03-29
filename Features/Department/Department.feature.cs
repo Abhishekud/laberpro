@@ -164,14 +164,14 @@ namespace laborpro.Features.Department
 #line 14
       testRunner.And("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table26.AddRow(new string[] {
+                table16.AddRow(new string[] {
                             "Name",
                             ""});
 #line 15
-     testRunner.When("User create new Department with below input", ((string)(null)), table26, "When ");
+     testRunner.When("User create new Department with below input", ((string)(null)), table16, "When ");
 #line hidden
 #line 18
      testRunner.Then("Verify validation Message: \"Name is required\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -218,14 +218,14 @@ namespace laborpro.Features.Department
 #line 24
      testRunner.When("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table27 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table27.AddRow(new string[] {
+                table17.AddRow(new string[] {
                             "Name",
                             "Department to verify Department"});
 #line 25
-     testRunner.Then("User create new Department with below input if not exist", ((string)(null)), table27, "Then ");
+     testRunner.Then("User create new Department with below input if not exist", ((string)(null)), table17, "Then ");
 #line hidden
 #line 28
       testRunner.And("User verify created Department \"Department to verify Department\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -272,26 +272,26 @@ namespace laborpro.Features.Department
 #line 34
       testRunner.And("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table28 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table28.AddRow(new string[] {
+                table18.AddRow(new string[] {
                             "Name",
                             "Department Exist Scenario"});
 #line 35
-      testRunner.And("User create new Department with below input if not exist", ((string)(null)), table28, "And ");
+      testRunner.And("User create new Department with below input if not exist", ((string)(null)), table18, "And ");
 #line hidden
 #line 38
      testRunner.Then("User verify created Department \"Department Exist Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table29 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table29.AddRow(new string[] {
+                table19.AddRow(new string[] {
                             "Name",
                             "Department Exist Scenario"});
 #line 39
-     testRunner.Then("User create new Department with below input", ((string)(null)), table29, "Then ");
+     testRunner.Then("User create new Department with below input", ((string)(null)), table19, "Then ");
 #line hidden
 #line 42
      testRunner.Then("Verify validation Message: \"Name already exists\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

@@ -161,14 +161,14 @@ namespace laborpro.Features.Standards
 #line 16
     testRunner.Given("User navigates to the standards tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table39 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table29 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table39.AddRow(new string[] {
+                table29.AddRow(new string[] {
                             "Name",
                             ""});
 #line 17
-    testRunner.Then("User add new standards using below input", ((string)(null)), table39, "Then ");
+    testRunner.Then("User add new standards using below input", ((string)(null)), table29, "Then ");
 #line hidden
 #line 20
     testRunner.And("Verify Validation Message:\"Name is required\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -212,17 +212,17 @@ namespace laborpro.Features.Standards
 #line 26
     testRunner.Given("User navigates to the standards tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table40 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table30 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table40.AddRow(new string[] {
+                table30.AddRow(new string[] {
                             "Name",
                             "name to verify department is required"});
-                table40.AddRow(new string[] {
+                table30.AddRow(new string[] {
                             "Department",
                             ""});
 #line 27
-    testRunner.Then("User add new standards using below input", ((string)(null)), table40, "Then ");
+    testRunner.Then("User add new standards using below input", ((string)(null)), table30, "Then ");
 #line hidden
 #line 31
     testRunner.And("Verify Validation Message:\"Department is required\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -269,14 +269,14 @@ namespace laborpro.Features.Standards
 #line 37
     testRunner.And("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table41 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table31 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table41.AddRow(new string[] {
+                table31.AddRow(new string[] {
                             "Name",
                             "department for standards"});
 #line 38
-    testRunner.Then("User create new Department with below input", ((string)(null)), table41, "Then ");
+    testRunner.Then("User create new Department with below input", ((string)(null)), table31, "Then ");
 #line hidden
 #line 41
     testRunner.Then("User verify created Department \"department for standards\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -284,17 +284,17 @@ namespace laborpro.Features.Standards
 #line 42
     testRunner.Then("User navigates to the standards tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table42 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table32 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table42.AddRow(new string[] {
+                table32.AddRow(new string[] {
                             "Name",
                             "name to verify add record"});
-                table42.AddRow(new string[] {
+                table32.AddRow(new string[] {
                             "Department",
                             "department for standards"});
 #line 43
-    testRunner.And("User add new standards using below input", ((string)(null)), table42, "And ");
+    testRunner.And("User add new standards using below input", ((string)(null)), table32, "And ");
 #line hidden
 #line 47
     testRunner.Then("User verify created standards name \"name to verify add record\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -340,17 +340,17 @@ namespace laborpro.Features.Standards
 #line 53
      testRunner.Given("User navigates to the standards tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table43 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table33 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table43.AddRow(new string[] {
+                table33.AddRow(new string[] {
                             "Name",
                             "name to verify"});
-                table43.AddRow(new string[] {
+                table33.AddRow(new string[] {
                             "Department",
                             "department for standards"});
 #line 54
-     testRunner.When("User add new standards using below input", ((string)(null)), table43, "When ");
+     testRunner.When("User add new standards using below input", ((string)(null)), table33, "When ");
 #line hidden
 #line 58
     testRunner.Then("User verify created standards name \"name to verify\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -412,14 +412,14 @@ namespace laborpro.Features.Standards
 #line 69
     testRunner.Then("User Selects Created Department \"department for standards\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table44 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table34 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table44.AddRow(new string[] {
+                table34.AddRow(new string[] {
                             "Name",
                             "Demo Uom"});
 #line 70
-    testRunner.When("User adds Unit Of Measure using below input", ((string)(null)), table44, "When ");
+    testRunner.When("User adds Unit Of Measure using below input", ((string)(null)), table34, "When ");
 #line hidden
 #line 73
     testRunner.Then("User verify Added Unit of Measure \"Demo Uom\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -439,14 +439,14 @@ namespace laborpro.Features.Standards
 #line 78
     testRunner.And("User Selects Standard Element type \"Estimate\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table45 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table35 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table45.AddRow(new string[] {
+                table35.AddRow(new string[] {
                             "Name",
                             ""});
 #line 79
-    testRunner.When("User adds new Standard Element Using Below input", ((string)(null)), table45, "When ");
+    testRunner.When("User adds new Standard Element Using Below input", ((string)(null)), table35, "When ");
 #line hidden
 #line 82
     testRunner.Then("Verify validation Message: \"Name is required\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -505,17 +505,17 @@ namespace laborpro.Features.Standards
 #line 92
     testRunner.And("User Selects Standard Element type \"Estimate\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table46 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table36 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table46.AddRow(new string[] {
+                table36.AddRow(new string[] {
                             "Name",
                             "dummy"});
-                table46.AddRow(new string[] {
+                table36.AddRow(new string[] {
                             "Frequency",
                             "4"});
 #line 93
-    testRunner.When("User adds new Standard Element Using Below input", ((string)(null)), table46, "When ");
+    testRunner.When("User adds new Standard Element Using Below input", ((string)(null)), table36, "When ");
 #line hidden
 #line 97
     testRunner.Then("Verify validation Message: \"Unit of Measure is required\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -574,20 +574,20 @@ namespace laborpro.Features.Standards
 #line 107
     testRunner.And("User Selects Standard Element type \"Estimate\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table47 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table37 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table47.AddRow(new string[] {
+                table37.AddRow(new string[] {
                             "Name",
                             "dummy"});
-                table47.AddRow(new string[] {
+                table37.AddRow(new string[] {
                             "Frequency",
                             ""});
-                table47.AddRow(new string[] {
+                table37.AddRow(new string[] {
                             "Unit of Measure",
                             "Demo Uom"});
 #line 108
-    testRunner.When("User adds new Standard Element Using Below input", ((string)(null)), table47, "When ");
+    testRunner.When("User adds new Standard Element Using Below input", ((string)(null)), table37, "When ");
 #line hidden
 #line 113
     testRunner.Then("User Verify Frequency is empty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -707,23 +707,23 @@ namespace laborpro.Features.Standards
 #line 134
     testRunner.When("User Selects Standard Element type \"Estimate\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table48 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table38 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table48.AddRow(new string[] {
+                table38.AddRow(new string[] {
                             "Name",
                             "dummy"});
-                table48.AddRow(new string[] {
+                table38.AddRow(new string[] {
                             "Frequency",
                             "4"});
-                table48.AddRow(new string[] {
+                table38.AddRow(new string[] {
                             "Unit of Measure",
                             "Demo Uom"});
-                table48.AddRow(new string[] {
+                table38.AddRow(new string[] {
                             "Time (Seconds)",
                             "-1"});
 #line 135
-    testRunner.Then("User adds new Standard Element Using Below input", ((string)(null)), table48, "Then ");
+    testRunner.Then("User adds new Standard Element Using Below input", ((string)(null)), table38, "Then ");
 #line hidden
 #line 141
     testRunner.And("Verify validation Message: \"Measured Time must be greater than or equal to 0\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -782,20 +782,20 @@ namespace laborpro.Features.Standards
 #line 152
     testRunner.And("User Selects Standard Element type \"Estimate\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table49 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table39 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table49.AddRow(new string[] {
+                table39.AddRow(new string[] {
                             "Name",
                             "Dummy"});
-                table49.AddRow(new string[] {
+                table39.AddRow(new string[] {
                             "Frequency",
                             "16"});
-                table49.AddRow(new string[] {
+                table39.AddRow(new string[] {
                             "Unit of Measure",
                             "Demo Uom"});
 #line 153
-    testRunner.When("User adds new Standard Element Using Below input", ((string)(null)), table49, "When ");
+    testRunner.When("User adds new Standard Element Using Below input", ((string)(null)), table39, "When ");
 #line hidden
 #line 158
      testRunner.Then("User verify standard element by name \"Dummy\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

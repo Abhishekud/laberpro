@@ -51,7 +51,7 @@ namespace laborpro.pages
         {
             LogWriter.WriteLog("Executing  CharacteristicPage.AddCharacteristicWithGivenInputIfNotExist");
             var dictionary = Util.ConvertToDictionary(inputData);
-            IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format( CHARACTERISTIC_RECORD, dictionary["Name"]), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(CHARACTERISTIC_RECORD, dictionary["Name"]), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record == null)
             {
                 AddNewCharacteristicWithGivenInput(inputData);
@@ -69,7 +69,7 @@ namespace laborpro.pages
             CloseCharacteristicDetailSideBar();
             if (WebDriverUtil.GetWebElement(CHARACTERISTIC_PAGE, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) == null)
             {
-                WebDriverUtil.GetWebElement(CHARACTERISTIC_TAB, WebDriverUtil.DEFAULT_WAIT, String.Format("Unable to locate Attribute tab - {0}", CHARACTERISTIC_TAB)).Click();
+                WebDriverUtil.GetWebElement(CHARACTERISTIC_TAB, WebDriverUtil.DEFAULT_WAIT, String.Format("Unable to locate Characteristic tab - {0}", CHARACTERISTIC_TAB)).Click();
                 WebDriverUtil.WaitForAWhile();
             }
         }
@@ -108,11 +108,16 @@ namespace laborpro.pages
 
             WebDriverUtil.GetWebElement(DELETE_BUTTON,
                   WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate delete button - {0}", DELETE_BUTTON)).Click();
-            WebDriverUtil.GetWebElement(CONFIRM_POPUP,
-                WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
-            WebDriverUtil.WaitForAWhile();
 
-            WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
+
+            IWebElement confirmationPopup = WebDriverUtil.GetWebElement(CHARACTERISTIC_DELETE_CONFIRM_POPUP, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (confirmationPopup != null)
+            {
+                WebDriverUtil.GetWebElement(CHARACTERISTIC_DELETE_CONFIRM_POPUP_ACCEPT, WebDriverUtil.TWO_SECOND_WAIT,
+                    String.Format("Unable to locate Confirm button on delete confirmation popup - {0}", CHARACTERISTIC_DELETE_CONFIRM_POPUP_ACCEPT)).Click();
+                WebDriverUtil.WaitForWebElementInvisible(CHARACTERISTIC_DELETE_CONFIRM_POPUP, WebDriverUtil.DEFAULT_WAIT, WebDriverUtil.NO_MESSAGE);
+            }
+
 
             WebDriverUtil.GetWebElement(CHECK_CHARACTERISTIC_OF_RESPECTIVE_DEPARTMENT,
                WebDriverUtil.ONE_SECOND_WAIT,

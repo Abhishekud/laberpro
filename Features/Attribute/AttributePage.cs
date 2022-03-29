@@ -205,7 +205,7 @@ namespace laborpro.Features.Attribute
         public static void SelectTheDepartment(string departmentName)
         {
             LogWriter.WriteLog("Executing AttributePage.SelectTheDepartment");
-            WebDriverUtil.GetWebElement(DEPARTMENT_DROPDOWN, WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate the department dropdown - {0}", DEPARTMENT_DROPDOWN)).Click();
+            WebDriverUtil.GetWebElement(DEPARTMENT_DROPDOWN, WebDriverUtil.FIVE_SECOND_WAIT , String.Format("Unable to locate the department dropdown - {0}", DEPARTMENT_DROPDOWN)).Click();
             WebDriverUtil.GetWebElement(String.Format(DEPARTMENT_DROPDOWN_VALUE, departmentName),
            WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate attribute record on attribute page - {0}"
             , String.Format(DEPARTMENT_DROPDOWN_VALUE, departmentName))).Click();
