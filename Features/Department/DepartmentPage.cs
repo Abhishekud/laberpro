@@ -70,10 +70,8 @@ namespace laborpro.pages
             WebDriverUtil.GetWebElement(String.Format(DEPARTMENT_RECORD, DepartmentName), WebDriverUtil.NO_WAIT,
             String.Format("Unable to locate Department record on Departments page - {0}", String.Format(DEPARTMENT_RECORD, DepartmentName))).Click();
 
-
             WebDriverUtil.GetWebElement(String.Format(DEPARTMENT_DELETE_BUTTON, DepartmentName), WebDriverUtil.NO_WAIT,
             String.Format("Unable to locate Department delete button on Department details - {0}", String.Format(DEPARTMENT_DELETE_BUTTON, DepartmentName))).Click();
-
 
             if (WebDriverUtil.GetWebElement(DEPARTMENT_DELETE_CONFIRM_POPUP, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
@@ -97,8 +95,6 @@ namespace laborpro.pages
             LogWriter.WriteLog("Executing DepartmentPage.AddNewDepartmentWithGivenInput");
             ClickOnAddButton();
             UserClickOnNewDepartmentMenuLink();
-
-
             //Read input data
             var dictionary = Util.ConvertToDictionary(inputData);
             BaseClass._TestData.Value = Util.DictionaryToString(dictionary);
@@ -109,18 +105,15 @@ namespace laborpro.pages
                 String.Format("Unable to locate Name input Departments page  - {0}", NAME_INPUT))
                     .SendKeys(dictionary["Name"]);
             }
-
-
-
             WebDriverUtil.GetWebElementAndScroll(SAVE_BUTTON, WebDriverUtil.NO_WAIT,
-                String.Format("Unable to locate save button Departments page - {0}", SAVE_BUTTON)).Click();
+            String.Format("Unable to locate save button Departments page - {0}", SAVE_BUTTON)).Click();
             WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
             if (WebDriverUtil.GetWebElement(DEPARTMENTS_POPUP, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
                 WebDriverUtil.WaitForWebElementInvisible(DEPARTMENTS_POPUP, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             }
 
-            
+
         }
 
         public static void UserClickOnNewDepartmentMenuLink()
@@ -133,11 +126,10 @@ namespace laborpro.pages
         public static void ClickOnDepartment()
         {
             LogWriter.WriteLog("Executing DepartmentPage.ClickOnDepartment");
-
             WebDriverUtil.GetWebElement(LIST_MANAGEMENT_DROPDOWN,
-                WebDriverUtil.NO_WAIT, String.Format("Unable to locate list management dropdown - {0}", LIST_MANAGEMENT_DROPDOWN)).Click();
+            WebDriverUtil.NO_WAIT, String.Format("Unable to locate list management dropdown - {0}", LIST_MANAGEMENT_DROPDOWN)).Click();
             WebDriverUtil.GetWebElement(DEPARTMENT_VALUE_IN_LM_DROPDOWN, WebDriverUtil.NO_WAIT,
-                String.Format("Unable to locate Department value - {0}", DEPARTMENT_VALUE_IN_LM_DROPDOWN)).Click();
+            String.Format("Unable to locate Department value - {0}", DEPARTMENT_VALUE_IN_LM_DROPDOWN)).Click();
 
 
         }
@@ -162,8 +154,6 @@ namespace laborpro.pages
         public static void ClickOnListManagementTab()
         {
             LogWriter.WriteLog("Executing DepartmentPage.ClickOnListManagementTab");
-
-
             if (WebDriverUtil.GetWebElement(DEPARTMENTS_PAGE, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) == null || WebDriverUtil.GetWebElement(UNITSOFMEASURE_PAGE, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) == null)
             {
                 WebDriverUtil.GetWebElement(LIST_MANAGEMENT_TAB, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE).Click();
@@ -186,7 +176,7 @@ namespace laborpro.pages
             {
                 WebDriverUtil.GetWebElementAndScroll(NAME_INPUT).Click();
                 IWebElement nametag = WebDriverUtil.GetWebElementAndScroll(NAME_INPUT);
-               
+
             }
             WebDriverUtil.WaitForWebElementInvisible(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
         }

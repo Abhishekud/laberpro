@@ -19,13 +19,11 @@ namespace laborpro.glue
             AllowancesPage.WaitForAllowanceAlertCloseIfAny();
         }
 
-
-
         [Given(@"User selects Department")]
         [When(@"User selects Department")]
         [Then(@"User selects Department")]
         public void UserClickOnDepartment()
-        { 
+        {
             LogWriter.WriteLog("Executing Step: User selects Department");
             DepartmentsPage.ClickOnDepartment();
         }
@@ -44,7 +42,7 @@ namespace laborpro.glue
         [Then(@"User create new Department with below input")]
         public void AddNewDepartmentWithGivenInput(Table inputData)
         {
-            LogWriter.WriteLog("Executing User create new Department with below input "+inputData);
+            LogWriter.WriteLog("Executing User create new Department with below input " + inputData);
             DepartmentsPage.AddNewDepartmentWithGivenInput(inputData);
         }
 
@@ -57,14 +55,13 @@ namespace laborpro.glue
             DepartmentsPage.CloseDepartmentForm();
         }
 
-
-
         [Given(@"User verify created Department ""([^""]*)""")]
         [When(@"User verify created Department ""([^""]*)""")]
         [Then(@"User verify created Department ""([^""]*)""")]
-        public void UserVerifyCreatedDepartment(String DepartmentName) {
-            LogWriter.WriteLog("Executing Step User verify created Department by name" +DepartmentName);
-            DepartmentsPage.VerifyCreatedDepartment(DepartmentName); 
+        public void UserVerifyCreatedDepartment(String DepartmentName)
+        {
+            LogWriter.WriteLog("Executing Step User verify created Department by name" + DepartmentName);
+            DepartmentsPage.VerifyCreatedDepartment(DepartmentName);
         }
 
         [Given(@"User delete created Department ""([^""]*)""")]

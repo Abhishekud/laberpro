@@ -19,9 +19,6 @@ namespace laborpro.glue
             CharacteristicsPage.ClickOnCharacteristicTab();
 
         }
-
-
-
         [Then(@"Verify Record Of Selected Dept ""(.*)""")]
         [When(@"Verify Record Of Selected Dept ""(.*)""")]
         [Given(@"Verify Record Of Selected Dept ""(.*)""")]
@@ -49,8 +46,6 @@ namespace laborpro.glue
 
             CharacteristicsPage.ClickOnCharacteristicset();
         }
-
-
         [Given(@"User create new Characteristic with below input")]
         [When(@"User create new Characteristic with below input")]
         [Then(@"User create new Characteristic with below input")]
@@ -67,9 +62,8 @@ namespace laborpro.glue
         public void CharacteristicWithGivenInputIfNotExist(Table inputData)
         {
             LogWriter.WriteLog("Executing step: User add  Characteristic using below input if not exist - " + inputData);
-             CharacteristicsPage.CharacteristicWithGivenInputIfNotExist(inputData);
+            CharacteristicsPage.CharacteristicWithGivenInputIfNotExist(inputData);
         }
-
 
         [Given(@"User verify created Characteristic by name ""([^""]*)""")]
         [When(@"User verify created Characteristic by name ""([^""]*)""")]
