@@ -3,7 +3,7 @@ Feature: Verify VolumeDrivers Module
 
 @Setup @Smoke
   Scenario: 01. Launch Browser and Login to the Application
-    Given User launched "chrome"
+    Given User launched "$browser"
      When User go to application "$url"
      Then User enter email: "$username_2" and password: "$password_2"
       And Verify Login message: "success"
