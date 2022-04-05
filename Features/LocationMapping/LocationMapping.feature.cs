@@ -251,16 +251,16 @@ namespace laborpro.Features.LocationMapping
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("04.Verify_that_Respective_\'Volume Driver Mapping Set\'_&_\'Characteristic Set\'_are_" +
-            "available_in_dropdown.")]
+        [NUnit.Framework.DescriptionAttribute("04.Verify_that_Respective_Volume_Driver_Mapping_Set_&_Characteristic_Set_are_avai" +
+            "lable_in_dropdown")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _04_Verify_That_Respective_VolumeDriverMappingSet__CharacteristicSet_Are_Available_In_Dropdown_()
+        public virtual void _04_Verify_That_Respective_Volume_Driver_Mapping_Set__Characteristic_Set_Are_Available_In_Dropdown()
         {
             string[] tagsOfScenario = new string[] {
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04.Verify_that_Respective_\'Volume Driver Mapping Set\'_&_\'Characteristic Set\'_are_" +
-                    "available_in_dropdown.", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04.Verify_that_Respective_Volume_Driver_Mapping_Set_&_Characteristic_Set_are_avai" +
+                    "lable_in_dropdown", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 36
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -300,7 +300,7 @@ namespace laborpro.Features.LocationMapping
      testRunner.When("User create new VolumeDriverMappingset with below input", ((string)(null)), table32, "When ");
 #line hidden
 #line 43
-     testRunner.And("User verify created VolumeDriverMappingset by name \"VolumeDriverMappingset via Lo" +
+      testRunner.And("User verify created VolumeDriverMappingset by name \"VolumeDriverMappingset via Lo" +
                         "cationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 45

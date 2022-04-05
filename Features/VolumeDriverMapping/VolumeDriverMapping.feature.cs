@@ -302,12 +302,12 @@ namespace laborpro.Features.VolumeDriverMapping
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("05. Verify_that_respective_\'VolumeDriver\'_& _UOM\"\"_available_in_dropdown")]
+        [NUnit.Framework.DescriptionAttribute("05. Verify_that_respective_VolumeDriver_&_UOM_available_in_dropdown")]
         public virtual void _05_Verify_That_Respective_VolumeDriver__UOM_Available_In_Dropdown()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05. Verify_that_respective_\'VolumeDriver\'_& _UOM\"\"_available_in_dropdown", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05. Verify_that_respective_VolumeDriver_&_UOM_available_in_dropdown", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 44
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -401,16 +401,14 @@ namespace laborpro.Features.VolumeDriverMapping
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("06. Verify_that_respective_\'VolumeDriver\'_& _UOM\"\"_available_in_dropdown_is_delet" +
-            "ed")]
+        [NUnit.Framework.DescriptionAttribute("06. Verify_that_respective_VolumeDriver_&_UOM_available_in_dropdown_is_deleted")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
         public virtual void _06_Verify_That_Respective_VolumeDriver__UOM_Available_In_Dropdown_Is_Deleted()
         {
             string[] tagsOfScenario = new string[] {
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06. Verify_that_respective_\'VolumeDriver\'_& _UOM\"\"_available_in_dropdown_is_delet" +
-                    "ed", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06. Verify_that_respective_VolumeDriver_&_UOM_available_in_dropdown_is_deleted", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 70
   this.ScenarioInitialize(scenarioInfo);
 #line hidden

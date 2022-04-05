@@ -152,8 +152,8 @@ namespace laborpro.hooks
         {
             string featureName = (_featureContext.Value != null ? _featureContext.Value.FeatureInfo.Title : "").Replace(" ", "").Replace(".", "");
             string scenarioName = _ScenarioContext.Value.ScenarioInfo.Title.Replace(" ", "").Replace(".", "");
-            if (scenarioName.Length > 40)
-                scenarioName = scenarioName.Substring(0, 40);
+            if (scenarioName.Length > 80)
+                scenarioName = scenarioName.Substring(0, 80);
             if (_ScenarioContext.Value.TestError!=null)
             {
                 long timestamp = DateTimeOffset.Now.ToUnixTimeSeconds();

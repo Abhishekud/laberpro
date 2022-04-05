@@ -41,7 +41,7 @@ Feature: Verify VolumeDriverMapping Module
       | Name | VolumeDriverMappingset via Automation | 
      Then User verify created VolumeDriverMappingset by name "VolumeDriverMappingset via Automation"
   
-  Scenario: 05. Verify_that_respective_'VolumeDriver'_& _UOM""_available_in_dropdown 
+  Scenario: 05. Verify_that_respective_VolumeDriver_&_UOM_available_in_dropdown 
   
     Given User navigates to the VolumeDriver tab
      When User create new VolumeDriver with below input
@@ -67,7 +67,7 @@ Feature: Verify VolumeDriverMapping Module
       And User delete created VolumeDriverMapping by "VolumeDriver via VolumeDriverMapping"
   
   @Smoke
-  Scenario: 06. Verify_that_respective_'VolumeDriver'_& _UOM""_available_in_dropdown_is_deleted
+  Scenario: 06. Verify_that_respective_VolumeDriver_&_UOM_available_in_dropdown_is_deleted
     Given User navigates to the VolumeDriver tab
       And User delete created VolumeDriver by name "VolumeDriver via VolumeDriverMapping"
      When User selects Department

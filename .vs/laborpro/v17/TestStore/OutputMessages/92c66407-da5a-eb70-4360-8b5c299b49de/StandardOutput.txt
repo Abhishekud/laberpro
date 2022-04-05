@@ -1,0 +1,166 @@
+Given User navigates to the VolumeDriver tab
+Executing VolumeDriverPage.UserNavigatesToTheListManagementTab 
+7:50:42 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing VolumeDriverPage.UserNavigatesToTheListManagementTab 
+Executing VolumeDriverCloseVolumeDriverForm
+7:50:42 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing VolumeDriverCloseVolumeDriverForm
+no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=100.0.4896.60)
+7:50:43 AM Monday, April 4, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=100.0.4896.60)
+no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=100.0.4896.60)
+7:50:44 AM Monday, April 4, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=100.0.4896.60)
+no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=100.0.4896.60)
+7:50:45 AM Monday, April 4, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=100.0.4896.60)
+Executing VolumeDriver  ClickOnListManagementTab
+7:50:45 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing VolumeDriver  ClickOnListManagementTab
+Executing VolumeDriverPage.CloseVolumeDriverDetailSideBar
+7:50:45 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing VolumeDriverPage.CloseVolumeDriverDetailSideBar
+no such element: Unable to locate element: {"method":"xpath","selector":"//button[text()='Close']"}
+  (Session info: chrome=100.0.4896.60)
+7:50:46 AM Monday, April 4, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//button[text()='Close']"}
+  (Session info: chrome=100.0.4896.60)
+invalid selector: Unable to locate an element with the xpath expression //button[text()='Cancel']] because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '//button[text()='Cancel']]' is not a valid XPath expression.
+  (Session info: chrome=100.0.4896.60)
+7:50:46 AM Monday, April 4, 2022 -> ParallelWorker#3 : invalid selector: Unable to locate an element with the xpath expression //button[text()='Cancel']] because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '//button[text()='Cancel']]' is not a valid XPath expression.
+  (Session info: chrome=100.0.4896.60)
+Executing VolumeDriverPage ClickOnVolumeDriver
+7:50:47 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing VolumeDriverPage ClickOnVolumeDriver
+-> done: VolumeDriverteps.UserNavigatesToTheListManagementsTab() (5.2s)
+When User create new VolumeDriver with below input
+  --- table step argument ---
+  | Key        | Value                             |
+  | Name       | VolumeDriver Exist Scenario       |
+  | Department | Department to verify VolumeDriver |
+Executing User create new VolumeDriver with below input | Key        | Value                             |
+| Name       | VolumeDriver Exist Scenario       |
+| Department | Department to verify VolumeDriver |
+
+7:50:47 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing User create new VolumeDriver with below input | Key        | Value                             |
+| Name       | VolumeDriver Exist Scenario       |
+| Department | Department to verify VolumeDriver |
+
+Executing VolumeDriverPageClickOnAddButton
+7:50:47 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing VolumeDriverPageClickOnAddButton
+Executing VolumeDriverPage UserClickOnNewVolumeDriverMenuLink
+7:50:48 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing VolumeDriverPage UserClickOnNewVolumeDriverMenuLink
+Executing VolumeDriverPage AddNewVolumeDriverWithGivenInput
+7:50:49 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing VolumeDriverPage AddNewVolumeDriverWithGivenInput
+-> done: VolumeDriverteps.AddNewVolumeDriverWithGivenInput(<table>) (8.2s)
+Then User verify created VolumeDriver by name "VolumeDriver Exist Scenario"
+Executinge User verify created VolumeDriver by nameVolumeDriver Exist Scenario
+7:50:55 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executinge User verify created VolumeDriver by nameVolumeDriver Exist Scenario
+Executing VolumeDriverPage VerifyCreatedDepartmen
+7:50:55 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing VolumeDriverPage VerifyCreatedDepartmen
+-> done: VolumeDriverteps.UserVerifyCreatedVolumeDriver("VolumeDriver Exis...") (0.0s)
+Project base directory path : C:\Users\USHA DAHIKAR\Downloads\New folder (10)\laberpro
+Given User navigates to the VolumeDriver tab
+Executing VolumeDriverPage.UserNavigatesToTheListManagementTab 
+7:50:55 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing VolumeDriverPage.UserNavigatesToTheListManagementTab 
+Executing VolumeDriverCloseVolumeDriverForm
+7:50:55 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing VolumeDriverCloseVolumeDriverForm
+no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=100.0.4896.60)
+7:50:56 AM Monday, April 4, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=100.0.4896.60)
+no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=100.0.4896.60)
+7:50:57 AM Monday, April 4, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='modal-dialog']//button[contains(text(),'Cancel')]"}
+  (Session info: chrome=100.0.4896.60)
+no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=100.0.4896.60)
+7:50:58 AM Monday, April 4, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]"}
+  (Session info: chrome=100.0.4896.60)
+Executing VolumeDriver  ClickOnListManagementTab
+7:50:58 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing VolumeDriver  ClickOnListManagementTab
+Executing VolumeDriverPage.CloseVolumeDriverDetailSideBar
+7:50:58 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing VolumeDriverPage.CloseVolumeDriverDetailSideBar
+invalid selector: Unable to locate an element with the xpath expression //button[text()='Cancel']] because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '//button[text()='Cancel']]' is not a valid XPath expression.
+  (Session info: chrome=100.0.4896.60)
+7:50:59 AM Monday, April 4, 2022 -> ParallelWorker#3 : invalid selector: Unable to locate an element with the xpath expression //button[text()='Cancel']] because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '//button[text()='Cancel']]' is not a valid XPath expression.
+  (Session info: chrome=100.0.4896.60)
+Executing VolumeDriverPage ClickOnVolumeDriver
+7:51:00 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing VolumeDriverPage ClickOnVolumeDriver
+-> done: VolumeDriverteps.UserNavigatesToTheListManagementsTab() (5.2s)
+When User create new VolumeDriver with below input
+  --- table step argument ---
+  | Key        | Value                             |
+  | Name       | VolumeDriver Exist Scenario       |
+  | Department | Department to verify VolumeDriver |
+Executing User create new VolumeDriver with below input | Key        | Value                             |
+| Name       | VolumeDriver Exist Scenario       |
+| Department | Department to verify VolumeDriver |
+
+7:51:00 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing User create new VolumeDriver with below input | Key        | Value                             |
+| Name       | VolumeDriver Exist Scenario       |
+| Department | Department to verify VolumeDriver |
+
+Executing VolumeDriverPageClickOnAddButton
+7:51:00 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing VolumeDriverPageClickOnAddButton
+Executing VolumeDriverPage UserClickOnNewVolumeDriverMenuLink
+7:51:01 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing VolumeDriverPage UserClickOnNewVolumeDriverMenuLink
+Executing VolumeDriverPage AddNewVolumeDriverWithGivenInput
+7:51:03 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing VolumeDriverPage AddNewVolumeDriverWithGivenInput
+Timed out after 10 seconds
+7:51:14 AM Monday, April 4, 2022 -> ParallelWorker#3 : Timed out after 10 seconds
+-> done: VolumeDriverteps.AddNewVolumeDriverWithGivenInput(<table>) (14.0s)
+Then Verify validation Message: "Name already exists in this Department."
+Executing step: Verify validation Message: Name already exists in this Department.
+7:51:14 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing step: Verify validation Message: Name already exists in this Department.
+Executing AllowancesPage.VerifyAddAllowanceErrorMessage
+7:51:14 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing AllowancesPage.VerifyAddAllowanceErrorMessage
+-> done: AllowancesSteps.VerifyValidationMessage("Name already exis...") (0.3s)
+Project base directory path : C:\Users\USHA DAHIKAR\Downloads\New folder (10)\laberpro
+And User click on cancel Button
+Executing step: User click on cancel Button
+7:51:15 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing step: User click on cancel Button
+Executing AllowancesPage.CloseAllowanceForm
+7:51:15 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing AllowancesPage.CloseAllowanceForm
+Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+7:51:15 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing AllowancesPage.WaitForAllowanceAlertCloseIfAny
+no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=100.0.4896.60)
+7:51:16 AM Monday, April 4, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//*[@class='toast toast-error']"}
+  (Session info: chrome=100.0.4896.60)
+-> done: AllowancesSteps.UserPressCancelButton() (2.1s)
+And User delete created VolumeDriver by name "VolumeDriver Exist Scenario"
+Executinge User delete created VolumeDriver by nameVolumeDriver Exist Scenario
+7:51:17 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executinge User delete created VolumeDriver by nameVolumeDriver Exist Scenario
+Executing VolumeDriverPage.DeleteCreatedVolumeDriver
+7:51:17 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing VolumeDriverPage.DeleteCreatedVolumeDriver
+Executing VolumeDriverPage.CloseVolumeDriverDetailSideBar
+7:51:17 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing VolumeDriverPage.CloseVolumeDriverDetailSideBar
+no such element: Unable to locate element: {"method":"xpath","selector":"//button[text()='Close']"}
+  (Session info: chrome=100.0.4896.60)
+7:51:18 AM Monday, April 4, 2022 -> ParallelWorker#3 : no such element: Unable to locate element: {"method":"xpath","selector":"//button[text()='Close']"}
+  (Session info: chrome=100.0.4896.60)
+invalid selector: Unable to locate an element with the xpath expression //button[text()='Cancel']] because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '//button[text()='Cancel']]' is not a valid XPath expression.
+  (Session info: chrome=100.0.4896.60)
+7:51:18 AM Monday, April 4, 2022 -> ParallelWorker#3 : invalid selector: Unable to locate an element with the xpath expression //button[text()='Cancel']] because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '//button[text()='Cancel']]' is not a valid XPath expression.
+  (Session info: chrome=100.0.4896.60)
+-> done: VolumeDriverteps.UserDeleteCreatedVolumeDriver("VolumeDriver Exis...") (5.9s)
+Then User selects Department
+Executing Step: User selects Department
+7:51:23 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing Step: User selects Department
+Executing DepartmentPage.ClickOnDepartment
+7:51:23 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing DepartmentPage.ClickOnDepartment
+-> done: DepartmentSteps.UserClickOnDepartment() (0.1s)
+And User delete created Department "Department to verify VolumeDriver"
+Executing Step User delete created Department by nameDepartment to verify VolumeDriver
+7:51:23 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing Step User delete created Department by nameDepartment to verify VolumeDriver
+Executing DepartmentPage.DeleteCreatedDepartment
+7:51:23 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing DepartmentPage.DeleteCreatedDepartment
+Executing DepartmentPage.CloseDepartmentDetailSideBar
+7:51:23 AM Monday, April 4, 2022 -> ParallelWorker#3 : Executing DepartmentPage.CloseDepartmentDetailSideBar
+Timed out after 1 seconds
+7:51:24 AM Monday, April 4, 2022 -> ParallelWorker#3 : Timed out after 1 seconds
+-> done: DepartmentSteps.UserDeleteCreatedDepartment("Department to ver...") (2.7s)

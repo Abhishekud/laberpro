@@ -33,7 +33,7 @@ Feature: Verify LocationMapping Module
       And User verify created LocationMapping "Location via LocationMapping"
   
   @Smoke
-  Scenario: 04.Verify_that_Respective_'Volume Driver Mapping Set'_&_'Characteristic Set'_are_available_in_dropdown.
+  Scenario: 04.Verify_that_Respective_Volume_Driver_Mapping_Set_&_Characteristic_Set_are_available_in_dropdown
     Given User navigates to the VolumeDriverMapping tab
      Then User select the Department "Department to verify LocationMapping"
       And User click on VolumeDriverMapping set
