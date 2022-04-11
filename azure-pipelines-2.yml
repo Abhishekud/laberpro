@@ -1,4 +1,20 @@
- pool:
+ # Variable 'Parameters.Inputs.version' was defined in the Variables tab
+variables:
+- name: BuildParameters.RestoreBuildProjects
+  value: '**/*.csproj'
+- name: BuildParameters.tabName
+  value: HTML-Report
+name: $(date:yyyyMMdd)$(rev:.r)
+resources:
+  repositories:
+  - repository: self
+    type: git
+    ref: refs/heads/Demo_ss
+jobs:
+- job: Job_1
+  displayName: Agent job 1
+  pool:
+    vmImage: windows-latest
   name: Azure Pipelines
   demands: vstest
 
