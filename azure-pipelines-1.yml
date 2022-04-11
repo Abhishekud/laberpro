@@ -9,7 +9,7 @@ resources:
   repositories:
   - repository: self
     type: git
-    ref: refs/heads/Demo_ss
+    ref: refs/heads/test3
 jobs:
 - job: Job_1
   displayName: Agent job 1
