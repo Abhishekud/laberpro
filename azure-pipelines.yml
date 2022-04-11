@@ -56,6 +56,3 @@ jobs:
 
         !**\bin\**\ref\**
   
-  - task: PublishHtmlReport@1
-    inputs:
-      reportDir: 'report/index.html'
