@@ -59,18 +59,9 @@ jobs:
         !**\obj\**
 
         !**\bin\**\ref\**
-  - task: SpecFlowPlus@0
-    displayName: SpecFlow+ build step.
-    condition: always()
-    inputs:
-      projectFilePath: Features
-      projectName: laborpro
-      projectLanguage: en
-  - task: PublishHtmlReport@1
-    displayName: Publish Html Report
-    condition: always()
-    continueOnError: True
-    inputs:
-      tabName: $(BuildParameters.tabName)
-      reportDir: report/index.html
-...
+  
+ - task: JakubRumpca.azure-pipelines-html-report.PublishHtmlReport.PublishHtmlReport@1
+  displayName: 'Publish Html Report'
+  inputs:
+    reportDir: report/index.html
+
