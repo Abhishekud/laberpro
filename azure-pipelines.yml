@@ -5,11 +5,7 @@ variables:
 - name: BuildParameters.tabName
   value: HTML-Report
 name: $(date:yyyyMMdd)$(rev:.r)
-resources:
-  repositories:
-  - repository: self
-    type: git
-    ref: refs/heads/Mapping
+ 
 jobs:
 - job: Job_1
   displayName: Agent job 1
@@ -60,8 +56,6 @@ jobs:
 
         !**\bin\**\ref\**
   
- - task: JakubRumpca.azure-pipelines-html-report.PublishHtmlReport.PublishHtmlReport@1
-  displayName: 'Publish Html Report'
-  inputs:
-    reportDir: report/index.html
-
+  - task: PublishHtmlReport@1
+    inputs:
+      reportDir: 'report/index.html'
