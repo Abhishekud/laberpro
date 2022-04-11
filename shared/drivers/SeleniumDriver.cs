@@ -43,7 +43,11 @@ namespace laborpro.drivers
                 {
                     case "google_chrome":
                         new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
-                        driver = new ChromeDriver(GetChromeOptions());
+                        ChromeOptions options = new ChromeOptions();
+                        options.AddArguments("--headless", "--disable-gpu", "--window-size=1920,1200",
+       "--ignore-certificate-errors", "--disable-extensions", "--no-sandbox", "--disable-dev-shm-usage");
+
+                        driver = new ChromeDriver(options);
                         break;
 
                     case "firefox":
