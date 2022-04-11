@@ -1,0 +1,55 @@
+  pool:
+  name: Azure Pipelines
+  demands: vstest
+
+#Your build pipeline references an undefined variable named ‘Parameters.RestoreBuildProjects’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
+#Your build pipeline references an undefined variable named ‘Parameters.RestoreBuildProjects’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
+#Your build pipeline references the ‘BuildConfiguration’ variable, which you’ve selected to be settable at queue time. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab, and then select the option to make it settable at queue time. See https://go.microsoft.com/fwlink/?linkid=865971
+#Your build pipeline references an undefined variable named ‘Parameters.RestoreBuildProjects’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
+#Your build pipeline references the ‘BuildConfiguration’ variable, which you’ve selected to be settable at queue time. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab, and then select the option to make it settable at queue time. See https://go.microsoft.com/fwlink/?linkid=865971
+
+steps:
+- task: UseDotNet@2
+  displayName: 'Use .NET Core sdk 6.0.101'
+  inputs:
+    version: 6.0.101
+
+- task: DotNetCoreCLI@2
+  displayName: Restore
+  inputs:
+    command: restore
+    projects: '$(Parameters.RestoreBuildProjects)'
+
+- task: DotNetCoreCLI@2
+  displayName: Build
+  inputs:
+    projects: '$(Parameters.RestoreBuildProjects)'
+    arguments: '--configuration $(BuildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  displayName: Publish
+  inputs:
+    command: publish
+    publishWebProjects: false
+    projects: '$(Parameters.RestoreBuildProjects)'
+    arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
+    zipAfterPublish: True
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
+  condition: succeededOrFailed()
+
+- task: VSTest@2
+  displayName: 'VsTest - testAssemblies'
+  inputs:
+    testAssemblyVer2: |
+     **\laborpro.dll
+     !**\*TestAdapter.dll
+     !**\obj\**
+
+- task: JakubRumpca.azure-pipelines-html-report.PublishHtmlReport.PublishHtmlReport@1
+  displayName: 'Publish Html Report'
+  inputs:
+    reportDir: report/index.html
