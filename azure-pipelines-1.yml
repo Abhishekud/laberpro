@@ -9,7 +9,7 @@ resources:
   repositories:
   - repository: self
     type: git
-    ref: refs/heads/test3
+    ref: refs/heads/master
 jobs:
 - job: Job_1
   displayName: Agent job 1
@@ -59,13 +59,7 @@ jobs:
         !**\obj\**
 
         !**\bin\**\ref\**
-  - task: SpecFlowPlus@0
-    displayName: SpecFlow+ build step.
-    condition: always()
-    inputs:
-      projectFilePath: Features
-      projectName: laborpro
-      projectLanguage: en
+  
   - task: PublishHtmlReport@1
     displayName: Publish Html Report
     condition: always()
