@@ -1,23 +1,10 @@
- # Variable 'Parameters.Inputs.version' was defined in the Variables tab
-variables:
-- name: BuildParameters.RestoreBuildProjects
-  value: '**/*.csproj'
-- name: BuildParameters.tabName
-  value: HTML-Report
-name: $(date:yyyyMMdd)$(rev:.r)
-resources:
-  repositories:
-  - repository: self
-    type: git
-    ref: refs/heads/Demo_ss
+ 
 jobs:
 - job: Job_1
   displayName: Agent job 1
   pool:
     vmImage: windows-latest
-  name: Azure Pipelines
-  demands: vstest
-
+ 
 #Your build pipeline references an undefined variable named ‘Parameters.RestoreBuildProjects’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
 #Your build pipeline references an undefined variable named ‘Parameters.RestoreBuildProjects’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
 #Your build pipeline references the ‘BuildConfiguration’ variable, which you’ve selected to be settable at queue time. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab, and then select the option to make it settable at queue time. See https://go.microsoft.com/fwlink/?linkid=865971
