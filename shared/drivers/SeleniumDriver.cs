@@ -19,7 +19,7 @@ namespace laborpro.drivers
         public static string ProjectDirectory = Directory.GetParent(WorkingDirectory).Parent.Parent.FullName;
         public static string DownloadDirectory = ProjectDirectory + DOWNLOAD_DIRECTORY_PATH;
         public static ThreadLocal<IWebDriver> webDriver = new ThreadLocal<IWebDriver>();
-        const string DEFAULT_BROSWER = "microsoft_edge";
+        const string DEFAULT_BROSWER = "";
         public static IWebDriver Setup(string browser)
         {
             if (browser.StartsWith("$"))
@@ -55,8 +55,7 @@ namespace laborpro.drivers
                         driver = new EdgeDriver(GetEdgeOptions());
                         break;
                     default:
-                        new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
-                        driver = new ChromeDriver(GetChromeOptions());
+                        driver = new ChromeDriver(ProjectDirectory + @"/resources/");
                         break;
                 }
                 webDriver.Value = driver;
