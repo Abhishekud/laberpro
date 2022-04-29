@@ -11,7 +11,7 @@ namespace LaborPro.Automation.shared.config
     public class ConfigReader
     {
         public static Dictionary<string, Dictionary<string, string>>? ConfigProprties = null;
-        public static readonly string DEFAULT_ENV = "uat";
+        public static readonly string DEFAULT_ENV = "azurecopy";
         public static readonly string CONFIG_FILE_NAME = @"/resources/config/config.json";
         
         public static void Init()
