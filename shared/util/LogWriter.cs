@@ -1,23 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LaborPro.Automation.shared.util
+﻿namespace LaborPro.Automation.shared.util
 {
     public class LogWriter
     {
         private static ReaderWriterLockSlim lock_ = new ReaderWriterLockSlim();
         const string LOG_FILE_PATH = @"/report/log.txt";
-        private static string logFilePath = null;
+        private static string LogFilePath = null;
         public static void WriteLog(string logMessage)
         {
             try
             {
                 lock_.EnterWriteLock();
-                using (StreamWriter w = File.AppendText(logFilePath))
+                using (StreamWriter w = File.AppendText(LogFilePath))
                 {
                     Log(logMessage, w);
                 }
@@ -55,12 +48,12 @@ namespace LaborPro.Automation.shared.util
         {
             string workingDirectory = Environment.CurrentDirectory;
             string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
-            logFilePath = projectDirectory + LOG_FILE_PATH;
-            if (File.Exists(logFilePath))
+            LogFilePath = projectDirectory + LOG_FILE_PATH;
+            if (File.Exists(LogFilePath))
             {
-                File.Delete(logFilePath);
+                File.Delete(LogFilePath);
             }
-            File.Create(logFilePath);
+            File.Create(LogFilePath);
         }
     }
 }

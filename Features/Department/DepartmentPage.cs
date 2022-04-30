@@ -1,14 +1,11 @@
-﻿using LaborPro.Automation.shared.drivers;
-using LaborPro.Automation.shared.hooks;
+﻿using LaborPro.Automation.shared.hooks;
 using LaborPro.Automation.shared.util;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
 
 namespace LaborPro.Automation.Features.Department
 {
     public class DepartmentsPage
     {
-        const string standard_Filing_FieldId = "//select[@id='standardFilingFieldId']";
         const string STANDARD_COLLAPSED_TAB = "//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]";
         const string LIST_MANAGEMENT_TAB = "//a[text()='List Management']";
         const string ADD_BUTTON = "//button[@id='newDepartments']";
@@ -17,16 +14,12 @@ namespace LaborPro.Automation.Features.Department
         const string SAVE_BUTTON = "//button[contains(text(),'Save')]";
         const string CLOSE_DEPARTMENT_FORM_BUTTON = "//*[@class='modal-dialog']//button[contains(text(),'Cancel')]";
         const string ERROR_ALERT_TOAST_XPATH = "//*[@class='toast toast-error']";
-        const string CREATED_DEPARTMENT_TITLE = "//*[@class='page-title' and contains(text(),'{0}')]";
         const string UNITSOFMEASURE_PAGE = "//h3[@class='page-title' and contains(text(),'Units Of Measure')]";
-        const string PAGE_TITLE = "//*[@class='page-title']";
         const string CLOSE_DEPARTMENT_DETAILS = "//button[text()='Close']";
-        const string CANCEL_DEPARTMENT_DETAILS = "//button[text()='Cancel']]";
         const string DEPARTMENT_DELETE_BUTTON = "//button[contains(@class,'delete')]";
         const string DEPARTMENT_RECORD = "//*[@role='row' and .//*[text()='{0}']]";
         const string DEPARTMENT_DELETE_CONFIRM_POPUP = "//*[@class='modal-dialog']//*[contains(text(),'Please confirm that you want to delete')]";
         const string DEPARTMENT_DELETE_CONFIRM_POPUP_ACCEPT = "//*[@class='modal-dialog']//button[text()='Confirm']";
-        const string CLOSE_BUTTON = "//button[@id='newDepartments']";
         const string LIST_MANAGEMENT_DROPDOWN = "//select[@id='standardFilingFieldId']";
         const string DEPARTMENT_VALUE_IN_LM_DROPDOWN = "//select[@id='standardFilingFieldId']//option[contains(text(),'Departments')]";
         const string DEPARTMENTS_PAGE = "//h3[contains(text(),'Departments')]";
@@ -50,10 +43,10 @@ namespace LaborPro.Automation.Features.Department
                 record.Click();
             }
         }
-        public static void DeleteDepartmentifexist(string DepartmentName)
+        public static void DeleteDepartmentIfExist(string DepartmentName)
         {
 
-            LogWriter.WriteLog("Executing DepartmentPage.DeleteDepartmentifexist");
+            LogWriter.WriteLog("Executing DepartmentPage.DeleteDepartmentifExist");
             IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(DEPARTMENT_RECORD, DepartmentName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record != null)
             {
@@ -62,7 +55,7 @@ namespace LaborPro.Automation.Features.Department
 
 
         }
-       public static void CloseDepartmentDetailSideBar()
+        public static void CloseDepartmentDetailSideBar()
         {
             LogWriter.WriteLog("Executing DepartmentPage.CloseDepartmentDetailSideBar");
             IWebElement DepartmentDetailsSideBar = WebDriverUtil.GetWebElement(CLOSE_DEPARTMENT_DETAILS, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
@@ -80,18 +73,17 @@ namespace LaborPro.Automation.Features.Department
             CloseDepartmentDetailSideBar();
             WebDriverUtil.GetWebElement(String.Format(DEPARTMENT_RECORD, DepartmentName), WebDriverUtil.NO_WAIT,
             String.Format("Unable to locate Department record on Departments page - {0}", String.Format(DEPARTMENT_RECORD, DepartmentName))).Click();
-
-
             WebDriverUtil.GetWebElement(String.Format(DEPARTMENT_DELETE_BUTTON, DepartmentName), WebDriverUtil.NO_WAIT,
             String.Format("Unable to locate Department delete button on Department details - {0}", String.Format(DEPARTMENT_DELETE_BUTTON, DepartmentName))).Click();
 
-            WebDriverUtil.GetWebElement(DEPARTMENT_DELETE_CONFIRM_POPUP_ACCEPT, WebDriverUtil.ONE_SECOND_WAIT,
+            WebDriverUtil.GetWebElement(DEPARTMENT_DELETE_CONFIRM_POPUP_ACCEPT, WebDriverUtil.TWO_SECOND_WAIT,
                 String.Format("Unable to locate Confirm button on delete confirmation popup - {0}", DEPARTMENT_DELETE_CONFIRM_POPUP_ACCEPT)).Click();
-
-            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
-                WebDriverUtil.WaitForWebElementInvisible(DEPARTMENT_DELETE_CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Application taking too long time to perform operation");
+                WebDriverUtil.WaitForWebElementInvisible(DEPARTMENT_DELETE_CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
             }
             else
             {
@@ -104,7 +96,6 @@ namespace LaborPro.Automation.Features.Department
             WebDriverUtil.GetWebElement(String.Format(DEPARTMENT_RECORD, DepartmentName), WebDriverUtil.ONE_SECOND_WAIT,
             String.Format("Unable to locate record Departments page - {0}", String.Format(DEPARTMENT_RECORD, DepartmentName)));
             BaseClass._AttachScreenshot.Value = true;
-
         }
         public static void AddNewDepartmentWithGivenInput(Table inputData)
         {
@@ -124,23 +115,22 @@ namespace LaborPro.Automation.Features.Department
                     .SendKeys(dictionary["Name"]);
             }
 
-
-
             WebDriverUtil.GetWebElementAndScroll(SAVE_BUTTON, WebDriverUtil.NO_WAIT,
                 String.Format("Unable to locate save button Departments page - {0}", SAVE_BUTTON)).Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Saving...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             if (WebDriverUtil.GetWebElement(DEPARTMENTS_POPUP, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
-                IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FORM_INPUT_FIELD_ERROR_XPATH, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+                IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FORM_INPUT_FIELD_ERROR_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                 if (errorMessage == null)
                 {
-                    IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ELEMENT_ALERT, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+                    IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ELEMENT_ALERT, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                     if (errorMsg == null)
                     {
-                        IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                        IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                         if (alert == null)
                         {
-                            WebDriverUtil.WaitForWebElementInvisible(DEPARTMENTS_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec Application taking too long time to perform operation");
+                            WebDriverUtil.WaitForWebElementInvisible(DEPARTMENTS_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
                         }
                         else
                         {
@@ -148,11 +138,8 @@ namespace LaborPro.Automation.Features.Department
                         }
                     }
                 }
-            }
-
-            
+            }           
         }
-
         public static void UserClickOnNewDepartmentMenuLink()
         {
             LogWriter.WriteLog("Executing DepartmentPage.UserClickOnNewDepartmentMenuLink");
@@ -203,10 +190,10 @@ namespace LaborPro.Automation.Features.Department
         public static void ClickOnStandardTab()
         {
             LogWriter.WriteLog("Executing DepartmentPage.ClickOnStandardTab");
-            IWebElement standardtab = WebDriverUtil.GetWebElement(STANDARD_COLLAPSED_TAB, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (standardtab != null)
+            IWebElement standardTab = WebDriverUtil.GetWebElement(STANDARD_COLLAPSED_TAB, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (standardTab != null)
             {
-                standardtab.Click();
+                standardTab.Click();
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             }
         }
@@ -217,7 +204,7 @@ namespace LaborPro.Automation.Features.Department
             if (alert != null)
             {
                 WebDriverUtil.GetWebElementAndScroll(NAME_INPUT).Click();
-                IWebElement nametag = WebDriverUtil.GetWebElementAndScroll(NAME_INPUT);
+                WebDriverUtil.GetWebElementAndScroll(NAME_INPUT);
                
             }
             WebDriverUtil.WaitForWebElementInvisible(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);

@@ -93,7 +93,7 @@ namespace laborpro.Features.Allowances
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01. Launch Browser and Login to the Application", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 6
+#line 5
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -113,16 +113,16 @@ namespace laborpro.Features.Allowances
             else
             {
                 this.ScenarioStart();
-#line 7
+#line 6
     testRunner.Given("User launched \"$browser\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 8
+#line 7
     testRunner.When("User go to application \"$url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 9
+#line 8
     testRunner.Then("User enter email: \"$username_1\" and password: \"$password_1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 10
+#line 9
     testRunner.And("Verify Login message: \"success\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -138,7 +138,7 @@ namespace laborpro.Features.Allowances
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02. verify_add_allowance_name_empty_tag", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 13
+#line 12
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -158,7 +158,7 @@ namespace laborpro.Features.Allowances
             else
             {
                 this.ScenarioStart();
-#line 14
+#line 13
     testRunner.Given("User navigates to the Allowance tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -167,13 +167,13 @@ namespace laborpro.Features.Allowances
                 table1.AddRow(new string[] {
                             "Name",
                             ""});
-#line 15
+#line 14
     testRunner.When("User add allowance using below input", ((string)(null)), table1, "When ");
 #line hidden
-#line 18
+#line 17
     testRunner.Then("Verify validation Message: \"Name is required\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 19
+#line 18
     testRunner.And("User click on cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -187,7 +187,7 @@ namespace laborpro.Features.Allowances
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03. verify_add_allowance_name_already_exist", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 22
+#line 21
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -207,10 +207,10 @@ namespace laborpro.Features.Allowances
             else
             {
                 this.ScenarioStart();
-#line 23
+#line 22
     testRunner.Given("User navigates to the Allowance tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 24
+#line 23
     testRunner.Then("User delete allowance \"Allowance to verify duplicate record\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
                 TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -243,13 +243,13 @@ namespace laborpro.Features.Allowances
                 table2.AddRow(new string[] {
                             "Incentive Opportunity Allowance (Percent)",
                             "80"});
-#line 25
+#line 24
     testRunner.When("User add allowance using below input", ((string)(null)), table2, "When ");
 #line hidden
-#line 36
+#line 35
     testRunner.Then("User verify created allowance name \"Allowance to verify duplicate record\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 37
+#line 36
     testRunner.And("User click on previous link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
@@ -282,16 +282,16 @@ namespace laborpro.Features.Allowances
                 table3.AddRow(new string[] {
                             "Incentive Opportunity Allowance (Percent)",
                             "80"});
-#line 38
+#line 37
     testRunner.When("User add allowance using below input", ((string)(null)), table3, "When ");
 #line hidden
-#line 50
+#line 49
     testRunner.Then("Verify validation Message: \"Name already exists\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 51
+#line 50
     testRunner.And("User click on cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 52
+#line 51
     testRunner.And("User delete created allowance: \"Allowance to verify duplicate record\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -307,7 +307,7 @@ namespace laborpro.Features.Allowances
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04. verify_add_allowance_by_adding_correct_record_of_name", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 56
+#line 55
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -327,10 +327,10 @@ namespace laborpro.Features.Allowances
             else
             {
                 this.ScenarioStart();
-#line 57
+#line 56
     testRunner.Given("User navigates to the Allowance tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 58
+#line 57
     testRunner.Then("User delete allowance \"Allowance by adding correct name\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
                 TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
@@ -363,13 +363,13 @@ namespace laborpro.Features.Allowances
                 table4.AddRow(new string[] {
                             "Incentive Opportunity Allowance (Percent)",
                             "80"});
-#line 59
+#line 58
     testRunner.When("User add allowance using below input", ((string)(null)), table4, "When ");
 #line hidden
-#line 70
+#line 69
     testRunner.Then("User verify created allowance name \"Allowance by adding correct name\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 71
+#line 70
     testRunner.And("User delete allowance record", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -383,7 +383,7 @@ namespace laborpro.Features.Allowances
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05. verify_add_allowance_paid_time_empty", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 73
+#line 72
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -403,7 +403,7 @@ namespace laborpro.Features.Allowances
             else
             {
                 this.ScenarioStart();
-#line 74
+#line 73
     testRunner.Given("User navigates to the Allowance tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
@@ -415,13 +415,13 @@ namespace laborpro.Features.Allowances
                 table5.AddRow(new string[] {
                             "Paid Time (Minutes)",
                             ""});
-#line 75
+#line 74
     testRunner.When("User add allowance using below input", ((string)(null)), table5, "When ");
 #line hidden
-#line 79
+#line 78
     testRunner.Then("Verify validation Message: \"Paid Time must be between 200 and 720\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 80
+#line 79
     testRunner.And("User click on cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -437,7 +437,7 @@ namespace laborpro.Features.Allowances
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06. verify_add_allowance_paid_time_range_200_and_720", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 83
+#line 82
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -457,7 +457,7 @@ namespace laborpro.Features.Allowances
             else
             {
                 this.ScenarioStart();
-#line 84
+#line 83
     testRunner.Given("User navigates to the Allowance tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
@@ -490,13 +490,13 @@ namespace laborpro.Features.Allowances
                 table6.AddRow(new string[] {
                             "Incentive Opportunity Allowance (Percent)",
                             "80"});
-#line 85
+#line 84
     testRunner.When("User add allowance using below input", ((string)(null)), table6, "When ");
 #line hidden
-#line 96
+#line 95
     testRunner.Then("Verify validation Message: \"Paid Time must be between 200 and 720\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 97
+#line 96
     testRunner.And("User click on cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -512,7 +512,7 @@ namespace laborpro.Features.Allowances
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("07. verify_add_allowance_paid_time_value_getting_added_when_value_is_supplied_in_" +
                     "range", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 99
+#line 98
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -532,10 +532,10 @@ namespace laborpro.Features.Allowances
             else
             {
                 this.ScenarioStart();
-#line 100
+#line 99
     testRunner.Given("User navigates to the Allowance tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 101
+#line 100
     testRunner.Then("User delete allowance \"Allowance paid time value in range\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
                 TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
@@ -568,13 +568,13 @@ namespace laborpro.Features.Allowances
                 table7.AddRow(new string[] {
                             "Incentive Opportunity Allowance (Percent)",
                             "80"});
-#line 102
+#line 101
     testRunner.When("User add allowance using below input", ((string)(null)), table7, "When ");
 #line hidden
-#line 113
+#line 112
     testRunner.Then("User verify created allowance name \"Allowance paid time value in range\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 114
+#line 113
     testRunner.And("User delete allowance record", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -588,7 +588,7 @@ namespace laborpro.Features.Allowances
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("08. verify_add_allowance_Incentive_Opportunity_Allowance_Percent", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 116
+#line 115
    this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -608,10 +608,10 @@ namespace laborpro.Features.Allowances
             else
             {
                 this.ScenarioStart();
-#line 117
+#line 116
     testRunner.Given("User navigates to the Allowance tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 118
+#line 117
     testRunner.Then("User delete allowance \"Allowance Incentive Opportunity Percent\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
                 TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
@@ -644,13 +644,13 @@ namespace laborpro.Features.Allowances
                 table8.AddRow(new string[] {
                             "Incentive Opportunity Allowance (Percent)",
                             "125"});
-#line 119
+#line 118
     testRunner.When("User add allowance using below input", ((string)(null)), table8, "When ");
 #line hidden
-#line 130
+#line 129
     testRunner.Then("User verify created allowance name \"Allowance Incentive Opportunity Percent\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 131
+#line 130
     testRunner.And("User delete allowance record", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -666,7 +666,7 @@ namespace laborpro.Features.Allowances
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("09. verify_Add_allowance_Minor_Unavoidable_delay_percent_and_Additional_Percent_r" +
                     "ange_value_less_than_100", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 133
+#line 132
    this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -686,7 +686,7 @@ namespace laborpro.Features.Allowances
             else
             {
                 this.ScenarioStart();
-#line 134
+#line 133
     testRunner.Given("User navigates to the Allowance tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
@@ -719,14 +719,14 @@ namespace laborpro.Features.Allowances
                 table9.AddRow(new string[] {
                             "Incentive Opportunity Allowance (Percent)",
                             "125"});
-#line 135
+#line 134
     testRunner.When("User add allowance using below input to verify vaidation message", ((string)(null)), table9, "When ");
 #line hidden
-#line 146
+#line 145
     testRunner.Then("User verify error alert message: \"Calculated Allowance Percent must be less than " +
                         "100%\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 147
+#line 146
     testRunner.And("User click on cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
@@ -759,14 +759,14 @@ namespace laborpro.Features.Allowances
                 table10.AddRow(new string[] {
                             "Incentive Opportunity Allowance (Percent)",
                             "125"});
-#line 148
+#line 147
     testRunner.When("User add allowance using below input to verify vaidation message", ((string)(null)), table10, "When ");
 #line hidden
-#line 159
+#line 158
     testRunner.Then("User verify error alert message: \"Calculated Allowance Percent must be less than " +
                         "100%\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 160
+#line 159
     testRunner.And("User click on cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -784,7 +784,7 @@ namespace laborpro.Features.Allowances
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("10. Logout and Close Browser", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 163
+#line 162
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -804,13 +804,13 @@ namespace laborpro.Features.Allowances
             else
             {
                 this.ScenarioStart();
-#line 164
+#line 163
     testRunner.Given("User navigates to the Allowance tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 165
+#line 164
     testRunner.When("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 166
+#line 165
     testRunner.Then("User close browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

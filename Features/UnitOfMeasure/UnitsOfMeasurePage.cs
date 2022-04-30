@@ -2,11 +2,6 @@
 using LaborPro.Automation.shared.util;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LaborPro.Automation.Features.UnitOfMeasure
 {
@@ -15,15 +10,12 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
         const string RECORD_FOR_DEPT = "//td[contains(text(),'{0}')]";
         const string LIST_MANAGEMENT_DROPDOWN = "//select[@id='standardFilingFieldId']";
         const string DEPARTMENT_DROPDOWN = "//select[@id='departmentId']";
-        const string DEPARTMENT_VALUE = "//select[@id='departmentId']//option[contains(text(),'{0}')]";
         const string ADD_UNITS_OF_MEASURE = "//button[.//*[@class='fa fa-plus']]";
         const string NEW_UNIT_OF_MEASURE = "//a[contains(text(),'New Unit of Measure')]";
         const string UNITSOFMEASURE_PAGE = "//h3[@class='page-title' and contains(text(),'Units Of Measure')]";
         const string NAMETAG_INPUT = "//*[@role='dialog']//input[@id='name']";
-        const string EDIT_NAMETAG_INPUT = "//input[@id='name']";
         const string SAVE_BUTTON = "//button[contains(text(),'Save')]";
         const string UOM_VALUE_IN_EDITFORM = "//*[@name='name' and contains(@value,'{0}')]";
-        const string UOM_EDIT_FORM = "//*[@class='sidebar-header']//h4[contains(text(),'Edit UOM')]";
         const string EDIT_FORM_CLOSE_BUTTON = "//*[@class='controlled-actions']//button[contains(text(),'Close')]";
         const string DELETE_BUTTON = "//*[@class='controlled-actions']//button[@class='delete report-button btn btn-sm btn-default']";
         const string CONFIRM_BUTTON = "//*[@class='modal-content']//button[text()='Confirm']";
@@ -45,13 +37,13 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
                 WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
             }
         }
-        public static void DeleteUnitOfMeasureifexist(string UnitOfMeasureName)
+        public static void DeleteUnitOfMeasureIfExist(string UnitOfMeasureName)
         {
-            LogWriter.WriteLog("Executing UnitOfMeasurePage.DeleteUnitOfMeasureifexist");
+            LogWriter.WriteLog("Executing UnitOfMeasurePage.DeleteUnitOfMeasureIfExist");
             IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(UOM_RECORD, UnitOfMeasureName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record != null)
             {
-                DeleteCreatedUnitOfMeasurebyname(UnitOfMeasureName);
+                DeleteCreatedUnitOfMeasureByName(UnitOfMeasureName);
             }
 
 
@@ -71,21 +63,22 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
                 record.Click();
             }
         }
-        public static void DeleteCreatedUnitOfMeasurebyname(string UnitOfMeasureName)
+        public static void DeleteCreatedUnitOfMeasureByName(string UnitOfMeasureName)
         {
-            LogWriter.WriteLog("Executing UnitOfMeasurePage.DeleteCreatedUnitOfMeasure");
+            LogWriter.WriteLog("Executing UnitOfMeasurePage.DeleteCreatedUnitOfMeasureByName");
             WebDriverUtil.GetWebElement(String.Format(UOM_RECORD, UnitOfMeasureName), WebDriverUtil.ONE_SECOND_WAIT,
             String.Format("Unable to locate UnitOfMeasure record on UnitOfMeasures page - {0}", String.Format(UOM_RECORD, UnitOfMeasureName))).Click();
 
 
             WebDriverUtil.GetWebElement(DELETE_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate delete button - {0}", DELETE_BUTTON)).Click();
 
-            WebDriverUtil.GetWebElement(CONFIRM_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate confirm button - {0}", CONFIRM_BUTTON)).Click();
-
-            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.GetWebElement(CONFIRM_BUTTON, WebDriverUtil.TWO_SECOND_WAIT, String.Format("Unable to locate confirm button - {0}", CONFIRM_BUTTON)).Click();
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
-                WebDriverUtil.WaitForWebElementInvisible(UOM_CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Application taking too long time to perform operation");
+                WebDriverUtil.WaitForWebElementInvisible(UOM_CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
             }
             else
             {
@@ -105,7 +98,7 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
                 WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
             }
         }
-        public static void clickOnAddUnitOfMeasure()
+        public static void ClickOnAddUnitOfMeasure()
         {
 
             LogWriter.WriteLog("Executing UnitsOfMeasurePage.clickOnAddUnitOfMeasure");
@@ -125,7 +118,7 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
         public static void AddUnitOfMeasureWihGivenInput(Table inputData)
         {
             LogWriter.WriteLog("Executing UnitsOfMeasurePage.AddUnitOfMeasureWithGivenInput");
-            clickOnAddUnitOfMeasure();
+            ClickOnAddUnitOfMeasure();
             var dictionary = Util.ConvertToDictionary(inputData);
             BaseClass._TestData.Value = Util.DictionaryToString(dictionary);
 
@@ -138,18 +131,19 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
             WebDriverUtil.GetWebElement(SAVE_BUTTON, WebDriverUtil.NO_WAIT,
                 String.Format("Unable to locate Save Button- {0}", SAVE_BUTTON)).Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Saving...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             if (WebDriverUtil.GetWebElement(UNITS_OF_MEASURE_POPUP, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
-                IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FORM_INPUT_FIELD_ERROR_XPATH, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+                IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FORM_INPUT_FIELD_ERROR_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                 if (errorMessage == null)
                 {
-                    IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ELEMENT_ALERT, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+                    IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ELEMENT_ALERT, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                     if (errorMsg == null)
                     {
-                        IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                        IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                         if (alert == null)
                         {
-                            WebDriverUtil.WaitForWebElementInvisible(UNITS_OF_MEASURE_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec Application taking too long time to perform operation");
+                            WebDriverUtil.WaitForWebElementInvisible(UNITS_OF_MEASURE_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
                         }
                         else
                         {
@@ -162,9 +156,9 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
 
 
         }
-        public static void CloseUOMEditForm()
+        public static void CloseUomEditForm()
         {
-            LogWriter.WriteLog("Executing UnitOfMeasurePage.CloseUOMEditForm");
+            LogWriter.WriteLog("Executing UnitOfMeasurePage.CloseUomEditForm");
             WebDriverUtil.GetWebElement(EDIT_FORM_CLOSE_BUTTON,
                 WebDriverUtil.NO_WAIT,
                 String.Format
@@ -177,27 +171,24 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
             IWebElement UOMDATA = WebDriverUtil.GetWebElement(String.Format(UOM_VALUE_IN_EDITFORM, UOM),
             WebDriverUtil.TWO_SECOND_WAIT, String.Format("Unable to locate the unit of measure value - {0}", String.Format(UOM_VALUE_IN_EDITFORM, UOM)));
             BaseClass._AttachScreenshot.Value = true;
-
-
-
         }
         public static void DeleteCreatedUnitOfMeasure()
         {
             LogWriter.WriteLog("Executing UnitOfMeasurePage.DeleteCreatedUnitOfMeasure");
             WebDriverUtil.GetWebElement(DELETE_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate delete button - {0}", DELETE_BUTTON)).Click();
 
-            WebDriverUtil.GetWebElement(CONFIRM_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate confirm button - {0}", CONFIRM_BUTTON)).Click();
-            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.GetWebElement(CONFIRM_BUTTON, WebDriverUtil.TWO_SECOND_WAIT, String.Format("Unable to locate confirm button - {0}", CONFIRM_BUTTON)).Click();
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
-                WebDriverUtil.WaitForWebElementInvisible(UOM_CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Application taking too long time to perform operation");
+                WebDriverUtil.WaitForWebElementInvisible(UOM_CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
             }
             else
             {
                 throw new Exception(string.Format("Unable to delete UnitOfMeasure Error - {0}", alert.Text));
             }
-
-
         }
         public static void VerifyRecordOfSelectedDept(string message)
         {
@@ -209,7 +200,6 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
                 BaseClass._AttachScreenshot.Value = true;
             }
         }
-
         public static void DeleteUnitOfMeasureByName(string UOM)
         {
             LogWriter.WriteLog("Executing UnitOfMeasurePage.DeleteUnitOfMeasureByName");
@@ -223,9 +213,5 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
             }
             DeleteCreatedUnitOfMeasure();
         }
-
-
-
-
     }
 }

@@ -1,10 +1,5 @@
 ﻿using LaborPro.Automation.shared.util;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LaborPro.Automation.shared.config
 {

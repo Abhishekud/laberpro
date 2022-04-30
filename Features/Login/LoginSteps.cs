@@ -2,8 +2,6 @@ using LaborPro.Automation.Features.Dashboard;
 using LaborPro.Automation.shared.drivers;
 using LaborPro.Automation.shared.hooks;
 using LaborPro.Automation.shared.util;
-using System;
-using TechTalk.SpecFlow;
 
 namespace LaborPro.Automation.Features.Login
 {
@@ -38,7 +36,6 @@ namespace LaborPro.Automation.Features.Login
             LogWriter.WriteLog("Executing step: User enter email: "+ Util.ProcessInputDataString(username) + " and password: **********");
             LoginPage.PerformLogin(Util.ProcessInputDataString(username), Util.ProcessInputDataString(password));
         }
-
 
         [Given(@"Verify Login message: ""([^""]*)""")]
         [When(@"Verify Login message: ""([^""]*)""")]

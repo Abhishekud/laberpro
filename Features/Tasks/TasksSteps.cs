@@ -1,6 +1,4 @@
-﻿ 
-using LaborPro.Automation.Features.Allowances;
-using LaborPro.Automation.shared.util;
+﻿using LaborPro.Automation.shared.util;
 
 namespace LaborPro.Automation.Features.Tasks
 {
@@ -37,7 +35,6 @@ namespace LaborPro.Automation.Features.Tasks
             TasksPage.AddNewTasksWithGivenInput(inputData);
         }
 
-
         [Given(@"User clicks Add Tasks Button")]
         [When(@"User clicks Add Tasks Button")]
         [Then(@"User clicks Add Tasks Button")]
@@ -47,8 +44,6 @@ namespace LaborPro.Automation.Features.Tasks
             TasksPage.UserClickAddTasksButton();
         }
 
-
-
         [Given(@"User verify created Tasks ""([^""]*)""")]
         [When(@"User verify created Tasks ""([^""]*)""")]
         [Then(@"User verify created Tasks ""([^""]*)""")]
@@ -57,6 +52,7 @@ namespace LaborPro.Automation.Features.Tasks
             LogWriter.WriteLog("Executing Step User verify created Tasks by name" + TasksName);
             TasksPage.VerifyCreatedTasks(TasksName);
         }
+
         [Given(@"User verify Add Menu Tasks Popup")]
         [When(@"User verify Add Menu Tasks Popup")]
         [Then(@"User verify Add Menu Tasks Popup")]
@@ -74,6 +70,7 @@ namespace LaborPro.Automation.Features.Tasks
             LogWriter.WriteLog("Executing Step User delete created Tasks by name" + TasksName);
             TasksPage.DeleteCreatedTasks(TasksName);
         }
+
         [Given(@"User delete created TaskGroups by name ""([^""]*)""")]
         [When(@"User delete created TaskGroups by name ""([^""]*)""")]
         [Then(@"User delete created TaskGroups by name ""([^""]*)""")]
@@ -82,13 +79,14 @@ namespace LaborPro.Automation.Features.Tasks
             LogWriter.WriteLog("Executing Step User delete created TaskGroups by name" + TaskGroupsName);
             TasksPage.DeleteCreatedTaskGroups(TaskGroupsName);
         }
+
         [Given(@"User delete Tasks ""([^""]*)"" if exist")]
         [When(@"User delete Tasks ""([^""]*)"" if exist")]
         [Then(@"User delete Tasks ""([^""]*)"" if exist")]
         public void UserDeleteTasks(String TasksName)
         {
             LogWriter.WriteLog("Executing Step User delete created Tasks by name" + TasksName);
-            TasksPage.DeleteTasksifexist(TasksName);
+            TasksPage.DeleteTasksIfExist(TasksName);
         }
     }
 }

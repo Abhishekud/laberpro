@@ -1,5 +1,4 @@
-﻿using LaborPro.Automation.shared.drivers;
-using LaborPro.Automation.shared.hooks;
+﻿using LaborPro.Automation.shared.hooks;
 using LaborPro.Automation.shared.util;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
@@ -24,9 +23,6 @@ namespace LaborPro.Automation.Features.Allowances
         const string INCENTIVEOPPORTUNITYALLOWANCE_INPUT = "//input[@id='machineAllowancePercent']";
         const string SAVE_BUTTON = "//button[contains(text(),'Save')]";
         const string CLOSE_ALLOWANCE_FORM_BUTTON = "//*[@class='modal-dialog']//button[contains(text(),'Cancel')]";
-        const string ACCOUNTBUTTON_TAB = "//a/div/span[contains(text(),'Account')]";
-        const string LOGOUTBUTTON_TAB = "//a[@href='/log-out']";
-        const string PREVIOUSBUTTON_TAB = "//a[@href='/allowances']";
         const string ALLOWANCE_DETAILS_MENU_BUTTON = "//button[.//*[@class='fa fa-list-ul']]";
         const string ALLOWANCE_EDIT_LINK = "//button[.//*[text()='edit']]";
         const string ALLOWANCE_DELETE_BUTTON = "//button[contains(@class,'delete')]";
@@ -162,9 +158,6 @@ namespace LaborPro.Automation.Features.Allowances
                 record.Click();
             }
         }
-
-
-
         public static void AddAllowanceWithGivenInputToVerifyValidationMessage(Table inputData)
         {
             AddAllowanceWithGivenInput(inputData, true);
@@ -250,29 +243,31 @@ namespace LaborPro.Automation.Features.Allowances
             WebDriverUtil.GetWebElement(SAVE_BUTTON, WebDriverUtil.NO_WAIT,
                 String.Format("Unable to locate save button on create allowance page - {0}", SAVE_BUTTON)).Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            if (WebDriverUtil.GetWebElement(ALLOWANCE_FORM, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null)
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Saving...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+
+            if (!negativeScenario)
             {
-                IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FORM_INPUT_FIELD_ERROR_XPATH, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-                if (errorMessage == null)
+                if (WebDriverUtil.GetWebElement(ALLOWANCE_FORM, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null)
                 {
-                    IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ELEMENT_ALERT, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-                    if (errorMsg == null)
+                    IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FORM_INPUT_FIELD_ERROR_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                    if (errorMessage == null)
                     {
-                        if(!negativeScenario)
+                        IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ELEMENT_ALERT, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                        if (errorMsg == null)
                         {
-                            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                             if (alert == null)
                             {
-                                WebDriverUtil.WaitForWebElementInvisible(ALLOWANCE_FORM, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec Application taking too long time to perform operation");
+                                WebDriverUtil.WaitForWebElementInvisible(ALLOWANCE_FORM, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
                             }
                             else
                             {
                                 throw new Exception(string.Format("Unable to create new allowance Error - {0}", alert.Text));
                             }
-                        } 
+                        }
                     }
-                }
 
+                }
             }
         }
         public static void DeleteAllowance()
@@ -281,12 +276,13 @@ namespace LaborPro.Automation.Features.Allowances
             WebDriverUtil.GetWebElement(ALLOWANCE_DETAILS_MENU_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
             WebDriverUtil.GetWebElement(ALLOWANCE_EDIT_LINK, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
             WebDriverUtil.GetWebElement(ALLOWANCE_DELETE_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
-            WebDriverUtil.GetWebElement(ALLOWANCE_DELETE_CONFIRM_POPUP_ACCEPT, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
-
-            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.GetWebElement(ALLOWANCE_DELETE_CONFIRM_POPUP_ACCEPT, WebDriverUtil.TWO_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
-                WebDriverUtil.WaitForWebElementInvisible(ALLOWANCE_DELETE_CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec Application taking too long time to perform operation");
+                WebDriverUtil.WaitForWebElementInvisible(ALLOWANCE_DELETE_CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
             }
             else
             {

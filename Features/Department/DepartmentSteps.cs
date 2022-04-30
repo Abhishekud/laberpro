@@ -19,8 +19,6 @@ namespace LaborPro.Automation.Features.Department
             AllowancesPage.WaitForAllowanceAlertCloseIfAny();
         }
 
-
-
         [Given(@"User selects Department")]
         [When(@"User selects Department")]
         [Then(@"User selects Department")]
@@ -57,8 +55,6 @@ namespace LaborPro.Automation.Features.Department
             DepartmentsPage.CloseDepartmentForm();
         }
 
-
-
         [Given(@"User verify created Department ""([^""]*)""")]
         [When(@"User verify created Department ""([^""]*)""")]
         [Then(@"User verify created Department ""([^""]*)""")]
@@ -82,7 +78,7 @@ namespace LaborPro.Automation.Features.Department
         public void UserDeleteDepartment(String DepartmentName)
         {
             LogWriter.WriteLog("Executing Step User delete created Department by name" + DepartmentName);
-            DepartmentsPage.DeleteDepartmentifexist(DepartmentName);
+            DepartmentsPage.DeleteDepartmentIfExist(DepartmentName);
         }
 
     }

@@ -1,5 +1,4 @@
 ﻿using LaborPro.Automation.shared.util;
-using NUnit.Framework;
 
 namespace LaborPro.Automation.Features.Allowances
 {

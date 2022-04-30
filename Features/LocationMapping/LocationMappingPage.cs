@@ -3,36 +3,22 @@ using LaborPro.Automation.shared.hooks;
 using LaborPro.Automation.shared.util;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using System.Linq;
 
 namespace LaborPro.Automation.Features.LocationMapping
 {
     public class LocationMappingPage
     {
         const string PROFILING_COLLAPSED_TAB = "//li[contains(@class,'collapsed')]//span[contains(text(),'Profiling')]";
-        const string standard_Filing_FieldId = "//select[@id='standardFilingFieldId']";
-        const string STANDARD_COLLAPSED_TAB = "//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]";
-        const string LIST_MANAGEMENT_TAB = "//a[text()='List Management']";
-        const string ADD_BUTTON = "//button[@id='newLocationMappings']";
-        const string ADD_LOCATIONMAPPINGLINK = "(//*[contains(@class,'dropdown open')]//a)[1]";
+        const string PROFILING_TAB = "//li//span[contains(text(),'Profiling')]";
         const string LOCATIONMAPPING_RECORD = "//*[@role='row' and .//*[text()='{0}']]";
         const string SAVE_BUTTON = "//button[contains(text(),'Save')]";
-        const string CLOSE_LOCATIONMAPPINGFORM_BUTTON = "//*[@class='modal-dialog']//button[contains(text(),'Cancel')]";
         const string ERROR_ALERT_TOAST_XPATH = "//*[@class='toast toast-error']";
-        const string CREATED_LOCATIONMAPPINGTITLE = "//*[@class='page-title' and contains(text(),'{0}')]";
-        const string UNITSOFMEASURE_PAGE = "//h3[@class='page-title' and contains(text(),'Units Of Measure')]";
-        const string VOLUMEDRIVER_PAGE = "//h3[@class='page-title' and contains(text(),'Volume Driver Mappings')]";
-        const string PAGE_TITLE = "//*[@class='page-title']";
         const string CLOSE_LOCATIONMAPPINGDETAILS = "//button[text()='Close']";
-        const string CANCEL_LOCATIONMAPPINGDETAILS = "//button[text()='Cancel']]";
         const string LOCATIONMAPPINGDELETE_BUTTON = "//button[contains(@class,'delete')]";
         const string CLOSE_LOCATIONRMAPPING_FORM_BUTTON = "//button[contains(text(),'Cancel')]";
         const string LOCATIONMAPPINGRECORD_MAPPING = "//*[@role='row' and .//*[text()='{0}']]//td[{1}]/input";
         const string LOCATIONMAPPINGDELETE_CONFIRM_POPUP = "//*[@class='modal-dialog']//*[contains(text(),'Please confirm that you want to delete')]";
         const string LOCATIONMAPPINGDELETE_CONFIRM_POPUP_ACCEPT = "//*[@class='modal-dialog']//button[text()='Confirm']";
-        const string CLOSE_BUTTON = "//button[@id='newLocationMappings']";
-        const string LIST_MANAGEMENT_DROPDOWN = "//select[@id='standardFilingFieldId']";
-        const string LOCATIONMAPPINGVALUE_IN_LM_DROPDOWN = "//select[@id='standardFilingFieldId']//option[contains(text(),'LocationMappings')]";
         const string LOCATIONMAPPING_TAB = "//a[text()='Location Mapping']";
         const string LOCATIONMAPPING_PAGE = "//*[@class='page-title' and text()=' Mapping']";
         const string VOLUMEDRIVER_DROPDOWN = "//select[@id='volumeDriverMappingSetId']";
@@ -65,18 +51,19 @@ namespace LaborPro.Automation.Features.LocationMapping
             WebDriverUtil.GetWebElementAndScroll(SAVE_BUTTON, WebDriverUtil.NO_WAIT,
             String.Format("Unable to locate save button on create LocationMappingPage page - {0}", SAVE_BUTTON)).Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Saving...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             if (WebDriverUtil.GetWebElement(LOCATIONMAPPING_POPUP, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
-                IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FORM_INPUT_FIELD_ERROR_XPATH, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+                IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FORM_INPUT_FIELD_ERROR_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                 if (errorMessage == null)
                 {
-                    IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ELEMENT_ALERT, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+                    IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ELEMENT_ALERT, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                     if (errorMsg == null)
                     {
-                        IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                        IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                         if (alert == null)
                         {
-                            WebDriverUtil.WaitForWebElementInvisible(LOCATIONMAPPING_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec Application taking too long time to perform operation");
+                            WebDriverUtil.WaitForWebElementInvisible(LOCATIONMAPPING_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
                         }
                         else
                         {
@@ -119,20 +106,20 @@ namespace LaborPro.Automation.Features.LocationMapping
             WebDriverUtil.GetWebElement(String.Format(LOCATIONMAPPINGDELETE_BUTTON, LocationMappingName), WebDriverUtil.NO_WAIT,
             String.Format("Unable to locate LocationMapping delete button on LocationMapping details - {0}", String.Format(LOCATIONMAPPINGDELETE_BUTTON, LocationMappingName))).Click();
 
-            WebDriverUtil.GetWebElement(LOCATIONMAPPINGDELETE_CONFIRM_POPUP_ACCEPT, WebDriverUtil.ONE_SECOND_WAIT,
+            WebDriverUtil.GetWebElement(LOCATIONMAPPINGDELETE_CONFIRM_POPUP_ACCEPT, WebDriverUtil.TWO_SECOND_WAIT,
             String.Format("Unable to locate Confirm button on delete confirmation popup - {0}", LOCATIONMAPPINGDELETE_CONFIRM_POPUP_ACCEPT)).Click();
-
-            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
-                WebDriverUtil.WaitForWebElementInvisible(LOCATIONMAPPINGDELETE_CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Application taking too long time to perform operation");
+                WebDriverUtil.WaitForWebElementInvisible(LOCATIONMAPPINGDELETE_CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
             }
             else
             {
                 throw new Exception(string.Format("Unable to delete Location Mapping Error - {0}", alert.Text));
             }
         }
-
         public static void VerifyCreatedLocationMapping(string LocationMappingName)
         {
             LogWriter.WriteLog("Executing LocationMappingPage.VerifyCreatedLocationMapping");
@@ -142,10 +129,10 @@ namespace LaborPro.Automation.Features.LocationMapping
             BaseClass._AttachScreenshot.Value = true;
 
         }
-
-        public static void MapscreatedDepartmentandlocation(string Location, string Department)
+        public static void MapsCreatedDepartmentandlocation(string Location, string Department)
         {
             LogWriter.WriteLog("Executing LocationMappingPage.MapscreatedDepartmentandlocation");
+            CloseLocationMappingDetailSideBar();
             IList<IWebElement> headers = SeleniumDriver.Driver().FindElements(By.XPath(HEADER));
             int index = 0;
             foreach (IWebElement header in headers)
@@ -170,29 +157,36 @@ namespace LaborPro.Automation.Features.LocationMapping
             String.Format("Unable to locate LocationMappingPage record on LocationMappingPage page - {0}", String.Format(LOCATIONMAPPING_RECORD, LocationName))).Click();
             WebDriverUtil.WaitForAWhile();
         }
-        public static void refresh()
+        public static void Refresh()
         {
             SeleniumDriver.Driver().Navigate().Refresh();
+            WebDriverUtil.WaitForPageLoading();
+            IWebElement profilingTab = WebDriverUtil.GetWebElement(PROFILING_TAB, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (profilingTab != null)
+            {
+                WebDriverUtil.WaitForWebElementClickable(PROFILING_TAB, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+                profilingTab.Click();
+                WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            }
         }
-
         public static void ClickOnProfilingTab()
         {
             LogWriter.WriteLog("Executing LocationMappingPage.ClickonProfilingtab");
             IWebElement profilingTab = WebDriverUtil.GetWebElement(PROFILING_COLLAPSED_TAB, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (profilingTab != null)
             {
+                WebDriverUtil.WaitForWebElementClickable(PROFILING_COLLAPSED_TAB, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
                 profilingTab.Click();
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             }
 
         }
-
         public static void ClickOnLocationMappingTab()
         {
             LogWriter.WriteLog("Executing LocationMapping.ClickOnLocationMappingTab");
             if (WebDriverUtil.GetWebElement(LOCATIONMAPPING_PAGE, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) == null)
             {
-                SeleniumDriver.Driver().FindElement(By.XPath(LOCATIONMAPPING_TAB)).Click();
+                WebDriverUtil.GetWebElementAndScroll(LOCATIONMAPPING_TAB, WebDriverUtil.DEFAULT_WAIT, "Unable to location Location Mapping Tab - "+ LOCATIONMAPPING_TAB).Click();
                 WebDriverUtil.WaitForAWhile();
             }
             WebDriverUtil.WaitForAWhile();       

@@ -1,12 +1,6 @@
 ﻿using LaborPro.Automation.Features.Locations;
 using LaborPro.Automation.shared.drivers;
 using LaborPro.Automation.shared.util;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TechTalk.SpecFlow;
 
 namespace LaborPro.Automation.Features.VolumeDriverValue
 {
@@ -18,28 +12,28 @@ namespace LaborPro.Automation.Features.VolumeDriverValue
         {
             LogWriter.WriteLog("Executing Step User navigates to volume driver values tab");
             LocationsPage.ClickOnProfilingTab();
-            VolumeDriverValuePage.clickOnVolumeDriverValueTab();
+            VolumeDriverValuePage.ClickOnVolumeDriverValueTab();
         }
 
         [When(@"User click download template")]
         public void WhenUserClickDownloadTemplate()
         {
             LogWriter.WriteLog("Executing Step User click download template");
-            VolumeDriverValuePage.clickOnDownloadtemplate();
+            VolumeDriverValuePage.ClickOnDownloadTemplate();
         }
 
         [Then(@"User verify volume driver value downloaded file ""([^""]*)""")]
         public void ThenUserVerifyVolumeDriverValueDownloadedFile(string filename)
         {
             LogWriter.WriteLog("Executing Step User verify volume driver value downloaded file");
-            VolumeDriverValuePage.verifyFileDownload(filename);
+            VolumeDriverValuePage.VerifyFileDownload(filename);
         }
 
         [When(@"User Access the downloaded file and update volume driver value in location ""([^""]*)"" ""([^""]*)"" ""([^""]*)"" ""([^""]*)""")]
         public void WhenUserAccessTheDownloadedFileAndUpdateVolumeDriverValueInLocation(string location, string department, string volumedriver, string vdvalue)
         {
             LogWriter.WriteLog("Executing Step User Access the downloaded file and update volume driver value in location");
-            VolumeDriverValuePage.addRecordToCsv(location, "", department, volumedriver, vdvalue, SeleniumDriver.csvFile);
+            VolumeDriverValuePage.AddRecordToCsv(location, "", department, volumedriver, vdvalue, SeleniumDriver.CsvFile);
         }
 
         [Then(@"User import value in volume driver value")]

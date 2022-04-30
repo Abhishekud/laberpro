@@ -1,19 +1,12 @@
-﻿using LaborPro.Automation.Features.VolumeDriverValue;
-using LaborPro.Automation.shared.config;
-using LaborPro.Automation.shared.drivers;
+﻿using LaborPro.Automation.shared.drivers;
 using LaborPro.Automation.shared.hooks;
 using LaborPro.Automation.shared.util;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LaborPro.Automation.Features.Standards
 {
-    public class StandardPage
+    public class StandardsPage
     {
         const string STANDARDS_TAB = "//a[@href='/standards']";
         const string STANDARD_PAGE = "//h3[contains(text(),'Standards')]";
@@ -22,7 +15,6 @@ namespace LaborPro.Automation.Features.Standards
         const string NAMETAG_INPUT = "//*[@id='name']";
         const string SAVE_BUTTON = "//button[contains(text(),'Save')]";
         const string DEPARTMENT_INPUT = "//select[@id='departmentId']";
-        const string DEPARTMENT_INPUT_VALUE = "//select[@id='departmentId']//option[contains(text(),'{0}')]";
         const string ADD_STANDARD_BUTTON = "//button[.//*[@class='fa fa-plus']]";
         const string NEW_STANDARD = "//a[contains(text(),'New Standard')]";
         const string NAME_TAG_INPUT_IN_EDIT_FORM = "//input[@value='{0}']";
@@ -61,7 +53,6 @@ namespace LaborPro.Automation.Features.Standards
         const string ATTRIBUTE_INPUT = "//select[@id='attributeId']";
         const string NAME = "Name";
         const string STANDARAD_TABLE_HEADER = "//table[@role='presentation']//th//*[@class='k-link']";
-        const string STANDARD_TABLE_HEADER_AZURE_ENV = "//table[@role='presentation']//th//a";
         const string FORM_INPUT_FIELD_ERROR_XPATH = "//*[contains(@class,'validation-error')]";
         const string STANDARD_RECORD = "//*[@role='row' and .//*[text()='{0}']]";
         const string ELEMENT_ALERT = "//*[@class='form-group has-error']";
@@ -100,9 +91,9 @@ namespace LaborPro.Automation.Features.Standards
                 WebDriverUtil.WaitForWebElementInvisible(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             }
         }
-        public static void clickOnAddStandards()
+        public static void ClickOnAddStandards()
         {
-            LogWriter.WriteLog("Executing StandardPage.clickOnAddAttribute");
+            LogWriter.WriteLog("Executing StandardPage.ClickOnAddStandards");
             IWebElement AddStandard = WebDriverUtil.GetWebElement(ADD_STANDARD_BUTTON, WebDriverUtil.NO_WAIT,
                 String.Format("Unable to Locate Add Standard Button - {0}", ADD_STANDARD_BUTTON));
             IWebElement NewStandard = WebDriverUtil.GetWebElement(NEW_STANDARD, WebDriverUtil.NO_WAIT,
@@ -119,7 +110,7 @@ namespace LaborPro.Automation.Features.Standards
         public static void AddStandardsWihGivenInput(Table inputData)
         {
             LogWriter.WriteLog("Executing StandardPage.AddStandardWithGivenInput");
-            clickOnAddStandards();
+            ClickOnAddStandards();
             WaitForStandardsAlertCloseIfAny();
             var dictionary = Util.ConvertToDictionary(inputData);
             BaseClass._TestData.Value = Util.DictionaryToString(dictionary);
@@ -148,20 +139,21 @@ namespace LaborPro.Automation.Features.Standards
             WebDriverUtil.GetWebElement(SAVE_BUTTON,
                 WebDriverUtil.NO_WAIT,
                 String.Format("Unable to locate Save Button- {0}", SAVE_BUTTON)).Click();
-                WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Saving...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
 
             if (WebDriverUtil.GetWebElement(STANDARD_FORM, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
-                IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FORM_INPUT_FIELD_ERROR_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FORM_INPUT_FIELD_ERROR_XPATH, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
                 if (errorMessage == null)
                 {
-                    IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ELEMENT_ALERT, WebDriverUtil.FIVE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                    IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ELEMENT_ALERT, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
                     if (errorMsg == null)
                     {
-                        IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TWO_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                        IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                         if (alert == null)
                         {
-                            WebDriverUtil.WaitForWebElementInvisible(STANDARD_FORM, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Application taking too long time to perform operation");
+                            WebDriverUtil.WaitForWebElementInvisible(STANDARD_FORM, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
                         }
                         else
                         {
@@ -198,11 +190,13 @@ namespace LaborPro.Automation.Features.Standards
             WebDriverUtil.GetWebElement(EDIT_BUTTON_SIDEBAR,WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate edit button - {0}",EDIT_BUTTON_SIDEBAR)).Click();
             WebDriverUtil.GetWebElement(DELETE_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate DELETE button - {0}", DELETE_BUTTON)).Click();
 
-            WebDriverUtil.GetWebElement(CONFIRM_POPUP_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate confirm button - {0}", CONFIRM_POPUP_BUTTON)).Click();
-            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.GetWebElement(CONFIRM_POPUP_BUTTON, WebDriverUtil.TWO_SECOND_WAIT, String.Format("Unable to locate confirm button - {0}", CONFIRM_POPUP_BUTTON)).Click();
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
-                WebDriverUtil.WaitForWebElementInvisible(CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Application taking too long time to perform operation");
+                WebDriverUtil.WaitForWebElementInvisible(CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
             }
             else
             {
@@ -235,7 +229,7 @@ namespace LaborPro.Automation.Features.Standards
             
             BaseClass._AttachScreenshot.Value = true;
         }
-        public static void selectElementType(string value)
+        public static void SelectElementType(string value)
         {
             LogWriter.WriteLog("Executing StandaradPage.selectElementType");
             if (WebDriverUtil.GetWebElement(STANDARD_ELEMENT_POPUP, WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate standard element popup - {0}", STANDARD_ELEMENT_POPUP)) != null)
@@ -246,21 +240,21 @@ namespace LaborPro.Automation.Features.Standards
             }
 
         }
-        public static void DeleteStandardifexist(string StandardName)
+        public static void DeleteStandardIfExist(string StandardName)
         {
-            LogWriter.WriteLog("Executing StandardPage.DeleteStandardifexist");
+            LogWriter.WriteLog("Executing StandardPage.DeleteStandardIfExist");
             ClearAllFilter();
             SearchStandard(StandardName);
             IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(STANDARD_RECORD, StandardName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record != null)
             {
-                DeleteStandardbyname(StandardName);
+                DeleteStandardByName(StandardName);
             }
 
         }
-        public static void DeleteStandardbyname(string StandardName)
+        public static void DeleteStandardByName(string StandardName)
         {
-            LogWriter.WriteLog("Executing StandardPage.DeleteStandardElementByName");
+            LogWriter.WriteLog("Executing StandardPage.DeleteStandardByName");
             WebDriverUtil.GetWebElement(String.Format(STANDARD_RECORD,StandardName), WebDriverUtil.NO_WAIT,
             String.Format("Unable to locate Standard  record on StandardPage page - {0}", String.Format(STANDARD_RECORD, StandardName))).Click();
 
@@ -276,29 +270,31 @@ namespace LaborPro.Automation.Features.Standards
             WebDriverUtil.GetWebElement(EDIT_BUTTON_SIDEBAR, WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate edit button - {0}", EDIT_BUTTON_SIDEBAR)).Click();
             WebDriverUtil.GetWebElement(DELETE_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate DELETE button - {0}", DELETE_BUTTON)).Click();
 
-            WebDriverUtil.GetWebElement(CONFIRM_POPUP_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate confirm button - {0}", CONFIRM_POPUP_BUTTON)).Click();
-            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.GetWebElement(CONFIRM_POPUP_BUTTON, WebDriverUtil.TWO_SECOND_WAIT, String.Format("Unable to locate confirm button - {0}", CONFIRM_POPUP_BUTTON)).Click();
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
-                WebDriverUtil.WaitForWebElementInvisible(CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Application taking too long time to perform operation");
+                WebDriverUtil.WaitForWebElementInvisible(CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
             }
             else
             {
                 throw new Exception(string.Format("Unable to delete Standard Error - {0}", alert.Text));
             }
         }
-        public static void selectStandarad(string Standard)
+        public static void SelectStandarad(string Standard)
         {
-            LogWriter.WriteLog("Executing StandardPage.selectStandard");
+            LogWriter.WriteLog("Executing StandardPage.SelectStandarad");
             if(WebDriverUtil.GetWebElement(STANDARD_PAGE, WebDriverUtil.ONE_SECOND_WAIT,WebDriverUtil.NO_MESSAGE) != null)
             {
                 WebDriverUtil.GetWebElement(String.Format(STANDARAD_BYNAME, Standard), WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate the Stanadard By name - {0}", String.Format(STANDARAD_BYNAME, Standard))).Click();
                 WebDriverUtil.WaitFor(WebDriverUtil.TWO_SECOND_WAIT);
             }
         }
-        public static void AddStandardElementwithGivenInput(Table inputData)
+        public static void AddStandardElementWithGivenInput(Table inputData)
         {
-            LogWriter.WriteLog("Executing StandardPage.AddStandardElement");
+            LogWriter.WriteLog("Executing StandardPage.AddStandardElementWithGivenInput");
             var dictionary = Util.ConvertToDictionary(inputData);
             BaseClass._TestData.Value = Util.DictionaryToString(dictionary);
 
@@ -334,19 +330,19 @@ namespace LaborPro.Automation.Features.Standards
             WebDriverUtil.GetWebElement(SAVE_BUTTON,
                 WebDriverUtil.NO_WAIT,
                 String.Format("Unable to locate Save Button- {0}", SAVE_BUTTON)).Click();
-            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
             if (WebDriverUtil.GetWebElement(NEW_STANDARD_ELEMENT_FORM, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
-                IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FORM_INPUT_FIELD_ERROR_XPATH, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+                IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FORM_INPUT_FIELD_ERROR_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                 if (errorMessage == null)
                 {
-                    IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ELEMENT_ALERT, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+                    IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ELEMENT_ALERT, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                     if (errorMsg == null)
                     {
-                        IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                        IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                         if (alert == null)
                         {
-                            WebDriverUtil.WaitForWebElementInvisible(NEW_STANDARD_ELEMENT_FORM, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec Application taking too long time to perform operation");
+                            WebDriverUtil.WaitForWebElementInvisible(NEW_STANDARD_ELEMENT_FORM, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
                         }
                         else
                         {
@@ -386,11 +382,13 @@ namespace LaborPro.Automation.Features.Standards
             WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate delete button - {0}", 
             STANDARD_ELEMENT_DELETE_BUTTON)).Click();
 
-            WebDriverUtil.GetWebElement(CONFIRM_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate confirm button - {0}", CONFIRM_BUTTON)).Click();
-            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.GetWebElement(CONFIRM_BUTTON, WebDriverUtil.TWO_SECOND_WAIT, String.Format("Unable to locate confirm button - {0}", CONFIRM_BUTTON)).Click();
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
-                WebDriverUtil.WaitForWebElementInvisible(STANDARD_ELEMENT_CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Application taking too long time to perform operation");
+                WebDriverUtil.WaitForWebElementInvisible(STANDARD_ELEMENT_CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
             }
             else
             {
@@ -421,7 +419,6 @@ namespace LaborPro.Automation.Features.Standards
                 WaitForLoading();
             }
         }
-
         public static void VerifyFrequencyIsEmpty()
         {
             LogWriter.WriteLog("Executing StandaradPage.VerifyFrequencyIsEmpty");
@@ -433,8 +430,7 @@ namespace LaborPro.Automation.Features.Standards
             BaseClass._AttachScreenshot.Value = true;
 
         }
-
-        public static void VerifyUOMInDropDown(string UOM)
+        public static void VerifyUomInDropDown(string UOM)
         {
             LogWriter.WriteLog("Executing StandardPage.VerifyUOMInDropDown");
             if(WebDriverUtil.GetWebElement(NEW_STANDARD_ELEMENT_FORM, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
@@ -471,6 +467,5 @@ namespace LaborPro.Automation.Features.Standards
 
             return index;
         }
-
     }
 }

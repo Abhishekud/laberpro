@@ -277,7 +277,7 @@ namespace laborpro.Features.TaskGroups
                             "Start Day"});
                 table68.AddRow(new string[] {
                             "Job Name",
-                            "Job Name"});
+                            "TaskGroups Test Job Name"});
 #line 31
      testRunner.When("User create new TaskGroups with below input", ((string)(null)), table68, "When ");
 #line hidden
@@ -343,7 +343,7 @@ namespace laborpro.Features.TaskGroups
                             "Start Day"});
                 table69.AddRow(new string[] {
                             "Job Name",
-                            "Job Name"});
+                            "TaskGroups Test Job Name"});
 #line 45
      testRunner.When("User create new TaskGroups with below input", ((string)(null)), table69, "When ");
 #line hidden
@@ -367,7 +367,7 @@ namespace laborpro.Features.TaskGroups
                             "Start Day"});
                 table70.AddRow(new string[] {
                             "Job Name",
-                            "Job Name"});
+                            "TaskGroups Test Job Name"});
 #line 54
      testRunner.When("User create new TaskGroups with below input", ((string)(null)), table70, "When ");
 #line hidden

@@ -1,5 +1,4 @@
-﻿using LaborPro.Automation.shared.drivers;
-using LaborPro.Automation.shared.util;
+﻿using LaborPro.Automation.shared.util;
 
 namespace LaborPro.Automation.Features.LocationMapping
 {
@@ -25,12 +24,13 @@ namespace LaborPro.Automation.Features.LocationMapping
             LogWriter.WriteLog("Executing VolumeDriversPage UserClickOnVolumeDriver ");
             LocationMappingPage.ClickOnLocationMappingTab();
         }
+
         [Given(@"User Maps created Department and location with ""(.*)"" and ""(.*)""")]
         [When(@"User Maps created Department and location with ""(.*)"" and ""(.*)""")]
         [Then(@"User Maps created Department and location with ""(.*)"" and ""(.*)""")]
-        public void ThenUserMapsCreatedDepartmentAndLocationWithAnd(string Location, string Department)
+        public void ThenUserMapsCreatedDepartmentAndLocation(string Location, string Department)
         {
-            LocationMappingPage.MapscreatedDepartmentandlocation(Location, Department);
+            LocationMappingPage.MapsCreatedDepartmentandlocation(Location, Department);
         }
 
         [Given(@"User create new LocationMapping with below input")]
@@ -41,6 +41,7 @@ namespace LaborPro.Automation.Features.LocationMapping
             LogWriter.WriteLog("Executing User create new LocationMapping with below input " + inputData);
             LocationMappingPage.AddNewLocationMappingWithGivenInput(inputData);
         }
+
         [Given(@"User select the Location ""([^""]*)""")]
         [Then(@"User select the Location ""([^""]*)""")]
         [When(@"User select the Location ""([^""]*)""")]
@@ -53,12 +54,11 @@ namespace LaborPro.Automation.Features.LocationMapping
         [Then(@"User refresh the page")]
         [Given(@"User refresh the page")]
         [When(@"User refresh the page")]
-        public void refreshpage()
+        public void RefreshPage()
         {
             LogWriter.WriteLog("Executing Step:User refresh the page");
-            LocationMappingPage.refresh();
+            LocationMappingPage.Refresh();
         }
-
 
         [Given(@"User verify created LocationMapping ""([^""]*)""")]
         [When(@"User verify created LocationMapping ""([^""]*)""")]

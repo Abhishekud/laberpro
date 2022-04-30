@@ -1,9 +1,4 @@
 ﻿using LaborPro.Automation.shared.util;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LaborPro.Automation.Features.UnitOfMeasure
 {
@@ -37,7 +32,6 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
             UnitsOfMeasurePage.AddNewUnitOfMeasureWithGivenInputIfNotExist(inputData);
         }
 
-
         [Given(@"User adds Unit Of Measure using below input")]
         [When(@"User adds Unit Of Measure using below input")]
         [Then(@"User adds Unit Of Measure using below input")]
@@ -62,19 +56,21 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
             LogWriter.WriteLog("Executing Step User delete created Unit Of Measure");
             UnitsOfMeasurePage.DeleteCreatedUnitOfMeasure();
         }
+
         [Then(@"User verify the Department record ""([^""]*)""")]
         public void VerifyNoRecordOfSelectedDept(string message)
         {
             LogWriter.WriteLog("Executing Step User verify the Department record" + message);
             UnitsOfMeasurePage.VerifyRecordOfSelectedDept(message);
         }
+
         [Given(@"User delete UnitOfMeasure ""([^""]*)"" if exist")]
         [When(@"User delete UnitOfMeasure ""([^""]*)"" if exist")]
         [Then(@"User delete UnitOfMeasure ""([^""]*)"" if exist")]
         public void UserDeleteUnitOfMeasure(String UnitOfMeasureName)
         {
             LogWriter.WriteLog("Executing Step User delete created UnitOfMeasure by name" + UnitOfMeasureName);
-            UnitsOfMeasurePage.DeleteUnitOfMeasureifexist(UnitOfMeasureName);
+            UnitsOfMeasurePage.DeleteUnitOfMeasureIfExist(UnitOfMeasureName);
         }
 
     }

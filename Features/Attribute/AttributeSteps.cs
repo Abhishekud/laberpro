@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LaborPro.Automation.Features.Allowances;
+﻿using LaborPro.Automation.Features.Allowances;
 using LaborPro.Automation.shared.util;
 
 namespace LaborPro.Automation.Features.Attribute
@@ -14,7 +9,7 @@ namespace LaborPro.Automation.Features.Attribute
         [When(@"User navigates to the attribute tab")]
         [Given(@"User navigates to the attribute tab")]
         [Then(@"User navigates to the attribute tab")]
-        public void UserNavigatesTotheAttributeTab() 
+        public void UserNavigatesToAttributeTab() 
         {
             LogWriter.WriteLog("Executing Step: User navigates to the attribute tab");
             AttributePage.CloseAttributeForm();
@@ -23,6 +18,7 @@ namespace LaborPro.Automation.Features.Attribute
             AllowancesPage.WaitForAllowanceAlertCloseIfAny();
         
         }
+
         [When(@"User add new attribute using below input")]
         [Given(@"User add new attribute using below input")]
         [Then(@"User add new attribute using below input")]
@@ -40,6 +36,7 @@ namespace LaborPro.Automation.Features.Attribute
             LogWriter.WriteLog("Executing Step:Verify Validation Message:" + message);
             AttributePage.VerifyAddAttributeErrorMessage(message);
         }
+
         [When(@"User click cancel Button")]
         [Given(@"User click cancel Button")]
         [Then(@"User click cancel Button")]
@@ -75,20 +72,19 @@ namespace LaborPro.Automation.Features.Attribute
         }
 
         [Then(@"Verify selected Department ""([^""]*)""")]
-        public void verifySelectedDepartment(string departmentName)
+        public void VerifySelectedDepartment(string departmentName)
         {
             LogWriter.WriteLog("Exceuting Step: Verify selected Department" + departmentName);
             AttributePage.VerifyTheDepartment(departmentName);
         }
 
-
         [Given(@"User delete attribute ""([^""]*)"" if exist")]
         [When(@"User delete attribute ""([^""]*)"" if exist")]
         [Then(@"User delete attribute ""([^""]*)"" if exist")]
-        public void UserDeleteattribute(String attributeName)
+        public void UserDeleteAttribute(String attributeName)
         {
             LogWriter.WriteLog("Executing Step User delete created attribute by name" + attributeName);
-            AttributePage.Deleteattributeifexist(attributeName);
+            AttributePage.DeleteAttributeIfExist(attributeName);
         }
 
     }

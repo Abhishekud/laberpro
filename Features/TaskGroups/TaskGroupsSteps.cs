@@ -1,5 +1,4 @@
-﻿using LaborPro.Automation.Features.Allowances;
-using LaborPro.Automation.shared.util;
+﻿using LaborPro.Automation.shared.util;
 
 namespace LaborPro.Automation.Features.TaskGroups
 {
@@ -16,9 +15,7 @@ namespace LaborPro.Automation.Features.TaskGroups
             TaskGroupsPage.CloseTaskGroupsForm();
             TaskGroupsPage.ClickOnKronosTab();
             TaskGroupsPage.ClickOnTaskGroupsTab();
-
         }
-
 
         [Given(@"User create new TaskGroups with below input if not exist")]
         [When(@"User create new TaskGroups with below input if not exist")]
@@ -38,7 +35,6 @@ namespace LaborPro.Automation.Features.TaskGroups
             TaskGroupsPage.AddNewTaskGroupsWithGivenInput(inputData);
         }
 
-
         [Given(@"User clicks Add TaskGroups Button")]
         [When(@"User clicks Add TaskGroups Button")]
         [Then(@"User clicks Add TaskGroups Button")]
@@ -48,8 +44,6 @@ namespace LaborPro.Automation.Features.TaskGroups
             TaskGroupsPage.UserClickAddTaskGroupsButton();
         }
 
-
-
         [Given(@"User verify created TaskGroups ""([^""]*)""")]
         [When(@"User verify created TaskGroups ""([^""]*)""")]
         [Then(@"User verify created TaskGroups ""([^""]*)""")]
@@ -58,6 +52,7 @@ namespace LaborPro.Automation.Features.TaskGroups
             LogWriter.WriteLog("Executing Step User verify created TaskGroups by name" + TaskGroupsName);
             TaskGroupsPage.VerifyCreatedTaskGroups(TaskGroupsName);
         }
+
         [Given(@"User verify Add Menu TaskGroups Popup")]
         [When(@"User verify Add Menu TaskGroups Popup")]
         [Then(@"User verify Add Menu TaskGroups Popup")]
@@ -82,7 +77,7 @@ namespace LaborPro.Automation.Features.TaskGroups
         public void UserDeleteTaskGroups(String TaskGroupsName)
         {
             LogWriter.WriteLog("Executing Step User delete created TaskGroups by name" + TaskGroupsName);
-            TaskGroupsPage.DeleteTaskGroupsifexist(TaskGroupsName);
+            TaskGroupsPage.DeleteTaskGroupsIfExist(TaskGroupsName);
         }
 
     }

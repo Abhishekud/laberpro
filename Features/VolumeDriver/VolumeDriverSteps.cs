@@ -17,6 +17,7 @@ namespace LaborPro.Automation.Features.VolumeDriver
             VolumeDriverPage.ClickOnListManagementTab();
             VolumeDriverPage.ClickOnVolumeDriver();
         }
+
         [Given(@"User create new VolumeDriver with below input")]
         [When(@"User create new VolumeDriver with below input")]
         [Then(@"User create new VolumeDriver with below input")]
@@ -29,10 +30,10 @@ namespace LaborPro.Automation.Features.VolumeDriver
         [Given(@"User create new VolumeDriver with below input if not exist")]
         [When(@"User create new VolumeDriver with below input if not exist")]
         [Then(@"User create new VolumeDriver with below input if not exist")]
-        public void AddNewVolumeDriverWithGivenInputifnotexist(Table inputData)
+        public void AddNewVolumeDriverWithGivenInputIfNotExist(Table inputData)
         {
             LogWriter.WriteLog("Executing User create new VolumeDriver with below input " + inputData);
-            VolumeDriverPage.AddNewVolumeDriverWithGivenInputifnotexist(inputData);
+            VolumeDriverPage.AddNewVolumeDriverWithGivenInputIfNotExist(inputData);
         }
 
         [Given(@"User verify created VolumeDriver by name ""([^""]*)""")]
@@ -52,6 +53,7 @@ namespace LaborPro.Automation.Features.VolumeDriver
             LogWriter.WriteLog("Executinge User delete created VolumeDriver by name" + VolumeDriverName);
             VolumeDriverPage.DeleteCreatedVolumeDriver(VolumeDriverName);
         }
+
         [When(@"User search VolumeDriver ""([^""]*)""")]
         public void WhenUserSearchVolumeDriver(string volumeDriver)
         {
@@ -66,7 +68,7 @@ namespace LaborPro.Automation.Features.VolumeDriver
         public void UserDeleteVolumeDriver(String VolumeDriverName)
         {
             LogWriter.WriteLog("Executing Step User delete created VolumeDriver by name" + VolumeDriverName);
-            VolumeDriverPage.DeleteVolumeDriverifexist(VolumeDriverName);
+            VolumeDriverPage.DeleteVolumeDriverIfExist(VolumeDriverName);
         }
     }
 }

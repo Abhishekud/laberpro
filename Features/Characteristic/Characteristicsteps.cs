@@ -9,7 +9,7 @@ namespace LaborPro.Automation.Features.Characteristic
         [When(@"User navigates to the Characteristic tab")]
         [Given(@"User navigates to the Characteristic tab")]
         [Then(@"User navigates to the Characteristic tab")]
-        public void UserNavigatesToTheCharacteristicTab()
+        public void NavigatesToTheCharacteristicTab()
         {
             LogWriter.WriteLog("Executing CharacteristicsPage UserNavigatesToTheCharacteristicTab ");
             CharacteristicsPage.CloseCharacteristicForm();
@@ -18,12 +18,10 @@ namespace LaborPro.Automation.Features.Characteristic
 
         }
 
-
-
         [Then(@"Verify Record Of Selected Dept ""(.*)""")]
         [When(@"Verify Record Of Selected Dept ""(.*)""")]
         [Given(@"Verify Record Of Selected Dept ""(.*)""")]
-        public void ThenVerifyRecordOfSelectedDept(string message)
+        public void VerifyRecordOfSelectedDept(string message)
         {
             LogWriter.WriteLog("Executing CharacteristicsPage Verify Record Of Selected Dept ");
             CharacteristicsPage.VerifyRecordOfSelectedDept(message);
@@ -32,7 +30,7 @@ namespace LaborPro.Automation.Features.Characteristic
         [Given(@"User click on Characteristic")]
         [When(@"User click on Characteristic")]
         [Then(@"User click on Characteristic")]
-        public void UserClickOnCharacteristic()
+        public void ClickOnCharacteristic()
         {
             LogWriter.WriteLog("Executing CharacteristicsPage UserClickOnCharacteristic ");
             CharacteristicsPage.ClickOnCharacteristic();
@@ -41,13 +39,11 @@ namespace LaborPro.Automation.Features.Characteristic
         [Given(@"User click on Characteristic set")]
         [When(@"User click on Characteristic set")]
         [Then(@"User click on Characteristic set")]
-        public void UserClickOnCharacteristicset()
+        public void ClickOnCharacteristicSet()
         {
             LogWriter.WriteLog("Executing CharacteristicsPage UserClickOnCharacteristicset ");
-
-            CharacteristicsPage.ClickOnCharacteristicset();
+            CharacteristicsPage.ClickOnCharacteristicSet();
         }
-
 
         [Given(@"User create new Characteristic with below input")]
         [When(@"User create new Characteristic with below input")]
@@ -56,7 +52,6 @@ namespace LaborPro.Automation.Features.Characteristic
         {
             LogWriter.WriteLog("Executing CharacteristicsPage AddNewCharacteristicWithGivenInput");
             CharacteristicsPage.AddNewCharacteristicWithGivenInput(inputData);
-
         }
 
         [Given(@"User create new Characteristic with below input if not exist")]
@@ -65,13 +60,13 @@ namespace LaborPro.Automation.Features.Characteristic
         public void CharacteristicWithGivenInputIfNotExist(Table inputData)
         {
             LogWriter.WriteLog("Executing step: User add  Characteristic using below input if not exist - " + inputData);
-             CharacteristicsPage.CharacteristicWithGivenInputIfNotExist(inputData);
+            CharacteristicsPage.CharacteristicWithGivenInputIfNotExist(inputData);
         }
-       
+
         [Given(@"User verify created Characteristic by name ""([^""]*)""")]
         [When(@"User verify created Characteristic by name ""([^""]*)""")]
         [Then(@"User verify created Characteristic by name ""([^""]*)""")]
-        public void UserVerifyCreatedCharacteristic(String CharacteristicName)
+        public void VerifyCreatedCharacteristic(String CharacteristicName)
         {
             LogWriter.WriteLog("Executing CharacteristicsPage UserVerifyCreatedCharacteristic");
             CharacteristicsPage.VerifyCreatedCharacteristic(CharacteristicName);
@@ -80,7 +75,7 @@ namespace LaborPro.Automation.Features.Characteristic
         [Given(@"User delete created Characteristic by name ""([^""]*)""")]
         [When(@"User delete created Characteristic by name ""([^""]*)""")]
         [Then(@"User delete created Characteristic by name ""([^""]*)""")]
-        public void UserDeleteCreatedCharacteristic(String CharacteristicName)
+        public void DeleteCreatedCharacteristic(String CharacteristicName)
         {
             LogWriter.WriteLog("Executing CharacteristicsPage UserDeleteCreatedCharacteristic");
             CharacteristicsPage.DeleteCreatedCharacteristic(CharacteristicName);
@@ -89,28 +84,28 @@ namespace LaborPro.Automation.Features.Characteristic
         [Given(@"User delete created Characteristic set by name ""([^""]*)""")]
         [When(@"User delete created Characteristic set by name ""([^""]*)""")]
         [Then(@"User delete created Characteristic set by name ""([^""]*)""")]
-        public void UserDeleteCreatedCharacteristicset(String CharacteristicsetName)
+        public void DeleteCreatedCharacteristicSet(String CharacteristicsetName)
         {
             LogWriter.WriteLog("Executing CharacteristicsPage UserDeleteCreatedCharacteristicset");
-            CharacteristicsPage.DeleteCreatedCharacteristicset(CharacteristicsetName);
+            CharacteristicsPage.DeleteCreatedCharacteristicSet(CharacteristicsetName);
         }
 
         [Given(@"User delete Characteristic set ""([^""]*)"" if exist")]
         [When(@"User delete Characteristic set ""([^""]*)"" if exist")]
         [Then(@"User delete Characteristic set ""([^""]*)"" if exist")]
-        public void UserDeleteCharacteristicset(String CharacteristicName)
+        public void DeleteCharacteristicSetIfExist(String CharacteristicName)
         {
             LogWriter.WriteLog("Executing Step User delete created Characteristic by name" + CharacteristicName);
-            CharacteristicsPage.DeleteCharacteristicsetifexist(CharacteristicName);
+            CharacteristicsPage.DeleteCharacteristicSetIfExist(CharacteristicName);
         }
 
         [Given(@"User delete Characteristic ""([^""]*)"" if exist")]
         [When(@"User delete Characteristic ""([^""]*)"" if exist")]
         [Then(@"User delete Characteristic ""([^""]*)"" if exist")]
-        public void UserDeleteCharacteristic(String CharacteristicName)
+        public void DeleteCharacteristicIfExist(String CharacteristicName)
         {
             LogWriter.WriteLog("Executing Step User delete created Characteristic by name" + CharacteristicName);
-            CharacteristicsPage.DeleteCharacteristicifexist(CharacteristicName);
+            CharacteristicsPage.DeleteCharacteristicIfExist(CharacteristicName);
         }
 
     }

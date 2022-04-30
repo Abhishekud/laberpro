@@ -1,9 +1,4 @@
 ﻿using LaborPro.Automation.shared.config;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LaborPro.Automation.shared.util
 {
@@ -33,7 +28,6 @@ namespace LaborPro.Automation.shared.util
             }
             return null;
         }
-
         public static TestScenario ReadKey(Dictionary<string, TestScenario> dictionary, string key)
         {
             if (dictionary != null)
@@ -63,7 +57,6 @@ namespace LaborPro.Automation.shared.util
             }
             return input;
         } 
-
         public static string RemoveTagsFromGivenString(string value)
         {
             if(value != null)

@@ -1,5 +1,4 @@
-﻿using LaborPro.Automation.Features.Allowances;
-using LaborPro.Automation.shared.util;
+﻿using LaborPro.Automation.shared.util;
 
 namespace LaborPro.Automation.Features.LaborDrivers
 {
@@ -13,12 +12,11 @@ namespace LaborPro.Automation.Features.LaborDrivers
         public void UserNavigatesToTheKronosTab()
         {
             LogWriter.WriteLog("Executing Step: User navigates to the  Kronos tab  ");
-             LaborDriversPage.CloseLaborDriversForm();    
-             LaborDriversPage.ClickOnKronosTab();     
-             LaborDriversPage.ClickOnLaborDriversTab();  
+            LaborDriversPage.CloseLaborDriversForm();    
+            LaborDriversPage.ClickOnKronosTab();     
+            LaborDriversPage.ClickOnLaborDriversTab();  
              
         }
-
 
         [Given(@"User create new LaborDrivers with below input if not exist")]
         [When(@"User create new LaborDrivers with below input if not exist")]
@@ -37,8 +35,7 @@ namespace LaborPro.Automation.Features.LaborDrivers
             LogWriter.WriteLog("Executing User create new LaborDrivers with below input "+inputData);
             LaborDriversPage.AddNewLaborDriversWithGivenInput(inputData);
         }
-
-       
+      
         [Given(@"User clicks Add LaborDrivers Button")]
         [When(@"User clicks Add LaborDrivers Button")]
         [Then(@"User clicks Add LaborDrivers Button")]
@@ -48,8 +45,6 @@ namespace LaborPro.Automation.Features.LaborDrivers
             LaborDriversPage.UserClickAddLaborDriversButton();
         }
 
-
-
         [Given(@"User verify created LaborDrivers ""([^""]*)""")]
         [When(@"User verify created LaborDrivers ""([^""]*)""")]
         [Then(@"User verify created LaborDrivers ""([^""]*)""")]
@@ -57,6 +52,7 @@ namespace LaborPro.Automation.Features.LaborDrivers
             LogWriter.WriteLog("Executing Step User verify created LaborDrivers by name" +LaborDriversName);
             LaborDriversPage.VerifyCreatedLaborDrivers(LaborDriversName); 
         }
+
         [Given(@"User verify Add Menu Popup")]
         [When(@"User verify Add Menu Popup")]
         [Then(@"User verify Add Menu Popup")]
@@ -81,7 +77,7 @@ namespace LaborPro.Automation.Features.LaborDrivers
         public void UserDeleteLaborDrivers(String LaborDriversName)
         {
             LogWriter.WriteLog("Executing Step User delete created LaborDrivers by name" + LaborDriversName);
-            LaborDriversPage.DeleteLaborDriversifexist(LaborDriversName);
+            LaborDriversPage.DeleteLaborDriversIfExist(LaborDriversName);
         }
     }
 }

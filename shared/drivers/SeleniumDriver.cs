@@ -13,7 +13,7 @@ namespace LaborPro.Automation.shared.drivers
         public static string WorkingDirectory = Environment.CurrentDirectory;
         public static string ProjectDirectory = Directory.GetParent(WorkingDirectory).Parent.Parent.FullName;
         public static string DownloadDirectory = ProjectDirectory + DOWNLOAD_DIRECTORY_PATH;
-        public static string csvFile = ProjectDirectory + csvFilePath;
+        public static string CsvFile = ProjectDirectory + csvFilePath;
         public static ThreadLocal<IWebDriver> webDriver = new ThreadLocal<IWebDriver>();
         const string DEFAULT_BROSWER = "chrome";
 
@@ -40,11 +40,7 @@ namespace LaborPro.Automation.shared.drivers
                 {
                     case "chrome":
                         new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
-                        ChromeOptions options = new ChromeOptions();
-                        options.AddArguments("--headless", "--disable-gpu", "--window-size=1920,1200",
-         "--ignore-certificate-errors", "--disable-extensions", "--no-sandbox", "--disable-dev-shm-usage");
-
-                        driver = new ChromeDriver(options);
+                        driver = new ChromeDriver(GetChromeOptions());
                         break;
                     case "Google_Chrome":
                         new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());

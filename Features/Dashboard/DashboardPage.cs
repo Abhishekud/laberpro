@@ -2,11 +2,6 @@
 using LaborPro.Automation.shared.hooks;
 using LaborPro.Automation.shared.util;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LaborPro.Automation.Features.Dashboard
 {
@@ -58,7 +53,6 @@ namespace LaborPro.Automation.Features.Dashboard
                 Console.WriteLine(ex.Message);
             } 
         }
-
-        
+      
     }
 }

@@ -39,11 +39,11 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
         [Given(@"User click on VolumeDriverMapping set")]
         [When(@"User click on VolumeDriverMapping set")]
         [Then(@"User click on VolumeDriverMapping set")]
-        public void UserClickOnVolumeDriverset()
+        public void UserClickOnVolumeDriverSet()
         {
             LogWriter.WriteLog("Executing VolumeDriversPage UserClickOnVolumeDriverset ");
 
-            VolumeDriverMappingPage.ClickOnVolumeDriverset();
+            VolumeDriverMappingPage.ClickOnVolumeDriverSet();
         }
 
         [Given(@"User create new VolumeDriverMappingset with below input")]
@@ -64,7 +64,6 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
             VolumeDriverMappingPage.AddNewVolumeDriverMappingWithGivenInputIfNotExist(inputData);
         }
 
-
         [Given(@"User verify created VolumeDriverMapping by ""([^""]*)""")]
         [When(@"User verify created VolumeDriverMapping by ""([^""]*)""")]
         [Then(@"User verify created VolumeDriverMapping by ""([^""]*)""")]
@@ -82,6 +81,7 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
             LogWriter.WriteLog("Executing  VolumeDriverMappingPage UserDeleteCreatedVolumeDriver");
             VolumeDriverMappingPage.DeleteCreatedVolumeDriverMapping(VolumeDriverName);
         }
+
         [Given(@"User delete created UOM by ""([^""]*)""")]
         [When(@"User delete created UOM by ""([^""]*)""")]
         [Then(@"User delete created UOM by ""([^""]*)""")]
@@ -97,7 +97,7 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
         public void VerifyCreatedVolumeDriverMapping(String VolumeDriverMappingName)
         {
             LogWriter.WriteLog("Executing step: User verify created VolumeDriverMapping by name " + VolumeDriverMappingName);
-            VolumeDriverMappingPage.VerifyCreatedVolumeDriverMappingset(VolumeDriverMappingName);
+            VolumeDriverMappingPage.VerifyCreatedVolumeDriverMappingSet(VolumeDriverMappingName);
         }
 
         [Given(@"User delete created VolumeDriverMappingset by name ""([^""]*)""")]
@@ -106,24 +106,25 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
         public void DeleteCreatedVolumeDriverMapping(String VolumeDriverMappingName)
         {
             LogWriter.WriteLog("Executing step: User delete created VolumeDriverMapping by name " + VolumeDriverMappingName);
-            VolumeDriverMappingPage.DeleteCreatedVolumeDriverMappingset(VolumeDriverMappingName);
+            VolumeDriverMappingPage.DeleteCreatedVolumeDriverMappingSet(VolumeDriverMappingName);
         }
 
         [Given(@"User delete VolumeDriverMappingset ""([^""]*)"" if exist")]
         [When(@"User delete VolumeDriverMappingset ""([^""]*)"" if exist")]
         [Then(@"User delete VolumeDriverMappingset ""([^""]*)"" if exist")]
-        public void UserDeleteVolumeDriverMappingset(String VolumeDriverMappingsetName)
+        public void UserDeleteVolumeDriverMappingSet(String VolumeDriverMappingsetName)
         {
             LogWriter.WriteLog("Executing Step User delete created VolumeDriverMappingset by name" + VolumeDriverMappingsetName);
-            VolumeDriverMappingPage.DeleteVolumeDriverMappingsetifexist(VolumeDriverMappingsetName);
+            VolumeDriverMappingPage.DeleteVolumeDriverMappingsetIfExist(VolumeDriverMappingsetName);
         }
+
         [Given(@"User delete VolumeDriverMapping ""([^""]*)"" if exist")]
         [When(@"User delete VolumeDriverMapping ""([^""]*)"" if exist")]
         [Then(@"User delete VolumeDriverMapping ""([^""]*)"" if exist")]
         public void UserDeleteVolumeDriverMapping(String VolumeDriverMappingName)
         {
             LogWriter.WriteLog("Executing Step User delete created VolumeDriverMapping by name" + VolumeDriverMappingName);
-            VolumeDriverMappingPage.DeleteVolumeDriverMappingifexist(VolumeDriverMappingName);
+            VolumeDriverMappingPage.DeleteVolumeDriverMappingIfExist(VolumeDriverMappingName);
         }
 
     }

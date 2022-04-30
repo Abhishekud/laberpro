@@ -1,9 +1,4 @@
 ﻿using LaborPro.Automation.shared.util;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LaborPro.Automation.Features.StandardsandUomByLocation
 {
@@ -11,29 +6,29 @@ namespace LaborPro.Automation.Features.StandardsandUomByLocation
     public class StandardAndUomsByLocationSteps
     {
         [Given(@"User navigates to standardsanduomsbylocation tab")]
-        public void GivenUserNavigatesToStandardsanduomsbylocationTab()
+        public void GivenUserNavigatesToStandardsAndUomsByLocationTab()
         {
             LogWriter.WriteLog("Executing Step User navigates to standardsanduomsbylocation tab");
-            StandardAndUomsByLocationPage.clickonOutputtab();
-            StandardAndUomsByLocationPage.clickonstandardAndUomByLocationTab();
-            StandardAndUomsByLocationPage.WaitforPageLoad();
-            StandardAndUomsByLocationPage.WaitForRotatorTobeInvisible();
+            StandardAndUomsByLocationPage.ClickOnOutputTab();
+            StandardAndUomsByLocationPage.ClickOnStandardAndUomByLocationTab();
+            StandardAndUomsByLocationPage.WaitForPageLoad();
+            StandardAndUomsByLocationPage.WaitForLoadingSpinnerInvisible();
         }
 
         [When(@"User search record by name ""([^""]*)""")]
         public void WhenUserSearchRecordByName(string location)
         {
             LogWriter.WriteLog("Executing Step User search record by name");
-            StandardAndUomsByLocationPage.WaitforPageLoad();
+            StandardAndUomsByLocationPage.WaitForPageLoad();
             StandardAndUomsByLocationPage.ClearAllFilter();
-            StandardAndUomsByLocationPage.SearchStandardanduombylocation(location);
+            StandardAndUomsByLocationPage.SearchStandardAndUomByLocation(location);
         }
 
         [Then(@"User verify standardsanduombylocation ""([^""]*)""")]
-        public void ThenUserVerifyStandardsanduombylocation(string location)
+        public void ThenUserVerifyStandardsAndUomByLocation(string location)
         {
             LogWriter.WriteLog("User verify standardsanduombylocation");
-            StandardAndUomsByLocationPage.verifyLocationInstandardsanduombyLocation(location);
+            StandardAndUomsByLocationPage.VerifyLocationInstandardsAndUomByLocation(location);
         }
 
     }

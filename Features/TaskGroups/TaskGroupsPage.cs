@@ -9,7 +9,6 @@ namespace LaborPro.Automation.Features.TaskGroups
 {
     public class TaskGroupsPage
     {
-        const string standard_Filing_FieldId = "//select[@id='standardFilingFieldId']";
         const string KRONOS_COLLAPSED_TAB = "//li[contains(@class,'collapsed')]//span[contains(text(),'Kronos')]";
         const string TASKGROUPS_TAB = "//a[text()='Task Groups']";
         const string ADD_BUTTON = "//button[@id='add']";
@@ -19,19 +18,16 @@ namespace LaborPro.Automation.Features.TaskGroups
         const string CLOSE_TASKGROUPS_FORM_BUTTON = "//*[@class='modal-dialog']//button[contains(text(),'Cancel')]";
         const string ERROR_ALERT_TOAST_XPATH = "//*[@class='toast toast-error']";
         const string CLOSE_TASKGROUPS_DETAILS = "//button[text()='Close']";
-        const string CANCEL_TASKGROUPS_DETAILS = "//button[text()='Cancel']]";
         const string TASKGROUPS_DELETE_BUTTON = "//button[contains(@class,'delete')]";
         const string TASKGROUPS_RECORD = "//*[@role='row' and .//*[text()='{0}']]";
         const string TASKGROUPS_FILTER_INPUT = "//*[@aria-label='Filter' and @aria-colindex='{0}']//input";
         const string PAGE_LOADER = "//*[@title='Submission in progress']";
         const string TASKGROUPS_DELETE_CONFIRM_POPUP = "//*[@class='modal-dialog']//*[contains(text(),'Please confirm that you want to delete')]";
         const string TASKGROUPS_DELETE_CONFIRM_POPUP_ACCEPT = "//*[@class='modal-dialog']//button[text()='Confirm']";
-        const string CLOSE_BUTTON = "//button[@id='newTaskGroupss']";
         const string TASKGROUPSS_PAGE = "//h3[contains(text(),'Task Groups')]";
         const string TASKGROUPSS_POPUP = "//*[@role='dialog']//*[@class='modal-title' and contains(text(), 'New TaskGroup')]";
         const string ALLOCATE_LABOR_HOUR_TYPE_INPUT = "  //select[@id='allocateLaborHours']";
         const string COMBINED_DISTRIBUTION_INPUT = "//input[@id='combinedDistribution']";
-        const string NUMBER_OF_BUSINESS_DAYS_TO_LOOK_BACK_FOR_VOLUME_INPUT = " //input[@id='lookBackCount']";
         const string GENERIC_DEPT_INPUT = "//input[@id='genericDepartment']";
         const string JOB_INPUT = "//input[@id='jobName']";
         const string NAME = "Name";
@@ -46,7 +42,7 @@ namespace LaborPro.Automation.Features.TaskGroups
             WaitForTaskGroupsAlertCloseIfAny();
             var dictionary = Util.ConvertToDictionary(inputData);
             BaseClass._TestData.Value = Util.DictionaryToString(dictionary);
-            StandardPage.ClearAllFilter();
+            StandardsPage.ClearAllFilter();
             SearchTaskGroups(dictionary["Name"]);
             IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(TASKGROUPS_RECORD, dictionary["Name"]), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record == null)
@@ -58,10 +54,10 @@ namespace LaborPro.Automation.Features.TaskGroups
                 record.Click();
             }
         }
-        public static void DeleteTaskGroupsifexist(string TaskGroupsName)
+        public static void DeleteTaskGroupsIfExist(string TaskGroupsName)
         {
-            LogWriter.WriteLog("Executing TaskGroupsPage.DeleteTaskGroupsifexist");
-            StandardPage.ClearAllFilter();
+            LogWriter.WriteLog("Executing TaskGroupsPage.DeleteTaskGroupsIfExist");
+            StandardsPage.ClearAllFilter();
             SearchTaskGroups(TaskGroupsName);
             IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(TASKGROUPS_RECORD, TaskGroupsName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record != null)
@@ -93,12 +89,14 @@ namespace LaborPro.Automation.Features.TaskGroups
             WebDriverUtil.GetWebElement(String.Format(TASKGROUPS_DELETE_BUTTON, TaskGroupsName), WebDriverUtil.TWO_SECOND_WAIT,
             String.Format("Unable to locate TaskGroups delete button on TaskGroups details - {0}", String.Format(
                 TASKGROUPS_DELETE_BUTTON, TaskGroupsName))).Click();
-            WebDriverUtil.GetWebElement(TASKGROUPS_DELETE_CONFIRM_POPUP_ACCEPT, WebDriverUtil.ONE_SECOND_WAIT,
+            WebDriverUtil.GetWebElement(TASKGROUPS_DELETE_CONFIRM_POPUP_ACCEPT, WebDriverUtil.TWO_SECOND_WAIT,
                 String.Format("Unable to locate Confirm button on delete confirmation popup - {0}", TASKGROUPS_DELETE_CONFIRM_POPUP_ACCEPT)).Click();
-            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
-                WebDriverUtil.WaitForWebElementInvisible(TASKGROUPS_DELETE_CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Application taking too long time to perform operation");
+                WebDriverUtil.WaitForWebElementInvisible(TASKGROUPS_DELETE_CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
             }
             else
             {
@@ -132,14 +130,12 @@ namespace LaborPro.Automation.Features.TaskGroups
 
                 }
             }
-
             return index;
         }
-
         public static void ClearAllFilter()
         {
             LogWriter.WriteLog("Executing TaskGroupsPage.ClearAllFilter");
-            CloseTaskGroupsDetailSideBar();
+
             IWebElement clearFilterButton = WebDriverUtil.GetWebElement(CLEAR_FILTER_BUTTON, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (clearFilterButton != null)
             {
@@ -147,7 +143,6 @@ namespace LaborPro.Automation.Features.TaskGroups
                 WaitForLoading();
             }
         }
-
         public static void VerifyCreatedTaskGroups(string TaskGroupsName)
         {
             LogWriter.WriteLog("Executing TaskGroupsPage.VerifyCreatedTaskGroups");
@@ -211,18 +206,19 @@ namespace LaborPro.Automation.Features.TaskGroups
             WebDriverUtil.GetWebElementAndScroll(SAVE_BUTTON, WebDriverUtil.FIVE_SECOND_WAIT,
             String.Format("Unable to locate save button on page - {0}", SAVE_BUTTON)).Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Saving...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             if (WebDriverUtil.GetWebElement(TASKGROUPSS_POPUP, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
-                IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FORM_INPUT_FIELD_ERROR_XPATH, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+                IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FORM_INPUT_FIELD_ERROR_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                 if (errorMessage == null)
                 {
-                    IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ELEMENT_ALERT, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+                    IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ELEMENT_ALERT, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                     if (errorMsg == null)
                     {
-                        IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                        IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                         if (alert == null)
                         {
-                            WebDriverUtil.WaitForWebElementInvisible(TASKGROUPSS_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec Application taking too long time to perform operation");
+                            WebDriverUtil.WaitForWebElementInvisible(TASKGROUPSS_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
                         }
                         else
                         {
@@ -239,7 +235,6 @@ namespace LaborPro.Automation.Features.TaskGroups
             ClickOnAddButton();
             UserClickOnNewTaskGroupsMenuLink();
         }
-
         public static void UserClickOnNewTaskGroupsMenuLink()
         {
             LogWriter.WriteLog("Executing TaskGroupsPage.UserClickOnNewTaskGroupsMenuLink");
@@ -247,7 +242,6 @@ namespace LaborPro.Automation.Features.TaskGroups
             String.Format("Unable to locate NewTaskGroupsMenu menu link on add menu popup - {0}", ADD_TASKGROUPS_LINK)).Click();
 
         }
-
         public static void ClickOnAddButton()
         {
             LogWriter.WriteLog("Executing TaskGroupsPage.ClickOnAddButton");

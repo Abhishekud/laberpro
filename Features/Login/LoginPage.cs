@@ -3,10 +3,6 @@ using OpenQA.Selenium.Support.UI;
 using LaborPro.Automation.shared.drivers;
 using LaborPro.Automation.shared.hooks;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using LaborPro.Automation.shared.util;
 
 namespace LaborPro.Automation.Features.Login
@@ -16,11 +12,7 @@ namespace LaborPro.Automation.Features.Login
         const string USER_NAME_INPUT = "//input[@name='email']";
         const string PASSWORD_INPUT = "//input[@name='password']";
         const string LOGIN_BUTTON = "//button[@type='submit']";
-        const string FORGOT_PASSWORD_LINK = "//*[text()='Forgot Password?']";
-        const string FORGOT_LINK = "//button[@type='button' and text()='Forgot Password?']";
         const string HOME_PAGE_BUTTON = "//a[.//*[text()='Home']]";
-        const string ERROR = "//*[contains(@class,'textError')]";
-        const string ERROR_MESSAGE_XPATH = "//*[contains(@class,'textError') and contains(text(),'{0}')]";
 
         public static void PerformLogin(String userName, String password)
         {

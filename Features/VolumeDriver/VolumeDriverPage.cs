@@ -7,7 +7,7 @@ namespace LaborPro.Automation.Features.VolumeDriver
 {
     public class VolumeDriverPage
     {
-        const string standard_Filing_FieldId = "//select[@id='standardFilingFieldId']";
+        const string STANDARD_FILING_FIEND_ID = "//select[@id='standardFilingFieldId']";
         const string STANDARD_COLLAPSED_TAB = "//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]";
         const string LIST_MANAGEMENT_TAB = "//a[text()='List Management']";
         const string ADD_BUTTON = "//button[@id='create-volume-drivers']";
@@ -17,15 +17,12 @@ namespace LaborPro.Automation.Features.VolumeDriver
         const string SAVE_BUTTON = "//button[contains(text(),'Save')]";
         const string CLOSE_VOLUMEDRIVER_FORM_BUTTON = "//*[@class='modal-dialog']//button[contains(text(),'Cancel')]";
         const string ERROR_ALERT_TOAST_XPATH = "//*[@class='toast toast-error']";
-        const string CREATED_VOLUMEDRIVER_TITLE = "//*[@class='page-title' and contains(text(),'{0}')]";
-        const string PAGE_TITLE = "//*[@class='page-title']";
         const string CLOSE_VOLUMEDRIVER_DETAILS = "//button[text()='Close']";
         const string CANCEL_VOLUMEDRIVER_DETAILS = "//button[text()='Cancel']]";
         const string VOLUMEDRIVER_DELETE_BUTTON = "//button[contains(@class,'delete')]";
         const string VOLUMEDRIVER_RECORD = "//*[@role='row' and .//*[text()='{0}']]";
         const string VOLUMEDRIVER_DELETE_CONFIRM_POPUP = "//*[@class='modal-dialog']//*[contains(text(),'Please confirm that you want to delete')]";
         const string VOLUMEDRIVER_DELETE_CONFIRM_POPUP_ACCEPT = "//*[@class='modal-dialog']//button[text()='Confirm']";
-        const string CLOSE_BUTTON = "//button[@id='newVolumeDrivers']";
         const string VOLUMEDRIVER_POPUP = "//*[@role='dialog']//*[@class='modal-title' and contains(text(), 'New Volume Driver')]";
         const string VOLUME_DRIVER_FILTER_INPUT = "//th[@aria-colindex='1']//input";
         const string PAGE_LOADER = "//*[@title='Submission in progress']";
@@ -61,10 +58,12 @@ namespace LaborPro.Automation.Features.VolumeDriver
 
             WebDriverUtil.GetWebElement(VOLUMEDRIVER_DELETE_CONFIRM_POPUP_ACCEPT, WebDriverUtil.TWO_SECOND_WAIT,
             String.Format("Unable to locate Confirm button on delete confirmation popup - {0}", VOLUMEDRIVER_DELETE_CONFIRM_POPUP_ACCEPT)).Click();
-            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
-                WebDriverUtil.WaitForWebElementInvisible(VOLUMEDRIVER_DELETE_CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Application taking too long time to perform operation");
+                WebDriverUtil.WaitForWebElementInvisible(VOLUMEDRIVER_DELETE_CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
             }
             else
             {
@@ -106,18 +105,19 @@ namespace LaborPro.Automation.Features.VolumeDriver
             WebDriverUtil.GetWebElementAndScroll(SAVE_BUTTON, WebDriverUtil.NO_WAIT,
             String.Format("Unable to locate save button VolumeDrivers page - {0}", SAVE_BUTTON)).Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Saving...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             if (WebDriverUtil.GetWebElement( VOLUMEDRIVER_POPUP, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
                 IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FORM_INPUT_FIELD_ERROR_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                 if (errorMessage == null)
                 {
-                    IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ELEMENT_ALERT, WebDriverUtil.FIVE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                    IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ELEMENT_ALERT, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                     if (errorMsg == null)
                     {
-                        IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TWO_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                        IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                         if (alert == null)
                         {
-                            WebDriverUtil.WaitForWebElementInvisible(VOLUMEDRIVER_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec Application taking too long time to perform operation");
+                            WebDriverUtil.WaitForWebElementInvisible(VOLUMEDRIVER_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
                         }
                         else
                         {
@@ -128,9 +128,9 @@ namespace LaborPro.Automation.Features.VolumeDriver
             }
 
         }
-        public static void AddNewVolumeDriverWithGivenInputifnotexist(Table inputData)
+        public static void AddNewVolumeDriverWithGivenInputIfNotExist(Table inputData)
         {
-            LogWriter.WriteLog("Executing VolumeDriversPage.AddVolumeDriverWithGivenInputIfNotExist");
+            LogWriter.WriteLog("Executing VolumeDriversPage.AddNewVolumeDriverWithGivenInputIfNotExist");
             var dictionary = Util.ConvertToDictionary(inputData);
             IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(VOLUMEDRIVER_RECORD, dictionary["Name"]), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record == null)
@@ -143,19 +143,18 @@ namespace LaborPro.Automation.Features.VolumeDriver
             }
 
         }
-        public static void DeleteVolumeDriverifexist(string VolumeDriverName)
+
+        public static void DeleteVolumeDriverIfExist(string VolumeDriverName)
         {
-            LogWriter.WriteLog("Executing VolumeDriversPage.DeleteVolumeDriverifexist");
+            LogWriter.WriteLog("Executing VolumeDriversPage.DeleteVolumeDriverIfExist");
+
             WaitForVolumeDriverAlertCloseIfAny();
             IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(VOLUMEDRIVER_RECORD, VolumeDriverName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record != null)
             {
                 DeleteCreatedVolumeDriver(VolumeDriverName);
             }
-
-
         }
-
         public static void UserClickOnNewVolumeDriverMenuLink()
         {
             LogWriter.WriteLog("Executing VolumeDriverPage UserClickOnNewVolumeDriverMenuLink");
@@ -166,8 +165,8 @@ namespace LaborPro.Automation.Features.VolumeDriver
         public static void ClickOnVolumeDriver()
         {
             LogWriter.WriteLog("Executing VolumeDriverPage ClickOnVolumeDriver");
-            new SelectElement(WebDriverUtil.GetWebElement(standard_Filing_FieldId, WebDriverUtil.FIVE_SECOND_WAIT,
-            String.Format("Unable to locate standard_Filing_FieldId input VolumeDrivers page  - {0}", standard_Filing_FieldId)))
+            new SelectElement(WebDriverUtil.GetWebElement(STANDARD_FILING_FIEND_ID, WebDriverUtil.FIVE_SECOND_WAIT,
+            String.Format("Unable to locate standard_Filing_FieldId input VolumeDrivers page  - {0}", STANDARD_FILING_FIEND_ID)))
             .SelectByText("Volume Drivers");
 
         }
@@ -189,7 +188,6 @@ namespace LaborPro.Automation.Features.VolumeDriver
 
             }
         }
-
         public static void ClickOnListManagementTab()
         {
             LogWriter.WriteLog("Executing VolumeDriver  ClickOnListManagementTab");
@@ -201,7 +199,6 @@ namespace LaborPro.Automation.Features.VolumeDriver
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             }
         }
-
         public static void ClickOnStandardTab()
         {
             LogWriter.WriteLog("Executing VolumeDriver.ClickOnStandardTab");
@@ -212,7 +209,6 @@ namespace LaborPro.Automation.Features.VolumeDriver
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             }
         }
-
         public static void WaitForVolumeDriverAlertCloseIfAny()
         {
             LogWriter.WriteLog("VolumeDriver.WaitForVolumeDriverAlertCloseIfAny");
@@ -224,7 +220,6 @@ namespace LaborPro.Automation.Features.VolumeDriver
                 WebDriverUtil.WaitForWebElementInvisible(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             }
         }
-
         public static void SearchvolumeDriver(String VolumeDriver)
         {
             LogWriter.WriteLog("VolumeDriver.SearchvolumeDriver");
@@ -248,6 +243,5 @@ namespace LaborPro.Automation.Features.VolumeDriver
                 WaitForLoading();
             }
         }
-
     }
 }

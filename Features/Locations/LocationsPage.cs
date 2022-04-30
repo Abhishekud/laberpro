@@ -11,10 +11,8 @@ namespace LaborPro.Automation.Features.Locations
         const string PROFILING_COLLAPSED_TAB = "//li[contains(@class,'collapsed')]//span[contains(text(),'Profiling')]";
         const string LOCATIONS_TAB = "//a[text()='Locations']";
         const string LOCATIONS_PAGE = "//*[@class='page-title' and text()='Locations']";
-        const string PAGE_TITLE = "//*[@class='page-title']";
         const string UNSORT_BUTTON = "//button[.//*[text()='Unsort']]";
         const string ERROR_ALERT_TOAST_XPATH = "//*[@class='toast toast-error']";
-
         const string PAGE_LOADER = "//*[@title='Submission in progress']";
         const string CONFIG_GRID_BUTTON = "//button[.//*[@class='fa fa-cogs']]";
         const string CONFIG_GRID_SECTION = "//*[@class='grid-configuration sidebar-section']";
@@ -24,9 +22,6 @@ namespace LaborPro.Automation.Features.Locations
         const string LOCATION_FILTER_INPUT = "//*[@aria-label='Filter' and @aria-colindex='7']//input";
         const string ADD_BUTTON = "//button[.//*[@class='fa fa-plus']]";
         const string ADD_LOCATION_LINK = "(//*[contains(@class,'dropdown open')]//a)[1]";
-        const string ADD_NEW_LOCATION_PROFILE_LINK = "(//*[contains(@class,'dropdown open')]//a)[2]";
-        const string ADD_IMPORT_LOCATIONS_LINK = "(//*[contains(@class,'dropdown open')]//a)[3]";
-        const string ADD_IMPORT_LOCATION_PROFILES_LINK = "(//*[contains(@class,'dropdown open')]//a)[4]";
         const string NAME_INPUT = "//*[@id='name']";
         const string DESCRIPTION_INPUT = "//*[@id='description']";
         const string LOCATION_PROFILE_DROPDOWN = "//*[@id='locationProfileId']";
@@ -191,18 +186,19 @@ namespace LaborPro.Automation.Features.Locations
             WebDriverUtil.GetWebElementAndScroll(SAVE_BUTTON, WebDriverUtil.NO_WAIT,
                 String.Format("Unable to locate save button on create allowance page - {0}", SAVE_BUTTON)).Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Saving...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             if (WebDriverUtil.GetWebElement(NEW_LOCATION_FORM_POPUP, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
-                IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FORM_INPUT_FIELD_ERROR_XPATH, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+                IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FORM_INPUT_FIELD_ERROR_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                 if (errorMessage == null)
                 {
-                    IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ELEMENT_ALERT, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+                    IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ELEMENT_ALERT, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                     if (errorMsg == null)
                     {
-                        IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                        IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                         if (alert == null)
                         {
-                            WebDriverUtil.WaitForWebElementInvisible(NEW_LOCATION_FORM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec Application taking too long time to perform operation");
+                            WebDriverUtil.WaitForWebElementInvisible(NEW_LOCATION_FORM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
                         }
                         else
                         {
@@ -304,14 +300,14 @@ namespace LaborPro.Automation.Features.Locations
             String.Format("Unable to locate location delete button on location details - {0}", String.Format(LOCATION_DELETE_BUTTON, locationName))).Click();
             WebDriverUtil.WaitForAWhile();
 
-
             WebDriverUtil.GetWebElement(LOCATION_DELETE_CONFIRM_POPUP_ACCEPT, WebDriverUtil.TWO_SECOND_WAIT,
                 String.Format("Unable to locate Confirm button on delete confirmation popup - {0}", LOCATION_DELETE_CONFIRM_POPUP_ACCEPT)).Click();
-
-            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
-                WebDriverUtil.WaitForWebElementInvisible(LOCATION_DELETE_CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Application taking too long time to perform operation");
+                WebDriverUtil.WaitForWebElementInvisible(LOCATION_DELETE_CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
             }
             else
             {
@@ -319,7 +315,6 @@ namespace LaborPro.Automation.Features.Locations
             }
             
         }
-
         public static void DeleteLocationIfExist(string locationName)
         {
             LogWriter.WriteLog("Executing LocationsPage.DeleteLocationIfExist");
@@ -345,11 +340,11 @@ namespace LaborPro.Automation.Features.Locations
 
                 WebDriverUtil.GetWebElement(LOCATION_DELETE_CONFIRM_POPUP_ACCEPT, WebDriverUtil.TWO_SECOND_WAIT,
                     String.Format("Unable to locate Confirm button on delete confirmation popup - {0}", LOCATION_DELETE_CONFIRM_POPUP_ACCEPT)).Click();
-
+                WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
                 IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                 if (alert == null)
                 {
-                    WebDriverUtil.WaitForWebElementInvisible(LOCATION_DELETE_CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Application taking too long time to perform operation");
+                    WebDriverUtil.WaitForWebElementInvisible(LOCATION_DELETE_CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
                 }
                 else
                 {
@@ -359,12 +354,10 @@ namespace LaborPro.Automation.Features.Locations
             }
             
         }
-
         public static void WaitForLoading()
         {
             WebDriverUtil.WaitForWebElementInvisible(PAGE_LOADER, WebDriverUtil.DEFAULT_WAIT, WebDriverUtil.NO_MESSAGE);
         }
-
         public static void ClearAllFilter()
         {
             LogWriter.WriteLog("Executing LocationsPage.ClickOnProfilingTab");
@@ -375,7 +368,6 @@ namespace LaborPro.Automation.Features.Locations
                 WaitForLoading();
             }
         }
-
         public static void SearchLocation(String locationName)
         {
             WebDriverUtil.GetWebElement(LOCATION_FILTER_INPUT, WebDriverUtil.NO_WAIT,
@@ -383,7 +375,6 @@ namespace LaborPro.Automation.Features.Locations
             WebDriverUtil.WaitForAWhile();
             WaitForLoading();
         }
-
         public static void SwitchOffNewestBrandColumn()
         {
             WebDriverUtil.GetWebElement(CONFIG_GRID_BUTTON, WebDriverUtil.NO_WAIT,
@@ -400,7 +391,6 @@ namespace LaborPro.Automation.Features.Locations
             WebDriverUtil.GetWebElement(CONFIG_GRID_BUTTON, WebDriverUtil.NO_WAIT,
                     String.Format("Unable to locate configure grid button on location page - {0}", CONFIG_GRID_BUTTON)).Click();
         }
-
         public static void KeepRecordUnsort()
         {
             WaitForLoading();

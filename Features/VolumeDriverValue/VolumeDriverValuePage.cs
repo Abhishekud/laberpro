@@ -1,13 +1,6 @@
 ﻿using LaborPro.Automation.shared.drivers;
 using LaborPro.Automation.shared.hooks;
 using LaborPro.Automation.shared.util;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.OleDb;
-using System.Data;
 using OpenQA.Selenium;
 
 
@@ -27,9 +20,9 @@ namespace LaborPro.Automation.Features.VolumeDriverValue
         const string VOLUME_DRIVER_VALUE_VERIFICATION_OF_LOCATION_DEPARTMENT_VOLUMEDRIVER = "//tbody[@role='presentation']//td[@aria-colindex='{0}' and contains(text(),'{1}')]";
         const string VOLUME_DRIVER_VALUE_TABLE_HEADERS = "//table[@role='presentation']//th//*[@class='k-link']";
 
-        public static void clickOnVolumeDriverValueTab()
+        public static void ClickOnVolumeDriverValueTab()
         {
-            LogWriter.WriteLog("Executing VolumeDriverValuePage.clickOnVolumeDriverValueTab");
+            LogWriter.WriteLog("Executing VolumeDriverValuePage.ClickOnVolumeDriverValueTab");
             if(WebDriverUtil.GetWebElement(VOLUME_DRIVER_VALUE_PAGE, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) == null)
             {
                 WebDriverUtil.GetWebElement(VOLUME_DRIVER_VALUE_TAB, WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate volume driver value tab - {0}", VOLUME_DRIVER_VALUE_TAB)).Click();
@@ -54,25 +47,24 @@ namespace LaborPro.Automation.Features.VolumeDriverValue
 
             return index;
         }
-
-        public static void clickOnDownloadtemplate()
+        public static void ClickOnDownloadTemplate()
         {
-            LogWriter.WriteLog("Executing VolumeDriverValuePage.clickOnDownloadtemplate");
+            LogWriter.WriteLog("Executing VolumeDriverValuePage.ClickOnDownloadTemplate");
             if (WebDriverUtil.GetWebElement(VOLUME_DRIVER_VALUE_PAGE, WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate the page - {0}", VOLUME_DRIVER_VALUE_PAGE)) != null)
             {
                 WebDriverUtil.GetWebElement(VOLUME_DRIVER_VALUE_DOWNLOAD, WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate volume driver value DOWNLOAD - {0}", VOLUME_DRIVER_VALUE_DOWNLOAD)).Click();
                 WebDriverUtil.GetWebElement(VOLUME_DRIVER_VALUE_DOWNLOAD_TEMPLATE, WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate volume driver value template - {0}", VOLUME_DRIVER_VALUE_DOWNLOAD_TEMPLATE)).Click();
                 WebDriverUtil.WaitFor(WebDriverUtil.TEN_SECOND_WAIT);
-                if (File.Exists(SeleniumDriver.csvFile) == false)
+                if (File.Exists(SeleniumDriver.CsvFile) == false)
                 {
                     WebDriverUtil.WaitFor(WebDriverUtil.MAX_WAIT);
                 }
                 BaseClass._AttachScreenshot.Value = true;
             }
         }
-        public static bool verifyFileDownload(string filename)
+        public static bool VerifyFileDownload(string filename)
         {
-            LogWriter.WriteLog("Executing VolumeDriverValuePage.verifyFileDownload");
+            LogWriter.WriteLog("Executing VolumeDriverValuePage.VerifyFileDownload");
             bool exist = false;
             String[] filepaths = Directory.GetFiles(SeleniumDriver.DownloadDirectory);
             foreach(string p in filepaths)
@@ -106,7 +98,7 @@ namespace LaborPro.Automation.Features.VolumeDriverValue
                     IJavaScriptExecutor js = (IJavaScriptExecutor)SeleniumDriver.Driver();
                     
                    IWebElement element = (IWebElement)js.ExecuteScript("return document.evaluate('//input[@type=\"file\"]',document,null,XPathResult.FIRST_ORDERED_NODE_TYPE,null).singleNodeValue;");
-                    element.SendKeys(SeleniumDriver.csvFile);
+                    element.SendKeys(SeleniumDriver.CsvFile);
                     WebDriverUtil.WaitFor(WebDriverUtil.TEN_SECOND_WAIT);
 
                 }
@@ -114,11 +106,11 @@ namespace LaborPro.Automation.Features.VolumeDriverValue
 
             if(WebDriverUtil.GetWebElement(VOLUME_DRIVER_VALUE_LOAD_SPINNER, WebDriverUtil.FIVE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
-                WebDriverUtil.WaitForWebElementInvisible(VOLUME_DRIVER_VALUE_LOAD_SPINNER, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Application taking too long time to perform operation");
+                WebDriverUtil.WaitForWebElementInvisible(VOLUME_DRIVER_VALUE_LOAD_SPINNER, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
             }
 
         }
-        public static void addRecordToCsv(string location, string location_description, string department, string Volumedriver, string value, string filepath)
+        public static void AddRecordToCsv(string location, string location_description, string department, string Volumedriver, string value, string filepath)
         {
             LogWriter.WriteLog("Executing VolumeDriverValuePage.addRecordToCsv");
             try
@@ -133,7 +125,6 @@ namespace LaborPro.Automation.Features.VolumeDriverValue
                 Console.WriteLine(ex.Message);
             }
         }
-
         public static void VerifyLocationInVolumeDriverValue(string location)
         {
             string location1 = "Location";
@@ -146,7 +137,6 @@ namespace LaborPro.Automation.Features.VolumeDriverValue
             }
 
         }
-
         public static void VerifyDepartmentInVolumeDriverValue(string department)
         {
             string Department = "Department";
@@ -158,7 +148,6 @@ namespace LaborPro.Automation.Features.VolumeDriverValue
             }
 
         }
-
         public static void VerifyVolumedriverInVolumeDriverValue(string volumedriver)
         {
             string Voldriver = "Volume Driver";
@@ -169,7 +158,6 @@ namespace LaborPro.Automation.Features.VolumeDriverValue
                 BaseClass._AttachScreenshot.Value = true;
             }
         }
-
         public static void DeleteDownloadedCsvFile()
         {
             LogWriter.WriteLog("Executing VolumeDriverValuePage.DeleteDownloadedCsvFile");

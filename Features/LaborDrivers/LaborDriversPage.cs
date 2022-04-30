@@ -1,5 +1,4 @@
-﻿using LaborPro.Automation.shared.drivers;
-using LaborPro.Automation.shared.hooks;
+﻿using LaborPro.Automation.shared.hooks;
 using LaborPro.Automation.shared.util;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
@@ -8,7 +7,6 @@ namespace LaborPro.Automation.Features.LaborDrivers
 {
     public class LaborDriversPage
     {
-        const string standard_Filing_FieldId = "//select[@id='standardFilingFieldId']";
         const string KRONOS_COLLAPSED_TAB = "//li[contains(@class,'collapsed')]//span[contains(text(),'Kronos')]";
         const string LABOR_DRIVERS_TAB = "//a[text()='Labor Drivers']";
         const string ADD_BUTTON = "//button[@id='add']";
@@ -18,12 +16,10 @@ namespace LaborPro.Automation.Features.LaborDrivers
         const string CLOSE_LABORDRIVERS_FORM_BUTTON = "//*[@class='modal-dialog']//button[contains(text(),'Cancel')]";
         const string ERROR_ALERT_TOAST_XPATH = "//*[@class='toast toast-error']";
         const string CLOSE_LABORDRIVERS_DETAILS = "//button[text()='Close']";
-        const string CANCEL_LABORDRIVERS_DETAILS = "//button[text()='Cancel']]";
         const string LABORDRIVERS_DELETE_BUTTON = "//button[contains(@class,'delete')]";
         const string LABORDRIVERS_RECORD = "//*[@role='row' and .//*[text()='{0}']]";
         const string LABORDRIVERS_DELETE_CONFIRM_POPUP = "//*[@class='modal-dialog']//*[contains(text(),'Please confirm that you want to delete')]";
         const string LABORDRIVERS_DELETE_CONFIRM_POPUP_ACCEPT = "//*[@class='modal-dialog']//button[text()='Confirm']";
-        const string CLOSE_BUTTON = "//button[@id='newLABORDRIVERSs']";
         const string LABORDRIVERSS_PAGE = "//h3[contains(text(),'Labor Drivers')]";
         const string LABORDRIVERSS_POPUP = "//*[@role='dialog']//*[@class='modal-title' and contains(text(), 'New Labor Driver')]";
         const string DRIVER_TYPE_INPUT = "  //select[@id='laborDriverType']";
@@ -49,20 +45,16 @@ namespace LaborPro.Automation.Features.LaborDrivers
                 record.Click();
             }
         }
-
-        public static void DeleteLaborDriversifexist(string LaborDriversName)
+        public static void DeleteLaborDriversIfExist(string LaborDriversName)
         {
-            LogWriter.WriteLog("Executing LaborDriversPage.DeleteLaborDriversifexist");
+            LogWriter.WriteLog("Executing LaborDriversPage.DeleteLaborDriversIfExist");
             WaitForLaborDriversAlertCloseIfAny();
             IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(LABORDRIVERS_RECORD, LaborDriversName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record != null)
             {
                 DeleteCreatedLaborDrivers(LaborDriversName);
             }
-          
-
         }
-
         public static void CloseLaborDriversDetailSideBar()
         {
             LogWriter.WriteLog("Executing LaborDriversPage.CloseLaborDriversDetailSideBar");
@@ -73,7 +65,6 @@ namespace LaborPro.Automation.Features.LaborDrivers
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
 
             }
-
         }
         public static void DeleteCreatedLaborDrivers(string LaborDriversName)
         {
@@ -86,18 +77,19 @@ namespace LaborPro.Automation.Features.LaborDrivers
             WebDriverUtil.GetWebElement(String.Format(LABORDRIVERS_DELETE_BUTTON, LaborDriversName), WebDriverUtil.TWO_SECOND_WAIT,
             String.Format("Unable to locate LaborDrivers delete button on LaborDrivers details - {0}", String.Format(
                 LABORDRIVERS_DELETE_BUTTON, LaborDriversName))).Click();
-            WebDriverUtil.GetWebElement(LABORDRIVERS_DELETE_CONFIRM_POPUP_ACCEPT, WebDriverUtil.ONE_SECOND_WAIT,
+            WebDriverUtil.GetWebElement(LABORDRIVERS_DELETE_CONFIRM_POPUP_ACCEPT, WebDriverUtil.TWO_SECOND_WAIT,
                 String.Format("Unable to locate Confirm button on delete confirmation popup - {0}", LABORDRIVERS_DELETE_CONFIRM_POPUP_ACCEPT)).Click();
-            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
-                WebDriverUtil.WaitForWebElementInvisible(LABORDRIVERS_DELETE_CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Application taking too long time to perform operation");
+                WebDriverUtil.WaitForWebElementInvisible(LABORDRIVERS_DELETE_CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
             }
             else
             {
                 throw new Exception(string.Format("Unable to delete Labor Driver Error - {0}", alert.Text));
             }
-
         }
         public static void VerifyCreatedLaborDrivers(string LaborDriversName)
         {
@@ -168,18 +160,19 @@ namespace LaborPro.Automation.Features.LaborDrivers
             WebDriverUtil.GetWebElementAndScroll(SAVE_BUTTON, WebDriverUtil.NO_WAIT,
             String.Format("Unable to locate save button on page - {0}", SAVE_BUTTON)).Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Saving...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             if (WebDriverUtil.GetWebElement(LABORDRIVERSS_POPUP, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
-                IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FORM_INPUT_FIELD_ERROR_XPATH, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+                IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FORM_INPUT_FIELD_ERROR_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                 if (errorMessage == null)
                 {
-                    IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ELEMENT_ALERT, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+                    IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ELEMENT_ALERT, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                     if (errorMsg == null)
                     {
-                        IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                        IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                         if (alert == null)
                         {
-                            WebDriverUtil.WaitForWebElementInvisible(LABORDRIVERSS_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec Application taking too long time to perform operation");
+                            WebDriverUtil.WaitForWebElementInvisible(LABORDRIVERSS_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
                         }
                         else
                         {
@@ -194,16 +187,12 @@ namespace LaborPro.Automation.Features.LaborDrivers
             ClickOnAddButton();
             UserClickOnNewLaborDriversMenuLink();   
         }
-
         public static void UserClickOnNewLaborDriversMenuLink()
         {
- 
             LogWriter.WriteLog("Executing LaborDriversPage.UserClickOnNewLaborDriversMenuLink");
             WebDriverUtil.GetWebElement(ADD_LABORDRIVERS_LINK, WebDriverUtil.NO_WAIT,
             String.Format("Unable to locate NewLaborDriversMenu menu link on add menu popup - {0}", ADD_LABORDRIVERS_LINK)).Click();
-
         }
-
         public static void ClickOnAddButton()
         {
             LogWriter.WriteLog("Executing LaborDriversPage.ClickOnAddButton");
@@ -225,8 +214,6 @@ namespace LaborPro.Automation.Features.LaborDrivers
         public static void ClickOnLaborDriversTab()
         {
             LogWriter.WriteLog("Executing LaborDriversPage.ClickOnLaborDriversTab");
-
-
             if (WebDriverUtil.GetWebElement(LABORDRIVERSS_PAGE, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) == null)
             {
                 WebDriverUtil.GetWebElement(LABOR_DRIVERS_TAB, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE).Click();
@@ -236,10 +223,10 @@ namespace LaborPro.Automation.Features.LaborDrivers
         public static void ClickOnKronosTab()
         {
             LogWriter.WriteLog("Executing LaborDriversPage.ClickOnKronosTab");
-            IWebElement Kronostab = WebDriverUtil.GetWebElement(KRONOS_COLLAPSED_TAB, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (Kronostab != null)
+            IWebElement kronosTab = WebDriverUtil.GetWebElement(KRONOS_COLLAPSED_TAB, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (kronosTab != null)
             {
-                Kronostab.Click();
+                kronosTab.Click();
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             }
         }
@@ -250,7 +237,7 @@ namespace LaborPro.Automation.Features.LaborDrivers
             if (alert != null)
             {
                 WebDriverUtil.GetWebElementAndScroll(NAME_INPUT).Click();
-                IWebElement nametag = WebDriverUtil.GetWebElementAndScroll(NAME_INPUT);
+                WebDriverUtil.GetWebElementAndScroll(NAME_INPUT);
 
             }
             WebDriverUtil.WaitForWebElementInvisible(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);

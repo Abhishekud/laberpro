@@ -34,7 +34,7 @@ Feature: Verify TaskGroups Module
       | Generic Department    | Generic Department    | 
       | Combined Distribution | Combined Distribution | 
       | Allocate Labor Hours  | Start Day             | 
-      | Job Name              | Job Name              | 
+      | Job Name              | TaskGroups Test Job Name | 
      Then User verify created TaskGroups "TaskGroups Scenario"
       And User delete created TaskGroups "TaskGroups Scenario" 
   
@@ -48,7 +48,7 @@ Feature: Verify TaskGroups Module
       | Generic Department    | Generic Department        | 
       | Combined Distribution | Combined Distribution     | 
       | Allocate Labor Hours  | Start Day                 | 
-      | Job Name              | Job Name                  | 
+      | Job Name              | TaskGroups Test Job Name  | 
   
       And User verify created TaskGroups "TaskGroups Exist Scenario"
      When User create new TaskGroups with below input 
@@ -57,7 +57,7 @@ Feature: Verify TaskGroups Module
       | Generic Department    | Generic Department        | 
       | Combined Distribution | Combined Distribution     | 
       | Allocate Labor Hours  | Start Day                 | 
-      | Job Name              | Job Name                  | 
+      | Job Name              | TaskGroups Test Job Name  | 
   
      Then Verify validation Message: "Task Group Name must be unique."
       And User clicks cancel Button

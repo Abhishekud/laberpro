@@ -10,7 +10,6 @@ namespace LaborPro.Automation.Features.Tasks
 {
     public class TasksPage
     {
-        const string standard_Filing_FieldId = "//select[@id='standardFilingFieldId']";
         const string KRONOS_COLLAPSED_TAB = "//li[contains(@class,'collapsed')]//span[contains(text(),'Kronos')]";
         const string TASKS_TAB = "//a[text()='Tasks']";
         const string ADD_BUTTON = "//button[@id='add']";
@@ -20,14 +19,12 @@ namespace LaborPro.Automation.Features.Tasks
         const string CLOSE_TASKS_FORM_BUTTON = "//*[@class='modal-dialog']//button[contains(text(),'Cancel')]";
         const string ERROR_ALERT_TOAST_XPATH = "//*[@class='toast toast-error']";
         const string CLOSE_TASKS_DETAILS = "//button[text()='Close']";
-        const string CANCEL_TASKS_DETAILS = "//button[text()='Cancel']]";
         const string TASKS_DELETE_BUTTON = "//button[contains(@class,'delete')]";
         const string TASKS_RECORD = "//*[@role='row' and .//*[text()='{0}']]";
         const string TASKS_FILTER_INPUT = "//*[@aria-label='Filter' and @aria-colindex='1']//input";
         const string PAGE_LOADER = "//*[@title='Submission in progress']";
         const string TASKS_DELETE_CONFIRM_POPUP = "//*[@class='modal-dialog']//*[contains(text(),'Please confirm that you want to delete')]";
         const string TASKS_DELETE_CONFIRM_POPUP_ACCEPT = "//*[@class='modal-dialog']//button[text()='Confirm']";
-        const string CLOSE_BUTTON = "//button[@id='newTaskss']";
         const string TASKSS_PAGE = "//h3[contains(text(),'Tasks')]";
         const string TASKSS_POPUP = "//*[@role='dialog']//*[@class='modal-title' and contains(text(), 'New Task')]";
         const string TIME_DEPENDENT_INPUT = "//select[@id='timeDependency']";
@@ -46,7 +43,7 @@ namespace LaborPro.Automation.Features.Tasks
             WaitForTasksAlertCloseIfAny();
             var dictionary = Util.ConvertToDictionary(inputData);
             BaseClass._TestData.Value = Util.DictionaryToString(dictionary);
-            StandardPage.ClearAllFilter();
+            StandardsPage.ClearAllFilter();
             SearchTasks(dictionary["Name"]);
             IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(TASKS_RECORD, dictionary["Name"]), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record == null)
@@ -59,10 +56,10 @@ namespace LaborPro.Automation.Features.Tasks
             }
         }
 
-        public static void DeleteTasksifexist(string TasksName)
+        public static void DeleteTasksIfExist(string TasksName)
         {
-            LogWriter.WriteLog("Executing TasksPage.DeleteTasksifexist");
-            StandardPage.ClearAllFilter();
+            LogWriter.WriteLog("Executing TasksPage.DeleteTasksIfExist");
+            StandardsPage.ClearAllFilter();
             SearchTasks(TasksName);
             IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(TASKS_RECORD, TasksName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record != null)
@@ -89,22 +86,23 @@ namespace LaborPro.Automation.Features.Tasks
             CloseTasksDetailSideBar();
             WebDriverUtil.GetWebElement(String.Format(TASKS_RECORD, TasksName), WebDriverUtil.NO_WAIT,
             String.Format("Unable to locate Tasks record on Taskss page - {0}", String.Format(TASKS_RECORD, TasksName))).Click();
-
-
             WebDriverUtil.GetWebElement(String.Format(TASKS_DELETE_BUTTON, TasksName), WebDriverUtil.TWO_SECOND_WAIT,
             String.Format("Unable to locate Tasks delete button on Tasks details - {0}", String.Format(
                 TASKS_DELETE_BUTTON, TasksName))).Click();
-
-
-            if (WebDriverUtil.GetWebElement(TASKS_DELETE_CONFIRM_POPUP, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null)
-            {
-                WebDriverUtil.GetWebElement(TASKS_DELETE_CONFIRM_POPUP_ACCEPT, WebDriverUtil.ONE_SECOND_WAIT,
+           WebDriverUtil.GetWebElement(TASKS_DELETE_CONFIRM_POPUP_ACCEPT, WebDriverUtil.TWO_SECOND_WAIT,
                    String.Format("Unable to locate Confirm button on delete confirmation popup - {0}", TASKS_DELETE_CONFIRM_POPUP_ACCEPT)).Click();
-                WebDriverUtil.WaitForWebElementInvisible(TASKS_DELETE_CONFIRM_POPUP, WebDriverUtil.DEFAULT_WAIT, WebDriverUtil.NO_MESSAGE);
-
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (alert == null)
+            {
+                WebDriverUtil.WaitForWebElementInvisible(TASKS_DELETE_CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
             }
-
-        }
+            else
+            {
+                throw new Exception(string.Format("Unable to delete Task Error - {0}", alert.Text));
+            }
+         }
         public static void SearchTasks(String TasksName)  
         {
             LogWriter.WriteLog("Executing TasksPage.SearchTasks");
@@ -131,14 +129,12 @@ namespace LaborPro.Automation.Features.Tasks
 
                 }
             }
-
-            return index;
+          return index;
         }
-
         public static void VerifyCreatedTasks(string TasksName)
         {
             LogWriter.WriteLog("Executing TasksPage.VerifyCreatedTasks");
-            StandardPage.ClearAllFilter();
+            StandardsPage.ClearAllFilter();
             SearchTasks(TasksName);
             WebDriverUtil.GetWebElement(String.Format(TASKS_RECORD, TasksName), WebDriverUtil.FIVE_SECOND_WAIT,
             String.Format("Unable to locate record Taskss page - {0}", String.Format(TASKS_RECORD, TasksName)));
@@ -155,7 +151,7 @@ namespace LaborPro.Automation.Features.Tasks
         public static void DeleteCreatedTaskGroups(string TaskGroupsName)
         {
             LogWriter.WriteLog("Executing TasksPage.DeleteCreatedTaskGroups");
-            StandardPage.ClearAllFilter();
+            StandardsPage.ClearAllFilter();
             TaskGroupsPage.SearchTaskGroups(TaskGroupsName);
             TaskGroupsPage.DeleteCreatedTaskGroups(TaskGroupsName);
         }
@@ -207,18 +203,19 @@ namespace LaborPro.Automation.Features.Tasks
             WebDriverUtil.GetWebElementAndScroll(SAVE_BUTTON, WebDriverUtil.FIVE_SECOND_WAIT,
             String.Format("Unable to locate save button on page - {0}", SAVE_BUTTON)).Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Saving...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             if (WebDriverUtil.GetWebElement(TASKSS_POPUP, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
-                IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FORM_INPUT_FIELD_ERROR_XPATH, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+                IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FORM_INPUT_FIELD_ERROR_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                 if (errorMessage == null)
                 {
-                    IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ELEMENT_ALERT, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+                    IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ELEMENT_ALERT, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                     if (errorMsg == null)
                     {
-                        IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                        IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                         if (alert == null)
                         {
-                            WebDriverUtil.WaitForWebElementInvisible(TASKSS_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec Application taking too long time to perform operation");
+                            WebDriverUtil.WaitForWebElementInvisible(TASKSS_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
                         }
                         else
                         {
@@ -227,7 +224,6 @@ namespace LaborPro.Automation.Features.Tasks
                     }
                 }
             }
-
 
         }
         public static void UserClickAddTasksButton()
@@ -244,7 +240,6 @@ namespace LaborPro.Automation.Features.Tasks
             String.Format("Unable to locate NewTasksMenu menu link on add menu popup - {0}", ADD_TASKS_LINK)).Click();
 
         }
-
         public static void ClickOnAddButton()
         {
             LogWriter.WriteLog("Executing TasksPage.ClickOnAddButton");

@@ -2,18 +2,13 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LaborPro.Automation.shared.util
 {
     internal class WebDriverUtil
     {
         public static readonly int NO_WAIT = 0;
-        public static readonly int PAGE_LOAD_DEFAULT_WAIT = 240;
+        public static readonly int PAGE_LOAD_DEFAULT_WAIT = 300;
         public static readonly int PERFORM_ACTION_TIMEOUT = 120;
         public static readonly int DEFAULT_WAIT = 600;
         public static readonly int ONE_SECOND_WAIT = 1;
@@ -21,7 +16,7 @@ namespace LaborPro.Automation.shared.util
         public static readonly int FIVE_SECOND_WAIT = 5;
         public static readonly int TEN_SECOND_WAIT = 10;
         public static readonly int SIXTY_SECOND_WAIT = 60;
-        public static readonly int MAX_WAIT = 120;
+        public static readonly int MAX_WAIT = 180;
         public static readonly string NO_MESSAGE = "";
         public static readonly string PAGE_CONTENTS_LOADING_XPATH = "//*[@class='main-content loading']";
         public static Boolean WaitForWebElement(string xpath, int timeout, string message)
@@ -45,6 +40,7 @@ namespace LaborPro.Automation.shared.util
         {
             try
             {
+
                 var wait = new WebDriverWait(SeleniumDriver.Driver(), TimeSpan.FromSeconds(timeout));
                 wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.InvisibilityOfElementLocated(By.XPath(xpath)));
                 return true;
@@ -84,7 +80,7 @@ namespace LaborPro.Automation.shared.util
                 {
                     var wait = new WebDriverWait(SeleniumDriver.Driver(), TimeSpan.FromSeconds(timeout));
                     wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.XPath(xpath)));
-                } 
+                }
                 element = SeleniumDriver.Driver().FindElement(By.XPath(xpath));
             }
             catch (Exception ex)
@@ -121,7 +117,7 @@ namespace LaborPro.Automation.shared.util
         }
         public static IWebElement GetWebElementAndScroll(string xpath)
         {
-            WaitForWebElementInvisible(PAGE_CONTENTS_LOADING_XPATH, PAGE_LOAD_DEFAULT_WAIT, "Timeout - {0} Page contents is not getting load or it might taking too long time to load!");
+            WaitForWebElementInvisible(PAGE_CONTENTS_LOADING_XPATH, PAGE_LOAD_DEFAULT_WAIT, "Timeout - "+PAGE_LOAD_DEFAULT_WAIT+" Sec. Page contents is not getting load or it might taking too long time to load!");
             IWebElement? element = null;
             try
             {
@@ -144,5 +140,10 @@ namespace LaborPro.Automation.shared.util
         {
             Thread.Sleep(1 * 1000);
         }
+        public static void WaitForPageLoading()
+        {
+            WaitForWebElementInvisible(PAGE_CONTENTS_LOADING_XPATH, PAGE_LOAD_DEFAULT_WAIT, "Timeout - "+PAGE_LOAD_DEFAULT_WAIT+" Sec. Page contents is not getting load or it might taking too long time to load!");
+        }
+
     }
 }

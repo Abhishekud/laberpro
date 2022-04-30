@@ -1,10 +1,5 @@
 ﻿using LaborPro.Automation.shared.util;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+ 
 namespace LaborPro.Automation.Features.LaborPeriods
 {
     [Binding]
@@ -14,8 +9,8 @@ namespace LaborPro.Automation.Features.LaborPeriods
         public void GivenUserNavigatesToLaborPeriodTab()
         {
             LogWriter.WriteLog("Executing Step:User navigates to LaborPeriod Tab");
-            LaborPeriodsPage.clickOnKronosTab();
-            LaborPeriodsPage.clickOnLaborPeriodsTab();
+            LaborPeriodsPage.ClickOnKronosTab();
+            LaborPeriodsPage.ClickOnLaborPeriodsTab();
         }
 
         [When(@"User selects New LaborPeriod")]
@@ -29,9 +24,10 @@ namespace LaborPro.Automation.Features.LaborPeriods
         [Then(@"User verify page ""([^""]*)""")]
         public void ThenUserVerifyPage(string createlaborPeriod)
         {
-            LogWriter.WriteLog("Executing Step: User verify page"+ createlaborPeriod);
+            LogWriter.WriteLog("Executing Step: User verify page" + createlaborPeriod);
             LaborPeriodsPage.CreateLaborPeriodPageVerification(createlaborPeriod);
         }
+
         [Then(@"User click cancel button")]
         public void ThenUserClickCancelButton()
         {
@@ -45,6 +41,7 @@ namespace LaborPro.Automation.Features.LaborPeriods
             LogWriter.WriteLog("Executing Step:User click save button");
             LaborPeriodsPage.ClickOnSaveButton();
         }
+
         [When(@"User Add New LaborPeriod Using Below Input")]
         [Then(@"User Add New LaborPeriod Using Below Input")]
         public void WhenUserAddNewLaborPeriodUsingBelowInput(Table table)
@@ -59,6 +56,7 @@ namespace LaborPro.Automation.Features.LaborPeriods
             LogWriter.WriteLog("Executing Step: User Verify HouseOfOperation by name");
             LaborPeriodsPage.VerifyHouseOfOperation(houseOfOperatiion);
         }
+
         [Then(@"User Add HouseOfPeriod")]
         public void ThenUserAddHouseOfPeriod()
         {
@@ -92,23 +90,22 @@ namespace LaborPro.Automation.Features.LaborPeriods
         public void ThenUserDeleteCreatedLaborPeriodByName()
         {
             LogWriter.WriteLog("Executing Step:User delete created LaborPeriod");
-            LaborPeriodsPage.DeleteLaborPeriod(); 
-            
+            LaborPeriodsPage.DeleteLaborPeriod();
+
         }
+
         [Then(@"User Delete record If Exist ""([^""]*)""")]
         public void ThenUserDeleteRecordIfExist(string record)
         {
             LaborPeriodsPage.DeleteRecordIfExist(record);
         }
+
         [Then(@"Verify Validation Message for LaborPeriod:""([^""]*)""")]
         public void ThenVerifyValidationMessageForLaborPeriod(string message)
         {
             LaborPeriodsPage.VerifyAddLaborPeriodErrorMessage(message);
-           
+
         }
-
-
-
 
     }
 }

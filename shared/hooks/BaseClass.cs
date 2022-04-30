@@ -3,13 +3,12 @@ using AventStack.ExtentReports.Gherkin.Model;
 using AventStack.ExtentReports.Reporter;
 using OpenQA.Selenium;
 using LaborPro.Automation.shared.drivers;
-using TechTalk.SpecFlow;
 using NUnit.Framework;
 using LaborPro.Automation.shared.util;
 using LaborPro.Automation.shared.config;
 
 [assembly: Parallelizable(ParallelScope.Fixtures)]
-[assembly: LevelOfParallelism(10)]
+[assembly: LevelOfParallelism(5)]
 
 namespace LaborPro.Automation.shared.hooks
 {
@@ -49,7 +48,6 @@ namespace LaborPro.Automation.shared.hooks
             _ExtentsReports.AttachReporter(_ExtentHtmlReporter);
             ScenarioSuiteMapping = TestDataExcelReader.GetScenarioMapping();
         }
-
         public static void DownloadDirectoryCleanup(string directory)
         {
             if (Directory.Exists(directory))
@@ -58,7 +56,6 @@ namespace LaborPro.Automation.shared.hooks
             }
             Directory.CreateDirectory(directory);
         }
-       
         public static void ReportDirectoryCleanup(String directoryPath)
         {
             if (Directory.Exists(directoryPath))
@@ -235,21 +232,10 @@ namespace LaborPro.Automation.shared.hooks
                     break;
             }
         }
-        [AfterScenario]
-        public void AfterScenario()
-        {
-
-        }
-        [AfterFeature]
-        public static void AfterFeature(FeatureContext featureContext)
-        {
-
-        }
         [AfterTestRun]
         public static void FlushExtentReports()
         {
             _ExtentsReports.Flush();
-
         }
     }
 }
