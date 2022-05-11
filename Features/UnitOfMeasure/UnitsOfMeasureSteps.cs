@@ -8,7 +8,7 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
         [Given(@"User selects UnitOfMeasure")]
         [When(@"User selects UnitOfMeasure")]
         [Then(@"User selects UnitOfMeasure")]
-        public void SelectunitsOfMeasure(string value)
+        public void SelectunitsOfMeasure()
         {
             LogWriter.WriteLog("Executing Step User selects Units of Measure");
             UnitsOfMeasurePage.ClickOnUnitOfMeasure();
