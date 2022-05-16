@@ -74,7 +74,7 @@ Feature: Verify LocationMapping Module
      When User create new Characteristic with below input
       | Key  | Value             | 
       | Name | Characteristicset | 
-     Then User verify created Characteristic by name "Characteristicset"
+     Then User verify created CharacteristicSet by name "Characteristicset"
       And User refresh the page
      Then User navigates to the LocationMapping tab
       And User select the Department "Department to verify LocationMapping"
