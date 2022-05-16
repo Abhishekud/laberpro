@@ -36,7 +36,7 @@ A short summary of the feature
      When User create new Characteristic with below input  
       | Key  | Value                       | 
       | Name | charsetforvolumedrivervalue | 
-     Then User verify created Characteristic by name "charsetforvolumedrivervalue"
+     Then User verify created CharacteristicSet by name "charsetforvolumedrivervalue"
       And User refresh the page
   
     Given User navigates to the standards tab
