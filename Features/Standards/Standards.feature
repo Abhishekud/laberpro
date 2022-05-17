@@ -67,7 +67,7 @@ A short summary of the feature
     @Smoke
     Scenario: 06. verify_add_new_element_to_created_standard_name_is_empty
     Given User navigates to the List Management tab
-    When User selects "Units of Measure"
+    When User selects UnitOfMeasure
     Then User Selects Created Department "department for standards"
     When User create new UnitOfMeasure with below input if not exist
     | Key     | Value      |
@@ -161,7 +161,7 @@ A short summary of the feature
      And User delete standard element 
      Then User Delete created Standards
      Given User navigates to the List Management tab
-     When User selects "Units of Measure"
+     When User selects UnitOfMeasure
      Then User Selects Created Department "department for standards"
      And User delete UOM by name "Demo Uom"
      When User selects Department

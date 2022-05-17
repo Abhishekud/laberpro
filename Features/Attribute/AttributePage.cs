@@ -23,7 +23,6 @@ namespace LaborPro.Automation.Features.Attribute
         const string DEPARTMENT_DROPDOWN = "//select[contains(@id,'departmentId')]";
         const string ERROR_ALERT_TOAST_XPATH = "//*[@class='toast toast-error']";
         const string CHECK_ATTRIBUTE_OF_RESPECTIVE_DEPARTMENT = "//div[contains(@class,'flyout-button')]//button[@type='button']";
-        const string CREATED_ATTRIBUTE = "//div[contains(@class,'attribute-list-entry')]//span[contains(text(),'{0}')]";
         const string FORM_INPUT_FIELD_ERROR_XPATH = "//*[contains(@class,'validation-error')]";
         const string EDIT_BUTTON = "//*[@class='attribute-list-entry']//*[@title='{0}']/../button";
         const string DELETE_BUTTON = "//*[@class='attribute-list-entry-editor']//button[contains(@class,'delete')]";
@@ -140,7 +139,7 @@ namespace LaborPro.Automation.Features.Attribute
             }
         }
         public static void VerifyCreatedAttribute(string attributeName)
-        {
+        { 
             LogWriter.WriteLog("Executing AttributePage.VerifyCreatedAttribute");
             IList<IWebElement> headers = SeleniumDriver.Driver().FindElements(By.XPath(TABLE_HEADER));
             int index = 0;

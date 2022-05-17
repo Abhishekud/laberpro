@@ -26,16 +26,17 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
         const string FORM_INPUT_FIELD_ERROR_XPATH = "//*[contains(@class,'validation-error')]";
         const string ELEMENT_ALERT = "//*[@class='form-group has-error']";
         const string ERROR_ALERT_TOAST_XPATH = "//*[@class='toast toast-error']";
+        const string UOM_VALUE_IN_LM_DROPDOWN = "//select[@id='standardFilingFieldId']//option[@value='UNITS_OF_MEASURE']";
 
-        public static void SelectListMangement(string ListManagementValue)
+        public static void ClickOnUnitOfMeasure()
         {
-            LogWriter.WriteLog("Executing UnitOfMeasurePage.SelectListManagement");
-            if (WebDriverUtil.GetWebElement(UNITSOFMEASURE_PAGE, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) == null)
-            {
-                new SelectElement(WebDriverUtil.GetWebElement(LIST_MANAGEMENT_DROPDOWN, WebDriverUtil.NO_WAIT,
-                    String.Format("Unable to locate the list maangemement dropdown - {0}", LIST_MANAGEMENT_DROPDOWN))).SelectByText(ListManagementValue);
-                WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
-            }
+            LogWriter.WriteLog("Executing UnitOfMeasurePage.ClickOnUnitOfMeasure");
+
+            WebDriverUtil.GetWebElement(LIST_MANAGEMENT_DROPDOWN,
+            WebDriverUtil.NO_WAIT, String.Format("Unable to locate list management dropdown - {0}", LIST_MANAGEMENT_DROPDOWN)).Click();
+            WebDriverUtil.GetWebElement(UOM_VALUE_IN_LM_DROPDOWN, WebDriverUtil.NO_WAIT,
+                String.Format("Unable to locate UOM value - {0}",UOM_VALUE_IN_LM_DROPDOWN)).Click();
+
         }
         public static void DeleteUnitOfMeasureIfExist(string UnitOfMeasureName)
         {

@@ -270,7 +270,7 @@ namespace laborpro.Features.VolumeDriverValue
     testRunner.Given("User navigates to the List Management tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 56
-     testRunner.When("User selects \"Units of Measure\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+     testRunner.When("User selects UnitOfMeasure", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 57
      testRunner.Then("User Selects Created Department \"Department to verify VolumeDriverValue\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -540,7 +540,7 @@ namespace laborpro.Features.VolumeDriverValue
     testRunner.Given("User navigates to the List Management tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 155
-     testRunner.When("User selects \"Units of Measure\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+     testRunner.When("User selects UnitOfMeasure", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 156
      testRunner.Then("User Selects Created Department \"Department to verify VolumeDriverValue\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

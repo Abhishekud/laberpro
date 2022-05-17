@@ -29,6 +29,7 @@ namespace LaborPro.Automation.Features.VolumeDriver
         const string CLEAR_FILTER_BUTTON = "//button[@title='Clear All Filters']";
         const string FORM_INPUT_FIELD_ERROR_XPATH = "//*[contains(@class,'validation-error')]";
         const string ELEMENT_ALERT = "//*[@class='form-group has-error']";
+        const string VOLUMEDRIVER_VALUE_IN_LM_DROPDOWN = "//select[@id='standardFilingFieldId']//option[@value='VOLUME_DRIVERS']";
 
         public static void CloseVolumeDriverDetailSideBar()
         {
@@ -164,9 +165,11 @@ namespace LaborPro.Automation.Features.VolumeDriver
         public static void ClickOnVolumeDriver()
         {
             LogWriter.WriteLog("Executing VolumeDriverPage ClickOnVolumeDriver");
-            new SelectElement(WebDriverUtil.GetWebElement(STANDARD_FILING_FIEND_ID, WebDriverUtil.FIVE_SECOND_WAIT,
-            String.Format("Unable to locate standard_Filing_FieldId input VolumeDrivers page  - {0}", STANDARD_FILING_FIEND_ID)))
-            .SelectByText("Volume Drivers");
+            WebDriverUtil.GetWebElement(STANDARD_FILING_FIEND_ID ,
+            WebDriverUtil.NO_WAIT, String.Format("Unable to locate list management dropdown - {0}", STANDARD_FILING_FIEND_ID)).Click();
+            WebDriverUtil.GetWebElement(VOLUMEDRIVER_VALUE_IN_LM_DROPDOWN, WebDriverUtil.NO_WAIT,
+                String.Format("Unable to locate VolumeDriver value - {0}", VOLUMEDRIVER_VALUE_IN_LM_DROPDOWN)).Click();
+
 
         }
         public static void ClickOnAddButton()

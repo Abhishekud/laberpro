@@ -185,6 +185,26 @@ namespace LaborPro.Automation.Features.Characteristic
             BaseClass._AttachScreenshot.Value = true;
             CloseCharacteristicDetailSideBar();
         }
+        public static void VerifyCreatedCharacteristicSet(string CharacteristicName)
+        {
+            LogWriter.WriteLog("Executing CharacteristicPage.VerifyCreatedCharacteristicSet");
+            IList<IWebElement> headers = SeleniumDriver.Driver().FindElements(By.XPath(TABLE_HEADER));
+            int index = 0;
+            foreach (IWebElement header in headers)
+            {
+                index++;
+                string headerData = header.GetAttribute("innerHTML");
+                if (headerData.Contains(CharacteristicName))
+                {
+
+                    WebDriverUtil.GetWebElementAndScroll(String.Format(CHARACTERISTIC_HEADER, CharacteristicName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+                    BaseClass._AttachScreenshot.Value = true;
+                    break;
+
+                }
+
+            }
+        }
         public static void AddNewCharacteristicWithGivenInput(Table inputData)
         {
             LogWriter.WriteLog("Executing CharacteristicsPage AddNewCharacteristicWithGivenInput");
@@ -222,26 +242,6 @@ namespace LaborPro.Automation.Features.Characteristic
                         }
                     }
                 }
-            }
-        }
-        public static void VerifyCreatedCharacteristicSet(string CharacteristicName)
-        {
-            LogWriter.WriteLog("Executing CharacteristicPage.VerifyCreatedCharacteristicSet");
-            IList<IWebElement> headers = SeleniumDriver.Driver().FindElements(By.XPath(TABLE_HEADER));
-            int index = 0;
-            foreach (IWebElement header in headers)
-            {
-                index++;
-                string headerData = header.GetAttribute("innerHTML");
-                if (headerData.Contains(CharacteristicName))
-                {
-
-                    WebDriverUtil.GetWebElementAndScroll(String.Format(CHARACTERISTIC_HEADER, CharacteristicName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-                    BaseClass._AttachScreenshot.Value = true;
-                    break;
-
-                }
-
             }
         }
         public static void UserClickOnNewCharacteristicMenuLink()

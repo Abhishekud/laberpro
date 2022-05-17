@@ -52,7 +52,7 @@ Feature: Verify LocationMapping Module
       | Name       | VolumeDriver via LocationMapping     | 
       | Department | Department to verify LocationMapping | 
      And User verify created VolumeDriver by name "VolumeDriver via LocationMapping"
-     When User selects "Units of Measure"
+     When User selects UnitOfMeasure
      Then User Selects Created Department "Department to verify LocationMapping"
      When User create new UnitOfMeasure with below input if not exist
       | Key  | Value | 
@@ -74,7 +74,7 @@ Feature: Verify LocationMapping Module
      When User create new Characteristic with below input
       | Key  | Value             | 
       | Name | Characteristicset | 
-     Then User verify created Characteristic by name "Characteristicset"
+     Then User verify created CharacteristicSet by name "Characteristicset"
       And User refresh the page
      Then User navigates to the LocationMapping tab
       And User select the Department "Department to verify LocationMapping"

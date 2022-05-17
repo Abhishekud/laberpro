@@ -549,7 +549,7 @@ namespace laborpro.Features.Characteristic
      testRunner.When("User create new Characteristic with below input", ((string)(null)), table23, "When ");
 #line hidden
 #line 97
-     testRunner.Then("User verify created CharacteristicSet by name \"ATest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+     testRunner.Then("User verify created Characteristic by name \"ATest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -604,7 +604,7 @@ namespace laborpro.Features.Characteristic
      testRunner.When("User create new Characteristic with below input", ((string)(null)), table24, "When ");
 #line hidden
 #line 108
-     testRunner.Then("User verify created CharacteristicSet by name \"Characteristicset\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+     testRunner.Then("User verify created Characteristic by name \"Characteristicset\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 109
     testRunner.Given("User navigates to the Characteristic tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");

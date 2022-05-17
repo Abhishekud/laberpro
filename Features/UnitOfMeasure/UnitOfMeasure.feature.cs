@@ -177,7 +177,7 @@ namespace laborpro.Features.UnitOfMeasure
     testRunner.And("User verify created Department \"Department To verify Units of Measure\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 21
-    testRunner.When("User selects \"Units of Measure\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("User selects UnitOfMeasure", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 22
     testRunner.Then("User Selects Created Department \"Department To verify Units of Measure\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -234,7 +234,7 @@ namespace laborpro.Features.UnitOfMeasure
     testRunner.Given("User navigates to the List Management tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 32
-    testRunner.When("User selects \"Units of Measure\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("User selects UnitOfMeasure", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 33
     testRunner.Then("User Selects Created Department \"Department To verify Units of Measure\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -294,7 +294,7 @@ namespace laborpro.Features.UnitOfMeasure
      testRunner.Given("User navigates to the List Management tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 44
-    testRunner.When("User selects \"Units of Measure\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("User selects UnitOfMeasure", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 45
     testRunner.Then("User Selects Created Department \"Department To verify Units of Measure\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -339,7 +339,7 @@ namespace laborpro.Features.UnitOfMeasure
       testRunner.Given("User navigates to the List Management tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 51
-      testRunner.Then("User selects \"Units of Measure\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+      testRunner.Then("User selects UnitOfMeasure", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 52
        testRunner.Then("User Selects Created Department \"Department To verify Units of Measure\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

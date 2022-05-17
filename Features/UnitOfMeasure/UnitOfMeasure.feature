@@ -18,7 +18,7 @@ A short summary of the feature
     | Name              | Department To verify Units of Measure |
     And User verify created Department "Department To verify Units of Measure"
 
-    When User selects "Units of Measure"
+    When User selects UnitOfMeasure
     Then User Selects Created Department "Department To verify Units of Measure"
     And User adds Unit Of Measure using below input
     | Key                           | Value |
@@ -29,7 +29,7 @@ A short summary of the feature
     @Smoke
     Scenario: 03. verify_add_Units_Of_Measure_By_adding_correct_record_of_name
     Given User navigates to the List Management tab
-    When User selects "Units of Measure"
+    When User selects UnitOfMeasure
     Then User Selects Created Department "Department To verify Units of Measure"
     Then User delete UnitOfMeasure "UOM" if exist
     When User adds Unit Of Measure using below input
@@ -41,14 +41,14 @@ A short summary of the feature
     @Smoke
     Scenario: 04. verify_add_units_of_measure_By_selecting_the_respective_Department
      Given User navigates to the List Management tab
-    When User selects "Units of Measure"
+    When User selects UnitOfMeasure
     Then User Selects Created Department "Department To verify Units of Measure"
     Then User verify the Department record "No records available"
 
     @Smoke
     Scenario: 05. verify_add_Units_Of_Measure_name_already_exists
       Given User navigates to the List Management tab
-      Then User selects "Units of Measure"
+      Then User selects UnitOfMeasure
        Then User Selects Created Department "Department To verify Units of Measure"
        Then User delete UnitOfMeasure "UOM" if exist
        When User adds Unit Of Measure using below input

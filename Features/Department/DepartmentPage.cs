@@ -21,7 +21,7 @@ namespace LaborPro.Automation.Features.Department
         const string DEPARTMENT_DELETE_CONFIRM_POPUP = "//*[@class='modal-dialog']//*[contains(text(),'Please confirm that you want to delete')]";
         const string DEPARTMENT_DELETE_CONFIRM_POPUP_ACCEPT = "//*[@class='modal-dialog']//button[text()='Confirm']";
         const string LIST_MANAGEMENT_DROPDOWN = "//select[@id='standardFilingFieldId']";
-        const string DEPARTMENT_VALUE_IN_LM_DROPDOWN = "//select[@id='standardFilingFieldId']//option[contains(text(),'Departments')]";
+        const string DEPARTMENT_VALUE_IN_LM_DROPDOWN = "//select[@id='standardFilingFieldId']//option[@value='DEPARTMENTS']";
         const string DEPARTMENTS_PAGE = "//h3[contains(text(),'Departments')]";
         const string DEPARTMENTS_POPUP = "//*[@role='dialog']//*[@class='modal-title' and contains(text(), 'New Department')]";
         const string FORM_INPUT_FIELD_ERROR_XPATH = "//*[contains(@class,'validation-error')]";

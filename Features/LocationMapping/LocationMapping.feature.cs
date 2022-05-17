@@ -335,7 +335,7 @@ namespace laborpro.Features.LocationMapping
      testRunner.And("User verify created VolumeDriver by name \"VolumeDriver via LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 55
-     testRunner.When("User selects \"Units of Measure\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+     testRunner.When("User selects UnitOfMeasure", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 56
      testRunner.Then("User Selects Created Department \"Department to verify LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

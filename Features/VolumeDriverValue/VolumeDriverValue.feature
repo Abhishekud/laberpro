@@ -36,7 +36,7 @@ A short summary of the feature
      When User create new Characteristic with below input  
       | Key  | Value                       | 
       | Name | charsetforvolumedrivervalue | 
-     Then User verify created Characteristic by name "charsetforvolumedrivervalue"
+     Then User verify created CharacteristicSet by name "charsetforvolumedrivervalue"
       And User refresh the page
   
     Given User navigates to the standards tab
@@ -53,7 +53,7 @@ A short summary of the feature
      Then User select the Department "Department to verify VolumeDriverValue"
      Then User delete VolumeDriverMapping "VolumeDriver_automations" if exist
     Given User navigates to the List Management tab
-     When User selects "Units of Measure"
+     When User selects UnitOfMeasure
      Then User Selects Created Department "Department to verify VolumeDriverValue"
      Then User delete UnitOfMeasure "UOMforvolumedrivervalue" if exist
      When User adds Unit Of Measure using below input
@@ -152,7 +152,7 @@ A short summary of the feature
      Then User Delete created Standards
   
     Given User navigates to the List Management tab
-     When User selects "Units of Measure"
+     When User selects UnitOfMeasure
      Then User Selects Created Department "Department to verify VolumeDriverValue"
       And User delete UOM by name "UOMforvolumedrivervalue"
   

@@ -354,7 +354,7 @@ namespace laborpro.Features.VolumeDriverMapping
      testRunner.Then("User verify created VolumeDriver by name \"VolumeDriver via VolumeDriverMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 54
-     testRunner.When("User selects \"Units of Measure\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+     testRunner.When("User selects UnitOfMeasure", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 55
      testRunner.Then("User Selects Created Department \"Department to verify VolumeDriverMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

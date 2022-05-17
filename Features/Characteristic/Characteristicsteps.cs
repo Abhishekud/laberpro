@@ -17,6 +17,14 @@ namespace LaborPro.Automation.Features.Characteristic
             CharacteristicsPage.ClickOnCharacteristicTab();
 
         }
+        [Given(@"User verify created CharacteristicSet by name ""([^""]*)""")]
+        [When(@"User verify created CharacteristicSet by name ""([^""]*)""")]
+        [Then(@"User verify created CharacteristicSet by name ""([^""]*)""")]
+        public void VerifyCreatedCharacteristicSet(String CharacteristicName)
+        {
+            LogWriter.WriteLog("Executing CharacteristicsPage UserVerifyCreatedCharacteristic");
+            CharacteristicsPage.VerifyCreatedCharacteristicSet(CharacteristicName);
+        }
 
         [Then(@"Verify Record Of Selected Dept ""(.*)""")]
         [When(@"Verify Record Of Selected Dept ""(.*)""")]
@@ -70,14 +78,6 @@ namespace LaborPro.Automation.Features.Characteristic
         {
             LogWriter.WriteLog("Executing CharacteristicsPage UserVerifyCreatedCharacteristic");
             CharacteristicsPage.VerifyCreatedCharacteristic(CharacteristicName);
-        }
-        [Given(@"User verify created CharacteristicSet by name ""([^""]*)""")]
-        [When(@"User verify created CharacteristicSet by name ""([^""]*)""")]
-        [Then(@"User verify created CharacteristicSet by name ""([^""]*)""")]
-        public void VerifyCreatedCharacteristicSet(String CharacteristicName)
-        {
-            LogWriter.WriteLog("Executing CharacteristicsPage UserVerifyCreatedCharacteristic");
-            CharacteristicsPage.VerifyCreatedCharacteristicSet(CharacteristicName); 
         }
 
         [Given(@"User delete created Characteristic by name ""([^""]*)""")]

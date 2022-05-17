@@ -5,13 +5,13 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
     [Binding]
     public class UnitsOfMeasureSteps
     {
-        [Given(@"User selects ""([^""]*)""")]
-        [When(@"User selects ""([^""]*)""")]
-        [Then(@"User selects ""([^""]*)""")]
-        public void SelectunitsOfMeasure(string value)
+        [Given(@"User selects UnitOfMeasure")]
+        [When(@"User selects UnitOfMeasure")]
+        [Then(@"User selects UnitOfMeasure")]
+        public void SelectUnitsOfMeasure()
         {
             LogWriter.WriteLog("Executing Step User selects Units of Measure");
-            UnitsOfMeasurePage.SelectListMangement(value);
+            UnitsOfMeasurePage.ClickOnUnitOfMeasure();
         }
 
         [Given(@"User Selects Created Department ""([^""]*)""")]

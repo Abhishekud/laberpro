@@ -413,7 +413,7 @@ namespace laborpro.Features.Standards
     testRunner.Given("User navigates to the List Management tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 70
-    testRunner.When("User selects \"Units of Measure\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("User selects UnitOfMeasure", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 71
     testRunner.Then("User Selects Created Department \"department for standards\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -816,7 +816,7 @@ namespace laborpro.Features.Standards
      testRunner.Given("User navigates to the List Management tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 164
-     testRunner.When("User selects \"Units of Measure\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+     testRunner.When("User selects UnitOfMeasure", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 165
      testRunner.Then("User Selects Created Department \"department for standards\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

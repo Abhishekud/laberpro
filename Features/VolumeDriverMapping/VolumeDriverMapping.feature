@@ -51,7 +51,7 @@ Feature: Verify VolumeDriverMapping Module
       | Name       | VolumeDriver via VolumeDriverMapping              | 
       | Department | Department to verify VolumeDriverMapping | 
      Then User verify created VolumeDriver by name "VolumeDriver via VolumeDriverMapping"
-     When User selects "Units of Measure"
+     When User selects UnitOfMeasure
      Then User Selects Created Department "Department to verify VolumeDriverMapping"
      When User create new UnitOfMeasure with below input if not exist
       | Key  | Value | 
