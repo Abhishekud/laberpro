@@ -40,6 +40,8 @@ A short summary of the feature
     When User add new attribute using below input
     | Key     | Value  |
     | Name    |  AJT   |
+    And User refresh the page
+    Then User select the Department "Department to verify attribute"
     Then User verify created attribute name "AJT"
     When User add new attribute using below input 
     | Key     | Value  |
@@ -55,6 +57,8 @@ A short summary of the feature
     When User add new attribute using below input 
     | Key     | Value  |
     | Name    |  AJP   |
+    And User refresh the page
+    Then User select the Department "Department to verify attribute"
     Then User verify created attribute name "AJP"
     And  User delete created attribute:"AJP"
     Then User navigates to the List Management tab

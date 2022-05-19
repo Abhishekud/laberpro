@@ -86,7 +86,7 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
         [Then(@"User verify export option is not present")]
         public void VerifyExportOptionIsNotPresent()
         {
-            LogWriter.WriteLog("Executing Step User verify Add button is not present");
+            LogWriter.WriteLog("Executing Step User verify export button is not present");
             UnitsOfMeasurePage.VerifyExportOptionIsNotPresent();
         }
         [Given(@"User verify delete button is not present ""([^""]*)""")]
@@ -94,7 +94,7 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
         [Then(@"User verify delete button is not present ""([^""]*)""")]
         public void VerifyDeleteButtonIsNotPresent(String UnitOfMeasureName)
         {
-            LogWriter.WriteLog("Executing Step User verify Add button is not present");
+            LogWriter.WriteLog("Executing Step User verify delete button is not present");
             UnitsOfMeasurePage.VerifyDeleteButtonIsNotPresent(UnitOfMeasureName);
         }
 

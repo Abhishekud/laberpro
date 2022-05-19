@@ -83,7 +83,7 @@ namespace LaborPro.Automation.Features.VolumeDriver
         [Then(@"User verify Export option is not present")]
         public void VerifyExportOptionIsNotPresent()
         {
-            LogWriter.WriteLog("Executing Step User verify Add button is not present");
+            LogWriter.WriteLog("Executing Step User verify Export button is not present");
             VolumeDriverPage.VerifyExportOptionIsNotPresent();
         }
         [Given(@"User verify Delete button is not present ""([^""]*)""")]
@@ -91,7 +91,7 @@ namespace LaborPro.Automation.Features.VolumeDriver
         [Then(@"User verify Delete button is not present ""([^""]*)""")]
         public void VerifyDeleteButtonIsNotPresent(String volumeDriver)
         {
-            LogWriter.WriteLog("Executing Step User verify Add button is not present");
+            LogWriter.WriteLog("Executing Step User verify Delete button is not present");
             VolumeDriverPage.VerifyDeleteButtonIsNotPresent(volumeDriver);
         }
     }

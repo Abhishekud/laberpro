@@ -285,6 +285,12 @@ namespace laborpro.Features.Attribute
     testRunner.When("User add new attribute using below input", ((string)(null)), table13, "When ");
 #line hidden
 #line 43
+    testRunner.And("User refresh the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 44
+    testRunner.Then("User select the Department \"Department to verify attribute\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 45
     testRunner.Then("User verify created attribute name \"AJT\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
                 TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
@@ -293,16 +299,16 @@ namespace laborpro.Features.Attribute
                 table14.AddRow(new string[] {
                             "Name",
                             "AJT"});
-#line 44
+#line 46
     testRunner.When("User add new attribute using below input", ((string)(null)), table14, "When ");
 #line hidden
-#line 47
+#line 49
     testRunner.Then("Verify Validation Message:\"Name already exists in department\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 48
+#line 50
     testRunner.And("User click cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 49
+#line 51
     testRunner.Then("User delete created attribute:\"AJT\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -318,7 +324,7 @@ namespace laborpro.Features.Attribute
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05. verify_add_new_attribute_by_adding_correct_record_of_name", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 52
+#line 54
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -338,10 +344,10 @@ namespace laborpro.Features.Attribute
             else
             {
                 this.ScenarioStart();
-#line 53
+#line 55
     testRunner.Given("User navigates to the attribute tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 54
+#line 56
     testRunner.Then("User delete attribute \"AJP\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
                 TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
@@ -350,22 +356,28 @@ namespace laborpro.Features.Attribute
                 table15.AddRow(new string[] {
                             "Name",
                             "AJP"});
-#line 55
+#line 57
     testRunner.When("User add new attribute using below input", ((string)(null)), table15, "When ");
 #line hidden
-#line 58
-    testRunner.Then("User verify created attribute name \"AJP\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 59
-    testRunner.And("User delete created attribute:\"AJP\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
 #line 60
-    testRunner.Then("User navigates to the List Management tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.And("User refresh the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 61
-    testRunner.And("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Then("User select the Department \"Department to verify attribute\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 62
+    testRunner.Then("User verify created attribute name \"AJP\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 63
+    testRunner.And("User delete created attribute:\"AJP\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 64
+    testRunner.Then("User navigates to the List Management tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 65
+    testRunner.And("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 66
     testRunner.Then("User delete created Department \"Department to verify attribute\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -383,7 +395,7 @@ namespace laborpro.Features.Attribute
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06. Logout and Close Browser", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 65
+#line 69
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -403,10 +415,10 @@ namespace laborpro.Features.Attribute
             else
             {
                 this.ScenarioStart();
-#line 66
+#line 70
     testRunner.When("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 67
+#line 71
     testRunner.Then("User close browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

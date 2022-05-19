@@ -80,6 +80,30 @@ namespace LaborPro.Automation.Features.Department
             LogWriter.WriteLog("Executing Step User delete created Department by name" + DepartmentName);
             DepartmentsPage.DeleteDepartmentIfExist(DepartmentName);
         }
+        [Given(@"User verify Add button is not Present")]
+        [When(@"User verify Add button is not Present")]
+        [Then(@"User verify Add button is not Present")]
+        public void VerifyAddButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing Step User verify Add button is not present");
+            DepartmentsPage.VerifyAddButtonIsNotPresent();
+        }
+        [Given(@"User verify export option is not Present")]
+        [When(@"User verify export option is not Present")]
+        [Then(@"User verify export option is not Present")]
+        public void VerifyExportOptionIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing Step User verify Add button is not present");
+            DepartmentsPage.VerifyExportOptionIsNotPresent();
+        }
+        [Given(@"User verify delete button is not Present ""([^""]*)""")]
+        [When(@"User verify delete button is not Present ""([^""]*)""")]
+        [Then(@"User verify delete button is not Present ""([^""]*)""")]
+        public void VerifyDeleteButtonIsNotPresent(String DepartmentName)
+        {
+            LogWriter.WriteLog("Executing Step User verify Add button is not present");
+            DepartmentsPage.VerifyDeleteButtonIsNotPresent(DepartmentName);
+        }
 
     }
 }
