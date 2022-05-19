@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace laborpro.Features.VolumeDriver
+namespace laborpro.Features.Characteristic
 {
     using TechTalk.SpecFlow;
     using System;
@@ -20,11 +20,11 @@ namespace laborpro.Features.VolumeDriver
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Verify VolumeDrivers Module")]
+    [NUnit.Framework.DescriptionAttribute("Verify Characteristic_ViewOnly Module")]
     [NUnit.Framework.CategoryAttribute("laborPro")]
     [NUnit.Framework.CategoryAttribute("Regression")]
-    [NUnit.Framework.CategoryAttribute("VolumeDrivers")]
-    public partial class VerifyVolumeDriversModuleFeature
+    [NUnit.Framework.CategoryAttribute("Characteristic_ViewOnly")]
+    public partial class VerifyCharacteristic_ViewOnlyModuleFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
@@ -32,19 +32,19 @@ namespace laborpro.Features.VolumeDriver
         private string[] _featureTags = new string[] {
                 "laborPro",
                 "Regression",
-                "VolumeDrivers"};
+                "Characteristic_ViewOnly"};
         
-#line 1 "VolumeDriver.feature"
+#line 1 "Characteristic_ViewOnly.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/VolumeDriver", "Verify VolumeDrivers Module", null, ProgrammingLanguage.CSharp, new string[] {
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Characteristic", "Verify Characteristic_ViewOnly Module", null, ProgrammingLanguage.CSharp, new string[] {
                         "laborPro",
                         "Regression",
-                        "VolumeDrivers"});
+                        "Characteristic_ViewOnly"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -130,64 +130,15 @@ namespace laborpro.Features.VolumeDriver
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("02. verify_add_VolumeDriver_when_enter_blank_details")]
-        public virtual void _02_Verify_Add_VolumeDriver_When_Enter_Blank_Details()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02. verify_add_VolumeDriver_when_enter_blank_details", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 11
-  this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 12
-    testRunner.Given("User navigates to the VolumeDriver tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-                TechTalk.SpecFlow.Table table105 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Key",
-                            "Value"});
-                table105.AddRow(new string[] {
-                            "Name",
-                            ""});
-#line 13
-     testRunner.When("User create new VolumeDriver with below input", ((string)(null)), table105, "When ");
-#line hidden
-#line 16
-     testRunner.Then("Verify validation Message: \"Name is required\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 17
-      testRunner.And("User click on cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("03. verify_add_VolumeDriver_when_if_Department_is_empty")]
+        [NUnit.Framework.DescriptionAttribute("02. Verify_that_User_should_not_have_access_for_Add_button_in_Characteristic")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _03_Verify_Add_VolumeDriver_When_If_Department_Is_Empty()
+        public virtual void _02_Verify_That_User_Should_Not_Have_Access_For_Add_Button_In_Characteristic()
         {
             string[] tagsOfScenario = new string[] {
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03. verify_add_VolumeDriver_when_if_Department_is_empty", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 20
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02. Verify_that_User_should_not_have_access_for_Add_button_in_Characteristic", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 12
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -207,38 +158,143 @@ namespace laborpro.Features.VolumeDriver
             else
             {
                 this.ScenarioStart();
-#line 21
-    testRunner.Given("User navigates to the VolumeDriver tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 13
+    testRunner.Given("User navigates to the List Management tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table106 = new TechTalk.SpecFlow.Table(new string[] {
+#line 14
+     testRunner.Then("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+                TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table106.AddRow(new string[] {
+                table26.AddRow(new string[] {
                             "Name",
-                            "VolumeDriver via Automation"});
-#line 22
-     testRunner.When("User create new VolumeDriver with below input", ((string)(null)), table106, "When ");
+                            "Department to verify Characteristic_ViewOnly"});
+#line 15
+     testRunner.When("User create new Department with below input if not exist", ((string)(null)), table26, "When ");
 #line hidden
-#line 25
-     testRunner.Then("Verify validation Message: \"Department is required.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 18
+     testRunner.Then("User verify created Department \"Department to verify Characteristic_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 19
+     testRunner.When("User navigates to the Characteristic tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 20
+     testRunner.Then("User select the Department \"Department to verify Characteristic_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 21
+      testRunner.And("User delete Characteristic \"Characteristic\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 22
+     testRunner.Then("User click on Characteristic", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+                TechTalk.SpecFlow.Table table27 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Key",
+                            "Value"});
+                table27.AddRow(new string[] {
+                            "Name",
+                            "Characteristic"});
+#line 23
+     testRunner.When("User create new Characteristic with below input", ((string)(null)), table27, "When ");
 #line hidden
 #line 26
-      testRunner.And("User click on cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+     testRunner.Then("User verify created Characteristic by name \"Characteristic\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 27
+     testRunner.When("User navigates to the Characteristic tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 28
+     testRunner.Then("User select the Department \"Department to verify Characteristic\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 29
+     testRunner.Then("User click on Characteristic set", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+                TechTalk.SpecFlow.Table table28 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Key",
+                            "Value"});
+                table28.AddRow(new string[] {
+                            "Name",
+                            "Characteristic_ViewOnly"});
+#line 30
+     testRunner.When("User create new Characteristic with below input", ((string)(null)), table28, "When ");
+#line hidden
+#line 33
+     testRunner.Then("User verify created CharacteristicSet by name \"Characteristic_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 34
+     testRunner.And("User refresh the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 35
+     testRunner.When("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 36
+     testRunner.Then("User enter email: \"$username_6\" and password: \"$password_6\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 37
+     testRunner.Given("User navigates to the Characteristic tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 38
+     testRunner.Then("User select the Department \"Department to verify Characteristic_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 39
+      testRunner.And("User verify Add Button is not Present", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("04. verify_add_VolumeDriver_when_enter_correct_details")]
+        [NUnit.Framework.DescriptionAttribute("03. Verify_that_Export_options_are_available_for_the_User_in_Characteristic")]
+        public virtual void _03_Verify_That_Export_Options_Are_Available_For_The_User_In_Characteristic()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03. Verify_that_Export_options_are_available_for_the_User_in_Characteristic", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 41
+  this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 42
+    testRunner.Given("User navigates to the Characteristic tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 43
+     testRunner.Then("User select the Department \"Department to verify Characteristic_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 44
+      testRunner.And("User verify Export option is Present", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("04. Verify_that_Delete_buttons_are_not_available_when_clicked_on_any_record_Also_" +
+            "Characteristic_details_must_not_be_editable")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _04_Verify_Add_VolumeDriver_When_Enter_Correct_Details()
+        public virtual void _04_Verify_That_Delete_Buttons_Are_Not_Available_When_Clicked_On_Any_Record_Also_Characteristic_Details_Must_Not_Be_Editable()
         {
             string[] tagsOfScenario = new string[] {
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04. verify_add_VolumeDriver_when_enter_correct_details", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 29
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04. Verify_that_Delete_buttons_are_not_available_when_clicked_on_any_record_Also_" +
+                    "Characteristic_details_must_not_be_editable", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 48
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -258,60 +314,29 @@ namespace laborpro.Features.VolumeDriver
             else
             {
                 this.ScenarioStart();
-#line 30
-    testRunner.Given("User navigates to the VolumeDriver tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 49
+     testRunner.Given("User navigates to the Characteristic tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 31
-     testRunner.Then("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 50
+      testRunner.Then("User select the Department \"Department to verify Characteristic_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table107 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Key",
-                            "Value"});
-                table107.AddRow(new string[] {
-                            "Name",
-                            "Department to verify VolumeDriver"});
-#line 32
-     testRunner.When("User create new Department with below input if not exist", ((string)(null)), table107, "When ");
-#line hidden
-#line 35
-     testRunner.Then("User verify created Department \"Department to verify VolumeDriver\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 36
-    testRunner.Given("User navigates to the VolumeDriver tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 37
-     testRunner.Then("User delete VolumeDriver \"VolumeDriver via Automation\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-                TechTalk.SpecFlow.Table table108 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Key",
-                            "Value"});
-                table108.AddRow(new string[] {
-                            "Name",
-                            "VolumeDriver via Automation"});
-                table108.AddRow(new string[] {
-                            "Department",
-                            "Department to verify VolumeDriver"});
-#line 38
-     testRunner.When("User create new VolumeDriver with below input", ((string)(null)), table108, "When ");
-#line hidden
-#line 42
-     testRunner.Then("User verify created VolumeDriver by name \"VolumeDriver via Automation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 43
-      testRunner.And("User delete created VolumeDriver by name \"VolumeDriver via Automation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 51
+      testRunner.Then("User verify Delete Button is not Present \"Characteristic\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("05. verify_add_VolumeDriver_if_Name_already_exist_for_respective_department")]
-        public virtual void _05_Verify_Add_VolumeDriver_If_Name_Already_Exist_For_Respective_Department()
+        [NUnit.Framework.DescriptionAttribute("05. Verify_edit_option_is_not_available_when_clicked_on_the_Hamburger_icon_in_the" +
+            "_Characteritics_page")]
+        public virtual void _05_Verify_Edit_Option_Is_Not_Available_When_Clicked_On_The_Hamburger_Icon_In_The_Characteritics_Page()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05. verify_add_VolumeDriver_if_Name_already_exist_for_respective_department", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 45
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05. Verify_edit_option_is_not_available_when_clicked_on_the_Hamburger_icon_in_the" +
+                    "_Characteritics_page", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 54
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -331,56 +356,38 @@ namespace laborpro.Features.VolumeDriver
             else
             {
                 this.ScenarioStart();
-#line 46
-    testRunner.Given("User navigates to the VolumeDriver tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 55
+    testRunner.Given("User navigates to the Characteristic tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 47
-     testRunner.Then("User delete VolumeDriver \"VolumeDriver Exist Scenario\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 56
+     testRunner.Then("User select the Department \"Department to verify Characteristic_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table109 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Key",
-                            "Value"});
-                table109.AddRow(new string[] {
-                            "Name",
-                            "VolumeDriver Exist Scenario"});
-                table109.AddRow(new string[] {
-                            "Department",
-                            "Department to verify VolumeDriver"});
-#line 48
-     testRunner.When("User create new VolumeDriver with below input", ((string)(null)), table109, "When ");
-#line hidden
-#line 52
-     testRunner.Then("User verify created VolumeDriver by name \"VolumeDriver Exist Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 53
-    testRunner.Given("User navigates to the VolumeDriver tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-                TechTalk.SpecFlow.Table table110 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Key",
-                            "Value"});
-                table110.AddRow(new string[] {
-                            "Name",
-                            "VolumeDriver Exist Scenario"});
-                table110.AddRow(new string[] {
-                            "Department",
-                            "Department to verify VolumeDriver"});
-#line 54
-     testRunner.When("User create new VolumeDriver with below input", ((string)(null)), table110, "When ");
+#line 57
+      testRunner.And("User verify Edit option is not Present", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 58
-     testRunner.Then("Verify validation Message: \"Name already exists in this Department.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+     testRunner.When("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 59
-      testRunner.And("User click on cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+     testRunner.Then("User enter email: \"$username_2\" and password: \"$password_2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 60
-      testRunner.And("User delete created VolumeDriver by name \"VolumeDriver Exist Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+      testRunner.Then("User navigates to the Characteristic tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 61
-     testRunner.Then("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+     testRunner.Then("User select the Department \"Department to verify Characteristic_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 62
-      testRunner.And("User delete created Department \"Department to verify VolumeDriver\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+      testRunner.And("User delete Characteristic \"Characteristic\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 63
+      testRunner.When("User navigates to the List Management tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 64
+     testRunner.When("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 65
+     testRunner.Then("User delete created Department \"Department to verify Characteristic_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -397,7 +404,7 @@ namespace laborpro.Features.VolumeDriver
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06. Logout and Close Browser", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 65
+#line 69
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -417,10 +424,10 @@ namespace laborpro.Features.VolumeDriver
             else
             {
                 this.ScenarioStart();
-#line 66
+#line 70
      testRunner.When("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 67
+#line 71
      testRunner.Then("User close browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

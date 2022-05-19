@@ -27,6 +27,7 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
         const string ELEMENT_ALERT = "//*[@class='form-group has-error']";
         const string ERROR_ALERT_TOAST_XPATH = "//*[@class='toast toast-error']";
         const string UOM_VALUE_IN_LM_DROPDOWN = "//select[@id='standardFilingFieldId']//option[@value='UNITS_OF_MEASURE']";
+        const string EXPORT_BUTTON="//button[@id='export']";
 
         public static void ClickOnUnitOfMeasure()
         {
@@ -36,6 +37,37 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
             WebDriverUtil.NO_WAIT, String.Format("Unable to locate list management dropdown - {0}", LIST_MANAGEMENT_DROPDOWN)).Click();
             WebDriverUtil.GetWebElement(UOM_VALUE_IN_LM_DROPDOWN, WebDriverUtil.NO_WAIT,
                 String.Format("Unable to locate UOM value - {0}",UOM_VALUE_IN_LM_DROPDOWN)).Click();
+
+        }
+        public static void VerifyAddButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing UnitOfMeasurePage.VerifyAddButtonIsNotPresent");
+            IWebElement AddUnitOfMeasure = WebDriverUtil.GetWebElement(ADD_UNITS_OF_MEASURE, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (AddUnitOfMeasure == null)
+            {
+                BaseClass._AttachScreenshot.Value = true;
+            }
+
+        }
+        public static void VerifyDeleteButtonIsNotPresent(string UnitOfMeasureName)
+        {
+            LogWriter.WriteLog("Executing UnitOfMeasurePage.VerifyDeleteButtonIsNotPresent");
+            WebDriverUtil.GetWebElement(String.Format(UOM_RECORD, UnitOfMeasureName), WebDriverUtil.ONE_SECOND_WAIT,
+            String.Format("Unable to locate UnitOfMeasure record on UnitOfMeasures page - {0}", String.Format(UOM_RECORD, UnitOfMeasureName))).Click();
+            IWebElement Delete = WebDriverUtil.GetWebElement(DELETE_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+              if (Delete == null)
+            {
+                BaseClass._AttachScreenshot.Value = true;
+            } 
+        }
+        public static void VerifyExportOptionIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing UnitOfMeasurePage.VerifyExportOptionIsNotPresent");
+            IWebElement export = WebDriverUtil.GetWebElement(EXPORT_BUTTON, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (export == null)
+            {
+                BaseClass._AttachScreenshot.Value = true;
+            }
 
         }
         public static void DeleteUnitOfMeasureIfExist(string UnitOfMeasureName)

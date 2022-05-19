@@ -73,6 +73,30 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
             LogWriter.WriteLog("Executing Step User delete created UnitOfMeasure by name" + UnitOfMeasureName);
             UnitsOfMeasurePage.DeleteUnitOfMeasureIfExist(UnitOfMeasureName);
         }
+        [Given(@"User verify Add button is not present")]
+        [When(@"User verify Add button is not present")]
+        [Then(@"User verify Add button is not present")]
+        public void VerifyAddButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing Step User verify Add button is not present");
+            UnitsOfMeasurePage.VerifyAddButtonIsNotPresent();
+        }
+        [Given(@"User verify export option is not present")]
+        [When(@"User verify export option is not present")]
+        [Then(@"User verify export option is not present")]
+        public void VerifyExportOptionIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing Step User verify Add button is not present");
+            UnitsOfMeasurePage.VerifyExportOptionIsNotPresent();
+        }
+        [Given(@"User verify delete button is not present ""([^""]*)""")]
+        [When(@"User verify delete button is not present ""([^""]*)""")]
+        [Then(@"User verify delete button is not present ""([^""]*)""")]
+        public void VerifyDeleteButtonIsNotPresent(String UnitOfMeasureName)
+        {
+            LogWriter.WriteLog("Executing Step User verify Add button is not present");
+            UnitsOfMeasurePage.VerifyDeleteButtonIsNotPresent(UnitOfMeasureName);
+        }
 
     }
 }

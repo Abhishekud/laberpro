@@ -32,6 +32,9 @@ namespace LaborPro.Automation.Features.Characteristic
         const string FORM_INPUT_FIELD_ERROR_XPATH = "//*[contains(@class,'validation-error')]";
         const string ELEMENT_ALERT = "//*[@class='form-group has-error']";
         const string CHARACTERISTIC_HEADER = "//a[contains(text(),'{0}')]";
+        const string EXPORT_BUTTON = "//button[@id='export']";
+        const string EXPORT_CHARACTERISTIC = "//a[text()='Export All Characteristics (.xlsx)']";
+        const string EDIT_DETAILS_BUTTON = "//button[text()='Edit']";
 
         public static void VerifyRecordOfSelectedDept(string message)
         {
@@ -52,7 +55,8 @@ namespace LaborPro.Automation.Features.Characteristic
             {
                 record.Click();
             }
-        } 
+        }
+        
         public static void DeleteCharacteristicSetIfExist(string CharacteristicName)
         {
             LogWriter.WriteLog("Executing  CharacteristicPage.DeleteCharacteristicsetifexist");
@@ -204,6 +208,55 @@ namespace LaborPro.Automation.Features.Characteristic
                 }
 
             }
+        }
+        public static void VerifyAddButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing CharacteristicPage.VerifyAddButtonIsNotPresent");
+            IWebElement AddDepartment = WebDriverUtil.GetWebElement(ADD_BUTTON, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (AddDepartment == null)
+            {
+                BaseClass._AttachScreenshot.Value = true;
+            }
+
+        }
+        public static void VerifyDeleteButtonIsNotPresent(string CharacteristicName)
+        {
+            LogWriter.WriteLog("Executing CharacteristicPage.VerifyDeleteButtonIsNotPresent");
+            WebDriverUtil.GetWebElement(String.Format(CHARACTERISTIC_RECORD, CharacteristicName), WebDriverUtil.ONE_SECOND_WAIT,
+            String.Format("Unable to locate UnitOfMeasure record on UnitOfMeasures page - {0}", String.Format(CHARACTERISTIC_RECORD, CharacteristicName))).Click();
+            IWebElement Delete = WebDriverUtil.GetWebElement(CHARACTERISTIC_DELETE_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (Delete == null)
+            {
+                BaseClass._AttachScreenshot.Value = true;
+            }
+        }
+        public static void VerifyExportOptionIsPresent()
+        {
+            LogWriter.WriteLog("Executing CharacteristicPage.VerifyExportOptionIsNotPresent");
+            WebDriverUtil.GetWebElement(EXPORT_BUTTON, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE).Click();
+            IWebElement export = WebDriverUtil.GetWebElement( EXPORT_CHARACTERISTIC, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+
+            if (export != null)
+            {
+                BaseClass._AttachScreenshot.Value = true;
+            }
+
+        }
+        public static void VerifyEditButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing CharacteristicPage.VerifyEditButtonIsNotPresent");
+            WebDriverUtil.GetWebElement(CHECK_CHARACTERISTIC_OF_RESPECTIVE_DEPARTMENT,
+              WebDriverUtil.NO_WAIT,
+              String.Format
+              ("Unable to locate the check Characteristicset of respective department- {0}",
+              CHECK_CHARACTERISTIC_OF_RESPECTIVE_DEPARTMENT)).Click(); 
+            IWebElement EditButton = WebDriverUtil.GetWebElement( EDIT_DETAILS_BUTTON, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+
+            if (EditButton == null)
+            {
+                BaseClass._AttachScreenshot.Value = true;
+            }
+
         }
         public static void AddNewCharacteristicWithGivenInput(Table inputData)
         {

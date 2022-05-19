@@ -70,5 +70,29 @@ namespace LaborPro.Automation.Features.VolumeDriver
             LogWriter.WriteLog("Executing Step User delete created VolumeDriver by name" + VolumeDriverName);
             VolumeDriverPage.DeleteVolumeDriverIfExist(VolumeDriverName);
         }
+        [Given(@"User verify add button is not present")]
+        [When(@"User verify add button is not present")]
+        [Then(@"User verify add button is not present")]
+        public void VerifyAddButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing Step User verify Add button is not present");
+            VolumeDriverPage.VerifyAddButtonIsNotPresent();
+        }
+        [Given(@"User verify Export option is not present")]
+        [When(@"User verify Export option is not present")]
+        [Then(@"User verify Export option is not present")]
+        public void VerifyExportOptionIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing Step User verify Add button is not present");
+            VolumeDriverPage.VerifyExportOptionIsNotPresent();
+        }
+        [Given(@"User verify Delete button is not present ""([^""]*)""")]
+        [When(@"User verify Delete button is not present ""([^""]*)""")]
+        [Then(@"User verify Delete button is not present ""([^""]*)""")]
+        public void VerifyDeleteButtonIsNotPresent(String volumeDriver)
+        {
+            LogWriter.WriteLog("Executing Step User verify Add button is not present");
+            VolumeDriverPage.VerifyDeleteButtonIsNotPresent(volumeDriver);
+        }
     }
 }

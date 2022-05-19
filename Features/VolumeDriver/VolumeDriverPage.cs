@@ -30,6 +30,7 @@ namespace LaborPro.Automation.Features.VolumeDriver
         const string FORM_INPUT_FIELD_ERROR_XPATH = "//*[contains(@class,'validation-error')]";
         const string ELEMENT_ALERT = "//*[@class='form-group has-error']";
         const string VOLUMEDRIVER_VALUE_IN_LM_DROPDOWN = "//select[@id='standardFilingFieldId']//option[@value='VOLUME_DRIVERS']";
+        const string EXPORT_BUTTON = "//button[@id='export']";
 
         public static void CloseVolumeDriverDetailSideBar()
         {
@@ -46,6 +47,16 @@ namespace LaborPro.Automation.Features.VolumeDriver
                 VolumeDriverDetailsSideBar.Click();
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             }
+        }
+        public static void VerifyAddButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing VolumeDriverPage.VerifyAddButtonIsNotPresent");
+            IWebElement AddVolumeDriver = WebDriverUtil.GetWebElement(ADD_BUTTON, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (AddVolumeDriver == null)
+            {
+                BaseClass._AttachScreenshot.Value = true;
+            }
+
         }
         public static void DeleteCreatedVolumeDriver(string VolumeDriverName)
         {
@@ -170,6 +181,28 @@ namespace LaborPro.Automation.Features.VolumeDriver
             WebDriverUtil.GetWebElement(VOLUMEDRIVER_VALUE_IN_LM_DROPDOWN, WebDriverUtil.NO_WAIT,
                 String.Format("Unable to locate VolumeDriver value - {0}", VOLUMEDRIVER_VALUE_IN_LM_DROPDOWN)).Click();
 
+
+        }
+        public static void VerifyDeleteButtonIsNotPresent(string VolumeDriver)
+        {
+            LogWriter.WriteLog("Executing VolumeDriverPage.VerifyDeleteButtonIsNotPresent");
+            WebDriverUtil.GetWebElement(String.Format(VOLUMEDRIVER_RECORD, VolumeDriver), WebDriverUtil.ONE_SECOND_WAIT,
+            String.Format("Unable to locate UnitOfMeasure record on UnitOfMeasures page - {0}", String.Format(VOLUMEDRIVER_RECORD, VolumeDriver))).Click();
+            IWebElement Delete = WebDriverUtil.GetWebElement(VOLUMEDRIVER_DELETE_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (Delete == null)
+            {
+                BaseClass._AttachScreenshot.Value = true;
+            }
+        }
+        public static void VerifyExportOptionIsNotPresent()
+        {
+             
+            LogWriter.WriteLog("Executing VolumeDriverPage.VerifyExportOptionIsNotPresent");
+            IWebElement export = WebDriverUtil.GetWebElement(EXPORT_BUTTON, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (export == null)
+            {
+                BaseClass._AttachScreenshot.Value = true;
+            }
 
         }
         public static void ClickOnAddButton()

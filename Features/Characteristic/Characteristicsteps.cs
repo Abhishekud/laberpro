@@ -61,6 +61,7 @@ namespace LaborPro.Automation.Features.Characteristic
             LogWriter.WriteLog("Executing CharacteristicsPage AddNewCharacteristicWithGivenInput");
             CharacteristicsPage.AddNewCharacteristicWithGivenInput(inputData);
         }
+         
 
         [Given(@"User create new Characteristic with below input if not exist")]
         [When(@"User create new Characteristic with below input if not exist")]
@@ -114,6 +115,38 @@ namespace LaborPro.Automation.Features.Characteristic
         {
             LogWriter.WriteLog("Executing Step User delete created Characteristic by name" + CharacteristicName);
             CharacteristicsPage.DeleteCharacteristicIfExist(CharacteristicName);
+        }
+        [Given(@"User verify Add Button is not Present")]
+        [When(@"User verify Add Button is not Present")]
+        [Then(@"User verify Add Button is not Present")]
+        public void VerifyAddButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing Step User verify Add button is not present");
+            CharacteristicsPage.VerifyAddButtonIsNotPresent();
+        }
+        [Given(@"User verify Export option is Present")]
+        [When(@"User verify Export option is Present")]
+        [Then(@"User verify Export option is Present")]
+        public void VerifyExportOptionIsPresent()
+        {
+            LogWriter.WriteLog("Executing Step User verify Export option is Present");
+            CharacteristicsPage.VerifyExportOptionIsPresent();
+        }
+        [Then(@"User verify Delete Button is not Present ""(.*)""")]
+        [When(@"User verify Delete Button is not Present ""(.*)""")]
+        [Then(@"User verify Delete Button is not Present ""(.*)""")]
+        public void VerifyDeleteButtonIsNotPresent(String CharacteristicName)
+        {
+            LogWriter.WriteLog("Executing Step User verify Delete button is not present");
+            CharacteristicsPage.VerifyDeleteButtonIsNotPresent(CharacteristicName);
+        }
+        [Given(@"User verify Edit option is not Present")]
+        [When(@"User verify Edit option is not Present")]
+        [Then(@"User verify Edit option is not Present")]
+        public void VerifyEditButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing Step User verify Edit button is not present");
+            CharacteristicsPage.VerifyEditButtonIsNotPresent();
         }
 
     }
