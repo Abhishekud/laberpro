@@ -71,7 +71,7 @@ Feature: Verify Characteristics Module
      When User create new Characteristic with below input
       | Key  | Value              | 
       | Name | CharacteristicTest | 
-     Then Verify validation Message: "Name already exists in the specified Department"
+      And Verify Validation message :"Name already exists" 
       And User click on cancel button 
       And User delete created Characteristic by name "CharacteristicTest" 
   

@@ -436,7 +436,7 @@ namespace laborpro.Features.Characteristic
      testRunner.When("User create new Characteristic with below input", ((string)(null)), table21, "When ");
 #line hidden
 #line 74
-     testRunner.Then("Verify validation Message: \"Name already exists in the specified Department\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+      testRunner.And("Verify Validation message :\"Name already exists\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 75
       testRunner.And("User click on cancel button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

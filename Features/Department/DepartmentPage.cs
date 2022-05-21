@@ -26,7 +26,6 @@ namespace LaborPro.Automation.Features.Department
         const string DEPARTMENTS_POPUP = "//*[@role='dialog']//*[@class='modal-title' and contains(text(), 'New Department')]";
         const string FORM_INPUT_FIELD_ERROR_XPATH = "//*[contains(@class,'validation-error')]";
         const string ELEMENT_ALERT = "//*[@class='form-group has-error']";
-        const string EXPORT_BUTTON = "//button[@id='export']";
 
         public static void AddNewDepartmentWithGivenInputIfNotExist(Table inputData)
         {
@@ -43,37 +42,6 @@ namespace LaborPro.Automation.Features.Department
             {
                 record.Click();
             }
-        }
-        public static void VerifyAddButtonIsNotPresent()
-        {
-            LogWriter.WriteLog("Executing DepartmentPage.VerifyAddButtonIsNotPresent");
-            IWebElement AddDepartment = WebDriverUtil.GetWebElement(ADD_BUTTON, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (AddDepartment == null)
-            {
-                BaseClass._AttachScreenshot.Value = true;
-            }
-
-        }
-        public static void VerifyDeleteButtonIsNotPresent(string DepartmentName)
-        {
-            LogWriter.WriteLog("Executing DepartmentPage.VerifyDeleteButtonIsNotPresent");
-            WebDriverUtil.GetWebElement(String.Format(DEPARTMENT_RECORD, DepartmentName), WebDriverUtil.ONE_SECOND_WAIT,
-            String.Format("Unable to locate UnitOfMeasure record on UnitOfMeasures page - {0}", String.Format(DEPARTMENT_RECORD, DepartmentName))).Click();
-            IWebElement Delete = WebDriverUtil.GetWebElement(DEPARTMENT_DELETE_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (Delete == null)
-            {
-                BaseClass._AttachScreenshot.Value = true;
-            }
-        }
-        public static void VerifyExportOptionIsNotPresent()
-        {
-            LogWriter.WriteLog("Executing DepartmentPage.VerifyExportOptionIsNotPresent");
-            IWebElement export = WebDriverUtil.GetWebElement(EXPORT_BUTTON, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (export == null)
-            {
-                BaseClass._AttachScreenshot.Value = true;
-            }
-
         }
         public static void DeleteDepartmentIfExist(string DepartmentName)
         {

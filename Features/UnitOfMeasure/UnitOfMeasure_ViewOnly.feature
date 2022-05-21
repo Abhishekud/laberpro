@@ -26,7 +26,7 @@ A short summary of the feature
       | Name | UOM   | 
      Then User verify Added Unit of Measure "UOM"
      When User logout from the application
-     Then User enter email: "$username_6" and password: "$password_6"
+     Then User enter email: "$viewonly_username" and password: "$viewonly_password"
     Given User navigates to the List Management tab
      When User selects UnitOfMeasure
      Then User Selects Created Department "Department To verify UnitOfMeasure_ViewOnly"

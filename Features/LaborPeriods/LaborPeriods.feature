@@ -22,10 +22,10 @@ A short summary of the feature
     Given User navigates to LaborPeriod Tab
     When User selects New LaborPeriod
     Then User click save button
-    And Verify Validation Message for LaborPeriod:"Name is required"
-    And Verify Validation Message for LaborPeriod:"Unknown labor period"
-    And Verify Validation Message for LaborPeriod:"Unknown traffic pattern"
-    And Verify Validation Message for LaborPeriod:"Unknown distribution type"
+    And Verify Validation message :"Name is required"
+    And Verify Validation message :"Unknown labor period"
+    And Verify Validation message :"Unknown traffic pattern"
+    And Verify Validation message :"Unknown distribution type"
     And User click cancel button
 
     @Smoke
@@ -94,7 +94,7 @@ A short summary of the feature
     | TrafficPattern     | Distribute Evenly and Apply Rounding |
     | LaborDistribution  | Same As Selected Labor Period        |
    Then User Add HouseOfPeriod
-   Then Verify Validation Message for LaborPeriod:"Name already exists"
+    And Verify Validation message :"Name already exists"
    And User click cancel button
    Then User search LaborPeriod "automations"
    Then User selects LaborPeriod By Name "automations"

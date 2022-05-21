@@ -22,7 +22,7 @@ Feature: Verify VolumeDrivers Module
      When User create new VolumeDriver with below input 
       | Key  | Value                       | 
       | Name | VolumeDriver via Automation | 
-     Then Verify validation Message: "Department is required."
+      And Verify Validation message :"is required."
       And User click on cancel Button
   
   @Smoke
@@ -55,7 +55,7 @@ Feature: Verify VolumeDrivers Module
       | Key        | Value                             | 
       | Name       | VolumeDriver Exist Scenario       | 
       | Department | Department to verify VolumeDriver | 
-     Then Verify validation Message: "Name already exists in this Department."
+      And Verify Validation message :"Name already exists"
       And User click on cancel Button
       And User delete created VolumeDriver by name "VolumeDriver Exist Scenario"
      Then User selects Department

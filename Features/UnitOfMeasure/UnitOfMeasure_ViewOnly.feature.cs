@@ -164,14 +164,14 @@ namespace laborpro.Features.UnitOfMeasure
 #line 15
      testRunner.When("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table86 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table85 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table86.AddRow(new string[] {
+                table85.AddRow(new string[] {
                             "Name",
                             "Department To verify UnitOfMeasure_ViewOnly"});
 #line 16
-     testRunner.Then("User create new Department with below input if not exist", ((string)(null)), table86, "Then ");
+     testRunner.Then("User create new Department with below input if not exist", ((string)(null)), table85, "Then ");
 #line hidden
 #line 19
       testRunner.And("User verify created Department \"Department To verify UnitOfMeasure_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -185,14 +185,14 @@ namespace laborpro.Features.UnitOfMeasure
 #line 23
      testRunner.Then("User delete UnitOfMeasure \"UOM\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table87 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table86 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table87.AddRow(new string[] {
+                table86.AddRow(new string[] {
                             "Name",
                             "UOM"});
 #line 24
-     testRunner.When("User adds Unit Of Measure using below input", ((string)(null)), table87, "When ");
+     testRunner.When("User adds Unit Of Measure using below input", ((string)(null)), table86, "When ");
 #line hidden
 #line 27
      testRunner.Then("User verify Added Unit of Measure \"UOM\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -201,7 +201,7 @@ namespace laborpro.Features.UnitOfMeasure
      testRunner.When("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 29
-     testRunner.Then("User enter email: \"$username_6\" and password: \"$password_6\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+     testRunner.Then("User enter email: \"$viewonly_username\" and password: \"$viewonly_password\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 30
     testRunner.Given("User navigates to the List Management tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");

@@ -28,7 +28,7 @@ A short summary of the feature
     | Key           | Value                                 |
     | Name          | name to verify department is required |
     | Department    |                                       |
-    And Verify Validation Message:"Department is required"
+    And Verify Validation message :"is required"
     Then User click cancel Button
 
     @Smoke

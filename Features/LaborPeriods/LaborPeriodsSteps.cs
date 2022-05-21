@@ -100,7 +100,8 @@ namespace LaborPro.Automation.Features.LaborPeriods
             LaborPeriodsPage.DeleteRecordIfExist(record);
         }
 
-        [Then(@"Verify Validation Message for LaborPeriod:""([^""]*)""")]
+        [Then(@"Verify Validation message :""([^""]*)""")]
+        [When(@"Verify Validation message :""(.*)""")]
         public void ThenVerifyValidationMessageForLaborPeriod(string message)
         {
             LaborPeriodsPage.VerifyAddLaborPeriodErrorMessage(message);

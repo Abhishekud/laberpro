@@ -1,4 +1,4 @@
-﻿ @laborPro @Regression @Characteristic_ViewOnly
+ @laborPro @Regression @Characteristic_ViewOnly
 Feature: Verify Characteristic_ViewOnly Module
 
 @Setup @Smoke
@@ -33,7 +33,7 @@ Feature: Verify Characteristic_ViewOnly Module
      Then User verify created CharacteristicSet by name "Characteristic_ViewOnly"
       And User refresh the page
      When User logout from the application
-     Then User enter email: "$username_6" and password: "$password_6"
+     Then User enter email: "$viewonly_username" and password: "$viewonly_password"
     Given User navigates to the Characteristic tab
      Then User select the Department "Department to verify Characteristic_ViewOnly"
       And User verify Add Button is not Present
