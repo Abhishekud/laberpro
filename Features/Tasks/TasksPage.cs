@@ -55,15 +55,15 @@ namespace LaborPro.Automation.Features.Tasks
                 record.Click();
             }
         }
-        public static void DeleteTasksIfExist(string TasksName)
+        public static void DeleteTasksIfExist(string tasksName)
         {
             LogWriter.WriteLog("Executing TasksPage.DeleteTasksIfExist");
             StandardsPage.ClearAllFilter();
-            SearchTasks(TasksName);
-            IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(TASKS_RECORD, TasksName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            SearchTasks(tasksName);
+            IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(TASKS_RECORD, tasksName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record != null)
             {
-                DeleteCreatedTasks(TasksName);
+                DeleteCreatedTasks(tasksName);
             }
 
         }
@@ -79,15 +79,15 @@ namespace LaborPro.Automation.Features.Tasks
             }
 
         }
-        public static void DeleteCreatedTasks(string TasksName)
+        public static void DeleteCreatedTasks(string tasksName)
         {
             LogWriter.WriteLog("Executing TasksPage.DeleteCreatedTasks");
             CloseTasksDetailSideBar();
-            WebDriverUtil.GetWebElement(String.Format(TASKS_RECORD, TasksName), WebDriverUtil.NO_WAIT,
-            String.Format("Unable to locate Tasks record on Taskss page - {0}", String.Format(TASKS_RECORD, TasksName))).Click();
-            WebDriverUtil.GetWebElement(String.Format(TASKS_DELETE_BUTTON, TasksName), WebDriverUtil.TWO_SECOND_WAIT,
+            WebDriverUtil.GetWebElement(String.Format(TASKS_RECORD, tasksName), WebDriverUtil.NO_WAIT,
+            String.Format("Unable to locate Tasks record on Taskss page - {0}", String.Format(TASKS_RECORD, tasksName))).Click();
+            WebDriverUtil.GetWebElement(String.Format(TASKS_DELETE_BUTTON, tasksName), WebDriverUtil.TWO_SECOND_WAIT,
             String.Format("Unable to locate Tasks delete button on Tasks details - {0}", String.Format(
-                TASKS_DELETE_BUTTON, TasksName))).Click();
+                TASKS_DELETE_BUTTON, tasksName))).Click();
            WebDriverUtil.GetWebElement(TASKS_DELETE_CONFIRM_POPUP_ACCEPT, WebDriverUtil.TWO_SECOND_WAIT,
                    String.Format("Unable to locate Confirm button on delete confirmation popup - {0}", TASKS_DELETE_CONFIRM_POPUP_ACCEPT)).Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
@@ -102,11 +102,11 @@ namespace LaborPro.Automation.Features.Tasks
                 throw new Exception(string.Format("Unable to delete Task Error - {0}", alert.Text));
             }
          }
-        public static void SearchTasks(String TasksName)  
+        public static void SearchTasks(string tasksName)  
         {
             LogWriter.WriteLog("Executing TasksPage.SearchTasks");
             WebDriverUtil.GetWebElement(String.Format(TASKGROUPS_FILTER_INPUT, FindColumnIndexInTasks(NAME)), WebDriverUtil.NO_WAIT,
-                 String.Format("Unable to locate TaskGroups filter input on TaskGroups page - {0}", TASKS_FILTER_INPUT)).SendKeys(TasksName);
+                 String.Format("Unable to locate TaskGroups filter input on TaskGroups page - {0}", TASKS_FILTER_INPUT)).SendKeys(tasksName);
             WebDriverUtil.WaitForAWhile();
             WaitForLoading();
         }
@@ -130,13 +130,13 @@ namespace LaborPro.Automation.Features.Tasks
             }
           return index;
         }
-        public static void VerifyCreatedTasks(string TasksName)
+        public static void VerifyCreatedTasks(string tasksName)
         {
             LogWriter.WriteLog("Executing TasksPage.VerifyCreatedTasks");
             StandardsPage.ClearAllFilter();
-            SearchTasks(TasksName);
-            WebDriverUtil.GetWebElement(String.Format(TASKS_RECORD, TasksName), WebDriverUtil.FIVE_SECOND_WAIT,
-            String.Format("Unable to locate record Taskss page - {0}", String.Format(TASKS_RECORD, TasksName)));
+            SearchTasks(tasksName);
+            WebDriverUtil.GetWebElement(String.Format(TASKS_RECORD, tasksName), WebDriverUtil.FIVE_SECOND_WAIT,
+            String.Format("Unable to locate record Taskss page - {0}", String.Format(TASKS_RECORD, tasksName)));
             BaseClass._AttachScreenshot.Value = true;
 
         }
@@ -147,12 +147,12 @@ namespace LaborPro.Automation.Features.Tasks
             BaseClass._AttachScreenshot.Value = true;
 
         }
-        public static void DeleteCreatedTaskGroups(string TaskGroupsName)
+        public static void DeleteCreatedTaskGroups(string taskGroupsName)
         {
             LogWriter.WriteLog("Executing TasksPage.DeleteCreatedTaskGroups");
             StandardsPage.ClearAllFilter();
-            TaskGroupsPage.SearchTaskGroups(TaskGroupsName);
-            TaskGroupsPage.DeleteCreatedTaskGroups(TaskGroupsName);
+            TaskGroupsPage.SearchTaskGroups(taskGroupsName);
+            TaskGroupsPage.DeleteCreatedTaskGroups(taskGroupsName);
         }
         public static void AddNewTasksWithGivenInput(Table inputData)
         {

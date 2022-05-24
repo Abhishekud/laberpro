@@ -24,8 +24,8 @@
     "password_4": "Bits1234$$",
     "username_5": "bits.auto.qa1+4@gmail.com",
     "password_5": "Bits1234$$",
-    "viewonly_username": "dahikarabhi@gmail.com",
-    "viewonly_password": "Abhijit123@"
+    "viewonly_username": "bits_viewonly@benchmarkit.solutions",
+    "viewonly_password": "Bits12345$$"
   },
   "blankdb_automation": {
     "url": "https://laborproautomation.benchmarkit.solutions/",
@@ -39,8 +39,8 @@
     "password_4": "testaccount2",
     "username_5": "testaccount3@connorsllc.com",
     "password_5": "testaccount3",
-    "viewonly_username": "dahikarabhi@gmail.com",
-    "viewonly_password": "Abhijit123@"
+    "viewonly_username": "bits_viewonly@benchmarkit.solutions",
+    "viewonly_password": "Bits12345$$"
   },
   "uat": {
     "url": "https://kronos-uat.laborpro.io ",
@@ -54,8 +54,8 @@
     "password_4": "Bits1234$$",
     "username_5": "bits.auto.qa1+4@gmail.com",
     "password_5": "Bits1234$$",
-    "viewonly_username": "dahikarabhi@gmail.com",
-    "viewonly_password": "Abhijit123@"
+    "viewonly_username": "bits_viewonly@benchmarkit.solutions",
+    "viewonly_password": "Bits12345$$"
   },
   "local": {
     "url": "http://localhost:54155",
@@ -95,7 +95,7 @@
     "password_4": "LaborPro2017",
     "username_5": "support@connorsllc.com",
     "password_5": "LaborPro2017",
-    "viewonly_username": "dahikarabhi@gmail.com",
-    "viewonly_password": "Abhijit123@"
+    "viewonly_username": "bits_viewonly@benchmarkit.solutions",
+    "viewonly_password": "Bits12345$$"
   }
 }

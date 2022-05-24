@@ -240,23 +240,23 @@ namespace LaborPro.Automation.Features.Standards
             }
 
         }
-        public static void DeleteStandardIfExist(string StandardName)
+        public static void DeleteStandardIfExist(string standardName)
         {
             LogWriter.WriteLog("Executing StandardPage.DeleteStandardIfExist");
             ClearAllFilter();
-            SearchStandard(StandardName);
-            IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(STANDARD_RECORD, StandardName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            SearchStandard(standardName);
+            IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(STANDARD_RECORD, standardName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record != null)
             {
-                DeleteStandardByName(StandardName);
+                DeleteStandardByName(standardName);
             }
 
         }
-        public static void DeleteStandardByName(string StandardName)
+        public static void DeleteStandardByName(string standardName)
         {
             LogWriter.WriteLog("Executing StandardPage.DeleteStandardByName");
-            WebDriverUtil.GetWebElement(String.Format(STANDARD_RECORD,StandardName), WebDriverUtil.NO_WAIT,
-            String.Format("Unable to locate Standard  record on StandardPage page - {0}", String.Format(STANDARD_RECORD, StandardName))).Click();
+            WebDriverUtil.GetWebElement(String.Format(STANDARD_RECORD,standardName), WebDriverUtil.NO_WAIT,
+            String.Format("Unable to locate Standard  record on StandardPage page - {0}", String.Format(STANDARD_RECORD, standardName))).Click();
 
             if (WebDriverUtil.GetWebElement(OPEN_EDIT_SIDEBAR_FORM, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) == null)
             {
@@ -283,12 +283,12 @@ namespace LaborPro.Automation.Features.Standards
                 throw new Exception(string.Format("Unable to delete Standard Error - {0}", alert.Text));
             }
         }
-        public static void SelectStandarad(string Standard)
+        public static void SelectStandarad(string standard)
         {
             LogWriter.WriteLog("Executing StandardPage.SelectStandarad");
             if(WebDriverUtil.GetWebElement(STANDARD_PAGE, WebDriverUtil.ONE_SECOND_WAIT,WebDriverUtil.NO_MESSAGE) != null)
             {
-                WebDriverUtil.GetWebElement(String.Format(STANDARAD_BYNAME, Standard), WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate the Stanadard By name - {0}", String.Format(STANDARAD_BYNAME, Standard))).Click();
+                WebDriverUtil.GetWebElement(String.Format(STANDARAD_BYNAME, standard), WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate the Stanadard By name - {0}", String.Format(STANDARAD_BYNAME, standard))).Click();
                 WebDriverUtil.WaitFor(WebDriverUtil.TWO_SECOND_WAIT);
             }
         }
@@ -354,13 +354,13 @@ namespace LaborPro.Automation.Features.Standards
             }
 
         }
-        public static void VerifyCreatedStandardElement(string StandardElement)
+        public static void VerifyCreatedStandardElement(string standardElement)
         {
             LogWriter.WriteLog("Executing StandardPage.VerifyCreatedStandardElement");
             if (WebDriverUtil.GetWebElement(STANDARD_ELEMENT_CONTENT, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
-                WebDriverUtil.GetWebElement(String.Format(CREATED_STANDARD_ELEMENT,StandardElement),
-                    WebDriverUtil.TWO_SECOND_WAIT, String.Format("Unable to locate the Standard element - {0}", String.Format(CREATED_STANDARD_ELEMENT, StandardElement)));
+                WebDriverUtil.GetWebElement(String.Format(CREATED_STANDARD_ELEMENT,standardElement),
+                    WebDriverUtil.TWO_SECOND_WAIT, String.Format("Unable to locate the Standard element - {0}", String.Format(CREATED_STANDARD_ELEMENT, standardElement)));
 
             }
             BaseClass._AttachScreenshot.Value = true;
@@ -397,7 +397,7 @@ namespace LaborPro.Automation.Features.Standards
             
 
         }
-        public static void SearchStandard(String standardName)
+        public static void SearchStandard(string standardName)
         {
                 LogWriter.WriteLog("Executing StandardPage.ClickOnProfilingTab");
                 WebDriverUtil.GetWebElement(String.Format(STANDARD_FILTER_INPUT, FindColumnIndexInStandard(NAME)), WebDriverUtil.NO_WAIT,

@@ -65,25 +65,25 @@ namespace LaborPro.Automation.Features.LaborPeriods
         }
 
         [Then(@"User search LaborPeriod ""([^""]*)""")]
-        public void ThenUserSearchLaborPeriod(string LaborPeriod)
+        public void ThenUserSearchLaborPeriod(string laborPeriod)
         {
-            LogWriter.WriteLog("Executing Step:User search LaborPeriod " + LaborPeriod);
+            LogWriter.WriteLog("Executing Step:User search LaborPeriod " + laborPeriod);
             LaborPeriodsPage.ClearAllFilter();
-            LaborPeriodsPage.SearchLaborPeriod(LaborPeriod);
+            LaborPeriodsPage.SearchLaborPeriod(laborPeriod);
         }
 
         [Then(@"User Verify LaborPeriod By Name ""([^""]*)""")]
-        public void ThenUserVerifyLaborPeriodByName(string LaborPeriod)
+        public void ThenUserVerifyLaborPeriodByName(string laborPeriod)
         {
             LogWriter.WriteLog("Executing Step:User Verify LaborPeriod By Name");
-            LaborPeriodsPage.VerifyLaborPeriodByName(LaborPeriod);
+            LaborPeriodsPage.VerifyLaborPeriodByName(laborPeriod);
         }
 
         [Then(@"User selects LaborPeriod By Name ""([^""]*)""")]
-        public void ThenUserSelectsLaborPeriodByName(string LaborPeriod)
+        public void ThenUserSelectsLaborPeriodByName(string laborPeriod)
         {
-            LogWriter.WriteLog("Executing Step: User selects LaborPeriod By Name" + LaborPeriod);
-            LaborPeriodsPage.SelectLaborPeriod(LaborPeriod);
+            LogWriter.WriteLog("Executing Step: User selects LaborPeriod By Name" + laborPeriod);
+            LaborPeriodsPage.SelectLaborPeriod(laborPeriod);
         }
 
         [Then(@"User delete created LaborPeriod")]

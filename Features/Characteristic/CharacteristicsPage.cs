@@ -57,7 +57,7 @@ namespace LaborPro.Automation.Features.Characteristic
             }
         }
         
-        public static void DeleteCharacteristicSetIfExist(string CharacteristicName)
+        public static void DeleteCharacteristicSetIfExist(string characteristicName)
         {
             LogWriter.WriteLog("Executing  CharacteristicPage.DeleteCharacteristicsetifexist");
             IList<IWebElement> headers = SeleniumDriver.Driver().FindElements(By.XPath(TABLE_HEADER));
@@ -66,24 +66,24 @@ namespace LaborPro.Automation.Features.Characteristic
             {
                 index++;
                 string headerData = header.GetAttribute("innerHTML");
-                if (headerData.Contains(CharacteristicName))
+                if (headerData.Contains(characteristicName))
                 {
 
-                    DeleteCreatedCharacteristicSet(CharacteristicName);
+                    DeleteCreatedCharacteristicSet(characteristicName);
                     break;
 
                 }
 
             }
         }   
-        public static void DeleteCharacteristicIfExist(string CharacteristicName)
+        public static void DeleteCharacteristicIfExist(string characteristicName)
         {
             LogWriter.WriteLog("Executing  CharacteristicPage.DeleteCharacteristicifexist");
             WaitForCharacteristicAlertCloseIfAny();
-            IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(CHARACTERISTIC_RECORD, CharacteristicName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(CHARACTERISTIC_RECORD, characteristicName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record != null)
             {
-                DeleteCreatedCharacteristic(CharacteristicName);
+                DeleteCreatedCharacteristic(characteristicName);
             }
         }
         public static void ClickOnCharacteristicTab()
@@ -112,7 +112,7 @@ namespace LaborPro.Automation.Features.Characteristic
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             }
         }
-        public static void DeleteCreatedCharacteristicSet(string CharacteristicsetName)
+        public static void DeleteCreatedCharacteristicSet(string characteristicsetName)
         {
             LogWriter.WriteLog("Executing CharacteristicsPage DeleteCreatedCharacteristicset");
 
@@ -124,9 +124,9 @@ namespace LaborPro.Automation.Features.Characteristic
                 CHECK_CHARACTERISTIC_OF_RESPECTIVE_DEPARTMENT)).Click();
 
 
-            WebDriverUtil.GetWebElement(String.Format(EDIT_BUTTON, CharacteristicsetName),
+            WebDriverUtil.GetWebElement(String.Format(EDIT_BUTTON, characteristicsetName),
                 WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate Characteristicset record on Characteristicset page - {0}"
-            , String.Format(EDIT_BUTTON, CharacteristicsetName))).Click();
+            , String.Format(EDIT_BUTTON, characteristicsetName))).Click();
 
             WebDriverUtil.GetWebElement(DELETE_BUTTON,
                   WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate delete button - {0}", DELETE_BUTTON)).Click();
@@ -151,16 +151,16 @@ namespace LaborPro.Automation.Features.Characteristic
                ("Unable to locate the check Characteristicset of respective department- {0}",
            CHECK_CHARACTERISTIC_OF_RESPECTIVE_DEPARTMENT)).Click();
         }
-        public static void DeleteCreatedCharacteristic(string CharacteristicName)
+        public static void DeleteCreatedCharacteristic(string characteristicName)
         {
             LogWriter.WriteLog("Executing CharacteristicsPage DeleteCreatedCharacteristict");
 
-            WebDriverUtil.GetWebElement(String.Format(CHARACTERISTIC_RECORD, CharacteristicName), WebDriverUtil.TWO_SECOND_WAIT,
-            String.Format("Unable to locate Characteristic record on Characteristics page - {0}", String.Format(CHARACTERISTIC_RECORD, CharacteristicName))).Click();
+            WebDriverUtil.GetWebElement(String.Format(CHARACTERISTIC_RECORD, characteristicName), WebDriverUtil.TWO_SECOND_WAIT,
+            String.Format("Unable to locate Characteristic record on Characteristics page - {0}", String.Format(CHARACTERISTIC_RECORD, characteristicName))).Click();
 
 
-            WebDriverUtil.GetWebElement(String.Format(CHARACTERISTIC_DELETE_BUTTON, CharacteristicName), WebDriverUtil.ONE_SECOND_WAIT,
-            String.Format("Unable to locate Characteristic delete button on Characteristic details - {0}", String.Format(CHARACTERISTIC_DELETE_BUTTON, CharacteristicName))).Click();
+            WebDriverUtil.GetWebElement(String.Format(CHARACTERISTIC_DELETE_BUTTON, characteristicName), WebDriverUtil.ONE_SECOND_WAIT,
+            String.Format("Unable to locate Characteristic delete button on Characteristic details - {0}", String.Format(CHARACTERISTIC_DELETE_BUTTON, characteristicName))).Click();
 
 
             IWebElement confirmationPopup = WebDriverUtil.GetWebElement(CHARACTERISTIC_DELETE_CONFIRM_POPUP, WebDriverUtil.TWO_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
@@ -181,15 +181,15 @@ namespace LaborPro.Automation.Features.Characteristic
                 }
             }
         }
-        public static void VerifyCreatedCharacteristic(string CharacteristicName)
+        public static void VerifyCreatedCharacteristic(string characteristicName)
         {
             LogWriter.WriteLog("Executing CharacteristicsPage VerifyCreatedCharacteristic");
-            WebDriverUtil.GetWebElement(String.Format(CHARACTERISTIC_RECORD, CharacteristicName), WebDriverUtil.DEFAULT_WAIT,
-            String.Format("Unable to locate record Characteristics page - {0}", String.Format(CHARACTERISTIC_RECORD, CharacteristicName)));
+            WebDriverUtil.GetWebElement(String.Format(CHARACTERISTIC_RECORD, characteristicName), WebDriverUtil.DEFAULT_WAIT,
+            String.Format("Unable to locate record Characteristics page - {0}", String.Format(CHARACTERISTIC_RECORD, characteristicName)));
             BaseClass._AttachScreenshot.Value = true;
             CloseCharacteristicDetailSideBar();
         }
-        public static void VerifyCreatedCharacteristicSet(string CharacteristicName)
+        public static void VerifyCreatedCharacteristicSet(string characteristicName)
         {
             LogWriter.WriteLog("Executing CharacteristicPage.VerifyCreatedCharacteristicSet");
             IList<IWebElement> headers = SeleniumDriver.Driver().FindElements(By.XPath(TABLE_HEADER));
@@ -198,10 +198,10 @@ namespace LaborPro.Automation.Features.Characteristic
             {
                 index++;
                 string headerData = header.GetAttribute("innerHTML");
-                if (headerData.Contains(CharacteristicName))
+                if (headerData.Contains(characteristicName))
                 {
 
-                    WebDriverUtil.GetWebElementAndScroll(String.Format(CHARACTERISTIC_HEADER, CharacteristicName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+                    WebDriverUtil.GetWebElementAndScroll(String.Format(CHARACTERISTIC_HEADER, characteristicName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
                     BaseClass._AttachScreenshot.Value = true;
                     break;
 
@@ -219,11 +219,11 @@ namespace LaborPro.Automation.Features.Characteristic
             }
 
         }
-        public static void VerifyDeleteButtonIsNotPresent(string CharacteristicName)
+        public static void VerifyDeleteButtonIsNotPresent(string characteristicName)
         {
             LogWriter.WriteLog("Executing CharacteristicPage.VerifyDeleteButtonIsNotPresent");
-            WebDriverUtil.GetWebElement(String.Format(CHARACTERISTIC_RECORD, CharacteristicName), WebDriverUtil.ONE_SECOND_WAIT,
-            String.Format("Unable to locate UnitOfMeasure record on UnitOfMeasures page - {0}", String.Format(CHARACTERISTIC_RECORD, CharacteristicName))).Click();
+            WebDriverUtil.GetWebElement(String.Format(CHARACTERISTIC_RECORD, characteristicName), WebDriverUtil.ONE_SECOND_WAIT,
+            String.Format("Unable to locate UnitOfMeasure record on UnitOfMeasures page - {0}", String.Format(CHARACTERISTIC_RECORD, characteristicName))).Click();
             IWebElement Delete = WebDriverUtil.GetWebElement(CHARACTERISTIC_DELETE_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (Delete == null)
             {

@@ -54,15 +54,15 @@ namespace LaborPro.Automation.Features.TaskGroups
                 record.Click();
             }
         }
-        public static void DeleteTaskGroupsIfExist(string TaskGroupsName)
+        public static void DeleteTaskGroupsIfExist(string taskGroupsName)
         {
             LogWriter.WriteLog("Executing TaskGroupsPage.DeleteTaskGroupsIfExist");
             StandardsPage.ClearAllFilter();
-            SearchTaskGroups(TaskGroupsName);
-            IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(TASKGROUPS_RECORD, TaskGroupsName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            SearchTaskGroups(taskGroupsName);
+            IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(TASKGROUPS_RECORD, taskGroupsName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record != null)
             {
-                DeleteCreatedTaskGroups(TaskGroupsName);
+                DeleteCreatedTaskGroups(taskGroupsName);
             }
 
         }
@@ -78,17 +78,17 @@ namespace LaborPro.Automation.Features.TaskGroups
             }
 
         }
-        public static void DeleteCreatedTaskGroups(string TaskGroupsName)
+        public static void DeleteCreatedTaskGroups(string taskGroupsName)
         {
             LogWriter.WriteLog("Executing TaskGroupsPage.DeleteCreatedTaskGroups");
             CloseTaskGroupsDetailSideBar();
-            WebDriverUtil.GetWebElement(String.Format(TASKGROUPS_RECORD, TaskGroupsName), WebDriverUtil.NO_WAIT,
-            String.Format("Unable to locate TaskGroups record on TaskGroupss page - {0}", String.Format(TASKGROUPS_RECORD, TaskGroupsName))).Click();
+            WebDriverUtil.GetWebElement(String.Format(TASKGROUPS_RECORD, taskGroupsName), WebDriverUtil.NO_WAIT,
+            String.Format("Unable to locate TaskGroups record on TaskGroupss page - {0}", String.Format(TASKGROUPS_RECORD, taskGroupsName))).Click();
 
 
-            WebDriverUtil.GetWebElement(String.Format(TASKGROUPS_DELETE_BUTTON, TaskGroupsName), WebDriverUtil.TWO_SECOND_WAIT,
+            WebDriverUtil.GetWebElement(String.Format(TASKGROUPS_DELETE_BUTTON, taskGroupsName), WebDriverUtil.TWO_SECOND_WAIT,
             String.Format("Unable to locate TaskGroups delete button on TaskGroups details - {0}", String.Format(
-                TASKGROUPS_DELETE_BUTTON, TaskGroupsName))).Click();
+                TASKGROUPS_DELETE_BUTTON, taskGroupsName))).Click();
             WebDriverUtil.GetWebElement(TASKGROUPS_DELETE_CONFIRM_POPUP_ACCEPT, WebDriverUtil.TWO_SECOND_WAIT,
                 String.Format("Unable to locate Confirm button on delete confirmation popup - {0}", TASKGROUPS_DELETE_CONFIRM_POPUP_ACCEPT)).Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
@@ -104,11 +104,11 @@ namespace LaborPro.Automation.Features.TaskGroups
             }
 
         }
-        public static void SearchTaskGroups(String TaskGroupsName)
+        public static void SearchTaskGroups(string taskGroupsName)
         {
             LogWriter.WriteLog("Executing TaskGroupsPage.SearchTaskGroups");
             WebDriverUtil.GetWebElement(String.Format(TASKGROUPS_FILTER_INPUT, FindColumnIndexInTaskGroups(NAME)), WebDriverUtil.NO_WAIT,
-                         String.Format("Unable to locate filter input on TaskGroups page - {0}", TASKGROUPS_FILTER_INPUT)).SendKeys(TaskGroupsName);
+                         String.Format("Unable to locate filter input on TaskGroups page - {0}", TASKGROUPS_FILTER_INPUT)).SendKeys(taskGroupsName);
             WebDriverUtil.WaitForAWhile();
             WaitForLoading();
         }
@@ -143,13 +143,13 @@ namespace LaborPro.Automation.Features.TaskGroups
                 WaitForLoading();
             }
         }
-        public static void VerifyCreatedTaskGroups(string TaskGroupsName)
+        public static void VerifyCreatedTaskGroups(string taskGroupsName)
         {
             LogWriter.WriteLog("Executing TaskGroupsPage.VerifyCreatedTaskGroups");
             ClearAllFilter();
-            SearchTaskGroups(TaskGroupsName);
-            WebDriverUtil.GetWebElement(String.Format(TASKGROUPS_RECORD, TaskGroupsName), WebDriverUtil.FIVE_SECOND_WAIT,
-            String.Format("Unable to locate record TaskGroupss page - {0}", String.Format(TASKGROUPS_RECORD, TaskGroupsName)));
+            SearchTaskGroups(taskGroupsName);
+            WebDriverUtil.GetWebElement(String.Format(TASKGROUPS_RECORD, taskGroupsName), WebDriverUtil.FIVE_SECOND_WAIT,
+            String.Format("Unable to locate record TaskGroupss page - {0}", String.Format(TASKGROUPS_RECORD, taskGroupsName)));
             BaseClass._AttachScreenshot.Value = true;
 
         }

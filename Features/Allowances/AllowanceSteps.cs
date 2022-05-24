@@ -75,7 +75,7 @@ namespace LaborPro.Automation.Features.Allowances
         [Given(@"User verify created allowance name ""([^""]*)""")]
         [When(@"User verify created allowance name ""([^""]*)""")]
         [Then(@"User verify created allowance name ""([^""]*)""")]
-        public void UserVerifyCreatedAllowance(String allowanceName)
+        public void UserVerifyCreatedAllowance(string allowanceName)
         {
             LogWriter.WriteLog("Executing step: User verify created allowance name "+allowanceName);
             AllowancePage.VerifyCreatedAllowance(allowanceName);
@@ -118,7 +118,7 @@ namespace LaborPro.Automation.Features.Allowances
         [Given(@"User delete allowance ""([^""]*)"" if exist")]
         [When(@"User delete allowance ""([^""]*)"" if exist")]
         [Then(@"User delete allowance ""([^""]*)"" if exist")]
-        public void UserDeleteAllowance(String allowanceName)
+        public void UserDeleteAllowance(string allowanceName)
         {
             LogWriter.WriteLog("Executing Step User delete created allowance by name" + allowanceName);
             AllowancePage.DeleteAllowanceIfExist(allowanceName);

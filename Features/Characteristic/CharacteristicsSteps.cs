@@ -3,7 +3,7 @@
 namespace LaborPro.Automation.Features.Characteristic
 {
     [Binding]
-    public class CharacteristicSteps
+    public class CharacteristicsSteps
     {
 
         [When(@"User navigates to the Characteristic tab")]
@@ -20,10 +20,10 @@ namespace LaborPro.Automation.Features.Characteristic
         [Given(@"User verify created CharacteristicSet by name ""([^""]*)""")]
         [When(@"User verify created CharacteristicSet by name ""([^""]*)""")]
         [Then(@"User verify created CharacteristicSet by name ""([^""]*)""")]
-        public void VerifyCreatedCharacteristicSet(String CharacteristicName)
+        public void VerifyCreatedCharacteristicSet(string characteristicName)
         {
             LogWriter.WriteLog("Executing CharacteristicsPage UserVerifyCreatedCharacteristic");
-            CharacteristicsPage.VerifyCreatedCharacteristicSet(CharacteristicName);
+            CharacteristicsPage.VerifyCreatedCharacteristicSet(characteristicName);
         }
 
         [Then(@"Verify Record Of Selected Dept ""(.*)""")]
@@ -61,7 +61,7 @@ namespace LaborPro.Automation.Features.Characteristic
             LogWriter.WriteLog("Executing CharacteristicsPage AddNewCharacteristicWithGivenInput");
             CharacteristicsPage.AddNewCharacteristicWithGivenInput(inputData);
         }
-         
+
 
         [Given(@"User create new Characteristic with below input if not exist")]
         [When(@"User create new Characteristic with below input if not exist")]
@@ -75,46 +75,46 @@ namespace LaborPro.Automation.Features.Characteristic
         [Given(@"User verify created Characteristic by name ""([^""]*)""")]
         [When(@"User verify created Characteristic by name ""([^""]*)""")]
         [Then(@"User verify created Characteristic by name ""([^""]*)""")]
-        public void VerifyCreatedCharacteristic(String CharacteristicName)
+        public void VerifyCreatedCharacteristic(string characteristicName)
         {
             LogWriter.WriteLog("Executing CharacteristicsPage UserVerifyCreatedCharacteristic");
-            CharacteristicsPage.VerifyCreatedCharacteristic(CharacteristicName);
+            CharacteristicsPage.VerifyCreatedCharacteristic(characteristicName);
         }
 
         [Given(@"User delete created Characteristic by name ""([^""]*)""")]
         [When(@"User delete created Characteristic by name ""([^""]*)""")]
         [Then(@"User delete created Characteristic by name ""([^""]*)""")]
-        public void DeleteCreatedCharacteristic(String CharacteristicName)
+        public void DeleteCreatedCharacteristic(string characteristicName)
         {
             LogWriter.WriteLog("Executing CharacteristicsPage UserDeleteCreatedCharacteristic");
-            CharacteristicsPage.DeleteCreatedCharacteristic(CharacteristicName);
+            CharacteristicsPage.DeleteCreatedCharacteristic(characteristicName);
         }
 
         [Given(@"User delete created Characteristic set by name ""([^""]*)""")]
         [When(@"User delete created Characteristic set by name ""([^""]*)""")]
         [Then(@"User delete created Characteristic set by name ""([^""]*)""")]
-        public void DeleteCreatedCharacteristicSet(String CharacteristicsetName)
+        public void DeleteCreatedCharacteristicSet(string characteristicsetName)
         {
             LogWriter.WriteLog("Executing CharacteristicsPage UserDeleteCreatedCharacteristicset");
-            CharacteristicsPage.DeleteCreatedCharacteristicSet(CharacteristicsetName);
+            CharacteristicsPage.DeleteCreatedCharacteristicSet(characteristicsetName);
         }
 
         [Given(@"User delete Characteristic set ""([^""]*)"" if exist")]
         [When(@"User delete Characteristic set ""([^""]*)"" if exist")]
         [Then(@"User delete Characteristic set ""([^""]*)"" if exist")]
-        public void DeleteCharacteristicSetIfExist(String CharacteristicName)
+        public void DeleteCharacteristicSetIfExist(string characteristicName)
         {
-            LogWriter.WriteLog("Executing Step User delete created Characteristic by name" + CharacteristicName);
-            CharacteristicsPage.DeleteCharacteristicSetIfExist(CharacteristicName);
+            LogWriter.WriteLog("Executing Step User delete created Characteristic by name" + characteristicName);
+            CharacteristicsPage.DeleteCharacteristicSetIfExist(characteristicName);
         }
 
         [Given(@"User delete Characteristic ""([^""]*)"" if exist")]
         [When(@"User delete Characteristic ""([^""]*)"" if exist")]
         [Then(@"User delete Characteristic ""([^""]*)"" if exist")]
-        public void DeleteCharacteristicIfExist(String CharacteristicName)
+        public void DeleteCharacteristicIfExist(string characteristicName)
         {
-            LogWriter.WriteLog("Executing Step User delete created Characteristic by name" + CharacteristicName);
-            CharacteristicsPage.DeleteCharacteristicIfExist(CharacteristicName);
+            LogWriter.WriteLog("Executing Step User delete created Characteristic by name" + characteristicName);
+            CharacteristicsPage.DeleteCharacteristicIfExist(characteristicName);
         }
         [Given(@"User verify Add Button is not Present")]
         [When(@"User verify Add Button is not Present")]
@@ -135,10 +135,10 @@ namespace LaborPro.Automation.Features.Characteristic
         [Then(@"User verify Delete Button is not Present ""(.*)""")]
         [When(@"User verify Delete Button is not Present ""(.*)""")]
         [Then(@"User verify Delete Button is not Present ""(.*)""")]
-        public void VerifyDeleteButtonIsNotPresent(String CharacteristicName)
+        public void VerifyDeleteButtonIsNotPresent(string characteristicName)
         {
             LogWriter.WriteLog("Executing Step User verify Delete button is not present");
-            CharacteristicsPage.VerifyDeleteButtonIsNotPresent(CharacteristicName);
+            CharacteristicsPage.VerifyDeleteButtonIsNotPresent(characteristicName);
         }
         [Given(@"User verify Edit option is not Present")]
         [When(@"User verify Edit option is not Present")]

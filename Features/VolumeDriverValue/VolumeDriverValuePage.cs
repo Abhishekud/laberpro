@@ -1,12 +1,6 @@
 ﻿using LaborPro.Automation.shared.drivers;
 using LaborPro.Automation.shared.hooks;
 using LaborPro.Automation.shared.util;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.OleDb;
 using OpenQA.Selenium;
 
 
@@ -25,6 +19,8 @@ namespace LaborPro.Automation.Features.VolumeDriverValue
         const string VOLUME_DRIVER_VALUE_TABLE = "//tbody[@role='presentation']";
         const string VOLUME_DRIVER_VALUE_VERIFICATION_OF_LOCATION_DEPARTMENT_VOLUMEDRIVER = "//tbody[@role='presentation']//td[@aria-colindex='{0}' and contains(text(),'{1}')]";
         const string VOLUME_DRIVER_VALUE_TABLE_HEADERS = "//table[@role='presentation']//th//*[@class='k-link']";
+        const string IMPORT_ERROR_MODAL = "//*[@class='modal-content']//*[text()='Import Errors']";
+        const string IMPORT_ERRROR_MODAL_OK_BUTTON = "//*[@class='modal-content']//*[text()='OK']";
 
         public static void ClickOnVolumeDriverValueTab()
         {
@@ -179,6 +175,16 @@ namespace LaborPro.Automation.Features.VolumeDriverValue
             }catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);  
+            }
+
+        }
+        public static void IgnoreImportErrorMessage()
+        {
+            LogWriter.WriteLog("Executing VolumeDriverValuePage.IgnoreImportErrorMessage");
+            if (WebDriverUtil.GetWebElement(IMPORT_ERROR_MODAL, WebDriverUtil.TWO_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) !=null)
+            {
+                WebDriverUtil.GetWebElement(IMPORT_ERRROR_MODAL_OK_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
+                WebDriverUtil.WaitFor(WebDriverUtil.TWO_SECOND_WAIT);
             }
 
         }

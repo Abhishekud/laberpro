@@ -1,7 +1,6 @@
 ﻿using LaborPro.Automation.shared.hooks;
 using LaborPro.Automation.shared.util;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
 
 namespace LaborPro.Automation.Features.VolumeDriver
 {
@@ -30,6 +29,7 @@ namespace LaborPro.Automation.Features.VolumeDriver
         const string FORM_INPUT_FIELD_ERROR_XPATH = "//*[contains(@class,'validation-error')]";
         const string ELEMENT_ALERT = "//*[@class='form-group has-error']";
         const string VOLUMEDRIVER_VALUE_IN_LM_DROPDOWN = "//select[@id='standardFilingFieldId']//option[@value='VOLUME_DRIVERS']";
+        const string EXPORT_BUTTON = "//button[@id='export']";
 
         public static void CloseVolumeDriverDetailSideBar()
         {
@@ -47,15 +47,48 @@ namespace LaborPro.Automation.Features.VolumeDriver
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             }
         }
-        public static void DeleteCreatedVolumeDriver(string VolumeDriverName)
+        public static void VerifyAddButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing VolumeDriverPage.VerifyAddButtonIsNotPresent");
+            IWebElement AddVolumeDriver = WebDriverUtil.GetWebElement(ADD_BUTTON, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (AddVolumeDriver == null)
+            {
+                BaseClass._AttachScreenshot.Value = true;
+            }
+
+        }
+        public static void VerifyDeleteButtonIsNotPresent(string volumeDriverName)
+        {
+            LogWriter.WriteLog("Executing VolumeDriverPage.VerifyDeleteButtonIsNotPresent");
+            WebDriverUtil.GetWebElement(String.Format(VOLUMEDRIVER_RECORD, volumeDriverName), WebDriverUtil.ONE_SECOND_WAIT,
+            String.Format("Unable to locate VolumeDriver record on VolumeDriverPage - {0}", String.Format(VOLUMEDRIVER_RECORD, volumeDriverName))).Click();
+            IWebElement Delete = WebDriverUtil.GetWebElement(VOLUMEDRIVER_DELETE_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (Delete == null)
+            {
+                BaseClass._AttachScreenshot.Value = true;
+            }
+        }
+        public static void VerifyExportOptionIsNotPresent()
+        {
+
+            LogWriter.WriteLog("Executing VolumeDriverPage.VerifyExportOptionIsNotPresent");
+            IWebElement export = WebDriverUtil.GetWebElement(EXPORT_BUTTON, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (export == null)
+            {
+                BaseClass._AttachScreenshot.Value = true;
+            }
+
+        }
+
+        public static void DeleteCreatedVolumeDriver(string volumeDriverName)
         {
             LogWriter.WriteLog("Executing VolumeDriverPage.DeleteCreatedVolumeDriver");
             CloseVolumeDriverDetailSideBar();
-            WebDriverUtil.GetWebElement(String.Format(VOLUMEDRIVER_RECORD, VolumeDriverName), WebDriverUtil.NO_WAIT,
-            String.Format("Unable to locate VolumeDriver record on VolumeDrivers page - {0}", String.Format(VOLUMEDRIVER_RECORD, VolumeDriverName))).Click();
+            WebDriverUtil.GetWebElement(String.Format(VOLUMEDRIVER_RECORD, volumeDriverName), WebDriverUtil.NO_WAIT,
+            String.Format("Unable to locate VolumeDriver record on VolumeDrivers page - {0}", String.Format(VOLUMEDRIVER_RECORD, volumeDriverName))).Click();
 
-            WebDriverUtil.GetWebElement(String.Format(VOLUMEDRIVER_DELETE_BUTTON, VolumeDriverName), WebDriverUtil.NO_WAIT,
-            String.Format("Unable to locate VolumeDriver delete button on VolumeDriver details - {0}", String.Format(VOLUMEDRIVER_DELETE_BUTTON, VolumeDriverName))).Click();
+            WebDriverUtil.GetWebElement(String.Format(VOLUMEDRIVER_DELETE_BUTTON, volumeDriverName), WebDriverUtil.NO_WAIT,
+            String.Format("Unable to locate VolumeDriver delete button on VolumeDriver details - {0}", String.Format(VOLUMEDRIVER_DELETE_BUTTON, volumeDriverName))).Click();
 
             WebDriverUtil.GetWebElement(VOLUMEDRIVER_DELETE_CONFIRM_POPUP_ACCEPT, WebDriverUtil.TWO_SECOND_WAIT,
             String.Format("Unable to locate Confirm button on delete confirmation popup - {0}", VOLUMEDRIVER_DELETE_CONFIRM_POPUP_ACCEPT)).Click();
@@ -72,11 +105,11 @@ namespace LaborPro.Automation.Features.VolumeDriver
             }
      
         }
-        public static void VerifyCreatedVolumeDriver(string VolumeDriverName)
+        public static void VerifyCreatedVolumeDriver(string volumeDriverName)
         {
             LogWriter.WriteLog("Executing VolumeDriverPage VerifyCreatedDepartmen");
-            WebDriverUtil.GetWebElement(String.Format(VOLUMEDRIVER_RECORD, VolumeDriverName), WebDriverUtil.DEFAULT_WAIT,
-            String.Format("Unable to locate record VolumeDrivers page - {0}", String.Format(VOLUMEDRIVER_RECORD, VolumeDriverName)));
+            WebDriverUtil.GetWebElement(String.Format(VOLUMEDRIVER_RECORD, volumeDriverName), WebDriverUtil.DEFAULT_WAIT,
+            String.Format("Unable to locate record VolumeDrivers page - {0}", String.Format(VOLUMEDRIVER_RECORD, volumeDriverName)));
             BaseClass._AttachScreenshot.Value = true;
 
         }
@@ -145,14 +178,14 @@ namespace LaborPro.Automation.Features.VolumeDriver
 
         }
 
-        public static void DeleteVolumeDriverIfExist(string VolumeDriverName)
+        public static void DeleteVolumeDriverIfExist(string volumeDriverName)
         {
             LogWriter.WriteLog("Executing VolumeDriversPage.DeleteVolumeDriverIfExist");
             WaitForVolumeDriverAlertCloseIfAny();
-            IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(VOLUMEDRIVER_RECORD, VolumeDriverName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(VOLUMEDRIVER_RECORD, volumeDriverName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record != null)
             {
-                DeleteCreatedVolumeDriver(VolumeDriverName);
+                DeleteCreatedVolumeDriver(volumeDriverName);
             }
         }
         public static void UserClickOnNewVolumeDriverMenuLink()
@@ -222,11 +255,11 @@ namespace LaborPro.Automation.Features.VolumeDriver
                 WebDriverUtil.WaitForWebElementInvisible(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             }
         }
-        public static void SearchvolumeDriver(String VolumeDriver)
+        public static void SearchvolumeDriver(string volumeDriver)
         {
             LogWriter.WriteLog("VolumeDriver.SearchvolumeDriver");
             WebDriverUtil.GetWebElement(VOLUME_DRIVER_FILTER_INPUT, WebDriverUtil.NO_WAIT,
-                 String.Format("Unable to locate VOLUME DRIVER FILTER INPUT - {0}", VOLUME_DRIVER_FILTER_INPUT)).SendKeys(VolumeDriver);
+                 String.Format("Unable to locate VOLUME DRIVER FILTER INPUT - {0}", VOLUME_DRIVER_FILTER_INPUT)).SendKeys(volumeDriver);
             WebDriverUtil.WaitForAWhile();
             WaitForLoading();
         }

@@ -58,27 +58,51 @@ namespace LaborPro.Automation.Features.Department
         [Given(@"User verify created Department ""([^""]*)""")]
         [When(@"User verify created Department ""([^""]*)""")]
         [Then(@"User verify created Department ""([^""]*)""")]
-        public void UserVerifyCreatedDepartment(String DepartmentName) {
-            LogWriter.WriteLog("Executing Step User verify created Department by name" +DepartmentName);
-            DepartmentsPage.VerifyCreatedDepartment(DepartmentName); 
+        public void UserVerifyCreatedDepartment(string departmentName) {
+            LogWriter.WriteLog("Executing Step User verify created Department by name" + departmentName);
+            DepartmentsPage.VerifyCreatedDepartment(departmentName); 
         }
 
         [Given(@"User delete created Department ""([^""]*)""")]
         [When(@"User delete created Department ""([^""]*)""")]
         [Then(@"User delete created Department ""([^""]*)""")]
-        public void UserDeleteCreatedDepartment(String DepartmentName)
+        public void UserDeleteCreatedDepartment(string departmentName)
         {
-            LogWriter.WriteLog("Executing Step User delete created Department by name" + DepartmentName);
-            DepartmentsPage.DeleteCreatedDepartment(DepartmentName);
+            LogWriter.WriteLog("Executing Step User delete created Department by name" + departmentName);
+            DepartmentsPage.DeleteCreatedDepartment(departmentName);
         }
 
         [Given(@"User delete Department ""([^""]*)"" if exist")]
         [When(@"User delete Department ""([^""]*)"" if exist")]
         [Then(@"User delete Department ""([^""]*)"" if exist")]
-        public void UserDeleteDepartment(String DepartmentName)
+        public void UserDeleteDepartment(string departmentName)
         {
-            LogWriter.WriteLog("Executing Step User delete created Department by name" + DepartmentName);
-            DepartmentsPage.DeleteDepartmentIfExist(DepartmentName);
+            LogWriter.WriteLog("Executing Step User delete created Department by name" + departmentName);
+            DepartmentsPage.DeleteDepartmentIfExist(departmentName);
+        }
+        [Given(@"User verify Add button is not Present")]
+        [When(@"User verify Add button is not Present")]
+        [Then(@"User verify Add button is not Present")]
+        public void VerifyAddButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing Step User verify Add button is not present");
+            DepartmentsPage.VerifyAddButtonIsNotPresent();
+        }
+        [Given(@"User verify export option is not Present")]
+        [When(@"User verify export option is not Present")]
+        [Then(@"User verify export option is not Present")]
+        public void VerifyExportOptionIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing Step User verify export button is not present");
+            DepartmentsPage.VerifyExportOptionIsNotPresent();
+        }
+        [Given(@"User verify delete button is not Present ""([^""]*)""")]
+        [When(@"User verify delete button is not Present ""([^""]*)""")]
+        [Then(@"User verify delete button is not Present ""([^""]*)""")]
+        public void VerifyDeleteButtonIsNotPresent(string departmentName)
+        {
+            LogWriter.WriteLog("Executing Step User verify delete button is not present");
+            DepartmentsPage.VerifyDeleteButtonIsNotPresent(departmentName);
         }
 
     }

@@ -17,10 +17,10 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
         [Given(@"User Selects Created Department ""([^""]*)""")]
         [When(@"User Selects Created Department ""([^""]*)""")]
         [Then(@"User Selects Created Department ""([^""]*)""")]
-        public void SelectDepartment(string DeptName)
+        public void SelectDepartment(string deptName)
         {
-            LogWriter.WriteLog("Executing Step User Selects Created Department " + DeptName);
-            UnitsOfMeasurePage.SelectCreatedDepartment(DeptName);
+            LogWriter.WriteLog("Executing Step User Selects Created Department " + deptName);
+            UnitsOfMeasurePage.SelectCreatedDepartment(deptName);
 
         }
 
@@ -45,10 +45,10 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
         [Given(@"User verify Added Unit of Measure ""([^""]*)""")]
         [When(@"User verify Added Unit of Measure ""([^""]*)""")]
         [Then(@"User verify Added Unit of Measure ""([^""]*)""")]
-        public void VerifyUnitOfMeasure(string UOM)
+        public void VerifyUnitOfMeasure(string uom)
         {
-            LogWriter.WriteLog("Executing Step User verify Added Unit of Measure" + UOM);
-            UnitsOfMeasurePage.VerifyCreatedUnitOfMeasure(UOM);
+            LogWriter.WriteLog("Executing Step User verify Added Unit of Measure" + uom);
+            UnitsOfMeasurePage.VerifyCreatedUnitOfMeasure(uom);
         }
 
         [Then(@"User delete created Unit Of Measure")]
@@ -68,10 +68,10 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
         [Given(@"User delete UnitOfMeasure ""([^""]*)"" if exist")]
         [When(@"User delete UnitOfMeasure ""([^""]*)"" if exist")]
         [Then(@"User delete UnitOfMeasure ""([^""]*)"" if exist")]
-        public void UserDeleteUnitOfMeasure(String UnitOfMeasureName)
+        public void UserDeleteUnitOfMeasure(string unitOfMeasureName)
         {
-            LogWriter.WriteLog("Executing Step User delete created UnitOfMeasure by name" + UnitOfMeasureName);
-            UnitsOfMeasurePage.DeleteUnitOfMeasureIfExist(UnitOfMeasureName);
+            LogWriter.WriteLog("Executing Step User delete created UnitOfMeasure by name" + unitOfMeasureName);
+            UnitsOfMeasurePage.DeleteUnitOfMeasureIfExist(unitOfMeasureName);
         }
         [Given(@"User verify Add button is not present")]
         [When(@"User verify Add button is not present")]
@@ -92,10 +92,10 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
         [Given(@"User verify delete button is not present ""([^""]*)""")]
         [When(@"User verify delete button is not present ""([^""]*)""")]
         [Then(@"User verify delete button is not present ""([^""]*)""")]
-        public void VerifyDeleteButtonIsNotPresent(String UnitOfMeasureName)
+        public void VerifyDeleteButtonIsNotPresent(string unitOfMeasureName)
         {
             LogWriter.WriteLog("Executing Step User verify delete button is not present");
-            UnitsOfMeasurePage.VerifyDeleteButtonIsNotPresent(UnitOfMeasureName);
+            UnitsOfMeasurePage.VerifyDeleteButtonIsNotPresent(unitOfMeasureName);
         }
 
     }

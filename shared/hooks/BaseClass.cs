@@ -52,6 +52,20 @@ namespace LaborPro.Automation.shared.hooks
         {
             if (Directory.Exists(directory))
             {
+                DirectoryInfo di = new DirectoryInfo(directory);
+
+                foreach (FileInfo file in di.GetFiles())
+                {
+                    file.Delete();
+                }
+                foreach (DirectoryInfo dir in di.GetDirectories())
+                {
+                    foreach (FileInfo file in dir.GetFiles())
+                    {
+                        file.Delete();
+                    }
+                    dir.Delete(true);
+                }
                 Directory.Delete(directory);
             }
             Directory.CreateDirectory(directory);

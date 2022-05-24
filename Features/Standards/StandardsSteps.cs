@@ -74,10 +74,10 @@ namespace LaborPro.Automation.Features.Standards
         [Given(@"User selects standard by name ""([^""]*)""")]
         [When(@"User selects standard by name ""([^""]*)""")]
         [Then(@"User selects standard by name ""([^""]*)""")]
-        public void SelectCreatedStandard(string StandaradByName)
+        public void SelectCreatedStandard(string standaradByName)
         {
-            LogWriter.WriteLog("Executing User selects created standard by name" + StandaradByName);
-            StandardsPage.SelectStandarad(StandaradByName);
+            LogWriter.WriteLog("Executing User selects created standard by name" + standaradByName);
+            StandardsPage.SelectStandarad(standaradByName);
 
         }
 
@@ -109,10 +109,10 @@ namespace LaborPro.Automation.Features.Standards
         }
 
         [Then(@"User delete UOM by name ""([^""]*)""")]
-        public void DeleteUnitOfMeasureByName(string UOM)
+        public void DeleteUnitOfMeasureByName(string uom)
         {
-            LogWriter.WriteLog("Executing User delete UOM by name" + UOM);
-            UnitsOfMeasurePage.DeleteUnitOfMeasureByName(UOM);
+            LogWriter.WriteLog("Executing User delete UOM by name" + uom);
+            UnitsOfMeasurePage.DeleteUnitOfMeasureByName(uom);
         }
 
         [When(@"User search standard by name ""([^""]*)""")]
@@ -140,10 +140,10 @@ namespace LaborPro.Automation.Features.Standards
         [Given(@"User delete Standard ""([^""]*)"" if exist")]
         [When(@"User delete Standard ""([^""]*)"" if exist")]
         [Then(@"User delete Standard ""([^""]*)"" if exist")]
-        public void UserDeleteStandard(String StandardName)
+        public void UserDeleteStandard(string standardName)
         {
-            LogWriter.WriteLog("Executing Step User delete created Standard by name" + StandardName);
-            StandardsPage.DeleteStandardIfExist(StandardName);
+            LogWriter.WriteLog("Executing Step User delete created Standard by name" + standardName);
+            StandardsPage.DeleteStandardIfExist(standardName);
         }
     }
 }

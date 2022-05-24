@@ -96,15 +96,15 @@ namespace LaborPro.Automation.Features.LocationMapping
             }
             WebDriverUtil.WaitForAWhile();
         }
-        public static void DeleteCreatedLocationMapping(string LocationMappingName)
+        public static void DeleteCreatedLocationMapping(string locationMappingName)
         {
             LogWriter.WriteLog("Executing LocationMappingPage.DeleteCreatedLocationMapping");
             CloseLocationMappingDetailSideBar();
-            WebDriverUtil.GetWebElement(String.Format(LOCATIONMAPPING_RECORD, LocationMappingName), WebDriverUtil.NO_WAIT,
-            String.Format("Unable to locate LocationMapping record on LocationMappings page - {0}", String.Format(LOCATIONMAPPING_RECORD, LocationMappingName))).Click();
+            WebDriverUtil.GetWebElement(String.Format(LOCATIONMAPPING_RECORD, locationMappingName), WebDriverUtil.NO_WAIT,
+            String.Format("Unable to locate LocationMapping record on LocationMappings page - {0}", String.Format(LOCATIONMAPPING_RECORD, locationMappingName))).Click();
 
-            WebDriverUtil.GetWebElement(String.Format(LOCATIONMAPPINGDELETE_BUTTON, LocationMappingName), WebDriverUtil.NO_WAIT,
-            String.Format("Unable to locate LocationMapping delete button on LocationMapping details - {0}", String.Format(LOCATIONMAPPINGDELETE_BUTTON, LocationMappingName))).Click();
+            WebDriverUtil.GetWebElement(String.Format(LOCATIONMAPPINGDELETE_BUTTON, locationMappingName), WebDriverUtil.NO_WAIT,
+            String.Format("Unable to locate LocationMapping delete button on LocationMapping details - {0}", String.Format(LOCATIONMAPPINGDELETE_BUTTON, locationMappingName))).Click();
 
             WebDriverUtil.GetWebElement(LOCATIONMAPPINGDELETE_CONFIRM_POPUP_ACCEPT, WebDriverUtil.TWO_SECOND_WAIT,
             String.Format("Unable to locate Confirm button on delete confirmation popup - {0}", LOCATIONMAPPINGDELETE_CONFIRM_POPUP_ACCEPT)).Click();
@@ -120,16 +120,16 @@ namespace LaborPro.Automation.Features.LocationMapping
                 throw new Exception(string.Format("Unable to delete Location Mapping Error - {0}", alert.Text));
             }
         }
-        public static void VerifyCreatedLocationMapping(string LocationMappingName)
+        public static void VerifyCreatedLocationMapping(string locationMappingName)
         {
             LogWriter.WriteLog("Executing LocationMappingPage.VerifyCreatedLocationMapping");
             WebDriverUtil.WaitForAWhile();
-            WebDriverUtil.GetWebElement(String.Format(LOCATIONMAPPING_RECORD, LocationMappingName), WebDriverUtil.ONE_SECOND_WAIT,
-            String.Format("Unable to locate record LocationMappings page - {0}", String.Format(LOCATIONMAPPING_RECORD, LocationMappingName))).Click();
+            WebDriverUtil.GetWebElement(String.Format(LOCATIONMAPPING_RECORD, locationMappingName), WebDriverUtil.ONE_SECOND_WAIT,
+            String.Format("Unable to locate record LocationMappings page - {0}", String.Format(LOCATIONMAPPING_RECORD, locationMappingName))).Click();
             BaseClass._AttachScreenshot.Value = true;
 
         }
-        public static void MapsCreatedDepartmentandlocation(string Location, string Department)
+        public static void MapsCreatedDepartmentandlocation(string location, string department)
         {
             LogWriter.WriteLog("Executing LocationMappingPage.MapscreatedDepartmentandlocation");
             CloseLocationMappingDetailSideBar();
@@ -139,10 +139,10 @@ namespace LaborPro.Automation.Features.LocationMapping
             {
                 index++;
                 string headerData = header.GetAttribute("innerHTML");
-                if (headerData.Contains(Department))
+                if (headerData.Contains(department))
                 {
 
-                    WebDriverUtil.GetWebElement(String.Format(LOCATIONMAPPINGRECORD_MAPPING, Location, index), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE).Click();
+                    WebDriverUtil.GetWebElement(String.Format(LOCATIONMAPPINGRECORD_MAPPING, location, index), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE).Click();
                     break;
 
                 }
@@ -150,11 +150,11 @@ namespace LaborPro.Automation.Features.LocationMapping
             }
 
         }
-        public static void SelectTheLocation(string LocationName)
+        public static void SelectTheLocation(string locationName)
         {
             LogWriter.WriteLog("Executing LocationMappingPage.SelectTheLocation");
-            WebDriverUtil.GetWebElement(String.Format(LOCATIONMAPPING_RECORD, LocationName), WebDriverUtil.NO_WAIT,
-            String.Format("Unable to locate LocationMappingPage record on LocationMappingPage page - {0}", String.Format(LOCATIONMAPPING_RECORD, LocationName))).Click();
+            WebDriverUtil.GetWebElement(String.Format(LOCATIONMAPPING_RECORD, locationName), WebDriverUtil.NO_WAIT,
+            String.Format("Unable to locate LocationMappingPage record on LocationMappingPage page - {0}", String.Format(LOCATIONMAPPING_RECORD, locationName))).Click();
             WebDriverUtil.WaitForAWhile();
         }
         public static void Refresh()

@@ -45,14 +45,14 @@ namespace LaborPro.Automation.Features.LaborDrivers
                 record.Click();
             }
         }
-        public static void DeleteLaborDriversIfExist(string LaborDriversName)
+        public static void DeleteLaborDriversIfExist(string laborDriversName)
         {
             LogWriter.WriteLog("Executing LaborDriversPage.DeleteLaborDriversIfExist");
             WaitForLaborDriversAlertCloseIfAny();
-            IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(LABORDRIVERS_RECORD, LaborDriversName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(LABORDRIVERS_RECORD, laborDriversName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record != null)
             {
-                DeleteCreatedLaborDrivers(LaborDriversName);
+                DeleteCreatedLaborDrivers(laborDriversName);
             }
         }
         public static void CloseLaborDriversDetailSideBar()
@@ -66,17 +66,17 @@ namespace LaborPro.Automation.Features.LaborDrivers
 
             }
         }
-        public static void DeleteCreatedLaborDrivers(string LaborDriversName)
+        public static void DeleteCreatedLaborDrivers(string laborDriversName)
         {
             LogWriter.WriteLog("Executing LaborDriversPage.DeleteCreatedLaborDrivers");
             CloseLaborDriversDetailSideBar();
-            WebDriverUtil.GetWebElement(String.Format(LABORDRIVERS_RECORD, LaborDriversName), WebDriverUtil.NO_WAIT,
-            String.Format("Unable to locate LaborDrivers record on LaborDriverss page - {0}", String.Format(LABORDRIVERS_RECORD, LaborDriversName))).Click();
+            WebDriverUtil.GetWebElement(String.Format(LABORDRIVERS_RECORD, laborDriversName), WebDriverUtil.NO_WAIT,
+            String.Format("Unable to locate LaborDrivers record on LaborDriverss page - {0}", String.Format(LABORDRIVERS_RECORD, laborDriversName))).Click();
 
 
-            WebDriverUtil.GetWebElement(String.Format(LABORDRIVERS_DELETE_BUTTON, LaborDriversName), WebDriverUtil.TWO_SECOND_WAIT,
+            WebDriverUtil.GetWebElement(String.Format(LABORDRIVERS_DELETE_BUTTON, laborDriversName), WebDriverUtil.TWO_SECOND_WAIT,
             String.Format("Unable to locate LaborDrivers delete button on LaborDrivers details - {0}", String.Format(
-                LABORDRIVERS_DELETE_BUTTON, LaborDriversName))).Click();
+                LABORDRIVERS_DELETE_BUTTON, laborDriversName))).Click();
             WebDriverUtil.GetWebElement(LABORDRIVERS_DELETE_CONFIRM_POPUP_ACCEPT, WebDriverUtil.TWO_SECOND_WAIT,
                 String.Format("Unable to locate Confirm button on delete confirmation popup - {0}", LABORDRIVERS_DELETE_CONFIRM_POPUP_ACCEPT)).Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
@@ -91,11 +91,11 @@ namespace LaborPro.Automation.Features.LaborDrivers
                 throw new Exception(string.Format("Unable to delete Labor Driver Error - {0}", alert.Text));
             }
         }
-        public static void VerifyCreatedLaborDrivers(string LaborDriversName)
+        public static void VerifyCreatedLaborDrivers(string laborDriversName)
         {
             LogWriter.WriteLog("Executing LaborDriversPage.VerifyCreatedLaborDrivers");
-            WebDriverUtil.GetWebElement(String.Format(LABORDRIVERS_RECORD, LaborDriversName), WebDriverUtil.ONE_SECOND_WAIT,
-            String.Format("Unable to locate record LaborDriverss page - {0}", String.Format(LABORDRIVERS_RECORD, LaborDriversName)));
+            WebDriverUtil.GetWebElement(String.Format(LABORDRIVERS_RECORD, laborDriversName), WebDriverUtil.ONE_SECOND_WAIT,
+            String.Format("Unable to locate record LaborDriverss page - {0}", String.Format(LABORDRIVERS_RECORD, laborDriversName)));
             BaseClass._AttachScreenshot.Value = true;
 
         }

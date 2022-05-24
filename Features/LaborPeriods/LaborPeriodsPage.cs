@@ -158,12 +158,12 @@ namespace LaborPro.Automation.Features.LaborPeriods
                 String.Format("Unable to locate Save Button - {0}", SAVE_BUTTON)).Click();
             }
         }
-        public static void VerifyLaborPeriodByName(string LaborPeriod)
+        public static void VerifyLaborPeriodByName(string laborPeriod)
         {
             LogWriter.WriteLog("LaborPeriodsPage.VerifyLaborPeriodByName");
             if (WebDriverUtil.GetWebElement(LABOR_PERIODS_PAGE, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
-                WebDriverUtil.GetWebElement(String.Format(LABOR_PERIOD_BY_NAME, LaborPeriod), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+                WebDriverUtil.GetWebElement(String.Format(LABOR_PERIOD_BY_NAME, laborPeriod), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
                 BaseClass._AttachScreenshot.Value = true;
             }
         }
@@ -197,12 +197,12 @@ namespace LaborPro.Automation.Features.LaborPeriods
                 }
             }
         }
-        public static void SelectLaborPeriod(string LaborPeriods)
+        public static void SelectLaborPeriod(string laborPeriods)
         {
             LogWriter.WriteLog("LaborPeriodsPage.SelectLaborPeriod");
             if (WebDriverUtil.GetWebElement(LABOR_PERIODS_PAGE, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
-                WebDriverUtil.GetWebElement(String.Format(LABOR_PERIOD_BY_NAME, LaborPeriods),
+                WebDriverUtil.GetWebElement(String.Format(LABOR_PERIOD_BY_NAME, laborPeriods),
                 WebDriverUtil.NO_WAIT,
                 WebDriverUtil.NO_MESSAGE).Click();
             }

@@ -36,7 +36,7 @@ namespace LaborPro.Automation.Features.StandardAndUomByLocation
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             }
         }
-        public static void SearchStandardAndUomByLocation(String location)
+        public static void SearchStandardAndUomByLocation(string location)
         {
             LogWriter.WriteLog("standardsanduombylocationpage.SearchStandardAndUomByLocation");
             IWebElement locationInOutput = SeleniumDriver.Driver().FindElement(By.XPath(LOCATION_IN_OUTPUT_PAGE));

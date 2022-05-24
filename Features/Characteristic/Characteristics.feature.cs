@@ -34,7 +34,7 @@ namespace laborpro.Features.Characteristic
                 "Regression",
                 "Characteristics"};
         
-#line 1 "Characteristic.feature"
+#line 1 "Characteristics.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]

@@ -48,9 +48,9 @@ namespace LaborPro.Automation.Features.LaborDrivers
         [Given(@"User verify created LaborDrivers ""([^""]*)""")]
         [When(@"User verify created LaborDrivers ""([^""]*)""")]
         [Then(@"User verify created LaborDrivers ""([^""]*)""")]
-        public void UserVerifyCreatedLaborDrivers(String LaborDriversName) {
-            LogWriter.WriteLog("Executing Step User verify created LaborDrivers by name" +LaborDriversName);
-            LaborDriversPage.VerifyCreatedLaborDrivers(LaborDriversName); 
+        public void UserVerifyCreatedLaborDrivers(String laborDriversName) {
+            LogWriter.WriteLog("Executing Step User verify created LaborDrivers by name" + laborDriversName);
+            LaborDriversPage.VerifyCreatedLaborDrivers(laborDriversName); 
         }
 
         [Given(@"User verify Add Menu Popup")]
@@ -65,19 +65,19 @@ namespace LaborPro.Automation.Features.LaborDrivers
         [Given(@"User delete created LaborDrivers ""([^""]*)""")]
         [When(@"User delete created LaborDrivers ""([^""]*)""")]
         [Then(@"User delete created LaborDrivers ""([^""]*)""")]
-        public void UserDeleteCreatedLaborDrivers(String LaborDriversName)
+        public void UserDeleteCreatedLaborDrivers(String laborDriversName)
         {
-            LogWriter.WriteLog("Executing Step User delete created LaborDrivers by name" + LaborDriversName);
-            LaborDriversPage.DeleteCreatedLaborDrivers(LaborDriversName);
+            LogWriter.WriteLog("Executing Step User delete created LaborDrivers by name" + laborDriversName);
+            LaborDriversPage.DeleteCreatedLaborDrivers(laborDriversName);
         }
 
         [Given(@"User delete LaborDrivers ""([^""]*)"" if exist")]
         [When(@"User delete LaborDrivers ""([^""]*)"" if exist")]
         [Then(@"User delete LaborDrivers ""([^""]*)"" if exist")]
-        public void UserDeleteLaborDrivers(String LaborDriversName)
+        public void UserDeleteLaborDrivers(String laborDriversName)
         {
-            LogWriter.WriteLog("Executing Step User delete created LaborDrivers by name" + LaborDriversName);
-            LaborDriversPage.DeleteLaborDriversIfExist(LaborDriversName);
+            LogWriter.WriteLog("Executing Step User delete created LaborDrivers by name" + laborDriversName);
+            LaborDriversPage.DeleteLaborDriversIfExist(laborDriversName);
         }
     }
 }

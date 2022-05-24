@@ -28,9 +28,9 @@ namespace LaborPro.Automation.Features.LocationMapping
         [Given(@"User Maps created Department and location with ""(.*)"" and ""(.*)""")]
         [When(@"User Maps created Department and location with ""(.*)"" and ""(.*)""")]
         [Then(@"User Maps created Department and location with ""(.*)"" and ""(.*)""")]
-        public void ThenUserMapsCreatedDepartmentAndLocation(string Location, string Department)
+        public void ThenUserMapsCreatedDepartmentAndLocation(string location, string department)
         {
-            LocationMappingPage.MapsCreatedDepartmentandlocation(Location, Department);
+            LocationMappingPage.MapsCreatedDepartmentandlocation(location, department);
         }
 
         [Given(@"User create new LocationMapping with below input")]
@@ -45,10 +45,10 @@ namespace LaborPro.Automation.Features.LocationMapping
         [Given(@"User select the Location ""([^""]*)""")]
         [Then(@"User select the Location ""([^""]*)""")]
         [When(@"User select the Location ""([^""]*)""")]
-        public void SelectLocation(string LocationName)
+        public void SelectLocation(string locationName)
         {
-            LogWriter.WriteLog("Executing Step:User select the Location" + LocationName);
-            LocationMappingPage.SelectTheLocation(LocationName);
+            LogWriter.WriteLog("Executing Step:User select the Location" + locationName);
+            LocationMappingPage.SelectTheLocation(locationName);
         }
 
         [Then(@"User refresh the page")]
@@ -63,10 +63,10 @@ namespace LaborPro.Automation.Features.LocationMapping
         [Given(@"User verify created LocationMapping ""([^""]*)""")]
         [When(@"User verify created LocationMapping ""([^""]*)""")]
         [Then(@"User verify created LocationMapping ""([^""]*)""")]
-        public void UserVerifyCreatedLocationMapping(String LocationMappingName)
+        public void UserVerifyCreatedLocationMapping(String locationMappingName)
         {
-            LogWriter.WriteLog("Executing Step User verify created LocationMapping by name" + LocationMappingName);
-            LocationMappingPage.VerifyCreatedLocationMapping(LocationMappingName);
+            LogWriter.WriteLog("Executing Step User verify created LocationMapping by name" + locationMappingName);
+            LocationMappingPage.VerifyCreatedLocationMapping(locationMappingName);
         }
     }
 }

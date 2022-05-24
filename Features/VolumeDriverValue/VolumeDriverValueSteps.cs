@@ -1,12 +1,6 @@
 ﻿using LaborPro.Automation.Features.Locations;
 using LaborPro.Automation.shared.drivers;
 using LaborPro.Automation.shared.util;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TechTalk.SpecFlow;
 
 namespace LaborPro.Automation.Features.VolumeDriverValue
 {
@@ -54,6 +48,7 @@ namespace LaborPro.Automation.Features.VolumeDriverValue
         public void ThenUserVerifyLocationDepartmentVolumedriverInVolumeDriverValuePage(string location, string department, string volumedriver)
         {
             LogWriter.WriteLog("Executing Step User verify location department volumedriver in volume driver value page");
+            VolumeDriverValuePage.IgnoreImportErrorMessage();
             VolumeDriverValuePage.VerifyLocationInVolumeDriverValue(location);
             VolumeDriverValuePage.VerifyDepartmentInVolumeDriverValue(department);
             VolumeDriverValuePage.VerifyVolumedriverInVolumeDriverValue(volumedriver);

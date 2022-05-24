@@ -26,6 +26,7 @@ namespace LaborPro.Automation.Features.Department
         const string DEPARTMENTS_POPUP = "//*[@role='dialog']//*[@class='modal-title' and contains(text(), 'New Department')]";
         const string FORM_INPUT_FIELD_ERROR_XPATH = "//*[contains(@class,'validation-error')]";
         const string ELEMENT_ALERT = "//*[@class='form-group has-error']";
+        const string EXPORT_BUTTON = "//button[@id='export']";
 
         public static void AddNewDepartmentWithGivenInputIfNotExist(Table inputData)
         {
@@ -43,14 +44,45 @@ namespace LaborPro.Automation.Features.Department
                 record.Click();
             }
         }
-        public static void DeleteDepartmentIfExist(string DepartmentName)
+        public static void VerifyAddButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing DepartmentPage.VerifyAddButtonIsNotPresent");
+            IWebElement AddDepartment = WebDriverUtil.GetWebElement(ADD_BUTTON, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (AddDepartment == null)
+            {
+                BaseClass._AttachScreenshot.Value = true;
+            }
+
+        }
+        public static void VerifyDeleteButtonIsNotPresent(string departmentName)
+        {
+            LogWriter.WriteLog("Executing DepartmentPage.VerifyDeleteButtonIsNotPresent");
+            WebDriverUtil.GetWebElement(String.Format(DEPARTMENT_RECORD, departmentName), WebDriverUtil.ONE_SECOND_WAIT,
+            String.Format("Unable to locate UnitOfMeasure record on UnitOfMeasures page - {0}", String.Format(DEPARTMENT_RECORD, departmentName))).Click();
+            IWebElement Delete = WebDriverUtil.GetWebElement(DEPARTMENT_DELETE_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (Delete == null)
+            {
+                BaseClass._AttachScreenshot.Value = true;
+            }
+        }
+        public static void VerifyExportOptionIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing DepartmentPage.VerifyExportOptionIsNotPresent");
+            IWebElement export = WebDriverUtil.GetWebElement(EXPORT_BUTTON, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (export == null)
+            {
+                BaseClass._AttachScreenshot.Value = true;
+            }
+
+        }
+        public static void DeleteDepartmentIfExist(string departmentName)
         {
 
             LogWriter.WriteLog("Executing DepartmentPage.DeleteDepartmentifExist");
-            IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(DEPARTMENT_RECORD, DepartmentName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(DEPARTMENT_RECORD, departmentName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record != null)
             {
-                DeleteCreatedDepartment(DepartmentName);
+                DeleteCreatedDepartment(departmentName);
             }
 
 
@@ -67,14 +99,14 @@ namespace LaborPro.Automation.Features.Department
             }
 
         }
-        public static void DeleteCreatedDepartment(string DepartmentName)
+        public static void DeleteCreatedDepartment(string departmentName)
         {
             LogWriter.WriteLog("Executing DepartmentPage.DeleteCreatedDepartment");
             CloseDepartmentDetailSideBar();
-            WebDriverUtil.GetWebElement(String.Format(DEPARTMENT_RECORD, DepartmentName), WebDriverUtil.NO_WAIT,
-            String.Format("Unable to locate Department record on Departments page - {0}", String.Format(DEPARTMENT_RECORD, DepartmentName))).Click();
-            WebDriverUtil.GetWebElement(String.Format(DEPARTMENT_DELETE_BUTTON, DepartmentName), WebDriverUtil.NO_WAIT,
-            String.Format("Unable to locate Department delete button on Department details - {0}", String.Format(DEPARTMENT_DELETE_BUTTON, DepartmentName))).Click();
+            WebDriverUtil.GetWebElement(String.Format(DEPARTMENT_RECORD, departmentName), WebDriverUtil.NO_WAIT,
+            String.Format("Unable to locate Department record on Departments page - {0}", String.Format(DEPARTMENT_RECORD, departmentName))).Click();
+            WebDriverUtil.GetWebElement(String.Format(DEPARTMENT_DELETE_BUTTON, departmentName), WebDriverUtil.NO_WAIT,
+            String.Format("Unable to locate Department delete button on Department details - {0}", String.Format(DEPARTMENT_DELETE_BUTTON, departmentName))).Click();
 
             WebDriverUtil.GetWebElement(DEPARTMENT_DELETE_CONFIRM_POPUP_ACCEPT, WebDriverUtil.TWO_SECOND_WAIT,
                 String.Format("Unable to locate Confirm button on delete confirmation popup - {0}", DEPARTMENT_DELETE_CONFIRM_POPUP_ACCEPT)).Click();
@@ -90,11 +122,11 @@ namespace LaborPro.Automation.Features.Department
                 throw new Exception(string.Format("Unable to delete department Error - {0}", alert.Text));
             }
         }
-        public static void VerifyCreatedDepartment(string DepartmentName)
+        public static void VerifyCreatedDepartment(string departmentName)
         {
             LogWriter.WriteLog("Executing DepartmentPage.VerifyCreatedDepartment");
-            WebDriverUtil.GetWebElement(String.Format(DEPARTMENT_RECORD, DepartmentName), WebDriverUtil.ONE_SECOND_WAIT,
-            String.Format("Unable to locate record Departments page - {0}", String.Format(DEPARTMENT_RECORD, DepartmentName)));
+            WebDriverUtil.GetWebElement(String.Format(DEPARTMENT_RECORD, departmentName), WebDriverUtil.ONE_SECOND_WAIT,
+            String.Format("Unable to locate record Departments page - {0}", String.Format(DEPARTMENT_RECORD, departmentName)));
             BaseClass._AttachScreenshot.Value = true;
         }
         public static void AddNewDepartmentWithGivenInput(Table inputData)
