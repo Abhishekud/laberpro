@@ -1,0 +1,91 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="constants\**" />
+    <Compile Remove="dataproviders\**" />
+    <Compile Remove="exception\**" />
+    <Compile Remove="listeners\**" />
+    <Compile Remove="models\**" />
+    <Compile Remove="reports\**" />
+    <Compile Remove="Support\**" />
+    <EmbeddedResource Remove="constants\**" />
+    <EmbeddedResource Remove="dataproviders\**" />
+    <EmbeddedResource Remove="exception\**" />
+    <EmbeddedResource Remove="listeners\**" />
+    <EmbeddedResource Remove="models\**" />
+    <EmbeddedResource Remove="reports\**" />
+    <EmbeddedResource Remove="Support\**" />
+    <None Remove="constants\**" />
+    <None Remove="dataproviders\**" />
+    <None Remove="exception\**" />
+    <None Remove="listeners\**" />
+    <None Remove="models\**" />
+    <None Remove="reports\**" />
+    <None Remove="Support\**" />
+    <SpecFlowFeatureFiles Remove="constants\**" />
+    <SpecFlowFeatureFiles Remove="dataproviders\**" />
+    <SpecFlowFeatureFiles Remove="exception\**" />
+    <SpecFlowFeatureFiles Remove="listeners\**" />
+    <SpecFlowFeatureFiles Remove="models\**" />
+    <SpecFlowFeatureFiles Remove="reports\**" />
+    <SpecFlowFeatureFiles Remove="Support\**" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="constants\**" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="dataproviders\**" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="exception\**" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="listeners\**" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="models\**" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="reports\**" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="Support\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SpecFlowObsoleteCodeBehindFiles Remove="Features\Department\Department - Copy.feature.cs" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="Features\VolumeDriver\VolumeDriver - Copy.feature.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ExtentReports" Version="4.1.0" />
+    <PackageReference Include="ExtentReports.Core" Version="1.0.3" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
+    <PackageReference Include="Selenium.Support" Version="4.1.0" />
+    <PackageReference Include="Selenium.WebDriver" Version="4.1.0" />
+    <PackageReference Include="SeleniumExtras.WaitHelpers" Version="1.0.2" />
+    <PackageReference Include="SpecFlow.Assist.Dynamic" Version="1.4.2" />
+    <PackageReference Include="SpecFlow.Plus.LivingDocPlugin" Version="3.9.57" />
+    <PackageReference Include="SpecFlow.NUnit" Version="3.9.40" />
+    <PackageReference Include="nunit" Version="3.13.2" />
+    <PackageReference Include="FluentAssertions" Version="6.2.0" />
+    <PackageReference Include="SpreadsheetLight" Version="3.5.0" />
+    <PackageReference Include="WebDriverManager" Version="2.12.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="resources\" />
+    <Folder Include="resources\test-data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Features\locations.feature.cs">
+      <DependentUpon>locations.feature</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <SpecFlowFeatureFiles Update="Features\Department\Department_ViewOnly.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
+    <SpecFlowFeatureFiles Update="Features\VolumeDriver\VolumeDriver_ViewOnly.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
+  </ItemGroup>
+
+</Project>
