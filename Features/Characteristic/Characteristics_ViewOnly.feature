@@ -25,7 +25,7 @@ Feature: Verify Characteristic_ViewOnly Module
       | Name | Characteristic | 
      Then User verify created Characteristic by name "Characteristic"
      When User navigates to the Characteristic tab
-     Then User select the Department "Department to verify Characteristic_ViewOnly"
+     Then User select the Department "Department to verify Characteristic"
      Then User click on Characteristic set
      When User create new Characteristic with below input 
       | Key  | Value                   | 
