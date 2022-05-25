@@ -204,7 +204,7 @@ namespace laborpro.Features.Characteristic
      testRunner.When("User navigates to the Characteristic tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 28
-     testRunner.Then("User select the Department \"Department to verify Characteristic\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+     testRunner.Then("User select the Department \"Department to verify Characteristic_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 29
      testRunner.Then("User click on Characteristic set", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

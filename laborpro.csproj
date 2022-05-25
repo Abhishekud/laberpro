@@ -45,6 +45,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <SpecFlowObsoleteCodeBehindFiles Remove="Features\Classifications_ViewOnly\Characteristics_ViewOnly.feature.cs" />
     <SpecFlowObsoleteCodeBehindFiles Remove="Features\Department\Department - Copy.feature.cs" />
     <SpecFlowObsoleteCodeBehindFiles Remove="Features\VolumeDriver\VolumeDriver - Copy.feature.cs" />
   </ItemGroup>
@@ -72,12 +73,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Features\Classifications_ViewOnly\Classifications_ViewOnly.feature.cs">
+      <DependentUpon>Classifications_ViewOnly.feature</DependentUpon>
+    </Compile>
     <Compile Update="Features\locations.feature.cs">
       <DependentUpon>locations.feature</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
+    <SpecFlowFeatureFiles Update="Features\Classifications_ViewOnly\Classifications_ViewOnly.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
     <SpecFlowFeatureFiles Update="Features\Department\Department_ViewOnly.feature">
       <Visible>$(UsingMicrosoftNETSdk)</Visible>
       <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>

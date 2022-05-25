@@ -167,14 +167,14 @@ namespace laborpro.Features.Department
 #line 15
      testRunner.Then("User delete Department \"Department to verify Department_ViewOnly\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table33 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table34 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table33.AddRow(new string[] {
+                table34.AddRow(new string[] {
                             "Name",
                             "Department to verify Department_ViewOnly"});
 #line 16
-     testRunner.When("User create new Department with below input", ((string)(null)), table33, "When ");
+     testRunner.When("User create new Department with below input", ((string)(null)), table34, "When ");
 #line hidden
 #line 19
      testRunner.And("User verify created Department \"Department to verify Department_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
