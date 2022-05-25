@@ -21,8 +21,6 @@ Feature: Verify Classifications_ViewOnly Module
    Given User navigates to the Classifications tab
    And User verify Add Button is not accessible
   
- 
-  
   @Smoke
   Scenario: 03. Verify_that_Delete_buttons_are_not_available_when_clicked_on_any_record_Also_Classifications_details_must_not_be_editable 
    Given User navigates to the Classifications tab
