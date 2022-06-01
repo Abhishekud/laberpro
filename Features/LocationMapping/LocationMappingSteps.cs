@@ -21,7 +21,7 @@ namespace LaborPro.Automation.Features.LocationMapping
         [Then(@"User click on LocationMapping")]
         public void UserClickOnVolumeDriver()
         {
-            LogWriter.WriteLog("Executing VolumeDriversPage UserClickOnVolumeDriver ");
+            LogWriter.WriteLog("Executing Step User User click on LocationMapping");
             LocationMappingPage.ClickOnLocationMappingTab();
         }
 
@@ -30,7 +30,8 @@ namespace LaborPro.Automation.Features.LocationMapping
         [Then(@"User Maps created Department and location with ""(.*)"" and ""(.*)""")]
         public void ThenUserMapsCreatedDepartmentAndLocation(string location, string department)
         {
-            LocationMappingPage.MapsCreatedDepartmentandlocation(location, department);
+            LogWriter.WriteLog("Executing Step User Maps created Department and location");
+            LocationMappingPage.MapsCreatedDepartmentAndLocation(location, department);
         }
 
         [Given(@"User create new LocationMapping with below input")]
@@ -38,7 +39,7 @@ namespace LaborPro.Automation.Features.LocationMapping
         [Then(@"User create new LocationMapping with below input")]
         public void AddNewLocationMappingWithGivenInput(Table inputData)
         {
-            LogWriter.WriteLog("Executing User create new LocationMapping with below input " + inputData);
+            LogWriter.WriteLog("Executing Step User create new LocationMapping with below input " + inputData);
             LocationMappingPage.AddNewLocationMappingWithGivenInput(inputData);
         }
 

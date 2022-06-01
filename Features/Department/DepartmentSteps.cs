@@ -14,7 +14,7 @@ namespace LaborPro.Automation.Features.Department
         {
             LogWriter.WriteLog("Executing Step: User navigates to the List Management tab  ");
             DepartmentsPage.CloseDepartmentForm();
-            DepartmentsPage.ClickOnStandardTab(); ;
+            DepartmentsPage.ClickOnStandardTab(); 
             DepartmentsPage.ClickOnListManagementTab();
             AllowancePage.WaitForAllowanceAlertCloseIfAny();
         }
@@ -51,7 +51,7 @@ namespace LaborPro.Automation.Features.Department
         [Then(@"User clicks cancel Button")]
         public void UserClickCancelButton()
         {
-            LogWriter.WriteLog("Exceuting Step User clicks cancel button");
+            LogWriter.WriteLog("Executing Step User clicks cancel button");
             DepartmentsPage.CloseDepartmentForm();
         }
 

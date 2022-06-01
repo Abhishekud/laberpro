@@ -1,7 +1,7 @@
-﻿  @laborPro @Regression @VolumeDriver_ViewOnly
+﻿@laborPro @Regression @VolumeDriver_ViewOnly
 Feature: Verify VolumeDriver_ViewOnly Module
 
-@Setup @Smoke
+@Setup 
   Scenario: 01. Launch Browser and Login to the Application
     Given User launched "$browser"
     When User go to application "$url"
@@ -19,7 +19,7 @@ Feature: Verify VolumeDriver_ViewOnly Module
     Then User delete VolumeDriver "VolumeDriver via VolumeDriver_ViewOnly" if exist
     When User create new VolumeDriver with below input
       | Key        | Value                                      | 
-      | Name       | VolumeDriver via VolumeDriver_ViewOnly                | 
+      | Name       | VolumeDriver via VolumeDriver_ViewOnly     | 
       | Department | Department to verify VolumeDriver_ViewOnly | 
     Then User verify created VolumeDriver by name "VolumeDriver via VolumeDriver_ViewOnly"
     When User logout from the application
@@ -27,12 +27,12 @@ Feature: Verify VolumeDriver_ViewOnly Module
     And User navigates to the VolumeDriver tab
     Then User verify add button is not present
   
-  @Smoke
+  
   Scenario: 03. Verify_that_export_options_are_not_available_for_the_User 
     Given User navigates to the VolumeDriver tab
     And User verify Export option is not present
   
-  @Smoke
+  
   Scenario: 04. Verify_that_Delete_buttons_are_not_available_when_clicked_on_any_record_Also_VolumeDriver_details_must_not_be_editable 
     Given User navigates to the VolumeDriver tab
     And User verify Delete button is not present "VolumeDriver via VolumeDriver_ViewOnly"
@@ -43,7 +43,7 @@ Feature: Verify VolumeDriver_ViewOnly Module
     Then User selects Department
     And User delete created Department "Department to verify VolumeDriver_ViewOnly"
   
-  @Cleanup @Smoke
+  @Cleanup 
   Scenario: 05. Logout and Close Browser
     When User logout from the application
     Then User close browser

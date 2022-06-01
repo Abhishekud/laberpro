@@ -1,14 +1,13 @@
- @laborPro @Regression @Characteristic_ViewOnly
+@laborPro @Regression @Characteristic_ViewOnly
 Feature: Verify Characteristic_ViewOnly Module
 
-@Setup @Smoke
+@Setup
   Scenario: 01. Launch Browser and Login to the Application
     Given User launched "$browser"
      When User go to application "$url"
      Then User enter email: "$username_2" and password: "$password_2"
       And Verify Login message: "success"
   
-  @Smoke
   Scenario: 02. Verify_that_User_should_not_have_access_for_Add_button_in_Characteristic
     Given User navigates to the List Management tab
      Then  User selects Department
@@ -43,7 +42,6 @@ Feature: Verify Characteristic_ViewOnly Module
      Then User select the Department "Department to verify Characteristic_ViewOnly"
       And User verify Export option is Present  
   
-  @Smoke
   Scenario: 04. Verify_that_Delete_buttons_are_not_available_when_clicked_on_any_record_Also_Characteristic_details_must_not_be_editable 
     Given User navigates to the Characteristic tab
      Then User select the Department "Department to verify Characteristic_ViewOnly"
@@ -62,7 +60,7 @@ Feature: Verify Characteristic_ViewOnly Module
      When User selects Department
      Then User delete created Department "Department to verify Characteristic_ViewOnly" 
   
-  @Cleanup @Smoke
+  @Cleanup
   Scenario: 06. Logout and Close Browser
      When User logout from the application
      Then User close browser

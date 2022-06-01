@@ -129,11 +129,12 @@ namespace LaborPro.Automation.Features.LocationMapping
             BaseClass._AttachScreenshot.Value = true;
 
         }
-        public static void MapsCreatedDepartmentandlocation(string location, string department)
+        public static void MapsCreatedDepartmentAndLocation(string location, string department)
         {
             LogWriter.WriteLog("Executing LocationMappingPage.MapscreatedDepartmentandlocation");
             CloseLocationMappingDetailSideBar();
             IList<IWebElement> headers = SeleniumDriver.Driver().FindElements(By.XPath(HEADER));
+            Boolean found = false;
             int index = 0;
             foreach (IWebElement header in headers)
             {
@@ -141,14 +142,15 @@ namespace LaborPro.Automation.Features.LocationMapping
                 string headerData = header.GetAttribute("innerHTML");
                 if (headerData.Contains(department))
                 {
-
+                    found = true;
                     WebDriverUtil.GetWebElement(String.Format(LOCATIONMAPPINGRECORD_MAPPING, location, index), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE).Click();
                     break;
 
                 }
 
             }
-
+            if (!found)
+                throw new Exception(string.Format("No department found - {0} but we expect it should be display!", department));
         }
         public static void SelectTheLocation(string locationName)
         {

@@ -40,7 +40,7 @@ namespace LaborPro.Automation.Features.Standards
         [Then(@"User Delete created Standards")]
         public void DeleteCreatedStandard()
         {
-            LogWriter.WriteLog("Executing Standard: User Delete created Standards");
+            LogWriter.WriteLog("Executing Step Standard: User Delete created Standards");
             StandardsPage.DeleteCreatedStandard();
         }
 
@@ -49,7 +49,7 @@ namespace LaborPro.Automation.Features.Standards
         [Then(@"User clicks New Standard Element")]
         public void ClickNewStandardElement()
         {
-            LogWriter.WriteLog("Executing User clicks New Standard Element");
+            LogWriter.WriteLog("Executing Step User clicks New Standard Element");
             StandardsPage.NewStandardElement();
         }
 
@@ -58,7 +58,7 @@ namespace LaborPro.Automation.Features.Standards
         [Then(@"User Verify standard element popup by name ""([^""]*)""")]
         public void StandardElementPopup(string standardelementText)
         {
-            LogWriter.WriteLog("Executing User Verify standard element popup by name " + standardelementText);
+            LogWriter.WriteLog("Executing Step User Verify standard element popup by name " + standardelementText);
             StandardsPage.VerifyNewStandardElementPopup(standardelementText);
         }
 
@@ -67,7 +67,7 @@ namespace LaborPro.Automation.Features.Standards
         [Then(@"User Selects Standard Element type ""([^""]*)""")]
         public void SelectElementType(string elementType)
         {
-            LogWriter.WriteLog("Executing User Selects Element type " + elementType);
+            LogWriter.WriteLog("Executing Step User Selects Element type " + elementType);
             StandardsPage.SelectElementType(elementType);    
         }
 
@@ -76,7 +76,7 @@ namespace LaborPro.Automation.Features.Standards
         [Then(@"User selects standard by name ""([^""]*)""")]
         public void SelectCreatedStandard(string standaradByName)
         {
-            LogWriter.WriteLog("Executing User selects created standard by name" + standaradByName);
+            LogWriter.WriteLog("Executing Step User selects created standard by name" + standaradByName);
             StandardsPage.SelectStandarad(standaradByName);
 
         }
@@ -86,7 +86,7 @@ namespace LaborPro.Automation.Features.Standards
         [Then(@"User adds new Standard Element Using Below input")]
         public void AddNewStandardElement(Table inputData)
         {
-            LogWriter.WriteLog("Executing User adds new Standard Element Using Below input " + inputData);
+            LogWriter.WriteLog("Executing Step User adds new Standard Element Using Below input " + inputData);
             StandardsPage.AddStandardElementWithGivenInput(inputData);
         }
 
@@ -95,7 +95,7 @@ namespace LaborPro.Automation.Features.Standards
         [Then(@"User verify standard element by name ""([^""]*)""")]
         public void VerifyStandardElement(string standardElement)
         {
-            LogWriter.WriteLog("Executing User verify standard element by name" + standardElement);
+            LogWriter.WriteLog("Executing Step User verify standard element by name" + standardElement);
             StandardsPage.VerifyCreatedStandardElement(standardElement);
         }
 
@@ -104,21 +104,21 @@ namespace LaborPro.Automation.Features.Standards
         [Then(@"User delete standard element")]
         public void DeleteStandardElement()
         {
-            LogWriter.WriteLog("Executing User delete standard element ");
+            LogWriter.WriteLog("Executing Step User delete standard element ");
             StandardsPage.DeleteStandardElement();
         }
 
         [Then(@"User delete UOM by name ""([^""]*)""")]
         public void DeleteUnitOfMeasureByName(string uom)
         {
-            LogWriter.WriteLog("Executing User delete UOM by name" + uom);
+            LogWriter.WriteLog("Executing Step User delete UOM by name" + uom);
             UnitsOfMeasurePage.DeleteUnitOfMeasureByName(uom);
         }
 
         [When(@"User search standard by name ""([^""]*)""")]
         public void Searchstandard(string standardName)
         {
-            LogWriter.WriteLog("Executing User search standard by name" + standardName);
+            LogWriter.WriteLog("Executing Step User search standard by name" + standardName);
             StandardsPage.ClearAllFilter();
             StandardsPage.SearchStandard(standardName);
         }
@@ -126,15 +126,15 @@ namespace LaborPro.Automation.Features.Standards
         [Then(@"User Verify Frequency is empty")]
         public void VerifyFrequencyInStandardElement()
         {
-            LogWriter.WriteLog("Executing User Verify Frequency is empty");
+            LogWriter.WriteLog("Executing Step User Verify Frequency is empty");
             StandardsPage.VerifyFrequencyIsEmpty();
         }
 
         [Then(@"User Verify Unit Of measure in DropDown ""([^""]*)""")]
-        public void VerifyUOMInDropDown(string UOM)
+        public void VerifyUomInDropDown(string uom)
         {
-            LogWriter.WriteLog("Executing User Verify Unit Of measure in DropDown" + UOM);
-            StandardsPage.VerifyUomInDropDown(UOM);
+            LogWriter.WriteLog("Executing Step User Verify Unit Of measure in DropDown" + uom);
+            StandardsPage.VerifyUomInDropDown(uom);
         }
 
         [Given(@"User delete Standard ""([^""]*)"" if exist")]
