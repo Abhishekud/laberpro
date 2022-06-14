@@ -5,7 +5,7 @@ Feature: Verify TaskGroups_ViewOnly Module
   Scenario: 01. Launch Browser and Login to the Application and perform prerequisites
     Given User launched "$browser"
     When User go to application "$url"
-    Then User enter email: "$username_5" and password: "$password_5"
+    Then User enter email: "$username_1" and password: "$password_1"
     And Verify Login message: "success"
     When User navigates to the TaskGroups tab 
     Then User create new TaskGroups with below input if not exist
@@ -35,7 +35,7 @@ Feature: Verify TaskGroups_ViewOnly Module
   @Cleanup  
   Scenario: 05. Logout and Close Browser
     Given User logout from the application
-    When User enter email: "$username_5" and password: "$password_5"
+    When User enter email: "$username_1" and password: "$password_1"
     Then User navigates to the TaskGroups tab
     And User delete TaskGroups "TaskGroups created via automation" if exist
     When User logout from the application
