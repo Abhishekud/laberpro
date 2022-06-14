@@ -2,16 +2,16 @@
 using LaborPro.Automation.shared.hooks;
 using LaborPro.Automation.shared.util;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+ 
 
 namespace LaborPro.Automation.Features.Attribute
 {
     public class AttributePage
     {
+        public static string WorkingDirectory = Environment.CurrentDirectory;
+        public static string ProjectDirectory = Directory.GetParent(WorkingDirectory).Parent.Parent.FullName;
+        public static string AttributeImportTemplateCsv = @"\downloads\Attributes-import-template.csv";
+        public static string LocationAttributeImportTemplateXlsx = @"\downloads\All-location-attributes-import-template.xlsx";
         const string PROFILING_COLLAPSED_TAB = "//li[contains(@class,'collapsed')]//span[contains(text(),'Profiling')]";
         const string ATTRIBUTE_TAB = "//a[@href='/attributes']";
         const string ATTRIBUTE_PAGE = "//*[@class='page-title' and text()='Attributes']";
@@ -34,10 +34,17 @@ namespace LaborPro.Automation.Features.Attribute
         const string TABLE_HEADER = "//th";
         const string ATTRIBUTE_HEADER = "//span[contains(text(),'{0}')]";
         const string ELEMENT_ALERT = "//*[@class='form-group has-error']";
+        const string EXPORT_ICON = "//*[@class='page-header']//*[@id='export']";
+        const string EXPORT_ATTRIBUTE_ICON = "//*[@class='header-button dropdown open btn-group']//*[@aria-labelledby='export']//*[text()='Export Attributes']";
+        const string DOWNLOAD_ATTRIBUTE_IMPORT_TEMPLATE_ICON = "//*[@class='header-button dropdown open btn-group']//*[@aria-labelledby='export']//*[text()='Download Attribute Import Template']";
+        const string DOWNLOAD_LOCATION_ATTRIBUTE_IMPORT_TEMPLATE_ICON = "//*[@class='header-button dropdown open btn-group']//*[@aria-labelledby='export']//a";
+        const string EXPORT_ATTRIBUTE_DAILOGBOX = "//*[@class='modal-content']//*[text()='Export Attributes']";
+       
+
 
         public static void ClickOnProfilingTab()
         {
-            LogWriter.WriteLog("Executing AttributePage.ClickonProfilingtab");
+            LogWriter.WriteLog("Executing AttributePage.ClickOnProfilingTab");
             IWebElement profilingTab = WebDriverUtil.GetWebElement(PROFILING_COLLAPSED_TAB, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (profilingTab != null)
             {
@@ -50,10 +57,10 @@ namespace LaborPro.Automation.Features.Attribute
         {
             LogWriter.WriteLog("Executing AttributePage.DeleteattributeifExist");
             IList<IWebElement> headers = SeleniumDriver.Driver().FindElements(By.XPath(TABLE_HEADER));
-            int index = 0;
+             
             foreach (IWebElement header in headers)
             {
-                index++;
+                 
                 string headerData = header.GetAttribute("innerHTML");
                 if (headerData.Contains(attributeName))
                 {
@@ -75,14 +82,14 @@ namespace LaborPro.Automation.Features.Attribute
         public static void ClickOnAddAttribute()
         {
             LogWriter.WriteLog("Executing AttributePage.ClickOnAddAttribute");
-            IWebElement AddAttribute = WebDriverUtil.GetWebElement(ADD_ATTRIBUTE_BUTTON, WebDriverUtil.NO_WAIT,
+            IWebElement addAttribute = WebDriverUtil.GetWebElement(ADD_ATTRIBUTE_BUTTON, WebDriverUtil.NO_WAIT,
                 String.Format("Unable to Locate Add Attribute Button - {0}", ADD_ATTRIBUTE_BUTTON));
-            IWebElement NewAttribute = WebDriverUtil.GetWebElement(NEW_ATTRIBUTE_BUTTON, WebDriverUtil.NO_WAIT,
+            IWebElement newAttribute = WebDriverUtil.GetWebElement(NEW_ATTRIBUTE_BUTTON, WebDriverUtil.NO_WAIT,
                 String.Format("Unable to locate the New Attribute Button - {0}", NEW_ATTRIBUTE_BUTTON));
-            if (AddAttribute != null || NewAttribute != null)
+            if (addAttribute != null || newAttribute != null)
             {
-                AddAttribute.Click();
-                NewAttribute.Click();
+                addAttribute.Click();
+                newAttribute.Click();
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
 
             }
@@ -142,21 +149,21 @@ namespace LaborPro.Automation.Features.Attribute
         { 
             LogWriter.WriteLog("Executing AttributePage.VerifyCreatedAttribute");
             IList<IWebElement> headers = SeleniumDriver.Driver().FindElements(By.XPath(TABLE_HEADER));
-            int index = 0;
+            Boolean found = false;
             foreach (IWebElement header in headers)
             {
-                index++;
                 string headerData = header.GetAttribute("innerHTML");
                 if (headerData.Contains(attributeName))
                 {
-
+                    found = true;
                     WebDriverUtil.GetWebElementAndScroll(String.Format(ATTRIBUTE_HEADER, attributeName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
                     BaseClass._AttachScreenshot.Value = true;
                     break;
 
                 }
-
             }
+            if(!found)
+                throw new Exception(string.Format("No attribute found - {0} but we expect it should be display!", attributeName));
         }
         public static void VerifyAddAttributeErrorMessage(string message)
         {
@@ -227,5 +234,137 @@ namespace LaborPro.Automation.Features.Attribute
             BaseClass._AttachScreenshot.Value = true;
             CloseAttributeForm();
         }
+        public static void VerifyAddButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing AttributePage.VerifyAddButtonIsNotPresent");
+            IWebElement addAttribute = WebDriverUtil.GetWebElement(ADD_ATTRIBUTE_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (addAttribute != null)
+                throw new Exception("Add Button is present but it is not suppose to be present as current user is logged in from viewonly mode user! ");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifyClickOnExportIcon()
+        {
+            LogWriter.WriteLog("Executing AttributePage.VerifyClickOnExportIcon");
+            if (WebDriverUtil.GetWebElement(ATTRIBUTE_PAGE, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
+            {
+                IWebElement exportIcon = WebDriverUtil.GetWebElement(EXPORT_ICON, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                if (exportIcon != null)
+                {
+                    exportIcon.Click();
+                    BaseClass._AttachScreenshot.Value = true;
+
+                }
+                else
+                {
+                    throw new Exception("Export button is missing in attribute but we expect it to be present!");
+                }
+
+            }
+        }
+        public static void ClickOnExportIcon()
+        {
+            LogWriter.WriteLog("AttributePage.ClickOnExportIcon");
+            if(WebDriverUtil.GetWebElement(ATTRIBUTE_PAGE, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
+            {
+                IWebElement exportIcon = WebDriverUtil.GetWebElement(EXPORT_ICON, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                if(exportIcon != null)
+                exportIcon.Click();
+                else
+                    throw new Exception("Export button is missing in attribute but we expect it to be present!");      
+            }
+            
+        }
+        public static void ClickOnExportAttributeIcon()
+        {
+            LogWriter.WriteLog("AttributePage.ClickOnExportAttributeIcon");
+            if (WebDriverUtil.GetWebElement(ATTRIBUTE_PAGE, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
+            {
+                IWebElement exportAttributeIcon = WebDriverUtil.GetWebElement(EXPORT_ATTRIBUTE_ICON, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                if (exportAttributeIcon != null)
+                    exportAttributeIcon.Click();
+                else
+                    throw new Exception("Export Attributte Icon is not found!");
+            }
+        }
+        public static void VerifyEditButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("AttributePage.VerifyEditButton");
+            if (WebDriverUtil.GetWebElement(ATTRIBUTE_PAGE, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
+            {
+                WebDriverUtil.GetWebElement(CHECK_ATTRIBUTE_OF_RESPECTIVE_DEPARTMENT,
+               WebDriverUtil.NO_WAIT, String.Format("Unable to locate the check attribute of respective department- {0}", CHECK_ATTRIBUTE_OF_RESPECTIVE_DEPARTMENT)).Click();
+                IWebElement editButton = WebDriverUtil.GetWebElement(EDIT_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                if (editButton != null)
+                    throw new Exception("Edit Button is found! but we are not suppose to get it as logged in from view only user access");
+                BaseClass._AttachScreenshot.Value = true;
+            }
+        }
+        public static void ClickOnDownloadAttributeImportTemplate()
+        {
+            LogWriter.WriteLog("AttributePage.ClickOnDownloadAttributeImporttemplate");
+            if (WebDriverUtil.GetWebElement(ATTRIBUTE_PAGE, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
+            {
+                IWebElement downloadAttributeImportTemplate = WebDriverUtil.GetWebElement(DOWNLOAD_ATTRIBUTE_IMPORT_TEMPLATE_ICON, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                if (downloadAttributeImportTemplate != null) 
+                {
+                    downloadAttributeImportTemplate.Click();
+                    WebDriverUtil.WaitForAWhile();
+                    if (File.Exists(AttributeImportTemplateCsv))
+                        WebDriverUtil.WaitFor(WebDriverUtil.SIXTY_SECOND_WAIT);
+                }
+                else
+                    throw new Exception("Download Attribute Import Template Icon is not found!");
+            }
+        }
+        public static bool VerifyFileDownloadInAttribute(string fileName)
+        {
+            LogWriter.WriteLog("Executing AttributePage.VerifyFileDownloadInAttribute");
+            bool exist = false;
+            String[] filepaths = Directory.GetFiles(SeleniumDriver.DownloadDirectory);
+            foreach (string p in filepaths)
+            {
+                if (p.Contains(fileName))
+                {
+                    FileInfo thisFile = new FileInfo(p);
+                    if (thisFile.LastWriteTime.ToShortTimeString() == DateTime.Now.ToShortTimeString() ||
+                    thisFile.LastWriteTime.AddMinutes(1).ToShortTimeString() == DateTime.Now.ToShortTimeString() ||
+                    thisFile.LastWriteTime.AddMinutes(2).ToShortTimeString() == DateTime.Now.ToShortTimeString() ||
+                    thisFile.LastWriteTime.AddMinutes(3).ToShortTimeString() == DateTime.Now.ToShortTimeString())
+                    exist = true;
+                    break;
+                }
+            }
+
+            return exist;
+
+        }
+        public static void VerifyExportAttributeDailogBox()
+        {
+            LogWriter.WriteLog("Executing AttributePage.VerifyExportAttributeDailogBox");
+            IWebElement exportAttributeDialogBox = WebDriverUtil.GetWebElement(EXPORT_ATTRIBUTE_DAILOGBOX, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (exportAttributeDialogBox == null)
+                throw new Exception("Export Attribute Dialog Box is not found!");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void ClickOnDownloadLocationAttributeImportTemplate()
+        {
+            LogWriter.WriteLog("AttributePage.ClickOnDownloadLocationAttributeImporttemplate");
+            if (WebDriverUtil.GetWebElement(ATTRIBUTE_PAGE, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
+            {
+                IWebElement downloadLocationAttributeImportTemplate = WebDriverUtil.GetWebElement(DOWNLOAD_LOCATION_ATTRIBUTE_IMPORT_TEMPLATE_ICON, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                if (downloadLocationAttributeImportTemplate != null)
+                {
+                    downloadLocationAttributeImportTemplate.Click();
+                    WebDriverUtil.WaitForAWhile();
+                    if (File.Exists(LocationAttributeImportTemplateXlsx))
+                        WebDriverUtil.WaitFor(WebDriverUtil.SIXTY_SECOND_WAIT);
+                }
+                else
+                    throw new Exception("Download Location Attribute Import Template Icon is not found!");
+            }
+        }
+
+
+
     }
 }

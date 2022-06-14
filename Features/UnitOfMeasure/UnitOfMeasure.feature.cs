@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace laborpro.Features.UnitOfMeasure
+namespace LaborPro.Automation.Features.UnitOfMeasure
 {
     using TechTalk.SpecFlow;
     using System;
@@ -29,7 +29,7 @@ namespace laborpro.Features.UnitOfMeasure
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-        private string[] _featureTags = new string[] {
+        private static string[] featureTags = new string[] {
                 "Laberpro",
                 "Regression",
                 "UnitsOfMeasure"};
@@ -41,10 +41,7 @@ namespace laborpro.Features.UnitOfMeasure
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/UnitOfMeasure", "Verify UnitOfMeasure Module", "A short summary of the feature", ProgrammingLanguage.CSharp, new string[] {
-                        "Laberpro",
-                        "Regression",
-                        "UnitsOfMeasure"});
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/UnitOfMeasure", "Verify UnitOfMeasure Module", "A short summary of the feature", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -56,28 +53,28 @@ namespace laborpro.Features.UnitOfMeasure
         }
         
         [NUnit.Framework.SetUpAttribute()]
-        public virtual void TestInitialize()
+        public void TestInitialize()
         {
         }
         
         [NUnit.Framework.TearDownAttribute()]
-        public virtual void TestTearDown()
+        public void TestTearDown()
         {
             testRunner.OnScenarioEnd();
         }
         
-        public virtual void ScenarioInitialize(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
+        public void ScenarioInitialize(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioInitialize(scenarioInfo);
             testRunner.ScenarioContext.ScenarioContainer.RegisterInstanceAs<NUnit.Framework.TestContext>(NUnit.Framework.TestContext.CurrentContext);
         }
         
-        public virtual void ScenarioStart()
+        public void ScenarioStart()
         {
             testRunner.OnScenarioStart();
         }
         
-        public virtual void ScenarioCleanup()
+        public void ScenarioCleanup()
         {
             testRunner.CollectScenarioErrors();
         }
@@ -86,27 +83,17 @@ namespace laborpro.Features.UnitOfMeasure
         [NUnit.Framework.DescriptionAttribute("01. Launch Browser and Login to the Application")]
         [NUnit.Framework.CategoryAttribute("Setup")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _01_LaunchBrowserAndLoginToTheApplication()
+        public void _01_LaunchBrowserAndLoginToTheApplication()
         {
             string[] tagsOfScenario = new string[] {
                     "Setup",
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01. Launch Browser and Login to the Application", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01. Launch Browser and Login to the Application", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 6
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -132,26 +119,16 @@ namespace laborpro.Features.UnitOfMeasure
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("02. verify_add_Units_Of_Measure_name_empty_tag")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _02_Verify_Add_Units_Of_Measure_Name_Empty_Tag()
+        public void _02_Verify_Add_Units_Of_Measure_Name_Empty_Tag()
         {
             string[] tagsOfScenario = new string[] {
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02. verify_add_Units_Of_Measure_name_empty_tag", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02. verify_add_Units_Of_Measure_name_empty_tag", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 13
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -164,14 +141,14 @@ namespace laborpro.Features.UnitOfMeasure
 #line 15
     testRunner.When("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table81 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table89 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table81.AddRow(new string[] {
+                table89.AddRow(new string[] {
                             "Name",
                             "Department To verify Units of Measure"});
 #line 16
-    testRunner.Then("User create new Department with below input if not exist", ((string)(null)), table81, "Then ");
+    testRunner.Then("User create new Department with below input if not exist", ((string)(null)), table89, "Then ");
 #line hidden
 #line 19
     testRunner.And("User verify created Department \"Department To verify Units of Measure\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -182,14 +159,14 @@ namespace laborpro.Features.UnitOfMeasure
 #line 22
     testRunner.Then("User Selects Created Department \"Department To verify Units of Measure\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table82 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table90 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table82.AddRow(new string[] {
+                table90.AddRow(new string[] {
                             "Name",
                             ""});
 #line 23
-    testRunner.And("User adds Unit Of Measure using below input", ((string)(null)), table82, "And ");
+    testRunner.And("User adds Unit Of Measure using below input", ((string)(null)), table90, "And ");
 #line hidden
 #line 26
     testRunner.Then("Verify validation Message: \"Name is required\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -204,26 +181,16 @@ namespace laborpro.Features.UnitOfMeasure
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("03. verify_add_Units_Of_Measure_By_adding_correct_record_of_name")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _03_Verify_Add_Units_Of_Measure_By_Adding_Correct_Record_Of_Name()
+        public void _03_Verify_Add_Units_Of_Measure_By_Adding_Correct_Record_Of_Name()
         {
             string[] tagsOfScenario = new string[] {
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03. verify_add_Units_Of_Measure_By_adding_correct_record_of_name", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03. verify_add_Units_Of_Measure_By_adding_correct_record_of_name", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 30
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -242,14 +209,14 @@ namespace laborpro.Features.UnitOfMeasure
 #line 34
     testRunner.Then("User delete UnitOfMeasure \"UOM\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table83 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table91 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table83.AddRow(new string[] {
+                table91.AddRow(new string[] {
                             "Name",
                             "UOM"});
 #line 35
-    testRunner.When("User adds Unit Of Measure using below input", ((string)(null)), table83, "When ");
+    testRunner.When("User adds Unit Of Measure using below input", ((string)(null)), table91, "When ");
 #line hidden
 #line 38
     testRunner.Then("User verify Added Unit of Measure \"UOM\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -264,26 +231,16 @@ namespace laborpro.Features.UnitOfMeasure
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("04. verify_add_units_of_measure_By_selecting_the_respective_Department")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _04_Verify_Add_Units_Of_Measure_By_Selecting_The_Respective_Department()
+        public void _04_Verify_Add_Units_Of_Measure_By_Selecting_The_Respective_Department()
         {
             string[] tagsOfScenario = new string[] {
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04. verify_add_units_of_measure_By_selecting_the_respective_Department", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04. verify_add_units_of_measure_By_selecting_the_respective_Department", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 42
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -309,26 +266,16 @@ namespace laborpro.Features.UnitOfMeasure
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("05. verify_add_Units_Of_Measure_name_already_exists")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _05_Verify_Add_Units_Of_Measure_Name_Already_Exists()
+        public void _05_Verify_Add_Units_Of_Measure_Name_Already_Exists()
         {
             string[] tagsOfScenario = new string[] {
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05. verify_add_Units_Of_Measure_name_already_exists", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05. verify_add_Units_Of_Measure_name_already_exists", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 49
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -347,26 +294,26 @@ namespace laborpro.Features.UnitOfMeasure
 #line 53
        testRunner.Then("User delete UnitOfMeasure \"UOM\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table84 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table92 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table84.AddRow(new string[] {
+                table92.AddRow(new string[] {
                             "Name",
                             "UOM"});
 #line 54
-       testRunner.When("User adds Unit Of Measure using below input", ((string)(null)), table84, "When ");
+       testRunner.When("User adds Unit Of Measure using below input", ((string)(null)), table92, "When ");
 #line hidden
 #line 57
      testRunner.Then("User verify Added Unit of Measure \"UOM\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table85 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table93 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table85.AddRow(new string[] {
+                table93.AddRow(new string[] {
                             "Name",
                             "UOM"});
 #line 58
-     testRunner.When("User adds Unit Of Measure using below input", ((string)(null)), table85, "When ");
+     testRunner.When("User adds Unit Of Measure using below input", ((string)(null)), table93, "When ");
 #line hidden
 #line 62
      testRunner.Then("Verify validation Message: \"Name already exists\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -391,27 +338,17 @@ namespace laborpro.Features.UnitOfMeasure
         [NUnit.Framework.DescriptionAttribute("06. Logout and Close Browser")]
         [NUnit.Framework.CategoryAttribute("Cleanup")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _06_LogoutAndCloseBrowser()
+        public void _06_LogoutAndCloseBrowser()
         {
             string[] tagsOfScenario = new string[] {
                     "Cleanup",
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06. Logout and Close Browser", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06. Logout and Close Browser", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 69
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }

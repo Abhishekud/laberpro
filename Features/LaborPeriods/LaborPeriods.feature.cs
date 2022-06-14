@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace laborpro.Features.LaborPeriods
+namespace LaborPro.Automation.Features.LaborPeriods
 {
     using TechTalk.SpecFlow;
     using System;
@@ -29,7 +29,7 @@ namespace laborpro.Features.LaborPeriods
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-        private string[] _featureTags = new string[] {
+        private static string[] featureTags = new string[] {
                 "LaberPro",
                 "Regression",
                 "LaborPeriods"};
@@ -41,10 +41,7 @@ namespace laborpro.Features.LaborPeriods
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/LaborPeriods", "Verify LaborPeriods Module", "A short summary of the feature", ProgrammingLanguage.CSharp, new string[] {
-                        "LaberPro",
-                        "Regression",
-                        "LaborPeriods"});
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/LaborPeriods", "Verify LaborPeriods Module", "A short summary of the feature", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -56,28 +53,28 @@ namespace laborpro.Features.LaborPeriods
         }
         
         [NUnit.Framework.SetUpAttribute()]
-        public virtual void TestInitialize()
+        public void TestInitialize()
         {
         }
         
         [NUnit.Framework.TearDownAttribute()]
-        public virtual void TestTearDown()
+        public void TestTearDown()
         {
             testRunner.OnScenarioEnd();
         }
         
-        public virtual void ScenarioInitialize(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
+        public void ScenarioInitialize(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioInitialize(scenarioInfo);
             testRunner.ScenarioContext.ScenarioContainer.RegisterInstanceAs<NUnit.Framework.TestContext>(NUnit.Framework.TestContext.CurrentContext);
         }
         
-        public virtual void ScenarioStart()
+        public void ScenarioStart()
         {
             testRunner.OnScenarioStart();
         }
         
-        public virtual void ScenarioCleanup()
+        public void ScenarioCleanup()
         {
             testRunner.CollectScenarioErrors();
         }
@@ -86,27 +83,17 @@ namespace laborpro.Features.LaborPeriods
         [NUnit.Framework.DescriptionAttribute("01. Launch Browser and Login to the Application")]
         [NUnit.Framework.CategoryAttribute("Setup")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _01_LaunchBrowserAndLoginToTheApplication()
+        public void _01_LaunchBrowserAndLoginToTheApplication()
         {
             string[] tagsOfScenario = new string[] {
                     "Setup",
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01. Launch Browser and Login to the Application", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01. Launch Browser and Login to the Application", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 7
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -132,26 +119,16 @@ namespace laborpro.Features.LaborPeriods
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("02. Verify_that_click_on_New_Labor_Period")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _02_Verify_That_Click_On_New_Labor_Period()
+        public void _02_Verify_That_Click_On_New_Labor_Period()
         {
             string[] tagsOfScenario = new string[] {
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02. Verify_that_click_on_New_Labor_Period", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02. Verify_that_click_on_New_Labor_Period", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 14
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -178,27 +155,17 @@ namespace laborpro.Features.LaborPeriods
         [NUnit.Framework.DescriptionAttribute("03. Verify_that_Name_Labor_Period_Type_Traffic_Pattern_Labor_Destribution_are_emp" +
             "ty_and_click_on_Save_button")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _03_Verify_That_Name_Labor_Period_Type_Traffic_Pattern_Labor_Destribution_Are_Empty_And_Click_On_Save_Button()
+        public void _03_Verify_That_Name_Labor_Period_Type_Traffic_Pattern_Labor_Destribution_Are_Empty_And_Click_On_Save_Button()
         {
             string[] tagsOfScenario = new string[] {
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03. Verify_that_Name_Labor_Period_Type_Traffic_Pattern_Labor_Destribution_are_emp" +
-                    "ty_and_click_on_Save_button", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+                    "ty_and_click_on_Save_button", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 21
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -236,26 +203,16 @@ namespace laborpro.Features.LaborPeriods
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("04. Verify_that_if_we_select_Labor_Period_Type_as_Hours_of_Operation")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _04_Verify_That_If_We_Select_Labor_Period_Type_As_Hours_Of_Operation()
+        public void _04_Verify_That_If_We_Select_Labor_Period_Type_As_Hours_Of_Operation()
         {
             string[] tagsOfScenario = new string[] {
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04. Verify_that_if_we_select_Labor_Period_Type_as_Hours_of_Operation", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04. Verify_that_if_we_select_Labor_Period_Type_as_Hours_of_Operation", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 32
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -268,23 +225,23 @@ namespace laborpro.Features.LaborPeriods
 #line 34
     testRunner.When("User selects New LaborPeriod", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table38 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table46 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table38.AddRow(new string[] {
+                table46.AddRow(new string[] {
                             "Name",
                             ""});
-                table38.AddRow(new string[] {
+                table46.AddRow(new string[] {
                             "LaborPeriodType",
                             "Hours of Operation"});
-                table38.AddRow(new string[] {
+                table46.AddRow(new string[] {
                             "TrafficPattern",
                             ""});
-                table38.AddRow(new string[] {
+                table46.AddRow(new string[] {
                             "LaborDistribution",
                             ""});
 #line 35
-    testRunner.And("User Add New LaborPeriod Using Below Input", ((string)(null)), table38, "And ");
+    testRunner.And("User Add New LaborPeriod Using Below Input", ((string)(null)), table46, "And ");
 #line hidden
 #line 41
     testRunner.Then("User Verify HouseOfOperation by name \"Hours of Operation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -300,27 +257,17 @@ namespace laborpro.Features.LaborPeriods
         [NUnit.Framework.DescriptionAttribute("05. Verify_that_if_we_select_Labor_Period_Type_as_Hours_of_Operation_and_without_" +
             "selection_any_value_for_Day_click_on_Save_Button")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _05_Verify_That_If_We_Select_Labor_Period_Type_As_Hours_Of_Operation_And_Without_Selection_Any_Value_For_Day_Click_On_Save_Button()
+        public void _05_Verify_That_If_We_Select_Labor_Period_Type_As_Hours_Of_Operation_And_Without_Selection_Any_Value_For_Day_Click_On_Save_Button()
         {
             string[] tagsOfScenario = new string[] {
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05. Verify_that_if_we_select_Labor_Period_Type_as_Hours_of_Operation_and_without_" +
-                    "selection_any_value_for_Day_click_on_Save_Button", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+                    "selection_any_value_for_Day_click_on_Save_Button", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 45
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -336,23 +283,23 @@ namespace laborpro.Features.LaborPeriods
 #line 48
     testRunner.When("User selects New LaborPeriod", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table39 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table47 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table39.AddRow(new string[] {
+                table47.AddRow(new string[] {
                             "Name",
                             "automations"});
-                table39.AddRow(new string[] {
+                table47.AddRow(new string[] {
                             "LaborPeriodType",
                             "Hours of Operation"});
-                table39.AddRow(new string[] {
+                table47.AddRow(new string[] {
                             "TrafficPattern",
                             "Distribute Evenly and Apply Rounding"});
-                table39.AddRow(new string[] {
+                table47.AddRow(new string[] {
                             "LaborDistribution",
                             "Same As Selected Labor Period"});
 #line 49
-    testRunner.And("User Add New LaborPeriod Using Below Input", ((string)(null)), table39, "And ");
+    testRunner.And("User Add New LaborPeriod Using Below Input", ((string)(null)), table47, "And ");
 #line hidden
 #line 55
     testRunner.Then("User Verify HouseOfOperation by name \"Hours of Operation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -374,27 +321,17 @@ namespace laborpro.Features.LaborPeriods
         [NUnit.Framework.DescriptionAttribute("06. Verify_that_if_provide_all_valid_data_select_Labor_Period_Type_as_Hours_of_Op" +
             "eration_select_any_value_for_Day_Sunday_click_on_Save_Button")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _06_Verify_That_If_Provide_All_Valid_Data_Select_Labor_Period_Type_As_Hours_Of_Operation_Select_Any_Value_For_Day_Sunday_Click_On_Save_Button()
+        public void _06_Verify_That_If_Provide_All_Valid_Data_Select_Labor_Period_Type_As_Hours_Of_Operation_Select_Any_Value_For_Day_Sunday_Click_On_Save_Button()
         {
             string[] tagsOfScenario = new string[] {
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06. Verify_that_if_provide_all_valid_data_select_Labor_Period_Type_as_Hours_of_Op" +
-                    "eration_select_any_value_for_Day_Sunday_click_on_Save_Button", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+                    "eration_select_any_value_for_Day_Sunday_click_on_Save_Button", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 61
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -410,23 +347,23 @@ namespace laborpro.Features.LaborPeriods
 #line 64
     testRunner.When("User selects New LaborPeriod", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table40 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table48 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table40.AddRow(new string[] {
+                table48.AddRow(new string[] {
                             "Name",
                             "automations"});
-                table40.AddRow(new string[] {
+                table48.AddRow(new string[] {
                             "LaborPeriodType",
                             "Hours of Operation"});
-                table40.AddRow(new string[] {
+                table48.AddRow(new string[] {
                             "TrafficPattern",
                             "Distribute Evenly and Apply Rounding"});
-                table40.AddRow(new string[] {
+                table48.AddRow(new string[] {
                             "LaborDistribution",
                             "Same As Selected Labor Period"});
 #line 65
-    testRunner.And("User Add New LaborPeriod Using Below Input", ((string)(null)), table40, "And ");
+    testRunner.And("User Add New LaborPeriod Using Below Input", ((string)(null)), table48, "And ");
 #line hidden
 #line 71
    testRunner.Then("User Add HouseOfPeriod", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -450,26 +387,16 @@ namespace laborpro.Features.LaborPeriods
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("07. Verify_that_if_Labor_Period_Name_already_exist")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _07_Verify_That_If_Labor_Period_Name_Already_Exist()
+        public void _07_Verify_That_If_Labor_Period_Name_Already_Exist()
         {
             string[] tagsOfScenario = new string[] {
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("07. Verify_that_if_Labor_Period_Name_already_exist", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("07. Verify_that_if_Labor_Period_Name_already_exist", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 78
    this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -485,23 +412,23 @@ namespace laborpro.Features.LaborPeriods
 #line 81
     testRunner.When("User selects New LaborPeriod", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table41 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table49 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table41.AddRow(new string[] {
+                table49.AddRow(new string[] {
                             "Name",
                             "automations"});
-                table41.AddRow(new string[] {
+                table49.AddRow(new string[] {
                             "LaborPeriodType",
                             "Hours of Operation"});
-                table41.AddRow(new string[] {
+                table49.AddRow(new string[] {
                             "TrafficPattern",
                             "Distribute Evenly and Apply Rounding"});
-                table41.AddRow(new string[] {
+                table49.AddRow(new string[] {
                             "LaborDistribution",
                             "Same As Selected Labor Period"});
 #line 82
-    testRunner.And("User Add New LaborPeriod Using Below Input", ((string)(null)), table41, "And ");
+    testRunner.And("User Add New LaborPeriod Using Below Input", ((string)(null)), table49, "And ");
 #line hidden
 #line 88
    testRunner.Then("User Add HouseOfPeriod", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -509,23 +436,23 @@ namespace laborpro.Features.LaborPeriods
 #line 89
    testRunner.And("User selects New LaborPeriod", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table42 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table50 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table42.AddRow(new string[] {
+                table50.AddRow(new string[] {
                             "Name",
                             "automations"});
-                table42.AddRow(new string[] {
+                table50.AddRow(new string[] {
                             "LaborPeriodType",
                             "Hours of Operation"});
-                table42.AddRow(new string[] {
+                table50.AddRow(new string[] {
                             "TrafficPattern",
                             "Distribute Evenly and Apply Rounding"});
-                table42.AddRow(new string[] {
+                table50.AddRow(new string[] {
                             "LaborDistribution",
                             "Same As Selected Labor Period"});
 #line 90
-   testRunner.Then("User Add New LaborPeriod Using Below Input", ((string)(null)), table42, "Then ");
+   testRunner.Then("User Add New LaborPeriod Using Below Input", ((string)(null)), table50, "Then ");
 #line hidden
 #line 96
    testRunner.Then("User Add HouseOfPeriod", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -553,27 +480,17 @@ namespace laborpro.Features.LaborPeriods
         [NUnit.Framework.DescriptionAttribute("08. Logout and Close Browser")]
         [NUnit.Framework.CategoryAttribute("Cleanup")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _08_LogoutAndCloseBrowser()
+        public void _08_LogoutAndCloseBrowser()
         {
             string[] tagsOfScenario = new string[] {
                     "Cleanup",
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("08. Logout and Close Browser", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("08. Logout and Close Browser", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 105
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }

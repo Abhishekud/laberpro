@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace laborpro.Features.VolumeDriverMapping
+namespace LaborPro.Automation.Features.VolumeDriverMapping
 {
     using TechTalk.SpecFlow;
     using System;
@@ -29,7 +29,7 @@ namespace laborpro.Features.VolumeDriverMapping
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-        private string[] _featureTags = new string[] {
+        private static string[] featureTags = new string[] {
                 "laberPro",
                 "Regression",
                 "VolumeDriverMapping"};
@@ -41,10 +41,7 @@ namespace laborpro.Features.VolumeDriverMapping
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/VolumeDriverMapping", "Verify VolumeDriverMapping Module", null, ProgrammingLanguage.CSharp, new string[] {
-                        "laberPro",
-                        "Regression",
-                        "VolumeDriverMapping"});
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/VolumeDriverMapping", "Verify VolumeDriverMapping Module", null, ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -56,28 +53,28 @@ namespace laborpro.Features.VolumeDriverMapping
         }
         
         [NUnit.Framework.SetUpAttribute()]
-        public virtual void TestInitialize()
+        public void TestInitialize()
         {
         }
         
         [NUnit.Framework.TearDownAttribute()]
-        public virtual void TestTearDown()
+        public void TestTearDown()
         {
             testRunner.OnScenarioEnd();
         }
         
-        public virtual void ScenarioInitialize(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
+        public void ScenarioInitialize(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioInitialize(scenarioInfo);
             testRunner.ScenarioContext.ScenarioContainer.RegisterInstanceAs<NUnit.Framework.TestContext>(NUnit.Framework.TestContext.CurrentContext);
         }
         
-        public virtual void ScenarioStart()
+        public void ScenarioStart()
         {
             testRunner.OnScenarioStart();
         }
         
-        public virtual void ScenarioCleanup()
+        public void ScenarioCleanup()
         {
             testRunner.CollectScenarioErrors();
         }
@@ -86,27 +83,17 @@ namespace laborpro.Features.VolumeDriverMapping
         [NUnit.Framework.DescriptionAttribute("01. Launch Browser and Login to the Application")]
         [NUnit.Framework.CategoryAttribute("Setup")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _01_LaunchBrowserAndLoginToTheApplication()
+        public void _01_LaunchBrowserAndLoginToTheApplication()
         {
             string[] tagsOfScenario = new string[] {
                     "Setup",
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01. Launch Browser and Login to the Application", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01. Launch Browser and Login to the Application", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 5
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -132,26 +119,16 @@ namespace laborpro.Features.VolumeDriverMapping
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("02. verify_that_new_created_department_is_available_in_department_dropdown")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _02_Verify_That_New_Created_Department_Is_Available_In_Department_Dropdown()
+        public void _02_Verify_That_New_Created_Department_Is_Available_In_Department_Dropdown()
         {
             string[] tagsOfScenario = new string[] {
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02. verify_that_new_created_department_is_available_in_department_dropdown", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02. verify_that_new_created_department_is_available_in_department_dropdown", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 12
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -164,14 +141,14 @@ namespace laborpro.Features.VolumeDriverMapping
 #line 14
      testRunner.Then("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table88 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table96 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table88.AddRow(new string[] {
+                table96.AddRow(new string[] {
                             "Name",
                             "Department to verify VolumeDriverMapping"});
 #line 15
-     testRunner.When("User create new Department with below input if not exist", ((string)(null)), table88, "When ");
+     testRunner.When("User create new Department with below input if not exist", ((string)(null)), table96, "When ");
 #line hidden
 #line 18
       testRunner.And("User verify created Department \"Department to verify VolumeDriverMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -195,26 +172,16 @@ namespace laborpro.Features.VolumeDriverMapping
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("03.Verify_that_if_Name_is_empty")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _03_Verify_That_If_Name_Is_Empty()
+        public void _03_Verify_That_If_Name_Is_Empty()
         {
             string[] tagsOfScenario = new string[] {
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03.Verify_that_if_Name_is_empty", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03.Verify_that_if_Name_is_empty", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 25
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -230,14 +197,14 @@ namespace laborpro.Features.VolumeDriverMapping
 #line 28
       testRunner.And("User click on VolumeDriverMapping set", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table89 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table97 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table89.AddRow(new string[] {
+                table97.AddRow(new string[] {
                             "Name",
                             ""});
 #line 29
-     testRunner.When("User create new VolumeDriverMappingset with below input", ((string)(null)), table89, "When ");
+     testRunner.When("User create new VolumeDriverMappingset with below input", ((string)(null)), table97, "When ");
 #line hidden
 #line 32
      testRunner.Then("Verify validation Message: \"Name is required\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -252,26 +219,16 @@ namespace laborpro.Features.VolumeDriverMapping
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("04.verify_add_VolumeDriverMappingset_when_enter_correct_details")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _04_Verify_Add_VolumeDriverMappingset_When_Enter_Correct_Details()
+        public void _04_Verify_Add_VolumeDriverMappingset_When_Enter_Correct_Details()
         {
             string[] tagsOfScenario = new string[] {
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04.verify_add_VolumeDriverMappingset_when_enter_correct_details", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04.verify_add_VolumeDriverMappingset_when_enter_correct_details", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 36
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -291,14 +248,14 @@ namespace laborpro.Features.VolumeDriverMapping
 #line 40
       testRunner.And("User click on VolumeDriverMapping set", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table90 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table98 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table90.AddRow(new string[] {
+                table98.AddRow(new string[] {
                             "Name",
                             "VolumeDriverMappingset via Automation"});
 #line 41
-     testRunner.When("User create new VolumeDriverMappingset with below input", ((string)(null)), table90, "When ");
+     testRunner.When("User create new VolumeDriverMappingset with below input", ((string)(null)), table98, "When ");
 #line hidden
 #line 44
      testRunner.Then("User verify created VolumeDriverMappingset by name \"VolumeDriverMappingset via Au" +
@@ -310,25 +267,15 @@ namespace laborpro.Features.VolumeDriverMapping
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("05. Verify_that_respective_VolumeDriver_&_UOM_available_in_dropdown")]
-        public virtual void _05_Verify_That_Respective_VolumeDriver__UOM_Available_In_Dropdown()
+        public void _05_Verify_That_Respective_VolumeDriver__UOM_Available_In_Dropdown()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05. Verify_that_respective_VolumeDriver_&_UOM_available_in_dropdown", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05. Verify_that_respective_VolumeDriver_&_UOM_available_in_dropdown", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 46
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -338,17 +285,17 @@ namespace laborpro.Features.VolumeDriverMapping
 #line 48
     testRunner.Given("User navigates to the VolumeDriver tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table91 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table99 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table91.AddRow(new string[] {
+                table99.AddRow(new string[] {
                             "Name",
                             "VolumeDriver via VolumeDriverMapping"});
-                table91.AddRow(new string[] {
+                table99.AddRow(new string[] {
                             "Department",
                             "Department to verify VolumeDriverMapping"});
 #line 49
-     testRunner.When("User create new VolumeDriver with below input if not exist", ((string)(null)), table91, "When ");
+     testRunner.When("User create new VolumeDriver with below input if not exist", ((string)(null)), table99, "When ");
 #line hidden
 #line 53
      testRunner.Then("User verify created VolumeDriver by name \"VolumeDriver via VolumeDriverMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -359,14 +306,14 @@ namespace laborpro.Features.VolumeDriverMapping
 #line 55
      testRunner.Then("User Selects Created Department \"Department to verify VolumeDriverMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table92 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table100 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table92.AddRow(new string[] {
+                table100.AddRow(new string[] {
                             "Name",
                             "UOM"});
 #line 56
-     testRunner.When("User create new UnitOfMeasure with below input if not exist", ((string)(null)), table92, "When ");
+     testRunner.When("User create new UnitOfMeasure with below input if not exist", ((string)(null)), table100, "When ");
 #line hidden
 #line 59
      testRunner.Then("User verify Added Unit of Measure \"UOM\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -383,20 +330,20 @@ namespace laborpro.Features.VolumeDriverMapping
 #line 63
       testRunner.And("User click on VolumeDriverMapping", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table93 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table101 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table93.AddRow(new string[] {
+                table101.AddRow(new string[] {
                             "VolumeDriver",
                             "VolumeDriver via VolumeDriverMapping"});
-                table93.AddRow(new string[] {
+                table101.AddRow(new string[] {
                             "UOM",
                             "UOM"});
-                table93.AddRow(new string[] {
+                table101.AddRow(new string[] {
                             "VolumeDriverMappingSet",
                             "2"});
 #line 64
-     testRunner.When("User create new VolumeDriverMappingset with below input", ((string)(null)), table93, "When ");
+     testRunner.When("User create new VolumeDriverMappingset with below input", ((string)(null)), table101, "When ");
 #line hidden
 #line 69
      testRunner.Then("User verify created VolumeDriverMapping by \"VolumeDriver via VolumeDriverMapping\"" +
@@ -413,26 +360,16 @@ namespace laborpro.Features.VolumeDriverMapping
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("06. Verify_that_respective_VolumeDriver_&_UOM_available_in_dropdown_is_deleted")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _06_Verify_That_Respective_VolumeDriver__UOM_Available_In_Dropdown_Is_Deleted()
+        public void _06_Verify_That_Respective_VolumeDriver__UOM_Available_In_Dropdown_Is_Deleted()
         {
             string[] tagsOfScenario = new string[] {
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06. Verify_that_respective_VolumeDriver_&_UOM_available_in_dropdown_is_deleted", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06. Verify_that_respective_VolumeDriver_&_UOM_available_in_dropdown_is_deleted", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 73
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -462,27 +399,17 @@ namespace laborpro.Features.VolumeDriverMapping
         [NUnit.Framework.DescriptionAttribute("07. Logout and Close Browser")]
         [NUnit.Framework.CategoryAttribute("Cleanup")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _07_LogoutAndCloseBrowser()
+        public void _07_LogoutAndCloseBrowser()
         {
             string[] tagsOfScenario = new string[] {
                     "Cleanup",
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("07. Logout and Close Browser", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("07. Logout and Close Browser", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 81
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }

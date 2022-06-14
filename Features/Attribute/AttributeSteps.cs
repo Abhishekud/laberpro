@@ -86,6 +86,68 @@ namespace LaborPro.Automation.Features.Attribute
             LogWriter.WriteLog("Executing Step User delete created attribute by name" + attributeName);
             AttributePage.DeleteAttributeIfExist(attributeName);
         }
+        [Then(@"User verify add button is not present in attribute module")]
+        public void ThenUserVerifyAddButtonIsNotPresentInAttributeModule()
+        {
+            LogWriter.WriteLog("Executing Step: User verify add button is not present in attribute module");
+            AttributePage.VerifyAddButtonIsNotPresent();
+        }
+
+        [Then(@"User verify click on export icon verify all options displayed in attribute module")]
+        public void ThenUserVerifyClickOnExportIconVerifyAllOptionsDisplayedInAttributeModule()
+        {
+            LogWriter.WriteLog("Executing Step: User verify click on export icon verify all options displayed in attribute module");
+            AttributePage.VerifyClickOnExportIcon();
+        }
+
+        [When(@"User click on export icon in attribute module")]
+        public void WhenUserClickOnExportIconInAttributeModule()
+        {
+            LogWriter.WriteLog("Executing Step:User click on export icon in attribute module");
+            AttributePage.ClickOnExportIcon();
+        }
+
+        [Then(@"User verify the dailog box asking for file name for attribute module")]
+        public void ThenUserVerifyTheDailogBoxAskingForFileNameForAttributeModule()
+        {
+            LogWriter.WriteLog("Executing Step: User verify the dailog box asking for file name for attribute module");
+            AttributePage.VerifyExportAttributeDailogBox();
+
+        }
+
+        [Then(@"User select download attribute import template in attribute module")]
+        public void ThenUserSelectDownloadAttributeImportTemplateInAttributeModule()
+        {
+            LogWriter.WriteLog("Executing Step: User select download attribute import template in attribute module ");
+            AttributePage.ClickOnDownloadAttributeImportTemplate();
+        }
+
+        [Then(@"User verify attribute downloaded file ""([^""]*)""")]
+        public void ThenUserVerifyAttributeDownloadedFile(string fileName)
+        {
+            LogWriter.WriteLog("Executing Step: User verify attribute downloaded file " + fileName);
+            AttributePage.VerifyFileDownloadInAttribute(fileName);
+        }
+
+        [Then(@"User select download all locations attribute import template in attribute module")]
+        public void ThenUserSelectDownloadAllLocationsAttributeImportTemplateInAttributeModule()
+        {
+            LogWriter.WriteLog("Executing Step: User select download all locations attribute import template in attribute module ");
+            AttributePage.ClickOnDownloadLocationAttributeImportTemplate();
+        }
+
+        [Then(@"user verify edit button is not present in attribute module")]
+        public void ThenUserVerifyEditButtonIsNotPresentInAttributeModule()
+        {
+            LogWriter.WriteLog("Executing Step: user verify edit button is not present in attribute module");
+            AttributePage.VerifyEditButtonIsNotPresent();
+        }
+        [Then(@"User select export attribute import template in attribute template")]
+        public void ThenUserSelectExportAttributeImportTemplateInAttributeTemplate()
+        {
+            LogWriter.WriteLog("Executing Step: User select export attribute import template in attribute template");
+            AttributePage.ClickOnExportAttributeIcon();
+        }
 
     }
 }

@@ -97,6 +97,7 @@ namespace LaborPro.Automation.Features.LaborPeriods
         [Then(@"User Delete record If Exist ""([^""]*)""")]
         public void ThenUserDeleteRecordIfExist(string record)
         {
+            LogWriter.WriteLog("Executing Step:User Delete record If Exist");
             LaborPeriodsPage.DeleteRecordIfExist(record);
         }
 
@@ -104,6 +105,7 @@ namespace LaborPro.Automation.Features.LaborPeriods
         [When(@"Verify Validation message :""(.*)""")]
         public void ThenVerifyValidationMessageForLaborPeriod(string message)
         {
+            LogWriter.WriteLog("Executing Step:Verify Validation message");
             LaborPeriodsPage.VerifyAddLaborPeriodErrorMessage(message);
 
         }

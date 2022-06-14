@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "laborpro", "laborpro.csproj", "{A8916988-D792-4BEE-AAF1-C50682C6E00B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaborPro.Automation", "LaborPro.Automation.csproj", "{A8916988-D792-4BEE-AAF1-C50682C6E00B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

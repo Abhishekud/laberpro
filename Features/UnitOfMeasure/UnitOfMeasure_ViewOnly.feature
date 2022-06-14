@@ -1,15 +1,14 @@
-﻿ @Laberpro @Regression @UnitOfMeasure_ViewOnly
+﻿@Laberpro @Regression @UnitOfMeasure_ViewOnly
 Feature: Verify UnitOfMeasure_ViewOnly Module
 
 A short summary of the feature
-@Setup @Smoke
+@Setup
   Scenario: 01. Launch Browser and Login to the Application
     Given User launched "$browser"
      When User go to application "$url"
      Then User enter email: "$username_2" and password: "$password_2"
       And Verify Login message: "success"
   
-  @Smoke
   Scenario: 02. Verify_that_user_should_not_have_access_for_Add_button
     Given User navigates to the List Management tab
      When User selects Department
@@ -32,14 +31,12 @@ A short summary of the feature
      Then User Selects Created Department "Department To verify UnitOfMeasure_ViewOnly"
      When User verify Add button is not present
   
-  @Smoke
   Scenario: 03. Verify_that_export_options_are_not_available_for_the_user
     Given User navigates to the List Management tab
      When User selects UnitOfMeasure
      Then User Selects Created Department "Department To verify UnitOfMeasure_ViewOnly"
       And User verify export option is not present
   
-  @Smoke
   Scenario: 04. Verify_that_Delete_buttons_are_not_available_when_clicked_on_any_record_Also_UOM_details_must_not_be_editable
     Given User navigates to the List Management tab
      When User selects UnitOfMeasure
@@ -54,7 +51,7 @@ A short summary of the feature
      Then User selects Department
       And User delete created Department "Department To verify UnitOfMeasure_ViewOnly"
   
-  @Cleanup @Smoke
+  @Cleanup
   Scenario: 05. Logout and Close Browser
      When User logout from the application
      Then User close browser  

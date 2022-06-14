@@ -88,9 +88,9 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
 
 
         }
-        public static void DeleteCreatedUOM(string uomName)
+        public static void DeleteCreatedUom(string uomName)
         {
-            LogWriter.WriteLog("Executing VolumeDriverMappingPage.DeleteCreatedUOM");
+            LogWriter.WriteLog("Executing VolumeDriverMappingPage.DeleteCreatedUom");
             WebDriverUtil.GetWebElement(String.Format(VOLUMEDRIVER_RECORD, uomName), WebDriverUtil.TWO_SECOND_WAIT,
             String.Format("Unable to locate VolumeDriverMapping record on VolumeDriverMapping page - {0}", String.Format(VOLUMEDRIVERMAPPING_RECORD, uomName))).Click();
 

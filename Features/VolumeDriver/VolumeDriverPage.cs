@@ -50,36 +50,30 @@ namespace LaborPro.Automation.Features.VolumeDriver
         public static void VerifyAddButtonIsNotPresent()
         {
             LogWriter.WriteLog("Executing VolumeDriverPage.VerifyAddButtonIsNotPresent");
-            IWebElement AddVolumeDriver = WebDriverUtil.GetWebElement(ADD_BUTTON, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (AddVolumeDriver == null)
-            {
-                BaseClass._AttachScreenshot.Value = true;
-            }
-
+            IWebElement addVolumeDriver = WebDriverUtil.GetWebElement(ADD_BUTTON, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (addVolumeDriver != null)
+                throw new Exception("Add button is found but we expect it should not be present as logged in user has view only access!");
+            BaseClass._AttachScreenshot.Value = true;
         }
         public static void VerifyDeleteButtonIsNotPresent(string volumeDriverName)
         {
             LogWriter.WriteLog("Executing VolumeDriverPage.VerifyDeleteButtonIsNotPresent");
             WebDriverUtil.GetWebElement(String.Format(VOLUMEDRIVER_RECORD, volumeDriverName), WebDriverUtil.ONE_SECOND_WAIT,
             String.Format("Unable to locate VolumeDriver record on VolumeDriverPage - {0}", String.Format(VOLUMEDRIVER_RECORD, volumeDriverName))).Click();
-            IWebElement Delete = WebDriverUtil.GetWebElement(VOLUMEDRIVER_DELETE_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (Delete == null)
-            {
-                BaseClass._AttachScreenshot.Value = true;
-            }
+            IWebElement delete = WebDriverUtil.GetWebElement(VOLUMEDRIVER_DELETE_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (delete != null)
+                throw new Exception("delete button is found but we expect it should not be present as logged in user has view only access!");
+            BaseClass._AttachScreenshot.Value = true;
         }
         public static void VerifyExportOptionIsNotPresent()
         {
-
             LogWriter.WriteLog("Executing VolumeDriverPage.VerifyExportOptionIsNotPresent");
             IWebElement export = WebDriverUtil.GetWebElement(EXPORT_BUTTON, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (export == null)
-            {
-                BaseClass._AttachScreenshot.Value = true;
-            }
+            if (export != null)
+                throw new Exception("export button is found but we expect it should not be present as logged in user has view only access!");
+            BaseClass._AttachScreenshot.Value = true;
 
         }
-
         public static void DeleteCreatedVolumeDriver(string volumeDriverName)
         {
             LogWriter.WriteLog("Executing VolumeDriverPage.DeleteCreatedVolumeDriver");

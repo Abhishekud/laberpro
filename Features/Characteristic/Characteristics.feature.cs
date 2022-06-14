@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace laborpro.Features.Characteristic
+namespace LaborPro.Automation.Features.Characteristic
 {
     using TechTalk.SpecFlow;
     using System;
@@ -29,7 +29,7 @@ namespace laborpro.Features.Characteristic
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-        private string[] _featureTags = new string[] {
+        private static string[] featureTags = new string[] {
                 "laborPro",
                 "Regression",
                 "Characteristics"};
@@ -41,10 +41,7 @@ namespace laborpro.Features.Characteristic
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Characteristic", "Verify Characteristics Module", null, ProgrammingLanguage.CSharp, new string[] {
-                        "laborPro",
-                        "Regression",
-                        "Characteristics"});
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Characteristic", "Verify Characteristics Module", null, ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -56,28 +53,28 @@ namespace laborpro.Features.Characteristic
         }
         
         [NUnit.Framework.SetUpAttribute()]
-        public virtual void TestInitialize()
+        public void TestInitialize()
         {
         }
         
         [NUnit.Framework.TearDownAttribute()]
-        public virtual void TestTearDown()
+        public void TestTearDown()
         {
             testRunner.OnScenarioEnd();
         }
         
-        public virtual void ScenarioInitialize(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
+        public void ScenarioInitialize(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioInitialize(scenarioInfo);
             testRunner.ScenarioContext.ScenarioContainer.RegisterInstanceAs<NUnit.Framework.TestContext>(NUnit.Framework.TestContext.CurrentContext);
         }
         
-        public virtual void ScenarioStart()
+        public void ScenarioStart()
         {
             testRunner.OnScenarioStart();
         }
         
-        public virtual void ScenarioCleanup()
+        public void ScenarioCleanup()
         {
             testRunner.CollectScenarioErrors();
         }
@@ -86,27 +83,17 @@ namespace laborpro.Features.Characteristic
         [NUnit.Framework.DescriptionAttribute("01. Launch Browser and Login to the Application")]
         [NUnit.Framework.CategoryAttribute("Setup")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _01_LaunchBrowserAndLoginToTheApplication()
+        public void _01_LaunchBrowserAndLoginToTheApplication()
         {
             string[] tagsOfScenario = new string[] {
                     "Setup",
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01. Launch Browser and Login to the Application", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01. Launch Browser and Login to the Application", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 5
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -132,26 +119,16 @@ namespace laborpro.Features.Characteristic
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("02. verify_that_created_department_is_available_in_department_dropdown")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _02_Verify_That_Created_Department_Is_Available_In_Department_Dropdown()
+        public void _02_Verify_That_Created_Department_Is_Available_In_Department_Dropdown()
         {
             string[] tagsOfScenario = new string[] {
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02. verify_that_created_department_is_available_in_department_dropdown", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02. verify_that_created_department_is_available_in_department_dropdown", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 12
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -164,14 +141,14 @@ namespace laborpro.Features.Characteristic
 #line 14
      testRunner.Then("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table16.AddRow(new string[] {
+                table19.AddRow(new string[] {
                             "Name",
                             "Department to verify Characteristic"});
 #line 15
-     testRunner.When("User create new Department with below input if not exist", ((string)(null)), table16, "When ");
+     testRunner.When("User create new Department with below input if not exist", ((string)(null)), table19, "When ");
 #line hidden
 #line 18
      testRunner.Then("User verify created Department \"Department to verify Characteristic\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -197,25 +174,15 @@ namespace laborpro.Features.Characteristic
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("03. verify_add_Characteristic_when_enter_blank_details")]
-        public virtual void _03_Verify_Add_Characteristic_When_Enter_Blank_Details()
+        public void _03_Verify_Add_Characteristic_When_Enter_Blank_Details()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03. verify_add_Characteristic_when_enter_blank_details", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03. verify_add_Characteristic_when_enter_blank_details", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 25
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -231,14 +198,14 @@ namespace laborpro.Features.Characteristic
 #line 29
       testRunner.And("User click on Characteristic", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table17.AddRow(new string[] {
+                table20.AddRow(new string[] {
                             "Name",
                             ""});
 #line 30
-     testRunner.When("User create new Characteristic with below input", ((string)(null)), table17, "When ");
+     testRunner.When("User create new Characteristic with below input", ((string)(null)), table20, "When ");
 #line hidden
 #line 33
      testRunner.Then("Verify validation Message: \"Name is required\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -253,26 +220,16 @@ namespace laborpro.Features.Characteristic
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("04. verify_add_Characteristic_when_enter_correct_details")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _04_Verify_Add_Characteristic_When_Enter_Correct_Details()
+        public void _04_Verify_Add_Characteristic_When_Enter_Correct_Details()
         {
             string[] tagsOfScenario = new string[] {
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04. verify_add_Characteristic_when_enter_correct_details", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04. verify_add_Characteristic_when_enter_correct_details", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 37
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -291,14 +248,14 @@ namespace laborpro.Features.Characteristic
 #line 41
      testRunner.Then("User click on Characteristic", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table18.AddRow(new string[] {
+                table21.AddRow(new string[] {
                             "Name",
                             "Characteristic"});
 #line 42
-     testRunner.When("User create new Characteristic with below input", ((string)(null)), table18, "When ");
+     testRunner.When("User create new Characteristic with below input", ((string)(null)), table21, "When ");
 #line hidden
 #line 45
      testRunner.Then("User verify created Characteristic by name \"Characteristic\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -312,25 +269,15 @@ namespace laborpro.Features.Characteristic
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("05. verify_that_Characteristic_may_only_contain_letters_numbers_underscores")]
-        public virtual void _05_Verify_That_Characteristic_May_Only_Contain_Letters_Numbers_Underscores()
+        public void _05_Verify_That_Characteristic_May_Only_Contain_Letters_Numbers_Underscores()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05. verify_that_Characteristic_may_only_contain_letters_numbers_underscores", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05. verify_that_Characteristic_may_only_contain_letters_numbers_underscores", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 48
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -346,14 +293,14 @@ namespace laborpro.Features.Characteristic
 #line 52
       testRunner.And("User click on Characteristic", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table19.AddRow(new string[] {
+                table22.AddRow(new string[] {
                             "Name",
                             "CharacteristicTest 123"});
 #line 53
-     testRunner.When("User create new Characteristic with below input", ((string)(null)), table19, "When ");
+     testRunner.When("User create new Characteristic with below input", ((string)(null)), table22, "When ");
 #line hidden
 #line 56
      testRunner.Then("Verify validation Message: \"Name may only contain letters, numbers and underscore" +
@@ -368,25 +315,15 @@ namespace laborpro.Features.Characteristic
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("06. verify_add_Characteristic_when_enter_existing_details")]
-        public virtual void _06_Verify_Add_Characteristic_When_Enter_Existing_Details()
+        public void _06_Verify_Add_Characteristic_When_Enter_Existing_Details()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06. verify_add_Characteristic_when_enter_existing_details", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06. verify_add_Characteristic_when_enter_existing_details", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 59
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -405,14 +342,14 @@ namespace laborpro.Features.Characteristic
 #line 63
      testRunner.Then("User click on Characteristic", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table23 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table20.AddRow(new string[] {
+                table23.AddRow(new string[] {
                             "Name",
                             "CharacteristicTest"});
 #line 64
-     testRunner.When("User create new Characteristic with below input", ((string)(null)), table20, "When ");
+     testRunner.When("User create new Characteristic with below input", ((string)(null)), table23, "When ");
 #line hidden
 #line 67
      testRunner.Then("User verify created Characteristic by name \"CharacteristicTest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -426,14 +363,14 @@ namespace laborpro.Features.Characteristic
 #line 70
       testRunner.And("User click on Characteristic", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table24 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table21.AddRow(new string[] {
+                table24.AddRow(new string[] {
                             "Name",
                             "CharacteristicTest"});
 #line 71
-     testRunner.When("User create new Characteristic with below input", ((string)(null)), table21, "When ");
+     testRunner.When("User create new Characteristic with below input", ((string)(null)), table24, "When ");
 #line hidden
 #line 74
       testRunner.And("Verify Validation message :\"Name already exists\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -450,25 +387,15 @@ namespace laborpro.Features.Characteristic
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("07. verify_add_Characteristic_set_when_enter_blank_details")]
-        public virtual void _07_Verify_Add_Characteristic_Set_When_Enter_Blank_Details()
+        public void _07_Verify_Add_Characteristic_Set_When_Enter_Blank_Details()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("07. verify_add_Characteristic_set_when_enter_blank_details", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("07. verify_add_Characteristic_set_when_enter_blank_details", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 78
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -484,14 +411,14 @@ namespace laborpro.Features.Characteristic
 #line 82
       testRunner.And("User click on Characteristic set", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table25 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table22.AddRow(new string[] {
+                table25.AddRow(new string[] {
                             "Name",
                             ""});
 #line 83
-     testRunner.When("User create new Characteristic with below input", ((string)(null)), table22, "When ");
+     testRunner.When("User create new Characteristic with below input", ((string)(null)), table25, "When ");
 #line hidden
 #line 86
      testRunner.Then("Verify validation Message: \"Name is required\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -505,25 +432,15 @@ namespace laborpro.Features.Characteristic
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("08. verify_add_Characteristic_set_when_enter_correct_details")]
-        public virtual void _08_Verify_Add_Characteristic_Set_When_Enter_Correct_Details()
+        public void _08_Verify_Add_Characteristic_Set_When_Enter_Correct_Details()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("08. verify_add_Characteristic_set_when_enter_correct_details", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("08. verify_add_Characteristic_set_when_enter_correct_details", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 89
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -539,14 +456,14 @@ namespace laborpro.Features.Characteristic
 #line 93
      testRunner.Then("User click on Characteristic set", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table23 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table23.AddRow(new string[] {
+                table26.AddRow(new string[] {
                             "Name",
                             "ATest"});
 #line 94
-     testRunner.When("User create new Characteristic with below input", ((string)(null)), table23, "When ");
+     testRunner.When("User create new Characteristic with below input", ((string)(null)), table26, "When ");
 #line hidden
 #line 97
      testRunner.Then("User verify created CharacteristicSet by name \"ATest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -557,25 +474,15 @@ namespace laborpro.Features.Characteristic
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("09. verify_add_Characteristic_set_when_enter_existing_details")]
-        public virtual void _09_Verify_Add_Characteristic_Set_When_Enter_Existing_Details()
+        public void _09_Verify_Add_Characteristic_Set_When_Enter_Existing_Details()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("09. verify_add_Characteristic_set_when_enter_existing_details", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("09. verify_add_Characteristic_set_when_enter_existing_details", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 99
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -594,14 +501,14 @@ namespace laborpro.Features.Characteristic
 #line 104
      testRunner.Then("User click on Characteristic set", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table24 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table27 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table24.AddRow(new string[] {
+                table27.AddRow(new string[] {
                             "Name",
                             "Characteristicset"});
 #line 105
-     testRunner.When("User create new Characteristic with below input", ((string)(null)), table24, "When ");
+     testRunner.When("User create new Characteristic with below input", ((string)(null)), table27, "When ");
 #line hidden
 #line 108
      testRunner.Then("User verify created CharacteristicSet by name \"Characteristicset\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -615,14 +522,14 @@ namespace laborpro.Features.Characteristic
 #line 111
       testRunner.And("User click on Characteristic set", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table25 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table28 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table25.AddRow(new string[] {
+                table28.AddRow(new string[] {
                             "Name",
                             "Characteristicset"});
 #line 112
-     testRunner.When("User create new Characteristic with below input", ((string)(null)), table25, "When ");
+     testRunner.When("User create new Characteristic with below input", ((string)(null)), table28, "When ");
 #line hidden
 #line 115
      testRunner.Then("Verify validation Message: \"Name already exists\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -650,27 +557,17 @@ namespace laborpro.Features.Characteristic
         [NUnit.Framework.DescriptionAttribute("10. Logout and Close Browser")]
         [NUnit.Framework.CategoryAttribute("Cleanup")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void _10_LogoutAndCloseBrowser()
+        public void _10_LogoutAndCloseBrowser()
         {
             string[] tagsOfScenario = new string[] {
                     "Cleanup",
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("10. Logout and Close Browser", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("10. Logout and Close Browser", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 123
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }

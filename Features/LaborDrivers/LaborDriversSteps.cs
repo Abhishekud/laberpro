@@ -9,9 +9,9 @@ namespace LaborPro.Automation.Features.LaborDrivers
         [When(@"User navigates to the LaborDrivers tab")]
         [Given(@"User navigates to the LaborDrivers tab")]
         [Then(@"User navigates to the LaborDrivers tab")]
-        public void UserNavigatesToTheKronosTab()
+        public void UserNavigatesToTheLaborDriversTab()
         {
-            LogWriter.WriteLog("Executing Step: User navigates to the  Kronos tab  ");
+            LogWriter.WriteLog("Executing Step: User navigates to the LaborDrivers tab  ");
             LaborDriversPage.CloseLaborDriversForm();    
             LaborDriversPage.ClickOnKronosTab();     
             LaborDriversPage.ClickOnLaborDriversTab();  

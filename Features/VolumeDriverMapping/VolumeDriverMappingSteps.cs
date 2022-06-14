@@ -32,7 +32,7 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
         [Then(@"User click on VolumeDriverMapping")]
         public void UserClickOnVolumeDriver()
         {
-            LogWriter.WriteLog("Executing VolumeDriversPage UserClickOnVolumeDriver ");
+            LogWriter.WriteLog("Executing step: User click on VolumeDriverMapping");
             VolumeDriverMappingPage.ClickOnVolumeDriverMapping();
         }
 
@@ -41,8 +41,7 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
         [Then(@"User click on VolumeDriverMapping set")]
         public void UserClickOnVolumeDriverSet()
         {
-            LogWriter.WriteLog("Executing VolumeDriversPage UserClickOnVolumeDriverset ");
-
+            LogWriter.WriteLog("Executing step: User click on VolumeDriverMapping set");
             VolumeDriverMappingPage.ClickOnVolumeDriverSet();
         }
 
@@ -69,7 +68,7 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
         [Then(@"User verify created VolumeDriverMapping by ""([^""]*)""")]
         public void UserVerifyCreatedVolumeDriver(string volumeDriverName)
         {
-            LogWriter.WriteLog("Executing  VolumeDriverMappingPage UserVerifyCreatedVolumeDriver");
+            LogWriter.WriteLog("Executing step: User verify created VolumeDriverMapping by name ");
             VolumeDriverMappingPage.VerifyCreatedVolumeDriverMapping(volumeDriverName);
         }
 
@@ -78,17 +77,17 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
         [Then(@"User delete created VolumeDriverMapping by ""([^""]*)""")]
         public void UserDeleteCreatedVolumeDriver(string volumeDriverName)
         {
-            LogWriter.WriteLog("Executing  VolumeDriverMappingPage UserDeleteCreatedVolumeDriver");
+            LogWriter.WriteLog("Executing step: User delete created VolumeDriverMapping by  name");
             VolumeDriverMappingPage.DeleteCreatedVolumeDriverMapping(volumeDriverName);
         }
 
         [Given(@"User delete created UOM by ""([^""]*)""")]
         [When(@"User delete created UOM by ""([^""]*)""")]
         [Then(@"User delete created UOM by ""([^""]*)""")]
-        public void UserDeleteCreatedUOM(string uomName)
+        public void DeleteCreatedUom(string uomName)
         {
-            LogWriter.WriteLog("Executing  VolumeDriverMappingPage UserDeleteCreatedVolumeDriver");
-            VolumeDriverMappingPage.DeleteCreatedUOM(uomName);
+            LogWriter.WriteLog("Executing step: User delete created UOM by name ");
+            VolumeDriverMappingPage.DeleteCreatedUom(uomName);
         }
 
         [Given(@"User verify created VolumeDriverMappingset by name ""([^""]*)""")]

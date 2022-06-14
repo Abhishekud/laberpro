@@ -1,5 +1,4 @@
-﻿using LaborPro.Automation.Features.Allowances;
-using LaborPro.Automation.shared.util;
+﻿using LaborPro.Automation.shared.util;
 
 namespace LaborPro.Automation.Features.TaskGroups
 {
@@ -10,9 +9,9 @@ namespace LaborPro.Automation.Features.TaskGroups
         [When(@"User navigates to the TaskGroups tab")]
         [Given(@"User navigates to the TaskGroups tab")]
         [Then(@"User navigates to the TaskGroups tab")]
-        public void UserNavigatesToTheKronosTab()
+        public void UserNavigatesToTheTaskGroupsTab()
         {
-            LogWriter.WriteLog("Executing Step: User navigates to the  Kronos tab  ");
+            LogWriter.WriteLog("Executing Step: User navigates to the TaskGroups tab ");
             TaskGroupsPage.CloseTaskGroupsForm();
             TaskGroupsPage.ClickOnKronosTab();
             TaskGroupsPage.ClickOnTaskGroupsTab();
@@ -41,7 +40,7 @@ namespace LaborPro.Automation.Features.TaskGroups
         [Then(@"User clicks Add TaskGroups Button")]
         public void UserClickAddTaskGroupsButton()
         {
-            LogWriter.WriteLog("Exceuting Step User clicks cancel button");
+            LogWriter.WriteLog("Executing Step User clicks cancel button");
             TaskGroupsPage.UserClickAddTaskGroupsButton();
         }
 

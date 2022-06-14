@@ -47,33 +47,28 @@ namespace LaborPro.Automation.Features.Department
         public static void VerifyAddButtonIsNotPresent()
         {
             LogWriter.WriteLog("Executing DepartmentPage.VerifyAddButtonIsNotPresent");
-            IWebElement AddDepartment = WebDriverUtil.GetWebElement(ADD_BUTTON, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (AddDepartment == null)
-            {
-                BaseClass._AttachScreenshot.Value = true;
-            }
-
+            IWebElement addDepartment = WebDriverUtil.GetWebElement(ADD_BUTTON, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if(addDepartment != null) 
+                throw new Exception("Add button is found but we expect it should not be present as logged in user has view only access!");
+            BaseClass._AttachScreenshot.Value = true;
         }
         public static void VerifyDeleteButtonIsNotPresent(string departmentName)
         {
             LogWriter.WriteLog("Executing DepartmentPage.VerifyDeleteButtonIsNotPresent");
             WebDriverUtil.GetWebElement(String.Format(DEPARTMENT_RECORD, departmentName), WebDriverUtil.ONE_SECOND_WAIT,
             String.Format("Unable to locate UnitOfMeasure record on UnitOfMeasures page - {0}", String.Format(DEPARTMENT_RECORD, departmentName))).Click();
-            IWebElement Delete = WebDriverUtil.GetWebElement(DEPARTMENT_DELETE_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (Delete == null)
-            {
-                BaseClass._AttachScreenshot.Value = true;
-            }
+            IWebElement delete = WebDriverUtil.GetWebElement(DEPARTMENT_DELETE_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (delete != null)
+                throw new Exception("Delete button is found but we expect it should not be present as logged in user has view only access!");
+            BaseClass._AttachScreenshot.Value = true;
         }
         public static void VerifyExportOptionIsNotPresent()
         {
             LogWriter.WriteLog("Executing DepartmentPage.VerifyExportOptionIsNotPresent");
             IWebElement export = WebDriverUtil.GetWebElement(EXPORT_BUTTON, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (export == null)
-            {
-                BaseClass._AttachScreenshot.Value = true;
-            }
-
+            if (export != null)
+                throw new Exception("Export Option is found but we expect it should not be present as logged in user has view only access!");
+            BaseClass._AttachScreenshot.Value=true;
         }
         public static void DeleteDepartmentIfExist(string departmentName)
         {
