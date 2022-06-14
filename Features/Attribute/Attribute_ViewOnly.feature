@@ -38,7 +38,7 @@ Feature:Verify Attribute_ViewOnly Module
     Then  User select the Department "Department to verify attribute_viewonly"
     When  User click on export icon in attribute module 
     Then User select export attribute import template in attribute template
-    Then User verify the dailog box asking for file name for attribute module
+    Then User verify the dialog box asking for file name for attribute module
 
     Scenario: 05. Verify_if_user_can_download_import_template_when_clicked_on_Download_Attribute_Import_Template
      Given User navigates to the attribute tab

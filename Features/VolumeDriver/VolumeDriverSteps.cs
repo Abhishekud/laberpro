@@ -59,7 +59,7 @@ namespace LaborPro.Automation.Features.VolumeDriver
         {
             LogWriter.WriteLog("Executing step User search VolumeDriver ");
             VolumeDriverPage.ClearAllFilter();
-            VolumeDriverPage.SearchvolumeDriver(volumeDriver);
+            VolumeDriverPage.SearchVolumeDriver(volumeDriver);
         }
 
         [Given(@"User delete VolumeDriver ""([^""]*)"" if exist")]

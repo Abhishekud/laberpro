@@ -22,10 +22,10 @@ namespace LaborPro.Automation.Features.Standards
         [Given(@"User add new standards using below input")]
         [When(@"User add new standards using below input")]
         [Then(@"User add new standards using below input")]
-        public void AddNewStandard(Table inputdata)
+        public void AddNewStandard(Table inputData)
         {
             LogWriter.WriteLog("Executing Step: User add new standards using below input ");
-            StandardsPage.AddStandardsWihGivenInput(inputdata);
+            StandardsPage.AddStandardsWihGivenInput(inputData);
         }
 
         [Given(@"User verify created standards name ""([^""]*)""")]
@@ -50,16 +50,16 @@ namespace LaborPro.Automation.Features.Standards
         public void ClickNewStandardElement()
         {
             LogWriter.WriteLog("Executing Step User clicks New Standard Element");
-            StandardsPage.NewStandardElement();
+            StandardsPage.ClickOnNewStandardElement();
         }
 
         [Given(@"User Verify standard element popup by name ""([^""]*)""")]
         [When(@"User Verify standard element popup by name ""([^""]*)""")]
         [Then(@"User Verify standard element popup by name ""([^""]*)""")]
-        public void StandardElementPopup(string standardelementText)
+        public void StandardElementPopup(string standardElementText)
         {
-            LogWriter.WriteLog("Executing Step User Verify standard element popup by name " + standardelementText);
-            StandardsPage.VerifyNewStandardElementPopup(standardelementText);
+            LogWriter.WriteLog("Executing Step User Verify standard element popup by name " + standardElementText);
+            StandardsPage.VerifyNewStandardElementPopup(standardElementText);
         }
 
         [Given(@"User Selects Standard Element type ""([^""]*)""")]
@@ -74,10 +74,10 @@ namespace LaborPro.Automation.Features.Standards
         [Given(@"User selects standard by name ""([^""]*)""")]
         [When(@"User selects standard by name ""([^""]*)""")]
         [Then(@"User selects standard by name ""([^""]*)""")]
-        public void SelectCreatedStandard(string standaradByName)
+        public void SelectCreatedStandard(string standardByName)
         {
-            LogWriter.WriteLog("Executing Step User selects created standard by name" + standaradByName);
-            StandardsPage.SelectStandarad(standaradByName);
+            LogWriter.WriteLog("Executing Step User selects created standard by name" + standardByName);
+            StandardsPage.SelectStandard(standardByName);
 
         }
 
@@ -116,7 +116,7 @@ namespace LaborPro.Automation.Features.Standards
         }
 
         [When(@"User search standard by name ""([^""]*)""")]
-        public void Searchstandard(string standardName)
+        public void SearchStandard(string standardName)
         {
             LogWriter.WriteLog("Executing Step User search standard by name" + standardName);
             StandardsPage.ClearAllFilter();

@@ -99,16 +99,16 @@ namespace LaborPro.Automation.Features.Characteristic
         public static void CloseCharacteristicDetailSideBar()
         {
             LogWriter.WriteLog("Executing CharacteristicsPage CloseCharacteristicDetailSideBar()");
-            IWebElement CharacteristicDetailsSideBar = WebDriverUtil.GetWebElement(CLOSE_CHARACTERISTIC_DETAILS, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (CharacteristicDetailsSideBar != null)
+            IWebElement characteristicDetailsSideBar = WebDriverUtil.GetWebElement(CLOSE_CHARACTERISTIC_DETAILS, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (characteristicDetailsSideBar != null)
             {
-                CharacteristicDetailsSideBar.Click();
+                characteristicDetailsSideBar.Click();
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             }
-            CharacteristicDetailsSideBar = WebDriverUtil.GetWebElement(CANCEL_CHARACTERISTIC_DETAILS, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (CharacteristicDetailsSideBar != null)
+            characteristicDetailsSideBar = WebDriverUtil.GetWebElement(CANCEL_CHARACTERISTIC_DETAILS, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (characteristicDetailsSideBar != null)
             {
-                CharacteristicDetailsSideBar.Click();
+                characteristicDetailsSideBar.Click();
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             }
         }
@@ -249,7 +249,7 @@ namespace LaborPro.Automation.Features.Characteristic
             WebDriverUtil.GetWebElement(CHECK_CHARACTERISTIC_OF_RESPECTIVE_DEPARTMENT,
               WebDriverUtil.NO_WAIT,
               String.Format
-              ("Unable to locate the check Characteristicset of respective department- {0}",
+              ("Unable to locate the check Characteristic set of respective department- {0}",
               CHECK_CHARACTERISTIC_OF_RESPECTIVE_DEPARTMENT)).Click(); 
             IWebElement editButton = WebDriverUtil.GetWebElement( EDIT_DETAILS_BUTTON, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
 

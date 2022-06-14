@@ -258,7 +258,7 @@ namespace LaborPro.Automation.Features.Attribute
     testRunner.Then("User select export attribute import template in attribute template", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 41
-    testRunner.Then("User verify the dailog box asking for file name for attribute module", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("User verify the dialog box asking for file name for attribute module", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

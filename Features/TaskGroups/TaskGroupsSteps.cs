@@ -80,5 +80,31 @@ namespace LaborPro.Automation.Features.TaskGroups
             TaskGroupsPage.DeleteTaskGroupsIfExist(taskGroupsName);
         }
 
+        [Given(@"Verify add button is not present on TaskGroups page")]
+        [When(@"Verify add button is not present on TaskGroups page")]
+        [Then(@"Verify add button is not present on TaskGroups page")]
+        public void VerifyAddButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing Step Verify Add button is not present on TaskGroups page");
+            TaskGroupsPage.VerifyAddButtonIsNotPresent();
+        }
+        [Then(@"Verify delete button is not present on TaskGroups page in  ""(.*)""")]
+        [When(@"Verify delete button is not present on TaskGroups page in  ""(.*)""")]
+        [Then(@"Verify delete button is not present on TaskGroups page in  ""(.*)""")]
+        public void VerifyDeleteButtonIsNotPresent(string taskGroupsName)
+        {
+            LogWriter.WriteLog("Executing Step Verify Delete button is not present on TaskGroups page ");
+            TaskGroupsPage.VerifyDeleteButtonIsNotPresent(taskGroupsName);
+        }
+        [Given(@"Verify export option is present on TaskGroups page")]
+        [When(@"Verify export option is present on TaskGroups page")]
+        [Then(@"Verify export option is present on TaskGroups page")]
+        public void VerifyExportOptionIsPresent()
+        {
+            LogWriter.WriteLog("Executing Step Verify Export option is Present");
+            TaskGroupsPage.VerifyExportOptionIsPresent();
+        }
+     
+
     }
 }

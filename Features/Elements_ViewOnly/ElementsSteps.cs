@@ -112,10 +112,10 @@ namespace LaborPro.Automation.Features.Elements_ViewOnly
         [Given(@"User Verify if the user is unable to access Simo toggle")]
         [When(@"User Verify if the user is unable to access Simo toggle")]
         [Then(@"User Verify if the user is unable to access Simo toggle")]
-        public void VerifyIfTheUserIsUnableToAccessSimoToggle()
+        public void VerifyIfTheUserIsUnableToAccessToggle()
         {
             LogWriter.WriteLog("Executing Step User Verify if the user is unable to access Simo toggle");
-            ElementsPage.VerifyIfTheUserIsUnableToAccessSimoToggle();
+            ElementsPage.VerifyIfTheUserIsUnableToAccessToggle();
         }
         [Given(@"User Verify if user does not have access to edit element step details")]
         [When(@"User Verify if user does not have access to edit element step details")]
