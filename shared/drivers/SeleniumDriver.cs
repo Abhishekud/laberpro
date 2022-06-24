@@ -15,7 +15,7 @@ namespace LaborPro.Automation.shared.drivers
         public static string DownloadDirectory = ProjectDirectory + DOWNLOAD_DIRECTORY_PATH;
         public static string CsvFile = ProjectDirectory + csvFilePath;
         public static ThreadLocal<IWebDriver> webDriver = new ThreadLocal<IWebDriver>();
-        const string DEFAULT_BROSWER = "chrome";
+        const string DEFAULT_BROSWER = "edge";
 
         public static IWebDriver Setup(string browser)
         {
