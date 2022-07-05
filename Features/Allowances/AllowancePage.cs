@@ -37,6 +37,10 @@ namespace LaborPro.Automation.Features.Allowances
         const string ERROR_ALERT_TOAST_XPATH = "//*[@class='toast toast-error']";
         const string ELEMENT_ALERT = "//*[@class='form-group has-error']";
         const string FORM_INPUT_FIELD_ERROR_XPATH = "//*[contains(@class,'validation-error')]";
+        private const string AllowanceReportButton = "//button[contains(@title,'Allowance Detail Report')]";
+        private const string OpenEditSidebarForm = "//*[@class='sidebar-scrollable']//div[@class='form-group']";
+        private const string CopyButton = "//button[contains(@class,'btn btn-sm btn-default')]";
+
 
         public static void ClickOnPreviousLink()
         {
@@ -316,6 +320,57 @@ namespace LaborPro.Automation.Features.Allowances
             }
 
 
+        }
+
+        public static void FindAllowanceByName(string allowanceName)
+        {
+            LogWriter.WriteLog("Executing AllowancesPage FindAllowanceByName");
+            var allowanceRecordXpath = string.Format(ALLOWANCE_RECORD, allowanceName);
+            WebDriverUtil.GetWebElement(allowanceRecordXpath, WebDriverUtil.NO_WAIT,
+                $"Unable to locate allowance record allowance page - {allowanceRecordXpath}").Click();
+            WebDriverUtil.GetWebElement(String.Format(CREATED_ALLOWANCE_TITLE, allowanceName), WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+
+        }
+        public static void VerifyCopyButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing AllowancesPage.VerifyCopyButtonIsNotPresent");
+            if (WebDriverUtil.GetWebElement(OpenEditSidebarForm, WebDriverUtil.FIVE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) == null)
+            {
+                WebDriverUtil.GetWebElement(ALLOWANCE_DETAILS_MENU_BUTTON,
+                    WebDriverUtil.FIVE_SECOND_WAIT,
+                    $"Unable to locate allowance details sidebar button - {ALLOWANCE_DETAILS_MENU_BUTTON}"
+                ).Click();
+                WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            }
+            var copyButton = WebDriverUtil.GetWebElement(CopyButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (copyButton != null)
+                throw new Exception("copy button is found but we expect it should not be present when user login from view only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifyDownloadAllowanceDetailsReportForAllowance(string allowanceName)
+        {
+            LogWriter.WriteLog("Executing AllowancesPage.VerifyDownloadAllowanceDetailsReportForAllowance");
+            var allowanceRecordXpath = string.Format(ALLOWANCE_RECORD, allowanceName);
+            WebDriverUtil.GetWebElement(allowanceRecordXpath, WebDriverUtil.NO_WAIT,
+                $"Unable to locate allowance record allowance page - {allowanceRecordXpath}").Click();
+            var allowanceReportButton = WebDriverUtil.GetWebElement(AllowanceReportButton, WebDriverUtil.NO_WAIT,
+                    WebDriverUtil.NO_MESSAGE);
+                if (allowanceReportButton == null)
+                {
+                    throw new Exception(
+                        "allowance Report button is not found but we expect it should be present when user login from view only access");
+                }
+
+                BaseClass._AttachScreenshot.Value = true;
+            
+        }
+        public static void VerifyAddButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing AllowancesPage.VerifyAddButtonIsNotPresent");
+            var addButton = WebDriverUtil.GetWebElement(ADD_ALLOWANCE_BUTTON, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (addButton != null)
+                throw new Exception("add button is found but we expect it should not be present when user login from view only access");
+            BaseClass._AttachScreenshot.Value = true;
         }
     }
 }

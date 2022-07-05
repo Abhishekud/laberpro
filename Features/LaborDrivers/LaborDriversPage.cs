@@ -29,6 +29,13 @@ namespace LaborPro.Automation.Features.LaborDrivers
         const string GENERIC_CATEGORY_INPUT = "//input[@id='genericCategory']";
         const string FORM_INPUT_FIELD_ERROR_XPATH = "//*[contains(@class,'validation-error')]";
         const string ELEMENT_ALERT = "//*[@class='form-group has-error']";
+        private const string LaborDriversRecord = "//*[@role='row' and .//*[text()='{0}']]";
+        private const string AddButton = "//button[@id='add']";
+        private const string ExportButton = "//button[@id='export']";
+        private const string LaborDriversDeleteButton = "//button[contains(@class,'delete')]";
+        private const string ExportLaborDrivers = "//*[contains(@class,'dropdown-menu dropdown-menu-right')]//a[text()='Export Labor Drivers']";
+        private const string NameInput = "//*[@id='name']";
+
         public static void AddNewLaborDriversWithGivenInputIfNotExist(Table inputData)
         {
             LogWriter.WriteLog("Executing LaborDriversPage.AddLaborDriversWithGivenInputIfNotExist");
@@ -102,7 +109,7 @@ namespace LaborPro.Automation.Features.LaborDrivers
         public static void VerifyAddMenuPopup()
         {
             LogWriter.WriteLog("Executing LaborDriversPage.VerifyCreatedLaborDrivers");
-            WebDriverUtil.GetWebElement(LABORDRIVERSS_POPUP, WebDriverUtil.NO_WAIT,  String.Format("Unable to locate AddMenuPopup"));
+            WebDriverUtil.GetWebElement(LABORDRIVERSS_POPUP, WebDriverUtil.NO_WAIT, String.Format("Unable to locate AddMenuPopup"));
             BaseClass._AttachScreenshot.Value = true;
 
         }
@@ -112,7 +119,7 @@ namespace LaborPro.Automation.Features.LaborDrivers
             CloseLaborDriversDetailSideBar();
             ClickOnAddButton();
             UserClickOnNewLaborDriversMenuLink();
- 
+
             //Read input data
             var dictionary = Util.ConvertToDictionary(inputData);
             BaseClass._TestData.Value = Util.DictionaryToString(dictionary);
@@ -126,10 +133,10 @@ namespace LaborPro.Automation.Features.LaborDrivers
             if (Util.ReadKey(dictionary, "Driver Type") != null)
             {
                 WebDriverUtil.WaitFor(1);
-                new SelectElement( WebDriverUtil.GetWebElement(DRIVER_TYPE_INPUT, WebDriverUtil.FIVE_SECOND_WAIT,
+                new SelectElement(WebDriverUtil.GetWebElement(DRIVER_TYPE_INPUT, WebDriverUtil.FIVE_SECOND_WAIT,
                 String.Format("Unable to locate Driver Type input on create LaborDrivers  page - {0}", DRIVER_TYPE_INPUT)))
                     .SelectByText(dictionary["Driver Type"]);
-               
+
             }
 
             if (Util.ReadKey(dictionary, "Number") != null)
@@ -185,7 +192,7 @@ namespace LaborPro.Automation.Features.LaborDrivers
         public static void UserClickAddLaborDriversButton()
         {
             ClickOnAddButton();
-            UserClickOnNewLaborDriversMenuLink();   
+            UserClickOnNewLaborDriversMenuLink();
         }
         public static void UserClickOnNewLaborDriversMenuLink()
         {
@@ -242,6 +249,39 @@ namespace LaborPro.Automation.Features.LaborDrivers
             }
             WebDriverUtil.WaitForWebElementInvisible(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
         }
+        public static void VerifyExportOptionIsPresent()
+        {
+            LogWriter.WriteLog("Executing LaborDriversPage.VerifyExportOptionIsPresent");
+            WebDriverUtil.GetWebElement(ExportButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE).Click();
+            var exportButton = WebDriverUtil.GetWebElement(ExportLaborDrivers, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (exportButton == null)
+                throw new Exception("Export Option is not found but we expect it should be present as logged in user has view only access!");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifyAddButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing LaborDriversPage.VerifyAddButtonIsNotPresent");
+            var addButton = WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (addButton != null)
+                throw new Exception("add button is found but we expect it should not be present when user login from view only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifyDeleteButtonIsNotPresent(string laborDriversName)
+        {
+            LogWriter.WriteLog("Executing LaborDriversPage.VerifyDeleteButtonIsNotPresent");
+            var laborRecordXpath = string.Format(LaborDriversRecord, laborDriversName);
+            WebDriverUtil.GetWebElement(laborRecordXpath, WebDriverUtil.ONE_SECOND_WAIT,
+                $"Unable to locate LaborDrivers record on LaborDrivers page - {laborRecordXpath}").Click();
+            var deleteButton = WebDriverUtil.GetWebElement(LaborDriversDeleteButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+
+            if (deleteButton.Enabled)
+                throw new Exception("delete button is found but we expect it should not be present when user login from view only access");
+            var editTextBox = WebDriverUtil.GetWebElement(NameInput, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (editTextBox.Enabled)
+                throw new Exception("edit TextBox is Enabled but we expect it should be disabled when user login from view only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+
 
     }
 }

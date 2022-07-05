@@ -14,7 +14,7 @@ namespace LaborPro.Automation.Features.Department
         {
             LogWriter.WriteLog("Executing Step: User navigates to the List Management tab  ");
             DepartmentsPage.CloseDepartmentForm();
-            DepartmentsPage.ClickOnStandardTab(); 
+            DepartmentsPage.ClickOnStandardTab();
             DepartmentsPage.ClickOnListManagementTab();
             AllowancePage.WaitForAllowanceAlertCloseIfAny();
         }

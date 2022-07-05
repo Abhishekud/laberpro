@@ -35,6 +35,12 @@ namespace LaborPro.Automation.Features.LaborPeriods
         const string CLEAR_FILTER_BUTTON = "//button[@title='Clear All Filters']";
         const string FORM_INPUT_FIELD_ERROR_XPATH = "//span[@class='validation-error help-block' and contains(text(),'{0}')]";
         const string ERROR_ALERT_TOAST_XPATH = "//*[@class='toast toast-error']";
+        private const string AddButton = "//button[@id='add']";
+        private const string ExportButton = "//button[@id='laborPeriods-export']";
+        private const string ExportLaborPeriods = "//*[contains(@class,'dropdown-menu dropdown-menu-right')]//a[text()='Export Labor Periods']";
+        private const string LaborPeriodDeleteButton = "//button//i[@title='Delete']";
+        private const string NameInput = "//input[@id='name']";
+        private const string PreviousButton = "//a[.//*[@class='fa fa-caret-left']]";
 
 
         public static void ClickOnKronosTab()
@@ -259,6 +265,43 @@ namespace LaborPro.Automation.Features.LaborPeriods
 
             }
             BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifyAddButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing LaborPeriodsPage.VerifyAddButtonIsNotPresent");
+            var addButton = WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (addButton != null)
+                throw new Exception("add button is found but we expect it should not be present when user login from view only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifyExportOptionIsPresent()
+        {
+            LogWriter.WriteLog("Executing LaborPeriodsPage.VerifyExportOptionIsPresent");
+            WebDriverUtil.GetWebElement(ExportButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE).Click();
+            var exportButton = WebDriverUtil.GetWebElement(ExportLaborPeriods, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (exportButton == null)
+                throw new Exception("Export Option is not found but we expect it should be present as logged in user has view only access!");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifyDeleteButtonAndEditOptionIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing LaborPeriodsPage.VerifyDeleteButtonIsNotPresent");
+            var deleteButton = WebDriverUtil.GetWebElement(LaborPeriodDeleteButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (deleteButton != null)
+                throw new Exception("delete button is found but we expect it should not be present when user login from view only access");
+
+            var editTextBox = WebDriverUtil.GetWebElement(NameInput, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (editTextBox.Enabled)
+                throw new Exception("edit TextBox is Enabled but we expect it should be disabled when user login from view only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void ClickOnPreviousLink()
+        {
+            LogWriter.WriteLog("Executing LaborPeriodsPage.ClickOnPreviousLink");
+            WebDriverUtil.GetWebElement(PreviousButton, WebDriverUtil.ONE_SECOND_WAIT,
+                $"Unable to locate previous button on Labor Period Details page- {PreviousButton}").Click();
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+
         }
     }
 }

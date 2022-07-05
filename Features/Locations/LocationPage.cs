@@ -39,6 +39,17 @@ namespace LaborPro.Automation.Features.Locations
         const string NEW_LOCATION_FORM_POPUP = "//*[@role='dialog']//*[@class='modal-title' and contains(text(), 'New Location')]";
         const string FORM_INPUT_FIELD_ERROR_XPATH = "//*[contains(@class,'validation-error')]";
         const string ELEMENT_ALERT = "//*[@class='form-group has-error']";
+        private const string AddButton = "//button[.//*[@class='fa fa-plus']]";
+        private const string ExportButton = "//*[@id='export']";
+        private const string ExportLocation = "//*[@class='dropdown-menu dropdown-menu-right' and @aria-labelledby='export']";
+        private const string LocationRecord = "//*[@role='row']//*[text()='{0}']";
+        private const string NameInput = "//*[@id='name']";
+        private const string DeleteButton = "//*[contains(@class,'locations-list-edit-sidebar')]//button[contains(@class,'delete')]";
+        private const string Header = "//th";
+        private const string LocationMappingRecordMapping = "//*[@role='row' and .//*[text()='{0}']]//td[{1}]/input";
+        private const string LocationRecordMapped = "//*[@role='row' and .//*[text()='{0}']]//td[{1}]/input[@checked]";
+
+
         public static void CloseLocationDetailSideBar()
         {
             LogWriter.WriteLog("Executing LocationsPage.CloseLocationDetailSideBar");
@@ -401,6 +412,74 @@ namespace LaborPro.Automation.Features.Locations
                 WaitForLoading();
             }
         }
-    }       
-    
+        public static void VerifyAddButtonIsNotAvailable()
+        {
+            LogWriter.WriteLog("Executing LocationPage.VerifyAddButtonIsNotAvailable");
+            var addButton = WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (addButton != null)
+                throw new Exception("add button is found but we expect it should not be present when user login from view only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifyExportOptionIsPresent()
+        {
+            LogWriter.WriteLog("Executing LocationPage.VerifyExportOptionIsPresent");
+            WebDriverUtil.GetWebElement(ExportButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE).Click();
+            var exportButton = WebDriverUtil.GetWebElement(ExportLocation, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (exportButton == null)
+                throw new Exception("Export Option is not found but we expect it should be present as logged in user has view only access!");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void SelectLocationRecord(string locationRecord)
+        {
+            LogWriter.WriteLog("Executing LocationPage.SelectLocationRecord");
+            var locationValue = string.Format(LocationRecord, locationRecord);
+            var location = WebDriverUtil.GetWebElement(locationValue, WebDriverUtil.ONE_SECOND_WAIT, $"Unable to locate location record on location page - {locationValue}");
+            if (location == null)
+                return;
+            location.Click();
+            WebDriverUtil.WaitForAWhile();
+        }
+        public static void VerifyEditOptionIsNotAvailable()
+        {
+            LogWriter.WriteLog("Executing LocationPage.VerifyEditOptionIsNotAvailable");
+            var editTextBox = WebDriverUtil.GetWebElement(NameInput, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (editTextBox.Enabled)
+                throw new Exception("edit TextBox is Enabled but we expect it should be disabled when user login from view only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifyDeleteButtonIsNotAvailable()
+        {
+            LogWriter.WriteLog("Executing LocationPage.VerifyDeleteButtonIsNotAvailable");
+            var deleteButton = WebDriverUtil.GetWebElement(DeleteButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (deleteButton != null)
+                throw new Exception("delete button is found but we expect it should not be present when user login from view only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void MapsCreatedDepartmentAndLocationNotAvailable(string location, string department)
+        {
+            LogWriter.WriteLog("Executing LocationPage.MapsCreatedDepartmentAndLocation");
+            CloseLocationDetailSideBar();
+            IList<IWebElement> headers = SeleniumDriver.Driver().FindElements(By.XPath(Header));
+            var found = false;
+            var index = 0;
+            foreach (var header in headers)
+            {
+                index++;
+                var headerData = header.GetAttribute("innerHTML");
+                if (!headerData.Contains(department)) continue;
+                found = true;
+                var locationMappingRecordMapping = string.Format(LocationMappingRecordMapping, location, index);
+                var locationDepartmentMapping = WebDriverUtil.GetWebElement(locationMappingRecordMapping, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+                locationDepartmentMapping.Click();
+                var locationMapped = string.Format(LocationRecordMapped, location, index);
+                var locationRecordMapped = WebDriverUtil.GetWebElement(locationMapped, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+                if (locationRecordMapped != null)
+                    throw new Exception("Mapping of location and department is Enabled but we expect it should be disabled when user login from view only access");
+                break;
+            }
+            if (!found)
+                throw new Exception($"No department found - {department} but we expect it should be display!");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+    }        
 }

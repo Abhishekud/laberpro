@@ -38,7 +38,7 @@ Feature: Verify Tasks Module
       And User delete created Tasks "Tasks Scenario" 
   
   @Smoke
-  Scenario: 05. Verify_that_Respective_TaskGroup_is_available_in_Task
+  Scenario: 05. Verify_that_Respective_TaskGroup_is_available_in_Task 
     Given User navigates to the TaskGroups tab
      Then User delete TaskGroups "TaskGroups" if exist
      When User create new TaskGroups with below input 
@@ -47,7 +47,7 @@ Feature: Verify Tasks Module
       | Generic Department    | Generic Department    | 
       | Combined Distribution | Combined Distribution | 
       | Allocate Labor Hours  | Start Day             | 
-      | Job Name              | Job Name              | 
+      | Job Name              | Job1                  | 
       And User verify created TaskGroups "TaskGroups"
      Then User navigates to the Tasks tab
       And User delete Tasks "Tasks Scenario" if exist

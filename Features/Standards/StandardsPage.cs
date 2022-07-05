@@ -56,7 +56,17 @@ namespace LaborPro.Automation.Features.Standards
         const string FORM_INPUT_FIELD_ERROR_XPATH = "//*[contains(@class,'validation-error')]";
         const string STANDARD_RECORD = "//*[@role='row' and .//*[text()='{0}']]";
         const string ELEMENT_ALERT = "//*[@class='form-group has-error']";
-
+        private const string AddButton = "//button[.//*[@class='fa fa-plus']]";
+        private const string OpenEditSidebarForm = "//*[@class='sidebar-scrollable']//div[@class='form-group']";
+        private const string StandardDetailsSidebarButton = "//*[@class='page-header']//button[@class='btn-default btn btn-default']//i";
+        private const string EditButtonSidebar = "//button//strong[contains(text(),'edit')]";
+        private const string ExportButton = "//*[@class='page-header']//button[@id='export-standards']";
+        private const string ReportButton = "//*[@class='page-header']//button[@id='standardReports']";
+        private const string StandardDetailsPagePreviousLink = "//a[.//*[@class='fa fa-caret-left']]";
+        private const string AddButtonInStandardElement = "//*[@class='add-standard-item standalone']//button[@title='New Standard Element']";
+        private const string AddOptionInStandardGroup = "//*[@class='add-standard-item standalone']//*[@class='form-group']//*[@id='groupName']";
+        private const string TickOptionInStandardDetail = "//*[@class='fa fa-square-o']";
+        private const string SelectOptionInListing = "//*[@class='k-master-row']//*[@aria-colindex='1']";
         public static void ClickOnStandardsTab()
         {
             LogWriter.WriteLog("Executing StandardPage.ClickOnStandardsTab");
@@ -202,9 +212,6 @@ namespace LaborPro.Automation.Features.Standards
             {
                 throw new Exception(string.Format("Unable to delete Standard Error - {0}", alert.Text));
             }
-            
-      
-
 
         }
         public static void NewStandardElement()
@@ -444,10 +451,8 @@ namespace LaborPro.Automation.Features.Standards
                     WebDriverUtil.ONE_SECOND_WAIT, 
                     String.Format("Unable to locate UOM value in standard element dropdown - {0}", 
                     String.Format(STANDARD_ELEMENT_UOM_VALUE_IN_DROPDOWN, UOM)));
-
             }
             BaseClass._AttachScreenshot.Value = true;
-
         }
         public static int FindColumnIndexInStandard(string headername)
         {
@@ -460,12 +465,105 @@ namespace LaborPro.Automation.Features.Standards
                 if (headername.ToLower().Equals(header.Text.ToLower()))
                 {
                     break;
-
                 }
             }
             index++;
-
             return index;
+        }
+        public static void VerifyAddButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing StandardsPage.VerifyAddButtonIsNotPresent");
+            var addButton = WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (addButton != null)
+                throw new Exception("add button is found but we expect it should not be present when user login from view only access");
+            BaseClass._AttachScreenshot.Value = true;
+            WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
+        }
+        public static void VerifyEditButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing StandardPage.VerifyEditButtonIsMissingInViewOnly");
+            var openEditSidebarForm = WebDriverUtil.GetWebElement(OpenEditSidebarForm, WebDriverUtil.ONE_SECOND_WAIT,
+                WebDriverUtil.NO_MESSAGE);
+            var editButtonSidebar = WebDriverUtil.GetWebElement(EditButtonSidebar, WebDriverUtil.ONE_SECOND_WAIT,
+                WebDriverUtil.NO_MESSAGE);
+            if (openEditSidebarForm == null) return;
+            WebDriverUtil.GetWebElement(StandardDetailsSidebarButton, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
+            WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
+            if (openEditSidebarForm == null) return;
+            if (editButtonSidebar != null)
+                throw new Exception("edit button is found but we expect it should not be present when user login from view only access");
+            BaseClass._AttachScreenshot.Value = true;
+            WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
+            ClickOnPreviousLink();
+        }
+        public static void VerifyExportOptionIsPresent()
+        {
+            LogWriter.WriteLog("Executing StandardsPage.VerifyExportOptionIsNotPresent");
+            var exportButton = WebDriverUtil.GetWebElement(ExportButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (exportButton == null)
+                throw new Exception("export button is not found but we expect it should be present when user login from view only access");
+            exportButton.Click();
+            BaseClass._AttachScreenshot.Value = true;
+            WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
+        }
+
+        public static void VerifyReportOptionIsPresent()
+        {
+            LogWriter.WriteLog("Executing StandardsPage.VerifyReportOptionIsPresent");
+            var reportButton = WebDriverUtil.GetWebElement(ReportButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            var previousButton = WebDriverUtil.GetWebElement(StandardDetailsPagePreviousLink, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (reportButton == null)
+                throw new Exception("report button is not found but we expect it should be present when user login from view only access");
+            reportButton.Click();
+            BaseClass._AttachScreenshot.Value = true;
+            if(previousButton != null)
+                ClickOnPreviousLink();
+        }
+        public static void ClickOnPreviousLink()
+        {
+            LogWriter.WriteLog("Executing StandardsPage.ClickOnPreviousLink");
+            WebDriverUtil.GetWebElement(StandardDetailsPagePreviousLink, WebDriverUtil.ONE_SECOND_WAIT,
+                $"Unable to locate previous button on standard details page - {StandardDetailsPagePreviousLink}").Click();
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+        }
+        public static void VerifyAddButtonIsNotAvailableInStandardElement()
+        {
+            LogWriter.WriteLog("Executing StandardsPage.VerifyAddButtonIsAvailableInStandardElement");
+            var addButtonInStandardElement = WebDriverUtil.GetWebElement(AddButtonInStandardElement, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (addButtonInStandardElement.Enabled)
+                throw new Exception("add button is enabled but we expect it should be disabled as logged in with view only access");
+            BaseClass._AttachScreenshot.Value = true;
+            WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
+            ClickOnPreviousLink();
+        }
+        public static void VerifyAddOptionIsNotAvailableInStandardGroup()
+        {
+            LogWriter.WriteLog("Executing StandardsPage.VerifyAddOptionIsAvailableInStandardGroup");
+            var addOptionInStandardGroup = WebDriverUtil.GetWebElement(AddOptionInStandardGroup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (addOptionInStandardGroup.Enabled)
+                throw new Exception("add option for standard group is enabled but we expect it should be disabled as logged in with view only access");
+            BaseClass._AttachScreenshot.Value = true;
+            WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
+            ClickOnPreviousLink();
+        }
+
+        public static void VerifyTickOptionIsNotAvailable()
+        {
+            LogWriter.WriteLog("Executing StandardsPage.VerifyTickOptionIsNotAvailable");
+            var tickOptionInStandardDetails = WebDriverUtil.GetWebElement(TickOptionInStandardDetail, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (tickOptionInStandardDetails != null)
+                throw new Exception("tick option is found but we expect it should not be present as logged in with view only access");
+            BaseClass._AttachScreenshot.Value = true;
+            WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
+            ClickOnPreviousLink();
+        }
+
+        public static void SelectStandardInListing()
+        {
+            var selectOption = WebDriverUtil.GetWebElement(SelectOptionInListing, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (selectOption == null)
+                throw new Exception("select option is not found but we expect it should not be present when user login from view only access"); 
+            selectOption.Click();
         }
     }
 }

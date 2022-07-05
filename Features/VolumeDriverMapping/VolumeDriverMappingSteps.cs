@@ -32,7 +32,7 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
         [Then(@"User click on VolumeDriverMapping")]
         public void UserClickOnVolumeDriver()
         {
-            LogWriter.WriteLog("Executing step: User click on VolumeDriverMapping");
+            LogWriter.WriteLog("Executing VolumeDriversPage UserClickOnVolumeDriver ");
             VolumeDriverMappingPage.ClickOnVolumeDriverMapping();
         }
 
@@ -41,7 +41,8 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
         [Then(@"User click on VolumeDriverMapping set")]
         public void UserClickOnVolumeDriverSet()
         {
-            LogWriter.WriteLog("Executing step: User click on VolumeDriverMapping set");
+            LogWriter.WriteLog("Executing VolumeDriversPage UserClickOnVolumeDriverset ");
+
             VolumeDriverMappingPage.ClickOnVolumeDriverSet();
         }
 
@@ -68,7 +69,7 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
         [Then(@"User verify created VolumeDriverMapping by ""([^""]*)""")]
         public void UserVerifyCreatedVolumeDriver(string volumeDriverName)
         {
-            LogWriter.WriteLog("Executing step: User verify created VolumeDriverMapping by name ");
+            LogWriter.WriteLog("Executing  VolumeDriverMappingPage UserVerifyCreatedVolumeDriver");
             VolumeDriverMappingPage.VerifyCreatedVolumeDriverMapping(volumeDriverName);
         }
 
@@ -77,17 +78,17 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
         [Then(@"User delete created VolumeDriverMapping by ""([^""]*)""")]
         public void UserDeleteCreatedVolumeDriver(string volumeDriverName)
         {
-            LogWriter.WriteLog("Executing step: User delete created VolumeDriverMapping by  name");
+            LogWriter.WriteLog("Executing  VolumeDriverMappingPage UserDeleteCreatedVolumeDriver");
             VolumeDriverMappingPage.DeleteCreatedVolumeDriverMapping(volumeDriverName);
         }
 
         [Given(@"User delete created UOM by ""([^""]*)""")]
         [When(@"User delete created UOM by ""([^""]*)""")]
         [Then(@"User delete created UOM by ""([^""]*)""")]
-        public void DeleteCreatedUom(string uomName)
+        public void UserDeleteCreatedUOM(string uomName)
         {
-            LogWriter.WriteLog("Executing step: User delete created UOM by name ");
-            VolumeDriverMappingPage.DeleteCreatedUom(uomName);
+            LogWriter.WriteLog("Executing  VolumeDriverMappingPage UserDeleteCreatedVolumeDriver");
+            VolumeDriverMappingPage.DeleteCreatedUOM(uomName);
         }
 
         [Given(@"User verify created VolumeDriverMappingset by name ""([^""]*)""")]
@@ -124,6 +125,47 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
         {
             LogWriter.WriteLog("Executing Step User delete created VolumeDriverMapping by name" + volumeDriverMappingName);
             VolumeDriverMappingPage.DeleteVolumeDriverMappingIfExist(volumeDriverMappingName);
+        }
+        [Given(@"User verify add button is not available on volume driver mapping page")]
+        [When(@"User verify add button is not available on volume driver mapping page")]
+        [Then(@"User verify add button is not available on volume driver mapping page")]
+        public void VerifyAddButtonIsNotAvailable()
+        {
+            LogWriter.WriteLog("Executing Step User verify add button is not available on volume driver mapping page");
+            VolumeDriverMappingPage.VerifyAddButtonIsNotAvailable();
+        }
+        [Given(@"User verify export option is available on volume driver mapping page")]
+        [When(@"User verify export option is available on volume driver mapping page")]
+        [Then(@"User verify export option is available on volume driver mapping page")]
+        public void VerifyExportOptionIsAvailable()
+        {
+            LogWriter.WriteLog("Executing Step User verify export option is available on volume driver mapping page");
+            VolumeDriverMappingPage.VerifyExportOptionIsAvailable();
+        }
+
+        [Given(@"User verify delete button is not available on volume driver mapping page in  ""([^""]*)""")]
+        [When(@"User verify delete button is not available on volume driver mapping page in  ""([^""]*)""")]
+        [Then(@"User verify delete button is not available on volume driver mapping page in  ""([^""]*)""")]
+        public void VerifyDeleteButtonIsNotAvailable(string volumeDriverMappingName)
+        {
+            LogWriter.WriteLog("Executing Step User verify delete button is not available on volume driver mapping page in " + volumeDriverMappingName);
+            VolumeDriverMappingPage.VerifyDeleteButtonIsNotAvailable(volumeDriverMappingName);
+        }
+        [Given(@"User verify details are not editable on volume driver mapping page")]
+        [When(@"User verify details are not editable on volume driver mapping page")]
+        [Then(@"User verify details are not editable on volume driver mapping page")]
+        public void VerifyDetailsAreNotEditable()
+        {
+            LogWriter.WriteLog("Executing Step User verify details are not editable on volume driver mapping page");
+            VolumeDriverMappingPage.VerifyDetailsAreNotEditable();
+        }
+        [Given(@"User select the department ""([^""]*)"" on volume driver mapping page")]
+        [When(@"User select the department ""([^""]*)"" on volume driver mapping page")]
+        [Then(@"User select the department ""([^""]*)"" on volume driver mapping page")]
+        public void UserSelectTheDepartment(string departmentValue)
+        {
+            LogWriter.WriteLog("Executing Step User select the department " + departmentValue + "on volume driver mapping page");
+            VolumeDriverMappingPage.SelectTheDepartment(departmentValue);
         }
 
     }

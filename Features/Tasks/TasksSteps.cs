@@ -88,5 +88,30 @@ namespace LaborPro.Automation.Features.Tasks
             LogWriter.WriteLog("Executing Step User delete created Tasks by name" + tasksName);
             TasksPage.DeleteTasksIfExist(tasksName);
         }
+
+        [Given(@"User verify add button is not available on tasks page")]
+        [When(@"User verify add button is not available on tasks page")]
+        [Then(@"User verify add button is not available on tasks page")]
+        public void VerifyAddButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing Step User verify add button is not available on tasks page");
+            TasksPage.VerifyAddButtonIsNotPresent();
+        }
+        [Then(@"User verify delete button is not available on tasks page on record ""(.*)""")]
+        [When(@"User verify delete button is not available on tasks page on record ""(.*)""")]
+        [Then(@"User verify delete button is not available on tasks page on record ""(.*)""")]
+        public void VerifyDeleteButtonIsNotPresent(string tasksName)
+        {
+            LogWriter.WriteLog("Executing Step User verify delete button is not available on tasks page on record " + tasksName);
+            TasksPage.VerifyDeleteButtonIsNotPresent(tasksName);
+        }
+        [Given(@"User verify export option is available on tasks page")]
+        [When(@"User verify export option is available on tasks page")]
+        [Then(@"User verify export option is available on tasks page")]
+        public void VerifyExportOptionIsPresent()
+        {
+            LogWriter.WriteLog("Executing Step User verify export option is available on tasks page");
+            TasksPage.VerifyExportOptionIsPresent();
+        }
     }
 }

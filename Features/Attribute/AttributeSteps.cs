@@ -24,7 +24,7 @@ namespace LaborPro.Automation.Features.Attribute
         [Then(@"User add new attribute using below input")]
         public void AddAttributeWithGivenInput(Table inputData)
         {
-            LogWriter.WriteLog("Executing Step:User add new attribute using below input-" + inputData);
+            LogWriter.WriteLog("Executing Step: User add new attribute using below input-" + inputData);
             AttributePage.AddAttributeWihGivenInput(inputData);
         }
 
@@ -42,7 +42,7 @@ namespace LaborPro.Automation.Features.Attribute
         [Then(@"User click cancel Button")]
         public void UserClickCancelButton()
         {
-            LogWriter.WriteLog("Exceuting Step: User click cancel Button");
+            LogWriter.WriteLog("Executing Step: User click cancel Button");
             AttributePage.CloseAttributeForm();
         }
 
@@ -51,7 +51,7 @@ namespace LaborPro.Automation.Features.Attribute
         [Then(@"User verify created attribute name ""([^""]*)""")]
         public void UserVerifyCreatedAttribute(string attributeName)
         {
-            LogWriter.WriteLog("Executing Step:User verify created attribute name" + attributeName);
+            LogWriter.WriteLog("Executing Step: User verify created attribute name" + attributeName);
             AttributePage.VerifyCreatedAttribute(attributeName);
         }
 
@@ -60,30 +60,30 @@ namespace LaborPro.Automation.Features.Attribute
         [Then(@"User delete created attribute:""([^""]*)""")]
         public void DeleteCreatedAttribute(string attributeName)
         {
-            LogWriter.WriteLog("Executing Step:User delete created attribute:" + attributeName);
+            LogWriter.WriteLog("Executing Step: User delete created attribute:" + attributeName);
             AttributePage.DeleteCreatedAttribute(attributeName);
         }
 
         [Then(@"User select the Department ""([^""]*)""")]
         public void SelectDepartment(string departmentName)
         {
-            LogWriter.WriteLog("Executing Step:User select the Department" + departmentName);
+            LogWriter.WriteLog("Executing Step: User select the Department" + departmentName);
             AttributePage.SelectTheDepartment(departmentName);
         }
 
         [Then(@"Verify selected Department ""([^""]*)""")]
         public void VerifySelectedDepartment(string departmentName)
         {
-            LogWriter.WriteLog("Exceuting Step: Verify selected Department" + departmentName);
+            LogWriter.WriteLog("Executing Step: Verify selected Department" + departmentName);
             AttributePage.VerifyTheDepartment(departmentName);
         }
 
         [Given(@"User delete attribute ""([^""]*)"" if exist")]
         [When(@"User delete attribute ""([^""]*)"" if exist")]
         [Then(@"User delete attribute ""([^""]*)"" if exist")]
-        public void UserDeleteAttribute(String attributeName)
+        public void UserDeleteAttribute(string attributeName)
         {
-            LogWriter.WriteLog("Executing Step User delete created attribute by name" + attributeName);
+            LogWriter.WriteLog("Executing Step: User delete created attribute by name" + attributeName);
             AttributePage.DeleteAttributeIfExist(attributeName);
         }
         [Then(@"User verify add button is not present in attribute module")]
@@ -107,11 +107,11 @@ namespace LaborPro.Automation.Features.Attribute
             AttributePage.ClickOnExportIcon();
         }
 
-        [Then(@"User verify the dailog box asking for file name for attribute module")]
-        public void ThenUserVerifyTheDailogBoxAskingForFileNameForAttributeModule()
+        [Then(@"User verify the dialog box asking for file name for attribute module")]
+        public void ThenUserVerifyTheDialogBoxAskingForFileNameForAttributeModule()
         {
-            LogWriter.WriteLog("Executing Step: User verify the dailog box asking for file name for attribute module");
-            AttributePage.VerifyExportAttributeDailogBox();
+            LogWriter.WriteLog("Executing Step: User verify the dialog box asking for file name for attribute module");
+            AttributePage.VerifyExportAttributeDialogueBox();
 
         }
 

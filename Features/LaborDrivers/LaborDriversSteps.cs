@@ -41,14 +41,14 @@ namespace LaborPro.Automation.Features.LaborDrivers
         [Then(@"User clicks Add LaborDrivers Button")]
         public void UserClickAddLaborDriversButton()
         {
-            LogWriter.WriteLog("Exceuting Step User clicks cancel button");
+            LogWriter.WriteLog("Executing Step User clicks cancel button");
             LaborDriversPage.UserClickAddLaborDriversButton();
         }
 
         [Given(@"User verify created LaborDrivers ""([^""]*)""")]
         [When(@"User verify created LaborDrivers ""([^""]*)""")]
         [Then(@"User verify created LaborDrivers ""([^""]*)""")]
-        public void UserVerifyCreatedLaborDrivers(String laborDriversName) {
+        public void UserVerifyCreatedLaborDrivers(string laborDriversName) {
             LogWriter.WriteLog("Executing Step User verify created LaborDrivers by name" + laborDriversName);
             LaborDriversPage.VerifyCreatedLaborDrivers(laborDriversName); 
         }
@@ -65,7 +65,7 @@ namespace LaborPro.Automation.Features.LaborDrivers
         [Given(@"User delete created LaborDrivers ""([^""]*)""")]
         [When(@"User delete created LaborDrivers ""([^""]*)""")]
         [Then(@"User delete created LaborDrivers ""([^""]*)""")]
-        public void UserDeleteCreatedLaborDrivers(String laborDriversName)
+        public void UserDeleteCreatedLaborDrivers(string laborDriversName)
         {
             LogWriter.WriteLog("Executing Step User delete created LaborDrivers by name" + laborDriversName);
             LaborDriversPage.DeleteCreatedLaborDrivers(laborDriversName);
@@ -74,10 +74,36 @@ namespace LaborPro.Automation.Features.LaborDrivers
         [Given(@"User delete LaborDrivers ""([^""]*)"" if exist")]
         [When(@"User delete LaborDrivers ""([^""]*)"" if exist")]
         [Then(@"User delete LaborDrivers ""([^""]*)"" if exist")]
-        public void UserDeleteLaborDrivers(String laborDriversName)
+        public void UserDeleteLaborDrivers(string laborDriversName)
         {
             LogWriter.WriteLog("Executing Step User delete created LaborDrivers by name" + laborDriversName);
             LaborDriversPage.DeleteLaborDriversIfExist(laborDriversName);
         }
+
+        [Given(@"User verify add button is not available on labor drivers page")]
+        [When(@"User verify add button is not available on labor drivers page")]
+        [Then(@"User verify add button is not available on labor drivers page")]
+        public void VerifyAddButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing Step User verify add button is not available on labor drivers page");
+            LaborDriversPage.VerifyAddButtonIsNotPresent();
+        }
+        [Then(@"User verify delete button is not available on labor driver record ""(.*)""")]
+        [When(@"User verify delete button is not available on labor driver record ""(.*)""")]
+        [Then(@"User verify delete button is not available on labor driver record ""(.*)""")]
+        public void VerifyDeleteButtonIsNotPresent(string laborDriversName)
+        {
+            LogWriter.WriteLog("Executing Step verify Delete button is not present");
+            LaborDriversPage.VerifyDeleteButtonIsNotPresent(laborDriversName);
+        }
+        [Given(@"User verify export option is available on labor drivers page")]
+        [When(@"User verify export option is available on labor drivers page")]
+        [Then(@"User verify export option is available on labor drivers page")]
+        public void VerifyExportOptionIsPresent()
+        {
+            LogWriter.WriteLog("Executing Step User verify export option is available on labor drivers page");
+            LaborDriversPage.VerifyExportOptionIsPresent();
+        }
+
     }
 }

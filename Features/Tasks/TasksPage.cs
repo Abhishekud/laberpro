@@ -1,5 +1,4 @@
-﻿using LaborPro.Automation.Features.Standards;
-using LaborPro.Automation.Features.TaskGroups;
+﻿using LaborPro.Automation.Features.TaskGroups;
 using LaborPro.Automation.shared.drivers;
 using LaborPro.Automation.shared.hooks;
 using LaborPro.Automation.shared.util;
@@ -36,6 +35,14 @@ namespace LaborPro.Automation.Features.Tasks
         const string TASKS_TABLE_HEADER = "//table[@role='presentation']//th//*[@class='k-link']";
         const string FORM_INPUT_FIELD_ERROR_XPATH = "//*[contains(@class,'validation-error')]";
         const string ELEMENT_ALERT = "//*[@class='form-group has-error']";
+        private const string TasksRecord = "//*[@role='row' and .//*[text()='{0}']]";
+        private const string ExportButton = "//button[@id='export']";
+        private const string ExportTasks = "//*[contains(@class,'dropdown-menu dropdown-menu-right')]//a[text()='Export Tasks']";
+        private const string AddButton = "//button[@id='add']";
+        private const string NameInput = "//*[@id='name']";
+        private const string TasksDeleteButton = "//button[contains(@class,'delete')]";
+        private const string ClearFilterButton = "//button[@title='Clear All Filters']";
+
 
         public static void AddNewTasksWithGivenInputIfNotExist(Table inputData)
         {
@@ -43,7 +50,7 @@ namespace LaborPro.Automation.Features.Tasks
             WaitForTasksAlertCloseIfAny();
             var dictionary = Util.ConvertToDictionary(inputData);
             BaseClass._TestData.Value = Util.DictionaryToString(dictionary);
-            StandardsPage.ClearAllFilter();
+            ClearAllFilter();
             SearchTasks(dictionary["Name"]);
             IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(TASKS_RECORD, dictionary["Name"]), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record == null)
@@ -58,7 +65,7 @@ namespace LaborPro.Automation.Features.Tasks
         public static void DeleteTasksIfExist(string tasksName)
         {
             LogWriter.WriteLog("Executing TasksPage.DeleteTasksIfExist");
-            StandardsPage.ClearAllFilter();
+            ClearAllFilter();
             SearchTasks(tasksName);
             IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(TASKS_RECORD, tasksName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record != null)
@@ -88,8 +95,8 @@ namespace LaborPro.Automation.Features.Tasks
             WebDriverUtil.GetWebElement(String.Format(TASKS_DELETE_BUTTON, tasksName), WebDriverUtil.TWO_SECOND_WAIT,
             String.Format("Unable to locate Tasks delete button on Tasks details - {0}", String.Format(
                 TASKS_DELETE_BUTTON, tasksName))).Click();
-           WebDriverUtil.GetWebElement(TASKS_DELETE_CONFIRM_POPUP_ACCEPT, WebDriverUtil.TWO_SECOND_WAIT,
-                   String.Format("Unable to locate Confirm button on delete confirmation popup - {0}", TASKS_DELETE_CONFIRM_POPUP_ACCEPT)).Click();
+            WebDriverUtil.GetWebElement(TASKS_DELETE_CONFIRM_POPUP_ACCEPT, WebDriverUtil.TWO_SECOND_WAIT,
+                    String.Format("Unable to locate Confirm button on delete confirmation popup - {0}", TASKS_DELETE_CONFIRM_POPUP_ACCEPT)).Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
@@ -101,8 +108,8 @@ namespace LaborPro.Automation.Features.Tasks
             {
                 throw new Exception(string.Format("Unable to delete Task Error - {0}", alert.Text));
             }
-         }
-        public static void SearchTasks(string tasksName)  
+        }
+        public static void SearchTasks(string tasksName)
         {
             LogWriter.WriteLog("Executing TasksPage.SearchTasks");
             WebDriverUtil.GetWebElement(String.Format(TASKGROUPS_FILTER_INPUT, FindColumnIndexInTasks(NAME)), WebDriverUtil.NO_WAIT,
@@ -128,12 +135,12 @@ namespace LaborPro.Automation.Features.Tasks
 
                 }
             }
-          return index;
+            return index;
         }
         public static void VerifyCreatedTasks(string tasksName)
         {
             LogWriter.WriteLog("Executing TasksPage.VerifyCreatedTasks");
-            StandardsPage.ClearAllFilter();
+            ClearAllFilter();
             SearchTasks(tasksName);
             WebDriverUtil.GetWebElement(String.Format(TASKS_RECORD, tasksName), WebDriverUtil.FIVE_SECOND_WAIT,
             String.Format("Unable to locate record Taskss page - {0}", String.Format(TASKS_RECORD, tasksName)));
@@ -150,7 +157,7 @@ namespace LaborPro.Automation.Features.Tasks
         public static void DeleteCreatedTaskGroups(string taskGroupsName)
         {
             LogWriter.WriteLog("Executing TasksPage.DeleteCreatedTaskGroups");
-            StandardsPage.ClearAllFilter();
+            ClearAllFilter();
             TaskGroupsPage.SearchTaskGroups(taskGroupsName);
             TaskGroupsPage.DeleteCreatedTaskGroups(taskGroupsName);
         }
@@ -160,7 +167,7 @@ namespace LaborPro.Automation.Features.Tasks
             CloseTasksDetailSideBar();
             ClickOnAddButton();
             UserClickOnNewTasksMenuLink();
- 
+
             //Read input data
             var dictionary = Util.ConvertToDictionary(inputData);
             BaseClass._TestData.Value = Util.DictionaryToString(dictionary);
@@ -174,10 +181,10 @@ namespace LaborPro.Automation.Features.Tasks
             if (Util.ReadKey(dictionary, "Time Dependency") != null)
             {
                 WebDriverUtil.WaitFor(1);
-                new SelectElement( WebDriverUtil.GetWebElement(TIME_DEPENDENT_INPUT, WebDriverUtil.FIVE_SECOND_WAIT,
+                new SelectElement(WebDriverUtil.GetWebElement(TIME_DEPENDENT_INPUT, WebDriverUtil.FIVE_SECOND_WAIT,
                 String.Format("Unable to locate Time Dependency input on create Tasks  page - {0}", TIME_DEPENDENT_INPUT)))
                     .SelectByText(dictionary["Time Dependency"]);
-               
+
             }
 
             if (Util.ReadKey(dictionary, "Combined Distribution") != null)
@@ -185,7 +192,7 @@ namespace LaborPro.Automation.Features.Tasks
                 WebDriverUtil.GetWebElement(COMBINED_DISTRIBUTION_INPUT, WebDriverUtil.TEN_SECOND_WAIT,
                 String.Format("Unable to locate Combined Distribution input on create Tasks  page - {0}", COMBINED_DISTRIBUTION_INPUT))
                     .SendKeys(dictionary["Combined Distribution"]);
-            } 
+            }
             if (Util.ReadKey(dictionary, "Generic Department") != null)
             {
                 WebDriverUtil.GetWebElement(GENERIC_DEPT_INPUT, WebDriverUtil.NO_WAIT,
@@ -194,7 +201,7 @@ namespace LaborPro.Automation.Features.Tasks
             }
             if (Util.ReadKey(dictionary, "TaskGroups") != null)
             {
-                new SelectElement(WebDriverUtil.GetWebElement( TASK_GROUPS_INPUT, WebDriverUtil.FIVE_SECOND_WAIT,
+                new SelectElement(WebDriverUtil.GetWebElement(TASK_GROUPS_INPUT, WebDriverUtil.FIVE_SECOND_WAIT,
                String.Format("Unable to locate TaskGroups input on create Tasks  page - {0}", TASK_GROUPS_INPUT)))
                    .SelectByText(dictionary["TaskGroups"]);
             }
@@ -228,11 +235,11 @@ namespace LaborPro.Automation.Features.Tasks
         public static void UserClickAddTasksButton()
         {
             ClickOnAddButton();
-            UserClickOnNewTasksMenuLink();   
+            UserClickOnNewTasksMenuLink();
         }
         public static void UserClickOnNewTasksMenuLink()
         {
- 
+
             LogWriter.WriteLog("Executing TasksPage.UserClickOnNewTasksMenuLink");
             WebDriverUtil.GetWebElement(ADD_TASKS_LINK, WebDriverUtil.NO_WAIT,
             String.Format("Unable to locate NewTasksMenu menu link on add menu popup - {0}", ADD_TASKS_LINK)).Click();
@@ -259,7 +266,7 @@ namespace LaborPro.Automation.Features.Tasks
         public static void ClickOnTasksTab()
         {
             LogWriter.WriteLog("Executing TasksPage.ClickOnTasksTab");
-           if (WebDriverUtil.GetWebElement(TASKSS_PAGE, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) == null)
+            if (WebDriverUtil.GetWebElement(TASKSS_PAGE, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) == null)
             {
                 WebDriverUtil.GetWebElement(TASKS_TAB, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE).Click();
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
@@ -286,6 +293,48 @@ namespace LaborPro.Automation.Features.Tasks
 
             }
             WebDriverUtil.WaitForWebElementInvisible(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+        }
+        public static void VerifyExportOptionIsPresent()
+        {
+            LogWriter.WriteLog("Executing TasksPage.VerifyExportOptionIsPresent");
+            WebDriverUtil.GetWebElement(ExportButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE).Click();
+            var exportButton = WebDriverUtil.GetWebElement(ExportTasks, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (exportButton == null)
+                throw new Exception("Export Option is not found but we expect it should be present as logged in user has view only access!");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifyDeleteButtonIsNotPresent(string tasksName)
+        {
+            LogWriter.WriteLog("Executing TasksPage.VerifyDeleteButtonIsNotPresent");
+            ClearAllFilter();
+            SearchTasks(tasksName);
+            var taskRecordXpath = string.Format(TasksRecord, tasksName);
+            WebDriverUtil.GetWebElement(taskRecordXpath, WebDriverUtil.ONE_SECOND_WAIT,
+                $"Unable to locate Tasks record on Tasks page - {taskRecordXpath}").Click();
+            var deleteButton = WebDriverUtil.GetWebElement(TasksDeleteButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+
+            if (deleteButton != null)
+                throw new Exception("delete button is found but we expect it should not be present when user login from view only access");
+            var editTextBox = WebDriverUtil.GetWebElement(NameInput, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (editTextBox.Enabled)
+                throw new Exception("edit TextBox is Enabled but we expect it should be disabled when user login from view only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifyAddButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing TasksPage.VerifyAddButtonIsNotPresent");
+            var addButton = WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (addButton != null)
+                throw new Exception("add button is found but we expect it should not be present when user login from view only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void ClearAllFilter()
+        {
+            LogWriter.WriteLog("Executing TaskPage.ClearAllFilter");
+            var clearFilterButton = WebDriverUtil.GetWebElement(ClearFilterButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (clearFilterButton == null) return;
+            clearFilterButton.Click();
+            WaitForLoading();
         }
 
     }

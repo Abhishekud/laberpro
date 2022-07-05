@@ -11,9 +11,9 @@ namespace LaborPro.Automation.Features.VolumeDriver
         [Then(@"User navigates to the VolumeDriver tab")]
         public void UserNavigatesToTheListManagementsTab()
         {
-            LogWriter.WriteLog("Executing Step User navigates to the VolumeDriver tab");
+            LogWriter.WriteLog("Executing VolumeDriverPage.UserNavigatesToTheListManagementTab ");
             VolumeDriverPage.CloseVolumeDriverForm();
-            VolumeDriverPage.ClickOnStandardTab(); 
+            VolumeDriverPage.ClickOnStandardTab();
             VolumeDriverPage.ClickOnListManagementTab();
             VolumeDriverPage.ClickOnVolumeDriver();
         }
@@ -23,7 +23,7 @@ namespace LaborPro.Automation.Features.VolumeDriver
         [Then(@"User create new VolumeDriver with below input")]
         public void AddNewVolumeDriverWithGivenInput(Table inputData)
         {
-            LogWriter.WriteLog("Executing Step User create new VolumeDriver with below input " + inputData);
+            LogWriter.WriteLog("Executing User create new VolumeDriver with below input " + inputData);
             VolumeDriverPage.AddNewVolumeDriverWithGivenInput(inputData);
         }
 
@@ -32,7 +32,7 @@ namespace LaborPro.Automation.Features.VolumeDriver
         [Then(@"User create new VolumeDriver with below input if not exist")]
         public void AddNewVolumeDriverWithGivenInputIfNotExist(Table inputData)
         {
-            LogWriter.WriteLog("Executing Step User create new VolumeDriver with below input if not exist " + inputData);
+            LogWriter.WriteLog("Executing User create new VolumeDriver with below input " + inputData);
             VolumeDriverPage.AddNewVolumeDriverWithGivenInputIfNotExist(inputData);
         }
 
@@ -41,7 +41,7 @@ namespace LaborPro.Automation.Features.VolumeDriver
         [Then(@"User verify created VolumeDriver by name ""([^""]*)""")]
         public void UserVerifyCreatedVolumeDriver(string volumeDriverName)
         {
-            LogWriter.WriteLog("Executing Step User verify created VolumeDriver by name" + volumeDriverName);
+            LogWriter.WriteLog("Executing User verify created VolumeDriver by name" + volumeDriverName);
             VolumeDriverPage.VerifyCreatedVolumeDriver(volumeDriverName);
         }
 
@@ -50,7 +50,7 @@ namespace LaborPro.Automation.Features.VolumeDriver
         [Then(@"User delete created VolumeDriver by name ""([^""]*)""")]
         public void UserDeleteCreatedVolumeDriver(string volumeDriverName)
         {
-            LogWriter.WriteLog("Executing Step User delete created VolumeDriver by name" + volumeDriverName);
+            LogWriter.WriteLog("Executing User delete created VolumeDriver by name" + volumeDriverName);
             VolumeDriverPage.DeleteCreatedVolumeDriver(volumeDriverName);
         }
 
@@ -59,7 +59,7 @@ namespace LaborPro.Automation.Features.VolumeDriver
         {
             LogWriter.WriteLog("Executing step User search VolumeDriver ");
             VolumeDriverPage.ClearAllFilter();
-            VolumeDriverPage.SearchvolumeDriver(volumeDriver);
+            VolumeDriverPage.SearchVolumeDriver(volumeDriver);
         }
 
         [Given(@"User delete VolumeDriver ""([^""]*)"" if exist")]

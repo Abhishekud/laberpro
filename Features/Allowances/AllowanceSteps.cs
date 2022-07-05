@@ -123,5 +123,45 @@ namespace LaborPro.Automation.Features.Allowances
             LogWriter.WriteLog("Executing Step User delete created allowance by name" + allowanceName);
             AllowancePage.DeleteAllowanceIfExist(allowanceName);
         }
+        [Then(@"User verify add button is not available on allowance page")]
+        [When(@"User verify add button is not available on allowance page")]
+        [Given(@"User verify add button is not available on allowance page")]
+        public void VerifyAddButtonIsNotAvailableOnAllowancePage()
+        {
+            LogWriter.WriteLog("Executing step: User verify add button is not available on allowance page");
+            AllowancePage.VerifyAddButtonIsNotPresent();
+        }
+
+        [Then(@"User verify download allowance details report for allowance: ""([^""]*)""")]
+        [Given(@"User verify download allowance details report for allowance: ""([^""]*)""")]
+        [When(@"User verify download allowance details report for allowance: ""([^""]*)""")]
+        public void VerifyDownloadAllowanceDetailsReportForAllowance(string allowanceName)
+        {
+            LogWriter.WriteLog("Executing step: User verify download allowance details report for allowance");
+            AllowancePage.VerifyDownloadAllowanceDetailsReportForAllowance(allowanceName);
+    
+
+        }
+
+        [When(@"User find allowance by name ""([^""]*)""")]
+        [Given(@"User find allowance by name ""([^""]*)""")]
+        [Then(@"User find allowance by name ""([^""]*)""")]
+        public void FindAllowanceByName(string allowanceName)
+        {
+            LogWriter.WriteLog("Executing step: User find allowance by name");
+            AllowancePage.FindAllowanceByName(allowanceName);
+        }
+
+        [Then(@"User verify copy option is not available on allowance page")]
+        [When(@"User verify copy option is not available on allowance page")]
+        [Given(@"User verify copy option is not available on allowance page")]
+        public void VerifyCopyOptionIsNotAvailableOnAllowancePage()
+        {
+            LogWriter.WriteLog("Executing step: User verify copy option is not available on allowance page");
+            AllowancePage.VerifyCopyButtonIsNotPresent();
+            AllowancePage.ClickOnPreviousLink();
+
+        }
+
     }
 }

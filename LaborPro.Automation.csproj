@@ -44,6 +44,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <SpecFlowObsoleteCodeBehindFiles Remove="Features\Allowances\Allowance - Copy.feature.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="ExtentReports" Version="4.1.0" />
     <PackageReference Include="ExtentReports.Core" Version="1.0.3" />
     <PackageReference Include="Gherkin" Version="23.0.1" />
@@ -67,6 +71,13 @@
 
   <ItemGroup>
     <None Include="shared\constants\Constants.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SpecFlowFeatureFiles Update="Features\Allowances\Allowance_ViewOnly.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
   </ItemGroup>
 
 </Project>

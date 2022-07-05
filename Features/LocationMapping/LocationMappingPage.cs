@@ -27,6 +27,61 @@ namespace LaborPro.Automation.Features.LocationMapping
         const string LOCATIONMAPPING_POPUP = "//*[contains(text(),'Edit Location Mapping')]";
         const string FORM_INPUT_FIELD_ERROR_XPATH = "//*[contains(@class,'validation-error')]";
         const string ELEMENT_ALERT = "//*[@class='form-group has-error']";
+        private const string AddButton = "//button[.//*[@class='fa fa-plus']]";
+        private const string ExportButton = "//button[@title='Download Location Mapping Import Template']";
+        private const string LocationMappingRecord = "//*[@role='row' and .//*[text()='{0}']]";
+        private const string SaveButton = "//button[contains(text(),'Save')]";
+        private const string VolumeDriverDropdown = "//select[@id='volumeDriverMappingSetId']";
+        private const string DepartmentDropdownValue = "//select[contains(@id,'departmentId')]//option[contains(text(),'{0}')]";
+        private const string DepartmentDropdown = "//select[contains(@id,'departmentId')]";
+
+        public static void VerifyExportOptionIsPresent()
+        {
+            LogWriter.WriteLog("Executing LocationMappingPage.VerifyExportOptionIsPresent");
+            var exportButton = WebDriverUtil.GetWebElement(ExportButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (exportButton == null)
+                throw new Exception("export Button is not found but we expect it should be present when user login from view only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifyAddButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing LocationMappingPage.VerifyAddButtonIsNotPresent");
+            var addButton = WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (addButton != null)
+                throw new Exception("Add Button is found but we expect it should not be present when user login from view only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifyDetailsAreNotEditable(string locationMappingName)
+        {
+            LogWriter.WriteLog("Executing LocationMappingPage.VerifyDetailsAreNotEditable");
+            var locationMappingRecordXpath = string.Format(LocationMappingRecord, locationMappingName);
+            WebDriverUtil.GetWebElement(locationMappingRecordXpath, WebDriverUtil.ONE_SECOND_WAIT,
+                $"Unable to locate LocationMapping record on LocationMapping page - {locationMappingRecordXpath}").Click();
+            var editTextBox = WebDriverUtil.GetWebElement(VolumeDriverDropdown, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (editTextBox.Enabled)
+                throw new Exception("edit TextBox is Enabled but we expect it should be disabled when user login from view only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifySaveButtonIsNotPresent(string locationMappingName)
+        {
+            LogWriter.WriteLog("Executing LocationMappingPage.VerifySaveButtonIsNotPresent");
+            var locationMappingRecordXpath = string.Format(LocationMappingRecord, locationMappingName);
+            WebDriverUtil.GetWebElement(locationMappingRecordXpath, WebDriverUtil.ONE_SECOND_WAIT,
+                $"Unable to locate LocationMapping record on LocationMapping page - {locationMappingRecordXpath}").Click();
+            var saveButton = WebDriverUtil.GetWebElement(SaveButton, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (saveButton != null)
+                throw new Exception("save Button is found but we expect it should not be present when user login from view only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void SelectTheDepartment(string departmentName)
+        {
+            LogWriter.WriteLog("Executing AttributePage.SelectTheDepartment");
+            var departmentValue = string.Format(DepartmentDropdownValue, departmentName);
+            WebDriverUtil.GetWebElement(DepartmentDropdown, WebDriverUtil.ONE_SECOND_WAIT, $"Unable to locate the department dropdown - {DepartmentDropdown}").Click();
+            WebDriverUtil.GetWebElement(departmentValue,
+           WebDriverUtil.ONE_SECOND_WAIT, $"Unable to locate attribute record on attribute page - {departmentValue}").Click();
+            WebDriverUtil.WaitForAWhile();
+        }
         public static void AddNewLocationMappingWithGivenInput(Table inputData)
         {
             LogWriter.WriteLog("Executing LocationMappingPage.AddLocationMappingWithGivenInput");
@@ -129,12 +184,11 @@ namespace LaborPro.Automation.Features.LocationMapping
             BaseClass._AttachScreenshot.Value = true;
 
         }
-        public static void MapsCreatedDepartmentAndLocation(string location, string department)
+        public static void MapsCreatedDepartmentandlocation(string location, string department)
         {
             LogWriter.WriteLog("Executing LocationMappingPage.MapscreatedDepartmentandlocation");
             CloseLocationMappingDetailSideBar();
             IList<IWebElement> headers = SeleniumDriver.Driver().FindElements(By.XPath(HEADER));
-            Boolean found = false;
             int index = 0;
             foreach (IWebElement header in headers)
             {
@@ -142,15 +196,14 @@ namespace LaborPro.Automation.Features.LocationMapping
                 string headerData = header.GetAttribute("innerHTML");
                 if (headerData.Contains(department))
                 {
-                    found = true;
+
                     WebDriverUtil.GetWebElement(String.Format(LOCATIONMAPPINGRECORD_MAPPING, location, index), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE).Click();
                     break;
 
                 }
 
             }
-            if (!found)
-                throw new Exception(string.Format("No department found - {0} but we expect it should be display!", department));
+
         }
         public static void SelectTheLocation(string locationName)
         {

@@ -34,7 +34,7 @@ Feature: Verify TaskGroups Module
       | Generic Department    | Generic Department    | 
       | Combined Distribution | Combined Distribution | 
       | Allocate Labor Hours  | Start Day             | 
-      | Job Name              | TaskGroups Test Job Name | 
+      | Job Name              | Job                   | 
      Then User verify created TaskGroups "TaskGroups Scenario"
       And User delete created TaskGroups "TaskGroups Scenario" 
   

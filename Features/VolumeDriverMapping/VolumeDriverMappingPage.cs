@@ -41,6 +41,59 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
         const string FORM_INPUT_FIELD_ERROR_XPATH = "//*[contains(@class,'validation-error')]";
         const string TABLE_HEADER = "//th";
         const string ELEMENT_ALERT = "//*[@class='form-group has-error']";
+        private const string ExportButton = "//button[@id='export']";
+        private const string ExportVolumeDriverMapping = " //*[@class='dropdown-menu dropdown-menu-right']//*//a[text()='Download Volume Driver Mapping Import Template']";
+        private const string AddButton = "//button[.//*[@class='fa fa-plus']]";
+        private const string VolumeDriverDropDown = "//*[@id='volumeDriverId']";
+        private const string VolumeDriverMappingRecord = "//*[@role='row' and .//*[text()='{0}']]";
+        private const string VolumeDriverMappingDeleteButton = "//button[contains(@class,'delete')]";
+        private const string DepartmentDropdownValue = "//select[contains(@id,'departmentId')]//option[contains(text(),'{0}')]";
+        private const string DepartmentDropdown = "//select[contains(@id,'departmentId')]";
+        public static void VerifyExportOptionIsAvailable()
+        {
+            LogWriter.WriteLog("Executing VolumeDriverMappingPage.VerifyExportOptionIsAvailable");
+            WebDriverUtil.GetWebElement(ExportButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE).Click();
+            var exportButton = WebDriverUtil.GetWebElement(ExportVolumeDriverMapping, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (exportButton == null)
+                throw new Exception("export Button is not found but we expect it should be present when user login from view only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifyAddButtonIsNotAvailable()
+        {
+            LogWriter.WriteLog("Executing VolumeDriverMappingPage.VerifyAddButtonIsNotAvailable");
+            var addButton = WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (addButton != null)
+                throw new Exception("Add Button is found but we expect it should not be present when user login from view only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifyDetailsAreNotEditable()
+        {
+            LogWriter.WriteLog("Executing VolumeDriverMappingPage.VerifyDetailsAreNotEditable");
+            var editTextBox = WebDriverUtil.GetWebElement(VolumeDriverDropDown, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (editTextBox.Enabled)
+                throw new Exception("edit TextBox is Enabled but we expect it should be disabled when user login from view only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifyDeleteButtonIsNotAvailable(string volumeDriverMappingName)
+        {
+            LogWriter.WriteLog("Executing VolumeDriverMappingPage.VerifyDeleteButtonIsNotAvailable");
+            var volumeDriverMappingRecordXpath = string.Format(VolumeDriverMappingRecord, volumeDriverMappingName);
+            WebDriverUtil.GetWebElement(volumeDriverMappingRecordXpath, WebDriverUtil.ONE_SECOND_WAIT,
+                $"Unable to locate VolumeDriverMapping record on VolumeDriverMapping page - {volumeDriverMappingRecordXpath}").Click();
+            var deleteButton = WebDriverUtil.GetWebElement(VolumeDriverMappingDeleteButton, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (deleteButton != null)
+                throw new Exception("Delete Button is found but we expect it should not be present when user login from view only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void SelectTheDepartment(string departmentName)
+        {
+            LogWriter.WriteLog("Executing AttributePage.SelectTheDepartment");
+            var departmentValue = string.Format(DepartmentDropdownValue, departmentName);
+            WebDriverUtil.GetWebElement(DepartmentDropdown, WebDriverUtil.ONE_SECOND_WAIT, $"Unable to locate the department dropdown - {DepartmentDropdown}").Click();
+            WebDriverUtil.GetWebElement(departmentValue,
+           WebDriverUtil.ONE_SECOND_WAIT, $"Unable to locate attribute record on attribute page - {departmentValue}").Click();
+            WebDriverUtil.WaitForAWhile();
+        }
         public static void CloseVolumeDriverMappingDetailSideBar()
         {
             LogWriter.WriteLog("Executing VolumeDriverMappingPage.CloseVolumeDriverMappingDetailSideBar");
@@ -88,9 +141,9 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
 
 
         }
-        public static void DeleteCreatedUom(string uomName)
+        public static void DeleteCreatedUOM(string uomName)
         {
-            LogWriter.WriteLog("Executing VolumeDriverMappingPage.DeleteCreatedUom");
+            LogWriter.WriteLog("Executing VolumeDriverMappingPage.DeleteCreatedUOM");
             WebDriverUtil.GetWebElement(String.Format(VOLUMEDRIVER_RECORD, uomName), WebDriverUtil.TWO_SECOND_WAIT,
             String.Format("Unable to locate VolumeDriverMapping record on VolumeDriverMapping page - {0}", String.Format(VOLUMEDRIVERMAPPING_RECORD, uomName))).Click();
 

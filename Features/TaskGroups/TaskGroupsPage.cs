@@ -1,5 +1,4 @@
-﻿using LaborPro.Automation.Features.Standards;
-using LaborPro.Automation.shared.drivers;
+﻿using LaborPro.Automation.shared.drivers;
 using LaborPro.Automation.shared.hooks;
 using LaborPro.Automation.shared.util;
 using OpenQA.Selenium;
@@ -35,14 +34,19 @@ namespace LaborPro.Automation.Features.TaskGroups
         const string FORM_INPUT_FIELD_ERROR_XPATH = "//*[contains(@class,'validation-error')]";
         const string ELEMENT_ALERT = "//*[@class='form-group has-error']";
         const string CLEAR_FILTER_BUTTON = "//button[@title='Clear All Filters']";
-
+        private const string TaskGroupsRecord = "//*[@role='row' and .//*[text()='{0}']]";
+        private const string TaskGroupsDeleteButton = "//button[contains(@class,'delete')]";
+        private const string ExportButton = "//button[@id='export']";
+        private const string AddButton = "//button[@id='add']";
+        private const string ExportTaskGroups = "//*[contains(@class,'dropdown-menu dropdown-menu-right')]//a[text()='Export Task Groups']";
+        private const string NameInput = "//*[@id='name']";
         public static void AddNewTaskGroupsWithGivenInputIfNotExist(Table inputData)
         {
             LogWriter.WriteLog("Executing TaskGroupsPage.AddTaskGroupsWithGivenInputIfNotExist");
             WaitForTaskGroupsAlertCloseIfAny();
             var dictionary = Util.ConvertToDictionary(inputData);
             BaseClass._TestData.Value = Util.DictionaryToString(dictionary);
-            StandardsPage.ClearAllFilter();
+            ClearAllFilter();
             SearchTaskGroups(dictionary["Name"]);
             IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(TASKGROUPS_RECORD, dictionary["Name"]), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record == null)
@@ -57,7 +61,7 @@ namespace LaborPro.Automation.Features.TaskGroups
         public static void DeleteTaskGroupsIfExist(string taskGroupsName)
         {
             LogWriter.WriteLog("Executing TaskGroupsPage.DeleteTaskGroupsIfExist");
-            StandardsPage.ClearAllFilter();
+            ClearAllFilter();
             SearchTaskGroups(taskGroupsName);
             IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(TASKGROUPS_RECORD, taskGroupsName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record != null)
@@ -291,7 +295,41 @@ namespace LaborPro.Automation.Features.TaskGroups
             }
             WebDriverUtil.WaitForWebElementInvisible(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
         }
+        public static void VerifyExportOptionIsPresent()
+        {
+            LogWriter.WriteLog("Executing TaskGroupsPage.VerifyExportOptionIsPresent");
+            WebDriverUtil.GetWebElement(ExportButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE).Click();
+            var exportButton = WebDriverUtil.GetWebElement(ExportTaskGroups, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (exportButton == null)
+                throw new Exception("Export Option is not found but we expect it should be present as logged in user has view only access!");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifyDeleteButtonIsNotPresent(string taskGroupsName)
+        {
+            LogWriter.WriteLog("Executing TaskGroupsPage.VerifyDeleteButtonIsNotPresent");
+            ClearAllFilter();
+            SearchTaskGroups(taskGroupsName);
+            var taskGroupRecordXpath = string.Format(TaskGroupsRecord, taskGroupsName);
+            WebDriverUtil.GetWebElement(taskGroupRecordXpath, WebDriverUtil.ONE_SECOND_WAIT,
+                $"Unable to locate TaskGroups record on TaskGroups page - {taskGroupRecordXpath}").Click();
+            var deleteButton = WebDriverUtil.GetWebElement(TaskGroupsDeleteButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (deleteButton != null)
+                throw new Exception("delete button is found but we expect it should not be present when user login from view only access");
+
+            var editTextBox = WebDriverUtil.GetWebElement(NameInput, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (editTextBox.Enabled)
+                throw new Exception("edit TextBox is Enabled but we expect it should be disabled when user login from view only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+
+        public static void VerifyAddButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing TaskGroupsPage.VerifyAddButtonIsNotPresent");
+            var addButton = WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (addButton != null)
+                throw new Exception("add button is found but we expect it should not be present when user login from view only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
 
     }
 }
-
