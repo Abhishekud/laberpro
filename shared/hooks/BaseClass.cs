@@ -98,7 +98,7 @@ namespace LaborPro.Automation.shared.hooks
         {
             string suiteType = Environment.GetEnvironmentVariable("suiteType");
             if (suiteType == null)
-                suiteType = TestDataExcelReader.SMOKE_TEST;
+                suiteType = TestDataExcelReader.REGRESSION_TEST;
             string featureName = featureContext.FeatureInfo.Title;
             if (TestDataExcelReader.IsFeatureFileIncluded(featureName, suiteType))
             {
