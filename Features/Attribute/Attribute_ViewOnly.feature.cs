@@ -80,16 +80,14 @@ namespace LaborPro.Automation.Features.Attribute
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("01. Launch Browser and Login to the Application")]
+        [NUnit.Framework.DescriptionAttribute("01. Launch Browser and Login to the Application and perform prerequisites")]
         [NUnit.Framework.CategoryAttribute("Setup")]
-        [NUnit.Framework.CategoryAttribute("Smoke")]
-        public void _01_LaunchBrowserAndLoginToTheApplication()
+        public void _01_LaunchBrowserAndLoginToTheApplicationAndPerformPrerequisites()
         {
             string[] tagsOfScenario = new string[] {
-                    "Setup",
-                    "Smoke"};
+                    "Setup"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01. Launch Browser and Login to the Application", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01. Launch Browser and Login to the Application and perform prerequisites", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 5
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -118,44 +116,41 @@ namespace LaborPro.Automation.Features.Attribute
 #line 11
     testRunner.And("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Key",
-                            "Value"});
-                table17.AddRow(new string[] {
-                            "Name",
-                            "Department to verify attribute_viewonly"});
-#line 12
-    testRunner.And("User create new Department with below input if not exist", ((string)(null)), table17, "And ");
-#line hidden
-#line 15
-    testRunner.Then("User verify created Department \"Department to verify attribute_viewonly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 16
-    testRunner.Given("User navigates to the attribute tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 17
-    testRunner.Then("User select the Department \"Department to verify attribute_viewonly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 18
-    testRunner.Then("User delete attribute \"AJT_viewonly\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
                 TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
                 table18.AddRow(new string[] {
                             "Name",
+                            "Department to verify attribute in viewonly mode"});
+#line 12
+    testRunner.And("User create new Department with below input if not exist", ((string)(null)), table18, "And ");
+#line hidden
+#line 15
+    testRunner.Then("User verify created Department \"Department to verify attribute in viewonly mode\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 16
+    testRunner.Given("User navigates to the attribute tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 17
+    testRunner.Then("User select the Department \"Department to verify attribute in viewonly mode\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 18
+    testRunner.Then("User delete attribute \"AJT_viewonly\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+                TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Key",
+                            "Value"});
+                table19.AddRow(new string[] {
+                            "Name",
                             "AJT_viewonly"});
 #line 19
-    testRunner.When("User add new attribute using below input", ((string)(null)), table18, "When ");
+    testRunner.When("User add new attribute using below input", ((string)(null)), table19, "When ");
 #line hidden
 #line 22
     testRunner.Then("User refresh the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 23
     testRunner.Given("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 24
-    testRunner.Then("User enter email: \"$viewonly_username\" and password: \"$viewonly_password\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -168,8 +163,8 @@ namespace LaborPro.Automation.Features.Attribute
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02. Verify_that_user_should_not_have_access_for_Add_button", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 26
-    this.ScenarioInitialize(scenarioInfo);
+#line 25
+  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -178,11 +173,14 @@ namespace LaborPro.Automation.Features.Attribute
             else
             {
                 this.ScenarioStart();
+#line 26
+    testRunner.Given("User enter email: \"$viewonly_username\" and password: \"$viewonly_password\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
 #line 27
-    testRunner.Given("User navigates to the attribute tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Then("User navigates to the attribute tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 28
-    testRunner.Then("User select the Department \"Department to verify attribute_viewonly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.And("User select the Department \"Department to verify attribute in viewonly mode\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 29
     testRunner.Then("User verify add button is not present in attribute module", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -203,7 +201,7 @@ namespace LaborPro.Automation.Features.Attribute
                     "options_displayed_Export_Attributes_Download_Attribute_Import_Template_Download_" +
                     "All_Locations_Attributes_Import_Template", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 31
-    this.ScenarioInitialize(scenarioInfo);
+  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -216,7 +214,7 @@ namespace LaborPro.Automation.Features.Attribute
     testRunner.Given("User navigates to the attribute tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 33
-    testRunner.Then("User select the Department \"Department to verify attribute_viewonly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("User select the Department \"Department to verify attribute in viewonly mode\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 34
     testRunner.Then("User verify click on export icon verify all options displayed in attribute module" +
@@ -236,7 +234,7 @@ namespace LaborPro.Automation.Features.Attribute
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04. Verify_if_user_clicked_on_Export_Attributes_a_popup_with_textbox_for_name_of_" +
                     "file_to_user", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 36
-    this.ScenarioInitialize(scenarioInfo);
+  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -249,7 +247,7 @@ namespace LaborPro.Automation.Features.Attribute
     testRunner.Given("User navigates to the attribute tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 38
-    testRunner.Then("User select the Department \"Department to verify attribute_viewonly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("User select the Department \"Department to verify attribute in viewonly mode\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 39
     testRunner.When("User click on export icon in attribute module", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -258,7 +256,7 @@ namespace LaborPro.Automation.Features.Attribute
     testRunner.Then("User select export attribute import template in attribute template", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 41
-    testRunner.Then("User verify the dailog box asking for file name for attribute module", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("User verify the dialog box asking for file name for attribute module", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -274,7 +272,7 @@ namespace LaborPro.Automation.Features.Attribute
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05. Verify_if_user_can_download_import_template_when_clicked_on_Download_Attribut" +
                     "e_Import_Template", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 43
-    this.ScenarioInitialize(scenarioInfo);
+  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -284,19 +282,19 @@ namespace LaborPro.Automation.Features.Attribute
             {
                 this.ScenarioStart();
 #line 44
-     testRunner.Given("User navigates to the attribute tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("User navigates to the attribute tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 45
-     testRunner.Then("User select the Department \"Department to verify attribute_viewonly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("User select the Department \"Department to verify attribute in viewonly mode\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 46
-     testRunner.When("User click on export icon in attribute module", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("User click on export icon in attribute module", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 47
-     testRunner.Then("User select download attribute import template in attribute module", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("User select download attribute import template in attribute module", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 48
-     testRunner.And("User verify attribute downloaded file \"Attributes-import-template\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("User verify attribute downloaded file \"Attributes-import-template\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -312,7 +310,7 @@ namespace LaborPro.Automation.Features.Attribute
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06. Verify_if_user_can_download_locations_attributes_template_when_clicked_on_Dow" +
                     "nload_Locations_Attribute_Import_Template", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 50
-     this.ScenarioInitialize(scenarioInfo);
+  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -322,35 +320,33 @@ namespace LaborPro.Automation.Features.Attribute
             {
                 this.ScenarioStart();
 #line 51
-     testRunner.Given("User navigates to the attribute tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("User navigates to the attribute tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 52
-     testRunner.Then("User select the Department \"Department to verify attribute_viewonly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("User select the Department \"Department to verify attribute in viewonly mode\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 53
-     testRunner.When("User click on export icon in attribute module", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("User click on export icon in attribute module", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 54
-     testRunner.Then("User select download all locations attribute import template in attribute module", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("User select download all locations attribute import template in attribute module", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 55
-     testRunner.And("User verify attribute downloaded file \"All-location-attributes-import-template\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("User verify attribute downloaded file \"All-location-attributes-import-template\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("07. Verify_edit_option_is_invisible_aside_of_the_attributes_name_in_the_Attribute" +
-            "s_listing")]
-        public void _07_Verify_Edit_Option_Is_Invisible_Aside_Of_The_Attributes_Name_In_The_Attributes_Listing()
+        [NUnit.Framework.DescriptionAttribute("07. Verify_edit_option_should_be_invisible")]
+        public void _07_Verify_Edit_Option_Should_Be_Invisible()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("07. Verify_edit_option_is_invisible_aside_of_the_attributes_name_in_the_Attribute" +
-                    "s_listing", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("07. Verify_edit_option_should_be_invisible", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 57
-     this.ScenarioInitialize(scenarioInfo);
+  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -360,13 +356,13 @@ namespace LaborPro.Automation.Features.Attribute
             {
                 this.ScenarioStart();
 #line 58
-     testRunner.Given("User navigates to the attribute tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("User navigates to the attribute tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 59
-     testRunner.Then("User select the Department \"Department to verify attribute_viewonly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("User select the Department \"Department to verify attribute in viewonly mode\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 60
-     testRunner.Then("user verify edit button is not present in attribute module", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("user verify edit button is not present in attribute module", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -375,16 +371,14 @@ namespace LaborPro.Automation.Features.Attribute
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("08. Logout and Close Browser")]
         [NUnit.Framework.CategoryAttribute("Cleanup")]
-        [NUnit.Framework.CategoryAttribute("Smoke")]
         public void _08_LogoutAndCloseBrowser()
         {
             string[] tagsOfScenario = new string[] {
-                    "Cleanup",
-                    "Smoke"};
+                    "Cleanup"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("08. Logout and Close Browser", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 63
-    this.ScenarioInitialize(scenarioInfo);
+  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -403,7 +397,7 @@ namespace LaborPro.Automation.Features.Attribute
     testRunner.Given("User navigates to the attribute tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 67
-    testRunner.Then("User select the Department \"Department to verify attribute_viewonly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("User select the Department \"Department to verify attribute in viewonly mode\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 68
     testRunner.And("User delete created attribute:\"AJT_viewonly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -415,7 +409,7 @@ namespace LaborPro.Automation.Features.Attribute
     testRunner.When("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 71
-    testRunner.Then("User delete created Department \"Department to verify attribute_viewonly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("User delete created Department \"Department to verify attribute in viewonly mode\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 72
     testRunner.When("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

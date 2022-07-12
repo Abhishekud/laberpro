@@ -6,6 +6,8 @@ namespace LaborPro.Automation.Features.LaborPeriods
     public class LaborPeriodsSteps
     {
         [Given(@"User navigates to LaborPeriod Tab")]
+        [When(@"User navigates to LaborPeriod Tab")]
+        [Then(@"User navigates to LaborPeriod Tab")]
         public void GivenUserNavigatesToLaborPeriodTab()
         {
             LogWriter.WriteLog("Executing Step:User navigates to LaborPeriod Tab");
@@ -65,6 +67,7 @@ namespace LaborPro.Automation.Features.LaborPeriods
         }
 
         [Then(@"User search LaborPeriod ""([^""]*)""")]
+        [When(@"User search LaborPeriod ""([^""]*)""")]
         public void ThenUserSearchLaborPeriod(string laborPeriod)
         {
             LogWriter.WriteLog("Executing Step:User search LaborPeriod " + laborPeriod);
@@ -80,6 +83,7 @@ namespace LaborPro.Automation.Features.LaborPeriods
         }
 
         [Then(@"User selects LaborPeriod By Name ""([^""]*)""")]
+        [When(@"User selects LaborPeriod By Name ""([^""]*)""")]
         public void ThenUserSelectsLaborPeriodByName(string laborPeriod)
         {
             LogWriter.WriteLog("Executing Step: User selects LaborPeriod By Name" + laborPeriod);
@@ -97,7 +101,7 @@ namespace LaborPro.Automation.Features.LaborPeriods
         [Then(@"User Delete record If Exist ""([^""]*)""")]
         public void ThenUserDeleteRecordIfExist(string record)
         {
-            LogWriter.WriteLog("Executing Step:User Delete record If Exist");
+            LogWriter.WriteLog("User Delete record If Exist " + record);
             LaborPeriodsPage.DeleteRecordIfExist(record);
         }
 
@@ -105,9 +109,36 @@ namespace LaborPro.Automation.Features.LaborPeriods
         [When(@"Verify Validation message :""(.*)""")]
         public void ThenVerifyValidationMessageForLaborPeriod(string message)
         {
-            LogWriter.WriteLog("Executing Step:Verify Validation message");
+            LogWriter.WriteLog("Verify Validation message :" + message);
             LaborPeriodsPage.VerifyAddLaborPeriodErrorMessage(message);
+        }
+        [Then(@"User verify add button is not available on labor period page")]
+        public void VerifyAddButtonIsNotAvailable()
+        {
+            LogWriter.WriteLog("User verify add button is not available on labor period page");
+            LaborPeriodsPage.VerifyAddButtonIsNotPresent();
+        }
 
+        [Then(@"User verify export option is available on labor period page")]
+        public void VerifyExportOptionIsAvailable()
+        {
+            LogWriter.WriteLog("User verify export option is available on labor period page");
+            LaborPeriodsPage.VerifyExportOptionIsPresent();
+        }
+
+        [Then(@"User verify delete button and edit option is not available on labor period page")]
+        public void VerifyDeleteButtonAndEditOptionIsNotAvailable()
+        {
+            LogWriter.WriteLog("User verify delete button and edit option is not available on labor period page");
+            LaborPeriodsPage.VerifyDeleteButtonAndEditOptionIsNotPresent();
+            LaborPeriodsPage.ClickOnPreviousLink();
+        }
+        [When(@"User Add New LaborPeriod Using Below Input if not exist")]
+        [Then(@"User Add New LaborPeriod Using Below Input if not exist")]
+        public void  AddNewLaborPeriodUsingBelowInputIfNotExist(Table inputData)
+        {
+            LogWriter.WriteLog("Executing Step: User Add New LaborPeriod Using Below Input if not exist" + inputData);
+            LaborPeriodsPage.AddNewLaborPeriodsWithGivenInputIfNotExist(inputData);
         }
 
     }

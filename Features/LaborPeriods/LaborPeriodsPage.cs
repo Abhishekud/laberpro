@@ -35,6 +35,13 @@ namespace LaborPro.Automation.Features.LaborPeriods
         const string CLEAR_FILTER_BUTTON = "//button[@title='Clear All Filters']";
         const string FORM_INPUT_FIELD_ERROR_XPATH = "//span[@class='validation-error help-block' and contains(text(),'{0}')]";
         const string ERROR_ALERT_TOAST_XPATH = "//*[@class='toast toast-error']";
+        private const string AddButton = "//button[@id='add']";
+        private const string ExportButton = "//button[@id='laborPeriods-export']";
+        private const string ExportLaborPeriods = "//*[contains(@class,'dropdown-menu dropdown-menu-right')]//a[text()='Export Labor Periods']";
+        private const string LaborPeriodDeleteButton = "//button//i[@title='Delete']";
+        private const string NameInput = "//input[@id='name']";
+        private const string PreviousButton = "//a[.//*[@class='fa fa-caret-left']]";
+        private const string LaborPeriodsRecord = "//*[@role='row' and .//*[text()='{0}']]";
 
 
         public static void ClickOnKronosTab()
@@ -51,7 +58,7 @@ namespace LaborPro.Automation.Features.LaborPeriods
             LogWriter.WriteLog("LaborPeriodsPage.ClickOnLaborPeriodsTab");
             if (WebDriverUtil.GetWebElement(LABOR_PERIODS_PAGE, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) == null)
             {
-                WebDriverUtil.GetWebElement(LABOR_PERIODS_TAB, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
+                WebDriverUtil.GetWebElement(LABOR_PERIODS_TAB, WebDriverUtil.FIVE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
                 WebDriverUtil.WaitForAWhile();
             }
         }
@@ -103,6 +110,7 @@ namespace LaborPro.Automation.Features.LaborPeriods
         public static void AddLaborPeriod(Table inputData)
         {
             LogWriter.WriteLog("LaborPeriodsPage.AddLaborPeriod");
+            AddLaborPeriod();
             var dictionary = Util.ConvertToDictionary(inputData);
             BaseClass._TestData.Value = Util.DictionaryToString(dictionary);
             if (Util.ReadKey(dictionary, "Name") != null)
@@ -187,11 +195,11 @@ namespace LaborPro.Automation.Features.LaborPeriods
                     IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                     if (alert == null)
                     {
-                        WebDriverUtil.WaitForWebElementInvisible( CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
+                        WebDriverUtil.WaitForWebElementInvisible(CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
                     }
                     else
-                    { 
-                     throw new Exception(string.Format("Unable to delete Labor Period Error - {0}", alert.Text));
+                    {
+                        throw new Exception(string.Format("Unable to delete Labor Period Error - {0}", alert.Text));
                     }
 
                 }
@@ -259,6 +267,61 @@ namespace LaborPro.Automation.Features.LaborPeriods
 
             }
             BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifyAddButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing LaborPeriodsPage.VerifyAddButtonIsNotPresent");
+            var addButton = WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (addButton != null)
+                throw new Exception("add button is found but we expect it should not be present when user login from view only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifyExportOptionIsPresent()
+        {
+            LogWriter.WriteLog("Executing LaborPeriodsPage.VerifyExportOptionIsPresent");
+            WebDriverUtil.GetWebElement(ExportButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE).Click();
+            var exportButton = WebDriverUtil.GetWebElement(ExportLaborPeriods, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (exportButton == null)
+                throw new Exception("Export Option is not found but we expect it should be present as logged in user has view only access!");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifyDeleteButtonAndEditOptionIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing LaborPeriodsPage.VerifyDeleteButtonIsNotPresent");
+            var deleteButton = WebDriverUtil.GetWebElement(LaborPeriodDeleteButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (deleteButton != null)
+                throw new Exception("delete button is found but we expect it should not be present when user login from view only access");
+
+            var editTextBox = WebDriverUtil.GetWebElement(NameInput, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (editTextBox.Enabled)
+                throw new Exception("edit TextBox is Enabled but we expect it should be disabled when user login from view only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void ClickOnPreviousLink()
+        {
+            LogWriter.WriteLog("Executing LaborPeriodsPage.ClickOnPreviousLink");
+            WebDriverUtil.GetWebElement(PreviousButton, WebDriverUtil.ONE_SECOND_WAIT,
+                $"Unable to locate previous button on Labor Period Details page- {PreviousButton}").Click();
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+
+        }
+        public static void AddNewLaborPeriodsWithGivenInputIfNotExist(Table inputData)
+        {
+            LogWriter.WriteLog("Executing LaborPeriodsPage.AddNewLaborPeriodsWithGivenInputIfNotExist");
+            var dictionary = Util.ConvertToDictionary(inputData);
+            var laborPeriodXpath = string.Format(LaborPeriodsRecord, dictionary["Name"]);
+            var record = WebDriverUtil.GetWebElementAndScroll(laborPeriodXpath, WebDriverUtil.FIVE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (record == null)
+            {
+                AddLaborPeriod(inputData);
+                AddHouseOfOperation();
+            }
+            else
+            {
+                record.Click();
+                ClickOnPreviousLink();
+            }
+
         }
     }
 }

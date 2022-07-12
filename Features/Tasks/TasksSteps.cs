@@ -9,9 +9,9 @@ namespace LaborPro.Automation.Features.Tasks
         [When(@"User navigates to the Tasks tab")]
         [Given(@"User navigates to the Tasks tab")]
         [Then(@"User navigates to the Tasks tab")]
-        public void UserNavigatesToTheTasksTab()
+        public void UserNavigatesToTheKronosTab()
         {
-            LogWriter.WriteLog("Executing Step: User navigates to the Tasks tab  ");
+            LogWriter.WriteLog("Executing Step: User navigates to the  Kronos tab  ");
             TasksPage.CloseTasksForm();
             TasksPage.ClickOnKronosTab();
             TasksPage.ClickOnTasksTab();
@@ -31,7 +31,7 @@ namespace LaborPro.Automation.Features.Tasks
         [Then(@"User create new Tasks with below input")]
         public void AddNewTasksWithGivenInput(Table inputData)
         {
-            LogWriter.WriteLog("Executing Step User create new Tasks with below input " + inputData);
+            LogWriter.WriteLog("Executing User create new Tasks with below input " + inputData);
             TasksPage.AddNewTasksWithGivenInput(inputData);
         }
 
@@ -40,7 +40,7 @@ namespace LaborPro.Automation.Features.Tasks
         [Then(@"User clicks Add Tasks Button")]
         public void UserClickAddTasksButton()
         {
-            LogWriter.WriteLog("Executing Step User clicks cancel button");
+            LogWriter.WriteLog("Exceuting Step User clicks cancel button");
             TasksPage.UserClickAddTasksButton();
         }
 
@@ -87,6 +87,30 @@ namespace LaborPro.Automation.Features.Tasks
         {
             LogWriter.WriteLog("Executing Step User delete created Tasks by name" + tasksName);
             TasksPage.DeleteTasksIfExist(tasksName);
+        }
+        [Given(@"User verify add button is not available on tasks page")]
+        [When(@"User verify add button is not available on tasks page")]
+        [Then(@"User verify add button is not available on tasks page")]
+        public void VerifyAddButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing Step User verify add button is not available on tasks page");
+            TasksPage.VerifyAddButtonIsNotPresent();
+        }
+        [Then(@"User verify delete button is not available on tasks page on record ""(.*)""")]
+        [When(@"User verify delete button is not available on tasks page on record ""(.*)""")]
+        [Then(@"User verify delete button is not available on tasks page on record ""(.*)""")]
+        public void VerifyDeleteButtonIsNotPresent(string tasksName)
+        {
+            LogWriter.WriteLog("Executing Step User verify delete button is not available on tasks page on record " + tasksName);
+            TasksPage.VerifyDeleteButtonIsNotPresent(tasksName);
+        }
+        [Given(@"User verify export option is available on tasks page")]
+        [When(@"User verify export option is available on tasks page")]
+        [Then(@"User verify export option is available on tasks page")]
+        public void VerifyExportOptionIsPresent()
+        {
+            LogWriter.WriteLog("Executing Step User verify export option is available on tasks page");
+            TasksPage.VerifyExportOptionIsPresent();
         }
     }
 }
