@@ -37,6 +37,14 @@ namespace LaborPro.Automation.Features.Tasks
         const string FORM_INPUT_FIELD_ERROR_XPATH = "//*[contains(@class,'validation-error')]";
         const string ELEMENT_ALERT = "//*[@class='form-group has-error']";
 
+        private const string TasksRecord = "//*[@role='row' and .//*[text()='{0}']]";
+        private const string ExportButton = "//button[@id='export']";
+        private const string ExportTasks = "//*[contains(@class,'dropdown-menu dropdown-menu-right')]//a[text()='Export Tasks']";
+        private const string AddButton = "//button[@id='add']";
+        private const string NameInput = "//*[@id='name']";
+        private const string TasksDeleteButton = "//button[contains(@class,'delete')]";
+        private const string ClearFilterButton = "//button[@title='Clear All Filters']";
+
         public static void AddNewTasksWithGivenInputIfNotExist(Table inputData)
         {
             LogWriter.WriteLog("Executing TasksPage.AddTasksWithGivenInputIfNotExist");
@@ -288,6 +296,48 @@ namespace LaborPro.Automation.Features.Tasks
             WebDriverUtil.WaitForWebElementInvisible(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
         }
 
+        public static void VerifyExportOptionIsPresent()
+        {
+            LogWriter.WriteLog("Executing TasksPage.VerifyExportOptionIsPresent");
+            WebDriverUtil.GetWebElement(ExportButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE).Click();
+            var exportButton = WebDriverUtil.GetWebElement(ExportTasks, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (exportButton == null)
+                throw new Exception("Export Option is not found but we expect it should be present as logged in user has view only access!");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifyDeleteButtonIsNotPresent(string tasksName)
+        {
+            LogWriter.WriteLog("Executing TasksPage.VerifyDeleteButtonIsNotPresent");
+            ClearAllFilter();
+            SearchTasks(tasksName);
+            var taskRecordXpath = string.Format(TasksRecord, tasksName);
+            WebDriverUtil.GetWebElement(taskRecordXpath, WebDriverUtil.ONE_SECOND_WAIT,
+                $"Unable to locate Tasks record on Tasks page - {taskRecordXpath}").Click();
+            var deleteButton = WebDriverUtil.GetWebElement(TasksDeleteButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+
+            if (deleteButton != null)
+                throw new Exception("delete button is found but we expect it should not be present when user login from view only access");
+            var editTextBox = WebDriverUtil.GetWebElement(NameInput, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (editTextBox.Enabled)
+                throw new Exception("edit TextBox is Enabled but we expect it should be disabled when user login from view only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifyAddButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing TasksPage.VerifyAddButtonIsNotPresent");
+            var addButton = WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (addButton != null)
+                throw new Exception("add button is found but we expect it should not be present when user login from view only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void ClearAllFilter()
+        {
+            LogWriter.WriteLog("Executing TaskPage.ClearAllFilter");
+            var clearFilterButton = WebDriverUtil.GetWebElement(ClearFilterButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (clearFilterButton == null) return;
+                clearFilterButton.Click();
+            WaitForLoading();
+        }
     }
 }
 

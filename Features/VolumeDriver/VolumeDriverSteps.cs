@@ -13,7 +13,7 @@ namespace LaborPro.Automation.Features.VolumeDriver
         {
             LogWriter.WriteLog("Executing Step User navigates to the VolumeDriver tab");
             VolumeDriverPage.CloseVolumeDriverForm();
-            VolumeDriverPage.ClickOnStandardTab(); 
+            VolumeDriverPage.ClickOnStandardTab();
             VolumeDriverPage.ClickOnListManagementTab();
             VolumeDriverPage.ClickOnVolumeDriver();
         }
@@ -32,7 +32,7 @@ namespace LaborPro.Automation.Features.VolumeDriver
         [Then(@"User create new VolumeDriver with below input if not exist")]
         public void AddNewVolumeDriverWithGivenInputIfNotExist(Table inputData)
         {
-            LogWriter.WriteLog("Executing Step User create new VolumeDriver with below input if not exist " + inputData);
+            LogWriter.WriteLog("Executing Step User create new VolumeDriver with below input if not exist" + inputData);
             VolumeDriverPage.AddNewVolumeDriverWithGivenInputIfNotExist(inputData);
         }
 
@@ -57,9 +57,9 @@ namespace LaborPro.Automation.Features.VolumeDriver
         [When(@"User search VolumeDriver ""([^""]*)""")]
         public void WhenUserSearchVolumeDriver(string volumeDriver)
         {
-            LogWriter.WriteLog("Executing step User search VolumeDriver ");
+            LogWriter.WriteLog("Executing Step User search VolumeDriver" +volumeDriver);
             VolumeDriverPage.ClearAllFilter();
-            VolumeDriverPage.SearchvolumeDriver(volumeDriver);
+            VolumeDriverPage.SearchVolumeDriver(volumeDriver);
         }
 
         [Given(@"User delete VolumeDriver ""([^""]*)"" if exist")]
@@ -69,29 +69,23 @@ namespace LaborPro.Automation.Features.VolumeDriver
         {
             LogWriter.WriteLog("Executing Step User delete created VolumeDriver by name" + volumeDriverName);
             VolumeDriverPage.DeleteVolumeDriverIfExist(volumeDriverName);
-        }
-        [Given(@"User verify add button is not present")]
-        [When(@"User verify add button is not present")]
-        [Then(@"User verify add button is not present")]
+        } 
+        [Then(@"User verify add button is not available on volume driver page")]
         public void VerifyAddButtonIsNotPresent()
         {
-            LogWriter.WriteLog("Executing Step User verify Add button is not present");
+            LogWriter.WriteLog("Executing Step User verify add button is not available on volume driver page");
             VolumeDriverPage.VerifyAddButtonIsNotPresent();
-        }
-        [Given(@"User verify Export option is not present")]
-        [When(@"User verify Export option is not present")]
-        [Then(@"User verify Export option is not present")]
+        } 
+        [Then(@"User verify export option is not available on volume driver page")]
         public void VerifyExportOptionIsNotPresent()
         {
-            LogWriter.WriteLog("Executing Step User verify Export button is not present");
+            LogWriter.WriteLog("Executing Step User verify export button is not available on volume driver page");
             VolumeDriverPage.VerifyExportOptionIsNotPresent();
-        }
-        [Given(@"User verify Delete button is not present ""([^""]*)""")]
-        [When(@"User verify Delete button is not present ""([^""]*)""")]
-        [Then(@"User verify Delete button is not present ""([^""]*)""")]
+        } 
+        [Then(@"User verify delete button is not available on volume driver page ""([^""]*)""")]
         public void VerifyDeleteButtonIsNotPresent(string volumeDriver)
         {
-            LogWriter.WriteLog("Executing Step User verify Delete button is not present");
+            LogWriter.WriteLog("Executing Step User verify delete button is not available on volume driver page"+ volumeDriver);
             VolumeDriverPage.VerifyDeleteButtonIsNotPresent(volumeDriver);
         }
     }

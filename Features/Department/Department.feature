@@ -1,4 +1,4 @@
-﻿ @laborPro @Regression @Departments
+﻿@Regression @Departments
 Feature: Verify Departments Module
 
 @Setup @Smoke

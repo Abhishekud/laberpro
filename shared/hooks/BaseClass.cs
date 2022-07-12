@@ -99,8 +99,8 @@ namespace LaborPro.Automation.shared.hooks
             string suiteType = Environment.GetEnvironmentVariable("suiteType");
             if (suiteType == null)
                 suiteType = TestDataExcelReader.REGRESSION_TEST;
-            string featureFolderPath = featureContext.FeatureInfo.FolderPath;
-            if (TestDataExcelReader.IsFeatureFileIncluded(featureFolderPath.Substring(featureFolderPath.IndexOf("/")+1) + ".feature", suiteType))
+            string featureName = featureContext.FeatureInfo.Title;
+            if (TestDataExcelReader.IsFeatureFileIncluded(featureName, suiteType))
             {
                 if (null != featureContext)
                 {
@@ -114,8 +114,10 @@ namespace LaborPro.Automation.shared.hooks
             }
         }
         [BeforeScenario]
-        public void BeforeScenario(ScenarioContext scenarioContext)
+        public void BeforeScenario(FeatureContext featureContext, ScenarioContext scenarioContext)
         {
+            string featureFolderPath = featureContext.FeatureInfo.FolderPath;
+            string featureName = featureContext.FeatureInfo.Title;
             string scenarioName = scenarioContext.ScenarioInfo.Title;
             scenarioName  = scenarioName.Substring(scenarioName.IndexOf(".")+1).Trim();    
             string[] tags = scenarioContext.ScenarioInfo.Tags;
@@ -124,7 +126,9 @@ namespace LaborPro.Automation.shared.hooks
                 string suiteType = Environment.GetEnvironmentVariable("suiteType");
                 if (suiteType == null)
                     suiteType = TestDataExcelReader.REGRESSION_TEST;
-                TestScenario testScenario = Util.ReadKey(ScenarioSuiteMapping, scenarioName);
+                TestScenario testScenario = Util.ReadKey(ScenarioSuiteMapping, featureName+"_"+scenarioName);
+                if(testScenario==null)
+                    Assert.Ignore(String.Format("Test scenario - {0} ignored as per the TestData.xlsx", scenarioName));
                 Boolean execute = false;
                 if (suiteType.Equals(TestDataExcelReader.REGRESSION_TEST))
                 {

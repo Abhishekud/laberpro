@@ -63,6 +63,16 @@ namespace LaborPro.Automation.Features.Login
             LogWriter.WriteLog("Executing step: User close browser");
             BaseClass.CloseDriver();
         }
-        
+
+        [Given(@"User logged in with view only access using username: ""([^""]*)"" and password: ""([^""]*)""")]
+        [When(@"User logged in with view only access using username: ""([^""]*)"" and password: ""([^""]*)""")]
+        [Then(@"User logged in with view only access using username: ""([^""]*)"" and password: ""([^""]*)""")]
+        public void UserLoggedInWithViewOnlyAccess(string userName, string password)
+        {
+            LogWriter.WriteLog("Executing Step: User logged in with view only access using username:" + Util.ProcessInputDataString(userName) + "password: *********");
+            LoginPage.PerformLogin(Util.ProcessInputDataString(userName), Util.ProcessInputDataString(password));
+        }
+
+
     }
 }

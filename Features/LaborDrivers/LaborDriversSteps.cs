@@ -9,9 +9,9 @@ namespace LaborPro.Automation.Features.LaborDrivers
         [When(@"User navigates to the LaborDrivers tab")]
         [Given(@"User navigates to the LaborDrivers tab")]
         [Then(@"User navigates to the LaborDrivers tab")]
-        public void UserNavigatesToTheLaborDriversTab()
+        public void UserNavigatesToTheKronosTab()
         {
-            LogWriter.WriteLog("Executing Step: User navigates to the LaborDrivers tab  ");
+            LogWriter.WriteLog("Executing Step: User navigates to the  Kronos tab  ");
             LaborDriversPage.CloseLaborDriversForm();    
             LaborDriversPage.ClickOnKronosTab();     
             LaborDriversPage.ClickOnLaborDriversTab();  
@@ -78,6 +78,31 @@ namespace LaborPro.Automation.Features.LaborDrivers
         {
             LogWriter.WriteLog("Executing Step User delete created LaborDrivers by name" + laborDriversName);
             LaborDriversPage.DeleteLaborDriversIfExist(laborDriversName);
+        }
+
+        [Given(@"User verify add button is not available on labor drivers page")]
+        [When(@"User verify add button is not available on labor drivers page")]
+        [Then(@"User verify add button is not available on labor drivers page")]
+        public void VerifyAddButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing Step User verify add button is not available on labor drivers page");
+            LaborDriversPage.VerifyAddButtonIsNotPresent();
+        }
+        [Then(@"User verify delete button is not available on labor driver record ""(.*)""")]
+        [When(@"User verify delete button is not available on labor driver record ""(.*)""")]
+        [Then(@"User verify delete button is not available on labor driver record ""(.*)""")]
+        public void VerifyDeleteButtonIsNotPresent(string laborDriversName)
+        {
+            LogWriter.WriteLog("Executing Step verify Delete button is not present");
+            LaborDriversPage.VerifyDeleteButtonIsNotPresent(laborDriversName);
+        }
+        [Given(@"User verify export option is available on labor drivers page")]
+        [When(@"User verify export option is available on labor drivers page")]
+        [Then(@"User verify export option is available on labor drivers page")]
+        public void VerifyExportOptionIsPresent()
+        {
+            LogWriter.WriteLog("Executing Step User verify export option is available on labor drivers page");
+            LaborDriversPage.VerifyExportOptionIsPresent();
         }
     }
 }

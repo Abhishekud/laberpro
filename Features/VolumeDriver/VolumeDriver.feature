@@ -1,4 +1,4 @@
-﻿ @laborPro @Regression @VolumeDrivers
+﻿@Regression @VolumeDrivers
 Feature: Verify VolumeDrivers Module
 
 @Setup @Smoke
