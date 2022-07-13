@@ -21,7 +21,7 @@ namespace LaborPro.Automation.Features.LocationMapping
         [Then(@"User click on LocationMapping")]
         public void UserClickOnVolumeDriver()
         {
-            LogWriter.WriteLog("Executing Step User User click on LocationMapping");
+            LogWriter.WriteLog("Executing VolumeDriversPage UserClickOnVolumeDriver ");
             LocationMappingPage.ClickOnLocationMappingTab();
         }
 
@@ -30,8 +30,7 @@ namespace LaborPro.Automation.Features.LocationMapping
         [Then(@"User Maps created Department and location with ""(.*)"" and ""(.*)""")]
         public void ThenUserMapsCreatedDepartmentAndLocation(string location, string department)
         {
-            LogWriter.WriteLog("Executing Step User Maps created Department and location");
-            LocationMappingPage.MapsCreatedDepartmentAndLocation(location, department);
+            LocationMappingPage.MapsCreatedDepartmentandlocation(location, department);
         }
 
         [Given(@"User create new LocationMapping with below input")]
@@ -39,7 +38,7 @@ namespace LaborPro.Automation.Features.LocationMapping
         [Then(@"User create new LocationMapping with below input")]
         public void AddNewLocationMappingWithGivenInput(Table inputData)
         {
-            LogWriter.WriteLog("Executing Step User create new LocationMapping with below input " + inputData);
+            LogWriter.WriteLog("Executing User create new LocationMapping with below input " + inputData);
             LocationMappingPage.AddNewLocationMappingWithGivenInput(inputData);
         }
 
@@ -69,5 +68,49 @@ namespace LaborPro.Automation.Features.LocationMapping
             LogWriter.WriteLog("Executing Step User verify created LocationMapping by name" + locationMappingName);
             LocationMappingPage.VerifyCreatedLocationMapping(locationMappingName);
         }
+        [Given(@"User select the department ""([^""]*)"" on location mapping page")]
+        [When(@"User select the department ""([^""]*)"" on location mapping page")]
+        [Then(@"User select the department ""([^""]*)"" on location mapping page")]
+        public void SelectTheDepartment(string departmentName)
+        {
+            LogWriter.WriteLog("User select the department " + departmentName + "on location mapping page");
+            LocationMappingPage.SelectTheDepartment(departmentName);
+        }
+
+        [Given(@"User verify add button is not available on location mapping page")]
+        [When(@"User verify add button is not available on location mapping page")]
+        [Then(@"User verify add button is not available on location mapping page")]
+        public void VerifyAddButtonIsNotAvailable()
+        {
+            LogWriter.WriteLog("Executing Step User verify add button is not available on location mapping page");
+            LocationMappingPage.VerifyAddButtonIsNotPresent();
+        }
+        [Given(@"User verify export option is available on location mapping page")]
+        [When(@"User verify export option is available on location mapping page")]
+        [Then(@"User verify export option is available on location mapping page")]
+        public void VerifyExportOptionIsAvailable()
+        {
+            LogWriter.WriteLog("Executing Step User verify export option is available on location mapping page");
+            LocationMappingPage.VerifyExportOptionIsPresent();
+        }
+
+        [Given(@"User verify save button is not available on location mapping page in  ""([^""]*)""")]
+        [When(@"User verify save button is not available on location mapping page in  ""([^""]*)""")]
+        [Then(@"User verify save button is not available on location mapping page in  ""([^""]*)""")]
+        public void SaveButtonIsNotAvailable(string locationMappingName)
+        {
+            LogWriter.WriteLog("Executing Step User verify save Button is not available on location mapping page in " + locationMappingName);
+            LocationMappingPage.VerifySaveButtonIsNotPresent(locationMappingName);
+        }
+
+        [Given(@"User verify details are not editable on location mapping page in  ""([^""]*)""")]
+        [When(@"User verify details are not editable on location mapping page in  ""([^""]*)""")]
+        [Then(@"User verify details are not editable on location mapping page in  ""([^""]*)""")]
+        public void VerifyDetailsAreNotEditable(string locationMappingName)
+        {
+            LogWriter.WriteLog("Executing Step User verify details are not editable on location mapping page in " + locationMappingName);
+            LocationMappingPage.VerifyDetailsAreNotEditable(locationMappingName);
+        }
+
     }
 }

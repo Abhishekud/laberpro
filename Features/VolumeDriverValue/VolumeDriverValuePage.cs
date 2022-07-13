@@ -21,6 +21,9 @@ namespace LaborPro.Automation.Features.VolumeDriverValue
         const string VOLUME_DRIVER_VALUE_TABLE_HEADERS = "//table[@role='presentation']//th//*[@class='k-link']";
         const string IMPORT_ERROR_MODAL = "//*[@class='modal-content']//*[text()='Import Errors']";
         const string IMPORT_ERRROR_MODAL_OK_BUTTON = "//*[@class='modal-content']//*[text()='OK']";
+        private const string AddButton = "//*[@class='header-button btn btn-default']";
+        private const string ExportButton = "//*[@class='page volume-driver-values-list-page']//*[@id='export']//*[@class='fa fa-file-excel-o']";
+        private const string ExportVolumeDriverValue = "//a[contains(text(),'Download Volume Driver Value Import Template')]";
 
         public static void ClickOnVolumeDriverValueTab()
         {
@@ -187,6 +190,23 @@ namespace LaborPro.Automation.Features.VolumeDriverValue
                 WebDriverUtil.WaitFor(WebDriverUtil.TWO_SECOND_WAIT);
             }
 
+        }
+        public static void VerifyExportOptionIsAvailable()
+        {
+            LogWriter.WriteLog("Executing VolumeDriverValuePage.VerifyExportOptionIsAvailable");
+            WebDriverUtil.GetWebElement(ExportButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE).Click();
+            var exportButton = WebDriverUtil.GetWebElement(ExportVolumeDriverValue, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (exportButton == null)
+                throw new Exception("Export Button is not found but we expect it should be present when user login from view only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifyAddButtonIsNotAvailable()
+        {
+            LogWriter.WriteLog("Executing VolumeDriverValuePage.VerifyAddButtonIsNotAvailable");
+            var addButton = WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (addButton != null)
+                throw new Exception("Add Button is found but we expect it should not be present when user login from view only access");
+            BaseClass._AttachScreenshot.Value = true;
         }
     }
 }

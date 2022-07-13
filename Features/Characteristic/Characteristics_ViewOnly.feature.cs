@@ -137,14 +137,14 @@ namespace LaborPro.Automation.Features.Characteristic
 #line 13
      testRunner.Then("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table29 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table30 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table29.AddRow(new string[] {
+                table30.AddRow(new string[] {
                             "Name",
                             "Department to verify Characteristic_ViewOnly"});
 #line 14
-     testRunner.When("User create new Department with below input if not exist", ((string)(null)), table29, "When ");
+     testRunner.When("User create new Department with below input if not exist", ((string)(null)), table30, "When ");
 #line hidden
 #line 17
      testRunner.Then("User verify created Department \"Department to verify Characteristic_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -161,14 +161,14 @@ namespace LaborPro.Automation.Features.Characteristic
 #line 21
      testRunner.Then("User click on Characteristic", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table30 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table31 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table30.AddRow(new string[] {
+                table31.AddRow(new string[] {
                             "Name",
                             "Characteristic"});
 #line 22
-     testRunner.When("User create new Characteristic with below input", ((string)(null)), table30, "When ");
+     testRunner.When("User create new Characteristic with below input", ((string)(null)), table31, "When ");
 #line hidden
 #line 25
      testRunner.Then("User verify created Characteristic by name \"Characteristic\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -177,19 +177,19 @@ namespace LaborPro.Automation.Features.Characteristic
      testRunner.When("User navigates to the Characteristic tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 27
-     testRunner.Then("User select the Department \"Department to verify Characteristic_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+     testRunner.Then("User select the Department \"Department to verify Characteristic\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 28
      testRunner.Then("User click on Characteristic set", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table31 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table32 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table31.AddRow(new string[] {
+                table32.AddRow(new string[] {
                             "Name",
                             "Characteristic_ViewOnly"});
 #line 29
-     testRunner.When("User create new Characteristic with below input", ((string)(null)), table31, "When ");
+     testRunner.When("User create new Characteristic with below input", ((string)(null)), table32, "When ");
 #line hidden
 #line 32
      testRunner.Then("User verify created CharacteristicSet by name \"Characteristic_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

@@ -35,8 +35,8 @@ namespace LaborPro.Automation.shared.config
                         scenario.smokeTest = smokeTest != null && smokeTest.ToLower().Equals("yes") ? true : false;
                         string regressionTest = sheet.GetCellValueAsString(j, 5);
                         scenario.regressionTest = regressionTest != null && regressionTest.ToLower().Equals("yes") ? true : false;
-                        if(Util.ReadKey(ScenarioSuiteMapping, scenario.scenarioName)==null)
-                            ScenarioSuiteMapping.Add(scenario.scenarioName, scenario);
+                        if(Util.ReadKey(ScenarioSuiteMapping, scenario.featureFileName + "_" + scenario.scenarioName) ==null)
+                            ScenarioSuiteMapping.Add(scenario.featureFileName + "_"+scenario.scenarioName, scenario);
                     }
                 }
             }  

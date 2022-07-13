@@ -137,14 +137,14 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
 #line 14
      testRunner.When("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table94 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table110 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table94.AddRow(new string[] {
+                table110.AddRow(new string[] {
                             "Name",
                             "Department To verify UnitOfMeasure_ViewOnly"});
 #line 15
-     testRunner.Then("User create new Department with below input if not exist", ((string)(null)), table94, "Then ");
+     testRunner.Then("User create new Department with below input if not exist", ((string)(null)), table110, "Then ");
 #line hidden
 #line 18
       testRunner.And("User verify created Department \"Department To verify UnitOfMeasure_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -158,14 +158,14 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
 #line 22
      testRunner.Then("User delete UnitOfMeasure \"UOM\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table95 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table111 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table95.AddRow(new string[] {
+                table111.AddRow(new string[] {
                             "Name",
                             "UOM"});
 #line 23
-     testRunner.When("User adds Unit Of Measure using below input", ((string)(null)), table95, "When ");
+     testRunner.When("User adds Unit Of Measure using below input", ((string)(null)), table111, "When ");
 #line hidden
 #line 26
      testRunner.Then("User verify Added Unit of Measure \"UOM\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
