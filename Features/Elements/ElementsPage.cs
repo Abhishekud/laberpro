@@ -407,6 +407,7 @@ namespace LaborPro.Automation.Features.Elements
                 $"Unable to locate previous button on Element details page - {ElementDetailsPagePreviousLink}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
         }
+        
     }
 }
 

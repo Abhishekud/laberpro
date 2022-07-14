@@ -106,6 +106,12 @@ namespace LaborPro.Automation.Features.Elements
             LogWriter.WriteLog("Executing Step: User create new Elements with below input if not exist" + table);       
             ElementsPage.AddElementWithGivenInputIfNotExist(table);
         }
+        [Then(@"User verify add button is not present")]
+        public void ThenUserVerifyAddButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing Step: User verify add button is not present");
+            ElementsPage.VerifyAddButtonIsNotPresent();
+        }
 
     }
 
