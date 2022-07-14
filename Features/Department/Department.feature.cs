@@ -21,7 +21,6 @@ namespace LaborPro.Automation.Features.Department
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Verify Departments Module")]
-    [NUnit.Framework.CategoryAttribute("laborPro")]
     [NUnit.Framework.CategoryAttribute("Regression")]
     [NUnit.Framework.CategoryAttribute("Departments")]
     public partial class VerifyDepartmentsModuleFeature
@@ -30,7 +29,6 @@ namespace LaborPro.Automation.Features.Department
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "laborPro",
                 "Regression",
                 "Departments"};
         

@@ -42,7 +42,7 @@ namespace LaborPro.Automation.Features.Department
         [Then(@"User create new Department with below input")]
         public void AddNewDepartmentWithGivenInput(Table inputData)
         {
-            LogWriter.WriteLog("Executing User create new Department with below input "+inputData);
+            LogWriter.WriteLog("Executing Step User create new Department with below input " + inputData);
             DepartmentsPage.AddNewDepartmentWithGivenInput(inputData);
         }
 
@@ -79,29 +79,25 @@ namespace LaborPro.Automation.Features.Department
         {
             LogWriter.WriteLog("Executing Step User delete created Department by name" + departmentName);
             DepartmentsPage.DeleteDepartmentIfExist(departmentName);
-        }
-        [Given(@"User verify Add button is not Present")]
-        [When(@"User verify Add button is not Present")]
-        [Then(@"User verify Add button is not Present")]
-        public void VerifyAddButtonIsNotPresent()
+        } 
+        [Then(@"User verify add button is not available on department page")]
+        public void VerifyAddButtonIsNotAvailableOnDepartmentPage()
         {
-            LogWriter.WriteLog("Executing Step User verify Add button is not present");
+            LogWriter.WriteLog("Executing Step User verify add button is not available on department page");
             DepartmentsPage.VerifyAddButtonIsNotPresent();
-        }
-        [Given(@"User verify export option is not Present")]
-        [When(@"User verify export option is not Present")]
-        [Then(@"User verify export option is not Present")]
+        } 
+
+        [Then(@"User verify export option is not available on department page")]
         public void VerifyExportOptionIsNotPresent()
         {
-            LogWriter.WriteLog("Executing Step User verify export button is not present");
+            LogWriter.WriteLog("Executing Step User verify export button is not available on department page");
             DepartmentsPage.VerifyExportOptionIsNotPresent();
-        }
-        [Given(@"User verify delete button is not Present ""([^""]*)""")]
-        [When(@"User verify delete button is not Present ""([^""]*)""")]
-        [Then(@"User verify delete button is not Present ""([^""]*)""")]
+        } 
+
+        [Then(@"User verify delete button is not available on department page ""([^""]*)""")]
         public void VerifyDeleteButtonIsNotPresent(string departmentName)
         {
-            LogWriter.WriteLog("Executing Step User verify delete button is not present");
+            LogWriter.WriteLog("Executing Step User verify delete button is not available on department page" + departmentName);
             DepartmentsPage.VerifyDeleteButtonIsNotPresent(departmentName);
         }
 

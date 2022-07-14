@@ -1,6 +1,5 @@
 ﻿using LaborPro.Automation.shared.hooks;
 using LaborPro.Automation.shared.util;
-using OpenQA.Selenium;
 
 namespace LaborPro.Automation.Features.Department
 {
@@ -10,7 +9,7 @@ namespace LaborPro.Automation.Features.Department
         private const string ListManagementTab = "//a[text()='List Management']";
         private const string AddButton = "//button[@id='newDepartments']";
         private const string AddDepartmentLink = "(//*[contains(@class,'dropdown open')]//a)[1]";
-        private const string NameInput = "//*[@role='dialog']//*[@id='name']";
+        private const string NameInput = "//*[@id='name']";
         private const string SaveButton = "//button[contains(text(),'Save')]";
         private const string CloseDepartmentFormButton = "//*[@class='modal-dialog']//button[contains(text(),'Cancel')]";
         private const string ErrorAlertToastXpath = "//*[@class='toast toast-error']";
@@ -30,11 +29,12 @@ namespace LaborPro.Automation.Features.Department
 
         public static void AddNewDepartmentWithGivenInputIfNotExist(Table inputData)
         {
-            LogWriter.WriteLog("Executing DepartmentPage.AddNewLocationWithGivenInputIfNotExist");
+            LogWriter.WriteLog("Executing DepartmentPage.AddNewDepartmentWithGivenInputIfNotExist");
             WaitForDepartmentAlertCloseIfAny();
             var dictionary = Util.ConvertToDictionary(inputData);
             BaseClass._TestData.Value = Util.DictionaryToString(dictionary);
-            IWebElement record = WebDriverUtil.GetWebElementAndScroll(string.Format(DepartmentRecord, dictionary["Name"]), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            var departmentRecordXpath = string.Format(DepartmentRecord, dictionary["Name"]);
+            var record = WebDriverUtil.GetWebElementAndScroll(departmentRecordXpath, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record == null)
             {
                 AddNewDepartmentWithGivenInput(inputData);
@@ -47,8 +47,8 @@ namespace LaborPro.Automation.Features.Department
         public static void VerifyAddButtonIsNotPresent()
         {
             LogWriter.WriteLog("Executing DepartmentPage.VerifyAddButtonIsNotPresent");
-            IWebElement addDepartment = WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if(addDepartment != null) 
+            var addDepartment = WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (addDepartment != null)
                 throw new Exception("Add button is found but we expect it should not be present as logged in user has view only access!");
             BaseClass._AttachScreenshot.Value = true;
         }
@@ -57,25 +57,28 @@ namespace LaborPro.Automation.Features.Department
             LogWriter.WriteLog("Executing DepartmentPage.VerifyDeleteButtonIsNotPresent");
             var departmentRecordXpath = string.Format(DepartmentRecord, departmentName);
             WebDriverUtil.GetWebElement(departmentRecordXpath, WebDriverUtil.ONE_SECOND_WAIT,
-            $"Unable to locate UnitOfMeasure record on UnitOfMeasures page - {departmentRecordXpath}").Click();
-            IWebElement delete = WebDriverUtil.GetWebElement(DepartmentDeleteButton, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (delete != null)
+            $"Unable to locate Department record on Department page - {departmentRecordXpath}").Click();
+            var deleteButton = WebDriverUtil.GetWebElement(DepartmentDeleteButton, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (deleteButton != null)
                 throw new Exception("Delete button is found but we expect it should not be present as logged in user has view only access!");
+            var editTextBox = WebDriverUtil.GetWebElement(NameInput, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (editTextBox.Enabled)
+                throw new Exception("Edit TextBox is Enabled but we expect it should be disabled when user login from view only access");
             BaseClass._AttachScreenshot.Value = true;
+        
         }
         public static void VerifyExportOptionIsNotPresent()
         {
             LogWriter.WriteLog("Executing DepartmentPage.VerifyExportOptionIsNotPresent");
-            IWebElement export = WebDriverUtil.GetWebElement(ExportButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (export != null)
+            var exportButton = WebDriverUtil.GetWebElement(ExportButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (exportButton != null)
                 throw new Exception("Export Option is found but we expect it should not be present as logged in user has view only access!");
-            BaseClass._AttachScreenshot.Value=true;
+            BaseClass._AttachScreenshot.Value = true;
         }
         public static void DeleteDepartmentIfExist(string departmentName)
         {
-
             LogWriter.WriteLog("Executing DepartmentPage.DeleteDepartmentIfExist");
-            IWebElement record = WebDriverUtil.GetWebElementAndScroll(string.Format(DepartmentRecord, departmentName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            var record = WebDriverUtil.GetWebElementAndScroll(string.Format(DepartmentRecord, departmentName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record != null)
             {
                 DeleteCreatedDepartment(departmentName);
@@ -86,13 +89,10 @@ namespace LaborPro.Automation.Features.Department
         public static void CloseDepartmentDetailSideBar()
         {
             LogWriter.WriteLog("Executing DepartmentPage.CloseDepartmentDetailSideBar");
-            IWebElement departmentDetailsSideBar = WebDriverUtil.GetWebElement(CloseDepartmentDetails, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (departmentDetailsSideBar != null)
-            {
-                departmentDetailsSideBar.Click();
-                WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-
-            }
+            var departmentDetailsSideBar = WebDriverUtil.GetWebElement(CloseDepartmentDetails, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (departmentDetailsSideBar == null) return;
+            departmentDetailsSideBar.Click();
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
 
         }
         public static void DeleteCreatedDepartment(string departmentName)
@@ -110,7 +110,7 @@ namespace LaborPro.Automation.Features.Department
                 $"Unable to locate Confirm button on delete confirmation popup - {DepartmentDeleteConfirmPopupAccept}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
-            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
                 WebDriverUtil.WaitForWebElementInvisible(DepartmentDeleteConfirmPopup, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
@@ -149,38 +149,32 @@ namespace LaborPro.Automation.Features.Department
                 $"Unable to locate save button Departments page - {SaveButton}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Saving...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (WebDriverUtil.GetWebElement(DepartmentsPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null)
+            if (WebDriverUtil.GetWebElement(DepartmentsPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) ==
+                null) return;
+            var errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (errorMessage != null) return;
+            var errorMsg = WebDriverUtil.GetWebElementAndScroll(ElementAlert, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (errorMsg != null) return;
+            var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (alert == null)
             {
-                IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-                if (errorMessage == null)
-                {
-                    IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ElementAlert, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-                    if (errorMsg == null)
-                    {
-                        IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-                        if (alert == null)
-                        {
-                            WebDriverUtil.WaitForWebElementInvisible(DepartmentsPopup, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
-                        }
-                        else
-                        {
-                            throw new Exception($"Unable to create new Department Error - {alert.Text}");
-                        }
-                    }
-                }
-            }           
+                WebDriverUtil.WaitForWebElementInvisible(DepartmentsPopup, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
+            }
+            else
+            {
+                throw new Exception($"Unable to create new Department Error - {alert.Text}");
+            }
         }
         public static void UserClickOnNewDepartmentMenuLink()
         {
             LogWriter.WriteLog("Executing DepartmentPage.UserClickOnNewDepartmentMenuLink");
             WebDriverUtil.GetWebElement(AddDepartmentLink, WebDriverUtil.NO_WAIT,
-            $"Unable to locate NewDepartmentMenu menu link on add menu popup - {AddDepartmentLink}").Click();
+            $"Unable to locate New Department Menu menu link on add menu popup - {AddDepartmentLink}").Click();
 
         }
         public static void ClickOnDepartment()
         {
             LogWriter.WriteLog("Executing DepartmentPage.ClickOnDepartment");
-
             WebDriverUtil.GetWebElement(ListManagementDropdown,
                 WebDriverUtil.NO_WAIT, $"Unable to locate list management dropdown - {ListManagementDropdown}").Click();
             WebDriverUtil.GetWebElement(DepartmentValueInLmDropdown, WebDriverUtil.NO_WAIT,
@@ -191,14 +185,14 @@ namespace LaborPro.Automation.Features.Department
         {
             LogWriter.WriteLog("Executing DepartmentPage.ClickOnAddButton");
             WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT,
-            $"Unable to locate add button Departments page  - {AddButton}").Click();
+            $"Unable to locate add button on Departments page  - {AddButton}").Click();
 
         }
         public static void CloseDepartmentForm()
         {
             LogWriter.WriteLog("Executing DepartmentPage.CloseDepartmentForm");
             WaitForDepartmentAlertCloseIfAny();
-            IWebElement formCloseButton = WebDriverUtil.GetWebElement(CloseDepartmentFormButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            var formCloseButton = WebDriverUtil.GetWebElement(CloseDepartmentFormButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (formCloseButton != null)
             {
                 formCloseButton.Click();
@@ -208,34 +202,29 @@ namespace LaborPro.Automation.Features.Department
         public static void ClickOnListManagementTab()
         {
             LogWriter.WriteLog("Executing DepartmentPage.ClickOnListManagementTab");
-
-
-            if (WebDriverUtil.GetWebElement(DepartmentPage, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) == null ||
-                WebDriverUtil.GetWebElement(UnitOfMeasurePage, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) == null)
-            {
-                WebDriverUtil.GetWebElement(ListManagementTab, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE).Click();
-                WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            }
+            if (WebDriverUtil.GetWebElement(DepartmentPage, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null &&
+                WebDriverUtil.GetWebElement(UnitOfMeasurePage, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) !=
+                null) return;
+            WebDriverUtil.GetWebElement(ListManagementTab, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE).Click();
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
         }
         public static void ClickOnStandardTab()
         {
             LogWriter.WriteLog("Executing DepartmentPage.ClickOnStandardTab");
-            IWebElement standardTab = WebDriverUtil.GetWebElement(StandardCollapsedTab, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (standardTab != null)
-            {
-                standardTab.Click();
-                WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            }
+            var standardTab = WebDriverUtil.GetWebElement(StandardCollapsedTab, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (standardTab == null) return;
+            standardTab.Click();
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
         }
         public static void WaitForDepartmentAlertCloseIfAny()
         {
             LogWriter.WriteLog("Executing DepartmentPage.WaitForDepartmentAlertCloseIfAny");
-            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert != null)
             {
                 WebDriverUtil.GetWebElementAndScroll(NameInput).Click();
                 WebDriverUtil.GetWebElementAndScroll(NameInput);
-               
+
             }
             WebDriverUtil.WaitForWebElementInvisible(ErrorAlertToastXpath, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
         }
