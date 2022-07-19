@@ -10,7 +10,8 @@ namespace LaborPro.Automation.Features.Allowances
         const string STANDARD_COLLAPSED_TAB = "//li[contains(@class,'collapsed')]//span[contains(text(),'Standards')]";
         const string ALLOWANCE_COLLAPSED_TAB = "//li[contains(@class,'collapsed')]//span[contains(text(),'Allowances')]";
         const string CALCULATOR_TAB = "//a[text()='Calculator']";
-        const string ALLOWANCES_PAGE = "//*[@class='page-title' and contains( text(),'Allowances')]";
+        const string ADD_ALLOWANCE_BUTTON = "//button[.//*[@class='fa fa-plus']]";
+        const string ALLOWANCES_PAGE = "//*[@class='page-title' and text()='Allowances']";
         const string NAMETAG_INPUT = "//*[@id='name']";
         const string PAIDTIMETAG_INPUT = "//input[@id='paidTimeMinutes']";
         const string EXCLUDEDPAIDBREAK_INPUT = "//input[@id='excludedPaidBreaksMinutes']";
@@ -22,84 +23,37 @@ namespace LaborPro.Automation.Features.Allowances
         const string INCENTIVEOPPORTUNITYALLOWANCE_INPUT = "//input[@id='machineAllowancePercent']";
         const string SAVE_BUTTON = "//button[contains(text(),'Save')]";
         const string CLOSE_ALLOWANCE_FORM_BUTTON = "//*[@class='modal-dialog']//button[contains(text(),'Cancel')]";
+        const string ALLOWANCE_DETAILS_MENU_BUTTON = "//button[.//*[@class='fa fa-list-ul']]";
         const string ALLOWANCE_EDIT_LINK = "//button[.//*[text()='edit']]";
         const string ALLOWANCE_DELETE_BUTTON = "//button[contains(@class,'delete')]";
         const string ALLOWANCE_DELETE_CONFIRM_POPUP = "//*[@class='modal-dialog']//*[contains(text(),'Please confirm that you want to delete')]";
         const string ALLOWANCE_DELETE_CONFIRM_POPUP_ACCEPT = "//*[@class='modal-dialog']//button[text()='Confirm']";
         const string PAGE_TITLE = "//*[@class='page-title']";
+        const string CREATED_ALLOWANCE_TITLE = "//*[@class='page-title' and contains(text(),'{0}')]";
         const string ALLOWANCE_DETAILS_PAGE_PREBVIOUS_LINK = "//a[.//*[@class='fa fa-caret-left']]";
+        const string ALLOWANCE_RECORD = "//*[@role='row' and .//*[text()='{0}']]";
         const string ALLOWANCE_FORM = "//*[@role='dialog']//*[@class='modal-title' and contains(text(),'New Allowance')]";
         const string CREATE_NEW_ALLOWANCE_MENU_OPTION = "//a[@role='menuitem' and text()='New Allowance']";
         const string ERROR_ALERT_TOAST_XPATH = "//*[@class='toast toast-error']";
         const string ELEMENT_ALERT = "//*[@class='form-group has-error']";
         const string FORM_INPUT_FIELD_ERROR_XPATH = "//*[contains(@class,'validation-error')]";
-        private const string AllowanceReportButton = "//button[contains(@title,'Allowance Detail Report')]";
-        private const string OpenEditSidebarForm = "//*[@class='sidebar-scrollable']//div[@class='form-group']";
-        private const string CopyButton = "//button[contains(@class,'btn btn-sm btn-default')]";
-        private const string AddAllowanceButton = "//button[.//*[@class='fa fa-plus']]";
-        private const string AllowanceDetailsMenuButton = "//button[.//*[@class='fa fa-list-ul']]";
-        private const string CreatedAllowanceTitle = "//*[@class='page-title' and contains(text(),'{0}')]";
-        private const string AllowanceRecord = "//*[@role='row' and .//*[text()='{0}']]";
-        
+
         public static void ClickOnPreviousLink()
         {
             LogWriter.WriteLog("Executing AllowancesPage.ClickOnPreviousLink");
             WebDriverUtil.GetWebElement(ALLOWANCE_DETAILS_PAGE_PREBVIOUS_LINK, WebDriverUtil.ONE_SECOND_WAIT,
                 String.Format("Unable to locate previous button on Allowance details page - {0}", ALLOWANCE_DETAILS_PAGE_PREBVIOUS_LINK)).Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-
+            
         }
-        public static void VerifyCopyButtonIsNotPresent()
-        {
-            LogWriter.WriteLog("Executing AllowancesPage.VerifyCopyButtonIsNotPresent");
-            if (WebDriverUtil.GetWebElement(OpenEditSidebarForm, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) == null)
-            {
-                WebDriverUtil.GetWebElement(AllowanceDetailsMenuButton,
-                    WebDriverUtil.ONE_SECOND_WAIT,
-                    $"Unable to locate allowance details sidebar button - {AllowanceDetailsMenuButton}"
-                ).Click();
-                WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            }
-            var copyButton = WebDriverUtil.GetWebElement(CopyButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (copyButton != null)
-                throw new Exception("Copy button is found but we expect it should not be present when user login from view only access");
-            BaseClass._AttachScreenshot.Value = true;
-        }
-        public static void VerifyDownloadAllowanceDetailsReportForAllowance(string allowanceName)
-        {
-            LogWriter.WriteLog("Executing AllowancesPage.VerifyDownloadAllowanceDetailsReportForAllowance");
-            var allowanceRecordXpath = string.Format(AllowanceRecord, allowanceName);
-            WebDriverUtil.GetWebElement(allowanceRecordXpath, WebDriverUtil.NO_WAIT,
-                $"Unable to locate allowance record allowance page - {allowanceRecordXpath}").Click();
-            var allowanceXpath = string.Format(CreatedAllowanceTitle, allowanceName);
-            if (WebDriverUtil.GetWebElement(allowanceXpath, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE) ==
-                null) return;
-            var allowanceReportButton = WebDriverUtil.GetWebElement(AllowanceReportButton, WebDriverUtil.NO_WAIT,
-               WebDriverUtil.NO_MESSAGE);
-            if (allowanceReportButton == null)
-                throw new Exception(
-                      "Allowance Report button is not found but we expect it should be present when user login from view only access");
-
-
-            BaseClass._AttachScreenshot.Value = true;
-        }
-        public static void VerifyAddButtonIsNotPresent()
-        {
-            LogWriter.WriteLog("Executing AllowancesPage.VerifyAddButtonIsNotPresent");
-            var addButton = WebDriverUtil.GetWebElement(AddAllowanceButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (addButton != null)
-                throw new Exception("Add button is found but we expect it should not be present when user login from view only access");
-            BaseClass._AttachScreenshot.Value = true;
-        }
-
-        public static void VerifyErrorAlertMessage(String expectedMessage)
+        public static void VerifyErrorAlertMessage(String expectedMessage) 
         {
             LogWriter.WriteLog("Executing AllowancesPage.VerifyErrorAlertMessage");
             IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (alert != null)
+            if(alert != null)
             {
                 Console.WriteLine(alert.Text);
-                if (!alert.Text.Contains(expectedMessage))
+                if(!alert.Text.Contains(expectedMessage))
                     throw new Exception(string.Format("Error message is not being matched as we expected it should be - {0}", expectedMessage));
                 BaseClass._AttachScreenshot.Value = true;
             }
@@ -111,23 +65,23 @@ namespace LaborPro.Automation.Features.Allowances
             if (alert != null)
             {
                 IWebElement nametag = WebDriverUtil.GetWebElementAndScroll(NAMETAG_INPUT);
-                if (nametag != null)
+                if(nametag != null)
                 {
                     nametag.Click();
                 }
-                if (WebDriverUtil.GetWebElement(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null)
+                if (WebDriverUtil.GetWebElement(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) !=null)
                 {
                     WebDriverUtil.WaitForWebElementInvisible(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
 
                 }
-
+               
             }
         }
-        public static void VerifyAddAllowanceErrorMessage(string message)
+        public static void VerifyAddAllowanceErrorMessage(string message) 
         {
             LogWriter.WriteLog("Executing AllowancesPage.VerifyAddAllowanceErrorMessage");
             IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FORM_INPUT_FIELD_ERROR_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (errorMessage != null)
+            if(errorMessage!=null)
             {
                 string actualError = errorMessage.Text;
                 if (!(actualError.ToLower()).Equals(message.ToLower()))
@@ -140,7 +94,7 @@ namespace LaborPro.Automation.Features.Allowances
         {
             LogWriter.WriteLog("Executing AllowancesPage.ClickOnStandardTab");
             IWebElement standardtab = WebDriverUtil.GetWebElement(STANDARD_COLLAPSED_TAB, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (standardtab != null)
+            if(standardtab!=null)
             {
                 standardtab.Click();
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
@@ -150,7 +104,7 @@ namespace LaborPro.Automation.Features.Allowances
         {
             LogWriter.WriteLog("Executing AllowancesPage.ClickOnAllowanceTab");
             IWebElement allowanceTab = WebDriverUtil.GetWebElement(ALLOWANCE_COLLAPSED_TAB, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (allowanceTab != null)
+            if (allowanceTab!= null)
             {
                 allowanceTab.Click();
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
@@ -159,7 +113,7 @@ namespace LaborPro.Automation.Features.Allowances
         public static void ClickOnCalculatorTab()
         {
             LogWriter.WriteLog("Executing AllowancesPage.ClickOnCalculatorTab");
-            if (WebDriverUtil.GetWebElement(ALLOWANCES_PAGE, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) == null)
+            if (WebDriverUtil.GetWebElement(ALLOWANCES_PAGE, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE)==null)
             {
                 WebDriverUtil.GetWebElement(CALCULATOR_TAB, WebDriverUtil.DEFAULT_WAIT, String.Format("Unable to locate Calculator tab - {0}", CALCULATOR_TAB)).Click();
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
@@ -180,26 +134,26 @@ namespace LaborPro.Automation.Features.Allowances
         {
             LogWriter.WriteLog("Executing AllowancesPage.ClickOnAddAllowanceButton");
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.GetWebElement(AddAllowanceButton, WebDriverUtil.ONE_SECOND_WAIT,
-                String.Format("Unable to locate add allowance button on Allowance page - {0}", AddAllowanceButton)).Click();
+            WebDriverUtil.GetWebElement(ADD_ALLOWANCE_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, 
+                String.Format("Unable to locate add allowance button on Allowance page - {0}", ADD_ALLOWANCE_BUTTON)).Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             IWebElement menuOption = WebDriverUtil.GetWebElement(CREATE_NEW_ALLOWANCE_MENU_OPTION, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (menuOption != null)
+            if(menuOption!=null)
             {
                 menuOption.Click();
             }
-
+            
         }
         public static void AddAllowanceWithGivenInputIfNotExist(Table inputData)
         {
             LogWriter.WriteLog("Executing AllowancesPage.AddAllowanceWithGivenInputIfNotExist");
             var dictionary = Util.ConvertToDictionary(inputData);
-            IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(AllowanceRecord, dictionary["Name"]), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(ALLOWANCE_RECORD, dictionary["Name"]), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record == null)
             {
                 AddAllowanceWithGivenInput(inputData);
-            }
-            else
+            } 
+            else 
             {
                 record.Click();
             }
@@ -220,11 +174,11 @@ namespace LaborPro.Automation.Features.Allowances
             var dictionary = Util.ConvertToDictionary(inputData);
             BaseClass._TestData.Value = Util.DictionaryToString(dictionary);
             //Enter allowance name if provided
-            if (Util.ReadKey(dictionary, "Name") != null)
+            if(Util.ReadKey(dictionary, "Name")!=null)
             {
                 WebDriverUtil.GetWebElement(NAMETAG_INPUT, WebDriverUtil.NO_WAIT,
                 String.Format("Unable to locate name input on create allowance page - {0}", NAMETAG_INPUT))
-                    .SendKeys(dictionary["Name"]);
+                    .SendKeys(dictionary["Name"]);   
             }
 
             if (Util.ReadKey(dictionary, "Paid Time (Minutes)") != null)
@@ -254,13 +208,13 @@ namespace LaborPro.Automation.Features.Allowances
             }
             if (Util.ReadKey(dictionary, "Rest Calculation") != null)
             {
-                try
+                try 
                 {
                     new SelectElement(WebDriverUtil.GetWebElement(RESTCALCULATION_INPUT, WebDriverUtil.NO_WAIT,
                 String.Format("Unable to locate Rest Calculation input on create allowance page - {0}", RESTCALCULATION_INPUT)))
                     .SelectByText(dictionary["Rest Calculation"], true);
                 }
-                catch (Exception ex)
+                catch(Exception ex) 
                 {
                     Console.WriteLine(ex.Message);
                 }
@@ -317,7 +271,7 @@ namespace LaborPro.Automation.Features.Allowances
         public static void DeleteAllowance()
         {
             LogWriter.WriteLog("Executing AllowancesPage.DeleteAllowance..");
-            WebDriverUtil.GetWebElement(AllowanceDetailsMenuButton, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
+            WebDriverUtil.GetWebElement(ALLOWANCE_DETAILS_MENU_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
             WebDriverUtil.GetWebElement(ALLOWANCE_EDIT_LINK, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
             WebDriverUtil.GetWebElement(ALLOWANCE_DELETE_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
             WebDriverUtil.GetWebElement(ALLOWANCE_DELETE_CONFIRM_POPUP_ACCEPT, WebDriverUtil.TWO_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
@@ -336,7 +290,7 @@ namespace LaborPro.Automation.Features.Allowances
         public static void VerifyCreatedAllowance(string allowanceName)
         {
             LogWriter.WriteLog("Executing AllowancesPage.VerifyCreatedAllowance");
-            IWebElement allowanceTitle = WebDriverUtil.GetWebElement(String.Format(CreatedAllowanceTitle, allowanceName), WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement allowanceTitle = WebDriverUtil.GetWebElement(String.Format(CREATED_ALLOWANCE_TITLE, allowanceName), WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             if (allowanceTitle == null)
             {
                 allowanceTitle = WebDriverUtil.GetWebElement(PAGE_TITLE, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
@@ -347,15 +301,15 @@ namespace LaborPro.Automation.Features.Allowances
         public static void UserDeleteCreatedAllowance(string allowanceName)
         {
             LogWriter.WriteLog("Executing AllowancesPage.UserDeleteCreatedAllowance");
-            WebDriverUtil.GetWebElement(String.Format(AllowanceRecord, allowanceName), WebDriverUtil.NO_WAIT,
-            String.Format("Unable to locate allowance record allowance page - {0}", String.Format(AllowanceRecord, allowanceName))).Click();
+            WebDriverUtil.GetWebElement(String.Format(ALLOWANCE_RECORD,allowanceName), WebDriverUtil.NO_WAIT,
+            String.Format("Unable to locate allowance record allowance page - {0}", String.Format(ALLOWANCE_RECORD, allowanceName))).Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             DeleteAllowance();
         }
         public static void DeleteAllowanceIfExist(string allowanceName)
         {
             LogWriter.WriteLog("Executing  AllowancesPage.DeleteAllowanceIfExist");
-            IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(AllowanceRecord, allowanceName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(ALLOWANCE_RECORD, allowanceName ), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record != null)
             {
                 UserDeleteCreatedAllowance(allowanceName);

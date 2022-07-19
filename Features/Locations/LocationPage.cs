@@ -426,7 +426,7 @@ namespace LaborPro.Automation.Features.Locations
             WebDriverUtil.GetWebElement(ExportButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE).Click();
             var exportButton = WebDriverUtil.GetWebElement(ExportLocation, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (exportButton == null)
-                throw new Exception("Export Option is not found but we expect it should be present as logged in user has view only access!");
+                throw new Exception("Export option is not found but we expect it should be present as logged in user has view only access!");
             BaseClass._AttachScreenshot.Value = true;
         }
         public static void SelectLocationRecord(string locationRecord)
@@ -444,7 +444,7 @@ namespace LaborPro.Automation.Features.Locations
             LogWriter.WriteLog("Executing LocationPage.VerifyEditOptionIsNotAvailable");
             var editTextBox = WebDriverUtil.GetWebElement(NameInput, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (editTextBox.Enabled)
-                throw new Exception("Edit TextBox is Enabled but we expect it should be disabled when user login from view only access");
+                throw new Exception("Edit TextBox is enabled but we expect it should be disabled when user login from view only access");
             BaseClass._AttachScreenshot.Value = true;
         }
         public static void VerifyDeleteButtonIsNotAvailable()

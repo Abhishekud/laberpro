@@ -116,14 +116,14 @@ namespace LaborPro.Automation.Features.Attribute
 #line 11
     testRunner.And("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table18.AddRow(new string[] {
+                table17.AddRow(new string[] {
                             "Name",
                             "Department to verify attribute in viewonly mode"});
 #line 12
-    testRunner.And("User create new Department with below input if not exist", ((string)(null)), table18, "And ");
+    testRunner.And("User create new Department with below input if not exist", ((string)(null)), table17, "And ");
 #line hidden
 #line 15
     testRunner.Then("User verify created Department \"Department to verify attribute in viewonly mode\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -137,14 +137,14 @@ namespace LaborPro.Automation.Features.Attribute
 #line 18
     testRunner.Then("User delete attribute \"AJT_viewonly\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table19.AddRow(new string[] {
+                table18.AddRow(new string[] {
                             "Name",
                             "AJT_viewonly"});
 #line 19
-    testRunner.When("User add new attribute using below input", ((string)(null)), table19, "When ");
+    testRunner.When("User add new attribute using below input", ((string)(null)), table18, "When ");
 #line hidden
 #line 22
     testRunner.Then("User refresh the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

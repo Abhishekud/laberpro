@@ -20,7 +20,7 @@ namespace LaborPro.Automation.Features.Locations
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Verify Locations_ViewOnly Module")]
+    [NUnit.Framework.DescriptionAttribute("Verify Locations_ViewOnly module")]
     [NUnit.Framework.CategoryAttribute("Regression")]
     [NUnit.Framework.CategoryAttribute("Locations_ViewOnly")]
     public partial class VerifyLocations_ViewOnlyModuleFeature
@@ -39,7 +39,7 @@ namespace LaborPro.Automation.Features.Locations
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Locations", "Verify Locations_ViewOnly Module", null, ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Locations", "Verify Locations_ViewOnly module", null, ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -108,14 +108,14 @@ namespace LaborPro.Automation.Features.Locations
 #line 9
  testRunner.And("User navigates to the Locations tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table75 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table74 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table75.AddRow(new string[] {
+                table74.AddRow(new string[] {
                             "Name",
                             "Location_viewonly created via automation"});
 #line 10
-    testRunner.And("User create new location with below input if not exist", ((string)(null)), table75, "And ");
+    testRunner.And("User create new location with below input if not exist", ((string)(null)), table74, "And ");
 #line hidden
 #line 13
  testRunner.Then("User navigates to the List Management tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -126,14 +126,14 @@ namespace LaborPro.Automation.Features.Locations
 #line 15
  testRunner.And("User delete Department \"Department for location_viewonly\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table76 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table75 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table76.AddRow(new string[] {
+                table75.AddRow(new string[] {
                             "Name",
                             "Department for location_viewonly"});
 #line 16
- testRunner.And("User create new Department with below input", ((string)(null)), table76, "And ");
+ testRunner.And("User create new Department with below input", ((string)(null)), table75, "And ");
 #line hidden
 #line 19
  testRunner.Then("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -344,22 +344,22 @@ namespace LaborPro.Automation.Features.Locations
  testRunner.Then("User navigates to the List Management tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 53
-     testRunner.And("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 54
-     testRunner.And("User delete Department \"Department for location_viewonly\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("User delete Department \"Department for location_viewonly\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 55
-     testRunner.Then("User navigates to the Locations tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("User navigates to the Locations tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 56
-     testRunner.And("User delete location by name \"Location_viewonly created via automation\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("User delete location by name \"Location_viewonly created via automation\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 57
-     testRunner.And("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 58
-     testRunner.Then("User close browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("User close browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

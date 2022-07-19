@@ -197,7 +197,7 @@ namespace LaborPro.Automation.Features.VolumeDriverValue
             WebDriverUtil.GetWebElement(ExportButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE).Click();
             var exportButton = WebDriverUtil.GetWebElement(ExportVolumeDriverValue, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (exportButton == null)
-                throw new Exception("Export Button is not found but we expect it should be present when user login from view only access");
+                throw new Exception("Export button is not found but we expect it should be present when user login from view only access");
             BaseClass._AttachScreenshot.Value = true;
         }
         public static void VerifyAddButtonIsNotAvailable()
@@ -205,7 +205,7 @@ namespace LaborPro.Automation.Features.VolumeDriverValue
             LogWriter.WriteLog("Executing VolumeDriverValuePage.VerifyAddButtonIsNotAvailable");
             var addButton = WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (addButton != null)
-                throw new Exception("Add Button is found but we expect it should not be present when user login from view only access");
+                throw new Exception("Add button is found but we expect it should not be present when user login from view only access");
             BaseClass._AttachScreenshot.Value = true;
         }
     }

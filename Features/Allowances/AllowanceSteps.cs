@@ -45,9 +45,9 @@ namespace LaborPro.Automation.Features.Allowances
             AllowancePage.AddAllowanceWithGivenInput(inputData);
         }
 
-        [Given(@"User add allowance using below input to verify validation message")]
-        [When(@"User add allowance using below input to verify validation message")]
-        [Then(@"User add allowance using below input to verify validation message")]
+        [Given(@"User add allowance using below input to verify vaidation message")]
+        [When(@"User add allowance using below input to verify vaidation message")]
+        [Then(@"User add allowance using below input to verify vaidation message")]
         public void AddAllowanceWithGivenInputToVerifyValidationMessage(Table inputData)
         {
             LogWriter.WriteLog("Executing step: User add allowance using below input - "+ inputData);
@@ -123,35 +123,5 @@ namespace LaborPro.Automation.Features.Allowances
             LogWriter.WriteLog("Executing Step User delete created allowance by name" + allowanceName);
             AllowancePage.DeleteAllowanceIfExist(allowanceName);
         }
-        [Then(@"User verify add button is not available on allowance page")]
-        [When(@"User verify add button is not available on allowance page")]
-        [Given(@"User verify add button is not available on allowance page")]
-        public void VerifyAddButtonIsNotAvailableOnAllowancePage()
-        {
-            LogWriter.WriteLog("Executing step: User verify add button is not available on allowance page");
-            AllowancePage.VerifyAddButtonIsNotPresent();
-        }
-
-        [Then(@"User verify download allowance details report for allowance: ""([^""]*)""")]
-        [Given(@"User verify download allowance details report for allowance: ""([^""]*)""")]
-        [When(@"User verify download allowance details report for allowance: ""([^""]*)""")]
-        public void VerifyDownloadAllowanceDetailsReportForAllowance(string allowanceName)
-        {
-            LogWriter.WriteLog("Executing step: User verify download allowance details report for allowance"+ allowanceName);
-            AllowancePage.VerifyDownloadAllowanceDetailsReportForAllowance(allowanceName);
-            
-        } 
-
-        [Then(@"User verify copy option is not available on allowance page")]
-        [When(@"User verify copy option is not available on allowance page")]
-        [Given(@"User verify copy option is not available on allowance page")]
-        public void VerifyCopyOptionIsNotAvailableOnAllowancePage()
-        {
-            LogWriter.WriteLog("Executing step: User verify copy option is not available on allowance page");
-            AllowancePage.VerifyCopyButtonIsNotPresent();
-            AllowancePage.ClickOnPreviousLink();
-
-        }
-
     }
 }

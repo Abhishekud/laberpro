@@ -475,7 +475,7 @@ namespace LaborPro.Automation.Features.Standards
             LogWriter.WriteLog("Executing StandardsPage.VerifyAddButtonIsNotPresent");
             var addButton = WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (addButton != null)
-                throw new Exception("Add button is found but we expect it should not be present when user login from view only access");
+                throw new Exception("Add Button is found but we expect it should not be present when user login from view only access");
             BaseClass._AttachScreenshot.Value = true;
             WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
         }
@@ -491,7 +491,7 @@ namespace LaborPro.Automation.Features.Standards
             WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
             if (openEditSidebarForm == null) return;
             if (editButtonSidebar != null)
-                throw new Exception("Edit button is found but we expect it should not be present when user login from view only access");
+                throw new Exception("Edit Button is found but we expect it should not be present when user login from view only access");
             BaseClass._AttachScreenshot.Value = true;
             WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
             ClickOnPreviousLink();
@@ -501,7 +501,7 @@ namespace LaborPro.Automation.Features.Standards
             LogWriter.WriteLog("Executing StandardsPage.VerifyExportOptionIsNotPresent");
             var exportButton = WebDriverUtil.GetWebElement(ExportButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (exportButton == null)
-                throw new Exception("Export button is not found but we expect it should be present when user login from view only access");
+                throw new Exception("Export Button is not found but we expect it should be present when user login from view only access");
             exportButton.Click();
             BaseClass._AttachScreenshot.Value = true;
             WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
@@ -513,7 +513,7 @@ namespace LaborPro.Automation.Features.Standards
             var reportButton = WebDriverUtil.GetWebElement(ReportButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             var previousButton = WebDriverUtil.GetWebElement(StandardDetailsPagePreviousLink, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (reportButton == null)
-                throw new Exception("Report button is not found but we expect it should be present when user login from view only access");
+                throw new Exception("Report Button is not found but we expect it should be present when user login from view only access");
             reportButton.Click();
             BaseClass._AttachScreenshot.Value = true;
             if(previousButton != null)
@@ -531,7 +531,7 @@ namespace LaborPro.Automation.Features.Standards
             LogWriter.WriteLog("Executing StandardsPage.VerifyAddButtonIsAvailableInStandardElement");
             var addButtonInStandardElement = WebDriverUtil.GetWebElement(AddButtonInStandardElement, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (addButtonInStandardElement.Enabled)
-                throw new Exception("Add button is enabled but we expect it should be disabled as logged in with view only access");
+                throw new Exception("Add Button is enabled but we expect it should be disabled as logged in with view only access");
             BaseClass._AttachScreenshot.Value = true;
             WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
             ClickOnPreviousLink();
@@ -541,7 +541,7 @@ namespace LaborPro.Automation.Features.Standards
             LogWriter.WriteLog("Executing StandardsPage.VerifyAddOptionIsAvailableInStandardGroup");
             var addOptionInStandardGroup = WebDriverUtil.GetWebElement(AddOptionInStandardGroup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (addOptionInStandardGroup.Enabled)
-                throw new Exception("Add option for standard group is enabled but we expect it should be disabled as logged in with view only access");
+                throw new Exception("Add Option for standard group is enabled but we expect it should be disabled as logged in with view only access");
             BaseClass._AttachScreenshot.Value = true;
             WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
             ClickOnPreviousLink();
@@ -552,7 +552,7 @@ namespace LaborPro.Automation.Features.Standards
             LogWriter.WriteLog("Executing StandardsPage.VerifyTickOptionIsNotAvailable");
             var tickOptionInStandardDetails = WebDriverUtil.GetWebElement(TickOptionInStandardDetail, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (tickOptionInStandardDetails != null)
-                throw new Exception("Tick option is found but we expect it should not be present as logged in with view only access");
+                throw new Exception("Tick Option is found but we expect it should not be present as logged in with view only access");
             BaseClass._AttachScreenshot.Value = true;
             WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
             ClickOnPreviousLink();
@@ -562,7 +562,7 @@ namespace LaborPro.Automation.Features.Standards
         {
             var selectOption = WebDriverUtil.GetWebElement(SelectOptionInListing, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (selectOption == null)
-                throw new Exception("Select option is not found but we expect it should not be present when user login from view only access"); 
+                throw new Exception("Select Option is not found but we expect it should be present when user login from view only access"); 
             selectOption.Click();
         }
     }

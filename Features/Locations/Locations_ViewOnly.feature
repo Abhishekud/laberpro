@@ -1,5 +1,5 @@
 ﻿@Regression @Locations_ViewOnly
-Feature: Verify Locations_ViewOnly Module
+Feature:Verify Locations_ViewOnly module
 
    @Setup 
    Scenario: 01. Launch Browser and Login to the Application and perform prerequisite
@@ -50,9 +50,9 @@ Feature: Verify Locations_ViewOnly Module
     Given User logout from the application
 	When User enter email: "$username_1" and password: "$password_1"
 	Then User navigates to the List Management tab
-     And User selects Department
-     And User delete Department "Department for location_viewonly" if exist
-     Then User navigates to the Locations tab
-     And User delete location by name "Location_viewonly created via automation" if exist
-     And User logout from the application
-     Then User close browser
+    And User selects Department
+    And User delete Department "Department for location_viewonly" if exist
+    Then User navigates to the Locations tab
+    And User delete location by name "Location_viewonly created via automation" if exist
+    And User logout from the application
+    Then User close browser
