@@ -8,7 +8,7 @@ using LaborPro.Automation.shared.util;
 using LaborPro.Automation.shared.config;
 
 [assembly: Parallelizable(ParallelScope.Fixtures)]
-[assembly: LevelOfParallelism(5)]
+[assembly: LevelOfParallelism(10)]
 
 namespace LaborPro.Automation.shared.hooks
 {
@@ -98,7 +98,7 @@ namespace LaborPro.Automation.shared.hooks
         {
             string suiteType = Environment.GetEnvironmentVariable("suiteType");
             if (suiteType == null)
-                suiteType = TestDataExcelReader.REGRESSION_TEST;
+                suiteType = TestDataExcelReader.SMOKE_TEST;
             string featureName = featureContext.FeatureInfo.Title;
             if (TestDataExcelReader.IsFeatureFileIncluded(featureName, suiteType))
             {
@@ -125,7 +125,7 @@ namespace LaborPro.Automation.shared.hooks
             {
                 string suiteType = Environment.GetEnvironmentVariable("suiteType");
                 if (suiteType == null)
-                    suiteType = TestDataExcelReader.REGRESSION_TEST;
+                    suiteType = TestDataExcelReader.SMOKE_TEST;
                 TestScenario testScenario = Util.ReadKey(ScenarioSuiteMapping, featureName+"_"+scenarioName);
                 if(testScenario==null)
                     Assert.Ignore(String.Format("Test scenario - {0} ignored as per the TestData.xlsx", scenarioName));

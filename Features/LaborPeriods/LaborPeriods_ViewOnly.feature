@@ -5,15 +5,18 @@ Feature:Verify LaborPeriods_ViewOnly Module
   Scenario: 01. Launch Browser and Login to the Application and perform prerequisites
    Given User launched "$browser"
    When User go to application "$url"
-   Then User enter email: "$username_2" and password: "$password_2" 
-   And User navigates to LaborPeriod Tab 
-   And User Add New LaborPeriod Using Below Input if not exist
+   Then User enter email: "$username_2" and password: "$password_2"
+   And Verify Login message: "success"
+   When User navigates to LaborPeriod Tab
+   Then User selects New LaborPeriod
+   And User Add New LaborPeriod Using Below Input
     | Key                | Value                                     |
     | Name               | laborperiodviewonly created by automation |
     | LaborPeriodType    | Hours of Operation                        |
     | TrafficPattern     | Distribute Evenly and Apply Rounding      |
-    | LaborDistribution  | Same As Selected Labor Period             | 
-   Then User logout from the application
+    | LaborDistribution  | Same As Selected Labor Period             |
+  Then User Add HouseOfPeriod
+  And User logout from the application
 
   Scenario: 02. Verify_add_button_is_not_available
    Given User logged in with view only access using username: "$viewonly_username" and password: "$viewonly_password"

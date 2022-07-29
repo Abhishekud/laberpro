@@ -133,13 +133,6 @@ namespace LaborPro.Automation.Features.LaborPeriods
             LaborPeriodsPage.VerifyDeleteButtonAndEditOptionIsNotPresent();
             LaborPeriodsPage.ClickOnPreviousLink();
         }
-        [When(@"User Add New LaborPeriod Using Below Input if not exist")]
-        [Then(@"User Add New LaborPeriod Using Below Input if not exist")]
-        public void  AddNewLaborPeriodUsingBelowInputIfNotExist(Table inputData)
-        {
-            LogWriter.WriteLog("Executing Step: User Add New LaborPeriod Using Below Input if not exist" + inputData);
-            LaborPeriodsPage.AddNewLaborPeriodsWithGivenInputIfNotExist(inputData);
-        }
 
     }
 }
