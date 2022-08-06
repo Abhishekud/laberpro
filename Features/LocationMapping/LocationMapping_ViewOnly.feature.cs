@@ -143,8 +143,7 @@ namespace LaborPro.Automation.Features.LocationMapping
     testRunner.And("User click on LocationMapping", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 21
-    testRunner.And("User select the department \"Department_for_LocationMapping_via_automation\" on loc" +
-                        "ation mapping page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("User select the Department \"Department_for_LocationMapping_via_automation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 22
     testRunner.Then("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -178,8 +177,7 @@ namespace LaborPro.Automation.Features.LocationMapping
     testRunner.When("User navigates to the LocationMapping tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 27
-    testRunner.And("User select the department \"Department_for_LocationMapping_via_automation\" on loc" +
-                        "ation mapping page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("User select the Department \"Department_for_LocationMapping_via_automation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 28
     testRunner.Then("User verify add button is not available on location mapping page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

@@ -21,6 +21,7 @@ namespace LaborPro.Automation.Features.LaborCategories
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Verify LaborCategories_ViewOnly Module")]
+    [NUnit.Framework.CategoryAttribute("laborPro")]
     [NUnit.Framework.CategoryAttribute("Regression")]
     [NUnit.Framework.CategoryAttribute("LaborCategories_ViewOnly")]
     public partial class VerifyLaborCategories_ViewOnlyModuleFeature
@@ -29,6 +30,7 @@ namespace LaborPro.Automation.Features.LaborCategories
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
+                "laborPro",
                 "Regression",
                 "LaborCategories_ViewOnly"};
         
@@ -176,7 +178,7 @@ namespace LaborPro.Automation.Features.LaborCategories
             {
                 this.ScenarioStart();
 #line 22
-    testRunner.When("User navigates to the labor categories page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("User navigates to the LaborCategories tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 23
     testRunner.Then("User verify export option is not available on labor categories page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
