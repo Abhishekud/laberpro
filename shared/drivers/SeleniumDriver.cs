@@ -3,6 +3,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
 using WebDriverManager.DriverConfigs.Impl;
+using WebDriverManager.Helpers;
 
 namespace LaborPro.Automation.shared.drivers
 {
@@ -39,11 +40,11 @@ namespace LaborPro.Automation.shared.drivers
                 switch (browser.ToLower())
                 {
                     case "chrome":
-                        new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
+                        new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
                         driver = new ChromeDriver(GetChromeOptions());
                         break;
                     case "Google_Chrome":
-                        new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
+                        new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
                         driver = new ChromeDriver(GetChromeOptions());
                         break;
                     case "firefox":
@@ -59,7 +60,7 @@ namespace LaborPro.Automation.shared.drivers
                         driver = new EdgeDriver(GetEdgeOptions());
                         break;
                     default:
-                        new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
+                        new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
                         driver = new ChromeDriver(GetChromeOptions());
                         break;
                 }

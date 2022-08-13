@@ -1,6 +1,6 @@
 ﻿using LaborPro.Automation.shared.hooks;
 using LaborPro.Automation.shared.util;
-
+using OpenQA.Selenium;
 
 namespace LaborPro.Automation.Features.VolumeDriver
 {
@@ -34,20 +34,23 @@ namespace LaborPro.Automation.Features.VolumeDriver
         public static void CloseVolumeDriverDetailSideBar()
         {
             LogWriter.WriteLog("Executing VolumeDriverPage.CloseVolumeDriverDetailSideBar");
-            var volumeDriverDetailsSideBar = WebDriverUtil.GetWebElement(CloseVolumeDriverDetails, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (volumeDriverDetailsSideBar == null) return;
-            volumeDriverDetailsSideBar.Click();
-            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-
+            IWebElement volumeDriverDetailsSideBar = WebDriverUtil.GetWebElement(CloseVolumeDriverDetails, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (volumeDriverDetailsSideBar != null)
+            {
+                volumeDriverDetailsSideBar.Click();
+                WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            }
             volumeDriverDetailsSideBar = WebDriverUtil.GetWebElement(CancelVolumeDriverDetails, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (volumeDriverDetailsSideBar == null) return;
-            volumeDriverDetailsSideBar.Click();
-            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            if (volumeDriverDetailsSideBar != null)
+            {
+                volumeDriverDetailsSideBar.Click();
+                WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            }
         }
         public static void VerifyAddButtonIsNotPresent()
         {
             LogWriter.WriteLog("Executing VolumeDriverPage.VerifyAddButtonIsNotPresent");
-            var addVolumeDriver = WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement addVolumeDriver = WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (addVolumeDriver != null)
                 throw new Exception("Add button is found but we expect it should not be present as logged in user has view only access!");
             BaseClass._AttachScreenshot.Value = true;
@@ -58,20 +61,17 @@ namespace LaborPro.Automation.Features.VolumeDriver
             var volumeDriverRecordXpath = string.Format(VolumeDriverRecord, volumeDriverName);
             WebDriverUtil.GetWebElement(volumeDriverRecordXpath, WebDriverUtil.ONE_SECOND_WAIT,
                 $"Unable to locate VolumeDriver record on VolumeDriverPage - {volumeDriverRecordXpath}").Click();
-            var deleteButton = WebDriverUtil.GetWebElement(VolumeDriverDeleteButton, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (deleteButton != null)
-                throw new Exception("Delete button is found but we expect it should not be present as logged in user has view only access!");
-            var editTextBox = WebDriverUtil.GetWebElement(NameInput, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (editTextBox.Enabled)
-                throw new Exception("Edit TextBox is enabled but we expect it should be disabled when user login from view only access");
+            IWebElement delete = WebDriverUtil.GetWebElement(VolumeDriverDeleteButton, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (delete != null)
+                throw new Exception("delete button is found but we expect it should not be present as logged in user has view only access!");
             BaseClass._AttachScreenshot.Value = true;
         }
         public static void VerifyExportOptionIsNotPresent()
         {
             LogWriter.WriteLog("Executing VolumeDriverPage.VerifyExportOptionIsNotPresent");
-            var exportButton = WebDriverUtil.GetWebElement(ExportButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (exportButton != null)
-                throw new Exception("Export button is found but we expect it should not be present as logged in user has view only access!");
+            IWebElement export = WebDriverUtil.GetWebElement(ExportButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (export != null)
+                throw new Exception("export button is found but we expect it should not be present as logged in user has view only access!");
             BaseClass._AttachScreenshot.Value = true;
 
         }
@@ -90,7 +90,7 @@ namespace LaborPro.Automation.Features.VolumeDriver
             $"Unable to locate Confirm button on delete confirmation popup - {VolumeDriverDeleteConfirmPopupAccept}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
-            var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
                 WebDriverUtil.WaitForWebElementInvisible(VolumeDriverDeleteConfirmPopup, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
@@ -99,7 +99,7 @@ namespace LaborPro.Automation.Features.VolumeDriver
             {
                 throw new Exception($"Unable to delete Volume Driver Error - {alert.Text}");
             }
-
+     
         }
         public static void VerifyCreatedVolumeDriver(string volumeDriverName)
         {
@@ -115,7 +115,7 @@ namespace LaborPro.Automation.Features.VolumeDriver
             LogWriter.WriteLog("Executing VolumeDriverPage AddNewVolumeDriverWithGivenInput");
             ClickOnAddButton();
             UserClickOnNewVolumeDriverMenuLink();
-            WebDriverUtil.WaitForAWhile();
+             WebDriverUtil.WaitForAWhile();
             //Read input data
             var dictionary = Util.ConvertToDictionary(inputData);
             BaseClass._TestData.Value = Util.DictionaryToString(dictionary);
@@ -137,29 +137,33 @@ namespace LaborPro.Automation.Features.VolumeDriver
             $"Unable to locate save button VolumeDrivers page - {SaveButton}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Saving...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (WebDriverUtil.GetWebElement(VolumeDriverPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) ==
-                null) return;
-            var errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (errorMessage != null) return;
-            var errorMsg = WebDriverUtil.GetWebElementAndScroll(ElementAlert, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (errorMsg != null) return;
-            var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (alert == null)
+            if (WebDriverUtil.GetWebElement( VolumeDriverPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
-                WebDriverUtil.WaitForWebElementInvisible(VolumeDriverPopup, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
-            }
-            else
-            {
-                throw new Exception($"Unable to create new VolumeDriver Error - {alert.Text}");
+                IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+                if (errorMessage == null)
+                {
+                    IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ElementAlert, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                    if (errorMsg == null)
+                    {
+                        IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                        if (alert == null)
+                        {
+                            WebDriverUtil.WaitForWebElementInvisible(VolumeDriverPopup, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
+                        }
+                        else
+                        {
+                            throw new Exception($"Unable to create new VolumeDriver Error - {alert.Text}");
+                        }
+                    }
+                }
             }
 
         }
         public static void AddNewVolumeDriverWithGivenInputIfNotExist(Table inputData)
         {
-            LogWriter.WriteLog("Executing VolumeDriverPage.AddNewVolumeDriverWithGivenInputIfNotExist");
+            LogWriter.WriteLog("Executing VolumeDriversPage.AddNewVolumeDriverWithGivenInputIfNotExist");
             var dictionary = Util.ConvertToDictionary(inputData);
-            var volumeDriverRecordXpath = string.Format(VolumeDriverRecord, dictionary["Name"]);
-            var record = WebDriverUtil.GetWebElementAndScroll(volumeDriverRecordXpath, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement record = WebDriverUtil.GetWebElementAndScroll(string.Format(VolumeDriverRecord, dictionary["Name"]), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record == null)
             {
                 AddNewVolumeDriverWithGivenInput(inputData);
@@ -170,12 +174,12 @@ namespace LaborPro.Automation.Features.VolumeDriver
             }
 
         }
+
         public static void DeleteVolumeDriverIfExist(string volumeDriverName)
         {
-            LogWriter.WriteLog("Executing VolumeDriverPage.DeleteVolumeDriverIfExist");
+            LogWriter.WriteLog("Executing VolumeDriversPage.DeleteVolumeDriverIfExist");
             WaitForVolumeDriverAlertCloseIfAny();
-            var volumeDriverRecordXpath = string.Format(VolumeDriverRecord, volumeDriverName);
-            var record = WebDriverUtil.GetWebElementAndScroll(volumeDriverRecordXpath, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement record = WebDriverUtil.GetWebElementAndScroll(string.Format(VolumeDriverRecord, volumeDriverName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record != null)
             {
                 DeleteCreatedVolumeDriver(volumeDriverName);
@@ -185,30 +189,31 @@ namespace LaborPro.Automation.Features.VolumeDriver
         {
             LogWriter.WriteLog("Executing VolumeDriverPage UserClickOnNewVolumeDriverMenuLink");
             WebDriverUtil.GetWebElement(AddVolumeDriverLink, WebDriverUtil.NO_WAIT,
-            $"Unable to locate New VolumeDriverMenu menu link on add menu popup - {AddVolumeDriverLink}").Click();
+            $"Unable to locate NewVolumeDriverMenu menu link on add menu popup - {AddVolumeDriverLink}").Click();
             WebDriverUtil.WaitForAWhile();
         }
         public static void ClickOnVolumeDriver()
         {
             LogWriter.WriteLog("Executing VolumeDriverPage ClickOnVolumeDriver");
-            WebDriverUtil.GetWebElement(StandardFilingFieldId,
+            WebDriverUtil.GetWebElement(StandardFilingFieldId ,
             WebDriverUtil.NO_WAIT, $"Unable to locate list management dropdown - {StandardFilingFieldId}").Click();
             WebDriverUtil.GetWebElement(VolumeDriverValueInLmDropdown, WebDriverUtil.NO_WAIT,
                 $"Unable to locate VolumeDriver value - {VolumeDriverValueInLmDropdown}").Click();
 
+
         }
         public static void ClickOnAddButton()
         {
-            LogWriter.WriteLog("Executing VolumeDriverPage.ClickOnAddButton");
+            LogWriter.WriteLog("Executing VolumeDriverPageClickOnAddButton");
             WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT,
             $"Unable to locate add button VolumeDrivers page  - {AddButton}").Click();
             WebDriverUtil.WaitForAWhile();
         }
         public static void CloseVolumeDriverForm()
         {
-            LogWriter.WriteLog("Executing VolumeDriverPage.CloseVolumeDriverForm");
+            LogWriter.WriteLog("Executing VolumeDriverCloseVolumeDriverForm");
             WaitForVolumeDriverAlertCloseIfAny();
-            var formCloseButton = WebDriverUtil.GetWebElement(CloseVolumeDriverFormButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement formCloseButton = WebDriverUtil.GetWebElement(CloseVolumeDriverFormButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (formCloseButton != null)
             {
                 formCloseButton.Click();
@@ -217,50 +222,58 @@ namespace LaborPro.Automation.Features.VolumeDriver
         }
         public static void ClickOnListManagementTab()
         {
-            LogWriter.WriteLog("Executing VolumeDriverPage ClickOnListManagementTab");
+            LogWriter.WriteLog("Executing VolumeDriver  ClickOnListManagementTab");
             CloseVolumeDriverDetailSideBar();
-            var listManagementTab = WebDriverUtil.GetWebElement(ListManagementTab, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (listManagementTab == null) return;
-            listManagementTab.Click();
-            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            IWebElement listManagementTab = WebDriverUtil.GetWebElement(ListManagementTab, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (listManagementTab != null)
+            {
+                listManagementTab.Click();
+                WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            }
         }
         public static void ClickOnStandardTab()
         {
-            LogWriter.WriteLog("Executing VolumeDriverPage.ClickOnStandardTab");
-            var standardTab = WebDriverUtil.GetWebElement(StandardCollapsedTab, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (standardTab == null) return;
-            standardTab.Click();
-            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            LogWriter.WriteLog("Executing VolumeDriver.ClickOnStandardTab");
+            IWebElement standardTab = WebDriverUtil.GetWebElement(StandardCollapsedTab, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (standardTab != null)
+            {
+                standardTab.Click();
+                WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            }
         }
         public static void WaitForVolumeDriverAlertCloseIfAny()
         {
-            LogWriter.WriteLog("Executing VolumeDriverPage.WaitForVolumeDriverAlertCloseIfAny");
-            var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (alert == null) return;
-            WebDriverUtil.GetWebElementAndScroll(NameInput).Click();
-            WebDriverUtil.GetWebElementAndScroll(NameInput);
-            WebDriverUtil.WaitForWebElementInvisible(ErrorAlertToastXpath, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            LogWriter.WriteLog("VolumeDriver.WaitForVolumeDriverAlertCloseIfAny");
+            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (alert != null)
+            {
+                WebDriverUtil.GetWebElementAndScroll(NameInput).Click();
+                IWebElement nameTag = WebDriverUtil.GetWebElementAndScroll(NameInput);
+                WebDriverUtil.WaitForWebElementInvisible(ErrorAlertToastXpath, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            }
         }
         public static void SearchVolumeDriver(string volumeDriver)
         {
-            LogWriter.WriteLog("Executing VolumeDriverPage.SearchVolumeDriver");
+            LogWriter.WriteLog("VolumeDriver.SearchVolumeDriver");
             WebDriverUtil.GetWebElement(VolumeDriverFilterInput, WebDriverUtil.NO_WAIT,
-                 $"Unable to locate VolumeDriver filter input - {VolumeDriverFilterInput}").SendKeys(volumeDriver);
+                 $"Unable to locate VOLUME DRIVER FILTER INPUT - {VolumeDriverFilterInput}").SendKeys(volumeDriver);
             WebDriverUtil.WaitForAWhile();
             WaitForLoading();
         }
         public static void WaitForLoading()
         {
-            LogWriter.WriteLog("Executing VolumeDriverPage.WaitForLoading");
+            LogWriter.WriteLog("VolumeDriver.WaitForLoading");
             WebDriverUtil.WaitForWebElementInvisible(PageLoader, WebDriverUtil.DEFAULT_WAIT, WebDriverUtil.NO_MESSAGE);
         }
         public static void ClearAllFilter()
         {
-            LogWriter.WriteLog("Executing VolumeDriverPage.ClearAllFilter");
-            var clearFilterButton = WebDriverUtil.GetWebElement(ClearFilterButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (clearFilterButton == null) return;
-            clearFilterButton.Click();
-            WaitForLoading();
+            LogWriter.WriteLog("VolumeDriver.ClearAllFilter");
+            IWebElement clearFilterButton = WebDriverUtil.GetWebElement(ClearFilterButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (clearFilterButton != null)
+            {
+                clearFilterButton.Click();
+                WaitForLoading();
+            }
         }
     }
 }

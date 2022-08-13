@@ -67,30 +67,56 @@ namespace LaborPro.Automation.Features.Standards
         private const string AddOptionInStandardGroup = "//*[@class='add-standard-item standalone']//*[@class='form-group']//*[@id='groupName']";
         private const string TickOptionInStandardDetail = "//*[@class='fa fa-square-o']";
         private const string SelectOptionInListing = "//*[@class='k-master-row']//*[@aria-colindex='1']";
+        private const string AddExistingIndustryStandardButton = "//*[contains(@class, 'dropdown-menu dropdown-menu-right')]//a[contains(text(),'Existing Industry Standard')]";
+        private const string AddButtonPopUp = "//*[contains(@class, 'header-button btn-default dropdown open btn-group')]//*[contains(@class, 'dropdown-menu dropdown-menu-right')]";
+        private const string IndustryStandardsPage = "//h3[contains(text(),'Industry Standards')]";
+        private const string IndustryStandardRecord = "//td[@colspan='1' and @role='gridcell']";
+        private const string IndustryStandardSideBar = "//*[contains(@class, 'sidebar-section')]//h4[contains(text(),'Import Into Department')]";
+        private const string AddLink = "//button[contains(text(),'Add')]";
+        private const string StandardIdToggleButton = "//*[@class='toggle-switch  form-group']//*[@id='forceUseOfStandardId']";
+        private const string IndustryTypicalDropdown = "//select[@id='industrySourceId']";
+        private const string StandardDetailsPage = "//h3[contains(text(),' - ')]";
+        private const string StandardDetailsButton = "//*[@class='page-header']//button[@class='btn-default btn btn-default']";
+        private const string ElementsDetailsButton = "//*[@class='industry-standard-element-container']//*[@class='element-id clickable']";
+        private const string ElementsDetailsPage = "//h3[contains(text(),' - ')]";
+        private const string IndustryStandardRow = "//tr[@class='k-master-row' and @role='row']";
+        private const string FirstRecord = "//tr[@data-grid-row-index='0']/td[1]/input";
+        private const string SecondRecord = "//tr[@data-grid-row-index='2']/td[1]/input";
+        private const string Department = "Department";
+        private const string NoRecord = "//td[contains(text(),'No records available')]";
+        private const string DepartmentDropdown = "//select[@id='intoDepartmentId']";
+        private const string StandardDetailsPageCloseButton = "//div[contains(@class, 'clickable')and contains(text(),' Close')]";
+
         public static void ClickOnStandardsTab()
         {
             LogWriter.WriteLog("Executing StandardPage.ClickOnStandardsTab");
-            if (WebDriverUtil.GetWebElement(STANDARD_PAGE, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) == null)
+            if (WebDriverUtil.GetWebElement(STANDARD_PAGE, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) ==
+                null)
             {
-                WebDriverUtil.GetWebElement(STANDARDS_TAB, WebDriverUtil.DEFAULT_WAIT, String.Format("Unable to locate the standard tab - {0}", STANDARDS_TAB)).Click();
+                WebDriverUtil.GetWebElement(STANDARDS_TAB, WebDriverUtil.DEFAULT_WAIT,
+                    String.Format("Unable to locate the standard tab - {0}", STANDARDS_TAB)).Click();
                 WebDriverUtil.WaitForAWhile();
             }
         }
+
         public static void CloseStandardsForm()
         {
             LogWriter.WriteLog("Executing StandardPage.CloseStandardsForm");
             WaitForStandardsAlertCloseIfAny();
-            IWebElement formCloseButton = WebDriverUtil.GetWebElement(CLOSE_STANDARDS_FORM_BUTTON, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement formCloseButton = WebDriverUtil.GetWebElement(CLOSE_STANDARDS_FORM_BUTTON,
+                WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (formCloseButton != null)
             {
                 formCloseButton.Click();
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             }
         }
+
         public static void WaitForStandardsAlertCloseIfAny()
         {
             LogWriter.WriteLog("Executing StandardPage.WaitForAllowanceAlertCloseIfAny");
-            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.NO_WAIT,
+                WebDriverUtil.NO_MESSAGE);
             if (alert != null)
             {
                 IWebElement nametag = WebDriverUtil.GetWebElementAndScroll(NAMETAG_INPUT);
@@ -98,9 +124,12 @@ namespace LaborPro.Automation.Features.Standards
                 {
                     nametag.Click();
                 }
-                WebDriverUtil.WaitForWebElementInvisible(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+
+                WebDriverUtil.WaitForWebElementInvisible(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT,
+                    WebDriverUtil.NO_MESSAGE);
             }
         }
+
         public static void ClickOnAddStandards()
         {
             LogWriter.WriteLog("Executing StandardPage.ClickOnAddStandards");
@@ -117,6 +146,7 @@ namespace LaborPro.Automation.Features.Standards
             }
 
         }
+
         public static void AddStandardsWihGivenInput(Table inputData)
         {
             LogWriter.WriteLog("Executing StandardPage.AddStandardWithGivenInput");
@@ -128,20 +158,25 @@ namespace LaborPro.Automation.Features.Standards
             if (Util.ReadKey(dictionary, "Name") != null)
             {
                 WebDriverUtil.GetWebElement(NAMETAG_INPUT, WebDriverUtil.NO_WAIT,
-                    String.Format("Unable to locate name input on create standard page - {0}", NAMETAG_INPUT)).SendKeys(dictionary["Name"]);
+                        String.Format("Unable to locate name input on create standard page - {0}", NAMETAG_INPUT))
+                    .SendKeys(dictionary["Name"]);
             }
 
             if (Util.ReadKey(dictionary, "Department") != null)
             {
-               new SelectElement( WebDriverUtil.GetWebElement(DEPARTMENT_INPUT, WebDriverUtil.NO_WAIT,
-                    String.Format("Unable to locate DEPARTMENT input on create standard page - {0}", DEPARTMENT_INPUT))).SelectByText(dictionary["Department"]);
-               
+                new SelectElement(WebDriverUtil.GetWebElement(DEPARTMENT_INPUT, WebDriverUtil.NO_WAIT,
+                        String.Format("Unable to locate DEPARTMENT input on create standard page - {0}",
+                            DEPARTMENT_INPUT)))
+                    .SelectByText(dictionary["Department"]);
+
             }
 
-            if(Util.ReadKey(dictionary, "Attribute") != null)
+            if (Util.ReadKey(dictionary, "Attribute") != null)
             {
                 new SelectElement(WebDriverUtil.GetWebElement(ATTRIBUTE_INPUT, WebDriverUtil.NO_WAIT,
-                    String.Format("Unable to locate Attribute input on create standard page - {0}", ATTRIBUTE_INPUT))).SelectByText(dictionary["Attribute"]);
+                        String.Format("Unable to locate Attribute input on create standard page - {0}",
+                            ATTRIBUTE_INPUT)))
+                    .SelectByText(dictionary["Attribute"]);
             }
 
 
@@ -150,20 +185,27 @@ namespace LaborPro.Automation.Features.Standards
                 WebDriverUtil.NO_WAIT,
                 String.Format("Unable to locate Save Button- {0}", SAVE_BUTTON)).Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Saving...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Saving...')]", WebDriverUtil.MAX_WAIT,
+                WebDriverUtil.NO_MESSAGE);
 
             if (WebDriverUtil.GetWebElement(STANDARD_FORM, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
-                IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FORM_INPUT_FIELD_ERROR_XPATH, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+                IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FORM_INPUT_FIELD_ERROR_XPATH,
+                    WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
                 if (errorMessage == null)
                 {
-                    IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ELEMENT_ALERT, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+                    IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ELEMENT_ALERT, WebDriverUtil.NO_WAIT,
+                        WebDriverUtil.NO_MESSAGE);
                     if (errorMsg == null)
                     {
-                        IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                        IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH,
+                            WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                         if (alert == null)
                         {
-                            WebDriverUtil.WaitForWebElementInvisible(STANDARD_FORM, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
+                            WebDriverUtil.WaitForWebElementInvisible(STANDARD_FORM,
+                                WebDriverUtil.PERFORM_ACTION_TIMEOUT,
+                                "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT +
+                                " Sec. Application taking too long time to perform operation");
                         }
                         else
                         {
@@ -172,41 +214,57 @@ namespace LaborPro.Automation.Features.Standards
                     }
                 }
             }
-           
+
         }
+
         public static void VerifyCreatedStandard(string standardName)
         {
             LogWriter.WriteLog("Executing StandardPage.VerifyCreatedStandard");
-            IWebElement standardValueInEditForm = WebDriverUtil.GetWebElement(String.Format(NAME_TAG_INPUT_IN_EDIT_FORM, standardName), WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement standardValueInEditForm = WebDriverUtil.GetWebElement(
+                String.Format(NAME_TAG_INPUT_IN_EDIT_FORM, standardName), WebDriverUtil.MAX_WAIT,
+                WebDriverUtil.NO_MESSAGE);
             if (standardValueInEditForm == null)
             {
-                standardValueInEditForm = WebDriverUtil.GetWebElement(OPEN_EDIT_SIDEBAR_FORM, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-                throw new Exception(String.Format("We supposed to get StandardPage tile - {0} but found - {1}", standardName, standardValueInEditForm.Text));
+                standardValueInEditForm = WebDriverUtil.GetWebElement(OPEN_EDIT_SIDEBAR_FORM, WebDriverUtil.NO_WAIT,
+                    WebDriverUtil.NO_MESSAGE);
+                throw new Exception(String.Format("We supposed to get StandardPage tile - {0} but found - {1}",
+                    standardName, standardValueInEditForm.Text));
             }
+
             BaseClass._AttachScreenshot.Value = true;
         }
+
         public static void DeleteCreatedStandard()
         {
             LogWriter.WriteLog("Executing StandardPage.DeleteCreatedStandard ");
-            if (WebDriverUtil.GetWebElement(OPEN_EDIT_SIDEBAR_FORM, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) == null)
+            if (WebDriverUtil.GetWebElement(OPEN_EDIT_SIDEBAR_FORM, WebDriverUtil.ONE_SECOND_WAIT,
+                    WebDriverUtil.NO_MESSAGE) == null)
             {
-                WebDriverUtil.GetWebElement(STANDARD_DETAILS_SIDEBAR_BUTTON, 
-                WebDriverUtil.ONE_SECOND_WAIT, 
-                String.Format("Unable to locate standard details sidebar button - {0}",
-                STANDARD_DETAILS_SIDEBAR_BUTTON)).Click();
+                WebDriverUtil.GetWebElement(STANDARD_DETAILS_SIDEBAR_BUTTON,
+                    WebDriverUtil.ONE_SECOND_WAIT,
+                    String.Format("Unable to locate standard details sidebar button - {0}",
+                        STANDARD_DETAILS_SIDEBAR_BUTTON)).Click();
 
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             }
-            WebDriverUtil.GetWebElement(EDIT_BUTTON_SIDEBAR,WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate edit button - {0}",EDIT_BUTTON_SIDEBAR)).Click();
-            WebDriverUtil.GetWebElement(DELETE_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate DELETE button - {0}", DELETE_BUTTON)).Click();
 
-            WebDriverUtil.GetWebElement(CONFIRM_POPUP_BUTTON, WebDriverUtil.TWO_SECOND_WAIT, String.Format("Unable to locate confirm button - {0}", CONFIRM_POPUP_BUTTON)).Click();
+            WebDriverUtil.GetWebElement(EDIT_BUTTON_SIDEBAR, WebDriverUtil.ONE_SECOND_WAIT,
+                String.Format("Unable to locate edit button - {0}", EDIT_BUTTON_SIDEBAR)).Click();
+            WebDriverUtil.GetWebElement(DELETE_BUTTON, WebDriverUtil.ONE_SECOND_WAIT,
+                String.Format("Unable to locate DELETE button - {0}", DELETE_BUTTON)).Click();
+
+            WebDriverUtil.GetWebElement(CONFIRM_POPUP_BUTTON, WebDriverUtil.TWO_SECOND_WAIT,
+                String.Format("Unable to locate confirm button - {0}", CONFIRM_POPUP_BUTTON)).Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
-            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT,
+                WebDriverUtil.NO_MESSAGE);
+            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH,
+                WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
-                WebDriverUtil.WaitForWebElementInvisible(CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
+                WebDriverUtil.WaitForWebElementInvisible(CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT,
+                    "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT +
+                    " Sec. Application taking too long time to perform operation");
             }
             else
             {
@@ -214,91 +272,121 @@ namespace LaborPro.Automation.Features.Standards
             }
 
         }
+
         public static void NewStandardElement()
         {
             LogWriter.WriteLog("Executing StandardPage.NewStandardElement");
-            if (WebDriverUtil.GetWebElement(NEW_STANDARD_ELEMENT, WebDriverUtil.ONE_SECOND_WAIT, String.Format("unable to find the new standard element button - {0}", NEW_STANDARD_ELEMENT)) != null)
+            if (WebDriverUtil.GetWebElement(NEW_STANDARD_ELEMENT, WebDriverUtil.ONE_SECOND_WAIT,
+                    String.Format("unable to find the new standard element button - {0}", NEW_STANDARD_ELEMENT)) !=
+                null)
             {
-                WebDriverUtil.GetWebElement(NEW_STANDARD_ELEMENT, WebDriverUtil.ONE_SECOND_WAIT, String.Format("unable to find the new standard element button - {0}", NEW_STANDARD_ELEMENT)).Click();
+                WebDriverUtil.GetWebElement(NEW_STANDARD_ELEMENT, WebDriverUtil.ONE_SECOND_WAIT,
+                        String.Format("unable to find the new standard element button - {0}", NEW_STANDARD_ELEMENT))
+                    .Click();
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             }
         }
+
         public static void VerifyNewStandardElementPopup(string value)
         {
             LogWriter.WriteLog("Executing StandardPage.VerifyNewStandardElementPopup");
-            IWebElement standardelementPopup = WebDriverUtil.GetWebElement(String.Format(NEW_STANDARD_ELEMENT_POPUP, value), WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement standardelementPopup = WebDriverUtil.GetWebElement(
+                String.Format(NEW_STANDARD_ELEMENT_POPUP, value), WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             if (standardelementPopup == null)
             {
-                standardelementPopup = WebDriverUtil.GetWebElement(PAGE_TITLE, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-                throw new Exception(String.Format("We supposed to get standard element title - {0} but found - {1}", value, standardelementPopup.Text));
+                standardelementPopup =
+                    WebDriverUtil.GetWebElement(PAGE_TITLE, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+                throw new Exception(String.Format("We supposed to get standard element title - {0} but found - {1}",
+                    value, standardelementPopup.Text));
             }
 
-            
+
             BaseClass._AttachScreenshot.Value = true;
         }
+
         public static void SelectElementType(string value)
         {
             LogWriter.WriteLog("Executing StandaradPage.selectElementType");
-            if (WebDriverUtil.GetWebElement(STANDARD_ELEMENT_POPUP, WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate standard element popup - {0}", STANDARD_ELEMENT_POPUP)) != null)
+            if (WebDriverUtil.GetWebElement(STANDARD_ELEMENT_POPUP, WebDriverUtil.ONE_SECOND_WAIT,
+                    String.Format("Unable to locate standard element popup - {0}", STANDARD_ELEMENT_POPUP)) != null)
             {
-                new SelectElement(WebDriverUtil.GetWebElement(STANDARD_ELEMENT_DROPDOWN, WebDriverUtil.ONE_SECOND_WAIT, 
+                new SelectElement(WebDriverUtil.GetWebElement(STANDARD_ELEMENT_DROPDOWN, WebDriverUtil.ONE_SECOND_WAIT,
                     WebDriverUtil.NO_MESSAGE)).SelectByText(value);
-                WebDriverUtil.GetWebElement(STANDARD_ELEMENT_OK_BUTTON, WebDriverUtil.NO_WAIT, string.Format("UNABLE TO LOCATE OK BUTTON - {0}", STANDARD_ELEMENT_OK_BUTTON)).Click();
+                WebDriverUtil.GetWebElement(STANDARD_ELEMENT_OK_BUTTON, WebDriverUtil.NO_WAIT,
+                    string.Format("UNABLE TO LOCATE OK BUTTON - {0}", STANDARD_ELEMENT_OK_BUTTON)).Click();
             }
 
         }
+
         public static void DeleteStandardIfExist(string standardName)
         {
             LogWriter.WriteLog("Executing StandardPage.DeleteStandardIfExist");
             ClearAllFilter();
             SearchStandard(standardName);
-            IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(STANDARD_RECORD, standardName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(STANDARD_RECORD, standardName),
+                WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record != null)
             {
                 DeleteStandardByName(standardName);
             }
 
         }
+
         public static void DeleteStandardByName(string standardName)
         {
             LogWriter.WriteLog("Executing StandardPage.DeleteStandardByName");
-            WebDriverUtil.GetWebElement(String.Format(STANDARD_RECORD,standardName), WebDriverUtil.NO_WAIT,
-            String.Format("Unable to locate Standard  record on StandardPage page - {0}", String.Format(STANDARD_RECORD, standardName))).Click();
+            WebDriverUtil.GetWebElement(String.Format(STANDARD_RECORD, standardName), WebDriverUtil.NO_WAIT,
+                String.Format("Unable to locate Standard  record on StandardPage page - {0}",
+                    String.Format(STANDARD_RECORD, standardName))).Click();
 
-            if (WebDriverUtil.GetWebElement(OPEN_EDIT_SIDEBAR_FORM, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) == null)
+            if (WebDriverUtil.GetWebElement(OPEN_EDIT_SIDEBAR_FORM, WebDriverUtil.ONE_SECOND_WAIT,
+                    WebDriverUtil.NO_MESSAGE) == null)
             {
                 WebDriverUtil.GetWebElement(STANDARD_DETAILS_SIDEBAR_BUTTON,
-                WebDriverUtil.ONE_SECOND_WAIT,
-                String.Format("Unable to locate standard details sidebar button - {0}",
-                STANDARD_DETAILS_SIDEBAR_BUTTON)).Click();
+                    WebDriverUtil.ONE_SECOND_WAIT,
+                    String.Format("Unable to locate standard details sidebar button - {0}",
+                        STANDARD_DETAILS_SIDEBAR_BUTTON)).Click();
 
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             }
-            WebDriverUtil.GetWebElement(EDIT_BUTTON_SIDEBAR, WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate edit button - {0}", EDIT_BUTTON_SIDEBAR)).Click();
-            WebDriverUtil.GetWebElement(DELETE_BUTTON, WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate DELETE button - {0}", DELETE_BUTTON)).Click();
 
-            WebDriverUtil.GetWebElement(CONFIRM_POPUP_BUTTON, WebDriverUtil.TWO_SECOND_WAIT, String.Format("Unable to locate confirm button - {0}", CONFIRM_POPUP_BUTTON)).Click();
+            WebDriverUtil.GetWebElement(EDIT_BUTTON_SIDEBAR, WebDriverUtil.ONE_SECOND_WAIT,
+                String.Format("Unable to locate edit button - {0}", EDIT_BUTTON_SIDEBAR)).Click();
+            WebDriverUtil.GetWebElement(DELETE_BUTTON, WebDriverUtil.ONE_SECOND_WAIT,
+                String.Format("Unable to locate DELETE button - {0}", DELETE_BUTTON)).Click();
+
+            WebDriverUtil.GetWebElement(CONFIRM_POPUP_BUTTON, WebDriverUtil.TWO_SECOND_WAIT,
+                String.Format("Unable to locate confirm button - {0}", CONFIRM_POPUP_BUTTON)).Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
-            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT,
+                WebDriverUtil.NO_MESSAGE);
+            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH,
+                WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
-                WebDriverUtil.WaitForWebElementInvisible(CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
+                WebDriverUtil.WaitForWebElementInvisible(CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT,
+                    "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT +
+                    " Sec. Application taking too long time to perform operation");
             }
             else
             {
                 throw new Exception(string.Format("Unable to delete Standard Error - {0}", alert.Text));
             }
         }
+
         public static void SelectStandarad(string standard)
         {
             LogWriter.WriteLog("Executing StandardPage.SelectStandarad");
-            if(WebDriverUtil.GetWebElement(STANDARD_PAGE, WebDriverUtil.ONE_SECOND_WAIT,WebDriverUtil.NO_MESSAGE) != null)
+            if (WebDriverUtil.GetWebElement(STANDARD_PAGE, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) !=
+                null)
             {
-                WebDriverUtil.GetWebElement(String.Format(STANDARAD_BYNAME, standard), WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate the Stanadard By name - {0}", String.Format(STANDARAD_BYNAME, standard))).Click();
+                WebDriverUtil.GetWebElement(String.Format(STANDARAD_BYNAME, standard), WebDriverUtil.ONE_SECOND_WAIT,
+                    String.Format("Unable to locate the Stanadard By name - {0}",
+                        String.Format(STANDARAD_BYNAME, standard))).Click();
                 WebDriverUtil.WaitFor(WebDriverUtil.TWO_SECOND_WAIT);
             }
         }
+
         public static void AddStandardElementWithGivenInput(Table inputData)
         {
             LogWriter.WriteLog("Executing StandardPage.AddStandardElementWithGivenInput");
@@ -308,19 +396,22 @@ namespace LaborPro.Automation.Features.Standards
             if (Util.ReadKey(dictionary, "Name") != null)
             {
                 WebDriverUtil.GetWebElement(STANDARD_ELEMENT_NAME_TAG, WebDriverUtil.NO_WAIT,
-                    String.Format("Unable to locate name input - {0}", STANDARD_ELEMENT_NAME_TAG)).SendKeys(dictionary["Name"]);
+                        String.Format("Unable to locate name input - {0}", STANDARD_ELEMENT_NAME_TAG))
+                    .SendKeys(dictionary["Name"]);
             }
 
-            if(Util.ReadKey(dictionary, "Frequency") != null)
+            if (Util.ReadKey(dictionary, "Frequency") != null)
             {
                 WebDriverUtil.GetWebElement(STANDARD_ELEMENT_FREQUENCY_TAG, WebDriverUtil.NO_WAIT,
-                    String.Format("Unable to locate frequency input - {0}", STANDARD_ELEMENT_FREQUENCY_TAG)).SendKeys(dictionary["Frequency"]);
+                        String.Format("Unable to locate frequency input - {0}", STANDARD_ELEMENT_FREQUENCY_TAG))
+                    .SendKeys(dictionary["Frequency"]);
             }
 
             if (Util.ReadKey(dictionary, "Unit of Measure") != null)
             {
                 new SelectElement(WebDriverUtil.GetWebElement(STANDARD_ELEMENT_UOM_TAG, WebDriverUtil.NO_WAIT,
-                     String.Format("Unable to locate UNIT OF MEASURE INPUT - {0}", STANDARD_ELEMENT_UOM_TAG))).SelectByText(dictionary["Unit of Measure"]);
+                        String.Format("Unable to locate UNIT OF MEASURE INPUT - {0}", STANDARD_ELEMENT_UOM_TAG)))
+                    .SelectByText(dictionary["Unit of Measure"]);
 
             }
 
@@ -329,7 +420,8 @@ namespace LaborPro.Automation.Features.Standards
                 WebDriverUtil.GetWebElement(STANDARD_ELEMENT_TIME_TAG, WebDriverUtil.NO_WAIT,
                     String.Format("Unable to locate time input - {0}", STANDARD_ELEMENT_TIME_TAG)).Clear();
                 WebDriverUtil.GetWebElement(STANDARD_ELEMENT_TIME_TAG, WebDriverUtil.NO_WAIT,
-                    String.Format("Unable to locate time input - {0}", STANDARD_ELEMENT_TIME_TAG)).SendKeys(dictionary["Time (Seconds)"]);
+                        String.Format("Unable to locate time input - {0}", STANDARD_ELEMENT_TIME_TAG))
+                    .SendKeys(dictionary["Time (Seconds)"]);
             }
 
 
@@ -338,18 +430,25 @@ namespace LaborPro.Automation.Features.Standards
                 WebDriverUtil.NO_WAIT,
                 String.Format("Unable to locate Save Button- {0}", SAVE_BUTTON)).Click();
             WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
-            if (WebDriverUtil.GetWebElement(NEW_STANDARD_ELEMENT_FORM, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null)
+            if (WebDriverUtil.GetWebElement(NEW_STANDARD_ELEMENT_FORM, WebDriverUtil.NO_WAIT,
+                    WebDriverUtil.NO_MESSAGE) != null)
             {
-                IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FORM_INPUT_FIELD_ERROR_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FORM_INPUT_FIELD_ERROR_XPATH,
+                    WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                 if (errorMessage == null)
                 {
-                    IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ELEMENT_ALERT, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                    IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ELEMENT_ALERT,
+                        WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                     if (errorMsg == null)
                     {
-                        IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                        IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH,
+                            WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                         if (alert == null)
                         {
-                            WebDriverUtil.WaitForWebElementInvisible(NEW_STANDARD_ELEMENT_FORM, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
+                            WebDriverUtil.WaitForWebElementInvisible(NEW_STANDARD_ELEMENT_FORM,
+                                WebDriverUtil.PERFORM_ACTION_TIMEOUT,
+                                "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT +
+                                " Sec. Application taking too long time to perform operation");
                         }
                         else
                         {
@@ -361,99 +460,129 @@ namespace LaborPro.Automation.Features.Standards
             }
 
         }
+
         public static void VerifyCreatedStandardElement(string standardElement)
         {
             LogWriter.WriteLog("Executing StandardPage.VerifyCreatedStandardElement");
-            if (WebDriverUtil.GetWebElement(STANDARD_ELEMENT_CONTENT, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
+            if (WebDriverUtil.GetWebElement(STANDARD_ELEMENT_CONTENT, WebDriverUtil.ONE_SECOND_WAIT,
+                    WebDriverUtil.NO_MESSAGE) != null)
             {
-                WebDriverUtil.GetWebElement(String.Format(CREATED_STANDARD_ELEMENT,standardElement),
-                    WebDriverUtil.TWO_SECOND_WAIT, String.Format("Unable to locate the Standard element - {0}", String.Format(CREATED_STANDARD_ELEMENT, standardElement)));
+                WebDriverUtil.GetWebElement(String.Format(CREATED_STANDARD_ELEMENT, standardElement),
+                    WebDriverUtil.TWO_SECOND_WAIT,
+                    String.Format("Unable to locate the Standard element - {0}",
+                        String.Format(CREATED_STANDARD_ELEMENT, standardElement)));
 
             }
+
             BaseClass._AttachScreenshot.Value = true;
         }
+
         public static void DeleteStandardElement()
         {
             LogWriter.WriteLog("Executing StandardPage.DeleteStandardElementByName");
-            if(WebDriverUtil.GetWebElement(STANDARD_DETAILS_SIDEBAR, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
+            if (WebDriverUtil.GetWebElement(STANDARD_DETAILS_SIDEBAR, WebDriverUtil.ONE_SECOND_WAIT,
+                    WebDriverUtil.NO_MESSAGE) != null)
             {
-                WebDriverUtil.GetWebElement(STANDARD_SIDEBAR, WebDriverUtil.ONE_SECOND_WAIT, 
+                WebDriverUtil.GetWebElement(STANDARD_SIDEBAR, WebDriverUtil.ONE_SECOND_WAIT,
                     String.Format("Unable to locate standard sidebar button {0}", STANDARD_SIDEBAR)).Click();
             }
+
             WebDriverUtil.GetWebElement
-                (STANDARD_ELEMENT_DROPDOWN_BUTTON,
-                WebDriverUtil.ONE_SECOND_WAIT, 
-                String.Format("Unable to locate the standard element dropdown button - {0}", STANDARD_ELEMENT_DROPDOWN_BUTTON)).Click();
+            (STANDARD_ELEMENT_DROPDOWN_BUTTON,
+                WebDriverUtil.ONE_SECOND_WAIT,
+                String.Format("Unable to locate the standard element dropdown button - {0}",
+                    STANDARD_ELEMENT_DROPDOWN_BUTTON)).Click();
 
-            WebDriverUtil.GetWebElement(STANDARD_ELEMENT_DELETE_BUTTON, 
-            WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate delete button - {0}", 
-            STANDARD_ELEMENT_DELETE_BUTTON)).Click();
+            WebDriverUtil.GetWebElement(STANDARD_ELEMENT_DELETE_BUTTON,
+                WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate delete button - {0}",
+                    STANDARD_ELEMENT_DELETE_BUTTON)).Click();
 
-            WebDriverUtil.GetWebElement(CONFIRM_BUTTON, WebDriverUtil.TWO_SECOND_WAIT, String.Format("Unable to locate confirm button - {0}", CONFIRM_BUTTON)).Click();
+            WebDriverUtil.GetWebElement(CONFIRM_BUTTON, WebDriverUtil.TWO_SECOND_WAIT,
+                String.Format("Unable to locate confirm button - {0}", CONFIRM_BUTTON)).Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
-            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT,
+                WebDriverUtil.NO_MESSAGE);
+            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH,
+                WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
-                WebDriverUtil.WaitForWebElementInvisible(STANDARD_ELEMENT_CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
+                WebDriverUtil.WaitForWebElementInvisible(STANDARD_ELEMENT_CONFIRM_POPUP,
+                    WebDriverUtil.PERFORM_ACTION_TIMEOUT,
+                    "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT +
+                    " Sec. Application taking too long time to perform operation");
             }
             else
             {
                 throw new Exception(string.Format("Unable to delete StandardElement Error - {0}", alert.Text));
             }
-            
+
 
         }
+
         public static void SearchStandard(string standardName)
         {
-                LogWriter.WriteLog("Executing StandardPage.ClickOnProfilingTab");
-                WebDriverUtil.GetWebElement(String.Format(STANDARD_FILTER_INPUT, FindColumnIndexInStandard(NAME)), WebDriverUtil.NO_WAIT,
-                String.Format("Unable to locate location filter input on Standard page - {0}", STANDARD_FILTER_INPUT)).SendKeys(standardName);
-                WebDriverUtil.WaitForAWhile();
-                WaitForLoading();
+            LogWriter.WriteLog("Executing StandardPage.ClickOnProfilingTab");
+            WebDriverUtil.GetWebElement(String.Format(STANDARD_FILTER_INPUT, FindColumnIndexInStandard(NAME)),
+                    WebDriverUtil.NO_WAIT,
+                    String.Format("Unable to locate location filter input on Standard page - {0}",
+                        STANDARD_FILTER_INPUT))
+                .SendKeys(standardName);
+            WebDriverUtil.WaitForAWhile();
+            WaitForLoading();
         }
+
         public static void WaitForLoading()
         {
             WebDriverUtil.WaitForWebElementInvisible(PAGE_LOADER, WebDriverUtil.DEFAULT_WAIT, WebDriverUtil.NO_MESSAGE);
         }
+
         public static void ClearAllFilter()
         {
             LogWriter.WriteLog("Executing StandardPage.ClickOnProfilingTab");
-            IWebElement clearFilterButton = WebDriverUtil.GetWebElement(CLEAR_FILTER_BUTTON, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement clearFilterButton =
+                WebDriverUtil.GetWebElement(CLEAR_FILTER_BUTTON, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (clearFilterButton != null)
             {
                 clearFilterButton.Click();
                 WaitForLoading();
             }
         }
+
         public static void VerifyFrequencyIsEmpty()
         {
             LogWriter.WriteLog("Executing StandaradPage.VerifyFrequencyIsEmpty");
-            if(WebDriverUtil.GetWebElement(NEW_STANDARD_ELEMENT_FORM, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
+            if (WebDriverUtil.GetWebElement(NEW_STANDARD_ELEMENT_FORM, WebDriverUtil.ONE_SECOND_WAIT,
+                    WebDriverUtil.NO_MESSAGE) != null)
             {
-                WebDriverUtil.GetWebElement(STANDARD_ELEMENT_FREQUENCY_ALERT, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-               
+                WebDriverUtil.GetWebElement(STANDARD_ELEMENT_FREQUENCY_ALERT, WebDriverUtil.ONE_SECOND_WAIT,
+                    WebDriverUtil.NO_MESSAGE);
+
             }
+
             BaseClass._AttachScreenshot.Value = true;
 
         }
+
         public static void VerifyUomInDropDown(string UOM)
         {
             LogWriter.WriteLog("Executing StandardPage.VerifyUOMInDropDown");
-            if(WebDriverUtil.GetWebElement(NEW_STANDARD_ELEMENT_FORM, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
+            if (WebDriverUtil.GetWebElement(NEW_STANDARD_ELEMENT_FORM, WebDriverUtil.ONE_SECOND_WAIT,
+                    WebDriverUtil.NO_MESSAGE) != null)
             {
-                WebDriverUtil.GetWebElement(STANDARD_ELEMENT_UOM_TAG, 
-                 WebDriverUtil.ONE_SECOND_WAIT, 
-                 String.Format("unable to locate units of measure in standard element - {0}", 
-                 STANDARD_ELEMENT_FREQUENCY_TAG)).Click();
+                WebDriverUtil.GetWebElement(STANDARD_ELEMENT_UOM_TAG,
+                    WebDriverUtil.ONE_SECOND_WAIT,
+                    String.Format("unable to locate units of measure in standard element - {0}",
+                        STANDARD_ELEMENT_FREQUENCY_TAG)).Click();
 
-                WebDriverUtil.GetWebElement(String.Format(STANDARD_ELEMENT_UOM_VALUE_IN_DROPDOWN, UOM), 
-                    WebDriverUtil.ONE_SECOND_WAIT, 
-                    String.Format("Unable to locate UOM value in standard element dropdown - {0}", 
-                    String.Format(STANDARD_ELEMENT_UOM_VALUE_IN_DROPDOWN, UOM)));
+                WebDriverUtil.GetWebElement(String.Format(STANDARD_ELEMENT_UOM_VALUE_IN_DROPDOWN, UOM),
+                    WebDriverUtil.ONE_SECOND_WAIT,
+                    String.Format("Unable to locate UOM value in standard element dropdown - {0}",
+                        String.Format(STANDARD_ELEMENT_UOM_VALUE_IN_DROPDOWN, UOM)));
             }
+
             BaseClass._AttachScreenshot.Value = true;
         }
+
         public static int FindColumnIndexInStandard(string headername)
         {
             LogWriter.WriteLog("Executing StandardPage.FindColumnIndexInStandard");
@@ -467,18 +596,22 @@ namespace LaborPro.Automation.Features.Standards
                     break;
                 }
             }
+
             index++;
             return index;
         }
+
         public static void VerifyAddButtonIsNotPresent()
         {
             LogWriter.WriteLog("Executing StandardsPage.VerifyAddButtonIsNotPresent");
             var addButton = WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (addButton != null)
-                throw new Exception("Add Button is found but we expect it should not be present when user login from view only access");
+                throw new Exception(
+                    "Add Button is found but we expect it should not be present when user login from view only access");
             BaseClass._AttachScreenshot.Value = true;
             WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
         }
+
         public static void VerifyEditButtonIsNotPresent()
         {
             LogWriter.WriteLog("Executing StandardPage.VerifyEditButtonIsMissingInViewOnly");
@@ -487,21 +620,26 @@ namespace LaborPro.Automation.Features.Standards
             var editButtonSidebar = WebDriverUtil.GetWebElement(EditButtonSidebar, WebDriverUtil.ONE_SECOND_WAIT,
                 WebDriverUtil.NO_MESSAGE);
             if (openEditSidebarForm == null) return;
-            WebDriverUtil.GetWebElement(StandardDetailsSidebarButton, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
+            WebDriverUtil.GetWebElement(StandardDetailsSidebarButton, WebDriverUtil.ONE_SECOND_WAIT,
+                WebDriverUtil.NO_MESSAGE).Click();
             WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
             if (openEditSidebarForm == null) return;
             if (editButtonSidebar != null)
-                throw new Exception("Edit Button is found but we expect it should not be present when user login from view only access");
+                throw new Exception(
+                    "Edit Button is found but we expect it should not be present when user login from view only access");
             BaseClass._AttachScreenshot.Value = true;
             WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
             ClickOnPreviousLink();
         }
+
         public static void VerifyExportOptionIsPresent()
         {
             LogWriter.WriteLog("Executing StandardsPage.VerifyExportOptionIsNotPresent");
-            var exportButton = WebDriverUtil.GetWebElement(ExportButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            var exportButton =
+                WebDriverUtil.GetWebElement(ExportButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (exportButton == null)
-                throw new Exception("Export Button is not found but we expect it should be present when user login from view only access");
+                throw new Exception(
+                    "Export Button is not found but we expect it should be present when user login from view only access");
             exportButton.Click();
             BaseClass._AttachScreenshot.Value = true;
             WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
@@ -510,38 +648,49 @@ namespace LaborPro.Automation.Features.Standards
         public static void VerifyReportOptionIsPresent()
         {
             LogWriter.WriteLog("Executing StandardsPage.VerifyReportOptionIsPresent");
-            var reportButton = WebDriverUtil.GetWebElement(ReportButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            var previousButton = WebDriverUtil.GetWebElement(StandardDetailsPagePreviousLink, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            var reportButton =
+                WebDriverUtil.GetWebElement(ReportButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            var previousButton = WebDriverUtil.GetWebElement(StandardDetailsPagePreviousLink,
+                WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (reportButton == null)
-                throw new Exception("Report Button is not found but we expect it should be present when user login from view only access");
+                throw new Exception(
+                    "Report Button is not found but we expect it should be present when user login from view only access");
             reportButton.Click();
             BaseClass._AttachScreenshot.Value = true;
-            if(previousButton != null)
+            if (previousButton != null)
                 ClickOnPreviousLink();
         }
+
         public static void ClickOnPreviousLink()
         {
             LogWriter.WriteLog("Executing StandardsPage.ClickOnPreviousLink");
             WebDriverUtil.GetWebElement(StandardDetailsPagePreviousLink, WebDriverUtil.ONE_SECOND_WAIT,
-                $"Unable to locate previous button on standard details page - {StandardDetailsPagePreviousLink}").Click();
+                    $"Unable to locate previous button on standard details page - {StandardDetailsPagePreviousLink}")
+                .Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
         }
+
         public static void VerifyAddButtonIsNotAvailableInStandardElement()
         {
             LogWriter.WriteLog("Executing StandardsPage.VerifyAddButtonIsAvailableInStandardElement");
-            var addButtonInStandardElement = WebDriverUtil.GetWebElement(AddButtonInStandardElement, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            var addButtonInStandardElement = WebDriverUtil.GetWebElement(AddButtonInStandardElement,
+                WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (addButtonInStandardElement.Enabled)
-                throw new Exception("Add Button is enabled but we expect it should be disabled as logged in with view only access");
+                throw new Exception(
+                    "Add Button is enabled but we expect it should be disabled as logged in with view only access");
             BaseClass._AttachScreenshot.Value = true;
             WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
             ClickOnPreviousLink();
         }
+
         public static void VerifyAddOptionIsNotAvailableInStandardGroup()
         {
             LogWriter.WriteLog("Executing StandardsPage.VerifyAddOptionIsAvailableInStandardGroup");
-            var addOptionInStandardGroup = WebDriverUtil.GetWebElement(AddOptionInStandardGroup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            var addOptionInStandardGroup = WebDriverUtil.GetWebElement(AddOptionInStandardGroup, WebDriverUtil.NO_WAIT,
+                WebDriverUtil.NO_MESSAGE);
             if (addOptionInStandardGroup.Enabled)
-                throw new Exception("Add Option for standard group is enabled but we expect it should be disabled as logged in with view only access");
+                throw new Exception(
+                    "Add Option for standard group is enabled but we expect it should be disabled as logged in with view only access");
             BaseClass._AttachScreenshot.Value = true;
             WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
             ClickOnPreviousLink();
@@ -550,9 +699,11 @@ namespace LaborPro.Automation.Features.Standards
         public static void VerifyTickOptionIsNotAvailable()
         {
             LogWriter.WriteLog("Executing StandardsPage.VerifyTickOptionIsNotAvailable");
-            var tickOptionInStandardDetails = WebDriverUtil.GetWebElement(TickOptionInStandardDetail, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            var tickOptionInStandardDetails = WebDriverUtil.GetWebElement(TickOptionInStandardDetail,
+                WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (tickOptionInStandardDetails != null)
-                throw new Exception("Tick Option is found but we expect it should not be present as logged in with view only access");
+                throw new Exception(
+                    "Tick Option is found but we expect it should not be present as logged in with view only access");
             BaseClass._AttachScreenshot.Value = true;
             WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
             ClickOnPreviousLink();
@@ -560,10 +711,255 @@ namespace LaborPro.Automation.Features.Standards
 
         public static void SelectStandardInListing()
         {
-            var selectOption = WebDriverUtil.GetWebElement(SelectOptionInListing, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            LogWriter.WriteLog("Executing StandardsPage.SelectStandardInListing");
+            var selectOption =
+                WebDriverUtil.GetWebElement(SelectOptionInListing, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (selectOption == null)
-                throw new Exception("Select Option is not found but we expect it should be present when user login from view only access"); 
+                throw new Exception(
+                    "Select Option is not found but we expect it should be present when user login from view only access");
             selectOption.Click();
+        }
+        public static void VerifyAddButtonIsAvailable()
+        {
+            LogWriter.WriteLog("Executing StandardsPage.VerifyAddButtonIsAvailable");
+            var addButton = WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (addButton == null)
+                throw new Exception("Add Button is not found but we expect it should be present");
+            BaseClass._AttachScreenshot.Value = true;
+            WebDriverUtil.WaitFor(WebDriverUtil.TWO_SECOND_WAIT);
+        }
+
+        public static void VerifyExistingIndustryStandardAndNewStandardOptionAreAvailable()
+        {
+            LogWriter.WriteLog("Executing StandardsPage.VerifyExistingIndustryStandardAndNewStandardOptionAreAvailable");
+            WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
+            var addButton = WebDriverUtil.GetWebElement(AddExistingIndustryStandardButton,
+                WebDriverUtil.TWO_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (addButton == null)
+                throw new Exception(
+                    "Add existing industry standard button is not found but we expect it should be present");
+            BaseClass._AttachScreenshot.Value = true;
+            WebDriverUtil.WaitFor(WebDriverUtil.TWO_SECOND_WAIT);
+        }
+
+        public static void ClickOnExistingIndustryStandardTab()
+        {
+            LogWriter.WriteLog("Executing StandardsPage.ClickOnExistingIndustryStandardTab");
+            if (WebDriverUtil.GetWebElement(STANDARD_PAGE, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) ==
+                null && WebDriverUtil.GetWebElement(ElementsDetailsPage, WebDriverUtil.FIVE_SECOND_WAIT,
+                    WebDriverUtil.NO_MESSAGE) == null)
+            {
+                WebDriverUtil.GetWebElement(STANDARDS_TAB, WebDriverUtil.MAX_WAIT,
+                    $"Unable to locate the standard tab - {STANDARDS_TAB}").Click();
+                WebDriverUtil.WaitForAWhile();
+            }
+
+            if (WebDriverUtil.GetWebElement(IndustryStandardsPage, WebDriverUtil.ONE_SECOND_WAIT,
+                    WebDriverUtil.NO_MESSAGE) != null || WebDriverUtil.GetWebElement(ElementsDetailsPage,
+                    WebDriverUtil.FIVE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null) return;
+            if (WebDriverUtil.GetWebElement(AddButtonPopUp, WebDriverUtil.ONE_SECOND_WAIT,
+                    WebDriverUtil.NO_MESSAGE) == null)
+            {
+                WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE)
+                    .Click();
+            }
+
+            WebDriverUtil.GetWebElement(AddExistingIndustryStandardButton, WebDriverUtil.FIVE_SECOND_WAIT,
+                    $"Unable to locate the existing industry standard button - {AddExistingIndustryStandardButton}")
+                .Click();
+            WebDriverUtil.WaitForAWhile();
+        }
+
+        public static void VerifyIndustryStandardDataIsAvailable()
+        {
+            LogWriter.WriteLog("Executing StandardsPage.VerifyIndustryStandardDataIsAvailable");
+            if (WebDriverUtil.GetWebElement(IndustryStandardsPage, WebDriverUtil.ONE_SECOND_WAIT,
+                    WebDriverUtil.NO_MESSAGE) == null) return;
+            WebDriverUtil.GetWebElement(IndustryStandardRecord, WebDriverUtil.FIVE_SECOND_WAIT,
+                $"Unable to locate the industry standard record - {IndustryStandardRecord}");
+            BaseClass._AttachScreenshot.Value = true;
+            WebDriverUtil.WaitFor(WebDriverUtil.TWO_SECOND_WAIT);
+        }
+        public static void VerifyImportDepartmentSidebarIsAvailable()
+        {
+            LogWriter.WriteLog("Executing StandardsPage.VerifyImportDepartmentSidebarIsAvailable");
+            if (WebDriverUtil.GetWebElement(IndustryStandardsPage, WebDriverUtil.ONE_SECOND_WAIT,
+                    WebDriverUtil.NO_MESSAGE) == null) return;
+            WebDriverUtil.GetWebElement(IndustryStandardSideBar, WebDriverUtil.FIVE_SECOND_WAIT,
+                $"Unable to locate the industry standard side bar - {IndustryStandardSideBar}");
+            BaseClass._AttachScreenshot.Value = true;
+            WebDriverUtil.WaitFor(WebDriverUtil.TWO_SECOND_WAIT);
+        }
+
+        public static void VerifyAlertMessageOnIndustryStandardPage(string message)
+        {
+            LogWriter.WriteLog("Executing StandardsPage.VerifyAlertMessageOnIndustryStandardPage");
+            var errorMessage = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH,
+                WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (errorMessage != null)
+            {
+                var actualError = errorMessage.Text;
+                if (!(actualError.ToLower()).Equals(message.ToLower()))
+                    throw new Exception(
+                        $"We supposed to get error message - {message} but getting - {actualError}");
+
+            }
+
+            BaseClass._AttachScreenshot.Value = true;
+        }
+
+        public static void UserClicksOnAddButton()
+        {
+            LogWriter.WriteLog("Executing StandardsPage.UserClicksOnAddButton");
+            if (WebDriverUtil.GetWebElement(IndustryStandardsPage, WebDriverUtil.ONE_SECOND_WAIT,
+                    WebDriverUtil.NO_MESSAGE) != null)
+            {
+                WebDriverUtil.GetWebElement(AddLink, WebDriverUtil.ONE_SECOND_WAIT,
+                    $"Unable to locate add button - {AddLink}").Click();
+            }
+
+        }
+
+        public static void SelectsTheFirstRecord()
+        {
+            LogWriter.WriteLog("Executing StandardsPage.SelectsTheFirstRecord");
+            if (WebDriverUtil.GetWebElement(IndustryStandardsPage, WebDriverUtil.ONE_SECOND_WAIT,
+                    WebDriverUtil.NO_MESSAGE) != null)
+            {
+                WebDriverUtil.GetWebElement(FirstRecord, WebDriverUtil.ONE_SECOND_WAIT,
+                    $"Unable to locate first record - {FirstRecord}").Click();
+            }
+
+        }
+
+        public static void SelectsTheSecondRecord()
+        {
+            LogWriter.WriteLog("Executing StandardsPage.SelectsTheSecondRecord");
+            if (WebDriverUtil.GetWebElement(IndustryStandardsPage, WebDriverUtil.ONE_SECOND_WAIT,
+                    WebDriverUtil.NO_MESSAGE) == null) return;
+            WebDriverUtil.GetWebElement(SecondRecord, WebDriverUtil.ONE_SECOND_WAIT,
+                $"Unable to locate second record - {SecondRecord}").Click();
+            WebDriverUtil.GetWebElementAndScroll(StandardIdToggleButton, WebDriverUtil.ONE_SECOND_WAIT,
+                $"Unable to locate standard id toggle button - {StandardIdToggleButton}").Click();
+
+        }
+
+        public static void VerifyForceUseOfStandardIdByAlertMessage(string message)
+        {
+            LogWriter.WriteLog("Executing StandardsPage.VerifyForceUseOfStandardIdByAlertMessage");
+            VerifyAlertMessageOnIndustryStandardPage(message);
+            ClickOnExistingIndustryStandardTab();
+            BaseClass._AttachScreenshot.Value = true;
+        }
+
+        public static void VerifyIndustryTypicalDepartmentOption()
+        {
+            LogWriter.WriteLog("Executing StandardsPage.VerifyIndustryTypicalDepartmentOption");
+            if (WebDriverUtil.GetWebElement(IndustryStandardsPage, WebDriverUtil.ONE_SECOND_WAIT,
+                    WebDriverUtil.NO_MESSAGE) == null) return;
+            WebDriverUtil.GetWebElement(IndustryTypicalDropdown, WebDriverUtil.ONE_SECOND_WAIT,
+                $"Unable to locate industry typical dropdown - {IndustryTypicalDropdown}").Click();
+            BaseClass._AttachScreenshot.Value = true;
+        }
+
+        public static void VerifyIndustryStandardDetailsAreAvailable()
+        {
+            LogWriter.WriteLog("Executing StandardsPage.VerifyIndustryStandardDetailsAreAvailable");
+            WebDriverUtil.GetWebElement(IndustryStandardRow, WebDriverUtil.FIVE_SECOND_WAIT,
+                $"Unable to locate record - {IndustryStandardRow}").Click();
+            if (WebDriverUtil.GetWebElement(StandardDetailsPage, WebDriverUtil.FIVE_SECOND_WAIT,
+                    WebDriverUtil.NO_MESSAGE) == null)
+                throw new Exception("Standard details page is not found but we expect it should be present");
+            WebDriverUtil.GetWebElement(AddLink, WebDriverUtil.ONE_SECOND_WAIT,
+                $"Unable to locate add button - {AddLink}");
+            WebDriverUtil.GetWebElement(StandardDetailsButton, WebDriverUtil.ONE_SECOND_WAIT,
+                $"Unable to locate standard details button - {StandardDetailsButton}");
+            WebDriverUtil.GetWebElement(StandardDetailsPagePreviousLink, WebDriverUtil.ONE_SECOND_WAIT,
+                $"Unable to locate previous button on standard details page - {StandardDetailsPagePreviousLink}");
+            BaseClass._AttachScreenshot.Value = true;
+            WebDriverUtil.WaitFor(WebDriverUtil.TWO_SECOND_WAIT);
+        }
+
+        public static void VerifyIndustryStandardDetailsSidebarIsAvailable()
+        {
+            LogWriter.WriteLog("Executing StandardsPage.VerifyIndustryStandardDetailsSidebarIsAvailable");
+            if (WebDriverUtil.GetWebElement(STANDARD_DETAILS_SIDEBAR, WebDriverUtil.FIVE_SECOND_WAIT,
+                    WebDriverUtil.NO_MESSAGE) == null)
+            {
+                WebDriverUtil.GetWebElement(StandardDetailsButton, WebDriverUtil.FIVE_SECOND_WAIT,
+                    $"Unable to locate standard details button - {StandardDetailsButton}").Click();
+            }
+
+            var standardDetailsSidebar = WebDriverUtil.GetWebElement(OPEN_EDIT_SIDEBAR_FORM, WebDriverUtil.NO_WAIT,
+                WebDriverUtil.NO_MESSAGE);
+            if (standardDetailsSidebar == null)
+            {
+                throw new Exception($"Unable to locate standard details sidebar - {OPEN_EDIT_SIDEBAR_FORM}");
+            }
+
+            BaseClass._AttachScreenshot.Value = true;
+        }
+
+        public static void VerifyElementDetailPageIsAvailable()
+        {
+            LogWriter.WriteLog("Executing StandardsPage.VerifyElementDetailPageIsAvailable");
+            WebDriverUtil.GetWebElement(ElementsDetailsButton, WebDriverUtil.FIVE_SECOND_WAIT,
+                $"Unable to locate elements detail button - {ElementsDetailsButton}").Click();
+            var elementDetailsPage = WebDriverUtil.GetWebElement(ElementsDetailsPage, WebDriverUtil.ONE_SECOND_WAIT,
+                WebDriverUtil.NO_MESSAGE);
+            if (elementDetailsPage == null)
+            {
+                throw new Exception($"Unable to locate elements details page - {elementDetailsPage.Text}");
+            }
+            BaseClass._AttachScreenshot.Value = true;
+            ClickOnPreviousLink();
+            ClickOnPreviousLink();
+            WebDriverUtil.GetWebElement(StandardDetailsPageCloseButton, WebDriverUtil.FIVE_SECOND_WAIT,
+                $"Unable to locate close button - {StandardDetailsPageCloseButton}").Click();
+        }
+
+        public static void DeleteTheRecordWithDepartmentByName(string department)
+        {
+            LogWriter.WriteLog("Executing StandardsPage.DeleteTheRecordWithDepartmentByName");
+            while (true)
+            {
+                var noRecordElement = WebDriverUtil.GetWebElement(NoRecord, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                if (noRecordElement != null)
+                {
+                    break;
+                }
+                ClearAllFilter();
+                WebDriverUtil.GetWebElement(String.Format(STANDARD_FILTER_INPUT, FindColumnIndexInStandard(Department)),
+                        WebDriverUtil.NO_WAIT,
+                        $"Unable to locate location filter input on Standard page - {STANDARD_FILTER_INPUT}")
+                    .SendKeys(department);
+                WebDriverUtil.WaitForAWhile();
+                WaitForLoading();
+                WebDriverUtil
+                    .GetWebElement(IndustryStandardRow, WebDriverUtil.FIVE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE)
+                    .Click();
+                DeleteCreatedStandard();
+            }
+        }
+
+        public static void SelectsTheDepartmentByName(string department)
+        {
+            LogWriter.WriteLog("Executing StandardsPage.SelectsTheDepartmentByName");
+            new SelectElement(WebDriverUtil.GetWebElement(DepartmentDropdown, WebDriverUtil.ONE_SECOND_WAIT,
+                    $"Unable to locate department dropdown input on industry standard page - {DepartmentDropdown}"))
+                .SelectByText(department);
+        }
+
+        public static void VerifyStandardDetailsPageIsAvailable()
+        {
+            LogWriter.WriteLog("Executing StandardsPage.VerifyStandardDetailsPageIsAvailable");
+            if (WebDriverUtil.GetWebElement(StandardDetailsPage, WebDriverUtil.FIVE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) == null)
+                throw new Exception("Standard details page is not found but we expect it should be present");
+            BaseClass._AttachScreenshot.Value = true;
+            WebDriverUtil.WaitFor(WebDriverUtil.TWO_SECOND_WAIT);
+
         }
     }
 }
+
+

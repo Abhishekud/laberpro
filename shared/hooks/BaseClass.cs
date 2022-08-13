@@ -8,7 +8,7 @@ using LaborPro.Automation.shared.util;
 using LaborPro.Automation.shared.config;
 
 [assembly: Parallelizable(ParallelScope.Fixtures)]
-[assembly: LevelOfParallelism(5)]
+[assembly: LevelOfParallelism(10)]
 
 namespace LaborPro.Automation.shared.hooks
 {
@@ -28,7 +28,7 @@ namespace LaborPro.Automation.shared.hooks
         public static ThreadLocal<Boolean> _AttachScreenshot = new ThreadLocal<Boolean>();
         public static ThreadLocal<String> _TestData = new ThreadLocal<String>();
         private static Dictionary<string, TestScenario> ScenarioSuiteMapping = new Dictionary<string, TestScenario>();
-
+        public static ThreadLocal<Boolean> _SetupScenarioStatus = new ThreadLocal<Boolean>();
         public static string GetProjectDirectoryPath()
         {
             string workingDirectory = Environment.CurrentDirectory;
@@ -98,7 +98,7 @@ namespace LaborPro.Automation.shared.hooks
         {
             string suiteType = Environment.GetEnvironmentVariable("suiteType");
             if (suiteType == null)
-                suiteType = TestDataExcelReader.REGRESSION_TEST;
+                suiteType = TestDataExcelReader.SMOKE_TEST;
             string featureName = featureContext.FeatureInfo.Title;
             if (TestDataExcelReader.IsFeatureFileIncluded(featureName, suiteType))
             {
@@ -121,11 +121,15 @@ namespace LaborPro.Automation.shared.hooks
             string scenarioName = scenarioContext.ScenarioInfo.Title;
             scenarioName  = scenarioName.Substring(scenarioName.IndexOf(".")+1).Trim();    
             string[] tags = scenarioContext.ScenarioInfo.Tags;
-            if(!tags.Contains("Setup") && !tags.Contains("Cleanup"))
+            if(tags.Contains("Setup"))
+            {
+                _SetupScenarioStatus.Value = true;
+            }
+            if(!tags.Contains("Setup") && !tags.Contains("Cleanup") && _SetupScenarioStatus.Value)
             {
                 string suiteType = Environment.GetEnvironmentVariable("suiteType");
                 if (suiteType == null)
-                    suiteType = TestDataExcelReader.REGRESSION_TEST;
+                    suiteType = TestDataExcelReader.SMOKE_TEST;
                 TestScenario testScenario = Util.ReadKey(ScenarioSuiteMapping, featureName+"_"+scenarioName);
                 if(testScenario==null)
                     Assert.Ignore(String.Format("Test scenario - {0} ignored as per the TestData.xlsx", scenarioName));
@@ -141,7 +145,10 @@ namespace LaborPro.Automation.shared.hooks
                 if (!execute)
                     Assert.Ignore(String.Format("Test scenario - {0} ignored as per the TestData.xlsx", scenarioName));
             }
-            
+
+            if(!_SetupScenarioStatus.Value)
+                Assert.Ignore(String.Format("Test scenario - {0} ignored as setup scenario failed!", scenarioName));
+
             if (null != scenarioContext)
             {
                 _Scenario.Value = _Feature.Value.CreateNode<Scenario>(scenarioName, scenarioContext.ScenarioInfo.Description);
@@ -249,6 +256,17 @@ namespace LaborPro.Automation.shared.hooks
                     CreateNode<And>();
                     break;
             }
+        }
+        [AfterScenario]
+        public void AfterScenario(FeatureContext featureContext, ScenarioContext scenarioContext)
+        {
+            string[] tags = scenarioContext.ScenarioInfo.Tags;
+            if (tags.Contains("Setup") && scenarioContext.TestError!=null)
+            {
+                _SetupScenarioStatus.Value = false;
+                CloseDriver();
+            }
+            
         }
         [AfterTestRun]
         public static void FlushExtentReports()
