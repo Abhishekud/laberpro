@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebDriverManager.DriverConfigs.Impl;
+using WebDriverManager.Helpers;
 
 namespace laborpro.drivers
 {
@@ -42,7 +43,7 @@ namespace laborpro.drivers
                 switch (browser.ToLower())
                 {
                     case "google_chrome":
-                        new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
+                        new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig(),VersionResolveStrategy.MatchingBrowser);
                         ChromeOptions options = new ChromeOptions();
                         options.AddArguments("--headless", "--disable-gpu", "--window-size=1920,1200",
        "--ignore-certificate-errors", "--disable-extensions", "--no-sandbox", "--disable-dev-shm-usage");
