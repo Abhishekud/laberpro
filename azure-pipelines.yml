@@ -1,4 +1,4 @@
- parameters:
+parameters:
 - name: ENV
   displayName: Environment Configuration 
   type: string
