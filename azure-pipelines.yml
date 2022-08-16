@@ -4,9 +4,10 @@ parameters:
   type: string
   values:
   - bits 
-  - uat-
+  - uat
   - dev
   - prereleaseuat
+  - blankdb_automation
 
 stages:
   - stage: SmokeTesting
