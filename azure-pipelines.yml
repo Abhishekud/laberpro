@@ -1,4 +1,4 @@
-parameters:
+ parameters:
 - name: ENV
   displayName: Environment Configuration 
   type: string
@@ -45,7 +45,7 @@ stages:
           publishWebProjects: false
           projects: $(BuildParameters.RestoreBuildProjects)
           arguments: --configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)
-          zipAfterPublish: false
+          zipAfterPublish: true
           modifyOutputPath: false 
       - task: VSTest@2
         displayName: VsTest - testAssemblies
@@ -58,15 +58,18 @@ stages:
             !**\obj\**
 
             !**\bin\**\ref\**
+        continueOnError: true
       - task: PublishBuildArtifacts@1
-        displayName: Publish Artifact
-        condition: succeededOrFailed()
+        displayName: 'Publish Artifact'
         inputs:
           PathtoPublish: report
-          TargetPath: report
+          ArtifactName: report
+        continueOnError: true
+        condition: always()
 
       - task: JakubRumpca.azure-pipelines-html-report.PublishHtmlReport.PublishHtmlReport@1
         condition: always()
         continueOnError: True
         inputs:
-          reportDir: 'src/LaborPro.Automation/report/index.html' 
+          reportDir: 'src/LaborPro.Automation/report/index.html'
+ 
