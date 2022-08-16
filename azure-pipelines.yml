@@ -68,8 +68,8 @@ stages:
         condition: always()
 
       - task: JakubRumpca.azure-pipelines-html-report.PublishHtmlReport.PublishHtmlReport@1
-        condition: always()
-        continueOnError: True
+        displayName: 'Publish Html Report'
         inputs:
-          reportDir: 'src/LaborPro.Automation/report/index.html'
- 
+          reportDir: report/index.html
+        continueOnError: true
+        condition: always()
