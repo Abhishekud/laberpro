@@ -45,7 +45,7 @@ stages:
           publishWebProjects: false
           projects: $(BuildParameters.RestoreBuildProjects)
           arguments: --configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)
-          zipAfterPublish: false
+          zipAfterPublish: true
           modifyOutputPath: false 
       - task: VSTest@2
         displayName: VsTest - testAssemblies
