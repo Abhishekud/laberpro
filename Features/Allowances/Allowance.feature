@@ -131,7 +131,7 @@ Feature: Verify Allowances Module
 
    Scenario: 09. verify_Add_allowance_Minor_Unavoidable_delay_percent_and_Additional_Percent_range_value_less_than_100
     Given User navigates to the Allowance tab
-    When User add allowance using below input to verify vaidation message
+    When User add allowance using below input to verify validation message
     | Key                                          | Value |
 	| Name                                         | Verify Calculated Allowance Percent |
     | Paid Time (Minutes)                          | 300   |
@@ -144,7 +144,7 @@ Feature: Verify Allowances Module
     | Incentive Opportunity Allowance (Percent)    | 125   |
     Then User verify error alert message: "Calculated Allowance Percent must be less than 100%"
     And User click on cancel Button
-    When User add allowance using below input to verify vaidation message
+    When User add allowance using below input to verify validation message
     | Key                                          | Value |
 	| Name                                         | Dummy |
     | Paid Time (Minutes)                          | 300   |
