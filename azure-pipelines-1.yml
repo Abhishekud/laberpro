@@ -48,18 +48,15 @@ stages:
           arguments: --configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)
           zipAfterPublish: true
           modifyOutputPath: false 
-      - task: VSTest@2
-        displayName: VsTest - testAssemblies
+      
+      - task: DotNetCoreCLI@2
+        displayName: 'dotnet test'
         inputs:
-          testAssemblyVer2: >-
-            **\LaborPro.Automation.dll
-
-            !**\*TestAdapter.dll
-
-            !**\obj\**
-
-            !**\bin\**\ref\**
+          command: test
+          projects: '**/*.csproj'
         continueOnError: true
+        condition: always()
+
       - task: PublishBuildArtifacts@1
         displayName: 'Publish Artifact'
         inputs:
