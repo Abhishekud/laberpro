@@ -17,7 +17,7 @@ stages:
     - name: ENV
       value: ${{parameters.ENV}}
     pool:  
-      vmImage: windows-latest
+      vmImage: ubuntu-latest
     jobs:
     - job: SmokeTestAutomation
       displayName: BITSTestAutomationExecution 
