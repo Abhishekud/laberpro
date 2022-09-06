@@ -98,7 +98,7 @@ namespace LaborPro.Automation.shared.hooks
         {
             string suiteType = Environment.GetEnvironmentVariable("suiteType");
             if (suiteType == null)
-                suiteType = TestDataExcelReader.SMOKE_TEST;
+                suiteType = TestDataExcelReader.REGRESSION_TEST;
             string featureName = featureContext.FeatureInfo.Title;
             if (TestDataExcelReader.IsFeatureFileIncluded(featureName, suiteType))
             {
@@ -129,7 +129,7 @@ namespace LaborPro.Automation.shared.hooks
             {
                 string suiteType = Environment.GetEnvironmentVariable("suiteType");
                 if (suiteType == null)
-                    suiteType = TestDataExcelReader.SMOKE_TEST;
+                    suiteType = TestDataExcelReader.REGRESSION_TEST;
                 TestScenario testScenario = Util.ReadKey(ScenarioSuiteMapping, featureName+"_"+scenarioName);
                 if(testScenario==null)
                     Assert.Ignore(String.Format("Test scenario - {0} ignored as per the TestData.xlsx", scenarioName));
