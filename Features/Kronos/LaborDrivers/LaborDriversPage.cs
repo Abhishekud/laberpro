@@ -2,7 +2,7 @@
 using LaborPro.Automation.shared.util;
 using OpenQA.Selenium.Support.UI;
 
-namespace LaborPro.Automation.Features.LaborDrivers
+namespace LaborPro.Automation.Features.Kronos.LaborDrivers
 {
     public class LaborDriversPage
     {

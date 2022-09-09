@@ -1,6 +1,6 @@
 ﻿using LaborPro.Automation.shared.util;
 
-namespace LaborPro.Automation.Features.LaborDrivers
+namespace LaborPro.Automation.Features.Kronos.LaborDrivers
 {
     [Binding]
     public class LaborDriversSteps

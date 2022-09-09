@@ -1,6 +1,6 @@
 ﻿using LaborPro.Automation.shared.util;
 
-namespace LaborPro.Automation.Features.Tasks
+namespace LaborPro.Automation.Features.Kronos.Tasks
 {
     [Binding]
     public class TasksSteps

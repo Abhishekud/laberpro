@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace LaborPro.Automation.Features.LaborDrivers
+namespace LaborPro.Automation.Features.Kronos.TaskGroups
 {
     using TechTalk.SpecFlow;
     using System;
@@ -20,11 +20,11 @@ namespace LaborPro.Automation.Features.LaborDrivers
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Verify LaborDrivers Module")]
+    [NUnit.Framework.DescriptionAttribute("Verify TaskGroups Module")]
     [NUnit.Framework.CategoryAttribute("laborPro")]
     [NUnit.Framework.CategoryAttribute("Regression")]
-    [NUnit.Framework.CategoryAttribute("LaborDrivers")]
-    public partial class VerifyLaborDriversModuleFeature
+    [NUnit.Framework.CategoryAttribute("TaskGroups")]
+    public partial class VerifyTaskGroupsModuleFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
@@ -32,16 +32,16 @@ namespace LaborPro.Automation.Features.LaborDrivers
         private static string[] featureTags = new string[] {
                 "laborPro",
                 "Regression",
-                "LaborDrivers"};
+                "TaskGroups"};
         
-#line 1 "LaborDrivers.feature"
+#line 1 "TaskGroups.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/LaborDrivers", "Verify LaborDrivers Module", null, ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Kronos/TaskGroups", "Verify TaskGroups Module", null, ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -117,14 +117,14 @@ namespace LaborPro.Automation.Features.LaborDrivers
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("02. Verify_that_Click_on_New_Labor_Driver_Opens_Add_popup.")]
+        [NUnit.Framework.DescriptionAttribute("02. Verify_that_Click_on_New_Task_Groups_Opens_Add_popup.")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public void _02_Verify_That_Click_On_New_Labor_Driver_Opens_Add_Popup_()
+        public void _02_Verify_That_Click_On_New_Task_Groups_Opens_Add_Popup_()
         {
             string[] tagsOfScenario = new string[] {
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02. Verify_that_Click_on_New_Labor_Driver_Opens_Add_popup.", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02. Verify_that_Click_on_New_Task_Groups_Opens_Add_popup.", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 12
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -136,13 +136,13 @@ namespace LaborPro.Automation.Features.LaborDrivers
             {
                 this.ScenarioStart();
 #line 13
-    testRunner.Given("User navigates to the LaborDrivers tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("User navigates to the TaskGroups tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 14
-     testRunner.When("User clicks Add LaborDrivers Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+     testRunner.When("User clicks Add TaskGroups Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 15
-     testRunner.Then("User verify Add Menu Popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+     testRunner.Then("User verify Add Menu TaskGroups Popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 16
       testRunner.And("User clicks cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -152,14 +152,14 @@ namespace LaborPro.Automation.Features.LaborDrivers
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("03. verify_add_LaborDrivers_when_enter_blank_details")]
+        [NUnit.Framework.DescriptionAttribute("03. verify_add_TaskGroups_when_enter_blank_details")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public void _03_Verify_Add_LaborDrivers_When_Enter_Blank_Details()
+        public void _03_Verify_Add_TaskGroups_When_Enter_Blank_Details()
         {
             string[] tagsOfScenario = new string[] {
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03. verify_add_LaborDrivers_when_enter_blank_details", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03. verify_add_TaskGroups_when_enter_blank_details", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 19
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -171,19 +171,19 @@ namespace LaborPro.Automation.Features.LaborDrivers
             {
                 this.ScenarioStart();
 #line 20
-    testRunner.Given("User navigates to the LaborDrivers tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("User navigates to the TaskGroups tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table45 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table55 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table45.AddRow(new string[] {
+                table55.AddRow(new string[] {
                             "Name",
                             ""});
 #line 21
-     testRunner.When("User create new LaborDrivers with below input", ((string)(null)), table45, "When ");
+     testRunner.When("User create new TaskGroups with below input", ((string)(null)), table55, "When ");
 #line hidden
 #line 24
-     testRunner.Then("Verify validation Message: \"Labor Driver Name is required.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+     testRunner.Then("Verify validation Message: \"Task Group Name is required.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 25
       testRunner.And("User clicks cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -193,14 +193,14 @@ namespace LaborPro.Automation.Features.LaborDrivers
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("04. Verify_that_if_VolumeDriver_is_selected_fields_get_populated")]
+        [NUnit.Framework.DescriptionAttribute("04. verify_add_TaskGroups_when_enter_correct_details")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public void _04_Verify_That_If_VolumeDriver_Is_Selected_Fields_Get_Populated()
+        public void _04_Verify_Add_TaskGroups_When_Enter_Correct_Details()
         {
             string[] tagsOfScenario = new string[] {
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04. Verify_that_if_VolumeDriver_is_selected_fields_get_populated", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04. verify_add_TaskGroups_when_enter_correct_details", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 28
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -212,40 +212,52 @@ namespace LaborPro.Automation.Features.LaborDrivers
             {
                 this.ScenarioStart();
 #line 29
-    testRunner.Given("User navigates to the LaborDrivers tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("User navigates to the TaskGroups tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table46 = new TechTalk.SpecFlow.Table(new string[] {
+#line 30
+     testRunner.Then("User delete TaskGroups \"TaskGroups Scenario\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+                TechTalk.SpecFlow.Table table56 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table46.AddRow(new string[] {
+                table56.AddRow(new string[] {
                             "Name",
-                            "LaborDrivers Exist Scenario"});
-                table46.AddRow(new string[] {
-                            "Driver Type",
-                            "Volume Driver"});
-#line 30
-     testRunner.When("User create new LaborDrivers with below input", ((string)(null)), table46, "When ");
+                            "TaskGroups Scenario"});
+                table56.AddRow(new string[] {
+                            "Generic Department",
+                            "Generic Department"});
+                table56.AddRow(new string[] {
+                            "Combined Distribution",
+                            "Combined Distribution"});
+                table56.AddRow(new string[] {
+                            "Allocate Labor Hours",
+                            "Start Day"});
+                table56.AddRow(new string[] {
+                            "Job Name",
+                            "TaskGroups Test Job Name"});
+#line 31
+     testRunner.When("User create new TaskGroups with below input", ((string)(null)), table56, "When ");
 #line hidden
-#line 34
-     testRunner.Then("User verify Add Menu Popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 38
+     testRunner.Then("User verify created TaskGroups \"TaskGroups Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 35
-      testRunner.And("User clicks cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 39
+      testRunner.And("User delete created TaskGroups \"TaskGroups Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("05. verify_add_LaborDrivers_when_enter_existing_details")]
+        [NUnit.Framework.DescriptionAttribute("05. verify_add_TaskGroups_when_enter_existing_details")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public void _05_Verify_Add_LaborDrivers_When_Enter_Existing_Details()
+        public void _05_Verify_Add_TaskGroups_When_Enter_Existing_Details()
         {
             string[] tagsOfScenario = new string[] {
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05. verify_add_LaborDrivers_when_enter_existing_details", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 38
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05. verify_add_TaskGroups_when_enter_existing_details", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 42
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -255,71 +267,65 @@ namespace LaborPro.Automation.Features.LaborDrivers
             else
             {
                 this.ScenarioStart();
-#line 39
-    testRunner.Given("User navigates to the LaborDrivers tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 43
+    testRunner.Given("User navigates to the TaskGroups tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 40
-     testRunner.Then("User delete LaborDrivers \"LaborDrivers Exist Scenario\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 44
+     testRunner.Then("User delete TaskGroups \"TaskGroups Exist Scenario\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table47 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table57 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table47.AddRow(new string[] {
+                table57.AddRow(new string[] {
                             "Name",
-                            "LaborDrivers Exist Scenario"});
-                table47.AddRow(new string[] {
-                            "Driver Type",
-                            "Volume Driver"});
-                table47.AddRow(new string[] {
-                            "Number",
-                            "2"});
-                table47.AddRow(new string[] {
-                            "Number of business days to look back for volume",
-                            "2"});
-                table47.AddRow(new string[] {
-                            "Driver",
-                            "Drivers"});
-                table47.AddRow(new string[] {
-                            "Generic Category",
-                            "Generic Category"});
-#line 41
-     testRunner.When("User create new LaborDrivers with below input", ((string)(null)), table47, "When ");
+                            "TaskGroups Exist Scenario"});
+                table57.AddRow(new string[] {
+                            "Generic Department",
+                            "Generic Department"});
+                table57.AddRow(new string[] {
+                            "Combined Distribution",
+                            "Combined Distribution"});
+                table57.AddRow(new string[] {
+                            "Allocate Labor Hours",
+                            "Start Day"});
+                table57.AddRow(new string[] {
+                            "Job Name",
+                            "TaskGroups Test Job Name"});
+#line 45
+     testRunner.When("User create new TaskGroups with below input", ((string)(null)), table57, "When ");
 #line hidden
-#line 49
-      testRunner.And("User verify created LaborDrivers \"LaborDrivers Exist Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 53
+      testRunner.And("User verify created TaskGroups \"TaskGroups Exist Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table48 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table58 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table48.AddRow(new string[] {
+                table58.AddRow(new string[] {
                             "Name",
-                            "LaborDrivers Exist Scenario"});
-                table48.AddRow(new string[] {
-                            "Driver Type",
-                            "Volume Driver"});
-                table48.AddRow(new string[] {
-                            "Number",
-                            "2"});
-                table48.AddRow(new string[] {
-                            "Number of business days to look back for volume",
-                            "2"});
-                table48.AddRow(new string[] {
-                            "Driver",
-                            "Drivers"});
-                table48.AddRow(new string[] {
-                            "Generic Category",
-                            "Generic Category"});
-#line 50
-     testRunner.When("User create new LaborDrivers with below input", ((string)(null)), table48, "When ");
+                            "TaskGroups Exist Scenario"});
+                table58.AddRow(new string[] {
+                            "Generic Department",
+                            "Generic Department"});
+                table58.AddRow(new string[] {
+                            "Combined Distribution",
+                            "Combined Distribution"});
+                table58.AddRow(new string[] {
+                            "Allocate Labor Hours",
+                            "Start Day"});
+                table58.AddRow(new string[] {
+                            "Job Name",
+                            "TaskGroups Test Job Name"});
+#line 54
+     testRunner.When("User create new TaskGroups with below input", ((string)(null)), table58, "When ");
 #line hidden
-#line 58
-     testRunner.Then("Verify validation Message: \"Labor Driver Name must be unique.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 62
+     testRunner.Then("Verify validation Message: \"Task Group Name must be unique.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 59
+#line 63
       testRunner.And("User clicks cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 60
-      testRunner.And("User delete created LaborDrivers \"LaborDrivers Exist Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 64
+      testRunner.And("User delete created TaskGroups \"TaskGroups Exist Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -336,7 +342,7 @@ namespace LaborPro.Automation.Features.LaborDrivers
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06. Logout and Close Browser", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 63
+#line 67
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -346,10 +352,10 @@ namespace LaborPro.Automation.Features.LaborDrivers
             else
             {
                 this.ScenarioStart();
-#line 64
+#line 68
      testRunner.When("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 65
+#line 69
      testRunner.Then("User close browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

@@ -2,7 +2,7 @@
 using LaborPro.Automation.shared.util;
 
 
-namespace LaborPro.Automation.Features.LaborStandards
+namespace LaborPro.Automation.Features.Kronos.LaborStandards
 {
     public class LaborStandardsPage
     {
@@ -10,7 +10,7 @@ namespace LaborPro.Automation.Features.LaborStandards
         private const string LaborStandardPage = "//*[@class='page-header']//h3[@title='Labor Standards']";
         private const string KronosTab = "//li[contains(@class,'collapsed')]//span[contains(text(),'Kronos')]";
         private const string ExportButton = "//*[@id='export']";
-        private const string LaborStandardRecord = "//td[@colspan='1' and @role='gridcell']";
+        private const string LaborStandardRecord = "//td[@colspan='3' and @role='gridcell']";
         private const string LaborDriverInput = "//*[@id='laborDriverId']";
         private const string FieldSetDisabled = "//fieldset[@disabled]";
         public static void ClickOnLaborStandardsTab()

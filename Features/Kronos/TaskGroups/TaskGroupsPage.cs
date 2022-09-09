@@ -4,7 +4,7 @@ using LaborPro.Automation.shared.util;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace LaborPro.Automation.Features.TaskGroups
+namespace LaborPro.Automation.Features.Kronos.TaskGroups
 {
     public class TaskGroupsPage
     {

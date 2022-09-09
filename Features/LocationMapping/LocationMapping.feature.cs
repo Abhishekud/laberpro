@@ -21,7 +21,6 @@ namespace LaborPro.Automation.Features.LocationMapping
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Verify LocationMapping Module")]
-    [NUnit.Framework.CategoryAttribute("laborPro")]
     [NUnit.Framework.CategoryAttribute("Regression")]
     [NUnit.Framework.CategoryAttribute("LocationMapping")]
     public partial class VerifyLocationMappingModuleFeature
@@ -30,7 +29,6 @@ namespace LaborPro.Automation.Features.LocationMapping
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "laborPro",
                 "Regression",
                 "LocationMapping"};
         
@@ -91,7 +89,7 @@ namespace LaborPro.Automation.Features.LocationMapping
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01. Launch Browser and Login to the Application", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 5
-  this.ScenarioInitialize(scenarioInfo);
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -101,16 +99,16 @@ namespace LaborPro.Automation.Features.LocationMapping
             {
                 this.ScenarioStart();
 #line 6
-    testRunner.Given("User launched \"$browser\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("User launched \"$browser\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 7
-     testRunner.When("User go to application \"$url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("User go to application \"$url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 8
-     testRunner.Then("User enter email: \"$username_2\" and password: \"$password_2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User enter email: \"$username_2\" and password: \"$password_2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 9
-      testRunner.And("Verify Login message: \"success\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Verify Login message: \"success\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -126,7 +124,7 @@ namespace LaborPro.Automation.Features.LocationMapping
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02. verify_that_create_Department_is_available_in_department_dropdown", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 12
-  this.ScenarioInitialize(scenarioInfo);
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -136,37 +134,37 @@ namespace LaborPro.Automation.Features.LocationMapping
             {
                 this.ScenarioStart();
 #line 13
-    testRunner.Given("User navigates to the List Management tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("User navigates to the List Management tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 14
-     testRunner.Then("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table56 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table68 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table56.AddRow(new string[] {
+                table68.AddRow(new string[] {
                             "Name",
                             "Department to verify LocationMapping"});
 #line 15
-     testRunner.When("User create new Department with below input if not exist", ((string)(null)), table56, "When ");
+ testRunner.When("User create new Department with below input if not exist", ((string)(null)), table68, "When ");
 #line hidden
 #line 18
-     testRunner.Then("User verify created Department \"Department to verify LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User verify created Department \"Department to verify LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 19
-     testRunner.Then("User navigates to the Locations tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User navigates to the Locations tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 20
-      testRunner.And("User delete location by name \"Location via LocationMapping\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("User delete location by name \"Location via LocationMapping\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 21
-     testRunner.Then("User navigates to the LocationMapping tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User navigates to the LocationMapping tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 22
-      testRunner.And("User select the Department \"Department to verify LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("User select the Department \"Department to verify LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 23
-     testRunner.Then("Verify Record Of Selected Dept \"No records available\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Verify Record Of Selected Dept \"No records available\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -182,7 +180,7 @@ namespace LaborPro.Automation.Features.LocationMapping
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03.Verify_that_Click_on_Location_record_shows_Mapping.", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 26
-  this.ScenarioInitialize(scenarioInfo);
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -192,35 +190,35 @@ namespace LaborPro.Automation.Features.LocationMapping
             {
                 this.ScenarioStart();
 #line 27
-    testRunner.Given("User navigates to the Locations tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("User navigates to the Locations tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 28
-      testRunner.And("User delete location by name \"Location via LocationMapping\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("User delete location by name \"Location via LocationMapping\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table57 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table69 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table57.AddRow(new string[] {
+                table69.AddRow(new string[] {
                             "Name",
                             "Location via LocationMapping"});
 #line 29
-     testRunner.When("User create new location with below input", ((string)(null)), table57, "When ");
+ testRunner.When("User create new location with below input", ((string)(null)), table69, "When ");
 #line hidden
 #line 32
-      testRunner.And("User verify created location by name \"Location via LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("User verify created location by name \"Location via LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 33
-     testRunner.When("User Maps created Department and location with \"Location via LocationMapping\" and" +
+ testRunner.When("User Maps created Department and location with \"Location via LocationMapping\" and" +
                         " \"Department to verify LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 34
-     testRunner.Then("User click on LocationMapping", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User click on LocationMapping", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 35
-      testRunner.And("User select the Department \"Department to verify LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("User select the Department \"Department to verify LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 36
-      testRunner.And("User verify created LocationMapping \"Location via LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("User verify created LocationMapping \"Location via LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -238,7 +236,7 @@ namespace LaborPro.Automation.Features.LocationMapping
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04.Verify_that_Respective_Volume_Driver_Mapping_Set_&_Characteristic_Set_are_avai" +
                     "lable_in_dropdown", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 39
-  this.ScenarioInitialize(scenarioInfo);
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -248,144 +246,144 @@ namespace LaborPro.Automation.Features.LocationMapping
             {
                 this.ScenarioStart();
 #line 40
-    testRunner.Given("User navigates to the VolumeDriverMapping tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("User navigates to the VolumeDriverMapping tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 41
-     testRunner.Then("User select the Department \"Department to verify LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User select the Department \"Department to verify LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 42
-     testRunner.Then("User delete VolumeDriverMappingset \"VolumeDriverMappingset via LocationMapping\" i" +
+ testRunner.Then("User delete VolumeDriverMappingSet \"VolumeDriverMappingset via LocationMapping\" i" +
                         "f exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 43
-      testRunner.And("User click on VolumeDriverMapping set", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("User click on VolumeDriverMapping set", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table58 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table70 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table58.AddRow(new string[] {
+                table70.AddRow(new string[] {
                             "Name",
                             "VolumeDriverMappingset via LocationMapping"});
 #line 44
-     testRunner.When("User create new VolumeDriverMappingset with below input", ((string)(null)), table58, "When ");
+ testRunner.When("User create new VolumeDriverMappingSet with below input", ((string)(null)), table70, "When ");
 #line hidden
 #line 47
-      testRunner.And("User verify created VolumeDriverMappingset by name \"VolumeDriverMappingset via Lo" +
+ testRunner.And("User verify created VolumeDriverMappingSet by name \"VolumeDriverMappingset via Lo" +
                         "cationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 49
-     testRunner.Then("User navigates to the VolumeDriver tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User navigates to the VolumeDriver tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table59 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table71 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table59.AddRow(new string[] {
+                table71.AddRow(new string[] {
                             "Name",
                             "VolumeDriver via LocationMapping"});
-                table59.AddRow(new string[] {
+                table71.AddRow(new string[] {
                             "Department",
                             "Department to verify LocationMapping"});
 #line 50
-     testRunner.When("User create new VolumeDriver with below input if not exist", ((string)(null)), table59, "When ");
+ testRunner.When("User create new VolumeDriver with below input if not exist", ((string)(null)), table71, "When ");
 #line hidden
 #line 54
-     testRunner.And("User verify created VolumeDriver by name \"VolumeDriver via LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("User verify created VolumeDriver by name \"VolumeDriver via LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 55
-     testRunner.When("User selects UnitOfMeasure", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("User selects UnitOfMeasure", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 56
-     testRunner.Then("User Selects Created Department \"Department to verify LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User Selects Created Department \"Department to verify LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table60 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table72 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table60.AddRow(new string[] {
+                table72.AddRow(new string[] {
                             "Name",
                             "UOM"});
 #line 57
-     testRunner.When("User create new UnitOfMeasure with below input if not exist", ((string)(null)), table60, "When ");
+ testRunner.When("User create new UnitOfMeasure with below input if not exist", ((string)(null)), table72, "When ");
 #line hidden
 #line 60
-     testRunner.And("User verify Added Unit of Measure \"UOM\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("User verify Added Unit of Measure \"UOM\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 61
-     testRunner.Then("User navigates to the VolumeDriverMapping tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User navigates to the VolumeDriverMapping tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 62
-     testRunner.Then("User select the Department \"Department to verify LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User select the Department \"Department to verify LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 63
-     testRunner.Then("User delete VolumeDriverMapping \"VolumeDriver via LocationMapping\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User delete VolumeDriverMapping \"VolumeDriver via LocationMapping\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 64
-      testRunner.And("User click on VolumeDriverMapping", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("User click on VolumeDriverMapping", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table61 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table73 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table61.AddRow(new string[] {
+                table73.AddRow(new string[] {
                             "VolumeDriver",
                             "VolumeDriver via LocationMapping"});
-                table61.AddRow(new string[] {
+                table73.AddRow(new string[] {
                             "UOM",
                             "UOM"});
-                table61.AddRow(new string[] {
+                table73.AddRow(new string[] {
                             "VolumeDriverMappingSet",
                             "2"});
 #line 65
-     testRunner.When("User create new VolumeDriverMappingset with below input", ((string)(null)), table61, "When ");
+ testRunner.When("User create new VolumeDriverMappingSet with below input", ((string)(null)), table73, "When ");
 #line hidden
 #line 70
-      testRunner.And("User verify created VolumeDriverMapping by \"VolumeDriver via LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("User verify created VolumeDriverMapping by \"VolumeDriver via LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 71
-     testRunner.When("User navigates to the Characteristic tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("User navigates to the Characteristic tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 72
-     testRunner.Then("User select the Department \"Department to verify LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User select the Department \"Department to verify LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 73
-      testRunner.And("User click on Characteristic set", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("User click on Characteristic set", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table62 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table74 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table62.AddRow(new string[] {
+                table74.AddRow(new string[] {
                             "Name",
                             "Characteristicset"});
 #line 74
-     testRunner.When("User create new Characteristic with below input", ((string)(null)), table62, "When ");
+ testRunner.When("User create new Characteristic with below input", ((string)(null)), table74, "When ");
 #line hidden
 #line 77
-     testRunner.Then("User verify created CharacteristicSet by name \"Characteristicset\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User verify created CharacteristicSet by name \"Characteristicset\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 78
-      testRunner.And("User refresh the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("User refresh the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 79
-     testRunner.Then("User navigates to the LocationMapping tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User navigates to the LocationMapping tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 80
-      testRunner.And("User select the Department \"Department to verify LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("User select the Department \"Department to verify LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 81
-     testRunner.Then("User select the Location \"Location via LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User select the Location \"Location via LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table63 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table75 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table63.AddRow(new string[] {
+                table75.AddRow(new string[] {
                             "VolumeDriverMappingSet",
                             "VolumeDriverMappingset via LocationMapping"});
-                table63.AddRow(new string[] {
+                table75.AddRow(new string[] {
                             "CharacteristicSet",
                             "Characteristicset"});
 #line 82
-     testRunner.When("User create new LocationMapping with below input", ((string)(null)), table63, "When ");
+ testRunner.When("User create new LocationMapping with below input", ((string)(null)), table75, "When ");
 #line hidden
 #line 86
-     testRunner.Then("User verify created LocationMapping \"Location via LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User verify created LocationMapping \"Location via LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -401,7 +399,7 @@ namespace LaborPro.Automation.Features.LocationMapping
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05.Verify_that_Respective_records_is_deleted.", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 89
-  this.ScenarioInitialize(scenarioInfo);
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -411,31 +409,31 @@ namespace LaborPro.Automation.Features.LocationMapping
             {
                 this.ScenarioStart();
 #line 90
-    testRunner.Given("User navigates to the Locations tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("User navigates to the Locations tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 91
-      testRunner.And("User delete created location by name \"Location via LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("User delete created location by name \"Location via LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 92
-     testRunner.Then("User navigates to the VolumeDriverMapping tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User navigates to the VolumeDriverMapping tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 93
-      testRunner.And("User select the Department \"Department to verify LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("User select the Department \"Department to verify LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 94
-      testRunner.And("User delete created VolumeDriverMapping by \"VolumeDriver via LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("User delete created VolumeDriverMapping by \"VolumeDriver via LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 95
+   testRunner.Then("User navigates to the VolumeDriver tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 96
-     testRunner.Then("User navigates to the VolumeDriver tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("User delete created VolumeDriver by name \"VolumeDriver via LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 97
-      testRunner.And("User delete created VolumeDriver by name \"VolumeDriver via LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+   testRunner.When("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 99
-     testRunner.When("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 100
-     testRunner.Then("User delete created Department \"Department to verify LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 98
+ testRunner.Then("User delete created Department \"Department to verify LocationMapping\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -452,8 +450,8 @@ namespace LaborPro.Automation.Features.LocationMapping
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06. Logout and Close Browser", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 103
-  this.ScenarioInitialize(scenarioInfo);
+#line 101
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -462,11 +460,11 @@ namespace LaborPro.Automation.Features.LocationMapping
             else
             {
                 this.ScenarioStart();
-#line 104
-     testRunner.When("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 102
+ testRunner.When("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 105
-     testRunner.Then("User close browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 103
+ testRunner.Then("User close browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

@@ -1,11 +1,11 @@
-﻿using LaborPro.Automation.Features.TaskGroups;
+﻿using LaborPro.Automation.Features.Kronos.TaskGroups;
 using LaborPro.Automation.shared.drivers;
 using LaborPro.Automation.shared.hooks;
 using LaborPro.Automation.shared.util;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace LaborPro.Automation.Features.Tasks
+namespace LaborPro.Automation.Features.Kronos.Tasks
 {
     public class TasksPage
     {

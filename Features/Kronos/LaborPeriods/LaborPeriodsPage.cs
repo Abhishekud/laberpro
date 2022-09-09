@@ -5,7 +5,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
 
-namespace LaborPro.Automation.Features.LaborPeriods
+namespace LaborPro.Automation.Features.Kronos.LaborPeriods
 {
     public class LaborPeriodsPage
     {

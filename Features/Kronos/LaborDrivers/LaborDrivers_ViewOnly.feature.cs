@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace LaborPro.Automation.Features.TaskGroups
+namespace LaborPro.Automation.Features.Kronos.LaborDrivers
 {
     using TechTalk.SpecFlow;
     using System;
@@ -20,26 +20,28 @@ namespace LaborPro.Automation.Features.TaskGroups
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Verify TaskGroups_ViewOnly Module")]
+    [NUnit.Framework.DescriptionAttribute("Verify LaborDrivers_ViewOnly Module")]
+    [NUnit.Framework.CategoryAttribute("laborPro")]
     [NUnit.Framework.CategoryAttribute("Regression")]
-    [NUnit.Framework.CategoryAttribute("TaskGroups_ViewOnly")]
-    public partial class VerifyTaskGroups_ViewOnlyModuleFeature
+    [NUnit.Framework.CategoryAttribute("LaborDrivers_ViewOnly")]
+    public partial class VerifyLaborDrivers_ViewOnlyModuleFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
+                "laborPro",
                 "Regression",
-                "TaskGroups_ViewOnly"};
+                "LaborDrivers_ViewOnly"};
         
-#line 1 "TaskGroups_ViewOnly.feature"
+#line 1 "LaborDrivers_ViewOnly.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/TaskGroups", "Verify TaskGroups_ViewOnly Module", null, ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Kronos/LaborDrivers", "Verify LaborDrivers_ViewOnly Module", null, ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -87,7 +89,7 @@ namespace LaborPro.Automation.Features.TaskGroups
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01. Launch Browser and Login to the Application and perform prerequisites", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 5
- this.ScenarioInitialize(scenarioInfo);
+  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -97,40 +99,46 @@ namespace LaborPro.Automation.Features.TaskGroups
             {
                 this.ScenarioStart();
 #line 6
-  testRunner.Given("User launched \"$browser\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("User launched \"$browser\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 7
-  testRunner.When("User go to application \"$url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("User go to application \"$url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 8
-  testRunner.Then("User enter email: \"$username_1\" and password: \"$password_1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("User enter email: \"$username_3\" and password: \"$password_3\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 9
-  testRunner.And("User navigates to the TaskGroups tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("Verify Login message: \"success\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table97 = new TechTalk.SpecFlow.Table(new string[] {
+#line 10
+    testRunner.When("User navigates to the LaborDrivers tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+                TechTalk.SpecFlow.Table table48 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table97.AddRow(new string[] {
+                table48.AddRow(new string[] {
                             "Name",
-                            "TaskGroups created via automation"});
-                table97.AddRow(new string[] {
-                            "Generic Department",
-                            "Generic Department"});
-                table97.AddRow(new string[] {
-                            "Combined Distribution",
-                            "Combined Distribution"});
-                table97.AddRow(new string[] {
-                            "Allocate Labor Hours",
-                            "Start Day"});
-                table97.AddRow(new string[] {
-                            "Job Name",
-                            "Job Name"});
-#line 10
-  testRunner.And("User create new TaskGroups with below input if not exist", ((string)(null)), table97, "And ");
+                            "LaborDrivers created via automation"});
+                table48.AddRow(new string[] {
+                            "Driver Type",
+                            "Volume Driver"});
+                table48.AddRow(new string[] {
+                            "Number",
+                            "2"});
+                table48.AddRow(new string[] {
+                            "Number of business days to look back for volume",
+                            "2"});
+                table48.AddRow(new string[] {
+                            "Driver",
+                            "Drivers"});
+                table48.AddRow(new string[] {
+                            "Generic Category",
+                            "Generic Category"});
+#line 11
+    testRunner.Then("User create new LaborDrivers with below input if not exist", ((string)(null)), table48, "Then ");
 #line hidden
-#line 17
-  testRunner.Then("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 19
+    testRunner.And("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -143,8 +151,8 @@ namespace LaborPro.Automation.Features.TaskGroups
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02. Verify_add_button_is_not_available", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 20
- this.ScenarioInitialize(scenarioInfo);
+#line 22
+  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -153,29 +161,29 @@ namespace LaborPro.Automation.Features.TaskGroups
             else
             {
                 this.ScenarioStart();
-#line 21
-  testRunner.Given("User logged in with view only access using username: \"$viewonly_username\" and pas" +
+#line 23
+    testRunner.Given("User logged in with view only access using username: \"$viewonly_username\" and pas" +
                         "sword: \"$viewonly_password\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 22
-  testRunner.When("User navigates to the TaskGroups tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 24
+    testRunner.When("User navigates to the LaborDrivers tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 23
-  testRunner.Then("User verify add button is not available on task group page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 25
+    testRunner.Then("User verify add button is not available on labor drivers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("03. Verify_export_options_are_available")]
-        public void _03_Verify_Export_Options_Are_Available()
+        [NUnit.Framework.DescriptionAttribute("03. Verify_export_options_is_available")]
+        public void _03_Verify_Export_Options_Is_Available()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03. Verify_export_options_are_available", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 25
- this.ScenarioInitialize(scenarioInfo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03. Verify_export_options_is_available", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 28
+  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -184,11 +192,11 @@ namespace LaborPro.Automation.Features.TaskGroups
             else
             {
                 this.ScenarioStart();
-#line 26
-  testRunner.When("User navigates to the TaskGroups tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 29
+    testRunner.When("User navigates to the LaborDrivers tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 27
-  testRunner.Then("User verify export option is available on task groups page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 30
+    testRunner.Then("User verify export option is available on labor drivers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -201,8 +209,8 @@ namespace LaborPro.Automation.Features.TaskGroups
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04. Verify_delete_button_is_not_available", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 29
- this.ScenarioInitialize(scenarioInfo);
+#line 33
+  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -211,12 +219,12 @@ namespace LaborPro.Automation.Features.TaskGroups
             else
             {
                 this.ScenarioStart();
-#line 30
-  testRunner.When("User navigates to the TaskGroups tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 34
+    testRunner.When("User navigates to the LaborDrivers tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 31
-  testRunner.Then("User verify delete button is not available on task groups page in  \"TaskGroups cr" +
-                        "eated via automation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 35
+    testRunner.Then("User verify delete button is not available on labor driver record \"LaborDrivers c" +
+                        "reated via automation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -231,8 +239,8 @@ namespace LaborPro.Automation.Features.TaskGroups
                     "Cleanup"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05. Logout and Close Browser", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 34
- this.ScenarioInitialize(scenarioInfo);
+#line 38
+  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -241,23 +249,23 @@ namespace LaborPro.Automation.Features.TaskGroups
             else
             {
                 this.ScenarioStart();
-#line 35
-  testRunner.Given("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 36
-  testRunner.When("User enter email: \"$username_1\" and password: \"$password_1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 37
-  testRunner.Then("User navigates to the TaskGroups tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 38
-  testRunner.And("User delete TaskGroups \"TaskGroups created via automation\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
 #line 39
-  testRunner.And("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+   testRunner.Given("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 40
-  testRunner.Then("User close browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+   testRunner.When("User enter email: \"$username_3\" and password: \"$password_3\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 41
+   testRunner.Then("User navigates to the LaborDrivers tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 42
+   testRunner.And("User delete LaborDrivers \"LaborDrivers created via automation\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 43
+   testRunner.When("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 44
+   testRunner.Then("User close browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

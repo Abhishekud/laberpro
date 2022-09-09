@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace LaborPro.Automation.Features.LaborStandard
+namespace LaborPro.Automation.Features.Kronos.LaborStandard
 {
     using TechTalk.SpecFlow;
     using System;
@@ -39,7 +39,7 @@ namespace LaborPro.Automation.Features.LaborStandard
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/LaborStandard", "Verify LaborStandard_ViewOnly Module", null, ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Kronos/LaborStandard", "Verify LaborStandard_ViewOnly Module", null, ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         

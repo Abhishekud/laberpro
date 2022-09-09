@@ -108,20 +108,20 @@ namespace LaborPro.Automation.Features.Rest
 #line 9
   testRunner.And("User navigates to the Rest tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table77 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table89 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table77.AddRow(new string[] {
+                table89.AddRow(new string[] {
                             "Name",
                             "Rest_created_via_automation"});
-                table77.AddRow(new string[] {
+                table89.AddRow(new string[] {
                             "Effective Net Weight Pounds Handled",
                             "01 - 10"});
-                table77.AddRow(new string[] {
+                table89.AddRow(new string[] {
                             "Percent Time Under Load",
                             "01 - 12"});
 #line 10
-  testRunner.And("User create new Rest with below input if not exist", ((string)(null)), table77, "And ");
+  testRunner.And("User create new Rest with below input if not exist", ((string)(null)), table89, "And ");
 #line hidden
 #line 15
   testRunner.Then("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

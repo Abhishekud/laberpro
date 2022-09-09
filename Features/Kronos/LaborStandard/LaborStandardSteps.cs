@@ -1,6 +1,6 @@
 ﻿using LaborPro.Automation.shared.util;
 
-namespace LaborPro.Automation.Features.LaborStandards
+namespace LaborPro.Automation.Features.Kronos.LaborStandards
 {
     [Binding]
     public class LaborStandardSteps

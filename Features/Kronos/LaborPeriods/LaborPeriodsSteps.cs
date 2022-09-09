@@ -1,6 +1,6 @@
 ﻿using LaborPro.Automation.shared.util;
  
-namespace LaborPro.Automation.Features.LaborPeriods
+namespace LaborPro.Automation.Features.Kronos.LaborPeriods
 {
     [Binding]
     public class LaborPeriodsSteps
