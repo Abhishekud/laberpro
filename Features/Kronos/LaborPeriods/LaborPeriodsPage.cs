@@ -41,13 +41,13 @@ namespace LaborPro.Automation.Features.Kronos.LaborPeriods
         private const string LaborPeriodDeleteButton = "//button//i[@title='Delete']";
         private const string PreviousButton = "//a[.//*[@class='fa fa-caret-left']]";
         private const string LaborPeriodsRecord = "//*[@role='row' and .//*[text()='{0}']]";
-
+ 
         public static void ClickOnKronosTab()
         {
             LogWriter.WriteLog("LaborPeriodsPage.ClickOnKronosTab");
             if (WebDriverUtil.GetWebElement(KronosTab, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) ==
                 null) return;
-            WebDriverUtil.GetWebElement(KronosTab, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
+            WebDriverUtil.GetWebElement(KronosTab, WebDriverUtil.FIVE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
         }
         public static void ClickOnLaborPeriodsTab()
@@ -55,9 +55,10 @@ namespace LaborPro.Automation.Features.Kronos.LaborPeriods
             LogWriter.WriteLog("LaborPeriodsPage.ClickOnLaborPeriodsTab");
             if (WebDriverUtil.GetWebElement(LaborPeriodPage, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) !=
                 null) return;
-            WebDriverUtil.GetWebElement(LaborPeriodsTab, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
+            WebDriverUtil.GetWebElement(LaborPeriodsTab, WebDriverUtil.FIVE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
             WebDriverUtil.WaitForAWhile();
-        }
+        }                       
+        
         public static void AddLaborPeriod()
         {
             LogWriter.WriteLog("LaborPeriodsPage.AddLaborPeriod");
