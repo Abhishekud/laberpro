@@ -40,7 +40,9 @@
     "username_5": "testaccount3@connorsllc.com",
     "password_5": "testaccount3",
     "viewonly_username": "bits_viewonly@benchmarkit.solutions",
-    "viewonly_password": "Bits12345$$"
+    "viewonly_password": "Bits12345$$",
+    "superadmin_username": "support@connorsllc.com",
+    "superadmin_password": "LaborPro2017"
   },
   "uat": {
     "url": "https://kronos-uat.laborpro.io ",
@@ -96,6 +98,8 @@
     "username_5": "support@connorsllc.com",
     "password_5": "LaborPro2017",
     "viewonly_username": "bits_viewonly@benchmarkit.solutions",
-    "viewonly_password": "Bits12345$$"
+    "viewonly_password": "Bits12345$$",
+    "superadmin_username": "bits_superadmin@benchmarkit.solutions",
+    "superadmin_password": "Bits12345$$"
   }
 }

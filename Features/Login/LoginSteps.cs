@@ -73,6 +73,16 @@ namespace LaborPro.Automation.Features.Login
             LoginPage.PerformLogin(Util.ProcessInputDataString(userName), Util.ProcessInputDataString(password));
         }
 
+        [Given(@"User logged in with super admin access using username: ""([^""]*)"" and password: ""([^""]*)""")]
+        [When(@"User logged in with super admin access using username: ""([^""]*)"" and password: ""([^""]*)""")]
+        [Then(@"User logged in with super admin access using username: ""([^""]*)"" and password: ""([^""]*)""")]
+        public void LoggedInWithSuperAdminAccess(string userName, string password)
+        {
+            LogWriter.WriteLog("Executing Step: User logged in with super admin access using username:" + Util.ProcessInputDataString(userName) + "password: *********");
+            LoginPage.PerformLogin(Util.ProcessInputDataString(userName), Util.ProcessInputDataString(password));
+        }
+
+
 
     }
 }

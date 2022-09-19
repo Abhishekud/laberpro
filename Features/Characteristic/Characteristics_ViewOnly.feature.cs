@@ -82,10 +82,12 @@ namespace LaborPro.Automation.Features.Characteristic
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("01. Launch Browser and Login to the Application")]
         [NUnit.Framework.CategoryAttribute("Setup")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
         public void _01_LaunchBrowserAndLoginToTheApplication()
         {
             string[] tagsOfScenario = new string[] {
-                    "Setup"};
+                    "Setup",
+                    "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01. Launch Browser and Login to the Application", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 5
@@ -116,12 +118,14 @@ namespace LaborPro.Automation.Features.Characteristic
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("02. Verify_that_User_should_not_have_access_for_Add_button_in_Characteristic")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
         public void _02_Verify_That_User_Should_Not_Have_Access_For_Add_Button_In_Characteristic()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02. Verify_that_User_should_not_have_access_for_Add_button_in_Characteristic", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 11
+#line 12
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -131,85 +135,85 @@ namespace LaborPro.Automation.Features.Characteristic
             else
             {
                 this.ScenarioStart();
-#line 12
+#line 13
     testRunner.Given("User navigates to the List Management tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 13
+#line 14
      testRunner.Then("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table30 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table30.AddRow(new string[] {
+                table26.AddRow(new string[] {
                             "Name",
                             "Department to verify Characteristic_ViewOnly"});
-#line 14
-     testRunner.When("User create new Department with below input if not exist", ((string)(null)), table30, "When ");
-#line hidden
-#line 17
-     testRunner.Then("User verify created Department \"Department to verify Characteristic_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 15
+     testRunner.When("User create new Department with below input if not exist", ((string)(null)), table26, "When ");
 #line hidden
 #line 18
-     testRunner.When("User navigates to the Characteristic tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+     testRunner.Then("User verify created Department \"Department to verify Characteristic_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 19
-     testRunner.Then("User select the Department \"Department to verify Characteristic_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 20
-      testRunner.And("User delete Characteristic \"Characteristic\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 21
-     testRunner.Then("User click on Characteristic", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-                TechTalk.SpecFlow.Table table31 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Key",
-                            "Value"});
-                table31.AddRow(new string[] {
-                            "Name",
-                            "Characteristic"});
-#line 22
-     testRunner.When("User create new Characteristic with below input", ((string)(null)), table31, "When ");
-#line hidden
-#line 25
-     testRunner.Then("User verify created Characteristic by name \"Characteristic\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 26
      testRunner.When("User navigates to the Characteristic tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 27
-     testRunner.Then("User select the Department \"Department to verify Characteristic\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 28
-     testRunner.Then("User click on Characteristic set", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-                TechTalk.SpecFlow.Table table32 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Key",
-                            "Value"});
-                table32.AddRow(new string[] {
-                            "Name",
-                            "Characteristic_ViewOnly"});
-#line 29
-     testRunner.When("User create new Characteristic with below input", ((string)(null)), table32, "When ");
-#line hidden
-#line 32
-     testRunner.Then("User verify created CharacteristicSet by name \"Characteristic_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 33
-      testRunner.And("User refresh the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 34
-     testRunner.When("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 35
-     testRunner.Then("User enter email: \"$viewonly_username\" and password: \"$viewonly_password\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 36
-    testRunner.Given("User navigates to the Characteristic tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 37
+#line 20
      testRunner.Then("User select the Department \"Department to verify Characteristic_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
+#line 21
+      testRunner.And("User delete Characteristic \"Characteristic\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 22
+     testRunner.Then("User click on Characteristic", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+                TechTalk.SpecFlow.Table table27 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Key",
+                            "Value"});
+                table27.AddRow(new string[] {
+                            "Name",
+                            "Characteristic"});
+#line 23
+     testRunner.When("User create new Characteristic with below input", ((string)(null)), table27, "When ");
+#line hidden
+#line 26
+     testRunner.Then("User verify created Characteristic by name \"Characteristic\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 27
+     testRunner.When("User navigates to the Characteristic tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 28
+     testRunner.Then("User select the Department \"Department to verify Characteristic\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 29
+     testRunner.Then("User click on Characteristic set", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+                TechTalk.SpecFlow.Table table28 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Key",
+                            "Value"});
+                table28.AddRow(new string[] {
+                            "Name",
+                            "Characteristic_ViewOnly"});
+#line 30
+     testRunner.When("User create new Characteristic with below input", ((string)(null)), table28, "When ");
+#line hidden
+#line 33
+     testRunner.Then("User verify created CharacteristicSet by name \"Characteristic_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 34
+      testRunner.And("User refresh the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 35
+     testRunner.When("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 36
+     testRunner.Then("User enter email: \"$viewonly_username\" and password: \"$viewonly_password\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 37
+    testRunner.Given("User navigates to the Characteristic tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
 #line 38
+     testRunner.Then("User select the Department \"Department to verify Characteristic_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 39
       testRunner.And("User verify Add Button is not Present", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -223,7 +227,7 @@ namespace LaborPro.Automation.Features.Characteristic
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03. Verify_that_Export_options_are_available_for_the_User_in_Characteristic", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 40
+#line 41
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -233,13 +237,13 @@ namespace LaborPro.Automation.Features.Characteristic
             else
             {
                 this.ScenarioStart();
-#line 41
+#line 42
     testRunner.Given("User navigates to the Characteristic tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 42
+#line 43
      testRunner.Then("User select the Department \"Department to verify Characteristic_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 43
+#line 44
       testRunner.And("User verify Export option is Present", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -249,13 +253,15 @@ namespace LaborPro.Automation.Features.Characteristic
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("04. Verify_that_Delete_buttons_are_not_available_when_clicked_on_any_record_Also_" +
             "Characteristic_details_must_not_be_editable")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
         public void _04_Verify_That_Delete_Buttons_Are_Not_Available_When_Clicked_On_Any_Record_Also_Characteristic_Details_Must_Not_Be_Editable()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04. Verify_that_Delete_buttons_are_not_available_when_clicked_on_any_record_Also_" +
                     "Characteristic_details_must_not_be_editable", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 45
+#line 47
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -265,13 +271,13 @@ namespace LaborPro.Automation.Features.Characteristic
             else
             {
                 this.ScenarioStart();
-#line 46
+#line 48
     testRunner.Given("User navigates to the Characteristic tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 47
+#line 49
      testRunner.Then("User select the Department \"Department to verify Characteristic_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 48
+#line 50
      testRunner.Then("User verify Delete Button is not Present \"Characteristic\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -287,7 +293,7 @@ namespace LaborPro.Automation.Features.Characteristic
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05. Verify_edit_option_is_not_available_when_clicked_on_the_Hamburger_icon_in_the" +
                     "_Characteritics_page", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 50
+#line 52
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -297,37 +303,37 @@ namespace LaborPro.Automation.Features.Characteristic
             else
             {
                 this.ScenarioStart();
-#line 51
+#line 53
     testRunner.Given("User navigates to the Characteristic tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 52
-     testRunner.Then("User select the Department \"Department to verify Characteristic_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 53
-      testRunner.And("User verify Edit option is not Present", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
 #line 54
-     testRunner.When("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+     testRunner.Then("User select the Department \"Department to verify Characteristic_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 55
-     testRunner.Then("User enter email: \"$username_2\" and password: \"$password_2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+      testRunner.And("User verify Edit option is not Present", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 56
-     testRunner.Then("User navigates to the Characteristic tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+     testRunner.When("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 57
-     testRunner.Then("User select the Department \"Department to verify Characteristic_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+     testRunner.Then("User enter email: \"$username_2\" and password: \"$password_2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 58
-      testRunner.And("User delete Characteristic \"Characteristic\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+     testRunner.Then("User navigates to the Characteristic tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 59
-     testRunner.When("User navigates to the List Management tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+     testRunner.Then("User select the Department \"Department to verify Characteristic_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 60
-     testRunner.When("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+      testRunner.And("User delete Characteristic \"Characteristic\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 61
+     testRunner.When("User navigates to the List Management tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 62
+     testRunner.When("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 63
      testRunner.Then("User delete created Department \"Department to verify Characteristic_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -337,13 +343,15 @@ namespace LaborPro.Automation.Features.Characteristic
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("06. Logout and Close Browser")]
         [NUnit.Framework.CategoryAttribute("Cleanup")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
         public void _06_LogoutAndCloseBrowser()
         {
             string[] tagsOfScenario = new string[] {
-                    "Cleanup"};
+                    "Cleanup",
+                    "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06. Logout and Close Browser", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 64
+#line 66
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -353,10 +361,10 @@ namespace LaborPro.Automation.Features.Characteristic
             else
             {
                 this.ScenarioStart();
-#line 65
+#line 67
      testRunner.When("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 66
+#line 68
      testRunner.Then("User close browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

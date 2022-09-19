@@ -43,6 +43,7 @@ namespace LaborPro.Automation.shared.util
 
                 var wait = new WebDriverWait(SeleniumDriver.Driver(), TimeSpan.FromSeconds(timeout));
                 wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.InvisibilityOfElementLocated(By.XPath(xpath)));
+                WaitFor(ONE_SECOND_WAIT);
                 return true;
             }
             catch (Exception ex)

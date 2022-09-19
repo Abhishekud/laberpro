@@ -182,10 +182,10 @@ namespace LaborPro.Automation.Features.Activity
     testRunner.And("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 23
-    testRunner.When("User enter email: \"$viewonly_username\" and password: \"$viewonly_password\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.Then("User enter email: \"$viewonly_username\" and password: \"$viewonly_password\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 24
-    testRunner.Then("User navigates to the Activity tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.When("User navigates to the Activity tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 25
     testRunner.And("User find Activity by name \"Activity_created_via_automation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -194,19 +194,19 @@ namespace LaborPro.Automation.Features.Activity
     testRunner.Then("User verify Activity Delete Button is not Present", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 27
-    testRunner.And("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.When("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 28
     testRunner.Then("User enter email: \"$username_2\" and password: \"$password_2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 29
-    testRunner.And("User navigates to the Activity tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Given("User navigates to the Activity tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 30
-    testRunner.Then("User delete created Activity by name \"Activity_created_via_automation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.And("User delete created Activity by name \"Activity_created_via_automation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 31
-    testRunner.And("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Then("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
