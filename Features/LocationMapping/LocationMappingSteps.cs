@@ -30,7 +30,7 @@ namespace LaborPro.Automation.Features.LocationMapping
         [Then(@"User Maps created Department and location with ""(.*)"" and ""(.*)""")]
         public void ThenUserMapsCreatedDepartmentAndLocation(string location, string department)
         {
-            LocationMappingPage.MapsCreatedDepartmentandlocation(location, department);
+            LocationMappingPage.MapsCreatedDepartmentAndLocation(location, department);
         }
 
         [Given(@"User create new LocationMapping with below input")]

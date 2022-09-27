@@ -21,6 +21,7 @@ namespace LaborPro.Automation.Features.JobClasses
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Verify JobClasses_ViewOnly Module")]
+    [NUnit.Framework.CategoryAttribute("laborPro")]
     [NUnit.Framework.CategoryAttribute("Regression")]
     [NUnit.Framework.CategoryAttribute("JobClasses_ViewOnly")]
     public partial class VerifyJobClasses_ViewOnlyModuleFeature
@@ -29,6 +30,7 @@ namespace LaborPro.Automation.Features.JobClasses
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
+                "laborPro",
                 "Regression",
                 "JobClasses_ViewOnly"};
         
@@ -111,14 +113,14 @@ namespace LaborPro.Automation.Features.JobClasses
 #line 10
     testRunner.When("User navigates to the job classes page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table43 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table42 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table43.AddRow(new string[] {
+                table42.AddRow(new string[] {
                             "Name",
                             "JobClasses_created_via_automation"});
 #line 11
-    testRunner.Then("User create new job classes with below input if not exist", ((string)(null)), table43, "Then ");
+    testRunner.Then("User create new job classes with below input if not exist", ((string)(null)), table42, "Then ");
 #line hidden
 #line 14
     testRunner.And("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -241,7 +243,7 @@ namespace LaborPro.Automation.Features.JobClasses
     testRunner.When("User enter email: \"$username_4\" and password: \"$password_4\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 34
-    testRunner.Then("User navigates to the job classes page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("User navigates to the JobClasses tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 35
     testRunner.And("User delete job class \"JobClasses_created_via_automation\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

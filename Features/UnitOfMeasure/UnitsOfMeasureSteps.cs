@@ -73,29 +73,29 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
             LogWriter.WriteLog("Executing Step User delete created UnitOfMeasure by name" + unitOfMeasureName);
             UnitsOfMeasurePage.DeleteUnitOfMeasureIfExist(unitOfMeasureName);
         }
-        [Given(@"User verify Add button is not present")]
-        [When(@"User verify Add button is not present")]
-        [Then(@"User verify Add button is not present")]
+        [Given(@"User verify add button is not present on units of measure page")]
+        [When(@"User verify add button is not present on units of measure page")]
+        [Then(@"User verify add button is not present on units of measure page")]
         public void VerifyAddButtonIsNotPresent()
         {
-            LogWriter.WriteLog("Executing Step User verify Add button is not present");
-            UnitsOfMeasurePage.VerifyAddButtonIsNotPresent();
+            LogWriter.WriteLog("Executing Step User verify add button is not present on units of measure page");
+            UnitsOfMeasurePage.VerifyAddButtonIsNotAvailable();
         }
-        [Given(@"User verify export option is not present")]
-        [When(@"User verify export option is not present")]
-        [Then(@"User verify export option is not present")]
+        [Given(@"User verify export option is not present on units of measure page")]
+        [When(@"User verify export option is not present on units of measure page")]
+        [Then(@"User verify export option is not present on units of measure page")]
         public void VerifyExportOptionIsNotPresent()
         {
-            LogWriter.WriteLog("Executing Step User verify export button is not present");
-            UnitsOfMeasurePage.VerifyExportOptionIsNotPresent();
+            LogWriter.WriteLog("Executing Step User verify export button is not present on units of measure page ");
+            UnitsOfMeasurePage.VerifyExportOptionIsNotAvailable();
         }
-        [Given(@"User verify delete button is not present ""([^""]*)""")]
-        [When(@"User verify delete button is not present ""([^""]*)""")]
-        [Then(@"User verify delete button is not present ""([^""]*)""")]
+        [Given(@"User verify delete button and edit option is not present for record ""([^""]*)"" on units of measure page")]
+        [When(@"User verify delete button and edit option is not present for record ""([^""]*)"" on units of measure page")]
+        [Then(@"User verify delete button and edit option is not present for record ""([^""]*)"" on units of measure page")]
         public void VerifyDeleteButtonIsNotPresent(string unitOfMeasureName)
         {
-            LogWriter.WriteLog("Executing Step User verify delete button is not present");
-            UnitsOfMeasurePage.VerifyDeleteButtonIsNotPresent(unitOfMeasureName);
+            LogWriter.WriteLog("Executing Step User verify delete button and edit option is not present for record" + unitOfMeasureName + " on units of measure page");
+            UnitsOfMeasurePage.VerifyDeleteButtonIsNotAvailable(unitOfMeasureName);
         }
 
     }

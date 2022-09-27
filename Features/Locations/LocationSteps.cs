@@ -16,7 +16,7 @@ namespace LaborPro.Automation.Features.Locations
             LocationPage.ClickOnProfilingTab();
             LocationPage.ClickOnLocationsTab();
             LocationPage.ClearAllFilter();
-            LocationPage.KeepRecordUnsort();
+            LocationPage.KeepRecordUnSort();
         }
 
         [Given(@"User create new location with below input")]

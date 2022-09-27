@@ -1,59 +1,57 @@
-﻿ @Laberpro @Regression @UnitOfMeasure_ViewOnly
+﻿@Regression @UnitOfMeasure_ViewOnly
 Feature: Verify UnitOfMeasure_ViewOnly Module
 
 A short summary of the feature
 @Setup
-  Scenario: 01. Launch Browser and Login to the Application
-    Given User launched "$browser"
-     When User go to application "$url"
-     Then User enter email: "$username_2" and password: "$password_2"
-      And Verify Login message: "success"
+Scenario: 01. Launch Browser and Login to the Application
+	Given User launched "$browser"
+	When User go to application "$url"
+	Then User enter email: "$username_2" and password: "$password_2"
+	Then User navigates to the List Management tab
+	And User selects Department
+	And User create new Department with below input if not exist
+		| Key  | Value                                       |
+		| Name | Department To verify UnitOfMeasure_ViewOnly | 
+	And User selects UnitOfMeasure
+	And User Selects Created Department "Department To verify UnitOfMeasure_ViewOnly"
+	And User delete UnitOfMeasure "UOM" if exist
+	And User adds Unit Of Measure using below input
+		| Key  | Value |
+		| Name | UOM   |
+	And User verify Added Unit of Measure "UOM"
+	Then User logout from the application
   
-  Scenario: 02. Verify_that_user_should_not_have_access_for_Add_button
-    Given User navigates to the List Management tab
-     When User selects Department
-     Then User create new Department with below input if not exist
-      | Key  | Value                                       | 
-      | Name | Department To verify UnitOfMeasure_ViewOnly | 
-      And User verify created Department "Department To verify UnitOfMeasure_ViewOnly"
+Scenario: 02. Verify_add_button_is_not_available
+	Given User logged in with view only access using username: "$viewonly_username" and password: "$viewonly_password"
+	When User navigates to the List Management tab
+	Then User selects UnitOfMeasure
+	And User Selects Created Department "Department To verify UnitOfMeasure_ViewOnly"
+	Then User verify add button is not present on units of measure page
   
-     When User selects UnitOfMeasure
-     Then User Selects Created Department "Department To verify UnitOfMeasure_ViewOnly"
-     Then User delete UnitOfMeasure "UOM" if exist
-     When User adds Unit Of Measure using below input
-      | Key  | Value | 
-      | Name | UOM   | 
-     Then User verify Added Unit of Measure "UOM"
-     When User logout from the application
-     Then User enter email: "$viewonly_username" and password: "$viewonly_password"
-    Given User navigates to the List Management tab
-     When User selects UnitOfMeasure
-     Then User Selects Created Department "Department To verify UnitOfMeasure_ViewOnly"
-     When User verify Add button is not present
+Scenario: 03. Verify_export_options_is_not_available
+	Given User navigates to the List Management tab
+	When User selects UnitOfMeasure
+	And User Selects Created Department "Department To verify UnitOfMeasure_ViewOnly"
+	Then User verify export option is not present on units of measure page
   
-  Scenario: 03. Verify_that_export_options_are_not_available_for_the_user
-    Given User navigates to the List Management tab
-     When User selects UnitOfMeasure
-     Then User Selects Created Department "Department To verify UnitOfMeasure_ViewOnly"
-      And User verify export option is not present
+Scenario: 04. Verify_delete_button_and_edit_option_is_not_available
+	Given User navigates to the List Management tab
+	When User selects UnitOfMeasure
+	And User Selects Created Department "Department To verify UnitOfMeasure_ViewOnly"
+	Then User verify delete button and edit option is not present for record "UOM" on units of measure page
+    
   
-  Scenario: 04. Verify_that_Delete_buttons_are_not_available_when_clicked_on_any_record_Also_UOM_details_must_not_be_editable
-    Given User navigates to the List Management tab
-     When User selects UnitOfMeasure
-     Then User Selects Created Department "Department To verify UnitOfMeasure_ViewOnly"
-      And User verify delete button is not present "UOM"
-     When User logout from the application
-     Then User enter email: "$username_2" and password: "$password_2"
-    Given User navigates to the List Management tab
-     Then User selects UnitOfMeasure
-     Then User Selects Created Department "Department To verify UnitOfMeasure_ViewOnly"
-     Then User delete UnitOfMeasure "UOM" if exist
-     Then User selects Department
-      And User delete created Department "Department To verify UnitOfMeasure_ViewOnly"
-  
-  @Cleanup
-  Scenario: 05. Logout and Close Browser
-     When User logout from the application
-     Then User close browser  
+@Cleanup
+Scenario: 05. Logout and Close Browser
+	Given User logout from the application
+	When User enter email: "$username_2" and password: "$password_2"
+	Then User navigates to the List Management tab
+	And User selects UnitOfMeasure
+	And User Selects Created Department "Department To verify UnitOfMeasure_ViewOnly"
+	And User delete UnitOfMeasure "UOM" if exist
+	And User selects Department
+	And User delete created Department "Department To verify UnitOfMeasure_ViewOnly"
+	And User logout from the application
+	Then User close browser
   
   

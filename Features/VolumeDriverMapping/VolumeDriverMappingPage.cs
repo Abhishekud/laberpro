@@ -8,45 +8,41 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
 {
     public class VolumeDriverMappingPage
     {
-        const string PROFILING_COLLAPSED_TAB = "//li[contains(@class,'collapsed')]//span[contains(text(),'Profiling')]";
-        const string VOLUMEDRIVERMAPPING_TAB = "//a[text()='Volume Driver Mapping']";
-        const string VOLUMEDRIVERMAPPING_PAGE = "//*[@class='page-title' and text()='Volume Driver Mappings']";
-        const string ERROR_ALERT_TOAST_XPATH = "//*[@class='toast toast-error']";
-        const string ADD_BUTTON = "//button[.//*[@class='fa fa-plus']]";
-        const string ADD_VOLUMEDRIVERMAPPINGSET_LINK = "(//*[contains(@class,'dropdown open')]//a)[2]";
-        const string ADD_VOLUMEDRIVERMAPPING_LINK = "(//*[contains(@class,'dropdown open')]//a)[1]";
-        const string NAME_INPUT = "//*[@id='name']";
-        const string VOLUMEDRIVER_RECORD = "//*[@role='row' and .//*[text()='{0}']]";
-        const string VOLUMEDRIVER_INPUT = "//input[@type='number']";
-        const string DEPARTMENT_DROPDOWN = "//select[@id='departmentId']";
-        const string CHECK_VOLUMEDRIVERMAPPING_OF_RESPECTIVE_DEPARTMENT = "//div[contains(@class,'flyout-button')]//button[@type='button']";
-        const string EDIT_BUTTON = "//*[@title='{0}']/../button";
-        const string DELETE_BUTTON = "//i[contains(@title,'Delete')]";
-        const string VOLUME_CONFIRM_POPUP = "//*[@class='modal-dialog']//*[contains(text(),'Please confirm that you want to delete')]";
-        const string VOLUMESET_CONFIRM_POPUP = "//*[@class='modal-dialog']//*[contains(text(),'New Volume Driver Mapping Set')]";
-        const string CONFIRM_POPUP_BUTTON = "//button[contains(@type,'button') and contains(text(),'Confirm')]";
-        const string DEPARTMENT_VALUE = "//option[contains(text(),'{0}')]";
-        const string VOLUMEDRIVER_DROPDOWN = "//*[@id='volumeDriverId']";
-        const string UOM_DROPDOWN = "//*[@id='unitOfMeasureId']";
-        const string SAVE_BUTTON = "//button[contains(text(),'Save')]";
-        const string CLOSE_VOLUMEDRIVERMAPPING_FORM_BUTTON = "//*[@class='modal-dialog']//button[contains(text(),'Cancel')]";
-        const string CLOSE_VOLUMEDRIVERMAPPING_DETAILS = "//button[text()='Close']";
-        const string CANCEL_VOLUMEDRIVERMAPPING_DETAILS = "//button[text()='Cancel']";
-        const string VOLUMEDRIVERMAPPING_RECORD = "//*[@role='row' and .//*[text()='{0}']]";
-        const string CREATED_VOLUMEDRIVERMAPPINGSET = "//div[contains(@class,'volume-driver-mapping-set-list-entry')]//span[contains(text(),'{0}')]";
-        const string VOLUMEDRIVERMAPPING_DELETE_BUTTON = "//button[contains(@class,'delete')]";
-        const string VOLUMEDRIVERMAPPING_DELETE_CONFIRM_POPUP = "//*[@class='modal-dialog']//*[contains(text(),'Please confirm that you want to delete')]";
-        const string VOLUMEDRIVERMAPPING_DELETE_CONFIRM_POPUP_ACCEPT = "//*[@class='modal-dialog']//button[text()='Confirm']";
-        const string VOLUMEDRIVER_POPUP = "//*[@role='dialog']//*[@class='modal-title' and contains(text(), 'New Volume Driver')]";
-        const string FORM_INPUT_FIELD_ERROR_XPATH = "//*[contains(@class,'validation-error')]";
-        const string TABLE_HEADER = "//th";
-        const string ELEMENT_ALERT = "//*[@class='form-group has-error']";
+        private const string ProfilingCollapsedTab = "//li[contains(@class,'collapsed')]//span[contains(text(),'Profiling')]";
+        private const string VolumeDriverMappingTab = "//a[text()='Volume Driver Mapping']";
+        private const string VolumeDriverMappingPages = "//*[@class='page-title' and text()='Volume Driver Mappings']";
+        private const string ErrorAlertToastXpath = "//*[@class='toast toast-error']";
+        private const string AddButton = "//button[.//*[@class='fa fa-plus']]";
+        private const string AddVolumeDriverMappingSetLink = "(//*[contains(@class,'dropdown open')]//a)[2]";
+        private const string AddVolumeDriverMappingLink = "(//*[contains(@class,'dropdown open')]//a)[1]";
+        private const string NameInput = "//*[@id='name']";
+        private const string VolumeDriverRecord = "//*[@role='row' and .//*[text()='{0}']]";
+        private const string VolumeDriverInput = "//input[@type='number']";
+        private const string CheckVolumeDriverMappingOfRespectiveDepartment = "//div[contains(@class,'flyout-button')]//button[@type='button']";
+        private const string EditButton = "//*[@title='{0}']/../button";
+        private const string DeleteButton = "//i[contains(@title,'Delete')]";
+        private const string VolumeConfirmPopup = "//*[@class='modal-dialog']//*[contains(text(),'Please confirm that you want to delete')]";
+        private const string VolumeSetConfirmPopup = "//*[@class='modal-dialog']//*[contains(text(),'New Volume Driver Mapping Set')]";
+        private const string ConfirmPopupButton = "//button[contains(@type,'button') and contains(text(),'Confirm')]";
+        private const string DepartmentValue = "//option[contains(text(),'{0}')]";
+        private const string VolumeDriverDropdown = "//*[@id='volumeDriverId']";
+        private const string UomDropdown = "//*[@id='unitOfMeasureId']";
+        private const string SaveButton = "//button[contains(text(),'Save')]";
+        private const string CloseVolumeDriverMappingFormButton = "//*[@class='modal-dialog']//button[contains(text(),'Cancel')]";
+        private const string CloseVolumeDriverMappingDetails = "//button[text()='Close']";
+        private const string CancelVolumeDriverMappingDetails = "//button[text()='Cancel']";
+        private const string VolumeDriverMappingRecord = "//*[@role='row' and .//*[text()='{0}']]";
+        private const string CreatedVolumeDriverMappingSet = "//div[contains(@class,'volume-driver-mapping-set-list-entry')]//span[contains(text(),'{0}')]";
+        private const string VolumeDriverMappingDeleteButton = "//button[contains(@class,'delete')]";
+        private const string VolumeDriverMappingDeleteConfirmPopup = "//*[@class='modal-dialog']//*[contains(text(),'Please confirm that you want to delete')]";
+        private const string VolumeDriverMappingDeleteConfirmPopupAccept = "//*[@class='modal-dialog']//button[text()='Confirm']";
+        private const string VolumeDriverPopup = "//*[@role='dialog']//*[@class='modal-title' and contains(text(), 'New Volume Driver')]";
+        private const string FormInputFieldErrorXpath = "//*[contains(@class,'validation-error')]";
+        private const string TableHeader = "//th";
+        private const string ElementAlert = "//*[@class='form-group has-error']";
         private const string ExportButton = "//button[@id='export']";
         private const string ExportVolumeDriverMapping = " //*[@class='dropdown-menu dropdown-menu-right']//*//a[text()='Download Volume Driver Mapping Import Template']";
-        private const string AddButton = "//button[.//*[@class='fa fa-plus']]";
         private const string VolumeDriverDropDown = "//*[@id='volumeDriverId']";
-        private const string VolumeDriverMappingRecord = "//*[@role='row' and .//*[text()='{0}']]";
-        private const string VolumeDriverMappingDeleteButton = "//button[contains(@class,'delete')]";
         private const string DepartmentDropdownValue = "//select[contains(@id,'departmentId')]//option[contains(text(),'{0}')]";
         private const string DepartmentDropdown = "//select[contains(@id,'departmentId')]";
         public static void VerifyExportOptionIsAvailable()
@@ -55,7 +51,7 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
             WebDriverUtil.GetWebElement(ExportButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE).Click();
             var exportButton = WebDriverUtil.GetWebElement(ExportVolumeDriverMapping, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (exportButton == null)
-                throw new Exception("Export Button is not found but we expect it should be present when user login from view only access");
+                throw new Exception("Export button is not found but we expect it should be present when user login from view only access");
             BaseClass._AttachScreenshot.Value = true;
         }
         public static void VerifyAddButtonIsNotAvailable()
@@ -63,7 +59,7 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
             LogWriter.WriteLog("Executing VolumeDriverMappingPage.VerifyAddButtonIsNotAvailable");
             var addButton = WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (addButton != null)
-                throw new Exception("Add Button is found but we expect it should not be present when user login from view only access");
+                throw new Exception("Add button is found but we expect it should not be present when user login from view only access");
             BaseClass._AttachScreenshot.Value = true;
         }
         public static void VerifyDetailsAreNotEditable()
@@ -71,7 +67,7 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
             LogWriter.WriteLog("Executing VolumeDriverMappingPage.VerifyDetailsAreNotEditable");
             var editTextBox = WebDriverUtil.GetWebElement(VolumeDriverDropDown, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (editTextBox.Enabled)
-                throw new Exception("Edit TextBox is Enabled but we expect it should be disabled when user login from view only access");
+                throw new Exception("Edit TextBox is enabled but we expect it should be disabled when user login from view only access");
             BaseClass._AttachScreenshot.Value = true;
         }
         public static void VerifyDeleteButtonIsNotAvailable(string volumeDriverMappingName)
@@ -82,7 +78,7 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
                 $"Unable to locate VolumeDriverMapping record on VolumeDriverMapping page - {volumeDriverMappingRecordXpath}").Click();
             var deleteButton = WebDriverUtil.GetWebElement(VolumeDriverMappingDeleteButton, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (deleteButton != null)
-                throw new Exception("Delete Button is found but we expect it should not be present when user login from view only access");
+                throw new Exception("Delete button is found but we expect it should not be present when user login from view only access");
             BaseClass._AttachScreenshot.Value = true;
         }
         public static void SelectTheDepartment(string departmentName)
@@ -91,224 +87,206 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
             var departmentValue = string.Format(DepartmentDropdownValue, departmentName);
             WebDriverUtil.GetWebElement(DepartmentDropdown, WebDriverUtil.ONE_SECOND_WAIT, $"Unable to locate the department dropdown - {DepartmentDropdown}").Click();
             WebDriverUtil.GetWebElement(departmentValue,
-           WebDriverUtil.ONE_SECOND_WAIT, $"Unable to locate Department record on Department page - {departmentValue}").Click();
+           WebDriverUtil.ONE_SECOND_WAIT, $"Unable to locate Department record on Department dropdown - {departmentValue}").Click();
             WebDriverUtil.WaitForAWhile();
         }
         public static void CloseVolumeDriverMappingDetailSideBar()
         {
             LogWriter.WriteLog("Executing VolumeDriverMappingPage.CloseVolumeDriverMappingDetailSideBar");
-            IWebElement VolumeDriverMappingDetailsSideBar = WebDriverUtil.GetWebElement(CLOSE_VOLUMEDRIVERMAPPING_DETAILS, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (VolumeDriverMappingDetailsSideBar != null)
+            var volumeDriverMappingDetailsSideBar = WebDriverUtil.GetWebElement(CloseVolumeDriverMappingDetails, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (volumeDriverMappingDetailsSideBar != null)
             {
-                VolumeDriverMappingDetailsSideBar.Click();
+                volumeDriverMappingDetailsSideBar.Click();
                 WebDriverUtil.WaitFor(WebDriverUtil.TWO_SECOND_WAIT);
             }
-            VolumeDriverMappingDetailsSideBar = WebDriverUtil.GetWebElement(CANCEL_VOLUMEDRIVERMAPPING_DETAILS, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (VolumeDriverMappingDetailsSideBar != null)
-            {
-                VolumeDriverMappingDetailsSideBar.Click();
-                WebDriverUtil.WaitFor(WebDriverUtil.TWO_SECOND_WAIT);
-            }
+            volumeDriverMappingDetailsSideBar = WebDriverUtil.GetWebElement(CancelVolumeDriverMappingDetails, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (volumeDriverMappingDetailsSideBar == null) return;
+            volumeDriverMappingDetailsSideBar.Click();
+            WebDriverUtil.WaitFor(WebDriverUtil.TWO_SECOND_WAIT);
         }
-        public static void DeleteVolumeDriverMappingsetIfExist(string volumeDriverMappingsetName)
+        public static void DeleteVolumeDriverMappingSetIfExist(string volumeDriverMappingSetName)
         {
-            LogWriter.WriteLog("Executing VolumeDriverMappingsetPage.DeleteVolumeDriverMappingsetIfExist");
-            IList<IWebElement> headers = SeleniumDriver.Driver().FindElements(By.XPath(TABLE_HEADER));
-            int index = 0;
-            foreach (IWebElement header in headers)
+            LogWriter.WriteLog("Executing VolumeDriverMappingPage.DeleteVolumeDriverMappingSetIfExist");
+            IList<IWebElement> headers = SeleniumDriver.Driver().FindElements(By.XPath(TableHeader));
+            if (headers.Select(header => header.GetAttribute("innerHTML")).Any(headerData => headerData.Contains(volumeDriverMappingSetName)))
             {
-                index++;
-                string headerData = header.GetAttribute("innerHTML");
-                if (headerData.Contains(volumeDriverMappingsetName))
-                {
-
-                    DeleteCreatedVolumeDriverMappingSet(volumeDriverMappingsetName);
-                    break;
-
-                }
-
+                DeleteCreatedVolumeDriverMappingSet(volumeDriverMappingSetName);
             }
         }
         public static void DeleteVolumeDriverMappingIfExist(string volumeDriverMappingName)
         {
             LogWriter.WriteLog("Executing VolumeDriverMappingPage.DeleteVolumeDriverMappingIfExist");
             WaitForVolumeDriverMappingAlertCloseIfAny();
-            IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(VOLUMEDRIVERMAPPING_RECORD, volumeDriverMappingName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            var volumeDriverMappingXpath = string.Format(VolumeDriverMappingRecord, volumeDriverMappingName);
+            var record = WebDriverUtil.GetWebElementAndScroll(volumeDriverMappingXpath, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record != null)
             {
                 DeleteCreatedVolumeDriverMapping(volumeDriverMappingName);
             }
-
-
         }
-        public static void DeleteCreatedUOM(string uomName)
+        public static void DeleteCreatedUom(string uomName)
         {
-            LogWriter.WriteLog("Executing VolumeDriverMappingPage.DeleteCreatedUOM");
-            WebDriverUtil.GetWebElement(String.Format(VOLUMEDRIVER_RECORD, uomName), WebDriverUtil.TWO_SECOND_WAIT,
-            String.Format("Unable to locate VolumeDriverMapping record on VolumeDriverMapping page - {0}", String.Format(VOLUMEDRIVERMAPPING_RECORD, uomName))).Click();
+            LogWriter.WriteLog("Executing VolumeDriverMappingPage.DeleteCreatedUom");
+            var uomRecordXpath = string.Format(VolumeDriverRecord, uomName);
+            WebDriverUtil.GetWebElement(uomRecordXpath, WebDriverUtil.TWO_SECOND_WAIT,
+            $"Unable to locate uom record on uom page - {uomRecordXpath}").Click();
 
-            WebDriverUtil.GetWebElement(String.Format(VOLUMEDRIVERMAPPING_DELETE_BUTTON, uomName), WebDriverUtil.ONE_SECOND_WAIT,
-            String.Format("Unable to locate VolumeDriverMapping delete button on VolumeDriverMapping details - {0}", String.Format(VOLUMEDRIVERMAPPING_DELETE_BUTTON, uomName))).Click();
+            WebDriverUtil.GetWebElement(VolumeDriverMappingDeleteButton, WebDriverUtil.ONE_SECOND_WAIT,
+            $"Unable to locate uom delete button on uom details page - {VolumeDriverMappingDeleteButton}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
- 
-            WebDriverUtil.GetWebElement(VOLUMEDRIVERMAPPING_DELETE_CONFIRM_POPUP_ACCEPT, WebDriverUtil.TWO_SECOND_WAIT,
-                String.Format("Unable to locate Confirm button on delete confirmation popup - {0}", VOLUMEDRIVERMAPPING_DELETE_CONFIRM_POPUP_ACCEPT)).Click();
+
+            WebDriverUtil.GetWebElement(VolumeDriverMappingDeleteConfirmPopupAccept, WebDriverUtil.TWO_SECOND_WAIT,
+                $"Unable to locate Confirm button on delete confirmation popup - {VolumeDriverMappingDeleteConfirmPopupAccept}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
-            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
-                WebDriverUtil.WaitForWebElementInvisible(VOLUMEDRIVERMAPPING_DELETE_CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
+                WebDriverUtil.WaitForWebElementInvisible(VolumeDriverMappingDeleteConfirmPopup, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
             }
             else
             {
-                throw new Exception(string.Format("Unable to delete UOM Error - {0}", alert.Text));
+                throw new Exception($"Unable to delete UOM Error - {alert.Text}");
             }
-            
+
         }
         public static void DeleteCreatedVolumeDriverMapping(string volumeDriverName)
         {
-            LogWriter.WriteLog("Executing VolumeDriverMapping DeleteCreatedVolumeDrivert");
-            WebDriverUtil.GetWebElement(String.Format(VOLUMEDRIVER_RECORD, volumeDriverName), WebDriverUtil.TWO_SECOND_WAIT,
-            String.Format("Unable to locate VolumeDriverMapping record on VolumeDriverMapping page - {0}", String.Format(VOLUMEDRIVERMAPPING_RECORD, volumeDriverName))).Click();
+            LogWriter.WriteLog("Executing VolumeDriverMappingPage.DeleteCreatedVolumeDriverMapping");
+            var volumeDriverMappingRecord = string.Format(VolumeDriverRecord, volumeDriverName);
+            WebDriverUtil.GetWebElement(volumeDriverMappingRecord, WebDriverUtil.TWO_SECOND_WAIT,
+            $"Unable to locate VolumeDriverMapping record on VolumeDriverMapping page - {volumeDriverMappingRecord}").Click();
 
-            WebDriverUtil.GetWebElement(String.Format(VOLUMEDRIVERMAPPING_DELETE_BUTTON, volumeDriverName), WebDriverUtil.ONE_SECOND_WAIT,
-            String.Format("Unable to locate VolumeDriverMapping delete button on VolumeDriverMapping details - {0}", String.Format(VOLUMEDRIVERMAPPING_DELETE_BUTTON, volumeDriverName))).Click();
+            WebDriverUtil.GetWebElement(VolumeDriverMappingDeleteButton, WebDriverUtil.ONE_SECOND_WAIT,
+            $"Unable to locate VolumeDriverMapping delete button on VolumeDriverMapping details - {VolumeDriverMappingDeleteButton}").Click();
 
-            WebDriverUtil.GetWebElement(VOLUMEDRIVERMAPPING_DELETE_CONFIRM_POPUP_ACCEPT, WebDriverUtil.TWO_SECOND_WAIT,
-                String.Format("Unable to locate Confirm button on delete confirmation popup - {0}", VOLUMEDRIVERMAPPING_DELETE_CONFIRM_POPUP_ACCEPT)).Click();
+            WebDriverUtil.GetWebElement(VolumeDriverMappingDeleteConfirmPopupAccept, WebDriverUtil.TWO_SECOND_WAIT,
+                $"Unable to locate Confirm button on delete confirmation popup - {VolumeDriverMappingDeleteConfirmPopupAccept}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
-            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
-                WebDriverUtil.WaitForWebElementInvisible(VOLUMEDRIVERMAPPING_DELETE_CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
+                WebDriverUtil.WaitForWebElementInvisible(VolumeDriverMappingDeleteConfirmPopup, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
             }
             else
             {
-                throw new Exception(string.Format("Unable to delete VolumeDriverMapping Error - {0}", alert.Text));
+                throw new Exception($"Unable to delete VolumeDriverMapping Error - {alert.Text}");
             }
-            
+
         }
         public static void VerifyCreatedVolumeDriverMapping(string volumeDriverName)
         {
-            LogWriter.WriteLog("Executing VolumeDriverMapping  VerifyCreatedVolumeDriver");
-            WebDriverUtil.GetWebElement(String.Format(VOLUMEDRIVER_RECORD, volumeDriverName), WebDriverUtil.DEFAULT_WAIT,
-            String.Format("Unable to locate record VolumeDriverMapping page - {0}", String.Format(VOLUMEDRIVER_RECORD, volumeDriverName)));
+            LogWriter.WriteLog("Executing VolumeDriverMappingPage.VerifyCreatedVolumeDriverMapping");
+            var volumeDriverMappingRecord = string.Format(VolumeDriverRecord, volumeDriverName);
+            WebDriverUtil.GetWebElement(volumeDriverMappingRecord, WebDriverUtil.DEFAULT_WAIT,
+            $"Unable to locate record on VolumeDriverMapping page - {volumeDriverMappingRecord}");
             BaseClass._AttachScreenshot.Value = true;
             CloseVolumeDriverMappingDetailSideBar();
         }
         public static void DeleteCreatedVolumeDriverMappingSet(string volumeDriverMappingName)
         {
-            LogWriter.WriteLog("Executing VolumeDriverMappingPage DeleteCreatedVolumeDriverMappingSet");
-            WebDriverUtil.GetWebElement(CHECK_VOLUMEDRIVERMAPPING_OF_RESPECTIVE_DEPARTMENT,
+            LogWriter.WriteLog("Executing VolumeDriverMappingPage.DeleteCreatedVolumeDriverMappingSet");
+            WebDriverUtil.GetWebElement(CheckVolumeDriverMappingOfRespectiveDepartment,
             WebDriverUtil.NO_WAIT,
-            String.Format("Unable to locate the check VolumeDriverMappingPage of respective department- {0}",
-            CHECK_VOLUMEDRIVERMAPPING_OF_RESPECTIVE_DEPARTMENT)).Click();
+            $"Unable to locate the check VolumeDriverMapping set button of respective department - {CheckVolumeDriverMappingOfRespectiveDepartment}").Click();
+            var editButtonXpath = string.Format(EditButton, volumeDriverMappingName);
+            WebDriverUtil.GetWebElement(editButtonXpath,
+            WebDriverUtil.ONE_SECOND_WAIT, $"Unable to locate edit button on VolumeDriverMapping set record - {editButtonXpath}").Click();
+            WebDriverUtil.GetWebElement(DeleteButton,
+            WebDriverUtil.ONE_SECOND_WAIT, $"Unable to locate delete button - {DeleteButton}").Click();
 
-            WebDriverUtil.GetWebElement(String.Format(EDIT_BUTTON, volumeDriverMappingName),
-            WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate VolumeDriverMappingPage record on VolumeDriverMappingPage - {0}", String.Format(EDIT_BUTTON, volumeDriverMappingName))).Click();
-            WebDriverUtil.GetWebElement(DELETE_BUTTON,
-            WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate delete button - {0}", DELETE_BUTTON)).Click();
-
-            WebDriverUtil.GetWebElement(CONFIRM_POPUP_BUTTON, WebDriverUtil.TWO_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
+            WebDriverUtil.GetWebElement(ConfirmPopupButton, WebDriverUtil.TWO_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
-            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
-                WebDriverUtil.WaitForWebElementInvisible(VOLUME_CONFIRM_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
+                WebDriverUtil.WaitForWebElementInvisible(VolumeConfirmPopup, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
             }
             else
             {
-                throw new Exception(string.Format("Unable to delete Volume Driver Mapping Error - {0}", alert.Text));
+                throw new Exception($"Unable to delete VolumeDriverMapping set Error - {alert.Text}");
             }
-            
-            WebDriverUtil.GetWebElement(CHECK_VOLUMEDRIVERMAPPING_OF_RESPECTIVE_DEPARTMENT,
+
+            WebDriverUtil.GetWebElement(CheckVolumeDriverMappingOfRespectiveDepartment,
             WebDriverUtil.ONE_SECOND_WAIT,
-            String.Format("Unable to locate the check VOLUMEDRIVERMAPPINGset of respective department- {0}",
-            CHECK_VOLUMEDRIVERMAPPING_OF_RESPECTIVE_DEPARTMENT)).Click();
+            $"Unable to locate the check VolumeDriverMapping set button of respective department - {CheckVolumeDriverMappingOfRespectiveDepartment}").Click();
 
         }
         public static void ClickOnProfilingTab()
         {
             LogWriter.WriteLog("Executing VolumeDriverMappingPage.ClickOnProfilingTab");
-            IWebElement profilingtab = WebDriverUtil.GetWebElement(PROFILING_COLLAPSED_TAB, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (profilingtab != null)
-            {
-                profilingtab.Click();
-                WebDriverUtil.WaitForAWhile();
-
-            }
+            var profilingTab = WebDriverUtil.GetWebElement(ProfilingCollapsedTab, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (profilingTab == null) return;
+            profilingTab.Click();
+            WebDriverUtil.WaitForAWhile();
         }
         public static void SelectCreatedDepartment(string deptName)
         {
-            LogWriter.WriteLog("Executing VolumeDriverMapping SelectCreatedDepartment");
-            WebDriverUtil.GetWebElement(DEPARTMENT_DROPDOWN, WebDriverUtil.FIVE_SECOND_WAIT, String.Format("Unable to locate the department dropdown - {0}", DEPARTMENT_DROPDOWN)).Click();
-            WebDriverUtil.GetWebElement(String.Format(DEPARTMENT_VALUE, deptName),
-            WebDriverUtil.NO_WAIT, String.Format("Unable to locate z record on VolumeDriverMappingset page - {0}", String.Format(DEPARTMENT_VALUE, deptName))).Click();
+            LogWriter.WriteLog("Executing VolumeDriverMappingPage.SelectCreatedDepartment");
+            WebDriverUtil.GetWebElement(DepartmentDropdown, WebDriverUtil.FIVE_SECOND_WAIT, $"Unable to locate the department dropdown - {DepartmentDropdown}").Click();
+            var departmentDropdownValue = string.Format(DepartmentValue, deptName);
+            WebDriverUtil.GetWebElement(departmentDropdownValue,
+            WebDriverUtil.NO_WAIT, $"Unable to locate department dropdown value on VolumeDriverMapping page - {departmentDropdownValue}").Click();
 
         }
         public static void ClickOnVolumeDriverMappingTab()
         {
             LogWriter.WriteLog("Executing VolumeDriverMappingPage.ClickOnVolumeDriverMappingTab");
-            if (WebDriverUtil.GetWebElement(VOLUMEDRIVERMAPPING_PAGE, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) == null)
-            {
-                WebDriverUtil.GetWebElement(VOLUMEDRIVERMAPPING_TAB, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
-                WebDriverUtil.WaitForAWhile();
-            }
+            if (WebDriverUtil.GetWebElement(VolumeDriverMappingPages, WebDriverUtil.NO_WAIT,
+                    WebDriverUtil.NO_MESSAGE) != null) return;
+            WebDriverUtil.GetWebElement(VolumeDriverMappingTab, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
+            WebDriverUtil.WaitForAWhile();
         }
         public static void WaitForVolumeDriverMappingAlertCloseIfAny()
         {
             LogWriter.WriteLog("Executing VolumeDriverMappingPage.WaitForVolumeDriverMappingAlertCloseIfAny");
-            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (alert != null)
+            var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (alert == null) return;
+            var nameTag = WebDriverUtil.GetWebElementAndScroll(NameInput);
+            if (nameTag != null)
             {
-                IWebElement nametag = WebDriverUtil.GetWebElementAndScroll(NAME_INPUT);
-                if (nametag != null)
-                {
-                    nametag.Click();
-                }
-                WebDriverUtil.WaitForWebElementInvisible(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                nameTag.Click();
             }
+            WebDriverUtil.WaitForWebElementInvisible(ErrorAlertToastXpath, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
         }
         public static void CloseVolumeDriverMappingForm()
         {
             LogWriter.WriteLog("Executing VolumeDriverMappingPage.CloseVolumeDriverMappingForm");
             WaitForVolumeDriverMappingAlertCloseIfAny();
-            IWebElement formCloseButton = WebDriverUtil.GetWebElement(CLOSE_VOLUMEDRIVERMAPPING_FORM_BUTTON, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (formCloseButton != null)
-            {
-                formCloseButton.Click();
-                WebDriverUtil.WaitForAWhile();
-            }
+            var formCloseButton = WebDriverUtil.GetWebElement(CloseVolumeDriverMappingFormButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (formCloseButton == null) return;
+            formCloseButton.Click();
+            WebDriverUtil.WaitForAWhile();
         }
         public static void ClickOnAddButton()
         {
             LogWriter.WriteLog("Executing VolumeDriverMappingPage.ClickOnAddButton");
             CloseVolumeDriverMappingDetailSideBar();
-            WebDriverUtil.GetWebElement(ADD_BUTTON, WebDriverUtil.NO_WAIT,
-            String.Format("Unable to locate add button on VolumeDriverMapping page - {0}", ADD_BUTTON)).Click();
+            WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT,
+            $"Unable to locate add button on VolumeDriverMapping page - {AddButton}").Click();
             WebDriverUtil.WaitForAWhile();
         }
-        public static void ClickOnNewVolumeDriverMappingsetMenuLink()
+        public static void ClickOnNewVolumeDriverMappingSetMenuLink()
         {
-            LogWriter.WriteLog("Executing VolumeDriverMappingPage.ClickOnNewVolumeDriverMappingMenuLink");
-            WebDriverUtil.GetWebElement(ADD_VOLUMEDRIVERMAPPINGSET_LINK, WebDriverUtil.NO_WAIT,
-            String.Format("Unable to locate New VolumeDriverMapping menu link on add menu popup - {0}", ADD_VOLUMEDRIVERMAPPINGSET_LINK)).Click();
+            LogWriter.WriteLog("Executing VolumeDriverMappingPage.ClickOnNewVolumeDriverMappingSetMenuLink");
+            WebDriverUtil.GetWebElement(AddVolumeDriverMappingSetLink, WebDriverUtil.NO_WAIT,
+            $"Unable to locate new VolumeDriverMapping set menu link on add menu popup - {AddVolumeDriverMappingSetLink}").Click();
 
         }
         public static void ClickOnNewVolumeDriverMappingMenuLink()
         {
             LogWriter.WriteLog("Executing VolumeDriverMappingPage.ClickOnNewVolumeDriverMappingMenuLink");
-            WebDriverUtil.GetWebElement(ADD_VOLUMEDRIVERMAPPING_LINK, WebDriverUtil.NO_WAIT,
-            String.Format("Unable to locate New VolumeDriverMapping menu link on add menu popup - {0}", ADD_VOLUMEDRIVERMAPPING_LINK)).Click();
+            WebDriverUtil.GetWebElement(AddVolumeDriverMappingLink, WebDriverUtil.NO_WAIT,
+            $"Unable to locate new VolumeDriverMapping menu link on add menu popup - {AddVolumeDriverMappingLink}").Click();
 
         }
         public static void AddNewVolumeDriverMappingWithGivenInputIfNotExist(Table inputData)
         {
             LogWriter.WriteLog("Executing VolumeDriverMappingPage.AddNewVolumeDriverMappingWithGivenInputIfNotExist");
             var dictionary = Util.ConvertToDictionary(inputData);
-            IWebElement record = WebDriverUtil.GetWebElementAndScroll(String.Format(VOLUMEDRIVER_RECORD, dictionary["VolumeDriver"]), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            var volumeDriverRecord = string.Format(VolumeDriverRecord, dictionary["VolumeDriver"]);
+            var record = WebDriverUtil.GetWebElementAndScroll(volumeDriverRecord, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record == null)
             {
                 AddNewVolumeDriverMappingWithGivenInput(inputData);
@@ -321,16 +299,16 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
         }
         public static void ClickOnVolumeDriverMapping()
         {
-            LogWriter.WriteLog("Executing VolumeDriverMapping  ClickOnVolumeDriverse");
+            LogWriter.WriteLog("Executing VolumeDriverMappingPage.ClickOnVolumeDriverMapping");
             ClickOnAddButton();
             ClickOnNewVolumeDriverMappingMenuLink();
 
         }
         public static void ClickOnVolumeDriverSet()
         {
-            LogWriter.WriteLog("Executing VolumeDriverMapping  ClickOnVolumeDriverSet");
+            LogWriter.WriteLog("Executing VolumeDriverMappingPage.ClickOnVolumeDriverSet");
             ClickOnAddButton();
-            ClickOnNewVolumeDriverMappingsetMenuLink();
+            ClickOnNewVolumeDriverMappingSetMenuLink();
 
         }
         public static void AddNewVolumeDriverMappingWithGivenInput(Table inputData)
@@ -342,79 +320,73 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
             //Enter VolumeDriverMapping name if provided
             if (Util.ReadKey(dictionary, "Name") != null)
             {
-                WebDriverUtil.GetWebElement(NAME_INPUT, WebDriverUtil.NO_WAIT,
-                    String.Format("Unable to locate Name input on create VolumeDriverMapping page - {0}", NAME_INPUT))
+                WebDriverUtil.GetWebElement(NameInput, WebDriverUtil.NO_WAIT,
+                    $"Unable to locate Name input on create VolumeDriverMapping page - {NameInput}")
                   .SendKeys(dictionary["Name"]);
             }
 
             if (Util.ReadKey(dictionary, "VolumeDriverMappingSet") != null)
             {
-                WebDriverUtil.GetWebElement(VOLUMEDRIVER_INPUT, WebDriverUtil.NO_WAIT,
-                    String.Format("Unable to locate Description input on create VolumeDriverMapping page - {0}", VOLUMEDRIVER_INPUT))
+                WebDriverUtil.GetWebElement(VolumeDriverInput, WebDriverUtil.NO_WAIT,
+                    $"Unable to locate VolumeDriverMapping set input on create VolumeDriverMapping page - {VolumeDriverInput}")
                   .SendKeys(dictionary["VolumeDriverMappingSet"]);
             }
 
             if (Util.ReadKey(dictionary, "VolumeDriver") != null)
             {
-                new SelectElement(WebDriverUtil.GetWebElement(VOLUMEDRIVER_DROPDOWN, WebDriverUtil.NO_WAIT,
-                    String.Format("Unable to locate VolumeDriverMapping Profile input on create VolumeDriverMapping page - {0}", VOLUMEDRIVER_DROPDOWN)))
+                new SelectElement(WebDriverUtil.GetWebElement(VolumeDriverDropdown, WebDriverUtil.NO_WAIT,
+                    $"Unable to locate VolumeDriver input on create VolumeDriverMapping page - {VolumeDriverDropdown}"))
                   .SelectByText(dictionary["VolumeDriver"]);
             }
             if (Util.ReadKey(dictionary, "UOM") != null)
             {
-                new SelectElement(WebDriverUtil.GetWebElement(UOM_DROPDOWN, WebDriverUtil.NO_WAIT,
-                    String.Format("Unable to locate UOM input on create VolumeDriverMapping page - {0}", UOM_DROPDOWN)))
+                new SelectElement(WebDriverUtil.GetWebElement(UomDropdown, WebDriverUtil.NO_WAIT,
+                    $"Unable to locate UOM input on create VolumeDriverMapping page - {UomDropdown}"))
                   .SelectByText(dictionary["UOM"]);
             }
 
-            WebDriverUtil.GetWebElementAndScroll(SAVE_BUTTON, WebDriverUtil.NO_WAIT,
-            String.Format("Unable to locate save button on create VolumeDriverMapping page - {0}", SAVE_BUTTON)).Click();
+            WebDriverUtil.GetWebElementAndScroll(SaveButton, WebDriverUtil.NO_WAIT,
+            $"Unable to locate save button on create VolumeDriverMapping page - {SaveButton}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Saving...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (WebDriverUtil.GetWebElement(VOLUMEDRIVER_POPUP, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null)
+            if (WebDriverUtil.GetWebElement(VolumeDriverPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) ==
+                null) return;
+            var errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (errorMessage != null) return;
+            var errorMsg = WebDriverUtil.GetWebElementAndScroll(ElementAlert, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (errorMsg != null) return;
+            var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (alert == null)
             {
-                IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FORM_INPUT_FIELD_ERROR_XPATH, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-                if (errorMessage == null)
-                {
-                    IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ELEMENT_ALERT, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-                    if (errorMsg == null)
-                    {
-                        IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ERROR_ALERT_TOAST_XPATH, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-                        if (alert == null)
-                        {
-                            WebDriverUtil.WaitForWebElementInvisible(VOLUMEDRIVER_POPUP, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
-                        }
-                        else
-                        {
-                            throw new Exception(string.Format("Unable to create new allowance Error - {0}", alert.Text));
-                        }
-                    }
-                }
+                WebDriverUtil.WaitForWebElementInvisible(VolumeDriverPopup, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
+            }
+            else
+            {
+                throw new Exception($"Unable to create new VolumeDriverMapping Error - {alert.Text}");
             }
         }
         public static void VerifyCreatedVolumeDriverMappingSet(string volumeDriverMappingName)
         {
             LogWriter.WriteLog("Executing VolumeDriverMappingPage.VerifyCreatedVolumeDriverMappingSet");
 
-            if (WebDriverUtil.GetWebElement(VOLUMESET_CONFIRM_POPUP, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null)
+            if (WebDriverUtil.GetWebElement(VolumeSetConfirmPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
-                WebDriverUtil.WaitForWebElementInvisible(VOLUMESET_CONFIRM_POPUP, WebDriverUtil.DEFAULT_WAIT, WebDriverUtil.NO_MESSAGE);
+                WebDriverUtil.WaitForWebElementInvisible(VolumeSetConfirmPopup, WebDriverUtil.DEFAULT_WAIT, WebDriverUtil.NO_MESSAGE);
             }
 
-            WebDriverUtil.GetWebElement(CHECK_VOLUMEDRIVERMAPPING_OF_RESPECTIVE_DEPARTMENT,
+            WebDriverUtil.GetWebElement(CheckVolumeDriverMappingOfRespectiveDepartment,
             WebDriverUtil.NO_WAIT,
-            String.Format("Unable to locate the check VOLUMEDRIVERMAPPINGset of respective department- {0}",
-            CHECK_VOLUMEDRIVERMAPPING_OF_RESPECTIVE_DEPARTMENT)).Click();
+            $"Unable to locate the check VolumeDriverMapping set button of respective department - {CheckVolumeDriverMappingOfRespectiveDepartment}").Click();
             BaseClass._AttachScreenshot.Value = true;
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
 
-            IWebElement VolumeDriverMappingsetData = WebDriverUtil.GetWebElement(String.Format(CREATED_VOLUMEDRIVERMAPPINGSET, volumeDriverMappingName),
-            WebDriverUtil.ONE_SECOND_WAIT, String.Format("Unable to locate VOLUMEDRIVERMAPPINGset record on VOLUMEDRIVERMAPPINGset page - {0}", String.Format(CREATED_VOLUMEDRIVERMAPPINGSET, volumeDriverMappingName)));
+            var volumeDriverMappingSetData = string.Format(CreatedVolumeDriverMappingSet, volumeDriverMappingName);
+            WebDriverUtil.GetWebElement(volumeDriverMappingSetData,
+        WebDriverUtil.ONE_SECOND_WAIT, $"Unable to locate VolumeDriverMappingSet record on VolumeDriverMappingSet page - {volumeDriverMappingSetData}");
 
-            WebDriverUtil.GetWebElement(CHECK_VOLUMEDRIVERMAPPING_OF_RESPECTIVE_DEPARTMENT,
+            WebDriverUtil.GetWebElement(CheckVolumeDriverMappingOfRespectiveDepartment,
             WebDriverUtil.NO_WAIT,
-            String.Format("Unable to locate the check VOLUMEDRIVERMAPPINGset of respective department- {0}",
-            CHECK_VOLUMEDRIVERMAPPING_OF_RESPECTIVE_DEPARTMENT)).Click();
+            $"Unable to locate the check VolumeDriverMapping set button of respective department - {CheckVolumeDriverMappingOfRespectiveDepartment}").Click();
 
         }
 
