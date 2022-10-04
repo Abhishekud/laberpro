@@ -2,23 +2,36 @@
 {
     public class DataCache
     {
-        private static ThreadLocal<Dictionary<string,string>> cache = new ThreadLocal<Dictionary<string, string>>();
-        
+        private static ThreadLocal<Dictionary<string, string>> cache = new ThreadLocal<Dictionary<string, string>>();
+
         public static void Save(string key, string val)
         {
-            cache.Value[key] = val;
+            if (cache.Value == null)
+            {
+                cache.Value = new Dictionary<string, string>();
+            }
+            cache.Value.Add(key, val);
         }
-        public static string Read(string key) 
+        public static string Read(string key)
         {
             try
             {
-                return cache.Value[key];
-            } 
+                if (cache.Value.ContainsKey(key))
+                    return cache.Value[key];
+            }
             catch (Exception ex)
             {
-                LogWriter.WriteLog(ex.Message);                      
+                LogWriter.WriteLog(ex.Message);
             }
             return key;
+        }
+
+        public static string SaveWithTimeStamp(string value)
+        {
+            var now = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+            var updatedValue = $"{value} {now}";
+            Save(value, updatedValue);
+            return updatedValue;
         }
     }
 }

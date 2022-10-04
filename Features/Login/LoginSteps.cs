@@ -73,16 +73,21 @@ namespace LaborPro.Automation.Features.Login
             LoginPage.PerformLogin(Util.ProcessInputDataString(userName), Util.ProcessInputDataString(password));
         }
 
-        [Given(@"User logged in with super admin access using username: ""([^""]*)"" and password: ""([^""]*)""")]
-        [When(@"User logged in with super admin access using username: ""([^""]*)"" and password: ""([^""]*)""")]
-        [Then(@"User logged in with super admin access using username: ""([^""]*)"" and password: ""([^""]*)""")]
-        public void LoggedInWithSuperAdminAccess(string userName, string password)
+        [Given(@"User ""([^""]*)"" is authenticated with ""([^""]*)""")]
+        public void UserAuthentication(string user, string url)
         {
-            LogWriter.WriteLog("Executing Step: User logged in with super admin access using username:" + Util.ProcessInputDataString(userName) + "password: *********");
-            LoginPage.PerformLogin(Util.ProcessInputDataString(userName), Util.ProcessInputDataString(password));
+            url = Util.ProcessInputDataString(url);
+            Console.WriteLine($"Test Suite Execution - {Environment.GetEnvironmentVariable("suiteType")}");
+            Console.WriteLine($"Test Execution Environment - {Environment.GetEnvironmentVariable("env")}");
+            Console.WriteLine($"URL - {url}");
+            LogWriter.WriteLog($"Executing Step: User {user} is authenticated with {url}");
+            UserLaunchedBrowser("$browser");
+            GoToApplication(url);
+            LoginPage.PerformLogin(
+                Util.ProcessInputDataString(user, "username"),
+                Util.ProcessInputDataString(user, "password"));
+            LoginPage.VerifyLoginSuccess();
         }
-
-
 
     }
 }

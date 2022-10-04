@@ -80,15 +80,13 @@ namespace LaborPro.Automation.Features.VolumeDriverValueSet
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("01. Launch Browser and Login to the Application and perform prerequisites")]
         [NUnit.Framework.CategoryAttribute("Setup")]
-        [NUnit.Framework.CategoryAttribute("Smoke")]
         public void _01_LaunchBrowserAndLoginToTheApplicationAndPerformPrerequisites()
         {
             string[] tagsOfScenario = new string[] {
-                    "Setup",
-                    "Smoke"};
+                    "Setup"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01. Launch Browser and Login to the Application and perform prerequisites", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 5
+#line 4
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -98,292 +96,98 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+#line 5
+  testRunner.Given("User \"$superadmin\" is authenticated with \"$url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
 #line 6
- testRunner.Given("User launched \"$browser\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 7
- testRunner.When("User go to application \"$url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 8
- testRunner.Then("User logged in with super admin access using username: \"$superadmin_username\" and" +
-                        " password: \"$superadmin_password\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 9
- testRunner.And("Verify Login message: \"success\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 10
- testRunner.Then("User navigates to the List Management tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 11
- testRunner.And("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.Then("Department \"Test Department\" exists", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
                 TechTalk.SpecFlow.Table table122 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Key",
-                            "Value"});
+                            "Department",
+                            "Test Department"});
                 table122.AddRow(new string[] {
-                            "Name",
-                            "Department to verify VolumeDriverValueSet"});
-#line 12
- testRunner.And("User create new Department with below input if not exist", ((string)(null)), table122, "And ");
-#line hidden
-#line 15
- testRunner.Then("User navigates to the standards tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 16
- testRunner.And("User delete Standard \"standardforvolumedrivervalueset\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 17
- testRunner.And("User navigates to the attribute tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 18
- testRunner.And("User select the Department \"Department to verify VolumeDriverValueSet\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 19
- testRunner.And("User delete attribute \"attributeforvolumedrivervalueset\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                            "Standard",
+                            "Test Standard"});
+                table122.AddRow(new string[] {
+                            "Attribute",
+                            "Test Attribute"});
+#line 7
+  testRunner.And("Attribute with below input exists", ((string)(null)), table122, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table123 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Key",
-                            "Value"});
-                table123.AddRow(new string[] {
                             "Name",
-                            "attributeforvolumedrivervalueset"});
-#line 20
- testRunner.And("User add new attribute using below input", ((string)(null)), table123, "And ");
-#line hidden
-#line 23
- testRunner.Then("User navigates to the Characteristic tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 24
- testRunner.And("User select the Department \"Department to verify VolumeDriverValueSet\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 25
- testRunner.And("User click on Characteristic set", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                            "Test Standard"});
+                table123.AddRow(new string[] {
+                            "Department",
+                            "Test Department"});
+                table123.AddRow(new string[] {
+                            "Attribute",
+                            "Test Attribute"});
+#line 11
+  testRunner.And("Standard with below input exists", ((string)(null)), table123, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table124 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Key",
-                            "Value"});
+                            "Department",
+                            "Test Department"});
                 table124.AddRow(new string[] {
-                            "Name",
-                            "charsetforvolumedrivervalueset"});
-#line 26
- testRunner.And("User create new Characteristic with below input", ((string)(null)), table124, "And ");
-#line hidden
-#line 29
- testRunner.And("User refresh the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 30
- testRunner.Then("User navigates to the standards tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 31
- testRunner.And("User delete Standard \"standardforvolumedrivervalueset\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                            "VolumeDriver",
+                            "Test VolumeDriver"});
+                table124.AddRow(new string[] {
+                            "UnitsOfMeasure",
+                            "Test UOM"});
+#line 15
+  testRunner.And("Units Of Measure with below input exists", ((string)(null)), table124, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table125 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Key",
-                            "Value"});
+                            "Standard",
+                            "Test Standard"});
                 table125.AddRow(new string[] {
-                            "Name",
-                            "standardforvolumedrivervalueset"});
+                            "StandardElementType",
+                            "Estimate"});
                 table125.AddRow(new string[] {
-                            "Department",
-                            "Department to verify VolumeDriverValueSet"});
-                table125.AddRow(new string[] {
-                            "Attribute",
-                            "attributeforvolumedrivervalueset"});
-#line 32
- testRunner.And("User add new standards using below input", ((string)(null)), table125, "And ");
-#line hidden
-#line 37
- testRunner.And("User click on previous link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 38
- testRunner.Then("User navigates to the VolumeDriverMapping tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 39
- testRunner.And("User select the Department \"Department to verify VolumeDriverValueSet\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 40
- testRunner.And("User delete VolumeDriverMapping \"VolumeDriver_created via automations\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 41
- testRunner.Then("User navigates to the List Management tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 42
- testRunner.And("User selects UnitOfMeasure", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 43
- testRunner.And("User Selects Created Department \"Department to verify VolumeDriverValueSet\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 44
- testRunner.And("User delete UnitOfMeasure \"UOMforvolumedrivervalueset\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-                TechTalk.SpecFlow.Table table126 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Key",
-                            "Value"});
-                table126.AddRow(new string[] {
-                            "Name",
-                            "UOMforvolumedrivervalueset"});
-#line 45
- testRunner.And("User adds Unit Of Measure using below input", ((string)(null)), table126, "And ");
-#line hidden
-#line 48
- testRunner.Then("User navigates to the standards tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 49
- testRunner.And("User search standard by name \"standardforvolumedrivervalueset\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 50
- testRunner.And("User selects standard by name \"standardforvolumedrivervalueset\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 51
- testRunner.And("User clicks New Standard Element", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 52
- testRunner.And("User Selects Standard Element type \"Estimate\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-                TechTalk.SpecFlow.Table table127 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Key",
-                            "Value"});
-                table127.AddRow(new string[] {
                             "Name",
                             "Dummy"});
-                table127.AddRow(new string[] {
+                table125.AddRow(new string[] {
                             "Frequency",
                             "16"});
-                table127.AddRow(new string[] {
+                table125.AddRow(new string[] {
                             "Unit of Measure",
-                            "UOMforvolumedrivervalueset"});
-#line 53
- testRunner.And("User adds new Standard Element Using Below input", ((string)(null)), table127, "And ");
+                            "Test UOM"});
+#line 19
+  testRunner.And("Standard Element with below input exists", ((string)(null)), table125, "And ");
 #line hidden
-#line 58
- testRunner.And("User click on previous link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 25
+  testRunner.And("Location \"Test Location\" exists", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 59
- testRunner.Then("User navigates to the Locations tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 26
+  testRunner.And("Mapping with \"Test Location\" and \"Test Department\" exists", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 60
- testRunner.And("User delete location by name \"Locationforvolumedrivervalueset\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 27
+  testRunner.And("VolumeDriverMappingSet \"Test VolumeDriverMappingSet\" in department \"Test Departme" +
+                        "nt\" exists", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table128 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Key",
-                            "Value"});
-                table128.AddRow(new string[] {
-                            "Name",
-                            "Locationforvolumedrivervalueset"});
-#line 61
- testRunner.And("User create new location with below input", ((string)(null)), table128, "And ");
+#line 28
+  testRunner.And("Volume Driver \"Test VolumeDriver\" in department \"Test Department\" exists", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 64
- testRunner.And("User Maps created Department and location with \"Locationforvolumedrivervalueset\" " +
-                        "and \"Department to verify VolumeDriverValueSet\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 65
- testRunner.Then("User click on LocationMapping", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 66
- testRunner.And("User select the Department \"Department to verify VolumeDriverValueSet\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 67
- testRunner.And("User verify created LocationMapping \"Locationforvolumedrivervalueset\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 68
- testRunner.Then("User navigates to the VolumeDriverMapping tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 69
- testRunner.And("User select the Department \"Department to verify VolumeDriverValueSet\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 70
- testRunner.And("User delete VolumeDriverMappingSet \"VolumeDriverMappingset_automations\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 71
- testRunner.And("User click on VolumeDriverMapping set", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-                TechTalk.SpecFlow.Table table129 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Key",
-                            "Value"});
-                table129.AddRow(new string[] {
-                            "Name",
-                            "VolumeDriverMappingset_automations"});
-#line 72
- testRunner.And("User create new VolumeDriverMappingSet with below input", ((string)(null)), table129, "And ");
-#line hidden
-#line 75
- testRunner.Then("User navigates to the VolumeDriver tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 76
- testRunner.And("User delete VolumeDriver \"VolumeDriver_created via automations\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-                TechTalk.SpecFlow.Table table130 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Key",
-                            "Value"});
-                table130.AddRow(new string[] {
-                            "Name",
-                            "VolumeDriver_created via automations"});
-                table130.AddRow(new string[] {
-                            "Department",
-                            "Department to verify VolumeDriverValueSet"});
-#line 77
- testRunner.And("User create new VolumeDriver with below input", ((string)(null)), table130, "And ");
-#line hidden
-#line 81
- testRunner.Then("User navigates to the VolumeDriverMapping tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 82
- testRunner.And("User select the Department \"Department to verify VolumeDriverValueSet\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 83
- testRunner.And("User delete VolumeDriverMapping \"VolumeDriver_created via automations\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 84
- testRunner.And("User click on VolumeDriverMapping", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-                TechTalk.SpecFlow.Table table131 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Key",
-                            "Value"});
-                table131.AddRow(new string[] {
+                TechTalk.SpecFlow.Table table126 = new TechTalk.SpecFlow.Table(new string[] {
                             "VolumeDriver",
-                            "VolumeDriver_created via automations"});
-                table131.AddRow(new string[] {
+                            "Test VolumeDriver"});
+                table126.AddRow(new string[] {
                             "UOM",
-                            "UOMforvolumedrivervalueset"});
-                table131.AddRow(new string[] {
+                            "Test UOM"});
+                table126.AddRow(new string[] {
                             "VolumeDriverMappingSet",
                             "2"});
-#line 85
- testRunner.Then("User create new VolumeDriverMappingSet with below input", ((string)(null)), table131, "Then ");
+#line 29
+  testRunner.And("Volume Driver Mapping with below input exists", ((string)(null)), table126, "And ");
 #line hidden
-#line 90
- testRunner.Then("User navigates to the LocationMapping tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 33
+  testRunner.And("Characterstics set \"Test CharactersticsSet\" in department \"Test Department\" exist" +
+                        "s", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 91
- testRunner.And("User select the Department \"Department to verify VolumeDriverValueSet\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 92
- testRunner.And("User select the Location \"Locationforvolumedrivervalueset\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 93
- testRunner.And("User refresh the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 94
- testRunner.Then("User navigates to the LocationMapping tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 95
- testRunner.And("User select the Department \"Department to verify VolumeDriverValueSet\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 96
- testRunner.And("User select the Location \"Locationforvolumedrivervalueset\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-                TechTalk.SpecFlow.Table table132 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Key",
-                            "Value"});
-                table132.AddRow(new string[] {
-                            "VolumeDriverMappingSet",
-                            "VolumeDriverMappingset_automations"});
-                table132.AddRow(new string[] {
-                            "CharacteristicSet",
-                            "charsetforvolumedrivervalueset"});
-#line 97
- testRunner.And("User create new LocationMapping with below input", ((string)(null)), table132, "And ");
+#line 34
+  testRunner.And("Location Mapping \"Test VolumeDriverMappingSet\" and \"Test CharactersticsSet\" exist" +
+                        "s", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -396,7 +200,7 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02. Verify_new_volume_driver_value_set_popup", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 102
+#line 36
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -406,11 +210,8 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 103
- testRunner.When("User navigates to volume driver value set page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 104
- testRunner.Then("User verify new volume driver value set popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 37
+  testRunner.Given("User verify new volume driver value set popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -423,7 +224,7 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03. Verify_add_volume_driver_value_set_module_for_super_admin_user", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 106
+#line 39
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -433,48 +234,11 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 107
- testRunner.Given("User navigates to volume driver value set page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 40
+  testRunner.When("User add new volume driver value set \"Test VolumeDriverValueSet\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 108
- testRunner.When("User download volume driver value import template", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 109
- testRunner.Then("User verify volume driver value downloaded file \"Volume-Driver-Values-import-temp" +
-                        "late\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 110
- testRunner.And("User access the downloaded file and update volume driver value in location \"Locat" +
-                        "ionforvolumedrivervalueset\" \"Department to verify VolumeDriverValueSet\" \"VolumeD" +
-                        "river_created via automations\" \"10\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 111
- testRunner.Then("User navigates to volume driver value set page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-                TechTalk.SpecFlow.Table table133 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Key",
-                            "Value"});
-                table133.AddRow(new string[] {
-                            "Name",
-                            "VolumeDriverValueSet created via automation"});
-#line 112
- testRunner.And("User add new volume driver value set using below input", ((string)(null)), table133, "And ");
-#line hidden
-#line 115
- testRunner.Then("User verify volume driver value set by name \"VolumeDriverValueSet created via aut" +
-                        "omation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 116
- testRunner.Then("User navigates to volume driver values tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 117
- testRunner.When("User selects volume driver value sets by name \"VolumeDriverValueSet created via a" +
-                        "utomation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 118
- testRunner.Then("User verify location department volume driver in volume driver value page \"Locati" +
-                        "onforvolumedrivervalueset\" \"Department to verify VolumeDriverValueSet\" \"VolumeDr" +
-                        "iver_created via automations\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 41
+  testRunner.Then("User verify volume driver value set by name \"Test VolumeDriverValueSet\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -487,7 +251,7 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04. Verify_name_is_empty", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 120
+#line 47
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -497,23 +261,11 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 121
- testRunner.Given("User navigates to volume driver value set page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 48
+  testRunner.When("User add volume driver value set without name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table134 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Key",
-                            "Value"});
-                table134.AddRow(new string[] {
-                            "Name",
-                            ""});
-#line 122
- testRunner.When("User add new volume driver value set using below input", ((string)(null)), table134, "When ");
-#line hidden
-#line 125
- testRunner.And("User click save button on volume driver value set popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 126
- testRunner.Then("User verify validation message \"Name is required\" on volume driver value set popu" +
+#line 49
+  testRunner.Then("User verify validation message \"Name is required\" on volume driver value set popu" +
                         "p", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -527,7 +279,7 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05. Verify_volume_driver_value_file_not_selected", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 128
+#line 51
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -537,23 +289,11 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 129
- testRunner.Given("User navigates to volume driver value set page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 52
+  testRunner.When("User add new volume driver value set without file \"Demo\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table135 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Key",
-                            "Value"});
-                table135.AddRow(new string[] {
-                            "Name",
-                            "Demo"});
-#line 130
- testRunner.When("User add new volume driver value set using below input if not exist", ((string)(null)), table135, "When ");
-#line hidden
-#line 133
- testRunner.And("User click save button on volume driver value set popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 134
- testRunner.Then("User verify validation message \"Volume Driver Value file is required\" on volume d" +
+#line 53
+  testRunner.Then("User verify validation message \"Volume Driver Value file is required\" on volume d" +
                         "river value set popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -567,7 +307,7 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06. Verify_name_is_duplicate", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 136
+#line 55
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -577,20 +317,11 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 137
- testRunner.Given("User navigates to volume driver value set page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 56
+  testRunner.When("User add new volume driver value set for duplication \"Test VolumeDriverValueSet\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table136 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Key",
-                            "Value"});
-                table136.AddRow(new string[] {
-                            "Name",
-                            "VolumeDriverValueSet created via automation"});
-#line 138
- testRunner.When("User add new volume driver value set using below input", ((string)(null)), table136, "When ");
-#line hidden
-#line 141
- testRunner.Then("User verify validation message \"Name already exists\" on volume driver value set p" +
+#line 57
+  testRunner.Then("User verify validation message \"Name already exists\" on volume driver value set p" +
                         "opup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -604,7 +335,7 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("07. Verify_delete_volume_driver_value_set", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 143
+#line 59
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -614,12 +345,8 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 144
- testRunner.When("User navigates to volume driver value set page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 145
- testRunner.Then("User delete volume driver value set by name \"VolumeDriverValueSet created via aut" +
-                        "omation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 60
+  testRunner.Given("User delete volume driver value set by name \"Test VolumeDriverValueSet\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -632,7 +359,7 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("08. Verify_delete_button_is_disabled_in_default_volume_driver_value_set", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 147
+#line 62
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -642,14 +369,9 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 148
- testRunner.Given("User navigates to volume driver value set page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 149
- testRunner.When("User selects default volume driver value set \"Default VDV Set\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 150
- testRunner.Then("User verify delete button is disabled in default volume driver value set", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 63
+  testRunner.Given("User verify delete button is disabled in default volume driver value set \"Default" +
+                        " VDV Set\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -662,7 +384,7 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("09. Verify_volume_driver_value_export_option", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 152
+#line 65
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -672,11 +394,8 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 153
- testRunner.When("User navigates to volume driver values tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 154
- testRunner.Then("User verify export option on volume driver values page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 66
+  testRunner.Given("User verify export option on volume driver values page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -691,7 +410,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "Cleanup"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("10. Logout and Close Browser", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 157
+#line 69
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -701,75 +420,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 158
- testRunner.Then("User navigates to the Locations tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+                TechTalk.SpecFlow.Table table127 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Department",
+                            "Test Department"});
+                table127.AddRow(new string[] {
+                            "Standard",
+                            "Test Standard"});
+                table127.AddRow(new string[] {
+                            "Location",
+                            "Test Location"});
+                table127.AddRow(new string[] {
+                            "VolumeDriver",
+                            "Test VolumeDriver"});
+                table127.AddRow(new string[] {
+                            "UnitsOfMeasure",
+                            "Test UOM"});
+                table127.AddRow(new string[] {
+                            "Attribute",
+                            "Test Attribute"});
+#line 70
+  testRunner.When("User delete created records with below input", ((string)(null)), table127, "When ");
 #line hidden
-#line 159
- testRunner.And("User delete created location by name \"Locationforvolumedrivervalueset\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 77
+  testRunner.Then("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 160
- testRunner.Then("User navigates to the VolumeDriverMapping tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 161
- testRunner.And("User select the Department \"Department to verify VolumeDriverValueSet\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 162
- testRunner.And("User delete created VolumeDriverMapping by \"VolumeDriver_created via automations\"" +
-                        "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 163
- testRunner.Then("User navigates to the VolumeDriver tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 164
- testRunner.And("User delete created VolumeDriver by name \"VolumeDriver_created via automations\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 165
- testRunner.Then("User navigates to the standards tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 166
- testRunner.And("User search standard by name \"standardforvolumedrivervalueset\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 167
- testRunner.And("User selects standard by name \"standardforvolumedrivervalueset\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 168
- testRunner.Then("User Delete created Standards", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 169
- testRunner.Then("User navigates to the List Management tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 170
- testRunner.And("User selects UnitOfMeasure", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 171
- testRunner.And("User Selects Created Department \"Department to verify VolumeDriverValueSet\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 172
- testRunner.And("User delete UOM by name \"UOMforvolumedrivervalueset\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 173
- testRunner.Then("User navigates to the attribute tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 174
- testRunner.And("User select the Department \"Department to verify VolumeDriverValueSet\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 175
- testRunner.And("User delete created attribute:\"attributeforvolumedrivervalueset\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 176
- testRunner.Then("User navigates to the List Management tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 177
- testRunner.And("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 178
- testRunner.And("User delete created Department \"Department to verify VolumeDriverValueSet\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 179
- testRunner.When("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 180
- testRunner.Then("User close browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 78
+  testRunner.Then("User close browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

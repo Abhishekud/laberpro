@@ -42,7 +42,7 @@ namespace LaborPro.Automation.Features.Locations
         [Then(@"User edit location ""([^""]*)"" with below input")]
         public void EditLocationWithGivenInput(string locationName, Table inputData)
         {
-            LogWriter.WriteLog("Executing step: User edit location "+ locationName+" with below input - " + inputData);
+            LogWriter.WriteLog("Executing step: User edit location " + locationName + " with below input - " + inputData);
             LocationPage.EditLocationWithGivenInput(locationName, inputData);
         }
 
@@ -69,7 +69,7 @@ namespace LaborPro.Automation.Features.Locations
         [Then(@"User delete location by name ""([^""]*)"" if exist")]
         public void DeleteLocationIfExist(String locationName)
         {
-            LogWriter.WriteLog("Executing step: User delete created location by name " + locationName +" if exist");
+            LogWriter.WriteLog("Executing step: User delete created location by name " + locationName + " if exist");
             LocationPage.DeleteLocationIfExist(locationName);
         }
         [Given(@"User verify add button is not available on location page")]
@@ -134,6 +134,167 @@ namespace LaborPro.Automation.Features.Locations
             LogWriter.WriteLog("User verify location record" + locationRecord + "and department record" + departmentRecord + "cannot be mapped");
             LocationPage.MapsCreatedDepartmentAndLocationNotAvailable(locationRecord, departmentRecord);
 
+        }
+
+        [Then(@"User verify add button is available on location page")]
+        [Given(@"User verify add button is available on location page")]
+        [When(@"User verify add button is available on location page")]
+        public void VerifyAddButtonIsAvailableOnLocationPage()
+        {
+            LogWriter.WriteLog("Executing Step: User verify add button is available on location page");
+            NavigatesToTheLocationsTab();
+            LocationPage.VerifyAddButtonIsAvailable();
+        }
+        [Then(@"User verify add button options are available on location page")]
+        [Given(@"User verify add button options are available on location page")]
+        [When(@"User verify add button options are available on location page")]
+        public void VerifyAddButtonOptionsAreAvailableOnLocationPage()
+        {
+            LogWriter.WriteLog("Executing Step: User verify add button options are available on location page");
+            NavigatesToTheLocationsTab();
+            LocationPage.VerifyAddButtonOptionsAreAvailable();
+        }
+
+        [Then(@"User verify new location popup is available on location page")]
+        [When(@"User verify new location popup is available on location page")]
+        [Given(@"User verify new location popup is available on location page")]
+        public void VerifyNewLocationPopupIsAvailableOnLocationPage()
+        {
+            LogWriter.WriteLog("Executing Step: User verify new location popup is available on location page");
+            NavigatesToTheLocationsTab();
+            LocationPage.VerifyNewLocationPopupIsAvailable();
+
+        }
+
+        [When(@"Locations ""([^""]*)"" exists")]
+        [Then(@"Locations ""([^""]*)"" exists")]
+        [Given(@"Locations ""([^""]*)"" exists")]
+        public void LocationsExists(string locationName)
+        {
+            LogWriter.WriteLog("Executing step: Locations " + locationName + " exists");
+            NavigatesToTheLocationsTab();
+            LocationPage.LocationsExists(locationName);
+        }
+
+        [Then(@"User verify created location ""([^""]*)""")]
+        [When(@"User verify created location ""([^""]*)""")]
+        [Given(@"User verify created location ""([^""]*)""")]
+        public void UserVerifyCreatedLocation(string locationName)
+        {
+            LogWriter.WriteLog("Executing step: User verify created location " + locationName);
+            LocationPage.VerifyCreatedLocation(DataCache.Read(locationName));
+        }
+        [When(@"User verify new location profile popup is available on location page")]
+        [Then(@"User verify new location profile popup is available on location page")]
+        [Given(@"User verify new location profile popup is available on location page")]
+        public void VerifyNewLocationProfilePopupIsAvailableOnLocationPage()
+        {
+            LogWriter.WriteLog("Executing Step: User verify new location profile popup is available on location page");
+            NavigatesToTheLocationsTab();
+            LocationPage.VerifyNewLocationProfilePopupIsAvailable();
+
+        }
+        [When(@"User verify import locations popup is available on location page")]
+        [Then(@"User verify import locations popup is available on location page")]
+        [Given(@"User verify import locations popup is available on location page")]
+        public void VerifyImportLocationsPopupIsAvailableOnLocationPage()
+        {
+            LogWriter.WriteLog("Executing Step: User verify import locations popup is available on location page");
+            NavigatesToTheLocationsTab();
+            LocationPage.VerifyImportLocationsPopupIsAvailable();
+        }
+        [When(@"User verify import locations profile popup is available on location page")]
+        [Then(@"User verify import locations profile popup is available on location page")]
+        [Given(@"User verify import locations profile popup is available on location page")]
+        public void VerifyImportLocationsProfilePopupIsAvailableOnLocationPage()
+        {
+            LogWriter.WriteLog("Executing Step: User verify import locations profile popup is available on location page");
+            NavigatesToTheLocationsTab();
+            LocationPage.VerifyImportLocationsProfilePopupIsAvailable();
+        }
+        [When(@"Location profile ""([^""]*)"" exist")]
+        [Then(@"Location profile ""([^""]*)"" exist")]
+        [Given(@"Location profile ""([^""]*)"" exist")]
+        public void LocationProfileExist(string locationProfile)
+        {
+            LogWriter.WriteLog("Executing step: Location profile " + locationProfile + " exist");
+            NavigatesToTheLocationsTab();
+            LocationPage.AddNewLocationProfileWithGivenInput(locationProfile);
+        }
+        [Then(@"User verify created location profile by name ""([^""]*)""")]
+        [When(@"User verify created location profile by name ""([^""]*)""")]
+        [Given(@"User verify created location profile by name ""([^""]*)""")]
+        public void VerifyCreatedLocationProfile(string locationProfile)
+        {
+            LogWriter.WriteLog("Executing step: User verify created location profile by name " + locationProfile);
+            LocationPage.VerifyCreatedLocationProfile(locationProfile);
+        }
+
+        [Then(@"User verify location profile listing is available")]
+        [When(@"User verify location profile listing is available")]
+        [Given(@"User verify location profile listing is available")]
+        public void VerifyLocationProfileListingIsAvailable()
+        {
+            LogWriter.WriteLog("Executing step: User verify location profile listing is available");
+            NavigatesToTheLocationsTab();
+            LocationPage.VerifyLocationProfileListingIsAvailable();
+        }
+        [Given(@"User verify location profile edit options are available in ""([^""]*)""")]
+        [When(@"User verify location profile edit options are available in ""([^""]*)""")]
+        [Then(@"User verify location profile edit options are available in ""([^""]*)""")]
+        public void VerifyLocationProfileEditOptionsAreAvailable(string locationProfile)
+        {
+            LogWriter.WriteLog("Executing step: User verify location profile listing is available");
+            NavigatesToTheLocationsTab();
+            LocationPage.VerifyLocationProfileEditOptionsAreAvailable(locationProfile);
+        }
+        [Given(@"User verify checkboxes are available on location page")]
+        [When(@"User verify checkboxes are available on location page")]
+        [Then(@"User verify checkboxes are available on location page")]
+        public void GivenUserVerifyCheckboxesAreAvailableOnLocationPage()
+        {
+            LogWriter.WriteLog("Executing step: User verify checkboxes are available on location page");
+            NavigatesToTheLocationsTab();
+            LocationPage.CloseLocationDetailSideBar();
+            LocationPage.VerifyCheckboxesAreAvailable();
+        }
+        [Given(@"User verify bulk edit option is available on location page")]
+        [When(@"User verify bulk edit option is available on location page")]
+        [Then(@"User verify bulk edit option is available on location page")]
+        public void VerifyBulkEditOptionIsAvailableInOnLocationPage()
+        {
+            LogWriter.WriteLog("Executing step: User verify bulk edit option is available on location page");
+            NavigatesToTheLocationsTab();
+            LocationPage.VerifyBulkEditOptionIsAvailable();
+        }
+        [Given(@"User verify edit location options are available on location page")]
+        [When(@"User verify edit location options are available on location page")]
+        [Then(@"User verify edit location options are available on location page")]
+        public void VerifyEditLocationOptionsAreAvailableOnLocationPage()
+        {
+            LogWriter.WriteLog("Executing step: User verify edit location options are available on location page");
+            NavigatesToTheLocationsTab();
+            LocationPage.VerifyEditLocationOptionsAreAvailable();
+        }
+        [Given(@"User verify edit location sidebar is available on location page")]
+        [When(@"User verify edit location sidebar is available on location page")]
+        [Then(@"User verify edit location sidebar is available on location page")]
+        public void VerifyEditLocationSidebarIsAvailableOnLocationPage()
+        {
+            LogWriter.WriteLog("Executing step: User verify edit location sidebar is available on location page");
+            NavigatesToTheLocationsTab();
+            LocationPage.VerifyEditLocationSidebarIsAvailable();
+        }
+        [Given(@"User delete records ""([^""]*)"" and ""([^""]*)"" on location page")]
+        [Then(@"User delete records ""([^""]*)"" and ""([^""]*)"" on location page")]
+        [When(@"User delete records ""([^""]*)"" and ""([^""]*)"" on location page")]
+        public void DeleteRecords(string locationName, string locationProfile)
+        {
+            LogWriter.WriteLog("Executing step: User delete records " + locationName + " and " + locationProfile +
+                               " on location page");
+            NavigatesToTheLocationsTab();
+            LocationPage.DeleteCreatedLocation(DataCache.Read(locationName));
+            LocationPage.DeleteCreatedLocationProfile(DataCache.Read(locationProfile));
         }
     }
 }
