@@ -21,7 +21,7 @@ namespace LaborPro.Automation.Features.Kronos.LaborPeriods
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Verify LaborPeriods Module")]
-    [NUnit.Framework.CategoryAttribute("LaberPro")]
+    [NUnit.Framework.CategoryAttribute("LaborPro")]
     [NUnit.Framework.CategoryAttribute("Regression")]
     [NUnit.Framework.CategoryAttribute("LaborPeriods")]
     public partial class VerifyLaborPeriodsModuleFeature
@@ -30,7 +30,7 @@ namespace LaborPro.Automation.Features.Kronos.LaborPeriods
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "LaberPro",
+                "LaborPro",
                 "Regression",
                 "LaborPeriods"};
         

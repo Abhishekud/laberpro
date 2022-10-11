@@ -1,16 +1,13 @@
 ﻿using LaborPro.Automation.Features.Allowances;
-using LaborPro.Automation.Features.Attribute;
-using LaborPro.Automation.Features.Characteristic;
 using LaborPro.Automation.Features.Department;
 using LaborPro.Automation.Features.LocationMapping;
 using LaborPro.Automation.Features.Locations;
-using LaborPro.Automation.Features.Standards;
 using LaborPro.Automation.Features.UnitOfMeasure;
 using LaborPro.Automation.Features.VolumeDriver;
-using LaborPro.Automation.Features.VolumeDriverMapping;
 using LaborPro.Automation.Features.VolumeDriverValue;
 using LaborPro.Automation.shared.drivers;
 using LaborPro.Automation.shared.util;
+using TechTalk.SpecFlow.Assist;
 
 namespace LaborPro.Automation.Features.VolumeDriverValueSet
 {
@@ -37,9 +34,9 @@ namespace LaborPro.Automation.Features.VolumeDriverValueSet
             LogWriter.WriteLog("Executing Step User verify validation message: " + message + " on volume driver value set popup");
             VolumeDriverValueSetPage.VerifyAddVolumeDriverValueSetErrorMessage(message);
         }
-        [Given(@"User verify volume driver value set by name ""([^""]*)""")]
-        [When(@"User verify volume driver value set by name ""([^""]*)""")]
-        [Then(@"User verify volume driver value set by name ""([^""]*)""")]
+        [Given(@"User verify created volume driver value set ""([^""]*)""")]
+        [When(@"User verify created volume driver value set ""([^""]*)""")]
+        [Then(@"User verify created volume driver value set ""([^""]*)""")]
         public void VerifyVolumeDriverValueSet(string volumeDriverValueSet)
         {
             LogWriter.WriteLog("Executing Step User verify volume driver value set by name" + volumeDriverValueSet);
@@ -47,9 +44,9 @@ namespace LaborPro.Automation.Features.VolumeDriverValueSet
             VolumeDriverValueSetPage.VerifyVolumeDriverValueSet(DataCache.Read(volumeDriverValueSet));
         }
   
-        [Given(@"User delete volume driver value set by name ""([^""]*)""")]
-        [When(@"User delete volume driver value set by name ""([^""]*)""")]
-        [Then(@"User delete volume driver value set by name ""([^""]*)""")]
+        [Given(@"User delete volume driver value set ""([^""]*)""")]
+        [When(@"User delete volume driver value set ""([^""]*)""")]
+        [Then(@"User delete volume driver value set ""([^""]*)""")]
         public void DeleteVolumeDriverValueSetByName(string volumeDriverValueSetRecord)
         {
             LogWriter.WriteLog("Executing Step User delete volume driver value set by name" + volumeDriverValueSetRecord);
@@ -66,194 +63,17 @@ namespace LaborPro.Automation.Features.VolumeDriverValueSet
             LogWriter.WriteLog("Executing Step User select export option on volume driver values page");
             VolumeDriverValueSetPage.SelectExportOption();
         }
-
-        [Given(@"Department ""([^""]*)"" exists")]
-        [When(@"Department ""([^""]*)"" exists")]
-        [Then(@"Department ""([^""]*)"" exists")]
-        public void GivenDepartmentExists(string department)
-        {
-            LogWriter.WriteLog("Executing Step Department " + department + " exists ");
-            DepartmentsPage.CloseDepartmentForm();
-            DepartmentsPage.ClickOnStandardTab();
-            DepartmentsPage.ClickOnListManagementTab();
-            AllowancePage.WaitForAllowanceAlertCloseIfAny();
-            DepartmentsPage.ClickOnDepartment();
-            VolumeDriverValueSetPage.AddNewDepartmentWithGivenInputIfNotExist(department);
-        }
-        [Given(@"Attribute with below input exists")]
-        [When(@"Attribute with below input exists")]
-        [Then(@"Attribute with below input exists")]
-        public void GivenAttributeWithBelowInputExists(Table inputData)
-        {
-            LogWriter.WriteLog("Executing Step Attribute with below input exists " + inputData);            
-            AttributePage.CloseAttributeForm();
-            AttributePage.ClickOnProfilingTab();
-            AttributePage.ClickOnAttributeTab();
-            AllowancePage.WaitForAllowanceAlertCloseIfAny();
-            var dictionary = Util.ConvertToDictionary(inputData);
-            AttributePage.SelectTheDepartment(DataCache.Read(dictionary["Department"]));
-            VolumeDriverValueSetPage.AddAttributeWihGivenInput(inputData);
-        }
-        [Given(@"Characterstics set ""([^""]*)"" in department ""([^""]*)"" exists")]
-        [When(@"Characterstics set ""([^""]*)"" in department ""([^""]*)"" exists")]
-        [Then(@"Characterstics set ""([^""]*)"" in department ""([^""]*)"" exists")]
-        public void GivenCharactersticsSetInDepartmentExists(string charactersticSet, string department)
-        {
-            LogWriter.WriteLog("Executing Step Charactertics set " + charactersticSet + " department " + department + " exists ");
-            CharacteristicsPage.CloseCharacteristicForm();
-            CharacteristicsPage.ClickOnStandardTab();
-            CharacteristicsPage.ClickOnCharacteristicTab();
-            AttributePage.SelectTheDepartment(DataCache.Read(department));
-            CharacteristicsPage.ClickOnCharacteristicSet();
-            VolumeDriverValueSetPage.AddNewCharacteristicWithGivenInput(charactersticSet);
-            CharacteristicsPage.CloseCharacteristicDetailSideBar();
-            LocationMappingPage.Refresh();
-        }
-        [Given(@"Standard with below input exists")]
-        [When(@"Standard with below input exists")]
-        [Then(@"Standard with below input exists")]
-        public void GivenStandardWithBelowInputExists(Table inputData)
-        {
-            LogWriter.WriteLog("Executing Step Standard with below input exists " + inputData);
-            var dictionary = Util.ConvertToDictionary(inputData);
-            StandardsPage.CloseStandardsForm();
-            AllowancePage.ClickOnStandardTab();
-            StandardsPage.ClickOnStandardsTab();
-            AllowancePage.WaitForAllowanceAlertCloseIfAny();
-            VolumeDriverValueSetPage.AddStandardsWihGivenInput(inputData);
-            AllowancePage.ClickOnPreviousLink();
-        }
-        [Given(@"Units Of Measure with below input exists")]
-        [When(@"Units Of Measure with below input exists")]
-        [Then(@"Units Of Measure with below input exists")]
-        public void GivenUnitsOfMeasureWithBelowInputExists(Table inputData)
-        {
-            LogWriter.WriteLog("Executing Step Units Of Measure with below input exists " + inputData);
-            var dictionary = Util.ConvertToDictionary(inputData);
-            var departmentValue = DataCache.Read(dictionary["Department"]);
-            DepartmentsPage.CloseDepartmentForm();
-            DepartmentsPage.ClickOnStandardTab();
-            DepartmentsPage.ClickOnListManagementTab();
-            AllowancePage.WaitForAllowanceAlertCloseIfAny();
-            UnitsOfMeasurePage.ClickOnUnitOfMeasure();
-            UnitsOfMeasurePage.SelectCreatedDepartment(departmentValue);
-            VolumeDriverValueSetPage.AddUnitOfMeasureWihGivenInput(inputData);
-        }
-        [Given(@"Standard Element with below input exists")]
-        [When(@"Standard Element with below input exists")]
-        [Then(@"Standard Element with below input exists")]
-        public void GivenStandardElementWithBelowInputExists(Table inputData)
-        {
-            LogWriter.WriteLog("Executing Step Standard Element with below input exists " + inputData);
-            var dictionary = Util.ConvertToDictionary(inputData);
-            var standard = DataCache.Read(dictionary["Standard"]);
-            var standardElementType = dictionary["StandardElementType"];
-            StandardsPage.CloseStandardsForm();
-            AllowancePage.ClickOnStandardTab();
-            StandardsPage.ClickOnStandardsTab();
-            AllowancePage.WaitForAllowanceAlertCloseIfAny();
-            StandardsPage.ClearAllFilter();
-            StandardsPage.SearchStandard(standard);
-            StandardsPage.SelectStandard(standard);
-            StandardsPage.ClickOnNewStandardElement();
-            StandardsPage.SelectElementType(standardElementType);
-            VolumeDriverValueSetPage.AddStandardElementWithGivenInput(inputData);
-            AllowancePage.ClickOnPreviousLink();
-        }
-        [Given(@"Location ""([^""]*)"" exists")]
-        [When(@"Location ""([^""]*)"" exists")]
-        [Then(@"Location ""([^""]*)"" exists")]
-        public void GivenLocationExists(string location)
-        {
-            LogWriter.WriteLog("Executing Step Location " + location + " exists");
-            LocationPage.CloseLocationForm();
-            LocationPage.ClickOnProfilingTab();
-            LocationPage.ClickOnLocationsTab();
-            LocationPage.ClearAllFilter();
-            LocationPage.KeepRecordUnSort();
-            VolumeDriverValueSetPage.AddNewLocationWithGivenInput(location);
-        }
-        [Given(@"Mapping with ""([^""]*)"" and ""([^""]*)"" exists")]
-        [When(@"Mapping with ""([^""]*)"" and ""([^""]*)"" exists")]
-        [Then(@"Mapping with ""([^""]*)"" and ""([^""]*)"" exists")]
-        public void GivenMappingWithAndExists(string location, string department)
-        {
-            LogWriter.WriteLog("Executing Step Mapping with " + location +  " and "+ department + " exists ");
-            var locationValue = DataCache.Read(location);
-            var departmentValue = DataCache.Read(department);
-            LocationMappingPage.MapsCreatedDepartmentAndLocation(locationValue, departmentValue);
-        }
-        [Given(@"VolumeDriverMappingSet ""([^""]*)"" in department ""([^""]*)"" exists")]
-        [When(@"VolumeDriverMappingSet ""([^""]*)"" in department ""([^""]*)"" exists")]
-        [Then(@"VolumeDriverMappingSet ""([^""]*)"" in department ""([^""]*)"" exists")]
-        public void GivenVolumeDriverMappingSetInDepartmentExists(string volumeDriverMappingSet, string department)
-        {
-            LogWriter.WriteLog("Executing Step VolumeDriverMappingSet " + volumeDriverMappingSet + " in department "+department+ "exists");
-            var departmentValue = DataCache.Read(department);
-            VolumeDriverMappingPage.CloseVolumeDriverMappingForm();
-            VolumeDriverMappingPage.ClickOnProfilingTab();
-            VolumeDriverMappingPage.ClickOnVolumeDriverMappingTab();
-            AttributePage.SelectTheDepartment(departmentValue);
-            VolumeDriverMappingPage.ClickOnVolumeDriverSet();
-            VolumeDriverValueSetPage.AddNewVolumeDriverMappingSetWithGivenInput(volumeDriverMappingSet);
-        }
-        [Given(@"Volume Driver ""([^""]*)"" in department ""([^""]*)"" exists")]
-        [When(@"Volume Driver ""([^""]*)"" in department ""([^""]*)"" exists")]
-        [Then(@"Volume Driver ""([^""]*)"" in department ""([^""]*)"" exists")]
-        public void GivenVolumeDriverInDepartmentExists(string volumeDriver, string department)
-        {
-            LogWriter.WriteLog("Executing Step Volume Driver "+volumeDriver+ " in department " + department + " exists ");
-            var departmentValue = DataCache.Read(department);
-            VolumeDriverPage.CloseVolumeDriverForm();
-            VolumeDriverPage.ClickOnStandardTab();
-            VolumeDriverPage.ClickOnListManagementTab();
-            VolumeDriverPage.ClickOnVolumeDriver();
-            VolumeDriverValueSetPage.AddNewVolumeDriverWithGivenInput(volumeDriver,departmentValue);
-        }
-        [Given(@"Volume Driver Mapping with below input exists")]
-        [When(@"Volume Driver Mapping with below input exists")]
-        [Then(@"Volume Driver Mapping with below input exists")]
-        public void GivenVolumeDriverMappingWithBelowInputExists(Table inputData)
-        {
-            LogWriter.WriteLog("Executing Step Volume Driver Mapping with below input should exist " + inputData);
-            VolumeDriverMappingPage.CloseVolumeDriverMappingForm();
-            VolumeDriverMappingPage.ClickOnProfilingTab();
-            VolumeDriverMappingPage.ClickOnVolumeDriverMappingTab();
-            AttributePage.SelectTheDepartment(DataCache.Read("Test Department"));
-            VolumeDriverMappingPage.ClickOnVolumeDriverMapping();
-            VolumeDriverValueSetPage.AddNewVolumeDriverMappingWithGivenInput(inputData);
-        }
-        [Given(@"Location Mapping ""([^""]*)"" and ""([^""]*)"" exists")]
-        [When(@"Location Mapping ""([^""]*)"" and ""([^""]*)"" exists")]
-        [Then(@"Location Mapping ""([^""]*)"" and ""([^""]*)"" exists")]
-        public void GivenLocationMappingAndExists(string locationMapping, string charactersticsSet)
-        {
-            LogWriter.WriteLog("Executing Step Location Mapping " + locationMapping + " and "+ charactersticsSet + " exists ");
-            var locationMappingValue = DataCache.Read(locationMapping);
-            var charactersticsSetValue = DataCache.Read(charactersticsSet);
-            LocationMappingPage.CloseLocationDriverMappingForm();
-            LocationMappingPage.ClickOnProfilingTab();
-            LocationMappingPage.ClickOnLocationMappingTab();
-            AttributePage.SelectTheDepartment(DataCache.Read("Test Department"));
-            LocationMappingPage.SelectTheLocation(DataCache.Read("Test Location"));
-            LocationMappingPage.Refresh();
-            LocationMappingPage.CloseLocationDriverMappingForm();
-            LocationMappingPage.ClickOnProfilingTab();
-            LocationMappingPage.ClickOnLocationMappingTab();
-            AttributePage.SelectTheDepartment(DataCache.Read("Test Department"));
-            LocationMappingPage.SelectTheLocation(DataCache.Read("Test Location"));
-            VolumeDriverValueSetPage.AddNewLocationMappingWithGivenInput(locationMappingValue, charactersticsSetValue);
-        }
-        [Given(@"User verify location department volume driver in volume driver value page")]
-        [When(@"User verify location department volume driver in volume driver value page")]
-        [Then(@"User verify location department volume driver in volume driver value page")]
+        [Given(@"User verify created volume driver values")]
+        [When(@"User verify created volume driver values")]
+        [Then(@"User verify created volume driver values")]
         public void VerifyLocationDepartmentVolumeDriver(Table inputData)
         {
             LogWriter.WriteLog("Executing Step User verify location department volume driver in volume driver value page " + inputData);
+            var VolumeDriverValuesRecord = inputData.CreateInstance<VolumeDriverValuesRecord>();
             LocationPage.ClickOnProfilingTab();
             VolumeDriverValuePage.ClickOnVolumeDriverValueTab();
-            VolumeDriverValueSetPage.SelectTheVolumeDriverValueSet(DataCache.Read("Test VolumeDriverValueSet"));
-            VolumeDriverValueSetPage.VerifyLocationDepartmentVolumeDriverInVolumeDriverValue(inputData);
+            VolumeDriverValueSetPage.SelectTheVolumeDriverValueSet(DataCache.Read(VolumeDriverValuesRecord.VolumeDriverValueSet));
+            VolumeDriverValueSetPage.VerifyLocationDepartmentVolumeDriverInVolumeDriverValue(VolumeDriverValuesRecord);
         }
         [Given(@"User add volume driver value set without name")]
         [When(@"User add volume driver value set without name")]
@@ -267,20 +87,19 @@ namespace LaborPro.Automation.Features.VolumeDriverValueSet
             VolumeDriverValueSetPage.ClickOnNewVolumeDriverValueSet();
             VolumeDriverValueSetPage.ClickOnSaveButton(); 
         }
-        [Given(@"User add new volume driver value set ""([^""]*)""")]
-        [When(@"User add new volume driver value set ""([^""]*)""")]
-        [Then(@"User add new volume driver value set ""([^""]*)""")]
-        public void AddNewVolumeDriverValueSet(string volumeDriverValueSet)
+        [Given(@"User add new volume driver value set")]
+        [When(@"User add new volume driver value set")]
+        [Then(@"User add new volume driver value set")]
+        public void AddNewVolumeDriverValueSet(Table inputData)
         {
-            LogWriter.WriteLog("Executing User User add new volume driver value set " + volumeDriverValueSet);
+            LogWriter.WriteLog("Executing User User add new volume driver value set " + inputData);
+            var volumeDriverValuesRecord = inputData.CreateInstance<VolumeDriverValuesRecord>();
             VolumeDriverValueSetPage.CloseVolumeDriverValueSetPopup();
             VolumeDriverValueSetPage.ClickOnProfilingTab();
             VolumeDriverValueSetPage.ClickOnVolumeDriverValueSetTab();
             VolumeDriverValueSetPage.DownloadVolumeDriverValueTemplate();
-            VolumeDriverValueSetPage.AddRecordToCsv(DataCache.Read("Test Location")," ",
-                DataCache.Read("Test Department"),DataCache.Read("Test VolumeDriver"),
-                "2",SeleniumDriver.CsvFile);
-            VolumeDriverValueSetPage.AddVolumeDriverValueSetWithGivenInput(volumeDriverValueSet);
+            VolumeDriverValueSetPage.AddRecordToCsv(volumeDriverValuesRecord, SeleniumDriver.CsvFile);
+            VolumeDriverValueSetPage.AddVolumeDriverValueSetWithGivenInput(volumeDriverValuesRecord.VolumeDriverValueSet);
             VolumeDriverValueSetPage.ImportTheVolumeDriverValueUpdatedFile();
             VolumeDriverValueSetPage.ClickOnSaveButton();
         }
@@ -295,57 +114,6 @@ namespace LaborPro.Automation.Features.VolumeDriverValueSet
             VolumeDriverValueSetPage.ClickOnVolumeDriverValueSetTab();
             VolumeDriverValueSetPage.SelectDefaultVolumeDriverValueSet(record);
             VolumeDriverValueSetPage.VerifyDeleteButtonIsDisabledForDefault();
-        }
-        [Given(@"User delete created records with below input")]
-        [When(@"User delete created records with below input")]
-        [Then(@"User delete created records with below input")]
-        public void DeleteCreatedRecords(Table inputData)
-        {
-            LogWriter.WriteLog("Executing Step User delete created records with below input " + inputData);
-            var dictionary = Util.ConvertToDictionary(inputData);
-            LocationPage.CloseLocationForm();
-            LocationPage.ClickOnProfilingTab();
-            LocationPage.ClickOnLocationsTab();
-            LocationPage.ClearAllFilter();
-            LocationPage.KeepRecordUnSort();
-            LocationPage.DeleteCreatedLocation(DataCache.Read(dictionary["Location"]));
-            VolumeDriverMappingPage.CloseVolumeDriverMappingForm();
-            VolumeDriverMappingPage.ClickOnProfilingTab();
-            VolumeDriverMappingPage.ClickOnVolumeDriverMappingTab();
-            AttributePage.SelectTheDepartment(DataCache.Read(dictionary["Department"]));
-            VolumeDriverMappingPage.DeleteCreatedVolumeDriverMapping(DataCache.Read(dictionary["VolumeDriver"]));
-            VolumeDriverPage.CloseVolumeDriverForm();
-            VolumeDriverPage.ClickOnStandardTab();
-            VolumeDriverPage.ClickOnListManagementTab();
-            VolumeDriverPage.ClickOnVolumeDriver();
-            VolumeDriverPage.DeleteCreatedVolumeDriver(DataCache.Read(dictionary["VolumeDriver"]));
-            StandardsPage.CloseStandardsForm();
-            AllowancePage.ClickOnStandardTab();
-            StandardsPage.ClickOnStandardsTab();
-            AllowancePage.WaitForAllowanceAlertCloseIfAny();
-            StandardsPage.ClearAllFilter();
-            StandardsPage.SearchStandard(DataCache.Read(dictionary["Standard"]));
-            StandardsPage.SelectStandard(DataCache.Read(dictionary["Standard"]));
-            StandardsPage.DeleteCreatedStandard();
-            DepartmentsPage.CloseDepartmentForm();
-            DepartmentsPage.ClickOnStandardTab();
-            DepartmentsPage.ClickOnListManagementTab();
-            AllowancePage.WaitForAllowanceAlertCloseIfAny();
-            UnitsOfMeasurePage.ClickOnUnitOfMeasure();
-            UnitsOfMeasurePage.SelectCreatedDepartment(DataCache.Read(dictionary["Department"]));
-            UnitsOfMeasurePage.DeleteUnitOfMeasureIfExist(DataCache.Read(dictionary["UnitsOfMeasure"]));
-            AttributePage.CloseAttributeForm();
-            AttributePage.ClickOnProfilingTab();
-            AttributePage.ClickOnAttributeTab();
-            AllowancePage.WaitForAllowanceAlertCloseIfAny();
-            AttributePage.SelectTheDepartment(DataCache.Read(dictionary["Department"]));
-            AttributePage.DeleteAttributeIfExist(DataCache.Read(dictionary["Attribute"]));
-            DepartmentsPage.CloseDepartmentForm();
-            DepartmentsPage.ClickOnStandardTab();
-            DepartmentsPage.ClickOnListManagementTab();
-            DepartmentsPage.ClickOnDepartment();
-            DepartmentsPage.DeleteDepartmentIfExist(DataCache.Read(dictionary["Department"]));
-
         }
         [Given(@"User add new volume driver value set for duplication ""([^""]*)""")]
         [When(@"User add new volume driver value set for duplication ""([^""]*)""")]
@@ -363,7 +131,7 @@ namespace LaborPro.Automation.Features.VolumeDriverValueSet
         [Given(@"User add new volume driver value set without file ""([^""]*)""")]
         [When(@"User add new volume driver value set without file ""([^""]*)""")]
         [Then(@"User add new volume driver value set without file ""([^""]*)""")]
-        public void UserAddNewVolumeDriverValueSetWithoutFile(string record)
+        public void AddNewVolumeDriverValueSetWithoutFile(string record)
         {
             LogWriter.WriteLog("Executing Step User add new volume driver value set without file " + record);
             VolumeDriverValueSetPage.CloseVolumeDriverValueSetPopup();
@@ -372,5 +140,61 @@ namespace LaborPro.Automation.Features.VolumeDriverValueSet
             VolumeDriverValueSetPage.AddVolumeDriverValueSetWithGivenInput(record);
             VolumeDriverValueSetPage.ClickOnSaveButton();
         }
+
+        [Given(@"User setup prerequisites for volume driver value set")]
+        [When(@"User setup prerequisites for volume driver value set")]
+        [Then(@"User setup prerequisites for volume driver value set")]
+        public void CreatePrerequisitesForVolumeDriverValueSet(Table inputData)
+        {
+            LogWriter.WriteLog("Executing Step User setup prerequisites for volume driver value set " + inputData);
+            var prerequisites = inputData.CreateInstance<VolumeDriverValueSetPrerequisites>();
+            DepartmentsPage.ClickOnStandardTab();
+            DepartmentsPage.ClickOnListManagementTab();
+            AllowancePage.WaitForAllowanceAlertCloseIfAny();
+            DepartmentsPage.ClickOnDepartment();
+            VolumeDriverValueSetPage.AddNewDepartmentWithGivenInput(prerequisites.Department);
+            UnitsOfMeasurePage.ClickOnUnitOfMeasure();
+            UnitsOfMeasurePage.SelectCreatedDepartment(DataCache.Read(prerequisites.Department));
+            VolumeDriverValueSetPage.AddUnitOfMeasureWihGivenInput(prerequisites);
+            VolumeDriverPage.ClickOnVolumeDriver();
+            VolumeDriverValueSetPage.AddNewVolumeDriverWithGivenInput(prerequisites.VolumeDriver, prerequisites.Department);
+            LocationPage.ClickOnProfilingTab();
+            LocationPage.ClickOnLocationsTab();
+            LocationPage.ClearAllFilter();
+            LocationPage.KeepRecordUnSort();
+            VolumeDriverValueSetPage.AddNewLocationWithGivenInput(prerequisites.Location);
+            LocationMappingPage.MapsCreatedDepartmentAndLocation(DataCache.Read(prerequisites.Location), DataCache.Read(prerequisites.Department));
+        }
+
+        [Given(@"User verify volume driver value set ""([^""]*)"" not available")]
+        [When(@"User verify volume driver value set ""([^""]*)"" not available")]
+        [Then(@"User verify volume driver value set ""([^""]*)"" not available")]
+        public void VerifyVolumeDriverValueSetNotAvailable(string volumeDriverValueSet)
+        {
+            LogWriter.WriteLog("Executing Step User verify volume driver value set " + volumeDriverValueSet + " not available ");
+            VolumeDriverValueSetPage.VerifyVolumeDriverValueSetNotAvailable(volumeDriverValueSet);
+        }
+
+        [When(@"User delete prerequisite records for volume driver value set")]
+        public void DeletePrerequisiteForVolumeDriverValueSet(Table inputData)
+        {
+            LogWriter.WriteLog("Executing Step User delete prerequisite records for volume driver value set " + inputData);
+            var prerequisites = inputData.CreateInstance<VolumeDriverValueSetPrerequisites>();
+            LocationPage.ClickOnProfilingTab();
+            LocationPage.ClickOnLocationsTab();
+            LocationPage.ClearAllFilter();
+            LocationPage.KeepRecordUnSort();
+            LocationPage.DeleteCreatedLocation(DataCache.Read(prerequisites.Location));
+            DepartmentsPage.ClickOnStandardTab();
+            DepartmentsPage.ClickOnListManagementTab();
+            UnitsOfMeasurePage.ClickOnUnitOfMeasure();
+            UnitsOfMeasurePage.SelectCreatedDepartment(DataCache.Read(prerequisites.Department));
+            UnitsOfMeasurePage.DeleteCreatedUnitOfMeasureByName(DataCache.Read(prerequisites.UnitsOfMeasure));
+            VolumeDriverPage.ClickOnVolumeDriver();
+            VolumeDriverPage.DeleteCreatedVolumeDriver(DataCache.Read(prerequisites.VolumeDriver));
+            DepartmentsPage.ClickOnDepartment();
+            DepartmentsPage.DeleteDepartmentIfExist(DataCache.Read(prerequisites.Department));
+        }
+
     }
 }

@@ -21,7 +21,7 @@ namespace LaborPro.Automation.Features.Standards
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Verify Standards Module")]
-    [NUnit.Framework.CategoryAttribute("Laberpro")]
+    [NUnit.Framework.CategoryAttribute("LaborPro")]
     [NUnit.Framework.CategoryAttribute("Regression")]
     [NUnit.Framework.CategoryAttribute("Standards")]
     public partial class VerifyStandardsModuleFeature
@@ -30,7 +30,7 @@ namespace LaborPro.Automation.Features.Standards
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "Laberpro",
+                "LaborPro",
                 "Regression",
                 "Standards"};
         

@@ -39,7 +39,11 @@ namespace LaborPro.Automation.shared.hooks
         [BeforeTestRun]
         public static void Init()
         {
-            Console.WriteLine("projectDirectory : {0}", GetProjectDirectoryPath());
+            string env = Environment.GetEnvironmentVariable("env") ?? ConfigReader.DEFAULT_ENV;
+            string suiteType = Environment.GetEnvironmentVariable("suiteType") ?? TestDataExcelReader.REGRESSION_TEST;
+            LogWriter.WriteLog($"projectDirectory : {GetProjectDirectoryPath()}");
+            LogWriter.WriteLog($"Environment - {env}");
+            LogWriter.WriteLog($"SuiteType - {suiteType}");
             ReportDirectoryCleanup(GetProjectDirectoryPath() + _ReportDirectory);
             DownloadDirectoryCleanup(GetProjectDirectoryPath() + _DownloadDirectory);
             LogWriter.LogCleanup();
@@ -96,12 +100,7 @@ namespace LaborPro.Automation.shared.hooks
         [BeforeFeature]
         public static void BeforeFeature(FeatureContext featureContext)
         {
-            string suiteType = Environment.GetEnvironmentVariable("suiteType");
-            if (suiteType == null)
-            {
-                suiteType = TestDataExcelReader.REGRESSION_TEST;
-                Environment.SetEnvironmentVariable("suiteType", suiteType);
-            }
+            string suiteType = Environment.GetEnvironmentVariable("suiteType")??TestDataExcelReader.REGRESSION_TEST;
             string featureName = featureContext.FeatureInfo.Title;
             if (TestDataExcelReader.IsFeatureFileIncluded(featureName, suiteType))
             {

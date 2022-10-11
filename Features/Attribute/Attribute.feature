@@ -1,4 +1,4 @@
- @LaberPro @Regression @Attribute
+ @LaborPro @Regression @Attribute
 Feature:Verify Attribute Module
 
 A short summary of the feature

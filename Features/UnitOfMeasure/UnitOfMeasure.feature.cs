@@ -21,7 +21,7 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Verify UnitOfMeasure Module")]
-    [NUnit.Framework.CategoryAttribute("Laberpro")]
+    [NUnit.Framework.CategoryAttribute("LaborPro")]
     [NUnit.Framework.CategoryAttribute("Regression")]
     [NUnit.Framework.CategoryAttribute("UnitsOfMeasure")]
     public partial class VerifyUnitOfMeasureModuleFeature
@@ -30,7 +30,7 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "Laberpro",
+                "LaborPro",
                 "Regression",
                 "UnitsOfMeasure"};
         

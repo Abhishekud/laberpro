@@ -21,7 +21,7 @@ namespace LaborPro.Automation.Features.Allowances
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Verify Allowances Module")]
-    [NUnit.Framework.CategoryAttribute("LaberPro")]
+    [NUnit.Framework.CategoryAttribute("LaborPro")]
     [NUnit.Framework.CategoryAttribute("Regression")]
     [NUnit.Framework.CategoryAttribute("Allowance")]
     public partial class VerifyAllowancesModuleFeature
@@ -30,7 +30,7 @@ namespace LaborPro.Automation.Features.Allowances
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "LaberPro",
+                "LaborPro",
                 "Regression",
                 "Allowance"};
         

@@ -8,7 +8,7 @@ namespace LaborPro.Automation.Features.Locations
 {
     public class LocationPage
     {
-
+      
         private const string AddButton = "//button[.//*[@class='fa fa-plus']]";
         private const string ExportButton = "//*[@id='export']";
         private const string ExportLocation = "//*[@class='dropdown-menu dropdown-menu-right' and @aria-labelledby='export']";
@@ -30,7 +30,7 @@ namespace LaborPro.Automation.Features.Locations
         private const string ConfigNewBrand = "//*[@class='grid-configuration sidebar-section']//*[text()='Newest brand']/..//*[@role='switch' and @aria-checked='true']";
         private const string ClearFilterButton = "//button[@title='Clear All Filters']";
         private const string LocationFilterInput = "//*[@aria-label='Filter' and @aria-colindex='7']//input";
-        private const string AddLocationLink = "(//*[contains(@class,'dropdown open')]//a)[1]";
+        private const string AddLocationLink = "(//*[contains(@class,'dropdown open')]//a)[1]";      
         private const string DescriptionInput = "//*[@id='description']";
         private const string LocationProfileDropdown = "//*[@id='locationProfileId']";
         private const string BrandDropdown = "//*[@id='parentOrgHierarchyLevelOptionId']";
@@ -511,14 +511,13 @@ namespace LaborPro.Automation.Features.Locations
             BaseClass._AttachScreenshot.Value = true;
 
         }
-
         public static void VerifyNewLocationPopupIsAvailable()
         {
             LogWriter.WriteLog("Executing LocationPage.VerifyNewLocationPopupIsAvailable");
             ClickOnNewLocationMenuLink();
             WebDriverUtil.GetWebElement(NewLocationFormPopup, WebDriverUtil.NO_WAIT, $"Unable to locate add menu popup - {NewLocationFormPopup}");
             BaseClass._AttachScreenshot.Value = true;
-            WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
+            WebDriverUtil.WaitForAWhile();
         }
         public static void LocationsExists(string locationName)
         {
@@ -672,7 +671,7 @@ namespace LaborPro.Automation.Features.Locations
             if (tickOption == null)
                 throw new Exception("Tick option is not found but we expect it should be present when user login from admin only access");
             BaseClass._AttachScreenshot.Value = true;
-            WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
+            WebDriverUtil.WaitForAWhile();
 
         }
         public static void VerifyBulkEditOptionIsAvailable()
@@ -683,7 +682,7 @@ namespace LaborPro.Automation.Features.Locations
             if (bulkEditOption == null)
                 throw new Exception("Bulk edit option is not found but we expect it should be present when user login from admin only access");
             BaseClass._AttachScreenshot.Value = true;
-            WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
+            WebDriverUtil.WaitForAWhile();
 
         }
         public static void VerifyEditLocationOptionsAreAvailable()
@@ -699,7 +698,7 @@ namespace LaborPro.Automation.Features.Locations
             WebDriverUtil.GetWebElement(UpdateLocationProfile, WebDriverUtil.NO_WAIT, $"Unable to locate update location profile input - {UpdateLocationProfile}");
             WebDriverUtil.GetWebElement(UpdateActiveDate, WebDriverUtil.NO_WAIT, $"Unable to locate update active date input - {UpdateActiveDate}");
             WebDriverUtil.GetWebElement(UpdateInactiveDate, WebDriverUtil.NO_WAIT, $"Unable to locate update inactive date input - {UpdateInactiveDate}");
-            WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
+            WebDriverUtil.WaitForAWhile();
 
         }
         public static void VerifyEditLocationSidebarIsAvailable()
@@ -719,7 +718,7 @@ namespace LaborPro.Automation.Features.Locations
             BaseClass._AttachScreenshot.Value = true;
             WebDriverUtil.GetWebElement(EditLocationProfileSidebar, WebDriverUtil.NO_WAIT, $"Unable to locate edit location profile sidebar - {EditLocationProfileSidebar}");
             WebDriverUtil.GetWebElement(FirstRecord, WebDriverUtil.NO_WAIT, $"Unable to locate first record - {FirstRecord}").Click();
-            WebDriverUtil.WaitFor(WebDriverUtil.FIVE_SECOND_WAIT);
+            WebDriverUtil.WaitForAWhile();
         }
 
         public static void DeleteCreatedLocationProfile(string locationProfile)

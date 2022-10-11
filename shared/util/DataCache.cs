@@ -26,10 +26,10 @@
             return key;
         }
 
-        public static string SaveWithTimeStamp(string value)
+        public static string SaveWithAppendedRandomString(string value)
         {
-            var now = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
-            var updatedValue = $"{value} {now}";
+            var appender = Path.GetRandomFileName();
+            var updatedValue = $"{value} {appender}";
             Save(value, updatedValue);
             return updatedValue;
         }

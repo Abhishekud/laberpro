@@ -86,7 +86,7 @@ namespace LaborPro.Automation.shared.util
         }
         public static string ProcessInputData(string value)
         {
-           return DataCache.SaveWithTimeStamp(value);
+           return DataCache.SaveWithAppendedRandomString(value);
         }
 
     } 

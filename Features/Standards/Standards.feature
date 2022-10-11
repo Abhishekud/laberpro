@@ -1,4 +1,4 @@
-﻿@Laberpro @Regression @Standards
+﻿@LaborPro @Regression @Standards
 Feature: Verify Standards Module
 
 A short summary of the feature

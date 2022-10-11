@@ -40,9 +40,13 @@ namespace LaborPro.Automation.shared.drivers
                 switch (browser.ToLower())
                 {
                     case "chrome":
-                        new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
-                        driver = new ChromeDriver(GetChromeOptions());
+                        new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser); 
+                        ChromeOptions options = new ChromeOptions();
+                        options.AddArguments("--headless", "--disable-gpu", "--window-size=1920,1200",
+                            "--ignore-certificate-errors", "--disable-extensions", "--no-sandbox", "--disable-dev-shm-usage");
+                        driver = new ChromeDriver(ChromeDriverService.CreateDefaultService(), options, TimeSpan.FromMinutes(3));
                         break;
+                  
                     case "Google_Chrome":
                         new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
                         driver = new ChromeDriver(GetChromeOptions());
@@ -81,6 +85,9 @@ namespace LaborPro.Automation.shared.drivers
                 "--ignore-certificate-errors", "--disable-extensions", "--no-sandbox", "--disable-dev-shm-usage");
             }
             options.AddUserProfilePreference("download.default_directory", DownloadDirectory);
+            options.AddArgument("ignore-ssl-errors=yes");
+            options.AddArgument("ignore-certificate-errors");
+            options.AddArgument("allow-running-insecure-content");
             return options;
         }
 

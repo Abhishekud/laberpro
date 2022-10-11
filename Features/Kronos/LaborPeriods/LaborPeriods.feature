@@ -1,4 +1,4 @@
-﻿@LaberPro @Regression @LaborPeriods
+﻿@LaborPro @Regression @LaborPeriods
 Feature:Verify LaborPeriods Module
 
 A short summary of the feature

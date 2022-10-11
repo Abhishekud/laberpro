@@ -73,10 +73,6 @@
     "superadmin": {
       "username": "bits.auto.qa1@gmail.com",
       "password": "Bits1234$$"
-    },
-    "adminonly": {
-      "username": "bits_adminonly@benchmarkit.solutions",
-      "password": "Bits12345$$"
     }
   },
   "blankdb_automation": {
@@ -122,6 +118,10 @@
     "superadmin": {
       "username": "support@connorsllc.com",
       "password": "LaborPro2017"
+    },
+    "betauser": {
+      "username": "bits_beta@benchmarkit.solutions",
+      "password": "Bits12345$$"
     },
     "adminonly": {
       "username": "bits_adminonly@benchmarkit.solutions",
@@ -283,6 +283,10 @@
     },
     "superadmin": {
       "username": "bits_superadmin@benchmarkit.solutions",
+      "password": "Bits12345$$"
+    },
+    "betauser": {
+      "username": "bits_beta@benchmarkit.solutions",
       "password": "Bits12345$$"
     },
     "adminonly": {

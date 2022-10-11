@@ -1,4 +1,4 @@
-﻿@Laberpro @Regression @UnitsOfMeasure
+﻿@LaborPro @Regression @UnitsOfMeasure
 Feature: Verify UnitOfMeasure Module
 
 A short summary of the feature

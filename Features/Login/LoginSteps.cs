@@ -77,9 +77,6 @@ namespace LaborPro.Automation.Features.Login
         public void UserAuthentication(string user, string url)
         {
             url = Util.ProcessInputDataString(url);
-            Console.WriteLine($"Test Suite Execution - {Environment.GetEnvironmentVariable("suiteType")}");
-            Console.WriteLine($"Test Execution Environment - {Environment.GetEnvironmentVariable("env")}");
-            Console.WriteLine($"URL - {url}");
             LogWriter.WriteLog($"Executing Step: User {user} is authenticated with {url}");
             UserLaunchedBrowser("$browser");
             GoToApplication(url);

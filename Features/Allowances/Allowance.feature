@@ -1,4 +1,4 @@
-﻿@LaberPro @Regression @Allowance
+﻿@LaborPro @Regression @Allowance
 Feature: Verify Allowances Module
 
   @Setup @Smoke

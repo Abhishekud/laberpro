@@ -42,7 +42,7 @@ namespace LaborPro.Automation.Features.Locations
         [Then(@"User edit location ""([^""]*)"" with below input")]
         public void EditLocationWithGivenInput(string locationName, Table inputData)
         {
-            LogWriter.WriteLog("Executing step: User edit location " + locationName + " with below input - " + inputData);
+            LogWriter.WriteLog("Executing step: User edit location "+ locationName+" with below input - " + inputData);
             LocationPage.EditLocationWithGivenInput(locationName, inputData);
         }
 
@@ -69,7 +69,7 @@ namespace LaborPro.Automation.Features.Locations
         [Then(@"User delete location by name ""([^""]*)"" if exist")]
         public void DeleteLocationIfExist(String locationName)
         {
-            LogWriter.WriteLog("Executing step: User delete created location by name " + locationName + " if exist");
+            LogWriter.WriteLog("Executing step: User delete created location by name " + locationName +" if exist");
             LocationPage.DeleteLocationIfExist(locationName);
         }
         [Given(@"User verify add button is not available on location page")]
@@ -165,7 +165,6 @@ namespace LaborPro.Automation.Features.Locations
             LocationPage.VerifyNewLocationPopupIsAvailable();
 
         }
-
         [When(@"Locations ""([^""]*)"" exists")]
         [Then(@"Locations ""([^""]*)"" exists")]
         [Given(@"Locations ""([^""]*)"" exists")]
@@ -175,7 +174,6 @@ namespace LaborPro.Automation.Features.Locations
             NavigatesToTheLocationsTab();
             LocationPage.LocationsExists(locationName);
         }
-
         [Then(@"User verify created location ""([^""]*)""")]
         [When(@"User verify created location ""([^""]*)""")]
         [Given(@"User verify created location ""([^""]*)""")]
@@ -244,7 +242,7 @@ namespace LaborPro.Automation.Features.Locations
         [Then(@"User verify location profile edit options are available in ""([^""]*)""")]
         public void VerifyLocationProfileEditOptionsAreAvailable(string locationProfile)
         {
-            LogWriter.WriteLog("Executing step: User verify location profile listing is available");
+            LogWriter.WriteLog("Executing step: User verify location profile edit options are available in " + locationProfile);
             NavigatesToTheLocationsTab();
             LocationPage.VerifyLocationProfileEditOptionsAreAvailable(locationProfile);
         }
