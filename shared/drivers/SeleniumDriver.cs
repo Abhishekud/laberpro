@@ -10,7 +10,7 @@ namespace LaborPro.Automation.shared.drivers
     public class SeleniumDriver
     {
         public static readonly string DOWNLOAD_DIRECTORY_PATH = @"\downloads";
-        public static readonly string csvFilePath = @"\downloads\Volume-Driver-import-template.csv";
+        public static readonly string csvFilePath = @"\downloads\Volume-Driver-Values-import-template.csv";
         public static string WorkingDirectory = Environment.CurrentDirectory;
         public static string ProjectDirectory = Directory.GetParent(WorkingDirectory).Parent.Parent.FullName;
         public static string DownloadDirectory = ProjectDirectory + DOWNLOAD_DIRECTORY_PATH;
@@ -40,16 +40,12 @@ namespace LaborPro.Automation.shared.drivers
                 switch (browser.ToLower())
                 {
                     case "chrome":
-                        new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser); 
-                        ChromeOptions options = new ChromeOptions();
-                        options.AddArguments("--headless", "--disable-gpu", "--window-size=1920,1200",
-                            "--ignore-certificate-errors", "--disable-extensions", "--no-sandbox", "--disable-dev-shm-usage");
-                        driver = new ChromeDriver(ChromeDriverService.CreateDefaultService(), options, TimeSpan.FromMinutes(3));
+                        new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
+                        driver = new ChromeDriver(ChromeDriverService.CreateDefaultService(), GetChromeOptions(), TimeSpan.FromMinutes(3));
                         break;
-                  
                     case "Google_Chrome":
                         new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
-                        driver = new ChromeDriver(GetChromeOptions());
+                        driver = new ChromeDriver(ChromeDriverService.CreateDefaultService(), GetChromeOptions(), TimeSpan.FromMinutes(3));
                         break;
                     case "firefox":
                         new WebDriverManager.DriverManager().SetUpDriver(new FirefoxConfig());
@@ -65,7 +61,7 @@ namespace LaborPro.Automation.shared.drivers
                         break;
                     default:
                         new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
-                        driver = new ChromeDriver(GetChromeOptions());
+                        driver = new ChromeDriver(ChromeDriverService.CreateDefaultService(), GetChromeOptions(), TimeSpan.FromMinutes(3));
                         break;
                 }
                 webDriver.Value = driver;

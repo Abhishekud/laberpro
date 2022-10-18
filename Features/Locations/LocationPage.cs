@@ -8,7 +8,7 @@ namespace LaborPro.Automation.Features.Locations
 {
     public class LocationPage
     {
-      
+
         private const string AddButton = "//button[.//*[@class='fa fa-plus']]";
         private const string ExportButton = "//*[@id='export']";
         private const string ExportLocation = "//*[@class='dropdown-menu dropdown-menu-right' and @aria-labelledby='export']";
@@ -30,7 +30,7 @@ namespace LaborPro.Automation.Features.Locations
         private const string ConfigNewBrand = "//*[@class='grid-configuration sidebar-section']//*[text()='Newest brand']/..//*[@role='switch' and @aria-checked='true']";
         private const string ClearFilterButton = "//button[@title='Clear All Filters']";
         private const string LocationFilterInput = "//*[@aria-label='Filter' and @aria-colindex='7']//input";
-        private const string AddLocationLink = "(//*[contains(@class,'dropdown open')]//a)[1]";      
+        private const string AddLocationLink = "(//*[contains(@class,'dropdown open')]//a)[1]";
         private const string DescriptionInput = "//*[@id='description']";
         private const string LocationProfileDropdown = "//*[@id='locationProfileId']";
         private const string BrandDropdown = "//*[@id='parentOrgHierarchyLevelOptionId']";
@@ -515,13 +515,13 @@ namespace LaborPro.Automation.Features.Locations
         {
             LogWriter.WriteLog("Executing LocationPage.VerifyNewLocationPopupIsAvailable");
             ClickOnNewLocationMenuLink();
-            WebDriverUtil.GetWebElement(NewLocationFormPopup, WebDriverUtil.NO_WAIT, $"Unable to locate add menu popup - {NewLocationFormPopup}");
+            WebDriverUtil.GetWebElement(NewLocationFormPopup, WebDriverUtil.NO_WAIT, $"Unable to locate add location menu popup - {NewLocationFormPopup}");
             BaseClass._AttachScreenshot.Value = true;
             WebDriverUtil.WaitForAWhile();
         }
-        public static void LocationsExists(string locationName)
+        public static void CreateNewLocation(string locationName)
         {
-            LogWriter.WriteLog("Executing LocationsPage.LocationsExists");
+            LogWriter.WriteLog("Executing LocationsPage.CreateNewLocation");
             WebDriverUtil.WaitForAWhile();
             ClickOnAddButton();
             WebDriverUtil.WaitForAWhile();
@@ -560,7 +560,7 @@ namespace LaborPro.Automation.Features.Locations
             newLocationProfile.Click();
             if (newLocationProfile == null)
                 throw new Exception("New location profile button is not found but we expect it should be present when user login from admin only access");
-            WebDriverUtil.GetWebElement(NewLocationProfileFormPopup, WebDriverUtil.NO_WAIT, $"Unable to locate add menu popup - {NewLocationProfileFormPopup}");
+            WebDriverUtil.GetWebElement(NewLocationProfileFormPopup, WebDriverUtil.NO_WAIT, $"Unable to locate add location profile menu popup - {NewLocationProfileFormPopup}");
             BaseClass._AttachScreenshot.Value = true;
         }
 
@@ -572,7 +572,7 @@ namespace LaborPro.Automation.Features.Locations
             importLocations.Click();
             if (importLocations == null)
                 throw new Exception("Import locations button is not found but we expect it should be present when user login from admin only access");
-            WebDriverUtil.GetWebElement(ImportLocationsFormPopup, WebDriverUtil.NO_WAIT, $"Unable to locate import menu popup - {ImportLocationsFormPopup}");
+            WebDriverUtil.GetWebElement(ImportLocationsFormPopup, WebDriverUtil.NO_WAIT, $"Unable to locate import locations menu popup - {ImportLocationsFormPopup}");
             BaseClass._AttachScreenshot.Value = true;
         }
 
@@ -584,7 +584,7 @@ namespace LaborPro.Automation.Features.Locations
             importLocationProfiles.Click();
             if (importLocationProfiles == null)
                 throw new Exception("Import location profiles button is not found but we expect it should be present when user login from admin only access");
-            WebDriverUtil.GetWebElement(ImportLocationProfilesFormPopup, WebDriverUtil.NO_WAIT, $"Unable to locate import menu popup - {ImportLocationProfilesFormPopup}");
+            WebDriverUtil.GetWebElement(ImportLocationProfilesFormPopup, WebDriverUtil.NO_WAIT, $"Unable to locate import location profiles menu popup - {ImportLocationProfilesFormPopup}");
             BaseClass._AttachScreenshot.Value = true;
 
         }
@@ -660,7 +660,7 @@ namespace LaborPro.Automation.Features.Locations
             var editButtonFordLocationProfile = string.Format(EditButton, DataCache.Read(locationProfile));
             WebDriverUtil.GetWebElement(editButtonFordLocationProfile, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
             WebDriverUtil.GetWebElement(DeleteLocationProfileButton, WebDriverUtil.ONE_SECOND_WAIT, $"Unable to locate delete button - {DeleteLocationProfileButton}");
-            WebDriverUtil.GetWebElement(AssignDepartmentsDropDown, WebDriverUtil.ONE_SECOND_WAIT, $"Unable to locate assign departments dropDown - {AssignDepartmentsDropDown}");
+            WebDriverUtil.GetWebElement(AssignDepartmentsDropDown, WebDriverUtil.ONE_SECOND_WAIT, $"Unable to locate assign departments dropdown - {AssignDepartmentsDropDown}");
             BaseClass._AttachScreenshot.Value = true;
         }
         public static void VerifyCheckboxesAreAvailable()

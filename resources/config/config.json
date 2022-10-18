@@ -73,6 +73,10 @@
     "superadmin": {
       "username": "bits.auto.qa1@gmail.com",
       "password": "Bits1234$$"
+    },
+    "admin": {
+      "username": "bits_adminonly@benchmarkit.solutions",
+      "password": "Bits12345$$"
     }
   },
   "blankdb_automation": {
@@ -123,7 +127,7 @@
       "username": "bits_beta@benchmarkit.solutions",
       "password": "Bits12345$$"
     },
-    "adminonly": {
+    "admin": {
       "username": "bits_adminonly@benchmarkit.solutions",
       "password": "Bits12345$$"
     }
@@ -170,7 +174,7 @@
       "username": "bits_superadmin@benchmarkit.solutions",
       "password": "Bits12345$$"
     },
-    "adminonly": {
+    "admin": {
       "username": "bits_adminonly@benchmarkit.solutions",
       "password": "Bits12345$$"
     }
@@ -289,7 +293,7 @@
       "username": "bits_beta@benchmarkit.solutions",
       "password": "Bits12345$$"
     },
-    "adminonly": {
+    "admin": {
       "username": "bits_adminonly@benchmarkit.solutions",
       "password": "Bits12345$$"
     }

@@ -42,7 +42,7 @@ namespace LaborPro.Automation.Features.Locations
         [Then(@"User edit location ""([^""]*)"" with below input")]
         public void EditLocationWithGivenInput(string locationName, Table inputData)
         {
-            LogWriter.WriteLog("Executing step: User edit location "+ locationName+" with below input - " + inputData);
+            LogWriter.WriteLog("Executing step: User edit location " + locationName + " with below input - " + inputData);
             LocationPage.EditLocationWithGivenInput(locationName, inputData);
         }
 
@@ -69,7 +69,7 @@ namespace LaborPro.Automation.Features.Locations
         [Then(@"User delete location by name ""([^""]*)"" if exist")]
         public void DeleteLocationIfExist(String locationName)
         {
-            LogWriter.WriteLog("Executing step: User delete created location by name " + locationName +" if exist");
+            LogWriter.WriteLog("Executing step: User delete created location by name " + locationName + " if exist");
             LocationPage.DeleteLocationIfExist(locationName);
         }
         [Given(@"User verify add button is not available on location page")]
@@ -165,15 +165,6 @@ namespace LaborPro.Automation.Features.Locations
             LocationPage.VerifyNewLocationPopupIsAvailable();
 
         }
-        [When(@"Locations ""([^""]*)"" exists")]
-        [Then(@"Locations ""([^""]*)"" exists")]
-        [Given(@"Locations ""([^""]*)"" exists")]
-        public void LocationsExists(string locationName)
-        {
-            LogWriter.WriteLog("Executing step: Locations " + locationName + " exists");
-            NavigatesToTheLocationsTab();
-            LocationPage.LocationsExists(locationName);
-        }
         [Then(@"User verify created location ""([^""]*)""")]
         [When(@"User verify created location ""([^""]*)""")]
         [Given(@"User verify created location ""([^""]*)""")]
@@ -209,15 +200,6 @@ namespace LaborPro.Automation.Features.Locations
             LogWriter.WriteLog("Executing Step: User verify import locations profile popup is available on location page");
             NavigatesToTheLocationsTab();
             LocationPage.VerifyImportLocationsProfilePopupIsAvailable();
-        }
-        [When(@"Location profile ""([^""]*)"" exist")]
-        [Then(@"Location profile ""([^""]*)"" exist")]
-        [Given(@"Location profile ""([^""]*)"" exist")]
-        public void LocationProfileExist(string locationProfile)
-        {
-            LogWriter.WriteLog("Executing step: Location profile " + locationProfile + " exist");
-            NavigatesToTheLocationsTab();
-            LocationPage.AddNewLocationProfileWithGivenInput(locationProfile);
         }
         [Then(@"User verify created location profile by name ""([^""]*)""")]
         [When(@"User verify created location profile by name ""([^""]*)""")]
@@ -288,11 +270,29 @@ namespace LaborPro.Automation.Features.Locations
         [When(@"User delete records ""([^""]*)"" and ""([^""]*)"" on location page")]
         public void DeleteRecords(string locationName, string locationProfile)
         {
-            LogWriter.WriteLog("Executing step: User delete records " + locationName + " and " + locationProfile +
-                               " on location page");
+            LogWriter.WriteLog("Executing step: User delete records " + locationName + " and " + locationProfile + " on location page");
             NavigatesToTheLocationsTab();
             LocationPage.DeleteCreatedLocation(DataCache.Read(locationName));
             LocationPage.DeleteCreatedLocationProfile(DataCache.Read(locationProfile));
         }
+        [When(@"User create new location ""([^""]*)""")]
+        [Then(@"User create new location ""([^""]*)""")]
+        [Given(@"User create new location ""([^""]*)""")]
+        public void UserCreateNewLocation(string locationName)
+        {
+            LogWriter.WriteLog("Executing step: User create new location " + locationName);
+            NavigatesToTheLocationsTab();
+            LocationPage.CreateNewLocation(locationName);
+        }
+        [When(@"User create new location profile ""([^""]*)""")]
+        [Then(@"User create new location profile ""([^""]*)""")]
+        [Given(@"User create new location profile ""([^""]*)""")]
+        public void WhenUserCreateNewLocationProfile(string locationProfile)
+        {
+            LogWriter.WriteLog("Executing step: User create new location profile " + locationProfile);
+            NavigatesToTheLocationsTab();
+            LocationPage.AddNewLocationProfileWithGivenInput(locationProfile);
+        }
+
     }
 }
