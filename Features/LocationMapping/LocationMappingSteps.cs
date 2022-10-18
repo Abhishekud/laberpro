@@ -1,4 +1,8 @@
-﻿using LaborPro.Automation.shared.util;
+﻿using LaborPro.Automation.Features.Allowances;
+using LaborPro.Automation.Features.Department;
+using LaborPro.Automation.Features.Locations;
+using LaborPro.Automation.Features.VolumeDriverValueSet;
+using LaborPro.Automation.shared.util;
 
 namespace LaborPro.Automation.Features.LocationMapping
 {
@@ -111,6 +115,79 @@ namespace LaborPro.Automation.Features.LocationMapping
             LogWriter.WriteLog("Executing Step User verify details are not editable on location mapping page in " + locationMappingName);
             LocationMappingPage.VerifyDetailsAreNotEditable(locationMappingName);
         }
+        [When(@"Location ""([^""]*)"" and Department ""([^""]*)"" mapping exists")]
+        [Then(@"Location ""([^""]*)"" and Department ""([^""]*)"" mapping exists")]
+        [Given(@"Location ""([^""]*)"" and Department ""([^""]*)"" mapping exists")]
+        public void LocationAndDepartmentMappingExists(string locationName, string departmentName)
+        {
+            LogWriter.WriteLog("Executing Step Location " + locationName + " and Department " + departmentName + " mapping exists");
+            DepartmentsPage.ClickOnStandardTab();
+            DepartmentsPage.ClickOnListManagementTab();
+            AllowancePage.WaitForAllowanceAlertCloseIfAny();
+            DepartmentsPage.ClickOnDepartment();
+            VolumeDriverValueSetPage.AddNewDepartmentWithGivenInput(departmentName);
+            LocationPage.ClickOnProfilingTab();
+            LocationPage.ClickOnLocationsTab();
+            LocationPage.ClearAllFilter();
+            LocationPage.KeepRecordUnSort();
+            VolumeDriverValueSetPage.AddNewLocationWithGivenInput(locationName);
+            LocationMappingPage.MapsCreatedDepartmentAndLocation(DataCache.Read(locationName), DataCache.Read(departmentName));
+        }
+        [Then(@"User verify add button is not available in ""([^""]*)"" on location mapping page")]
+        [When(@"User verify add button is not available in ""([^""]*)"" on location mapping page")]
+        [Given(@"User verify add button is not available in ""([^""]*)"" on location mapping page")]
+        public void VerifyAddButtonIsNotAvailableInLocationMappingPage(string departmentName)
+        {
+            LogWriter.WriteLog("Executing Step User verify add button is not available in location mapping page");
+            NavigatesToTheLocationMappingTab();
+            LocationMappingPage.SelectTheDepartment(DataCache.Read(departmentName));
+            LocationMappingPage.VerifyAddButtonIsNotAvailable();
+        }
+        [Then(@"User verify edit location mapping sidebar is available in ""([^""]*)""")]
+        [When(@"User verify edit location mapping sidebar is available in ""([^""]*)""")]
+        [Given(@"User verify edit location mapping sidebar is available in ""([^""]*)""")]
+        public void VerifyEditLocationMappingSidebarIsAvailable(string locationName)
+        {
+            LogWriter.WriteLog("Executing Step User verify edit location mapping sidebar is available in " + locationName);
+            NavigatesToTheLocationMappingTab();
+            LocationMappingPage.VerifyEditLocationMappingSidebarIsAvailable(locationName);
+        }
+        [Then(@"User verify edit detail options are not available in ""([^""]*)"" on location mapping page")]
+        public void VerifyEditDetailOptionsAreNotAvailableInOnLocationMappingPage(string locationName)
+        {
+            LogWriter.WriteLog("Executing Step User verify edit location mapping sidebar is available in " + locationName);
+            NavigatesToTheLocationMappingTab();
+            LocationMappingPage.VerifyEditDetailOptionsAreNotAvailable(locationName);
+        }
+
+        [Given(@"User delete records ""([^""]*)"" and ""([^""]*)"" on location mapping page")]
+        [Then(@"User delete records ""([^""]*)"" and ""([^""]*)"" on location mapping page")]
+        [When(@"User delete records ""([^""]*)"" and ""([^""]*)"" on location mapping page")]
+        public void DeleteRecordsAndOnLocationMappingPage(string locationName, string departmentName)
+        {
+            LogWriter.WriteLog("Executing Step User delete records " + locationName + " and " + departmentName + " on location mapping page");
+
+            LocationPage.ClickOnProfilingTab();
+            LocationPage.ClickOnLocationsTab();
+            LocationPage.ClearAllFilter();
+            LocationPage.KeepRecordUnSort();
+            LocationPage.DeleteCreatedLocation(DataCache.Read(locationName));
+            DepartmentsPage.ClickOnStandardTab();
+            DepartmentsPage.ClickOnListManagementTab();
+            DepartmentsPage.ClickOnDepartment();
+            DepartmentsPage.DeleteDepartmentIfExist(DataCache.Read(departmentName));
+        }
+
+        [Then(@"User verify save button is not available in ""([^""]*)"" on location mapping page")]
+        [When(@"User verify save button is not available in ""([^""]*)"" on location mapping page")]
+        [Given(@"User verify save button is not available in ""([^""]*)"" on location mapping page")]
+        public void VerifySaveButtonIsNotAvailableInOnLocationMappingPage(string locationName)
+        {
+            LogWriter.WriteLog("Executing Step User verify save button is not available in " + locationName + "on location mapping page");
+            NavigatesToTheLocationMappingTab();
+            LocationMappingPage.VerifySaveButtonIsNotAvailable(locationName);
+        }
+
 
     }
 }
