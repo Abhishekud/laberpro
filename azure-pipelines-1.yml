@@ -9,8 +9,7 @@ parameters:
   - prereleaseuat
 
 stages:
-  - stage: SmokeTesting
-    dependsOn: [Sleep]
+  - stage: SmokeTesting 
     variables:
     - name: BuildParameters.RestoreBuildProjects
       value: '**/LaborPro.Automation.csproj'
