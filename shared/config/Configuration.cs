@@ -18,7 +18,7 @@ namespace LaborPro.Automation.shared.config
         }
         public static string SetEnvironment()
         {
-            string defaultEnvironment = "prereleaseuat";
+            string defaultEnvironment = "blankdb_automation";
             string env = Environment.GetEnvironmentVariable("ENV");
             if (env == null)
             {
