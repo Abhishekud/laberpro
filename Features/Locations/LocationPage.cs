@@ -1,4 +1,4 @@
-﻿using LaborPro.Automation.shared.drivers;
+ using LaborPro.Automation.shared.drivers;
 using LaborPro.Automation.shared.hooks;
 using LaborPro.Automation.shared.util;
 using OpenQA.Selenium;
@@ -63,6 +63,8 @@ namespace LaborPro.Automation.Features.Locations
         private const string UpdateInactiveDate = "//div[contains(@class,'checkbox')]//input[@id='updateInactiveDate']";
         private const string EditLocationProfileSidebar = "//*[@class='sidebar-scrollable']//div[@class='location sidebar-section']";
         private const string AssignDepartmentsDropDown = "//div[contains(@class,'select-list-item-appender')]//select[contains(@class, 'form-control')]";
+        private const string SavingWait = "//button[contains(text(),'Saving...')]";
+
 
         public static void CloseLocationDetailSideBar()
         {
@@ -202,7 +204,7 @@ namespace LaborPro.Automation.Features.Locations
             WebDriverUtil.GetWebElementAndScroll(SaveButton, WebDriverUtil.NO_WAIT,
                 $"Unable to locate save button on create location page - {SaveButton}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Saving...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitForWebElementInvisible( SavingWait, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             if (WebDriverUtil.GetWebElement(NewLocationFormPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) ==
                 null) return;
             var errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
@@ -535,7 +537,7 @@ namespace LaborPro.Automation.Features.Locations
             WebDriverUtil.GetWebElementAndScroll(SaveButton, WebDriverUtil.NO_WAIT,
                 $"Unable to locate save button on create location page - {SaveButton}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Saving...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitForWebElementInvisible( SavingWait, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             if (WebDriverUtil.GetWebElement(NewLocationFormPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) ==
                 null) return;
             var errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
@@ -607,7 +609,7 @@ namespace LaborPro.Automation.Features.Locations
             WebDriverUtil.GetWebElementAndScroll(SaveButton, WebDriverUtil.NO_WAIT,
                 $"Unable to locate save button on create location profile page - {SaveButton}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Saving...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitForWebElementInvisible( SavingWait, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             if (WebDriverUtil.GetWebElement(NewLocationProfileFormPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) ==
                 null) return;
             var errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
@@ -752,3 +754,4 @@ namespace LaborPro.Automation.Features.Locations
         }
     }
 }
+
