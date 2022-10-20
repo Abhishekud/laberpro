@@ -1,4 +1,4 @@
-@Regression @Elements_ViewOnly
+@laborPro @Regression @Elements_ViewOnly
 Feature: Verify Elements_ViewOnly Module
 
 @Setup
@@ -27,7 +27,7 @@ Feature: Verify Elements_ViewOnly Module
   Scenario: 02. Verify_add_button_is_not_available
     Given User logged in with view only access using username: "$viewonly_username" and password: "$viewonly_password"
     When User navigates to the elements page
-    Then User verify add button is not available on elements page
+    Then User verify add button is not present
  
   Scenario: 03.Verify_select_multiple_elements_checkbox_is_not_available
     When User navigates to the elements page

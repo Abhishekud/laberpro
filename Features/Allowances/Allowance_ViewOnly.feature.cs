@@ -108,38 +108,38 @@ namespace LaborPro.Automation.Features.Allowances
 #line 9
   testRunner.And("User navigates to the Allowance tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table11.AddRow(new string[] {
+                table12.AddRow(new string[] {
                             "Name",
                             "Allowances created via automation"});
-                table11.AddRow(new string[] {
+                table12.AddRow(new string[] {
                             "Paid Time (Minutes)",
                             "300"});
-                table11.AddRow(new string[] {
+                table12.AddRow(new string[] {
                             "Excluded Paid Breaks (Minutes)",
                             "10"});
-                table11.AddRow(new string[] {
+                table12.AddRow(new string[] {
                             "Relief Time (Minutes)",
                             "1"});
-                table11.AddRow(new string[] {
+                table12.AddRow(new string[] {
                             "Included Paid Breaks (Minutes)",
                             "20"});
-                table11.AddRow(new string[] {
+                table12.AddRow(new string[] {
                             "Rest Calculation",
                             "Rest"});
-                table11.AddRow(new string[] {
+                table12.AddRow(new string[] {
                             "Minor Unavoidable Delay (Percent)",
                             "10"});
-                table11.AddRow(new string[] {
+                table12.AddRow(new string[] {
                             "Additional Delay (Percent)",
                             "20"});
-                table11.AddRow(new string[] {
+                table12.AddRow(new string[] {
                             "Incentive Opportunity Allowance (Percent)",
                             "80"});
 #line 10
-  testRunner.And("User add allowance using below input if not exist", ((string)(null)), table11, "And ");
+  testRunner.And("User add allowance using below input if not exist", ((string)(null)), table12, "And ");
 #line hidden
 #line 21
   testRunner.And("User click on previous link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

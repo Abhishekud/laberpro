@@ -114,26 +114,26 @@ namespace LaborPro.Automation.Features.LocationMapping
 #line 11
     testRunner.And("User delete Department \"Department_for_LocationMapping_via_automation\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table75 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table78 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table75.AddRow(new string[] {
+                table78.AddRow(new string[] {
                             "Name",
                             "Department_for_LocationMapping_via_automation"});
 #line 12
-    testRunner.And("User create new Department with below input", ((string)(null)), table75, "And ");
+    testRunner.And("User create new Department with below input", ((string)(null)), table78, "And ");
 #line hidden
 #line 15
     testRunner.Then("User navigates to the Locations tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table76 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table79 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table76.AddRow(new string[] {
+                table79.AddRow(new string[] {
                             "Name",
                             "Location_created_via_autoamtion"});
 #line 16
-    testRunner.And("User create new location with below input if not exist", ((string)(null)), table76, "And ");
+    testRunner.And("User create new location with below input if not exist", ((string)(null)), table79, "And ");
 #line hidden
 #line 19
     testRunner.And("User Maps created Department and location with \"Location_created_via_autoamtion\" " +

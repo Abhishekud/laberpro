@@ -1,5 +1,6 @@
 ﻿using LaborPro.Automation.shared.hooks;
 using LaborPro.Automation.shared.util;
+using OpenQA.Selenium;
 
 namespace LaborPro.Automation.Features.Activity
 {
@@ -24,9 +25,18 @@ namespace LaborPro.Automation.Features.Activity
         private const string ListManagementTab = "//a[text()='List Management']";
         private const string ListManagementDropdown = "//select[@id='elementListOptionId']";
         private const string ActivityValueInLmDropdown = "//select[@id='elementListOptionId']//option[contains(text(),'Activities')]";
-        private const string SaveInprogress = "//button[contains(text(),'Saving...')]";
-        private const string DeleteInprogress = "//button[contains(text(),'Deleting...')]";
 
+        public static void DeleteActivityIfExist(string activityName)
+        {
+            LogWriter.WriteLog("Executing  ActivityPage.DeleteActivityIfExist");
+            WaitForActivityAlertCloseIfAny();
+            var activityRecordXpath = string.Format(ActivityRecord, activityName);
+            var record = WebDriverUtil.GetWebElementAndScroll(activityRecordXpath, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (record != null)
+            {
+                DeleteCreatedActivity(activityName);
+            }
+        }
         public static void ClickOnListManagementTab()
         {
             LogWriter.WriteLog("Executing ActivityPage.ClickOnListManagementTab");
@@ -36,7 +46,7 @@ namespace LaborPro.Automation.Features.Activity
         }
         public static void CloseActivityDetailSideBar()
         {
-            LogWriter.WriteLog("Executing ActivityPage.CloseActivityDetailSideBar()");
+            LogWriter.WriteLog("Executing ActivityPage CloseActivityDetailSideBar()");
             var activityDetailsSideBar = WebDriverUtil.GetWebElement(CloseActivityDetails, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (activityDetailsSideBar != null)
             {
@@ -48,20 +58,25 @@ namespace LaborPro.Automation.Features.Activity
             activityDetailsSideBar.Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
         }
+        
         public static void DeleteCreatedActivity(string activityName)
         {
-            LogWriter.WriteLog("Executing ActivityPage.DeleteCreatedActivity");
+            LogWriter.WriteLog("Executing ActivityPage DeleteCreatedActivity");
             var activityRecordXpath = string.Format(ActivityRecord, activityName);
             WebDriverUtil.GetWebElement(activityRecordXpath, WebDriverUtil.TWO_SECOND_WAIT,
            $"Unable to locate Activity record on Activity page - {activityRecordXpath}").Click();
+
+
             WebDriverUtil.GetWebElement( ActivityDeleteButton , WebDriverUtil.ONE_SECOND_WAIT,
             $"Unable to locate Activity delete button on Activity details - {ActivityDeleteButton}" ).Click();
+
+
             var confirmationPopup = WebDriverUtil.GetWebElement(ActivityDeleteConfirmPopup, WebDriverUtil.TWO_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (confirmationPopup == null) return;
             WebDriverUtil.GetWebElement(ActivityDeleteConfirmPopupAccept, WebDriverUtil.TWO_SECOND_WAIT,
                 $"Unable to locate Confirm button on delete confirmation popup - {ActivityDeleteConfirmPopupAccept}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible(DeleteInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
@@ -74,51 +89,69 @@ namespace LaborPro.Automation.Features.Activity
         }
         public static void VerifyCreatedActivity(string activityName)
         {
-            LogWriter.WriteLog("Executing ActivityPage.VerifyCreatedActivity");
+            LogWriter.WriteLog("Executing ActivityPage VerifyCreatedActivity");
+
             var activityRecordXpath = string.Format(ActivityRecord, activityName);
             WebDriverUtil.GetWebElement(activityRecordXpath, WebDriverUtil.DEFAULT_WAIT,
             $"Unable to locate record on Activity page - {activityRecordXpath}");
             BaseClass._AttachScreenshot.Value = true;
             CloseActivityDetailSideBar();
         }
+
         public static void FindActivityByName(string activityName)
         {
-            LogWriter.WriteLog("Executing ActivityPage.FindActivityByName");
+            LogWriter.WriteLog("Executing ActivityPage FindActivityByName");
 
             var activityRecordXpath = string.Format(ActivityRecord, activityName);
             WebDriverUtil.GetWebElement(activityRecordXpath, WebDriverUtil.DEFAULT_WAIT,
                 $"Unable to locate record on Activity page - {activityRecordXpath}").Click();
         }
-        public static void VerifyAddButtonIsNotAvailable()
+
+        public static void VerifyAddButtonIsNotPresent()
         {
-            LogWriter.WriteLog("Executing ActivityPage.VerifyAddButtonIsNotAvailable");
+            LogWriter.WriteLog("Executing ActivityPage.VerifyAddButtonIsNotPresent");
             var addButton = WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (addButton != null)
-                throw new Exception("Add button is found but we expect it should not be present when user login from view only access");
+                throw new Exception("add button is found but we expect it should not be present when user login from view only access");
             BaseClass._AttachScreenshot.Value = true;
         }
-        public static void VerifyDeleteButtonIsNotAvailable()
+        public static void VerifyDeleteButtonIsNotPresent()
         {
-            LogWriter.WriteLog("Executing ActivityPage.VerifyDeleteButtonIsNotAvailable");
+            LogWriter.WriteLog("Executing ActivityPage.VerifyDeleteButtonIsNotPresent");
             var deleteButton = WebDriverUtil.GetWebElement(ActivityDeleteButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (deleteButton != null)
-                throw new Exception("Delete button is found but we expect it should not be present when user login from view only access");
+                throw new Exception("delete button is found but we expect it should not be present when user login from view only access");
             BaseClass._AttachScreenshot.Value = true;
         }
-        public static void AddNewActivityWithGivenInput(string activity)
+
+        public static void AddNewActivityWithGivenInputIfNotExist(Table inputData)
         {
-            LogWriter.WriteLog("Executing ActivityPage.AddNewActivityWithGivenInput");
+            LogWriter.WriteLog("Executing ActivityPage AddNewActivityWithGivenInputIfNotExist");
+            var dictionary = Util.ConvertToDictionary(inputData);
+            var record = WebDriverUtil.GetWebElementAndScroll(string.Format(ActivityRecord, dictionary["Name"]), WebDriverUtil.TWO_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (record == null)
+            {
+                AddNewActivityWithGivenInput(inputData);
+            }
+        }
+
+        public static void AddNewActivityWithGivenInput(Table inputData)
+        {
+            LogWriter.WriteLog("Executing ActivityPage AddNewActivityWithGivenInput");
             ClickOnAddButton();
-            if (activity != null)
+            var dictionary = Util.ConvertToDictionary(inputData);
+            BaseClass._TestData.Value = Util.DictionaryToString(dictionary);
+
+            if (Util.ReadKey(dictionary, "Name") != null)
             {
                 WebDriverUtil.GetWebElement(NameInput, WebDriverUtil.NO_WAIT,
-              $"Unable to locate name input on Activity page  - {NameInput}")
-                    .SendKeys(Util.ProcessInputData(activity));
+              $"Unable to locate Name input on Activity page  - {NameInput}")
+                    .SendKeys(dictionary["Name"]);
             }
             WebDriverUtil.GetWebElementAndScroll(SaveButton, WebDriverUtil.NO_WAIT,
               $"Unable to locate save button on Activity page - {SaveButton}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible(SaveInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Saving...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             if (WebDriverUtil.GetWebElement(ActivityPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) == null) return;
             var errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (errorMessage != null) return;
@@ -136,7 +169,7 @@ namespace LaborPro.Automation.Features.Activity
         } 
         public static void ClickOnActivity()
         {
-            LogWriter.WriteLog("Executing ActivityPage.ClickOnActivity");
+            LogWriter.WriteLog("Executing ActivityPage ClickOnActivity");
             WebDriverUtil.GetWebElement(ListManagementDropdown,
                 WebDriverUtil.NO_WAIT,  $"Unable to locate list management dropdown - {ListManagementDropdown}").Click();
             WebDriverUtil.GetWebElement(ActivityValueInLmDropdown, WebDriverUtil.NO_WAIT,
@@ -145,14 +178,14 @@ namespace LaborPro.Automation.Features.Activity
         }
         public static void ClickOnAddButton()
         {
-            LogWriter.WriteLog("Executing ActivityPage.ClickOnAddButton");
+            LogWriter.WriteLog("Executing ActivityPage ClickOnAddButton");
             WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT,
             $"Unable to locate add button on Activity page  - {AddButton}").Click();
 
         }
         public static void CloseActivityForm()
         {
-            LogWriter.WriteLog("Executing ActivityPage.CloseActivityForm");
+            LogWriter.WriteLog("Executing ActivityPage CloseActivityForm");
             WaitForActivityAlertCloseIfAny();
             var formCloseButton = WebDriverUtil.GetWebElement(CloseActivityFormButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (formCloseButton != null)
@@ -163,7 +196,7 @@ namespace LaborPro.Automation.Features.Activity
         }
         public static void ClickOnMeasurementsTab()
         {
-            LogWriter.WriteLog("Executing ActivityPage.ClickOnMeasurementsTab");
+            LogWriter.WriteLog("Executing ActivityPage ClickOnMeasurementsTab");
             var measurementsTab = WebDriverUtil.GetWebElement(MeasurementsCollapsedTab, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (measurementsTab == null) return;
             measurementsTab.Click();
@@ -171,7 +204,7 @@ namespace LaborPro.Automation.Features.Activity
         }
         public static void WaitForActivityAlertCloseIfAny()
         {
-            LogWriter.WriteLog("Executing ActivityPage.WaitForActivityAlertCloseIfAny");
+            LogWriter.WriteLog("Executing ActivityPage WaitForActivityAlertCloseIfAny ");
             var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null) return;
             WebDriverUtil.GetWebElementAndScroll(NameInput).Click();
@@ -179,60 +212,6 @@ namespace LaborPro.Automation.Features.Activity
             WebDriverUtil.WaitForWebElementInvisible(ErrorAlertToastXpath, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
         }
 
-        public static void AddNewActivityWithGivenInputIfNotExist(Table inputData)
-        {
-            LogWriter.WriteLog("Executing ActivityPage.AddNewActivityWithGivenInputIfNotExist");
-            var dictionary = Util.ConvertToDictionary(inputData);
-            var record = WebDriverUtil.GetWebElementAndScroll(string.Format(ActivityRecord, dictionary["Name"]), WebDriverUtil.TWO_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (record == null)
-            {
-                AddNewActivityWithGivenInput(inputData);
-            }
-        }
-
-        public static void AddNewActivityWithGivenInput(Table inputData)
-        {
-            LogWriter.WriteLog("Executing ActivityPage.AddNewActivityWithGivenInput");
-            ClickOnAddButton();
-            var dictionary = Util.ConvertToDictionary(inputData);
-            BaseClass._TestData.Value = Util.DictionaryToString(dictionary);
-
-            if (Util.ReadKey(dictionary, "Name") != null)
-            {
-                WebDriverUtil.GetWebElement(NameInput, WebDriverUtil.NO_WAIT,
-              $"Unable to locate name input on Activity page  - {NameInput}")
-                    .SendKeys(dictionary["Name"]);
-            }
-            WebDriverUtil.GetWebElementAndScroll(SaveButton, WebDriverUtil.NO_WAIT,
-              $"Unable to locate save button on Activity page - {SaveButton}").Click();
-            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible(SaveInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (WebDriverUtil.GetWebElement(ActivityPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) == null) return;
-            var errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (errorMessage != null) return;
-            var errorMsg = WebDriverUtil.GetWebElementAndScroll(ElementAlert, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (errorMsg != null) return;
-            var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (alert == null)
-            {
-                WebDriverUtil.WaitForWebElementInvisible(ActivityPopup, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
-            }
-            else
-            {
-                throw new Exception($"Unable to create new Activity Error - {alert.Text}");
-            }
-        }
-        public static void DeleteActivityIfExist(string activityName)
-        {
-            LogWriter.WriteLog("Executing  ActivityPage.DeleteActivityIfExist");
-            WaitForActivityAlertCloseIfAny();
-            var activityRecordXpath = string.Format(ActivityRecord, activityName);
-            var record = WebDriverUtil.GetWebElementAndScroll(activityRecordXpath, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (record != null)
-            {
-                DeleteCreatedActivity(activityName);
-            }
-        }
-
     }
 }
+
