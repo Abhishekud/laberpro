@@ -6,7 +6,7 @@ namespace LaborPro.Automation.shared.config
     public class ConfigReader
     {
         private static IDictionary<string, IDictionary<string, object>>? ConfigProprties = null;
-        public static readonly string DEFAULT_ENV = "prereleaseuat";
+        public static readonly string DEFAULT_ENV = "blankdb";
         public static readonly string CONFIG_FILE_NAME = @"/resources/config/config.json";
         
         public static void Init()
