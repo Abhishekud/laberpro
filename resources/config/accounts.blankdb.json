@@ -1,19 +1,5 @@
 ﻿{
   "url": "https://laborproautomation.benchmarkit.solutions/",
-  "username_1": "testaccount1@connorsllc.com",
-  "password_1": "testaccount1",
-  "username_2": "testaccount1@connorsllc.com",
-  "password_2": "testaccount1",
-  "username_3": "testaccount1@connorsllc.com",
-  "password_3": "testaccount1",
-  "username_4": "testaccount2@connorsllc.com",
-  "password_4": "testaccount2",
-  "username_5": "testaccount3@connorsllc.com",
-  "password_5": "testaccount3",
-  "viewonly_username": "bits_viewonly@benchmarkit.solutions",
-  "viewonly_password": "Bits12345$$",
-  "superadmin_username": "support@connorsllc.com",
-  "superadmin_password": "LaborPro2017",
   "user1": {
     "username": "testaccount1@connorsllc.com",
     "password": "testaccount1"

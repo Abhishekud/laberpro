@@ -113,23 +113,23 @@ namespace LaborPro.Automation.Features.Kronos.Tasks
 #line 10
     testRunner.When("User navigates to the Tasks tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table66 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table65 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table66.AddRow(new string[] {
+                table65.AddRow(new string[] {
                             "Name",
                             "Tasks created via automation"});
-                table66.AddRow(new string[] {
+                table65.AddRow(new string[] {
                             "Generic Department",
                             "Generic Department"});
-                table66.AddRow(new string[] {
+                table65.AddRow(new string[] {
                             "Combined Distribution",
                             "Combined Distribution"});
-                table66.AddRow(new string[] {
+                table65.AddRow(new string[] {
                             "Time Dependency",
                             "Time Dependent"});
 #line 11
-    testRunner.Then("User create new Tasks with below input if not exist", ((string)(null)), table66, "Then ");
+    testRunner.Then("User create new Tasks with below input if not exist", ((string)(null)), table65, "Then ");
 #line hidden
 #line 17
     testRunner.And("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

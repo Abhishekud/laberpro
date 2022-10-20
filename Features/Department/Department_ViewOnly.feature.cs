@@ -114,14 +114,14 @@ this.ScenarioInitialize(scenarioInfo);
 #line 11
  testRunner.And("User delete Department \"Department to verify Department_ViewOnly\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table38 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table37 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table38.AddRow(new string[] {
+                table37.AddRow(new string[] {
                             "Name",
                             "Department to verify Department_ViewOnly"});
 #line 12
- testRunner.And("User create new Department with below input", ((string)(null)), table38, "And ");
+ testRunner.And("User create new Department with below input", ((string)(null)), table37, "And ");
 #line hidden
 #line 15
  testRunner.And("User verify created Department \"Department to verify Department_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

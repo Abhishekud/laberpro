@@ -81,7 +81,6 @@ namespace LaborPro.Automation.Features.VolumeDriverValueSet
         public void AddVolumeDriverValueSetWithoutName()
         {
             LogWriter.WriteLog("Executing User add volume driver value set without name");
-            VolumeDriverValueSetPage.WaitForLoadingSpinnerInvisible();
             VolumeDriverValueSetPage.CloseVolumeDriverValueSetPopup();
             VolumeDriverValueSetPage.ClickOnProfilingTab();
             VolumeDriverValueSetPage.ClickOnVolumeDriverValueSetTab();
@@ -110,7 +109,6 @@ namespace LaborPro.Automation.Features.VolumeDriverValueSet
         public void VerifyDeleteButtonIsDisabled(string record)
         {
             LogWriter.WriteLog("Executing Step User verify delete button is disabled in default volume driver value set " + record);
-            VolumeDriverValueSetPage.WaitForLoadingSpinnerInvisible();
             VolumeDriverValueSetPage.CloseVolumeDriverValueSetPopup();
             VolumeDriverValueSetPage.ClickOnProfilingTab();
             VolumeDriverValueSetPage.ClickOnVolumeDriverValueSetTab();
@@ -123,7 +121,6 @@ namespace LaborPro.Automation.Features.VolumeDriverValueSet
         public void AddVolumeDriverValueSetForDuplication(string duplicateRecord)
         {
             LogWriter.WriteLog("Executing Step User add new volume driver value set for duplication ");
-            VolumeDriverValueSetPage.WaitForLoadingSpinnerInvisible();
             VolumeDriverValueSetPage.CloseVolumeDriverValueSetPopup();
             VolumeDriverValueSetPage.ClickOnProfilingTab();
             VolumeDriverValueSetPage.ClickOnVolumeDriverValueSetTab();
@@ -137,7 +134,6 @@ namespace LaborPro.Automation.Features.VolumeDriverValueSet
         public void AddNewVolumeDriverValueSetWithoutFile(string record)
         {
             LogWriter.WriteLog("Executing Step User add new volume driver value set without file " + record);
-            VolumeDriverValueSetPage.WaitForLoadingSpinnerInvisible();
             VolumeDriverValueSetPage.CloseVolumeDriverValueSetPopup();
             VolumeDriverValueSetPage.ClickOnProfilingTab();
             VolumeDriverValueSetPage.ClickOnVolumeDriverValueSetTab();

@@ -2,8 +2,6 @@ using LaborPro.Automation.Features.Dashboard;
 using LaborPro.Automation.shared.drivers;
 using LaborPro.Automation.shared.hooks;
 using LaborPro.Automation.shared.util;
-using LaborPro.Automation.shared.config;
-using Microsoft.Extensions.Configuration;
 
 namespace LaborPro.Automation.Features.Login
 {
@@ -80,12 +78,11 @@ namespace LaborPro.Automation.Features.Login
         [Then(@"User ""([^""]*)"" is authenticated with ""([^""]*)""")]
         public void UserAuthentication(string user, string url)
         {
-            var configuration = new ConfigurationBuilder().AddJsonFile(Configuration.Init(Configuration.SetEnvironment())).Build();
-            var appUrl = $"{configuration[$"{url}"]}";
+            var appUrl = $"{BaseClass.configuration[$"{url}"]}";
             LogWriter.WriteLog($"Executing Step: User {user} is authenticated with {appUrl}");
             UserLaunchedBrowser("$browser");
             GoToApplication(appUrl);
-            LoginPage.PerformLogin($"{configuration[$"{user}:username"]}", $"{configuration[$"{user}:password"]}");
+            LoginPage.PerformLogin($"{BaseClass.configuration[$"{user}:username"]}", $"{BaseClass.configuration[$"{user}:password"]}");
             LoginPage.VerifyLoginSuccess();
         }
 

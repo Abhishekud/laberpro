@@ -111,14 +111,14 @@ namespace LaborPro.Automation.Features.JobClasses
 #line 10
     testRunner.When("User navigates to the job classes page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table43 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table42 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table43.AddRow(new string[] {
+                table42.AddRow(new string[] {
                             "Name",
                             "JobClasses_created_via_automation"});
 #line 11
-    testRunner.Then("User create new job classes with below input if not exist", ((string)(null)), table43, "Then ");
+    testRunner.Then("User create new job classes with below input if not exist", ((string)(null)), table42, "Then ");
 #line hidden
 #line 14
     testRunner.And("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

@@ -31,9 +31,6 @@ namespace LaborPro.Automation.Features.LocationMapping
         private const string ExportButton = "//button[@title='Download Location Mapping Import Template']";
         private const string DepartmentDropdownValue = "//select[contains(@id,'departmentId')]//option[contains(text(),'{0}')]";
         private const string DepartmentDropdown = "//select[contains(@id,'departmentId')]";
-        private const string EditLocationsMappingSidebar = "//*[@class='sidebar-title ' and contains(text(),'Edit Location Mapping')]";
-        private const string NameInput = "//*[@id='name']";
-
 
         public static void VerifyExportOptionIsPresent()
         {
@@ -232,61 +229,6 @@ namespace LaborPro.Automation.Features.LocationMapping
             }
             WebDriverUtil.WaitForAWhile();
         }
-        public static void VerifyAddButtonIsNotAvailable()
-        {
-            LogWriter.WriteLog("Executing LocationMappingPage.VerifyAddButtonIsNotAvailable");
-            var addButton = WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (addButton != null)
-                throw new Exception("Add button is found but we expect it should not be present when user login from admin only access");
-            BaseClass._AttachScreenshot.Value = true;
-        }
-        public static void VerifyEditLocationMappingSidebarIsAvailable(string locationName)
-        {
-            LogWriter.WriteLog("Executing LocationMappingPage.VerifyEditLocationMappingSidebarIsAvailable");
-            var locationMappingRecord = string.Format(LocationMappingRecord, DataCache.Read(locationName));
-            WebDriverUtil.GetWebElement(locationMappingRecord, WebDriverUtil.NO_WAIT,
-                $"Unable to locate Location Mapping record on Location Mapping page - {locationMappingRecord}").Click();
-            WebDriverUtil.WaitForAWhile();
-            var editLocationsMappingSidebar = WebDriverUtil.GetWebElement(EditLocationsMappingSidebar, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (editLocationsMappingSidebar == null)
-                throw new Exception("Edit locations mapping sidebar is not found but we expect it should be present when user login from admin only access");
-            BaseClass._AttachScreenshot.Value = true;
-        }
-        public static void VerifyEditDetailOptionsAreNotAvailable(string locationName)
-        {
-            LogWriter.WriteLog("Executing LocationMappingPage.VerifyEditDetailOptionsAreNotAvailable");
-            var locationMappingRecord = string.Format(LocationMappingRecord, DataCache.Read(locationName));
-            if (WebDriverUtil.GetWebElement(EditLocationsMappingSidebar, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) == null)
-            {
-                WebDriverUtil.GetWebElement(locationMappingRecord, WebDriverUtil.NO_WAIT,
-                    $"Unable to locate Location Mapping record on Location Mapping page - {locationMappingRecord}").Click();
-            }
-            WebDriverUtil.WaitForAWhile();
-            var nameInput = WebDriverUtil.GetWebElement(NameInput, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (nameInput.Enabled)
-                throw new Exception("Name input is enabled but we expect it should be disabled when user login from admin only access");
-            var volumeDriverDropdown = WebDriverUtil.GetWebElement(VolumeDriverDropdown, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (volumeDriverDropdown.Enabled)
-                throw new Exception("VolumeDriver dropdown input is enabled but we expect it should be disabled when user login from admin only access");
-            var characteristicDropdown = WebDriverUtil.GetWebElement(CharacteristicDropdown, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (characteristicDropdown.Enabled)
-                throw new Exception("Characteristic dropdown input is enabled but we expect it should be disabled when user login from admin only access");
-            BaseClass._AttachScreenshot.Value = true;
-        }
-        public static void VerifySaveButtonIsNotAvailable(string locationName)
-        {
-            LogWriter.WriteLog("Executing LocationMappingPage.VerifySaveButtonIsNotAvailable");
-            var locationMappingRecord = string.Format(LocationMappingRecord, DataCache.Read(locationName));
-            if (WebDriverUtil.GetWebElement(EditLocationsMappingSidebar, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) == null)
-            {
-                WebDriverUtil.GetWebElement(locationMappingRecord, WebDriverUtil.NO_WAIT,
-                    $"Unable to locate Location Mapping record on Location Mapping page - {locationMappingRecord}").Click();
-            }
-            WebDriverUtil.WaitForAWhile();
-            var saveButton = WebDriverUtil.GetWebElement(SaveButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (saveButton != null)
-                throw new Exception("Save button is found but we expect it should not be present when user login from admin only access");
-            BaseClass._AttachScreenshot.Value = true;
-        }
+
     }
 }

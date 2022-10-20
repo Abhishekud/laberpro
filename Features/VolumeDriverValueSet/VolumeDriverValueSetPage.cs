@@ -53,7 +53,6 @@ namespace LaborPro.Automation.Features.VolumeDriverValueSet
         private const string CloseLocationDetails = "//*[contains(@class,'locations-list-edit-sidebar')]//button[text()='Close']";
         private const string NameInput = "//*[@id='name']";
         private const string AddVolumeDriverButton = "//button[@id='create-volume-drivers']";
-        private const string LoadSpinner = "//i[@class='fa fa-spinner fa-spin']";
         public static void ClickOnProfilingTab()
         {
             LogWriter.WriteLog("Executing VolumeDriverValueSetPage.ClickOnProfilingTab");
@@ -567,19 +566,5 @@ namespace LaborPro.Automation.Features.VolumeDriverValueSet
                     .SendKeys(volumeDriverValueSet);
             }
         }
-        public static void WaitForLoadingSpinnerInvisible()
-
-        {
-
-            if (WebDriverUtil.GetWebElement(LoadSpinner, WebDriverUtil.FIVE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
-
-            {
-
-                WebDriverUtil.WaitForWebElementInvisible(LoadSpinner, WebDriverUtil.DEFAULT_WAIT, WebDriverUtil.NO_MESSAGE);
-
-            }
-
-        } 
-
     }
 }

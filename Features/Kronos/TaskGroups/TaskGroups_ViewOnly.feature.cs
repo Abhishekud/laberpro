@@ -108,26 +108,26 @@ namespace LaborPro.Automation.Features.Kronos.TaskGroups
 #line 9
   testRunner.And("User navigates to the TaskGroups tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table59 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table58 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table59.AddRow(new string[] {
+                table58.AddRow(new string[] {
                             "Name",
                             "TaskGroups created via automation"});
-                table59.AddRow(new string[] {
+                table58.AddRow(new string[] {
                             "Generic Department",
                             "Generic Department"});
-                table59.AddRow(new string[] {
+                table58.AddRow(new string[] {
                             "Combined Distribution",
                             "Combined Distribution"});
-                table59.AddRow(new string[] {
+                table58.AddRow(new string[] {
                             "Allocate Labor Hours",
                             "Start Day"});
-                table59.AddRow(new string[] {
+                table58.AddRow(new string[] {
                             "Job Name",
                             "Job Name"});
 #line 10
-  testRunner.And("User create new TaskGroups with below input if not exist", ((string)(null)), table59, "And ");
+  testRunner.And("User create new TaskGroups with below input if not exist", ((string)(null)), table58, "And ");
 #line hidden
 #line 17
   testRunner.Then("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

@@ -111,14 +111,14 @@ namespace LaborPro.Automation.Features.LaborCategories
 #line 10
     testRunner.When("User navigates to the labor categories page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table67 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table66 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table67.AddRow(new string[] {
+                table66.AddRow(new string[] {
                             "Name",
                             "LaborCategories_created_via_automation"});
 #line 11
-    testRunner.Then("User create new labor category with below input if not exist", ((string)(null)), table67, "Then ");
+    testRunner.Then("User create new labor category with below input if not exist", ((string)(null)), table66, "Then ");
 #line hidden
 #line 14
     testRunner.And("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

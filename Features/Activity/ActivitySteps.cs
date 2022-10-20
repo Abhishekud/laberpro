@@ -5,7 +5,56 @@ namespace LaborPro.Automation.Features.Activity
     [Binding]
     public class ActivitySteps
     {
+        [Given(@"User create new activity ""([^""]*)""")]
+        [When(@"User create new activity ""([^""]*)""")]
+        [Then(@"User create new activity ""([^""]*)""")]
+        public void CreateNewActivity(string activity)
+        {
+            LogWriter.WriteLog("Executing Step User create new activity " + activity);
+            ActivityPage.CloseActivityForm();
+            ActivityPage.ClickOnMeasurementsTab();
+            ActivityPage.ClickOnListManagementTab();
+            ActivityPage.ClickOnActivity();
+            ActivityPage.AddNewActivityWithGivenInput(activity);
+        }
 
+        [Given(@"User verify add button is not available in activity")]
+        [When(@"User verify add button is not available in activity")]
+        [Then(@"User verify add button is not available in activity")]
+        public void VerifyAddButtonIsNotAvailable()
+        {
+            LogWriter.WriteLog("Executing Step User verify add button is not available in activity");
+            ActivityPage.CloseActivityForm();
+            ActivityPage.ClickOnMeasurementsTab();
+            ActivityPage.ClickOnListManagementTab();
+            ActivityPage.ClickOnActivity();
+            ActivityPage.VerifyAddButtonIsNotAvailable();
+
+        }
+
+        [Given(@"User verify delete and edit option is not available for activity ""([^""]*)""")]
+        [When(@"User verify delete and edit option is not available for activity ""([^""]*)""")]
+        [Then(@"User verify delete and edit option is not available for activity ""([^""]*)""")]
+        public void VerifyDeleteAndEditOptionIsNotAvailable(string activity)
+        {
+            LogWriter.WriteLog("Executing Step User verify delete and edit option is not available for activity " + activity);
+            ActivityPage.FindActivityByName(DataCache.Read(activity));
+            ActivityPage.VerifyDeleteButtonIsNotAvailable();
+        }
+
+        [Given(@"User delete activity ""([^""]*)""")]
+        [When(@"User delete activity ""([^""]*)""")]
+        [Then(@"User delete activity ""([^""]*)""")]
+        public void DeleteActivity(string activity)
+        {
+            LogWriter.WriteLog("Executing Step User delete activity " + activity);
+            ActivityPage.CloseActivityForm();
+            ActivityPage.ClickOnMeasurementsTab();
+            ActivityPage.ClickOnListManagementTab();
+            ActivityPage.ClickOnActivity();
+            ActivityPage.DeleteCreatedActivity(DataCache.Read(activity));
+
+        }
         [When(@"User navigates to the Activity tab")]
         [Given(@"User navigates to the Activity tab")]
         [Then(@"User navigates to the Activity tab")]
@@ -18,16 +67,6 @@ namespace LaborPro.Automation.Features.Activity
             ActivityPage.ClickOnActivity();
 
         }
-
-        [Given(@"User create new Activity with below input")]
-        [When(@"User create new Activity with below input")]
-        [Then(@"User create new Activity with below input")]
-        public void AddNewActivityWithGivenInput(Table inputData)
-        {
-            LogWriter.WriteLog("Executing Step User create new Activity with below input");
-            ActivityPage.AddNewActivityWithGivenInput(inputData);
-        }
-
         [Given(@"User create new Activity with below input if not exist")]
         [When(@"User create new Activity with below input if not exist")]
         [Then(@"User create new Activity with below input if not exist")]
@@ -36,34 +75,6 @@ namespace LaborPro.Automation.Features.Activity
             LogWriter.WriteLog("Executing Step User create new Activity with below input if not exist");
             ActivityPage.AddNewActivityWithGivenInputIfNotExist(inputData);
         }
-
-        [Given(@"User verify created Activity by name ""([^""]*)""")]
-        [When(@"User verify created Activity by name ""([^""]*)""")]
-        [Then(@"User verify created Activity by name ""([^""]*)""")]
-        public void VerifyCreatedActivity(string activityName)
-        {
-            LogWriter.WriteLog("Executing Step User verify created Activity by name");
-            ActivityPage.VerifyCreatedActivity(activityName);
-        }
-
-        [Given(@"User find Activity by name ""([^""]*)""")]
-        [When(@"User find Activity by name ""([^""]*)""")]
-        [Then(@"User find Activity by name ""([^""]*)""")]
-        public void FindActivityByName(string activityName)
-        {
-            LogWriter.WriteLog("Executing Step User find Activity by name " + activityName);
-            ActivityPage.FindActivityByName(activityName);
-        }
-
-        [Given(@"User delete created Activity by name ""([^""]*)""")]
-        [When(@"User delete created Activity by name ""([^""]*)""")]
-        [Then(@"User delete created Activity by name ""([^""]*)""")]
-        public void DeleteCreatedActivity(string activityName)
-        {
-            LogWriter.WriteLog("Executing Step User delete created Activity by name");
-            ActivityPage.DeleteCreatedActivity(activityName);
-        }  
-
         [Given(@"User delete Activity ""([^""]*)"" if exist")]
         [When(@"User delete Activity ""([^""]*)"" if exist")]
         [Then(@"User delete Activity ""([^""]*)"" if exist")]
@@ -73,22 +84,5 @@ namespace LaborPro.Automation.Features.Activity
             ActivityPage.DeleteActivityIfExist(activityName);
         }
 
-        [Given(@"User verify Add Button is not Present in Activity")]
-        [When(@"User verify Add Button is not Present in Activity")]
-        [Then(@"User verify Add Button is not Present in Activity")]
-        public void VerifyAddButtonIsNotPresent()
-        {
-            LogWriter.WriteLog("Executing Step User verify Add button is not present");
-            ActivityPage.VerifyAddButtonIsNotPresent();
-        }
-        
-        [Then(@"User verify Activity Delete Button is not Present")]
-        [When(@"User verify Activity Delete Button is not Present")]
-        [Then(@"User verify Activity Delete Button is not Present")]
-        public void VerifyDeleteButtonIsNotPresent()
-        {
-            LogWriter.WriteLog("Executing Step User verify Activity Delete Button is not Present");
-            ActivityPage.VerifyDeleteButtonIsNotPresent();
-        } 
     }
 }

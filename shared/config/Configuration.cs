@@ -4,19 +4,25 @@
     {
         public static string Init(string environment)
         {
-            var workingDirectory = Environment.CurrentDirectory;
-            var projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
-            var configFileName = $"/resources/config/{environment}.json";
-            var configFilePath = projectDirectory + configFileName;
+            string workingDirectory = Environment.CurrentDirectory;
+            string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
+            string CONFIG_FILE_NAME = $"/resources/config/accounts.{environment}.json";
+            string configFilePath = projectDirectory + CONFIG_FILE_NAME;
             return configFilePath;
         }
         public static string SetEnvironment()
         {
-            const string defaultEnvironment = "blankdb_automation";
-            var env = Environment.GetEnvironmentVariable("ENV") ?? Environment.GetEnvironmentVariable("env");
-            if (env != null) return env;
-            env = defaultEnvironment;
-            Environment.SetEnvironmentVariable("env", env);
+            string defaultEnvironment = "prereleaseuat";
+            string env = Environment.GetEnvironmentVariable("ENV");
+            if (env == null)
+            {
+                env = Environment.GetEnvironmentVariable("env");
+            }
+            if (env == null)
+            {
+                env = defaultEnvironment;
+                Environment.SetEnvironmentVariable("env", env);
+            }
             return env;
         }
     }

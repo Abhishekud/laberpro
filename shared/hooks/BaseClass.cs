@@ -6,6 +6,7 @@ using LaborPro.Automation.shared.drivers;
 using NUnit.Framework;
 using LaborPro.Automation.shared.util;
 using LaborPro.Automation.shared.config;
+using Microsoft.Extensions.Configuration;
 
 [assembly: Parallelizable(ParallelScope.Fixtures)]
 [assembly: LevelOfParallelism(10)]
@@ -29,6 +30,7 @@ namespace LaborPro.Automation.shared.hooks
         public static ThreadLocal<String> _TestData = new ThreadLocal<String>();
         private static Dictionary<string, TestScenario> ScenarioSuiteMapping = new Dictionary<string, TestScenario>();
         public static ThreadLocal<Boolean> _SetupScenarioStatus = new ThreadLocal<Boolean>();
+        public static IConfigurationRoot configuration;
         public static string GetProjectDirectoryPath()
         {
             string workingDirectory = Environment.CurrentDirectory;
@@ -40,10 +42,11 @@ namespace LaborPro.Automation.shared.hooks
         public static void Init()
         {
             string env = Environment.GetEnvironmentVariable("env") ?? ConfigReader.DEFAULT_ENV;
-            string suiteType = Environment.GetEnvironmentVariable("suiteType") ?? TestDataExcelReader.REGRESSION_TEST;
+            string suiteType = Environment.GetEnvironmentVariable("suiteType") ?? TestDataExcelReader.SMOKE_TEST;
             LogWriter.WriteLog($"projectDirectory : {GetProjectDirectoryPath()}");
             LogWriter.WriteLog($"Environment - {env}");
             LogWriter.WriteLog($"SuiteType - {suiteType}");
+            configuration = new ConfigurationBuilder().AddJsonFile(Configuration.Init(Configuration.SetEnvironment())).Build();
             ReportDirectoryCleanup(GetProjectDirectoryPath() + _ReportDirectory);
             DownloadDirectoryCleanup(GetProjectDirectoryPath() + _DownloadDirectory);
             LogWriter.LogCleanup();
@@ -100,7 +103,7 @@ namespace LaborPro.Automation.shared.hooks
         [BeforeFeature]
         public static void BeforeFeature(FeatureContext featureContext)
         {
-            string suiteType = Environment.GetEnvironmentVariable("suiteType")??TestDataExcelReader.REGRESSION_TEST;
+            string suiteType = Environment.GetEnvironmentVariable("suiteType")??TestDataExcelReader.SMOKE_TEST;
             string featureName = featureContext.FeatureInfo.Title;
             if (TestDataExcelReader.IsFeatureFileIncluded(featureName, suiteType))
             {
@@ -131,7 +134,7 @@ namespace LaborPro.Automation.shared.hooks
             {
                 string suiteType = Environment.GetEnvironmentVariable("suiteType");
                 if (suiteType == null)
-                    suiteType = TestDataExcelReader.REGRESSION_TEST;
+                    suiteType = TestDataExcelReader.SMOKE_TEST;
                 TestScenario testScenario = Util.ReadKey(ScenarioSuiteMapping, featureName+"_"+scenarioName);
                 if(testScenario==null)
                     Assert.Ignore(String.Format("Test scenario - {0} ignored as per the TestData.xlsx", scenarioName));

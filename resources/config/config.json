@@ -73,9 +73,13 @@
     "superadmin": {
       "username": "bits.auto.qa1@gmail.com",
       "password": "Bits1234$$"
+    },
+    "admin": {
+      "username": "bits_adminonly@benchmarkit.solutions",
+      "password": "Bits12345$$"
     }
   },
-  "blankdb_automation": {
+  "blankdb": {
     "url": "https://laborproautomation.benchmarkit.solutions/",
     "username_1": "testaccount1@connorsllc.com",
     "password_1": "testaccount1",
@@ -168,6 +172,10 @@
     },
     "superadmin": {
       "username": "bits_superadmin@benchmarkit.solutions",
+      "password": "Bits12345$$"
+    },
+    "admin": {
+      "username": "bits_adminonly@benchmarkit.solutions",
       "password": "Bits12345$$"
     }
   },

@@ -138,14 +138,14 @@ namespace LaborPro.Automation.Features.Allowances
 #line 13
     testRunner.Given("User navigates to the Allowance tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table2.AddRow(new string[] {
+                table1.AddRow(new string[] {
                             "Name",
                             ""});
 #line 14
-    testRunner.When("User add allowance using below input", ((string)(null)), table2, "When ");
+    testRunner.When("User add allowance using below input", ((string)(null)), table1, "When ");
 #line hidden
 #line 17
     testRunner.Then("Verify validation Message: \"Name is required\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -180,6 +180,45 @@ namespace LaborPro.Automation.Features.Allowances
 #line 23
     testRunner.Then("User delete allowance \"Allowance to verify duplicate record\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
+                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Key",
+                            "Value"});
+                table2.AddRow(new string[] {
+                            "Name",
+                            "Allowance to verify duplicate record"});
+                table2.AddRow(new string[] {
+                            "Paid Time (Minutes)",
+                            "300"});
+                table2.AddRow(new string[] {
+                            "Excluded Paid Breaks (Minutes)",
+                            "10"});
+                table2.AddRow(new string[] {
+                            "Relief Time (Minutes)",
+                            "1"});
+                table2.AddRow(new string[] {
+                            "Included Paid Breaks (Minutes)",
+                            "20"});
+                table2.AddRow(new string[] {
+                            "Rest Calculation",
+                            "Rest"});
+                table2.AddRow(new string[] {
+                            "Minor Unavoidable Delay (Percent)",
+                            "10"});
+                table2.AddRow(new string[] {
+                            "Additional Delay (Percent)",
+                            "20"});
+                table2.AddRow(new string[] {
+                            "Incentive Opportunity Allowance (Percent)",
+                            "80"});
+#line 24
+    testRunner.When("User add allowance using below input", ((string)(null)), table2, "When ");
+#line hidden
+#line 35
+    testRunner.Then("User verify created allowance name \"Allowance to verify duplicate record\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 36
+    testRunner.And("User click on previous link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
                 TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
@@ -210,47 +249,8 @@ namespace LaborPro.Automation.Features.Allowances
                 table3.AddRow(new string[] {
                             "Incentive Opportunity Allowance (Percent)",
                             "80"});
-#line 24
-    testRunner.When("User add allowance using below input", ((string)(null)), table3, "When ");
-#line hidden
-#line 35
-    testRunner.Then("User verify created allowance name \"Allowance to verify duplicate record\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 36
-    testRunner.And("User click on previous link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Key",
-                            "Value"});
-                table4.AddRow(new string[] {
-                            "Name",
-                            "Allowance to verify duplicate record"});
-                table4.AddRow(new string[] {
-                            "Paid Time (Minutes)",
-                            "300"});
-                table4.AddRow(new string[] {
-                            "Excluded Paid Breaks (Minutes)",
-                            "10"});
-                table4.AddRow(new string[] {
-                            "Relief Time (Minutes)",
-                            "1"});
-                table4.AddRow(new string[] {
-                            "Included Paid Breaks (Minutes)",
-                            "20"});
-                table4.AddRow(new string[] {
-                            "Rest Calculation",
-                            "Rest"});
-                table4.AddRow(new string[] {
-                            "Minor Unavoidable Delay (Percent)",
-                            "10"});
-                table4.AddRow(new string[] {
-                            "Additional Delay (Percent)",
-                            "20"});
-                table4.AddRow(new string[] {
-                            "Incentive Opportunity Allowance (Percent)",
-                            "80"});
 #line 37
-    testRunner.When("User add allowance using below input", ((string)(null)), table4, "When ");
+    testRunner.When("User add allowance using below input", ((string)(null)), table3, "When ");
 #line hidden
 #line 49
     testRunner.Then("Verify validation Message: \"Name already exists\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -290,38 +290,38 @@ namespace LaborPro.Automation.Features.Allowances
 #line 57
     testRunner.Then("User delete allowance \"Allowance by adding correct name\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table5.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             "Name",
                             "Allowance by adding correct name"});
-                table5.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             "Paid Time (Minutes)",
                             "300"});
-                table5.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             "Excluded Paid Breaks (Minutes)",
                             "10"});
-                table5.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             "Relief Time (Minutes)",
                             "1"});
-                table5.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             "Included Paid Breaks (Minutes)",
                             "20"});
-                table5.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             "Rest Calculation",
                             "Rest"});
-                table5.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             "Minor Unavoidable Delay (Percent)",
                             "10"});
-                table5.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             "Additional Delay (Percent)",
                             "20"});
-                table5.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             "Incentive Opportunity Allowance (Percent)",
                             "80"});
 #line 58
-    testRunner.When("User add allowance using below input", ((string)(null)), table5, "When ");
+    testRunner.When("User add allowance using below input", ((string)(null)), table4, "When ");
 #line hidden
 #line 69
     testRunner.Then("User verify created allowance name \"Allowance by adding correct name\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -353,17 +353,17 @@ namespace LaborPro.Automation.Features.Allowances
 #line 73
     testRunner.Given("User navigates to the Allowance tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table6.AddRow(new string[] {
+                table5.AddRow(new string[] {
                             "Name",
                             "Allowance by adding without paid time"});
-                table6.AddRow(new string[] {
+                table5.AddRow(new string[] {
                             "Paid Time (Minutes)",
                             ""});
 #line 74
-    testRunner.When("User add allowance using below input", ((string)(null)), table6, "When ");
+    testRunner.When("User add allowance using below input", ((string)(null)), table5, "When ");
 #line hidden
 #line 78
     testRunner.Then("Verify validation Message: \"Paid Time must be between 200 and 720\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -397,38 +397,38 @@ namespace LaborPro.Automation.Features.Allowances
 #line 83
     testRunner.Given("User navigates to the Allowance tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table7.AddRow(new string[] {
+                table6.AddRow(new string[] {
                             "Name",
                             "Verify add allowance paid time range"});
-                table7.AddRow(new string[] {
+                table6.AddRow(new string[] {
                             "Paid Time (Minutes)",
                             "150"});
-                table7.AddRow(new string[] {
+                table6.AddRow(new string[] {
                             "Excluded Paid Breaks (Minutes)",
                             "10"});
-                table7.AddRow(new string[] {
+                table6.AddRow(new string[] {
                             "Relief Time (Minutes)",
                             "1"});
-                table7.AddRow(new string[] {
+                table6.AddRow(new string[] {
                             "Included Paid Breaks (Minutes)",
                             "20"});
-                table7.AddRow(new string[] {
+                table6.AddRow(new string[] {
                             "Rest Calculation",
                             "Rest"});
-                table7.AddRow(new string[] {
+                table6.AddRow(new string[] {
                             "Minor Unavoidable Delay (Percent)",
                             "10"});
-                table7.AddRow(new string[] {
+                table6.AddRow(new string[] {
                             "Additional Delay (Percent)",
                             "20"});
-                table7.AddRow(new string[] {
+                table6.AddRow(new string[] {
                             "Incentive Opportunity Allowance (Percent)",
                             "80"});
 #line 84
-    testRunner.When("User add allowance using below input", ((string)(null)), table7, "When ");
+    testRunner.When("User add allowance using below input", ((string)(null)), table6, "When ");
 #line hidden
 #line 95
     testRunner.Then("Verify validation Message: \"Paid Time must be between 200 and 720\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -465,38 +465,38 @@ namespace LaborPro.Automation.Features.Allowances
 #line 100
     testRunner.Then("User delete allowance \"Allowance paid time value in range\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table8.AddRow(new string[] {
+                table7.AddRow(new string[] {
                             "Name",
                             "Allowance paid time value in range"});
-                table8.AddRow(new string[] {
+                table7.AddRow(new string[] {
                             "Paid Time (Minutes)",
                             "300"});
-                table8.AddRow(new string[] {
+                table7.AddRow(new string[] {
                             "Excluded Paid Breaks (Minutes)",
                             "10"});
-                table8.AddRow(new string[] {
+                table7.AddRow(new string[] {
                             "Relief Time (Minutes)",
                             "1"});
-                table8.AddRow(new string[] {
+                table7.AddRow(new string[] {
                             "Included Paid Breaks (Minutes)",
                             "20"});
-                table8.AddRow(new string[] {
+                table7.AddRow(new string[] {
                             "Rest Calculation",
                             "Rest"});
-                table8.AddRow(new string[] {
+                table7.AddRow(new string[] {
                             "Minor Unavoidable Delay (Percent)",
                             "10"});
-                table8.AddRow(new string[] {
+                table7.AddRow(new string[] {
                             "Additional Delay (Percent)",
                             "20"});
-                table8.AddRow(new string[] {
+                table7.AddRow(new string[] {
                             "Incentive Opportunity Allowance (Percent)",
                             "80"});
 #line 101
-    testRunner.When("User add allowance using below input", ((string)(null)), table8, "When ");
+    testRunner.When("User add allowance using below input", ((string)(null)), table7, "When ");
 #line hidden
 #line 112
     testRunner.Then("User verify created allowance name \"Allowance paid time value in range\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -531,38 +531,38 @@ namespace LaborPro.Automation.Features.Allowances
 #line 117
     testRunner.Then("User delete allowance \"Allowance Incentive Opportunity Percent\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table9.AddRow(new string[] {
+                table8.AddRow(new string[] {
                             "Name",
                             "Allowance Incentive Opportunity Percent"});
-                table9.AddRow(new string[] {
+                table8.AddRow(new string[] {
                             "Paid Time (Minutes)",
                             "300"});
-                table9.AddRow(new string[] {
+                table8.AddRow(new string[] {
                             "Excluded Paid Breaks (Minutes)",
                             "10"});
-                table9.AddRow(new string[] {
+                table8.AddRow(new string[] {
                             "Relief Time (Minutes)",
                             "1"});
-                table9.AddRow(new string[] {
+                table8.AddRow(new string[] {
                             "Included Paid Breaks (Minutes)",
                             "20"});
-                table9.AddRow(new string[] {
+                table8.AddRow(new string[] {
                             "Rest Calculation",
                             "Rest"});
-                table9.AddRow(new string[] {
+                table8.AddRow(new string[] {
                             "Minor Unavoidable Delay (Percent)",
                             "10"});
-                table9.AddRow(new string[] {
+                table8.AddRow(new string[] {
                             "Additional Delay (Percent)",
                             "20"});
-                table9.AddRow(new string[] {
+                table8.AddRow(new string[] {
                             "Incentive Opportunity Allowance (Percent)",
                             "125"});
 #line 118
-    testRunner.When("User add allowance using below input", ((string)(null)), table9, "When ");
+    testRunner.When("User add allowance using below input", ((string)(null)), table8, "When ");
 #line hidden
 #line 129
     testRunner.Then("User verify created allowance name \"Allowance Incentive Opportunity Percent\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -596,38 +596,38 @@ namespace LaborPro.Automation.Features.Allowances
 #line 133
     testRunner.Given("User navigates to the Allowance tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table10.AddRow(new string[] {
+                table9.AddRow(new string[] {
                             "Name",
                             "Verify Calculated Allowance Percent"});
-                table10.AddRow(new string[] {
+                table9.AddRow(new string[] {
                             "Paid Time (Minutes)",
                             "300"});
-                table10.AddRow(new string[] {
+                table9.AddRow(new string[] {
                             "Excluded Paid Breaks (Minutes)",
                             "10"});
-                table10.AddRow(new string[] {
+                table9.AddRow(new string[] {
                             "Relief Time (Minutes)",
                             "1"});
-                table10.AddRow(new string[] {
+                table9.AddRow(new string[] {
                             "Included Paid Breaks (Minutes)",
                             "20"});
-                table10.AddRow(new string[] {
+                table9.AddRow(new string[] {
                             "Rest Calculation",
                             "Rest"});
-                table10.AddRow(new string[] {
+                table9.AddRow(new string[] {
                             "Minor Unavoidable Delay (Percent)",
                             "200"});
-                table10.AddRow(new string[] {
+                table9.AddRow(new string[] {
                             "Additional Delay (Percent)",
                             "20"});
-                table10.AddRow(new string[] {
+                table9.AddRow(new string[] {
                             "Incentive Opportunity Allowance (Percent)",
                             "125"});
 #line 134
-    testRunner.When("User add allowance using below input to verify validation message", ((string)(null)), table10, "When ");
+    testRunner.When("User add allowance using below input to verify validation message", ((string)(null)), table9, "When ");
 #line hidden
 #line 145
     testRunner.Then("User verify error alert message: \"Calculated Allowance Percent must be less than " +
@@ -636,38 +636,38 @@ namespace LaborPro.Automation.Features.Allowances
 #line 146
     testRunner.And("User click on cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table11.AddRow(new string[] {
+                table10.AddRow(new string[] {
                             "Name",
                             "Dummy"});
-                table11.AddRow(new string[] {
+                table10.AddRow(new string[] {
                             "Paid Time (Minutes)",
                             "300"});
-                table11.AddRow(new string[] {
+                table10.AddRow(new string[] {
                             "Excluded Paid Breaks (Minutes)",
                             "10"});
-                table11.AddRow(new string[] {
+                table10.AddRow(new string[] {
                             "Relief Time (Minutes)",
                             "1"});
-                table11.AddRow(new string[] {
+                table10.AddRow(new string[] {
                             "Included Paid Breaks (Minutes)",
                             "20"});
-                table11.AddRow(new string[] {
+                table10.AddRow(new string[] {
                             "Rest Calculation",
                             "Rest"});
-                table11.AddRow(new string[] {
+                table10.AddRow(new string[] {
                             "Minor Unavoidable Delay (Percent)",
                             "20"});
-                table11.AddRow(new string[] {
+                table10.AddRow(new string[] {
                             "Additional Delay (Percent)",
                             "200"});
-                table11.AddRow(new string[] {
+                table10.AddRow(new string[] {
                             "Incentive Opportunity Allowance (Percent)",
                             "125"});
 #line 147
-    testRunner.When("User add allowance using below input to verify validation message", ((string)(null)), table11, "When ");
+    testRunner.When("User add allowance using below input to verify validation message", ((string)(null)), table10, "When ");
 #line hidden
 #line 158
     testRunner.Then("User verify error alert message: \"Calculated Allowance Percent must be less than " +
