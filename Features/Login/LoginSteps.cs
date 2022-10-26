@@ -71,9 +71,10 @@ namespace LaborPro.Automation.Features.Login
         {
             LogWriter.WriteLog("Executing Step: User logged in with view only access using username:" + Util.ProcessInputDataString(userName) + "password: *********");
             LoginPage.PerformLogin(Util.ProcessInputDataString(userName), Util.ProcessInputDataString(password));
-        }
-
+        } 
         [Given(@"User ""([^""]*)"" is authenticated with ""([^""]*)""")]
+        [When(@"User ""([^""]*)"" is authenticated with ""([^""]*)""")]
+        [Then(@"User ""([^""]*)"" is authenticated with ""([^""]*)""")]
         public void UserAuthentication(string user, string url)
         {
             var appUrl = $"{BaseClass.configuration[$"{url}"]}";
@@ -83,6 +84,5 @@ namespace LaborPro.Automation.Features.Login
             LoginPage.PerformLogin($"{BaseClass.configuration[$"{user}:username"]}", $"{BaseClass.configuration[$"{user}:password"]}");
             LoginPage.VerifyLoginSuccess();
         }
-
     }
 }
