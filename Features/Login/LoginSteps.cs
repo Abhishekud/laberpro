@@ -74,8 +74,6 @@ namespace LaborPro.Automation.Features.Login
         }
 
         [Given(@"User ""([^""]*)"" is authenticated with ""([^""]*)""")]
-        [When(@"User ""([^""]*)"" is authenticated with ""([^""]*)""")]
-        [Then(@"User ""([^""]*)"" is authenticated with ""([^""]*)""")]
         public void UserAuthentication(string user, string url)
         {
             var appUrl = $"{BaseClass.configuration[$"{url}"]}";

@@ -21,8 +21,8 @@ Scenario: 05.verify save button is not available
 	And User logout from the application
   
 @Cleanup
-Scenario: 06. Logout and Close Browser
-	Given User "superadmin" is authenticated with "url"
-	When User delete records "MAWSON" and "CAFE" on location mapping page
+Scenario: 06. Cleanup and Logout
+	When User "superadmin" is authenticated with "url"
+	And User delete records "MAWSON" and "CAFE" on location mapping page
 	And User logout from the application
 	And User close browser

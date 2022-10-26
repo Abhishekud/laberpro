@@ -2,7 +2,7 @@
 
 namespace LaborPro.Automation.Features.Attribute
 {
-    public class AttributeValuesRecord
+    public class AttributePrerequisites
     { 
         [Required]
         public string Location { get; set; }

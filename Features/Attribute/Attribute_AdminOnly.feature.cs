@@ -244,14 +244,14 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("07. Logout and Close Browser")]
+        [NUnit.Framework.DescriptionAttribute("07. Cleanup and Logout")]
         [NUnit.Framework.CategoryAttribute("Cleanup")]
-        public void _07_LogoutAndCloseBrowser()
+        public void _07_CleanupAndLogout()
         {
             string[] tagsOfScenario = new string[] {
                     "Cleanup"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("07. Logout and Close Browser", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("07. Cleanup and Logout", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 29
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -263,7 +263,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 30
- testRunner.Given("User \"superadmin\" is authenticated with \"url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.When("User \"superadmin\" is authenticated with \"url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
                             "Department",
@@ -274,7 +274,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "DUNLOP",
                             "SAFETY"});
 #line 31
- testRunner.When("User delete prerequisite records for attribute", ((string)(null)), table19, "When ");
+ testRunner.And("User delete prerequisite records for attribute", ((string)(null)), table19, "And ");
 #line hidden
 #line 34
  testRunner.And("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

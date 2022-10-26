@@ -160,7 +160,7 @@ namespace LaborPro.Automation.Features.Attribute
         public void SetupPrerequisitesForAttribute(Table inputData)
         {
             LogWriter.WriteLog("Executing Step User setup prerequisites for attribute " + inputData);
-            var prerequisites = inputData.CreateInstance<AttributeValuesRecord>();
+            var prerequisites = inputData.CreateInstance<AttributePrerequisites>();
             DepartmentsPage.ClickOnStandardTab();
             DepartmentsPage.ClickOnListManagementTab();
             AllowancePage.WaitForAllowanceAlertCloseIfAny();
@@ -182,7 +182,7 @@ namespace LaborPro.Automation.Features.Attribute
         public void DeletePrerequisiteRecordsForAttribute(Table inputData)
         {
             LogWriter.WriteLog("Executing Step User delete prerequisite records for attribute " + inputData);
-            var prerequisites = inputData.CreateInstance<AttributeValuesRecord>();
+            var prerequisites = inputData.CreateInstance<AttributePrerequisites>();
             LocationPage.ClickOnProfilingTab();
             LocationPage.ClickOnLocationsTab();
             LocationPage.ClearAllFilter();

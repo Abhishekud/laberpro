@@ -114,17 +114,7 @@ namespace LaborPro.Automation.Features.LocationMapping
             LogWriter.WriteLog("Executing Step User verify details are not editable on location mapping page in " + locationMappingName);
             LocationMappingPage.VerifyDetailsAreNotEditable(locationMappingName);
         }
-
-
-
-
-
-
-
-
-
-
-
+        
         [When(@"User create location ""([^""]*)"" and department ""([^""]*)"" and map them")]
         [Then(@"User create location ""([^""]*)"" and department ""([^""]*)"" and map them")]
         [Given(@"User create location ""([^""]*)"" and department ""([^""]*)"" and map them")]

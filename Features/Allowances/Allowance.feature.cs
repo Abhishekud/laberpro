@@ -627,7 +627,7 @@ namespace LaborPro.Automation.Features.Allowances
                             "Incentive Opportunity Allowance (Percent)",
                             "125"});
 #line 134
-    testRunner.When("User add allowance using below input to verify validation message", ((string)(null)), table10, "When ");
+    testRunner.When("User add allowance using below input to verify vaidation message", ((string)(null)), table10, "When ");
 #line hidden
 #line 145
     testRunner.Then("User verify error alert message: \"Calculated Allowance Percent must be less than " +
@@ -667,7 +667,7 @@ namespace LaborPro.Automation.Features.Allowances
                             "Incentive Opportunity Allowance (Percent)",
                             "125"});
 #line 147
-    testRunner.When("User add allowance using below input to verify validation message", ((string)(null)), table11, "When ");
+    testRunner.When("User add allowance using below input to verify vaidation message", ((string)(null)), table11, "When ");
 #line hidden
 #line 158
     testRunner.Then("User verify error alert message: \"Calculated Allowance Percent must be less than " +

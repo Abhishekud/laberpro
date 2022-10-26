@@ -37,10 +37,6 @@ namespace LaborPro.Automation.Features.Attribute
         private const string DownloadAttributeImportTemplateIcon = "//*[@class='header-button dropdown open btn-group']//*[@aria-labelledby='export']//*[text()='Download Attribute Import Template']";
         private const string DownloadLocationAttributeImportTemplateIcon = "//*[@class='header-button dropdown open btn-group']//*[@aria-labelledby='export']//a";
         private const string ExportAttributeDialogueBox = "//*[@class='modal-content']//*[text()='Export Attributes']";
-
-
-
-
         private const string OpenEditSidebarForm = "//*[@class='sidebar-scrollable']//div[@class='action-buttons-none sidebar-section']";
         private const string EditAttributeButton = "//button[contains(text(),'Edit')]";
         private const string TickOption = "//*[@class='k-grid-edit-cell disabled-input ']/input";
@@ -57,10 +53,7 @@ namespace LaborPro.Automation.Features.Attribute
         private const string CloseLocationDetails = "//*[contains(@class,'locations-list-edit-sidebar')]//button[text()='Close']";
         private const string SaveInprogress = "//button[contains(text(),'Saving...')]";
         private const string DeleteInprogress = "//button[contains(text(),'Deleting...')]";
-
-
-
-
+        
         public static void ClickOnProfilingTab()
         {
             LogWriter.WriteLog("Executing AttributePage.ClickOnProfilingTab");
@@ -484,7 +477,7 @@ namespace LaborPro.Automation.Features.Attribute
         {
             LogWriter.WriteLog("Executing AttributePage.ClickOnAddButton");
             WebDriverUtil.GetWebElement(AddNewDepartment, WebDriverUtil.NO_WAIT,
-                $"Unable to locate add button on departments page  - {AddNewDepartment}").Click();
+                $"Unable to locate add button on departments page - {AddNewDepartment}").Click();
         }
         public static void UserClickOnNewDepartmentMenuLink()
         {

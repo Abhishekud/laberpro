@@ -31,18 +31,6 @@ namespace LaborPro.Automation.Features.LocationMapping
         private const string ExportButton = "//button[@title='Download Location Mapping Import Template']";
         private const string DepartmentDropdownValue = "//select[contains(@id,'departmentId')]//option[contains(text(),'{0}')]";
         private const string DepartmentDropdown = "//select[contains(@id,'departmentId')]";
-
-
-
-
-
-
-
-
-
-
-
-
         private const string EditLocationsMappingSidebar = "//*[@class='sidebar-title ' and contains(text(),'Edit Location Mapping')]";
         private const string NameInput = "//*[@id='name']";
         private const string AddNewDepartment = "//button[@id='newDepartments']";
@@ -255,16 +243,6 @@ namespace LaborPro.Automation.Features.LocationMapping
             WebDriverUtil.WaitForAWhile();
         }
 
-
-
-
-
-
-
-
-
-
-
         public static void VerifyAddButtonIsNotAvailable()
         {
             LogWriter.WriteLog("Executing LocationMappingPage.VerifyAddButtonIsNotAvailable");
@@ -361,7 +339,7 @@ namespace LaborPro.Automation.Features.LocationMapping
         {
             LogWriter.WriteLog("Executing LocationMappingPage.ClickOnAddButton");
             WebDriverUtil.GetWebElement(AddNewDepartment, WebDriverUtil.NO_WAIT,
-                $"Unable to locate add button on departments Page  - {AddNewDepartment}").Click();
+                $"Unable to locate add button on departments Page - {AddNewDepartment}").Click();
 
         }
 

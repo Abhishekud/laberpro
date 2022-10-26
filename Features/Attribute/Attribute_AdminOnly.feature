@@ -26,9 +26,9 @@ Scenario: 06.verify added location is available
 	And User logout from the application
  
 @Cleanup
-Scenario: 07. Logout and Close Browser
-	Given User "superadmin" is authenticated with "url"
-	When User delete prerequisite records for attribute
+Scenario: 07. Cleanup and Logout
+	When User "superadmin" is authenticated with "url"
+	And User delete prerequisite records for attribute
 		| Department | Location | Attribute |
 		| GROCERY    | DUNLOP   | SAFETY    |
 	And User logout from the application
