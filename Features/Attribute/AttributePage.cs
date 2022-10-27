@@ -53,7 +53,7 @@ namespace LaborPro.Automation.Features.Attribute
         private const string CloseLocationDetails = "//*[contains(@class,'locations-list-edit-sidebar')]//button[text()='Close']";
         private const string SaveInprogress = "//button[contains(text(),'Saving...')]";
         private const string DeleteInprogress = "//button[contains(text(),'Deleting...')]";
-        
+
         public static void ClickOnProfilingTab()
         {
             LogWriter.WriteLog("Executing AttributePage.ClickOnProfilingTab");

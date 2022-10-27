@@ -225,23 +225,23 @@ namespace LaborPro.Automation.Features.Kronos.LaborPeriods
 #line 34
     testRunner.When("User selects New LaborPeriod", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table49 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table51 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table49.AddRow(new string[] {
+                table51.AddRow(new string[] {
                             "Name",
                             ""});
-                table49.AddRow(new string[] {
+                table51.AddRow(new string[] {
                             "LaborPeriodType",
                             "Hours of Operation"});
-                table49.AddRow(new string[] {
+                table51.AddRow(new string[] {
                             "TrafficPattern",
                             ""});
-                table49.AddRow(new string[] {
+                table51.AddRow(new string[] {
                             "LaborDistribution",
                             ""});
 #line 35
-    testRunner.And("User Add New LaborPeriod Using Below Input", ((string)(null)), table49, "And ");
+    testRunner.And("User Add New LaborPeriod Using Below Input", ((string)(null)), table51, "And ");
 #line hidden
 #line 41
     testRunner.Then("User Verify HouseOfOperation by name \"Hours of Operation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -283,23 +283,23 @@ namespace LaborPro.Automation.Features.Kronos.LaborPeriods
 #line 48
     testRunner.When("User selects New LaborPeriod", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table50 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table52 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table50.AddRow(new string[] {
+                table52.AddRow(new string[] {
                             "Name",
                             "automations"});
-                table50.AddRow(new string[] {
+                table52.AddRow(new string[] {
                             "LaborPeriodType",
                             "Hours of Operation"});
-                table50.AddRow(new string[] {
+                table52.AddRow(new string[] {
                             "TrafficPattern",
                             "Distribute Evenly and Apply Rounding"});
-                table50.AddRow(new string[] {
+                table52.AddRow(new string[] {
                             "LaborDistribution",
                             "Same As Selected Labor Period"});
 #line 49
-    testRunner.And("User Add New LaborPeriod Using Below Input", ((string)(null)), table50, "And ");
+    testRunner.And("User Add New LaborPeriod Using Below Input", ((string)(null)), table52, "And ");
 #line hidden
 #line 55
     testRunner.Then("User Verify HouseOfOperation by name \"Hours of Operation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -347,23 +347,23 @@ namespace LaborPro.Automation.Features.Kronos.LaborPeriods
 #line 64
     testRunner.When("User selects New LaborPeriod", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table51 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table53 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table51.AddRow(new string[] {
+                table53.AddRow(new string[] {
                             "Name",
                             "automations"});
-                table51.AddRow(new string[] {
+                table53.AddRow(new string[] {
                             "LaborPeriodType",
                             "Hours of Operation"});
-                table51.AddRow(new string[] {
+                table53.AddRow(new string[] {
                             "TrafficPattern",
                             "Distribute Evenly and Apply Rounding"});
-                table51.AddRow(new string[] {
+                table53.AddRow(new string[] {
                             "LaborDistribution",
                             "Same As Selected Labor Period"});
 #line 65
-    testRunner.And("User Add New LaborPeriod Using Below Input", ((string)(null)), table51, "And ");
+    testRunner.And("User Add New LaborPeriod Using Below Input", ((string)(null)), table53, "And ");
 #line hidden
 #line 71
    testRunner.Then("User Add HouseOfPeriod", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -412,23 +412,23 @@ namespace LaborPro.Automation.Features.Kronos.LaborPeriods
 #line 81
     testRunner.When("User selects New LaborPeriod", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table52 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table54 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table52.AddRow(new string[] {
+                table54.AddRow(new string[] {
                             "Name",
                             "automations"});
-                table52.AddRow(new string[] {
+                table54.AddRow(new string[] {
                             "LaborPeriodType",
                             "Hours of Operation"});
-                table52.AddRow(new string[] {
+                table54.AddRow(new string[] {
                             "TrafficPattern",
                             "Distribute Evenly and Apply Rounding"});
-                table52.AddRow(new string[] {
+                table54.AddRow(new string[] {
                             "LaborDistribution",
                             "Same As Selected Labor Period"});
 #line 82
-    testRunner.And("User Add New LaborPeriod Using Below Input", ((string)(null)), table52, "And ");
+    testRunner.And("User Add New LaborPeriod Using Below Input", ((string)(null)), table54, "And ");
 #line hidden
 #line 88
    testRunner.Then("User Add HouseOfPeriod", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -436,23 +436,23 @@ namespace LaborPro.Automation.Features.Kronos.LaborPeriods
 #line 89
    testRunner.And("User selects New LaborPeriod", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table53 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table55 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table53.AddRow(new string[] {
+                table55.AddRow(new string[] {
                             "Name",
                             "automations"});
-                table53.AddRow(new string[] {
+                table55.AddRow(new string[] {
                             "LaborPeriodType",
                             "Hours of Operation"});
-                table53.AddRow(new string[] {
+                table55.AddRow(new string[] {
                             "TrafficPattern",
                             "Distribute Evenly and Apply Rounding"});
-                table53.AddRow(new string[] {
+                table55.AddRow(new string[] {
                             "LaborDistribution",
                             "Same As Selected Labor Period"});
 #line 90
-   testRunner.Then("User Add New LaborPeriod Using Below Input", ((string)(null)), table53, "Then ");
+   testRunner.Then("User Add New LaborPeriod Using Below Input", ((string)(null)), table55, "Then ");
 #line hidden
 #line 96
    testRunner.Then("User Add HouseOfPeriod", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
