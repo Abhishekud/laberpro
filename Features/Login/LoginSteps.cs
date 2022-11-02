@@ -74,15 +74,15 @@ namespace LaborPro.Automation.Features.Login
         }
 
         [Given(@"User ""([^""]*)"" is authenticated with ""([^""]*)""")]
+        [When(@"User ""([^""]*)"" is authenticated with ""([^""]*)""")]
+        [Then(@"User ""([^""]*)"" is authenticated with ""([^""]*)""")]
         public void UserAuthentication(string user, string url)
         {
-            url = Util.ProcessInputDataString(url);
-            LogWriter.WriteLog($"Executing Step: User {user} is authenticated with {url}");
+            var appUrl = $"{BaseClass.configuration[$"{url}"]}";
+            LogWriter.WriteLog($"Executing Step: User {user} is authenticated with {appUrl}");
             UserLaunchedBrowser("$browser");
-            GoToApplication(url);
-            LoginPage.PerformLogin(
-                Util.ProcessInputDataString(user, "username"),
-                Util.ProcessInputDataString(user, "password"));
+            GoToApplication(appUrl);
+            LoginPage.PerformLogin($"{BaseClass.configuration[$"{user}:username"]}", $"{BaseClass.configuration[$"{user}:password"]}");
             LoginPage.VerifyLoginSuccess();
         }
 

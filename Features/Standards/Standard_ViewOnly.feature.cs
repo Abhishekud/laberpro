@@ -113,14 +113,14 @@ namespace LaborPro.Automation.Features.Standards
 #line 10
     testRunner.And("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table101 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table100 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table101.AddRow(new string[] {
+                table100.AddRow(new string[] {
                             "Name",
                             "department for standards viewonly"});
 #line 11
-    testRunner.Then("User create new Department with below input if not exist", ((string)(null)), table101, "Then ");
+    testRunner.Then("User create new Department with below input if not exist", ((string)(null)), table100, "Then ");
 #line hidden
 #line 14
     testRunner.And("User navigates to the List Management tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -131,14 +131,14 @@ namespace LaborPro.Automation.Features.Standards
 #line 16
     testRunner.And("User Selects Created Department \"department for standards viewonly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table102 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table101 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table102.AddRow(new string[] {
+                table101.AddRow(new string[] {
                             "Name",
                             "Demo Uom"});
 #line 17
-    testRunner.Then("User create new UnitOfMeasure with below input if not exist", ((string)(null)), table102, "Then ");
+    testRunner.Then("User create new UnitOfMeasure with below input if not exist", ((string)(null)), table101, "Then ");
 #line hidden
 #line 20
     testRunner.And("User navigates to the standards tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -146,17 +146,17 @@ namespace LaborPro.Automation.Features.Standards
 #line 21
     testRunner.And("User delete Standard \"name to verify viewonly\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table103 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table102 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table103.AddRow(new string[] {
+                table102.AddRow(new string[] {
                             "Name",
                             "name to verify viewonly"});
-                table103.AddRow(new string[] {
+                table102.AddRow(new string[] {
                             "Department",
                             "department for standards viewonly"});
 #line 22
-    testRunner.Then("User add new standards using below input", ((string)(null)), table103, "Then ");
+    testRunner.Then("User add new standards using below input", ((string)(null)), table102, "Then ");
 #line hidden
 #line 26
     testRunner.And("User click on previous link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -173,20 +173,20 @@ namespace LaborPro.Automation.Features.Standards
 #line 30
     testRunner.And("User Selects Standard Element type \"Estimate\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table104 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table103 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table104.AddRow(new string[] {
+                table103.AddRow(new string[] {
                             "Name",
                             "Dummy"});
-                table104.AddRow(new string[] {
+                table103.AddRow(new string[] {
                             "Frequency",
                             "16"});
-                table104.AddRow(new string[] {
+                table103.AddRow(new string[] {
                             "Unit of Measure",
                             "Demo Uom"});
 #line 31
-    testRunner.Then("User adds new Standard Element Using Below input", ((string)(null)), table104, "Then ");
+    testRunner.Then("User adds new Standard Element Using Below input", ((string)(null)), table103, "Then ");
 #line hidden
 #line 36
     testRunner.And("User click on previous link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

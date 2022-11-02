@@ -108,14 +108,14 @@ this.ScenarioInitialize(scenarioInfo);
 #line 9
  testRunner.And("User navigates to the Classifications tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table33 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table32 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table33.AddRow(new string[] {
+                table32.AddRow(new string[] {
                             "Name",
                             "Classification_created_via_automation"});
 #line 10
- testRunner.And("User create new Classifications with below input if not exist", ((string)(null)), table33, "And ");
+ testRunner.And("User create new Classifications with below input if not exist", ((string)(null)), table32, "And ");
 #line hidden
 #line 13
  testRunner.Then("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

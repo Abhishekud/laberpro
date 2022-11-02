@@ -2,7 +2,7 @@
 Feature: Verify VolumeDriverValueSet Module
 @Setup
 Scenario: 01. Launch Browser and Login to the Application and perform prerequisites
-	Given User "$superadmin" is authenticated with "$url"
+	Given User "superadmin" is authenticated with "url"
 	When User setup prerequisites for volume driver value set
 		| Department | Location     | UnitsOfMeasure | VolumeDriver   |
 		| ATM DPT    | ATM LOCATION | ATM UOM        | ATM VOL DRIVER |

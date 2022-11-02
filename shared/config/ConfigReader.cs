@@ -6,7 +6,7 @@ namespace LaborPro.Automation.shared.config
     public class ConfigReader
     {
         private static IDictionary<string, IDictionary<string, object>>? ConfigProprties = null;
-        public static readonly string DEFAULT_ENV = "blankdb_automation";
+        public static readonly string DEFAULT_ENV = "prereleaseuat";
         public static readonly string CONFIG_FILE_NAME = @"/resources/config/config.json";
         
         public static void Init()
@@ -14,8 +14,8 @@ namespace LaborPro.Automation.shared.config
             string workingDirectory = Environment.CurrentDirectory;
             string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
             string configFilePath = projectDirectory + CONFIG_FILE_NAME;
-            using StreamReader r = new(configFilePath);
-            string json = r.ReadToEnd();
+            using StreamReader streamReader = new(configFilePath);
+            string json = streamReader.ReadToEnd();
             ConfigProprties = JsonConvert.DeserializeObject<IDictionary<string, IDictionary<string, object>>>(json);
 
         }

@@ -111,14 +111,14 @@ this.ScenarioInitialize(scenarioInfo);
 #line 10
  testRunner.And("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table18.AddRow(new string[] {
+                table17.AddRow(new string[] {
                             "Name",
                             "Department to verify attribute in viewonly mode"});
 #line 11
- testRunner.And("User create new Department with below input if not exist", ((string)(null)), table18, "And ");
+ testRunner.And("User create new Department with below input if not exist", ((string)(null)), table17, "And ");
 #line hidden
 #line 14
  testRunner.And("User navigates to the attribute tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -129,14 +129,14 @@ this.ScenarioInitialize(scenarioInfo);
 #line 16
     testRunner.And("User delete attribute \"AJT_viewonly\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table19.AddRow(new string[] {
+                table18.AddRow(new string[] {
                             "Name",
                             "AJT_viewonly"});
 #line 17
- testRunner.And("User add new attribute using below input", ((string)(null)), table19, "And ");
+ testRunner.And("User add new attribute using below input", ((string)(null)), table18, "And ");
 #line hidden
 #line 20
  testRunner.And("User refresh the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

@@ -6,9 +6,10 @@ using LaborPro.Automation.shared.drivers;
 using NUnit.Framework;
 using LaborPro.Automation.shared.util;
 using LaborPro.Automation.shared.config;
+using Microsoft.Extensions.Configuration;
 
 [assembly: Parallelizable(ParallelScope.Fixtures)]
-[assembly: LevelOfParallelism(5)]
+[assembly: LevelOfParallelism(10)]
 
 namespace LaborPro.Automation.shared.hooks
 {
@@ -29,6 +30,7 @@ namespace LaborPro.Automation.shared.hooks
         public static ThreadLocal<String> _TestData = new ThreadLocal<String>();
         private static Dictionary<string, TestScenario> ScenarioSuiteMapping = new Dictionary<string, TestScenario>();
         public static ThreadLocal<Boolean> _SetupScenarioStatus = new ThreadLocal<Boolean>();
+        public static IConfigurationRoot configuration;
         public static string GetProjectDirectoryPath()
         {
             string workingDirectory = Environment.CurrentDirectory;
@@ -44,6 +46,7 @@ namespace LaborPro.Automation.shared.hooks
             LogWriter.WriteLog($"projectDirectory : {GetProjectDirectoryPath()}");
             LogWriter.WriteLog($"Environment - {env}");
             LogWriter.WriteLog($"SuiteType - {suiteType}");
+            configuration = new ConfigurationBuilder().AddJsonFile(Configuration.Init(Configuration.SetEnvironment())).Build();
             ReportDirectoryCleanup(GetProjectDirectoryPath() + _ReportDirectory);
             DownloadDirectoryCleanup(GetProjectDirectoryPath() + _DownloadDirectory);
             LogWriter.LogCleanup();
