@@ -1,70 +1,68 @@
-pool:
-  name: Azure Pipelines 
-  vmImage: 'windows-latest'
+parameters:
+- name: ENV
+  displayName: Environment Configuration 
+  type: string
+  values:
+  - bits 
+  - uat
+  - dev
+  - prereleaseuat
 
-steps:
-- task: UseDotNet@2
-  displayName: 'Use .NET Core sdk 6.0.101'
-  inputs:
-    version: 6.0.101
+stages:
+  - stage: SmokeTesting
+    variables:
+    - name: BuildParameters.RestoreBuildProjects
+      value: '**/LaborPro.Automation.csproj'
+    - name: ENV
+      value: ${{parameters.ENV}}
+    pool:  
+      vmImage: windows-latest
+    jobs:
+    - job: SmokeTestAutomation
+      displayName: BITSTestAutomationExecution 
+      steps:
+      - checkout: self
+        clean: true
+      - task: UseDotNet@2
+        displayName: Use .NET Core sdk 6.0.101
+        inputs:
+          packageType: sdk
+          version: 6.0.101
+      - task: DotNetCoreCLI@2
+        displayName: Restore
+        inputs:
+          command: restore
+          projects: $(BuildParameters.RestoreBuildProjects)
+      - task: DotNetCoreCLI@2
+        displayName: Build
+        inputs:
+          projects: $(BuildParameters.RestoreBuildProjects)
+          arguments: --configuration $(BuildConfiguration)
+      - task: DotNetCoreCLI@2
+        displayName: Publish
+        inputs:
+          command: publish
+          publishWebProjects: false
+          projects: $(BuildParameters.RestoreBuildProjects)
+          arguments: --configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)
+          zipAfterPublish: false
+          modifyOutputPath: false
+      - task: VSTest@2
+        displayName: VsTest - testAssemblies
+        inputs:
+          testAssemblyVer2: >-
+            **\LaborPro.Automation.dll
 
-- task: DotNetCoreCLI@2
-  displayName: Restore
-  inputs:
-    command: restore
-    projects: '$(Parameters.RestoreBuildProjects)'
+            !**\*TestAdapter.dll
 
-- task: DotNetCoreCLI@2
-  displayName: Build
-  inputs:
-    projects: '$(Parameters.RestoreBuildProjects)'
-    arguments: '--configuration $(BuildConfiguration)'
+            !**\obj\**
 
-- task: DotNetCoreCLI@2
-  displayName: Publish
-  inputs:
-    command: publish
-    publishWebProjects: false
-    projects: '$(Parameters.RestoreBuildProjects)'
-    arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
-    zipAfterPublish: True
-
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact'
-  inputs:
-    PathtoPublish: '$(build.artifactstagingdirectory)'
-  condition: succeededOrFailed()
-
-- task: VSTest@2
-  displayName: 'VsTest - testAssemblies'
-  inputs:
-    testAssemblyVer2: |
-     **\LaborPro.Automation.dll
-     !**\*TestAdapter.dll
-     !**\obj\**
-     !**\bin\**\ref\**
-
+            !**\bin\**\ref\**
+      - task: PublishBuildArtifacts@1
+        displayName: 'Publish Artifact'
+        inputs:
+          PathtoPublish: report
+          ArtifactName: report
+          continueOnError: true
+          condition: always()
  
-
-- task: DownloadPipelineArtifact@2
-  displayName: 'Download Pipeline Artifact'
-  inputs:
-    buildType: specific
-    project: '28cd3291-72a0-4149-aabb-7f3a8c662438'
-    definition: 21
-    specificBuildWithTriggering: true
-    allowPartiallySucceededBuilds: true
-    allowFailedBuilds: true
-    artifactName: report
-    targetPath: '$(Parameters.path)'
-  continueOnError: true
-  condition: succeededOrFailed()
-
-- task: CopyPublishBuildArtifacts@1
-  displayName: 'Copy Publish Artifact: report'
-  inputs:
-    Contents: report
-    ArtifactName: report
-    ArtifactType: Container
-  continueOnError: true
-  condition: always()
