@@ -35,15 +35,6 @@ namespace LaborPro.Automation.Features.Elements
             ElementsPage.VerifyDeleteButtonIsNotPresent();
             ElementsPage.ClickOnPreviousLink();
         }
-        [Given(@"User verify add button is not available on elements page")]
-        [When(@"User verify add button is not available on elements page")]
-        [Then(@"User verify add button is not available on elements page")]
-        public void VerifyAddButtonIsNotAvailable()
-        {
-            LogWriter.WriteLog("Executing Step User verify add button is not available on elements page");
-            ElementsPage.VerifyAddButtonIsNotPresent();
-        }
-
         [Given(@"User verify export option is present")]
         [When(@"User verify export option is present")]
         [Then(@"User verify export option is present")]

@@ -32,7 +32,7 @@ namespace LaborPro.Automation.Features.Classifications
         {
             LogWriter.WriteLog("Executing  ClassificationsPage.DeleteClassificationsIfExist");
             WaitForClassificationsAlertCloseIfAny();
-            var record = WebDriverUtil.GetWebElementAndScroll(string.Format(ClassificationsRecord, classificationsName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement record = WebDriverUtil.GetWebElementAndScroll(string.Format(ClassificationsRecord, classificationsName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record != null)
             {
                 DeleteCreatedClassifications(classificationsName);
@@ -52,7 +52,7 @@ namespace LaborPro.Automation.Features.Classifications
         public static void CloseClassificationsDetailSideBar()
         {
             LogWriter.WriteLog("Executing ClassificationsPage CloseClassificationsDetailSideBar()");
-            var classificationsDetailsSideBar = WebDriverUtil.GetWebElement(CloseClassificationsDetails, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement classificationsDetailsSideBar = WebDriverUtil.GetWebElement(CloseClassificationsDetails, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (classificationsDetailsSideBar != null)
             {
                 classificationsDetailsSideBar.Click();
@@ -78,7 +78,7 @@ namespace LaborPro.Automation.Features.Classifications
             $"Unable to locate Classifications delete button on Classifications details - {classificationsDeleteButtonXpath}").Click();
 
 
-            var confirmationPopup = WebDriverUtil.GetWebElement(ClassificationsDeleteConfirmPopup, WebDriverUtil.TWO_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement confirmationPopup = WebDriverUtil.GetWebElement(ClassificationsDeleteConfirmPopup, WebDriverUtil.TWO_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (confirmationPopup != null)
             {
 
@@ -86,7 +86,7 @@ namespace LaborPro.Automation.Features.Classifications
                     $"Unable to locate Confirm button on delete confirmation popup - {ClassificationsDeleteConfirmPopupAccept}").Click();
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
                 WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
-                var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                 if (alert == null)
                 {
                     WebDriverUtil.WaitForWebElementInvisible(ClassificationsDeleteConfirmPopup, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
@@ -117,7 +117,7 @@ namespace LaborPro.Automation.Features.Classifications
         public static void VerifyAddButtonIsNotPresent()
         {
             LogWriter.WriteLog("Executing ClassificationsPage.VerifyAddButtonIsNotPresent");
-            var addClassification = WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement addClassification = WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (addClassification != null)
                 throw new Exception("Add Button is found but we expect it should not be present when user login from view only access");
             BaseClass._AttachScreenshot.Value = true;
@@ -125,7 +125,7 @@ namespace LaborPro.Automation.Features.Classifications
         public static void VerifyDeleteButtonIsNotPresent()
         {
             LogWriter.WriteLog("Executing ClassificationsPage.VerifyDeleteButtonIsNotPresent");
-            var deleteClassification = WebDriverUtil.GetWebElement(ClassificationsDeleteButton, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement deleteClassification = WebDriverUtil.GetWebElement(ClassificationsDeleteButton, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (deleteClassification != null)
                 throw new Exception("Delete Button is found but we expect it should not be present when user login from view only access");
             BaseClass._AttachScreenshot.Value=true;
@@ -136,7 +136,7 @@ namespace LaborPro.Automation.Features.Classifications
             LogWriter.WriteLog("Executing ClassificationsPage AddNewClassificationsWithGivenInputIfNotExist");
             WaitForClassificationsAlertCloseIfAny();
             var dictionary = Util.ConvertToDictionary(inputData);
-            var record = WebDriverUtil.GetWebElementAndScroll(string.Format(ClassificationsRecord, dictionary["Name"]), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement record = WebDriverUtil.GetWebElementAndScroll(string.Format(ClassificationsRecord, dictionary["Name"]), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record == null)
             {
                 AddNewClassificationsWithGivenInput(inputData);
@@ -164,13 +164,13 @@ namespace LaborPro.Automation.Features.Classifications
             WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Saving...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             if (WebDriverUtil.GetWebElement(ClassificationsPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
-                var errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                 if (errorMessage == null)
                 {
-                    var errorMsg = WebDriverUtil.GetWebElementAndScroll(ElementAlert, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                    IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ElementAlert, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                     if (errorMsg == null)
                     {
-                        var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                        IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
                         if (alert == null)
                         {
                             WebDriverUtil.WaitForWebElementInvisible(ClassificationsPopup, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
@@ -211,7 +211,7 @@ namespace LaborPro.Automation.Features.Classifications
         {
             LogWriter.WriteLog("Executing ClassificationsPage CloseClassificationsForm");
             WaitForClassificationsAlertCloseIfAny();
-            var formCloseButton = WebDriverUtil.GetWebElement(CloseClassificationsFormButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement formCloseButton = WebDriverUtil.GetWebElement(CloseClassificationsFormButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (formCloseButton != null)
             {
                 formCloseButton.Click();
@@ -221,7 +221,7 @@ namespace LaborPro.Automation.Features.Classifications
         public static void ClickOnStandardTab()
         {
             LogWriter.WriteLog("Executing ClassificationsPage ClickOnStandardTab");
-            var standardTab = WebDriverUtil.GetWebElement(StandardCollapsedTab, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement standardTab = WebDriverUtil.GetWebElement(StandardCollapsedTab, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (standardTab != null)
             {
                 standardTab.Click();
@@ -231,11 +231,11 @@ namespace LaborPro.Automation.Features.Classifications
         public static void WaitForClassificationsAlertCloseIfAny()
         {
             LogWriter.WriteLog("Executing ClassificationsPage WaitForClassificationsAlertCloseIfAny ");
-            var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert != null)
             {
                 WebDriverUtil.GetWebElementAndScroll(NameInput).Click();
-                var nameTag = WebDriverUtil.GetWebElementAndScroll(NameInput);
+                IWebElement nameTag = WebDriverUtil.GetWebElementAndScroll(NameInput);
                 WebDriverUtil.WaitForWebElementInvisible(ErrorAlertToastXpath, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             }
         }

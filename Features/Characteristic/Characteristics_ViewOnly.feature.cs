@@ -111,14 +111,14 @@ this.ScenarioInitialize(scenarioInfo);
 #line 10
  testRunner.And("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table29 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table29.AddRow(new string[] {
+                table21.AddRow(new string[] {
                             "Name",
                             "Department to verify Characteristic_ViewOnly"});
 #line 11
- testRunner.And("User create new Department with below input if not exist", ((string)(null)), table29, "And ");
+ testRunner.And("User create new Department with below input if not exist", ((string)(null)), table21, "And ");
 #line hidden
 #line 14
  testRunner.And("User navigates to the Characteristic tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -126,26 +126,26 @@ this.ScenarioInitialize(scenarioInfo);
 #line 15
  testRunner.And("User select the Department \"Department to verify Characteristic_ViewOnly\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table30 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table30.AddRow(new string[] {
+                table22.AddRow(new string[] {
                             "Name",
                             "Characteristic_created_via_automation"});
 #line 16
- testRunner.And("User create new Characteristic with below input if not exist", ((string)(null)), table30, "And ");
+ testRunner.And("User create new Characteristic with below input if not exist", ((string)(null)), table22, "And ");
 #line hidden
 #line 19
  testRunner.And("User click on Characteristic set", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table31 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table23 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table31.AddRow(new string[] {
+                table23.AddRow(new string[] {
                             "Name",
                             "Characteristicset_created_via_automation"});
 #line 20
- testRunner.And("User create new Characteristic with below input", ((string)(null)), table31, "And ");
+ testRunner.And("User create new Characteristic with below input", ((string)(null)), table23, "And ");
 #line hidden
 #line 23
  testRunner.And("User refresh the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

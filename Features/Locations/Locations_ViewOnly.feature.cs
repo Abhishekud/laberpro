@@ -108,14 +108,14 @@ namespace LaborPro.Automation.Features.Locations
 #line 9
  testRunner.And("User navigates to the Locations tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table86 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table78 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table86.AddRow(new string[] {
+                table78.AddRow(new string[] {
                             "Name",
                             "Location_viewonly created via automation"});
 #line 10
-    testRunner.And("User create new location with below input if not exist", ((string)(null)), table86, "And ");
+    testRunner.And("User create new location with below input if not exist", ((string)(null)), table78, "And ");
 #line hidden
 #line 13
  testRunner.Then("User navigates to the List Management tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -126,14 +126,14 @@ namespace LaborPro.Automation.Features.Locations
 #line 15
  testRunner.And("User delete Department \"Department for location_viewonly\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table87 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table79 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table87.AddRow(new string[] {
+                table79.AddRow(new string[] {
                             "Name",
                             "Department for location_viewonly"});
 #line 16
- testRunner.And("User create new Department with below input", ((string)(null)), table87, "And ");
+ testRunner.And("User create new Department with below input", ((string)(null)), table79, "And ");
 #line hidden
 #line 19
  testRunner.Then("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

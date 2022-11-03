@@ -21,6 +21,7 @@ namespace LaborPro.Automation.Features.Elements
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Verify Elements_ViewOnly Module")]
+    [NUnit.Framework.CategoryAttribute("laborPro")]
     [NUnit.Framework.CategoryAttribute("Regression")]
     [NUnit.Framework.CategoryAttribute("Elements_ViewOnly")]
     public partial class VerifyElements_ViewOnlyModuleFeature
@@ -29,6 +30,7 @@ namespace LaborPro.Automation.Features.Elements
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
+                "laborPro",
                 "Regression",
                 "Elements_ViewOnly"};
         
@@ -111,44 +113,44 @@ namespace LaborPro.Automation.Features.Elements
 #line 10
     testRunner.When("User navigates to the Activity tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table39 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table31 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table39.AddRow(new string[] {
+                table31.AddRow(new string[] {
                             "Name",
                             "Activities created via automations"});
 #line 11
-    testRunner.Then("User create new Activity with below input if not exist", ((string)(null)), table39, "Then ");
+    testRunner.Then("User create new Activity with below input if not exist", ((string)(null)), table31, "Then ");
 #line hidden
 #line 14
     testRunner.When("User navigates to the UoM page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table40 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table32 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table40.AddRow(new string[] {
+                table32.AddRow(new string[] {
                             "Name",
                             "UOM created via automations"});
 #line 15
-    testRunner.Then("User create new UoM with below input if not exist", ((string)(null)), table40, "Then ");
+    testRunner.Then("User create new UoM with below input if not exist", ((string)(null)), table32, "Then ");
 #line hidden
 #line 18
     testRunner.When("User navigates to the elements page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table41 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table33 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table41.AddRow(new string[] {
+                table33.AddRow(new string[] {
                             "Name",
                             "Elements created via automations"});
-                table41.AddRow(new string[] {
+                table33.AddRow(new string[] {
                             "UOM",
                             "UOM created via automations"});
-                table41.AddRow(new string[] {
+                table33.AddRow(new string[] {
                             "Activity",
                             "Activities created via automations"});
 #line 19
-    testRunner.Then("User create new elements with below input if not exist", ((string)(null)), table41, "Then ");
+    testRunner.Then("User create new elements with below input if not exist", ((string)(null)), table33, "Then ");
 #line hidden
 #line 24
     testRunner.And("User click on previous link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -185,7 +187,7 @@ namespace LaborPro.Automation.Features.Elements
     testRunner.When("User navigates to the elements page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 30
-    testRunner.Then("User verify add button is not available on elements page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("User verify add button is not present", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

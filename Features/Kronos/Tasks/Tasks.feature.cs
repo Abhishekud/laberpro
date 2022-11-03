@@ -173,14 +173,14 @@ namespace LaborPro.Automation.Features.Kronos.Tasks
 #line 20
     testRunner.Given("User navigates to the Tasks tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table59 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table51 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table59.AddRow(new string[] {
+                table51.AddRow(new string[] {
                             "Name",
                             ""});
 #line 21
-     testRunner.When("User create new Tasks with below input", ((string)(null)), table59, "When ");
+     testRunner.When("User create new Tasks with below input", ((string)(null)), table51, "When ");
 #line hidden
 #line 24
      testRunner.Then("Verify validation Message: \"Task Name is required.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -217,23 +217,23 @@ namespace LaborPro.Automation.Features.Kronos.Tasks
 #line 30
      testRunner.Then("User delete Tasks \"Tasks Scenario\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table60 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table52 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table60.AddRow(new string[] {
+                table52.AddRow(new string[] {
                             "Name",
                             "Tasks Scenario"});
-                table60.AddRow(new string[] {
+                table52.AddRow(new string[] {
                             "Generic Department",
                             "Generic Department"});
-                table60.AddRow(new string[] {
+                table52.AddRow(new string[] {
                             "Combined Distribution",
                             "Combined Distribution"});
-                table60.AddRow(new string[] {
+                table52.AddRow(new string[] {
                             "Time Dependency",
                             "Time Dependent"});
 #line 31
-     testRunner.When("User create new Tasks with below input", ((string)(null)), table60, "When ");
+     testRunner.When("User create new Tasks with below input", ((string)(null)), table52, "When ");
 #line hidden
 #line 37
      testRunner.Then("User verify created Tasks \"Tasks Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -270,26 +270,26 @@ namespace LaborPro.Automation.Features.Kronos.Tasks
 #line 43
      testRunner.Then("User delete TaskGroups \"TaskGroups\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table61 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table53 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table61.AddRow(new string[] {
+                table53.AddRow(new string[] {
                             "Name",
                             "TaskGroups"});
-                table61.AddRow(new string[] {
+                table53.AddRow(new string[] {
                             "Generic Department",
                             "Generic Department"});
-                table61.AddRow(new string[] {
+                table53.AddRow(new string[] {
                             "Combined Distribution",
                             "Combined Distribution"});
-                table61.AddRow(new string[] {
+                table53.AddRow(new string[] {
                             "Allocate Labor Hours",
                             "Start Day"});
-                table61.AddRow(new string[] {
+                table53.AddRow(new string[] {
                             "Job Name",
                             "Job Name"});
 #line 44
-     testRunner.When("User create new TaskGroups with below input", ((string)(null)), table61, "When ");
+     testRunner.When("User create new TaskGroups with below input", ((string)(null)), table53, "When ");
 #line hidden
 #line 51
       testRunner.And("User verify created TaskGroups \"TaskGroups\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -300,26 +300,26 @@ namespace LaborPro.Automation.Features.Kronos.Tasks
 #line 53
       testRunner.And("User delete Tasks \"Tasks Scenario\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table62 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table54 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table62.AddRow(new string[] {
+                table54.AddRow(new string[] {
                             "Name",
                             "Tasks Scenario"});
-                table62.AddRow(new string[] {
+                table54.AddRow(new string[] {
                             "Generic Department",
                             "Generic Department"});
-                table62.AddRow(new string[] {
+                table54.AddRow(new string[] {
                             "Combined Distribution",
                             "Combined Distribution"});
-                table62.AddRow(new string[] {
+                table54.AddRow(new string[] {
                             "Time Dependency",
                             "Time Dependent"});
-                table62.AddRow(new string[] {
+                table54.AddRow(new string[] {
                             "TaskGroups",
                             "TaskGroups"});
 #line 54
-     testRunner.When("User create new Tasks with below input", ((string)(null)), table62, "When ");
+     testRunner.When("User create new Tasks with below input", ((string)(null)), table54, "When ");
 #line hidden
 #line 61
      testRunner.Then("User verify created Tasks \"Tasks Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -362,44 +362,44 @@ namespace LaborPro.Automation.Features.Kronos.Tasks
 #line 69
       testRunner.And("User delete Tasks \"Tasks Exist Scenario\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table63 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table55 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table63.AddRow(new string[] {
+                table55.AddRow(new string[] {
                             "Name",
                             "Tasks Exist Scenario"});
-                table63.AddRow(new string[] {
+                table55.AddRow(new string[] {
                             "Generic Department",
                             "Generic Department"});
-                table63.AddRow(new string[] {
+                table55.AddRow(new string[] {
                             "Combined Distribution",
                             "Combined Distribution"});
-                table63.AddRow(new string[] {
+                table55.AddRow(new string[] {
                             "Time Dependency",
                             "Time Dependent"});
 #line 70
-     testRunner.When("User create new Tasks with below input", ((string)(null)), table63, "When ");
+     testRunner.When("User create new Tasks with below input", ((string)(null)), table55, "When ");
 #line hidden
 #line 76
       testRunner.And("User verify created Tasks \"Tasks Exist Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table64 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table56 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table64.AddRow(new string[] {
+                table56.AddRow(new string[] {
                             "Name",
                             "Tasks Exist Scenario"});
-                table64.AddRow(new string[] {
+                table56.AddRow(new string[] {
                             "Generic Department",
                             "Generic Department"});
-                table64.AddRow(new string[] {
+                table56.AddRow(new string[] {
                             "Combined Distribution",
                             "Combined Distribution"});
-                table64.AddRow(new string[] {
+                table56.AddRow(new string[] {
                             "Time Dependency",
                             "Time Dependent"});
 #line 77
-     testRunner.When("User create new Tasks with below input", ((string)(null)), table64, "When ");
+     testRunner.When("User create new Tasks with below input", ((string)(null)), table56, "When ");
 #line hidden
 #line 83
      testRunner.Then("Verify validation Message: \"Task Name must be unique.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

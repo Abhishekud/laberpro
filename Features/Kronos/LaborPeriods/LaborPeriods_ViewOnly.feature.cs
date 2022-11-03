@@ -108,23 +108,23 @@ namespace LaborPro.Automation.Features.Kronos.LaborPeriods
 #line 9
    testRunner.And("User navigates to LaborPeriod Tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table53 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table45 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table53.AddRow(new string[] {
+                table45.AddRow(new string[] {
                             "Name",
                             "laborperiodviewonly created by automation"});
-                table53.AddRow(new string[] {
+                table45.AddRow(new string[] {
                             "LaborPeriodType",
                             "Hours of Operation"});
-                table53.AddRow(new string[] {
+                table45.AddRow(new string[] {
                             "TrafficPattern",
                             "Distribute Evenly and Apply Rounding"});
-                table53.AddRow(new string[] {
+                table45.AddRow(new string[] {
                             "LaborDistribution",
                             "Same As Selected Labor Period"});
 #line 10
-   testRunner.And("User Add New LaborPeriod Using Below Input if not exist", ((string)(null)), table53, "And ");
+   testRunner.And("User Add New LaborPeriod Using Below Input if not exist", ((string)(null)), table45, "And ");
 #line hidden
 #line 16
    testRunner.Then("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
