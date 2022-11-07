@@ -9,7 +9,7 @@ using LaborPro.Automation.shared.config;
 using Microsoft.Extensions.Configuration;
 
 [assembly: Parallelizable(ParallelScope.Fixtures)]
-[assembly: LevelOfParallelism(5)]
+[assembly: LevelOfParallelism(10)]
 
 namespace LaborPro.Automation.shared.hooks
 {

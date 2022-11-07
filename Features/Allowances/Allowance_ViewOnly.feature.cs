@@ -87,7 +87,7 @@ namespace LaborPro.Automation.Features.Allowances
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01. Launch Browser and Login to the Application and perform prerequisites", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 5
-this.ScenarioInitialize(scenarioInfo);
+  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -97,54 +97,69 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 6
- testRunner.Given("User \"superadmin\" is authenticated with \"url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("User launched \"$browser\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 7
- testRunner.Then("User add allowance with name \"MEAT ALLOWANCE\" and paid time \"300\" for view only", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.When("User go to application \"$url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 8
- testRunner.Then("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("User enter email: \"$username_4\" and password: \"$password_4\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("02. Verify add button is not available")]
-        public void _02_VerifyAddButtonIsNotAvailable()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02. Verify add button is not available", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 9
+    testRunner.And("User navigates to the Allowance tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+                TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Key",
+                            "Value"});
+                table12.AddRow(new string[] {
+                            "Name",
+                            "Allowances created via automation"});
+                table12.AddRow(new string[] {
+                            "Paid Time (Minutes)",
+                            "300"});
+                table12.AddRow(new string[] {
+                            "Excluded Paid Breaks (Minutes)",
+                            "10"});
+                table12.AddRow(new string[] {
+                            "Relief Time (Minutes)",
+                            "1"});
+                table12.AddRow(new string[] {
+                            "Included Paid Breaks (Minutes)",
+                            "20"});
+                table12.AddRow(new string[] {
+                            "Rest Calculation",
+                            "Rest"});
+                table12.AddRow(new string[] {
+                            "Minor Unavoidable Delay (Percent)",
+                            "10"});
+                table12.AddRow(new string[] {
+                            "Additional Delay (Percent)",
+                            "20"});
+                table12.AddRow(new string[] {
+                            "Incentive Opportunity Allowance (Percent)",
+                            "80"});
 #line 10
-this.ScenarioInitialize(scenarioInfo);
+    testRunner.And("User add allowance using below input if not exist", ((string)(null)), table12, "And ");
 #line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 11
- testRunner.When("User \"viewonly\" is authenticated with \"url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 21
+    testRunner.And("User click on previous link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 12
- testRunner.Then("User verify add button is not available on allowance page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 22
+    testRunner.Then("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("03. Verify user is able to download allowance report")]
-        public void _03_VerifyUserIsAbleToDownloadAllowanceReport()
+        [NUnit.Framework.DescriptionAttribute("02. Verify_add_button_is_not_available")]
+        public void _02_Verify_Add_Button_Is_Not_Available()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03. Verify user is able to download allowance report", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 14
-this.ScenarioInitialize(scenarioInfo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02. Verify_add_button_is_not_available", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 24
+  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -153,22 +168,29 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 15
- testRunner.Then("User verify download allowance details report for allowance: \"MEAT ALLOWANCE\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 25
+    testRunner.Given("User logged in with view only access using username: \"$viewonly_username\" and pas" +
+                        "sword: \"$viewonly_password\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 26
+    testRunner.When("User navigates to the Allowance tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 27
+    testRunner.Then("User verify add button is not available on allowance page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("04. Verify copy option is not available")]
-        public void _04_VerifyCopyOptionIsNotAvailable()
+        [NUnit.Framework.DescriptionAttribute("03. Verify_user_is_able_to_download_allowance_report")]
+        public void _03_Verify_User_Is_Able_To_Download_Allowance_Report()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04. Verify copy option is not available", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 17
-this.ScenarioInitialize(scenarioInfo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03. Verify_user_is_able_to_download_allowance_report", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 29
+  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -177,11 +199,39 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 18
- testRunner.Then("User verify copy option is not available on allowance page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 30
+    testRunner.When("User navigates to the Allowance tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 19
- testRunner.And("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 31
+    testRunner.Then("User verify download allowance details report for allowance: \"Allowances created " +
+                        "via automation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("04. Verify_copy_option_is_not_available")]
+        public void _04_Verify_Copy_Option_Is_Not_Available()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04. Verify_copy_option_is_not_available", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 33
+  this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 34
+    testRunner.When("User navigates to the Allowance tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 35
+    testRunner.Then("User verify copy option is not available on allowance page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -196,8 +246,8 @@ this.ScenarioInitialize(scenarioInfo);
                     "Cleanup"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05. Logout and Close Browser", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 22
-this.ScenarioInitialize(scenarioInfo);
+#line 38
+  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -206,17 +256,23 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 23
- testRunner.When("User \"superadmin\" is authenticated with \"url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 39
+    testRunner.Given("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 24
- testRunner.And("User delete record of allowance \"MEAT ALLOWANCE\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 40
+    testRunner.When("User enter email: \"$username_4\" and password: \"$password_4\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 25
- testRunner.And("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 41
+    testRunner.Then("User navigates to the Allowance tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 26
- testRunner.And("User close browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 42
+    testRunner.And("User delete allowance \"Allowances created via automation\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 43
+    testRunner.And("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 44
+    testRunner.Then("User close browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

@@ -114,26 +114,26 @@ namespace LaborPro.Automation.Features.LocationMapping
 #line 11
     testRunner.And("User delete Department \"Department_for_LocationMapping_via_automation\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table67 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table63 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table67.AddRow(new string[] {
+                table63.AddRow(new string[] {
                             "Name",
                             "Department_for_LocationMapping_via_automation"});
 #line 12
-    testRunner.And("User create new Department with below input", ((string)(null)), table67, "And ");
+    testRunner.And("User create new Department with below input", ((string)(null)), table63, "And ");
 #line hidden
 #line 15
     testRunner.Then("User navigates to the Locations tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table68 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table64 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table68.AddRow(new string[] {
+                table64.AddRow(new string[] {
                             "Name",
                             "Location_created_via_autoamtion"});
 #line 16
-    testRunner.And("User create new location with below input if not exist", ((string)(null)), table68, "And ");
+    testRunner.And("User create new location with below input if not exist", ((string)(null)), table64, "And ");
 #line hidden
 #line 19
     testRunner.And("User Maps created Department and location with \"Location_created_via_autoamtion\" " +
@@ -143,8 +143,7 @@ namespace LaborPro.Automation.Features.LocationMapping
     testRunner.And("User click on LocationMapping", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 21
-    testRunner.And("User select the department \"Department_for_LocationMapping_via_automation\" on loc" +
-                        "ation mapping page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("User select the Department \"Department_for_LocationMapping_via_automation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 22
     testRunner.Then("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -178,8 +177,7 @@ namespace LaborPro.Automation.Features.LocationMapping
     testRunner.When("User navigates to the LocationMapping tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 27
-    testRunner.And("User select the department \"Department_for_LocationMapping_via_automation\" on loc" +
-                        "ation mapping page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("User select the Department \"Department_for_LocationMapping_via_automation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 28
     testRunner.Then("User verify add button is not available on location mapping page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

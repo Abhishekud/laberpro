@@ -1,7 +1,6 @@
 ﻿using LaborPro.Automation.shared.hooks;
 using LaborPro.Automation.shared.util;
 using OpenQA.Selenium.Support.UI;
-using TechTalk.SpecFlow.Assist;
 
 namespace LaborPro.Automation.Features.Allowances
 {
@@ -28,8 +27,10 @@ namespace LaborPro.Automation.Features.Allowances
         private const string AllowanceDeleteConfirmPopupAccept = "//*[@class='modal-dialog']//button[text()='Confirm']";
         private const string PageTitle = "//*[@class='page-title']";
         private const string AllowanceDetailsPagePreviousLink = "//a[.//*[@class='fa fa-caret-left']]";
+        private const string AllowanceForm = "//*[@role='dialog']//*[@class='modal-title' and contains(text(),'New Allowance')]";
         private const string CreateNewAllowanceMenuOption = "//a[@role='menuitem' and text()='New Allowance']";
         private const string ErrorAlertToastXpath = "//*[@class='toast toast-error']";
+        private const string ElementAlert = "//*[@class='form-group has-error']";
         private const string FormInputFieldErrorXpath = "//*[contains(@class,'validation-error')]";
         private const string AllowanceReportButton = "//button[contains(@title,'Allowance Detail Report')]";
         private const string OpenEditSidebarForm = "//*[@class='sidebar-scrollable']//div[@class='form-group']";
@@ -38,10 +39,6 @@ namespace LaborPro.Automation.Features.Allowances
         private const string AllowanceDetailsMenuButton = "//button[.//*[@class='fa fa-list-ul']]";
         private const string CreatedAllowanceTitle = "//*[@class='page-title' and contains(text(),'{0}')]";
         private const string AllowanceRecord = "//*[@role='row' and .//*[text()='{0}']]";
-        private const string SaveInProgress = "//button[contains(text(),'Saving...')]";
-        private const string DeleteInProgress = "//button[contains(text(),'Deleting...')]";
-        private const string ElementAlert = "//*[@class='form-group has-error']";
-        private const string AllowanceForm = "//*[@role='dialog']//*[@class='modal-title' and contains(text(),'New Allowance')]";
 
         public static void ClickOnPreviousLink()
         {
@@ -178,6 +175,121 @@ namespace LaborPro.Automation.Features.Allowances
             }
 
         }
+        public static void AddAllowanceWithGivenInputIfNotExist(Table inputData)
+        {
+            LogWriter.WriteLog("Executing AllowancesPage.AddAllowanceWithGivenInputIfNotExist");
+            var dictionary = Util.ConvertToDictionary(inputData);
+            var allowanceRecordXpath = string.Format(AllowanceRecord, dictionary["Name"]);
+            var record = WebDriverUtil.GetWebElementAndScroll(allowanceRecordXpath, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (record == null)
+            {
+                AddAllowanceWithGivenInput(inputData);
+            }
+            else
+            {
+                record.Click();
+            }
+        }
+        public static void AddAllowanceWithGivenInputToVerifyValidationMessage(Table inputData)
+        {
+            AddAllowanceWithGivenInput(inputData, true);
+        }
+        public static void AddAllowanceWithGivenInput(Table inputData)
+        {
+            AddAllowanceWithGivenInput(inputData, false);
+        }
+        public static void AddAllowanceWithGivenInput(Table inputData, Boolean negativeScenario)
+        {
+            LogWriter.WriteLog("Executing AllowancesPage.AddAllowanceWithGivenInput");
+            ClickOnAddAllowanceButton();
+            var dictionary = Util.ConvertToDictionary(inputData);
+            BaseClass._TestData.Value = Util.DictionaryToString(dictionary);
+            if (Util.ReadKey(dictionary, "Name") != null)
+            {
+                WebDriverUtil.GetWebElement(NameTagInput, WebDriverUtil.NO_WAIT,
+                $"Unable to locate name input on create allowance page - {NameTagInput}")
+                    .SendKeys(dictionary["Name"]);
+            }
+
+            if (Util.ReadKey(dictionary, "Paid Time (Minutes)") != null)
+            {
+                WebDriverUtil.GetWebElement(PaidTimeTagInput, WebDriverUtil.NO_WAIT,
+                $"Unable to locate Paid Time (Minutes) input on create allowance page - {PaidTimeTagInput}")
+                    .SendKeys(dictionary["Paid Time (Minutes)"]);
+            }
+
+            if (Util.ReadKey(dictionary, "Excluded Paid Breaks (Minutes)") != null)
+            {
+                WebDriverUtil.GetWebElement(ExcludedPaidBreakInput, WebDriverUtil.NO_WAIT,
+                $"Unable to locate Excluded Paid Breaks (Minutes) input on create allowance page - {ExcludedPaidBreakInput}")
+                    .SendKeys(dictionary["Excluded Paid Breaks (Minutes)"]);
+            }
+            if (Util.ReadKey(dictionary, "Relief Time (Minutes)") != null)
+            {
+                WebDriverUtil.GetWebElement(ReliefTimeInput, WebDriverUtil.NO_WAIT,
+                $"Unable to locate Relief Time (Minutes) input on create allowance page - {ReliefTimeInput}")
+                    .SendKeys(dictionary["Relief Time (Minutes)"]);
+            }
+            if (Util.ReadKey(dictionary, "Included Paid Breaks (Minutes)") != null)
+            {
+                WebDriverUtil.GetWebElement(IncludedPaidInput, WebDriverUtil.NO_WAIT,
+                $"Unable to locate Included Paid Breaks (Minutes) input on create allowance page - {IncludedPaidInput}")
+                    .SendKeys(dictionary["Included Paid Breaks (Minutes)"]);
+            }
+            if (Util.ReadKey(dictionary, "Rest Calculation") != null)
+            {
+                try
+                {
+                    new SelectElement(WebDriverUtil.GetWebElement(RestCalculationInput, WebDriverUtil.NO_WAIT,
+                $"Unable to locate Rest Calculation input on create allowance page - {RestCalculationInput}"))
+                    .SelectByText(dictionary["Rest Calculation"], true);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            if (Util.ReadKey(dictionary, "Minor Unavoidable Delay (Percent)") != null)
+            {
+                WebDriverUtil.GetWebElement(MinorUnavoidableInput, WebDriverUtil.NO_WAIT,
+                $"Unable to locate Minor Unavoidable Delay (Percent) input on create allowance page - {MinorUnavoidableInput}")
+                    .SendKeys(dictionary["Minor Unavoidable Delay (Percent)"]);
+            }
+            if (Util.ReadKey(dictionary, "Additional Delay (Percent)") != null)
+            {
+                WebDriverUtil.GetWebElement(AdditionalDelayInput, WebDriverUtil.NO_WAIT,
+                $"Unable to locate Additional Delay (Percent) input on create allowance page - {AdditionalDelayInput}")
+                    .SendKeys(dictionary["Additional Delay (Percent)"]);
+            }
+            if (Util.ReadKey(dictionary, "Incentive Opportunity Allowance (Percent)") != null)
+            {
+                WebDriverUtil.GetWebElement(IncentiveOpportunityAllowanceInput, WebDriverUtil.NO_WAIT,
+                $"Unable to locate Incentive Opportunity Allowance (Percent) input on create allowance page - {IncentiveOpportunityAllowanceInput}")
+                    .SendKeys(dictionary["Incentive Opportunity Allowance (Percent)"]);
+            }
+
+            WebDriverUtil.GetWebElement(SaveButton, WebDriverUtil.NO_WAIT,
+                $"Unable to locate save button on create allowance page - {SaveButton}").Click();
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Saving...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+
+            if (negativeScenario) return;
+            if (WebDriverUtil.GetWebElement(AllowanceForm, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) ==
+                null) return;
+            var errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (errorMessage != null) return;
+            var errorMsg = WebDriverUtil.GetWebElementAndScroll(ElementAlert, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (errorMsg != null) return;
+            var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (alert == null)
+            {
+                WebDriverUtil.WaitForWebElementInvisible(AllowanceForm, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
+            }
+            else
+            {
+                throw new Exception($"Unable to create new allowance Error - {alert.Text}");
+            }
+        }
         public static void DeleteAllowance()
         {
             LogWriter.WriteLog("Executing AllowancesPage.DeleteAllowance..");
@@ -186,7 +298,7 @@ namespace LaborPro.Automation.Features.Allowances
             WebDriverUtil.GetWebElement(AllowanceDeleteButton, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
             WebDriverUtil.GetWebElement(AllowanceDeleteConfirmPopupAccept, WebDriverUtil.TWO_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible(DeleteInProgress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
@@ -218,159 +330,16 @@ namespace LaborPro.Automation.Features.Allowances
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             DeleteAllowance();
         }
-        public static void AddAllowanceWithoutName()
+        public static void DeleteAllowanceIfExist(string allowanceName)
         {
-            LogWriter.WriteLog("Executing AllowancePage.AddAllowanceWithoutName");
-            ClickOnAddAllowanceButton();
-            WebDriverUtil.GetWebElement(SaveButton, WebDriverUtil.NO_WAIT,
-            $"Unable to locate save button on create allowance page - {SaveButton}").Click();
-            WebDriverUtil.WaitForWebElementInvisible(SaveInProgress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
-        }
-        public static void AddAllowanceWithNameAndWithoutPaidTime(string name)
-        {
-            LogWriter.WriteLog("Exeuting AllowancePage.AddAllowanceWithNameAndWithoutPaidTime");
-            ClickOnAddAllowanceButton();
-            if (name != null)
+            LogWriter.WriteLog("Executing  AllowancesPage.DeleteAllowanceIfExist");
+            var allowanceRecordXpath = string.Format(AllowanceRecord, allowanceName);
+            var record = WebDriverUtil.GetWebElementAndScroll(allowanceRecordXpath, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (record != null)
             {
-                WebDriverUtil.GetWebElement(NameTagInput, WebDriverUtil.NO_WAIT,
-                $"Unable to locate name input on create allowance page - {NameTagInput}")
-                    .SendKeys(Util.ProcessInputData(name));
-            }
-            WebDriverUtil.GetWebElement(SaveButton, WebDriverUtil.NO_WAIT,
-            $"Unable to locate save button on create allowance page - {SaveButton}").Click();
-            WebDriverUtil.WaitForWebElementInvisible(SaveInProgress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
-
-        }
-        public static void AddAllowanceWithNameAndPaidTime(string name, string paidTime)
-        {
-            LogWriter.WriteLog("Exeuting AllowancePage.AddAllowanceWithNameAndPaidTime");
-            ClickOnAddAllowanceButton();
-            if (name != null)
-            {
-                WebDriverUtil.GetWebElement(NameTagInput, WebDriverUtil.NO_WAIT,
-                $"Unable to locate name input on create allowance page - {NameTagInput}")
-                    .SendKeys(Util.ProcessInputData(name));
-            }
-            if (paidTime != null)
-            {
-                WebDriverUtil.GetWebElement(PaidTimeTagInput, WebDriverUtil.NO_WAIT,
-                $"Unable to locate Paid Time (Minutes) input on create allowance page - {PaidTimeTagInput}")
-                    .SendKeys(paidTime);
-            }
-            WebDriverUtil.GetWebElement(SaveButton, WebDriverUtil.NO_WAIT,
-            $"Unable to locate save button on create allowance page - {SaveButton}").Click();
-            WebDriverUtil.WaitForWebElementInvisible(SaveInProgress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
-
-        }
-        public static void AddNewAllowance(Table inputData, Boolean negativeScenario)
-        {
-            LogWriter.WriteLog("Executing AllowancePage.AddNewAllowance");
-            ClickOnAddAllowanceButton();
-            var AllowanceRecord = inputData.CreateInstance<AllowanceRecord>();
-            if (AllowanceRecord.Name != null)
-            {
-                WebDriverUtil.GetWebElement(NameTagInput, WebDriverUtil.NO_WAIT,
-                $"Unable to locate name input on create allowance page - {NameTagInput}")
-                    .SendKeys(Util.ProcessInputData(AllowanceRecord.Name));
+                UserDeleteCreatedAllowance(allowanceName);
             }
 
-            if (AllowanceRecord.PaidTime != null)
-            {
-                WebDriverUtil.GetWebElement(PaidTimeTagInput, WebDriverUtil.NO_WAIT,
-                $"Unable to locate Paid Time (Minutes) input on create allowance page - {PaidTimeTagInput}")
-                    .SendKeys(AllowanceRecord.PaidTime);
-            }
-
-            if (AllowanceRecord.ExcludePaidBreak != null)
-            {
-                WebDriverUtil.GetWebElement(ExcludedPaidBreakInput, WebDriverUtil.NO_WAIT,
-                $"Unable to locate Excluded Paid Breaks (Minutes) input on create allowance page - {ExcludedPaidBreakInput}")
-                    .SendKeys(AllowanceRecord.ExcludePaidBreak);
-            }
-            if (AllowanceRecord.ReleifTime != null)
-            {
-                WebDriverUtil.GetWebElement(ReliefTimeInput, WebDriverUtil.NO_WAIT,
-                $"Unable to locate Relief Time (Minutes) input on create allowance page - {ReliefTimeInput}")
-                    .SendKeys(AllowanceRecord.ReleifTime);
-            }
-            if (AllowanceRecord.IncludePaidBreak != null)
-            {
-                WebDriverUtil.GetWebElement(IncludedPaidInput, WebDriverUtil.NO_WAIT,
-                $"Unable to locate Included Paid Breaks (Minutes) input on create allowance page - {IncludedPaidInput}")
-                    .SendKeys(AllowanceRecord.IncludePaidBreak);
-            }
-            if (AllowanceRecord.RestCalculation != null)
-            {
-                try
-                {
-                    new SelectElement(WebDriverUtil.GetWebElement(RestCalculationInput, WebDriverUtil.NO_WAIT,
-                $"Unable to locate Rest Calculation input on create allowance page - {RestCalculationInput}"))
-                    .SelectByText(AllowanceRecord.RestCalculation);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-            }
-            if (AllowanceRecord.MinorDelay != null)
-            {
-                WebDriverUtil.GetWebElement(MinorUnavoidableInput, WebDriverUtil.NO_WAIT,
-                $"Unable to locate Minor Unavoidable Delay (Percent) input on create allowance page - {MinorUnavoidableInput}")
-                    .SendKeys(AllowanceRecord.MinorDelay);
-            }
-            if (AllowanceRecord.AdditionalDelay != null)
-            {
-                WebDriverUtil.GetWebElement(AdditionalDelayInput, WebDriverUtil.NO_WAIT,
-                $"Unable to locate Additional Delay (Percent) input on create allowance page - {AdditionalDelayInput}")
-                    .SendKeys(AllowanceRecord.AdditionalDelay);
-            }
-            if (AllowanceRecord.IncentiveOpportunityAllowance != null)
-            {
-                WebDriverUtil.GetWebElement(IncentiveOpportunityAllowanceInput, WebDriverUtil.NO_WAIT,
-                $"Unable to locate Incentive Opportunity Allowance (Percent) input on create allowance page - {IncentiveOpportunityAllowanceInput}")
-                    .SendKeys(AllowanceRecord.IncentiveOpportunityAllowance);
-            }
-
-            WebDriverUtil.GetWebElement(SaveButton, WebDriverUtil.NO_WAIT,
-                $"Unable to locate save button on create allowance page - {SaveButton}").Click();
-            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible(SaveInProgress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (negativeScenario) return;
-            if (WebDriverUtil.GetWebElement(AllowanceForm, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) ==
-                null) return;
-            var errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (errorMessage != null) return;
-            var errorMsg = WebDriverUtil.GetWebElementAndScroll(ElementAlert, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (errorMsg != null) return;
-            var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (alert == null)
-            {
-                WebDriverUtil.WaitForWebElementInvisible(AllowanceForm, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
-            }
-            else
-            {
-                throw new Exception($"Unable to create new allowance Error - {alert.Text}");
-            }
-        }
-        public static void AddAllowanceWithDuplicateName(string name, string paidTime)
-        {
-            LogWriter.WriteLog("Executing AllowancePage.AddAllowanceWithDuplicateName");
-            ClickOnAddAllowanceButton();
-            if (name != null)
-            {
-                WebDriverUtil.GetWebElement(NameTagInput, WebDriverUtil.NO_WAIT,
-                $"Unable to locate name input on create allowance page - {NameTagInput}")
-                    .SendKeys(name);
-            }
-            if (paidTime != null)
-            {
-                WebDriverUtil.GetWebElement(PaidTimeTagInput, WebDriverUtil.NO_WAIT,
-                $"Unable to locate Paid Time (Minutes) input on create allowance page - {PaidTimeTagInput}")
-                    .SendKeys(paidTime);
-            }
-            WebDriverUtil.GetWebElement(SaveButton, WebDriverUtil.NO_WAIT,
-            $"Unable to locate save button on create allowance page - {SaveButton}").Click();
-            WebDriverUtil.WaitForWebElementInvisible(SaveInProgress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
 
         }
     }
