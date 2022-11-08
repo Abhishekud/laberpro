@@ -165,12 +165,12 @@ namespace LaborPro.Automation.Features.Attribute
             DepartmentsPage.ClickOnListManagementTab();
             AllowancePage.WaitForAllowanceAlertCloseIfAny();
             DepartmentsPage.ClickOnDepartment();
-            AttributePage.AddNewDepartmentWithGivenInput(prerequisites.Department);
+            DepartmentsPage.AddNewDepartmentWithGivenInput(prerequisites.Department);
             LocationPage.ClickOnProfilingTab();
             LocationPage.ClickOnLocationsTab();
             LocationPage.ClearAllFilter();
             LocationPage.KeepRecordUnSort();
-            AttributePage.AddNewLocationWithGivenInput(prerequisites.Location);
+            LocationPage.CreateNewLocation(prerequisites.Location);
             LocationMappingPage.MapsCreatedDepartmentAndLocation(DataCache.Read(prerequisites.Location), DataCache.Read(prerequisites.Department));
             UserNavigatesToAttributeTab();
             AttributePage.SelectTheDepartment(DataCache.Read(prerequisites.Department));
