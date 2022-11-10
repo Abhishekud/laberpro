@@ -35,7 +35,10 @@ namespace LaborPro.Automation.Features.Characteristic
         private const string ExportButton = "//button[@id='export']";
         private const string ExportCharacteristic = "//a[text()='Export All Characteristics (.xlsx)']";
         private const string EditDetailsButton = "//button[text()='Edit']";
-
+        private const string DepartmentDropdownValue = "//select[contains(@id,'departmentId')]//option[contains(text(),'{0}')]";
+        private const string DepartmentDropdown = "//select[contains(@id,'departmentId')]";
+        private const string SaveInprogress = "//button[contains(text(),'Saving...')]";
+        private const string DeleteInprogress = "//button[contains(text(),'Deleting...')]";
         public static void VerifyRecordOfSelectedDept(string message)
         {
             LogWriter.WriteLog("Executing  CharacteristicsPage.VerifyRecordOfSelectedDept");
@@ -123,7 +126,7 @@ namespace LaborPro.Automation.Features.Characteristic
             WebDriverUtil.GetWebElement(CharacteristicDeleteConfirmPopupAccept, WebDriverUtil.TWO_SECOND_WAIT,
                 $"Unable to locate Confirm button on delete confirmation popup - {CharacteristicDeleteConfirmPopupAccept}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitForWebElementInvisible(DeleteInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
@@ -155,7 +158,7 @@ namespace LaborPro.Automation.Features.Characteristic
             WebDriverUtil.GetWebElement(CharacteristicDeleteConfirmPopupAccept, WebDriverUtil.TWO_SECOND_WAIT,
                 $"Unable to locate Confirm button on delete confirmation popup - {CharacteristicDeleteConfirmPopupAccept}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitForWebElementInvisible(DeleteInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
@@ -251,7 +254,7 @@ namespace LaborPro.Automation.Features.Characteristic
             WebDriverUtil.GetWebElementAndScroll(SaveButton, WebDriverUtil.NO_WAIT,
                 $"Unable to locate save button Characteristics page - {SaveButton}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Saving...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitForWebElementInvisible(SaveInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             if (WebDriverUtil.GetWebElement(CharacteristicPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) ==
                 null) return;
             var errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
@@ -327,6 +330,45 @@ namespace LaborPro.Automation.Features.Characteristic
             WebDriverUtil.GetWebElementAndScroll(NameInput).Click();
             WebDriverUtil.GetWebElementAndScroll(NameInput);
             WebDriverUtil.WaitForWebElementInvisible(ErrorAlertToastXpath, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+        }
+        public static void SelectTheDepartment(string departmentName)
+        {
+            LogWriter.WriteLog("Executing CharacteristicsPage.SelectTheDepartment");
+            var departmentValue = string.Format(DepartmentDropdownValue, departmentName);
+            WebDriverUtil.GetWebElement(DepartmentDropdown, WebDriverUtil.ONE_SECOND_WAIT, $"Unable to locate the department dropdown - {DepartmentDropdown}").Click();
+            WebDriverUtil.GetWebElement(departmentValue,
+           WebDriverUtil.ONE_SECOND_WAIT, $"Unable to locate department record on characteristics page - {departmentValue}").Click();
+            WebDriverUtil.WaitForAWhile();
+
+        }
+        public static void AddNewCharacteristicSet(string characteristicSet)
+        {
+            LogWriter.WriteLog("Executing CharacteristicsPage.AddNewCharacteristicSet");
+            if (characteristicSet != null)
+            {
+                WebDriverUtil.GetWebElement(NameInput, WebDriverUtil.NO_WAIT,
+                $"Unable to locate name input on characteristics page  - {NameInput}")
+                    .SendKeys(Util.ProcessInputData(characteristicSet));
+            }
+            WebDriverUtil.GetWebElementAndScroll(SaveButton, WebDriverUtil.NO_WAIT,
+                $"Unable to locate save button on characteristics page - {SaveButton}").Click();
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitForWebElementInvisible(SaveInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (WebDriverUtil.GetWebElement(CharacteristicPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) ==
+                null) return;
+            var errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (errorMessage != null) return;
+            var errorMsg = WebDriverUtil.GetWebElementAndScroll(ElementAlert, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (errorMsg != null) return;
+            var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (alert == null)
+            {
+                WebDriverUtil.WaitForWebElementInvisible(CharacteristicPopup, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
+            }
+            else
+            {
+                throw new Exception($"Unable to create new characteristics Error - {alert.Text}");
+            }
         }
 
     }

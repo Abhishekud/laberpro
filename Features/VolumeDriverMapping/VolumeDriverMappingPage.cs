@@ -45,6 +45,8 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
         private const string VolumeDriverDropDown = "//*[@id='volumeDriverId']";
         private const string DepartmentDropdownValue = "//select[contains(@id,'departmentId')]//option[contains(text(),'{0}')]";
         private const string DepartmentDropdown = "//select[contains(@id,'departmentId')]";
+        private const string SaveInprogress = "//button[contains(text(),'Saving...')]";
+        private const string DeleteInprogress = "//button[contains(text(),'Deleting...')]";
         public static void VerifyExportOptionIsAvailable()
         {
             LogWriter.WriteLog("Executing VolumeDriverMappingPage.VerifyExportOptionIsAvailable");
@@ -138,7 +140,7 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
             WebDriverUtil.GetWebElement(VolumeDriverMappingDeleteConfirmPopupAccept, WebDriverUtil.TWO_SECOND_WAIT,
                 $"Unable to locate Confirm button on delete confirmation popup - {VolumeDriverMappingDeleteConfirmPopupAccept}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitForWebElementInvisible(DeleteInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
@@ -197,7 +199,7 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
 
             WebDriverUtil.GetWebElement(ConfirmPopupButton, WebDriverUtil.TWO_SECOND_WAIT, WebDriverUtil.NO_MESSAGE).Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitForWebElementInvisible(DeleteInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
@@ -348,7 +350,7 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
             WebDriverUtil.GetWebElementAndScroll(SaveButton, WebDriverUtil.NO_WAIT,
             $"Unable to locate save button on create VolumeDriverMapping page - {SaveButton}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Saving...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitForWebElementInvisible(SaveInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             if (WebDriverUtil.GetWebElement(VolumeDriverPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) ==
                 null) return;
             var errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
@@ -389,6 +391,35 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
             $"Unable to locate the check VolumeDriverMapping set button of respective department - {CheckVolumeDriverMappingOfRespectiveDepartment}").Click();
 
         }
+        public static void AddNewVolumeDriverMappingSet(string volumeDriverMappingSet)
+        {
+            LogWriter.WriteLog("Executing VolumeDriverMappingPage.AddNewVolumeDriverMappingSet");
+            if (volumeDriverMappingSet != null)
+            {
+                WebDriverUtil.GetWebElement(NameInput, WebDriverUtil.NO_WAIT,
+                    $"Unable to locate name input on create VolumeDriverMapping page - {NameInput}")
+                  .SendKeys(Util.ProcessInputData(volumeDriverMappingSet));
+            }
 
+            WebDriverUtil.GetWebElementAndScroll(SaveButton, WebDriverUtil.NO_WAIT,
+            $"Unable to locate save button on create VolumeDriverMapping page - {SaveButton}").Click();
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitForWebElementInvisible(SaveInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (WebDriverUtil.GetWebElement(VolumeDriverPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) ==
+                null) return;
+            var errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (errorMessage != null) return;
+            var errorMsg = WebDriverUtil.GetWebElementAndScroll(ElementAlert, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (errorMsg != null) return;
+            var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (alert == null)
+            {
+                WebDriverUtil.WaitForWebElementInvisible(VolumeDriverPopup, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
+            }
+            else
+            {
+                throw new Exception($"Unable to create new VolumeDriverMapping Error - {alert.Text}");
+            }
+        }
     }
 }

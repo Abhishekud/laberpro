@@ -31,7 +31,11 @@ namespace LaborPro.Automation.Features.LocationMapping
         private const string ExportButton = "//button[@title='Download Location Mapping Import Template']";
         private const string DepartmentDropdownValue = "//select[contains(@id,'departmentId')]//option[contains(text(),'{0}')]";
         private const string DepartmentDropdown = "//select[contains(@id,'departmentId')]";
-
+        private const string EditLocationsMappingSidebar = "//*[@class='sidebar-title ' and contains(text(),'Edit Location Mapping')]";
+        private const string NameInput = "//*[@id='name']";
+        private const string SaveInprogress = "//button[contains(text(),'Saving...')]";
+        private const string DeleteInprogress = "//button[contains(text(),'Deleting...')]";
+        private const string RecordForDept = "//td[contains(text(),'{0}')]";
         public static void VerifyExportOptionIsPresent()
         {
             LogWriter.WriteLog("Executing LocationMappingPage.VerifyExportOptionIsPresent");
@@ -101,7 +105,7 @@ namespace LaborPro.Automation.Features.LocationMapping
             WebDriverUtil.GetWebElementAndScroll(SaveButton, WebDriverUtil.NO_WAIT,
             $"Unable to locate save button on create Location Mapping page - {SaveButton}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Saving...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitForWebElementInvisible(SaveInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             if (WebDriverUtil.GetWebElement(LocationMappingPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) ==
                 null) return;
             var errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
@@ -152,7 +156,7 @@ namespace LaborPro.Automation.Features.LocationMapping
             WebDriverUtil.GetWebElement(LocationMappingDeleteConfirmPopupAccept, WebDriverUtil.TWO_SECOND_WAIT,
             $"Unable to locate confirm button on delete confirmation popup - {LocationMappingDeleteConfirmPopupAccept}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitForWebElementInvisible(DeleteInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
@@ -228,6 +232,106 @@ namespace LaborPro.Automation.Features.LocationMapping
                 WebDriverUtil.WaitForAWhile();
             }
             WebDriverUtil.WaitForAWhile();
+        }
+        public static void VerifyAddButtonIsNotAvailable()
+        {
+            LogWriter.WriteLog("Executing LocationMappingPage.VerifyAddButtonIsNotAvailable");
+            var addButton = WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (addButton != null)
+                throw new Exception("Add button is found but we expect it should not be present when user login from admin only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+
+        public static void VerifyEditLocationMappingSidebarIsAvailable(string locationName)
+        {
+            LogWriter.WriteLog("Executing LocationMappingPage.VerifyEditLocationMappingSidebarIsAvailable");
+            var locationMappingRecord = string.Format(LocationMappingRecord, locationName);
+            WebDriverUtil.GetWebElement(locationMappingRecord, WebDriverUtil.NO_WAIT,
+                $"Unable to locate location mapping record on location mapping page - {locationMappingRecord}").Click();
+            WebDriverUtil.WaitForAWhile();
+            var editLocationsMappingSidebar = WebDriverUtil.GetWebElement(EditLocationsMappingSidebar, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (editLocationsMappingSidebar == null)
+                throw new Exception("Edit location mapping sidebar is not found but we expect it should be present when user login from admin only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifyEditDetailOptionsAreNotAvailable(string locationName)
+        {
+            LogWriter.WriteLog("Executing LocationMappingPage.VerifyEditDetailOptionsAreNotAvailable");
+            var locationMappingRecord = string.Format(LocationMappingRecord, locationName);
+            if (WebDriverUtil.GetWebElement(EditLocationsMappingSidebar, WebDriverUtil.NO_WAIT,
+                    WebDriverUtil.NO_MESSAGE) == null)
+            {
+                WebDriverUtil.GetWebElement(locationMappingRecord, WebDriverUtil.NO_WAIT, $"Unable to locate location mapping record on location mapping page - {locationMappingRecord}").Click();
+            }
+            WebDriverUtil.WaitForAWhile();
+            var nameInput = WebDriverUtil.GetWebElement(NameInput, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (nameInput.Enabled)
+                throw new Exception("Name input is enabled but we expect it should be disabled when user login from admin only access");
+            var volumeDriverDropdown = WebDriverUtil.GetWebElement(VolumeDriverDropdown, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (volumeDriverDropdown.Enabled)
+                throw new Exception("VolumeDriver dropdown input is enabled but we expect it should be disabled when user login from admin only access");
+            var characteristicDropdown = WebDriverUtil.GetWebElement(CharacteristicDropdown, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (characteristicDropdown.Enabled)
+                throw new Exception("Characteristic dropdown input is enabled but we expect it should be disabled when user login from admin only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifySaveButtonIsNotAvailable(string locationName)
+        {
+            LogWriter.WriteLog("Executing LocationMappingPage.VerifySaveButtonIsNotAvailable");
+            var locationMappingRecord = string.Format(LocationMappingRecord, locationName);
+            if (WebDriverUtil.GetWebElement(EditLocationsMappingSidebar, WebDriverUtil.NO_WAIT,
+                    WebDriverUtil.NO_MESSAGE) == null)
+            {
+                WebDriverUtil.GetWebElement(locationMappingRecord, WebDriverUtil.NO_WAIT, $"Unable to locate location mapping record on location mapping page - {locationMappingRecord}").Click();
+            }
+            WebDriverUtil.WaitForAWhile();
+            var saveButton = WebDriverUtil.GetWebElement(SaveButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (saveButton != null)
+                throw new Exception("Save button is found but we expect it should not be present when user login from admin only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifyRecordOfSelectedDept(string message)
+        {
+            LogWriter.WriteLog("Executing  LocationMappingPage.VerifyRecordOfSelectedDept");
+            var departmentRecordXpath = string.Format(RecordForDept, message);
+            WebDriverUtil.GetWebElement(departmentRecordXpath, WebDriverUtil.NO_WAIT, $"Unable to locate record - {departmentRecordXpath}");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void AddNewLocationMappingWithGivenInput(string volumeDriverMappingSet, string characteristicSet)
+        {
+            LogWriter.WriteLog("Executing LocationMappingPage.AddNewLocationMappingWithGivenInput");
+            
+            if (volumeDriverMappingSet != null)
+            {
+                new SelectElement(WebDriverUtil.GetWebElement(VolumeDriverDropdown, WebDriverUtil.MAX_WAIT,
+                $"Unable to locate volume driver mapping set record on create location mapping page - {VolumeDriverDropdown}"))
+                .SelectByText(volumeDriverMappingSet);
+            }
+            if (characteristicSet != null)
+            {
+                new SelectElement(WebDriverUtil.GetWebElement(CharacteristicDropdown, WebDriverUtil.MAX_WAIT,
+                $"Unable to locate characteristic set input on create location mapping page - {CharacteristicDropdown}"))
+                .SelectByText(characteristicSet);
+            }
+            WebDriverUtil.GetWebElementAndScroll(SaveButton, WebDriverUtil.NO_WAIT,
+            $"Unable to locate save button on create location mapping page - {SaveButton}").Click();
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitForWebElementInvisible(SaveInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (WebDriverUtil.GetWebElement(LocationMappingPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) ==
+                null) return;
+            var errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (errorMessage != null) return;
+            var errorMsg = WebDriverUtil.GetWebElementAndScroll(ElementAlert, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (errorMsg != null) return;
+            var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (alert == null)
+            {
+                WebDriverUtil.WaitForWebElementInvisible(LocationMappingPopup, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
+            }
+            else
+            {
+                throw new Exception($"Unable to create new location mapping error - {alert.Text}");
+            }
         }
 
     }
