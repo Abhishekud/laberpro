@@ -40,17 +40,7 @@ namespace LaborPro.Automation.Features.Attribute
         private const string OpenEditSidebarForm = "//*[@class='sidebar-scrollable']//div[@class='action-buttons-none sidebar-section']";
         private const string EditAttributeButton = "//button[contains(text(),'Edit')]";
         private const string TickOption = "//*[@class='k-grid-edit-cell disabled-input ']/input";
-        private const string LocationRecord = "//*[@role='row']//*[text()='{0}']";
-        private const string NameInput = "//*[@id='name']";
-        private const string AddNewDepartment = "//button[@id='newDepartments']";
-        private const string AddDepartmentLink = "(//*[contains(@class,'dropdown open')]//a)[1]";
-        private const string DepartmentsPopup = "//*[@role='dialog']//*[@class='modal-title' and contains(text(), 'New Department')]";
-        private const string NewLocationFormPopup = "//*[@role='dialog']//*[@class='modal-title' and contains(text(), 'New Location')]";
-        private const string AddLocationLink = "(//*[contains(@class,'dropdown open')]//a)[1]";
-        private const string PageLoader = "//*[@title='Submission in progress']";
-        private const string AddLocationButton = "//button[.//*[@class='fa fa-plus']]";
-        private const string CancelLocationDetails = "//*[contains(@class,'locations-list-edit-sidebar')]//button[text()='Cancel']";
-        private const string CloseLocationDetails = "//*[contains(@class,'locations-list-edit-sidebar')]//button[text()='Close']";
+        private const string LocationRecord = "//*[@role='row']//*[text()='{0}']"; 
         private const string SaveInprogress = "//button[contains(text(),'Saving...')]";
         private const string DeleteInprogress = "//button[contains(text(),'Deleting...')]";
 
@@ -439,126 +429,6 @@ namespace LaborPro.Automation.Features.Attribute
             BaseClass._AttachScreenshot.Value = true;
         }
 
-        public static void AddNewDepartmentWithGivenInput(string department)
-        {
-            LogWriter.WriteLog("Executing AttributePage.AddNewDepartmentWithGivenInput");
-            ClickOnAddButton();
-            UserClickOnNewDepartmentMenuLink();
-            if (department != null)
-            {
-                WebDriverUtil.GetWebElement(NameInput, WebDriverUtil.NO_WAIT,
-                        $"Unable to locate name input on departments page  - {NameInput}")
-                    .SendKeys(Util.ProcessInputData(department));
-            }
-            WebDriverUtil.GetWebElementAndScroll(SaveButton, WebDriverUtil.NO_WAIT,
-                $"Unable to locate save button on departments page - {SaveButton}").Click();
-            WebDriverUtil.WaitForAWhile();
-            WebDriverUtil.WaitForWebElementInvisible(SaveInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (WebDriverUtil.GetWebElement(DepartmentsPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) ==
-                null) return;
-            var errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath,
-                WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (errorMessage != null) return;
-            var errorMsg = WebDriverUtil.GetWebElementAndScroll(ElementAlert, WebDriverUtil.ONE_SECOND_WAIT,
-                WebDriverUtil.NO_MESSAGE);
-            if (errorMsg != null) return;
-            var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath,
-                WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (alert == null)
-            {
-                WebDriverUtil.WaitForWebElementInvisible(DepartmentsPopup, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
-            }
-            else
-            {
-                throw new Exception($"Unable to create new department Error - {alert.Text}");
-            }
-        }
-        public static void ClickOnAddButton()
-        {
-            LogWriter.WriteLog("Executing AttributePage.ClickOnAddButton");
-            WebDriverUtil.GetWebElement(AddNewDepartment, WebDriverUtil.NO_WAIT,
-                $"Unable to locate add button on departments page - {AddNewDepartment}").Click();
-        }
-        public static void UserClickOnNewDepartmentMenuLink()
-        {
-            LogWriter.WriteLog("Executing AttributePage.UserClickOnNewDepartmentMenuLink");
-            WebDriverUtil.GetWebElement(AddDepartmentLink, WebDriverUtil.NO_WAIT,
-                $"Unable to locate new department menu link on add menu popup - {AddDepartmentLink}").Click();
-
-        }
-        public static void ClickOnAddLocation()
-        {
-            LogWriter.WriteLog("Executing AttributePage.ClickOnAddLocation");
-            CloseLocationDetailSideBar();
-            WebDriverUtil.GetWebElement(AddLocationButton, WebDriverUtil.NO_WAIT,
-                $"Unable to locate add button on locations page - {AddLocationButton}").Click();
-            WebDriverUtil.WaitForAWhile();
-        }
-        public static void WaitForLoading()
-        {
-            LogWriter.WriteLog("Executing AttributePage.WaitForLoading");
-            WebDriverUtil.WaitForWebElementInvisible(PageLoader, WebDriverUtil.DEFAULT_WAIT, WebDriverUtil.NO_MESSAGE);
-        }
-        public static void CloseLocationDetailSideBar()
-        {
-            LogWriter.WriteLog("Executing AttributePage.CloseLocationDetailSideBar");
-            var locationDetailsSideBar = WebDriverUtil.GetWebElement(CloseLocationDetails, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (locationDetailsSideBar != null)
-            {
-                locationDetailsSideBar.Click();
-                WaitForLoading();
-            }
-            locationDetailsSideBar = WebDriverUtil.GetWebElement(CancelLocationDetails, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (locationDetailsSideBar == null) return;
-            locationDetailsSideBar.Click();
-            WaitForLoading();
-        }
-        public static void AddNewLocationWithGivenInput(string location)
-        {
-            LogWriter.WriteLog("Executing AttributePage.AddNewLocationWithGivenInput");
-            WebDriverUtil.WaitForAWhile();
-            ClickOnAddLocation();
-            WebDriverUtil.WaitForAWhile();
-            ClickOnNewLocationMenuLink();
-            WebDriverUtil.WaitForAWhile();
-            if (location != null)
-            {
-                WebDriverUtil.GetWebElement(NameInput, WebDriverUtil.NO_WAIT,
-                        $"Unable to locate name input on create location page - {NameInput}")
-                    .SendKeys(Util.ProcessInputData(location));
-            }
-            WebDriverUtil.GetWebElementAndScroll(SaveButton, WebDriverUtil.NO_WAIT,
-                $"Unable to locate save button on create location page - {SaveButton}").Click();
-            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible(SaveInprogress, WebDriverUtil.MAX_WAIT,
-                WebDriverUtil.NO_MESSAGE);
-            if (WebDriverUtil.GetWebElement(NewLocationFormPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) ==
-                null) return;
-            var errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath,
-                WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (errorMessage != null) return;
-            var errorMsg = WebDriverUtil.GetWebElementAndScroll(ElementAlert, WebDriverUtil.ONE_SECOND_WAIT,
-                WebDriverUtil.NO_MESSAGE);
-            if (errorMsg != null) return;
-            var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT,
-                WebDriverUtil.NO_MESSAGE);
-            if (alert == null)
-            {
-                WebDriverUtil.WaitForWebElementInvisible(NewLocationFormPopup, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
-            }
-            else
-            {
-                throw new Exception($"Unable to create new location Error - {alert.Text}");
-            }
-
-        }
-        public static void ClickOnNewLocationMenuLink()
-        {
-            LogWriter.WriteLog("Executing AttributePage.ClickOnNewLocationMenuLink");
-            WebDriverUtil.GetWebElement(AddLocationLink, WebDriverUtil.NO_WAIT,
-                $"Unable to locate new location menu link on add menu popup - {AddLocationLink}").Click();
-            WebDriverUtil.WaitForAWhile();
-        }
     }
 
 }

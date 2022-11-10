@@ -27,6 +27,8 @@ namespace LaborPro.Automation.Features.Department
         private const string FormInputFieldErrorXpath = "//*[contains(@class,'validation-error')]";
         private const string ElementAlert = "//*[@class='form-group has-error']";
         private const string ExportButton = "//button[@id='export']";
+        private const string SaveInprogress = "//button[contains(text(),'Saving...')]";
+        private const string DeleteInprogress = "//button[contains(text(),'Deleting...')]";
 
         public static void AddNewDepartmentWithGivenInputIfNotExist(Table inputData)
         {
@@ -111,7 +113,7 @@ namespace LaborPro.Automation.Features.Department
             WebDriverUtil.GetWebElement(DepartmentDeleteConfirmPopupAccept, WebDriverUtil.TWO_SECOND_WAIT,
                 $"Unable to locate confirm button on delete confirmation popup - {DepartmentDeleteConfirmPopupAccept}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitForWebElementInvisible(DeleteInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
@@ -150,7 +152,7 @@ namespace LaborPro.Automation.Features.Department
             WebDriverUtil.GetWebElementAndScroll(SaveButton, WebDriverUtil.NO_WAIT,
                 $"Unable to locate save button Departments page - {SaveButton}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Saving...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitForWebElementInvisible(SaveInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             if (WebDriverUtil.GetWebElement(DepartmentsPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
                 var errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
@@ -240,6 +242,40 @@ namespace LaborPro.Automation.Features.Department
                
             }
             WebDriverUtil.WaitForWebElementInvisible(ErrorAlertToastXpath, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+        }
+        public static void AddNewDepartmentWithGivenInput(string department)
+        {
+            LogWriter.WriteLog("Executing DepartmentPage.AddNewDepartmentWithGivenInput");
+            ClickOnAddButton();
+            UserClickOnNewDepartmentMenuLink();
+            if (department != null)
+            {
+                WebDriverUtil.GetWebElement(NameInput, WebDriverUtil.NO_WAIT,
+                        $"Unable to locate name input on departments page  - {NameInput}")
+                    .SendKeys(Util.ProcessInputData(department));
+            }
+            WebDriverUtil.GetWebElementAndScroll(SaveButton, WebDriverUtil.NO_WAIT,
+                $"Unable to locate save button on departments page - {SaveButton}").Click();
+            WebDriverUtil.WaitForAWhile();
+            WebDriverUtil.WaitForWebElementInvisible(SaveInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (WebDriverUtil.GetWebElement(DepartmentsPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) ==
+                null) return;
+            var errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath,
+                WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (errorMessage != null) return;
+            var errorMsg = WebDriverUtil.GetWebElementAndScroll(ElementAlert, WebDriverUtil.ONE_SECOND_WAIT,
+                WebDriverUtil.NO_MESSAGE);
+            if (errorMsg != null) return;
+            var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath,
+                WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (alert == null)
+            {
+                WebDriverUtil.WaitForWebElementInvisible(DepartmentsPopup, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
+            }
+            else
+            {
+                throw new Exception($"Unable to create new department Error - {alert.Text}");
+            }
         }
 
     }
