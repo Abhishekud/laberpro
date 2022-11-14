@@ -27,8 +27,8 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
         private const string ErrorAlertToastXpath = "//*[@class='toast toast-error']";
         private const string UomValueInLmDropdown = "//select[@id='standardFilingFieldId']//option[@value='UNITS_OF_MEASURE']";
         private const string ExportButton = "//button[@id='export']";
-        private const string ExportUnitsOfMeasure = "//*[@class='dropdown-menu dropdown-menu-right' and @aria-labelledby='export']";
-
+        private const string SaveInprogress = "//button[contains(text(),'Saving...')]";
+        private const string DeleteInprogress = "//button[contains(text(),'Deleting...')]";
         public static void VerifyAddButtonIsNotAvailable()
         {
             LogWriter.WriteLog("Executing UnitOfMeasurePage.VerifyAddButtonIsNotPresent");
@@ -109,7 +109,7 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
 
             WebDriverUtil.GetWebElement(ConfirmButton, WebDriverUtil.TWO_SECOND_WAIT, $"Unable to locate confirm button - {ConfirmButton}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitForWebElementInvisible(DeleteInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
@@ -160,7 +160,7 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
             WebDriverUtil.GetWebElement(SaveButton, WebDriverUtil.NO_WAIT,
                 $"Unable to locate save button - {SaveButton}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Saving...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitForWebElementInvisible(SaveInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             if (WebDriverUtil.GetWebElement(UnitsOfMeasurePopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) ==
                 null) return;
             var errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
@@ -198,7 +198,7 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
             WebDriverUtil.GetWebElement(DeleteButton, WebDriverUtil.ONE_SECOND_WAIT, $"Unable to locate delete button - {DeleteButton}").Click();
             WebDriverUtil.GetWebElement(ConfirmButton, WebDriverUtil.TWO_SECOND_WAIT, $"Unable to locate confirm button - {ConfirmButton}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitForWebElementInvisible(DeleteInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
@@ -233,5 +233,34 @@ namespace LaborPro.Automation.Features.UnitOfMeasure
             DeleteCreatedUnitOfMeasure();
         }
 
+        public static void AddUnitOfMeasureWihGivenInput(string unitsOfMeasure)
+        {
+            LogWriter.WriteLog("Executing UnitOfMeasurePage.AddUnitOfMeasureWithGivenInput");
+            ClickOnAddUnitOfMeasure();
+            if (unitsOfMeasure != null)
+            {
+                WebDriverUtil.GetWebElement(NameInput, WebDriverUtil.ONE_SECOND_WAIT,
+                    $"Unable to locate name input on create UnitOfMeasure page - {NameInput}").SendKeys(Util.ProcessInputData(unitsOfMeasure));
+            }
+            WebDriverUtil.GetWebElement(SaveButton, WebDriverUtil.NO_WAIT,
+                $"Unable to locate save button - {SaveButton}").Click();
+            WebDriverUtil.WaitForAWhile();
+            WebDriverUtil.WaitForWebElementInvisible(SaveInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (WebDriverUtil.GetWebElement(UnitsOfMeasurePopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) ==
+                null) return;
+            var errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (errorMessage != null) return;
+            var errorMsg = WebDriverUtil.GetWebElementAndScroll(ElementAlert, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (errorMsg != null) return;
+            var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (alert == null)
+            {
+                WebDriverUtil.WaitForWebElementInvisible(UnitsOfMeasurePopup, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
+            }
+            else
+            {
+                throw new Exception($"Unable to create new UnitOfMeasure error - {alert.Text}");
+            }
+        }
     }
 }

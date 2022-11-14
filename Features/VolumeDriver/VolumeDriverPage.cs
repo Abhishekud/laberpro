@@ -29,6 +29,8 @@ namespace LaborPro.Automation.Features.VolumeDriver
         private const string ElementAlert = "//*[@class='form-group has-error']";
         private const string VolumeDriverValueInLmDropdown = "//select[@id='standardFilingFieldId']//option[@value='VOLUME_DRIVERS']";
         private const string ExportButton = "//button[@id='export']";
+        private const string SaveInprogress = "//button[contains(text(),'Saving...')]";
+        private const string DeleteInprogress = "//button[contains(text(),'Deleting...')]";
 
         public static void CloseVolumeDriverDetailSideBar()
         {
@@ -89,7 +91,7 @@ namespace LaborPro.Automation.Features.VolumeDriver
             WebDriverUtil.GetWebElement(VolumeDriverDeleteConfirmPopupAccept, WebDriverUtil.TWO_SECOND_WAIT,
             $"Unable to locate Confirm button on delete confirmation popup - {VolumeDriverDeleteConfirmPopupAccept}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitForWebElementInvisible(DeleteInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
@@ -135,7 +137,7 @@ namespace LaborPro.Automation.Features.VolumeDriver
             WebDriverUtil.GetWebElementAndScroll(SaveButton, WebDriverUtil.NO_WAIT,
             $"Unable to locate save button VolumeDrivers page - {SaveButton}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Saving...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitForWebElementInvisible(SaveInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             if (WebDriverUtil.GetWebElement(VolumeDriverPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) ==
                 null) return;
             var errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
@@ -260,6 +262,47 @@ namespace LaborPro.Automation.Features.VolumeDriver
             if (clearFilterButton == null) return;
             clearFilterButton.Click();
             WaitForLoading();
+        }
+        public static void AddNewVolumeDriverWithGivenInput(string volumeDriver, string department)
+        {
+            LogWriter.WriteLog("Executing VolumeDriverPage.AddNewVolumeDriverWithGivenInput");
+            ClickOnAddButton();
+            UserClickOnNewVolumeDriverMenuLink();
+            WebDriverUtil.WaitForAWhile();
+
+            if (volumeDriver != null)
+            {
+                WebDriverUtil.GetWebElement(NameInput, WebDriverUtil.NO_WAIT,
+                    $"Unable to locate name input on VolumeDrivers page  - {NameInput}")
+                  .SendKeys(Util.ProcessInputData(volumeDriver));
+            }
+            if (department != null)
+            {
+                WebDriverUtil.GetWebElement(DepartmentInput, WebDriverUtil.NO_WAIT,
+                    $"Unable to locate department input on VolumeDrivers page  - {DepartmentInput}")
+                  .SendKeys(department);
+            }
+
+            WebDriverUtil.GetWebElementAndScroll(SaveButton, WebDriverUtil.NO_WAIT,
+            $"Unable to locate save button on VolumeDrivers page - {SaveButton}").Click();
+            WebDriverUtil.WaitForAWhile();
+            WebDriverUtil.WaitForWebElementInvisible(SaveInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (WebDriverUtil.GetWebElement(VolumeDriverPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) ==
+                null) return;
+            var errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (errorMessage != null) return;
+            var errorMsg = WebDriverUtil.GetWebElementAndScroll(ElementAlert, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (errorMsg != null) return;
+            var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (alert == null)
+            {
+                WebDriverUtil.WaitForWebElementInvisible(VolumeDriverPopup, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
+            }
+            else
+            {
+                throw new Exception($"Unable to create new VolumeDriver Error - {alert.Text}");
+            }
+
         }
     }
 }

@@ -137,12 +137,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("03. Verify delete button and edit option is not avaiable")]
-        public void _03_VerifyDeleteButtonAndEditOptionIsNotAvaiable()
+        [NUnit.Framework.DescriptionAttribute("03. Verify delete button and edit option is not available")]
+        public void _03_VerifyDeleteButtonAndEditOptionIsNotAvailable()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03. Verify delete button and edit option is not avaiable", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03. Verify delete button and edit option is not available", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 14
 this.ScenarioInitialize(scenarioInfo);
 #line hidden

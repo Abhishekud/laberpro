@@ -45,6 +45,7 @@
 
   <ItemGroup>
     <SpecFlowObsoleteCodeBehindFiles Remove="Features\LocationMapping\LocationMapping_AdminOnly.feature.cs" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="Features\VolumeDriverMapping\VolumeDriverMapping_AdminOnly.feature.cs" />
   </ItemGroup>
 
   <ItemGroup>

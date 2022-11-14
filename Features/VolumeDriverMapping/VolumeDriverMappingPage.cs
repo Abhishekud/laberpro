@@ -47,6 +47,11 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
         private const string DepartmentDropdown = "//select[contains(@id,'departmentId')]";
         private const string SaveInprogress = "//button[contains(text(),'Saving...')]";
         private const string DeleteInprogress = "//button[contains(text(),'Deleting...')]";
+        private const string EditVolumeDriverMappingSidebar = "//*[@class='sidebar-title ' and contains(text(),'Edit Volume Driver Mapping')]";
+        private const string OpenEditSidebarForm = "//*[@class='sidebar-scrollable']//div[@class='action-buttons-none sidebar-section']";
+        private const string EditVolumeDriverMappingSetButton = "//button[contains(text(),'Edit')]";
+        private const string CancelVolumeDriverDetails = "//button[text()='Cancel']";
+
         public static void VerifyExportOptionIsAvailable()
         {
             LogWriter.WriteLog("Executing VolumeDriverMappingPage.VerifyExportOptionIsAvailable");
@@ -418,8 +423,150 @@ namespace LaborPro.Automation.Features.VolumeDriverMapping
             }
             else
             {
-                throw new Exception($"Unable to create new VolumeDriverMapping Error - {alert.Text}");
+                throw new Exception($"Unable to create new volume driver mapping set Error - {alert.Text}");
             }
+        }
+        public static void AddNewVolumeDriverMappingWithGivenInput(string volumeDriver, string uom)
+        {
+            LogWriter.WriteLog("Executing VolumeDriverMappingPage.AddNewVolumeDriverMappingWithGivenInput");
+            ClickOnVolumeDriverMapping();
+            WebDriverUtil.WaitForAWhile();
+            if (volumeDriver != null)
+            {
+                new SelectElement(WebDriverUtil.GetWebElement(VolumeDriverDropdown, WebDriverUtil.NO_WAIT,
+                        $"Unable to locate volume driver input on create volume driver mapping page - {VolumeDriverDropdown}"))
+                    .SelectByText(volumeDriver);
+            }
+
+            if (uom != null)
+            {
+                new SelectElement(WebDriverUtil.GetWebElement(UomDropdown, WebDriverUtil.NO_WAIT,
+                        $"Unable to locate uom input on create volume driver mapping page - {UomDropdown}"))
+                    .SelectByText(uom);
+            }
+
+            WebDriverUtil.GetWebElementAndScroll(SaveButton, WebDriverUtil.NO_WAIT,
+                $"Unable to locate save button on create volume driver mapping page - {SaveButton}").Click();
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitForWebElementInvisible(SaveInprogress, WebDriverUtil.MAX_WAIT,
+                WebDriverUtil.NO_MESSAGE);
+            if (WebDriverUtil.GetWebElement(VolumeDriverPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) ==
+                null) return;
+            var errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath,
+                WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (errorMessage != null) return;
+            var errorMsg = WebDriverUtil.GetWebElementAndScroll(ElementAlert, WebDriverUtil.ONE_SECOND_WAIT,
+                WebDriverUtil.NO_MESSAGE);
+            if (errorMsg != null) return;
+            var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.TEN_SECOND_WAIT,
+                WebDriverUtil.NO_MESSAGE);
+            if (alert == null)
+            {
+                WebDriverUtil.WaitForWebElementInvisible(VolumeDriverPopup, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
+            }
+            else
+            {
+                throw new Exception($"Unable to create new volume driver mapping Error - {alert.Text}");
+            }
+        }
+
+        public static void VerifyAddButtonIsNotPresent()
+        {
+            LogWriter.WriteLog("Executing VolumeDriverMappingPage.VerifyAddButtonIsNotPresent");
+            var addButton = WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (addButton != null)
+                throw new Exception("Add button is found but we expect it should not be present when user login from admin only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifyEditVolumeDriverMappingSidebarIsAvailable(string volumeDriverMapping)
+        {
+            LogWriter.WriteLog("Executing VolumeDriverMappingPage.VerifyEditVolumeDriverMappingSidebarIsAvailable");
+            var volumeDriverRecord = string.Format(VolumeDriverRecord, volumeDriverMapping);
+            WebDriverUtil.GetWebElement(volumeDriverRecord, WebDriverUtil.NO_WAIT,
+                $"Unable to locate volume driver mapping record on volume driver mapping page - {volumeDriverRecord}").Click();
+            WebDriverUtil.WaitForAWhile();
+            var editVolumeDriverMappingSidebar = WebDriverUtil.GetWebElement(EditVolumeDriverMappingSidebar,
+                WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (editVolumeDriverMappingSidebar == null)
+                throw new Exception("Edit volume driver mapping sidebar is not found but we expect it should be present when user login from admin only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifySaveButtonIsNotAvailable(string volumeDriverMapping)
+        {
+            LogWriter.WriteLog("Executing VolumeDriverMappingPage.VerifySaveButtonIsNotAvailable");
+            var volumeDriverRecord = string.Format(VolumeDriverRecord, volumeDriverMapping);
+            var editVolumeDriverMappingSidebar = WebDriverUtil.GetWebElement(EditVolumeDriverMappingSidebar,
+                WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (editVolumeDriverMappingSidebar == null)
+            {
+                WebDriverUtil.GetWebElement(volumeDriverRecord, WebDriverUtil.NO_WAIT,
+                        $"Unable to locate volume driver mapping record on volume driver mapping page - {volumeDriverRecord}").Click();
+                WebDriverUtil.WaitForAWhile();
+            }
+            var saveButton = WebDriverUtil.GetWebElement(SaveButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (saveButton != null)
+                throw new Exception("Save button is found but we expect it should not be present when user login from admin only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifyDeleteButtonAndEditOptionIsNotAvailable(string volumeDriverMapping)
+        {
+            LogWriter.WriteLog("Executing VolumeDriverMappingPage.VerifyDeleteButtonAndEditOptionIsNotAvailable");
+            var volumeDriverRecord = string.Format(VolumeDriverRecord, volumeDriverMapping);
+            var editVolumeDriverMappingSidebar = WebDriverUtil.GetWebElement(EditVolumeDriverMappingSidebar,
+                WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (editVolumeDriverMappingSidebar == null)
+            {
+                WebDriverUtil.GetWebElement(volumeDriverRecord, WebDriverUtil.NO_WAIT,
+                        $"Unable to locate volume driver mapping record on volume driver mapping page - {volumeDriverRecord}").Click();
+            }
+            var deleteButton = WebDriverUtil.GetWebElement(DeleteButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (deleteButton != null)
+                throw new Exception("Delete button is found but we expect it should not be present when user login from admin only access");
+            var volumeDriverDropDown = WebDriverUtil.GetWebElement(VolumeDriverDropDown, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (volumeDriverDropDown.Enabled)
+                throw new Exception("Volume driver dropdown is enabled but we expect it should be disabled when user login from admin only access");
+            var uomDropdown = WebDriverUtil.GetWebElement(UomDropdown, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (uomDropdown.Enabled)
+                throw new Exception("Uom dropdown is enabled but we expect it should be disabled when user login from admin only access");
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifyVolumeDriverMappingListingIsAvailable()
+        {
+            LogWriter.WriteLog("Executing VolumeDriverMappingPage.VerifyVolumeDriverMappingListingIsAvailable");
+            if (WebDriverUtil.GetWebElement(CancelVolumeDriverDetails, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
+            {
+                WebDriverUtil.GetWebElement(CancelVolumeDriverDetails, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE).Click();
+                WebDriverUtil.WaitForAWhile();
+            }
+            if (WebDriverUtil.GetWebElement(OpenEditSidebarForm, WebDriverUtil.ONE_SECOND_WAIT,
+                    WebDriverUtil.NO_MESSAGE) == null)
+            {
+                WebDriverUtil.GetWebElement(CheckVolumeDriverMappingOfRespectiveDepartment, WebDriverUtil.NO_WAIT,
+                    $"Unable to locate the check volume driver mapping listing button - {CheckVolumeDriverMappingOfRespectiveDepartment}").Click();
+                WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            }
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifyVolumeDriverMappingListingEditOptionIsNotAvailable()
+        {
+            LogWriter.WriteLog("Executing VolumeDriverMappingPage.VerifyVolumeDriverMappingListingEditOptionIsNotAvailable");
+            if (WebDriverUtil.GetWebElement(CancelVolumeDriverDetails, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
+            {
+                WebDriverUtil.GetWebElement(CancelVolumeDriverDetails, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE).Click();
+                WebDriverUtil.WaitForAWhile();
+            }
+            if (WebDriverUtil.GetWebElement(OpenEditSidebarForm, WebDriverUtil.ONE_SECOND_WAIT,
+                    WebDriverUtil.NO_MESSAGE) == null)
+            {
+                WebDriverUtil.GetWebElement(CheckVolumeDriverMappingOfRespectiveDepartment, WebDriverUtil.NO_WAIT,
+                    $"Unable to locate the check volume driver mapping listing button - {CheckVolumeDriverMappingOfRespectiveDepartment}").Click();
+                WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            }
+            var editVolumeDriverMappingSetButton = WebDriverUtil.GetWebElement(EditVolumeDriverMappingSetButton, WebDriverUtil.ONE_SECOND_WAIT,
+                WebDriverUtil.NO_MESSAGE);
+            if (editVolumeDriverMappingSetButton != null)
+                throw new Exception("Edit button is present but it is not suppose to be present as current user is logged in from admin only user");
+            BaseClass._AttachScreenshot.Value = true;
         }
     }
 }

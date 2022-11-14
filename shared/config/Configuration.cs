@@ -12,7 +12,7 @@
         }
         public static string SetEnvironment()
         {
-            string defaultEnvironment = "prereleaseuat";
+            string defaultEnvironment = "blankdb";
             string env = Environment.GetEnvironmentVariable("ENV");
             if (env == null)
             {
