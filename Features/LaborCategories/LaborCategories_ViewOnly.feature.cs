@@ -21,7 +21,6 @@ namespace LaborPro.Automation.Features.LaborCategories
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Verify LaborCategories_ViewOnly Module")]
-    [NUnit.Framework.CategoryAttribute("laborPro")]
     [NUnit.Framework.CategoryAttribute("Regression")]
     [NUnit.Framework.CategoryAttribute("LaborCategories_ViewOnly")]
     public partial class VerifyLaborCategories_ViewOnlyModuleFeature
@@ -30,7 +29,6 @@ namespace LaborPro.Automation.Features.LaborCategories
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "laborPro",
                 "Regression",
                 "LaborCategories_ViewOnly"};
         
@@ -113,14 +111,14 @@ namespace LaborPro.Automation.Features.LaborCategories
 #line 10
     testRunner.When("User navigates to the labor categories page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table43 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table68 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table43.AddRow(new string[] {
+                table68.AddRow(new string[] {
                             "Name",
                             "LaborCategories_created_via_automation"});
 #line 11
-    testRunner.Then("User create new labor category with below input if not exist", ((string)(null)), table43, "Then ");
+    testRunner.Then("User create new labor category with below input if not exist", ((string)(null)), table68, "Then ");
 #line hidden
 #line 14
     testRunner.And("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -178,7 +176,7 @@ namespace LaborPro.Automation.Features.LaborCategories
             {
                 this.ScenarioStart();
 #line 22
-    testRunner.When("User navigates to the LaborCategories tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("User navigates to the labor categories page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 23
     testRunner.Then("User verify export option is not available on labor categories page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
