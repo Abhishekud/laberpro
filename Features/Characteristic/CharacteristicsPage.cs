@@ -35,7 +35,10 @@ namespace LaborPro.Automation.Features.Characteristic
         private const string ExportButton = "//button[@id='export']";
         private const string ExportCharacteristic = "//a[text()='Export All Characteristics (.xlsx)']";
         private const string EditDetailsButton = "//button[text()='Edit']";
-
+        private const string DepartmentDropdownValue = "//select[contains(@id,'departmentId')]//option[contains(text(),'{0}')]";
+        private const string DepartmentDropdown = "//select[contains(@id,'departmentId')]";
+        private const string SaveInprogress = "//button[contains(text(),'Saving...')]";
+        private const string DeleteInprogress = "//button[contains(text(),'Deleting...')]";
         public static void VerifyRecordOfSelectedDept(string message)
         {
             LogWriter.WriteLog("Executing  CharacteristicsPage.VerifyRecordOfSelectedDept");
@@ -65,7 +68,6 @@ namespace LaborPro.Automation.Features.Characteristic
         {
             LogWriter.WriteLog("Executing  CharacteristicsPage.DeleteCharacteristicSetIfExist");
             IList<IWebElement> headers = SeleniumDriver.Driver().FindElements(By.XPath(TableHeader));
-
             if (headers.Select(header => header.GetAttribute("innerHTML")).Any(headerData => headerData.Contains(characteristicName)))
             {
                 DeleteCreatedCharacteristicSet(characteristicName);
@@ -86,8 +88,10 @@ namespace LaborPro.Automation.Features.Characteristic
         {
             LogWriter.WriteLog("Executing CharacteristicsPage.ClickOnCharacteristicTab");
             CloseCharacteristicDetailSideBar();
-            if (WebDriverUtil.GetWebElement(CharacteristicPage, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) !=
-                null) return;
+            if (WebDriverUtil.GetWebElement(CharacteristicPage, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null)
+            {
+                return;
+            }
             WebDriverUtil.GetWebElement(CharacteristicTab, WebDriverUtil.DEFAULT_WAIT, $"Unable to locate Characteristic tab - {CharacteristicTab}").Click();
             WebDriverUtil.WaitForAWhile();
         }
@@ -101,14 +105,16 @@ namespace LaborPro.Automation.Features.Characteristic
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             }
             characteristicDetailsSideBar = WebDriverUtil.GetWebElement(CancelCharacteristicDetails, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (characteristicDetailsSideBar == null) return;
+            if (characteristicDetailsSideBar == null)
+            {
+                return;
+            }
             characteristicDetailsSideBar.Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
         }
         public static void DeleteCreatedCharacteristicSet(string characteristicSetName)
         {
             LogWriter.WriteLog("Executing CharacteristicsPage.DeleteCreatedCharacteristicSet");
-
             WebDriverUtil.GetWebElement(CheckCharacteristicOfRespectiveDepartment,
                 WebDriverUtil.NO_WAIT,
                 $"Unable to locate the check Characteristic set of respective department- {CheckCharacteristicOfRespectiveDepartment}").Click();
@@ -123,7 +129,7 @@ namespace LaborPro.Automation.Features.Characteristic
             WebDriverUtil.GetWebElement(CharacteristicDeleteConfirmPopupAccept, WebDriverUtil.TWO_SECOND_WAIT,
                 $"Unable to locate Confirm button on delete confirmation popup - {CharacteristicDeleteConfirmPopupAccept}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitForWebElementInvisible(DeleteInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
@@ -151,11 +157,14 @@ namespace LaborPro.Automation.Features.Characteristic
 
 
             var confirmationPopup = WebDriverUtil.GetWebElement(CharacteristicDeleteConfirmPopup, WebDriverUtil.TWO_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (confirmationPopup == null) return;
+            if (confirmationPopup == null)
+            {
+                return;
+            }
             WebDriverUtil.GetWebElement(CharacteristicDeleteConfirmPopupAccept, WebDriverUtil.TWO_SECOND_WAIT,
                 $"Unable to locate Confirm button on delete confirmation popup - {CharacteristicDeleteConfirmPopupAccept}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            WebDriverUtil.WaitForWebElementInvisible(DeleteInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (alert == null)
             {
@@ -188,8 +197,11 @@ namespace LaborPro.Automation.Features.Characteristic
                     WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
                 BaseClass._AttachScreenshot.Value = true;
             }
+
             if (!found)
+            {
                 throw new Exception($"No characteristic set found - {characteristicName} but we expect it should be display!");
+            }
 
         }
         public static void VerifyAddButtonIsNotPresent()
@@ -197,7 +209,9 @@ namespace LaborPro.Automation.Features.Characteristic
             LogWriter.WriteLog("Executing CharacteristicsPage.VerifyAddButtonIsNotPresent");
             var addButton = WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (addButton != null)
+            {
                 throw new Exception("Add button is found but we expect it should not be present when user login from view only access");
+            }
             BaseClass._AttachScreenshot.Value = true;
         }
         public static void VerifyDeleteButtonIsNotPresent(string characteristicName)
@@ -208,7 +222,9 @@ namespace LaborPro.Automation.Features.Characteristic
             $"Unable to locate Characteristics record on Characteristics page - {characteristicRecordXpath}").Click();
             var deleteButton = WebDriverUtil.GetWebElement(CharacteristicDeleteButton, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (deleteButton != null)
+            {
                 throw new Exception("Delete button is found but we expect it should not be present when user login from view only access");
+            }
             BaseClass._AttachScreenshot.Value = true;
 
         }
@@ -218,7 +234,9 @@ namespace LaborPro.Automation.Features.Characteristic
             WebDriverUtil.GetWebElement(ExportButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE).Click();
             var exportButton = WebDriverUtil.GetWebElement(ExportCharacteristic, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (exportButton == null)
+            {
                 throw new Exception("Export option is not found but we expect it should be present as logged in user has view only access!");
+            }
             BaseClass._AttachScreenshot.Value = true;
         }
 
@@ -230,42 +248,50 @@ namespace LaborPro.Automation.Features.Characteristic
               WebDriverUtil.NO_WAIT, $"Unable to locate the check Characteristic set of respective department- {CheckCharacteristicOfRespectiveDepartment}").Click();
             var editButton = WebDriverUtil.GetWebElement(EditDetailsButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (editButton != null)
+            {
                 throw new Exception("Edit button is enabled but we expect it should be disabled when user login from view only access");
+            }
             BaseClass._AttachScreenshot.Value = true;
 
         }
         public static void AddNewCharacteristicWithGivenInput(Table inputData)
         {
             LogWriter.WriteLog("Executing CharacteristicsPage.AddNewCharacteristicWithGivenInput");
-
-            //Read input data
             var dictionary = Util.ConvertToDictionary(inputData);
             BaseClass._TestData.Value = Util.DictionaryToString(dictionary);
 
             if (Util.ReadKey(dictionary, "Name") != null)
             {
                 WebDriverUtil.GetWebElement(NameInput, WebDriverUtil.NO_WAIT,
-                $"Unable to locate Name input Characteristics page  - {NameInput}")
+                $"Unable to locate Name input on Characteristics page  - {NameInput}")
                     .SendKeys(dictionary["Name"]);
             }
             WebDriverUtil.GetWebElementAndScroll(SaveButton, WebDriverUtil.NO_WAIT,
-                $"Unable to locate save button Characteristics page - {SaveButton}").Click();
+                $"Unable to locate save button on Characteristics page - {SaveButton}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Saving...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (WebDriverUtil.GetWebElement(CharacteristicPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) ==
-                null) return;
-            var errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (errorMessage != null) return;
-            var errorMsg = WebDriverUtil.GetWebElementAndScroll(ElementAlert, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (errorMsg != null) return;
-            var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (alert == null)
+            WebDriverUtil.WaitForWebElementInvisible(SaveInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (WebDriverUtil.GetWebElement(CharacteristicPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) == null)
+            {
+                return;
+            }
+            var formInputError = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (formInputError != null)
+            {
+                return;
+            }
+            var formInputFieldError = WebDriverUtil.GetWebElementAndScroll(ElementAlert, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (formInputFieldError != null)
+            {
+                return;
+            }
+            var formAlert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (formAlert == null)
             {
                 WebDriverUtil.WaitForWebElementInvisible(CharacteristicPopup, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
             }
             else
             {
-                throw new Exception($"Unable to create new Characteristics Error - {alert.Text}");
+                throw new Exception($"Unable to create new Characteristics Error - {formAlert.Text}");
             }
         }
         public static void UserClickOnNewCharacteristicMenuLink()
@@ -315,7 +341,10 @@ namespace LaborPro.Automation.Features.Characteristic
         {
             LogWriter.WriteLog("Executing CharacteristicsPage.ClickOnStandardTab");
             var standardTab = WebDriverUtil.GetWebElement(StandardCollapsedTab, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (standardTab == null) return;
+            if (standardTab == null)
+            {
+                return;
+            }
             standardTab.Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
         }
@@ -323,12 +352,61 @@ namespace LaborPro.Automation.Features.Characteristic
         {
             LogWriter.WriteLog("Executing CharacteristicsPage.WaitForCharacteristicAlertCloseIfAny");
             var alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (alert == null) return;
+            if (alert == null)
+            {
+                return;
+            }
             WebDriverUtil.GetWebElementAndScroll(NameInput).Click();
             WebDriverUtil.GetWebElementAndScroll(NameInput);
             WebDriverUtil.WaitForWebElementInvisible(ErrorAlertToastXpath, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
         }
+        public static void SelectTheDepartment(string departmentName)
+        {
+            LogWriter.WriteLog("Executing CharacteristicsPage.SelectTheDepartment");
+            var departmentValue = string.Format(DepartmentDropdownValue, departmentName);
+            WebDriverUtil.GetWebElement(DepartmentDropdown, WebDriverUtil.ONE_SECOND_WAIT, $"Unable to locate the department dropdown - {DepartmentDropdown}").Click();
+            WebDriverUtil.GetWebElement(departmentValue,
+           WebDriverUtil.ONE_SECOND_WAIT, $"Unable to locate department record on characteristics page - {departmentValue}").Click();
+            WebDriverUtil.WaitForAWhile();
 
+        }
+        public static void AddNewCharacteristicSet(string characteristicSet)
+        {
+            LogWriter.WriteLog("Executing CharacteristicsPage.AddNewCharacteristicSet");
+            if (characteristicSet != null)
+            {
+                WebDriverUtil.GetWebElement(NameInput, WebDriverUtil.NO_WAIT,
+                $"Unable to locate name input on characteristics page  - {NameInput}")
+                    .SendKeys(Util.ProcessInputData(characteristicSet));
+            }
+            WebDriverUtil.GetWebElementAndScroll(SaveButton, WebDriverUtil.NO_WAIT,
+                $"Unable to locate save button on characteristics page - {SaveButton}").Click();
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitForWebElementInvisible(SaveInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (WebDriverUtil.GetWebElement(CharacteristicPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) == null)
+            {
+                return;
+            }
+            var formInputError = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (formInputError != null)
+            {
+                return;
+            }
+            var formInputFieldError = WebDriverUtil.GetWebElementAndScroll(ElementAlert, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (formInputFieldError != null)
+            {
+                return;
+            }
+            var formAlert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (formAlert == null)
+            {
+                WebDriverUtil.WaitForWebElementInvisible(CharacteristicPopup, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
+            }
+            else
+            {
+                throw new Exception($"Unable to create new characteristics Error - {formAlert.Text}");
+            }
+        }
     }
 }
 
