@@ -99,16 +99,16 @@ this.ScenarioInitialize(scenarioInfo);
 #line 5
  testRunner.Given("User \"superadmin\" is authenticated with \"url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
                             "Department",
                             "Location",
                             "Attribute"});
-                table17.AddRow(new string[] {
+                table18.AddRow(new string[] {
                             "GROCERY",
                             "DUNLOP",
                             "SAFETY"});
 #line 6
- testRunner.When("User setup prerequisites for attribute", ((string)(null)), table17, "When ");
+ testRunner.When("User setup prerequisites for attribute", ((string)(null)), table18, "When ");
 #line hidden
 #line 9
  testRunner.And("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -265,16 +265,16 @@ this.ScenarioInitialize(scenarioInfo);
 #line 30
  testRunner.When("User \"superadmin\" is authenticated with \"url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
                             "Department",
                             "Location",
                             "Attribute"});
-                table18.AddRow(new string[] {
+                table19.AddRow(new string[] {
                             "GROCERY",
                             "DUNLOP",
                             "SAFETY"});
 #line 31
- testRunner.And("User delete prerequisite records for attribute", ((string)(null)), table18, "And ");
+ testRunner.And("User delete prerequisite records for attribute", ((string)(null)), table19, "And ");
 #line hidden
 #line 34
  testRunner.And("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

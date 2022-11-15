@@ -181,7 +181,7 @@ namespace LaborPro.Automation.Features.LocationMapping
                 WebDriverUtil.GetWebElement(locationMappingRecordMapping, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE).Click();
                 break;
             }
-            
+
             if (!found)
             {
                 throw new Exception($"No department found - {department} but we expect it should be display!");

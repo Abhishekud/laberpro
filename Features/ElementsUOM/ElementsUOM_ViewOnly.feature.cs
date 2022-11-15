@@ -113,14 +113,14 @@ namespace LaborPro.Automation.Features.ElementsUOM
 #line 10
     testRunner.And("User navigates to the UoM page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table40 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table38 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table40.AddRow(new string[] {
+                table38.AddRow(new string[] {
                             "Name",
                             "Uom_ViewOnly Created via Automation"});
 #line 11
-    testRunner.Then("User create new UoM with below input if not exist", ((string)(null)), table40, "Then ");
+    testRunner.Then("User create new UoM with below input if not exist", ((string)(null)), table38, "Then ");
 #line hidden
 #line 14
     testRunner.And("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

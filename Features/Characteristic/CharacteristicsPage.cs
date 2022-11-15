@@ -68,7 +68,6 @@ namespace LaborPro.Automation.Features.Characteristic
         {
             LogWriter.WriteLog("Executing  CharacteristicsPage.DeleteCharacteristicSetIfExist");
             IList<IWebElement> headers = SeleniumDriver.Driver().FindElements(By.XPath(TableHeader));
-
             if (headers.Select(header => header.GetAttribute("innerHTML")).Any(headerData => headerData.Contains(characteristicName)))
             {
                 DeleteCreatedCharacteristicSet(characteristicName);
@@ -116,7 +115,6 @@ namespace LaborPro.Automation.Features.Characteristic
         public static void DeleteCreatedCharacteristicSet(string characteristicSetName)
         {
             LogWriter.WriteLog("Executing CharacteristicsPage.DeleteCreatedCharacteristicSet");
-
             WebDriverUtil.GetWebElement(CheckCharacteristicOfRespectiveDepartment,
                 WebDriverUtil.NO_WAIT,
                 $"Unable to locate the check Characteristic set of respective department- {CheckCharacteristicOfRespectiveDepartment}").Click();
@@ -259,18 +257,17 @@ namespace LaborPro.Automation.Features.Characteristic
         public static void AddNewCharacteristicWithGivenInput(Table inputData)
         {
             LogWriter.WriteLog("Executing CharacteristicsPage.AddNewCharacteristicWithGivenInput");
-
             var dictionary = Util.ConvertToDictionary(inputData);
             BaseClass._TestData.Value = Util.DictionaryToString(dictionary);
 
             if (Util.ReadKey(dictionary, "Name") != null)
             {
                 WebDriverUtil.GetWebElement(NameInput, WebDriverUtil.NO_WAIT,
-                $"Unable to locate Name input Characteristics page  - {NameInput}")
+                $"Unable to locate Name input on Characteristics page  - {NameInput}")
                     .SendKeys(dictionary["Name"]);
             }
             WebDriverUtil.GetWebElementAndScroll(SaveButton, WebDriverUtil.NO_WAIT,
-                $"Unable to locate save button Characteristics page - {SaveButton}").Click();
+                $"Unable to locate save button on Characteristics page - {SaveButton}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             WebDriverUtil.WaitForWebElementInvisible(SaveInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
             if (WebDriverUtil.GetWebElement(CharacteristicPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) == null)
@@ -409,7 +406,7 @@ namespace LaborPro.Automation.Features.Characteristic
             {
                 throw new Exception($"Unable to create new characteristics Error - {formAlert.Text}");
             }
-        } 
+        }
     }
 }
 

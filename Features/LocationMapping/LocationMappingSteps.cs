@@ -148,7 +148,7 @@ namespace LaborPro.Automation.Features.LocationMapping
             LogWriter.WriteLog("Executing Step User verify edit detail options are not available in " + locationName + " on location mapping page");
             NavigatesToTheLocationMappingTab();
             LocationMappingPage.VerifyEditDetailOptionsAreNotAvailable(DataCache.Read(locationName));
-        } 
+        }
 
         [Then(@"User verify save button is not available in ""([^""]*)"" on location mapping page")]
         [When(@"User verify save button is not available in ""([^""]*)"" on location mapping page")]
