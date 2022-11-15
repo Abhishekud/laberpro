@@ -141,14 +141,14 @@ namespace LaborPro.Automation.Features.Attribute
 #line 17
      testRunner.And("User selects Department", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table11.AddRow(new string[] {
+                table12.AddRow(new string[] {
                             "Name",
                             "Department to verify attribute"});
 #line 18
-    testRunner.And("User create new Department with below input if not exist", ((string)(null)), table11, "And ");
+    testRunner.And("User create new Department with below input if not exist", ((string)(null)), table12, "And ");
 #line hidden
 #line 21
     testRunner.Then("User verify created Department \"Department to verify attribute\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -188,14 +188,14 @@ namespace LaborPro.Automation.Features.Attribute
 #line 29
     testRunner.Given("User navigates to the attribute tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table12.AddRow(new string[] {
+                table13.AddRow(new string[] {
                             "Name",
                             ""});
 #line 30
-    testRunner.When("User add new attribute using below input", ((string)(null)), table12, "When ");
+    testRunner.When("User add new attribute using below input", ((string)(null)), table13, "When ");
 #line hidden
 #line 33
     testRunner.Then("Verify Validation Message:\"Name is required\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -232,14 +232,14 @@ namespace LaborPro.Automation.Features.Attribute
 #line 39
     testRunner.Then("User delete attribute \"AJT\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table13.AddRow(new string[] {
+                table14.AddRow(new string[] {
                             "Name",
                             "AJT"});
 #line 40
-    testRunner.When("User add new attribute using below input", ((string)(null)), table13, "When ");
+    testRunner.When("User add new attribute using below input", ((string)(null)), table14, "When ");
 #line hidden
 #line 43
     testRunner.And("User refresh the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -250,14 +250,14 @@ namespace LaborPro.Automation.Features.Attribute
 #line 45
     testRunner.Then("User verify created attribute name \"AJT\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table14.AddRow(new string[] {
+                table15.AddRow(new string[] {
                             "Name",
                             "AJT"});
 #line 46
-    testRunner.When("User add new attribute using below input", ((string)(null)), table14, "When ");
+    testRunner.When("User add new attribute using below input", ((string)(null)), table15, "When ");
 #line hidden
 #line 49
     testRunner.Then("Verify Validation Message:\"Name already exists in department\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -297,14 +297,14 @@ namespace LaborPro.Automation.Features.Attribute
 #line 56
     testRunner.Then("User delete attribute \"AJP\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table15.AddRow(new string[] {
+                table16.AddRow(new string[] {
                             "Name",
                             "AJP"});
 #line 57
-    testRunner.When("User add new attribute using below input", ((string)(null)), table15, "When ");
+    testRunner.When("User add new attribute using below input", ((string)(null)), table16, "When ");
 #line hidden
 #line 60
     testRunner.And("User refresh the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
