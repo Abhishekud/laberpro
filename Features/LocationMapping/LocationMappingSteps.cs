@@ -69,7 +69,7 @@ namespace LaborPro.Automation.Features.LocationMapping
         [Given(@"User verify created LocationMapping ""([^""]*)""")]
         [When(@"User verify created LocationMapping ""([^""]*)""")]
         [Then(@"User verify created LocationMapping ""([^""]*)""")]
-        public void UserVerifyCreatedLocationMapping(string locationMappingName)
+        public void UserVerifyCreatedLocationMapping(String locationMappingName)
         {
             LogWriter.WriteLog("Executing Step User verify created LocationMapping by name" + locationMappingName);
             LocationMappingPage.VerifyCreatedLocationMapping(locationMappingName);
@@ -148,7 +148,7 @@ namespace LaborPro.Automation.Features.LocationMapping
             LogWriter.WriteLog("Executing Step User verify edit detail options are not available in " + locationName + " on location mapping page");
             NavigatesToTheLocationMappingTab();
             LocationMappingPage.VerifyEditDetailOptionsAreNotAvailable(DataCache.Read(locationName));
-        }
+        } 
 
         [Then(@"User verify save button is not available in ""([^""]*)"" on location mapping page")]
         [When(@"User verify save button is not available in ""([^""]*)"" on location mapping page")]
@@ -165,7 +165,7 @@ namespace LaborPro.Automation.Features.LocationMapping
         public void CreatePrerequisitesRecordForLocationMapping(Table inputData)
         {
             LogWriter.WriteLog("Executing Step User create prerequisites record for location mapping " + inputData);
-            var prerequisites = inputData.CreateInstance<LocationMapping>();
+            var prerequisites = inputData.CreateInstance<LocationMappingPrerequisites>();
             DepartmentsPage.ClickOnStandardTab();
             DepartmentsPage.ClickOnListManagementTab();
             DepartmentsPage.ClickOnDepartment();
@@ -212,7 +212,7 @@ namespace LaborPro.Automation.Features.LocationMapping
         public void VerifyLocationMapping(Table inputData)
         {
             LogWriter.WriteLog("Executing Step User verify location mapping " + inputData);
-            var prerequisites = inputData.CreateInstance<LocationMapping>();
+            var prerequisites = inputData.CreateInstance<LocationMappingPrerequisites>();
             LocationMappingPage.Refresh();
             LocationMappingPage.ClickOnProfilingTab();
             LocationMappingPage.ClickOnLocationMappingTab();

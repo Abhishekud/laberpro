@@ -191,7 +191,7 @@ namespace LaborPro.Automation.Features.Attribute
             var departmentValue = string.Format(DepartmentDropdownValue, departmentName);
             WebDriverUtil.GetWebElement(DepartmentDropdown, WebDriverUtil.ONE_SECOND_WAIT, $"Unable to locate the department dropdown - {DepartmentDropdown}").Click();
             WebDriverUtil.GetWebElement(departmentValue,
-           WebDriverUtil.ONE_SECOND_WAIT, $"Unable to locate attribute record on attribute page - {departmentValue}").Click();
+            WebDriverUtil.ONE_SECOND_WAIT, $"Unable to locate attribute record on attribute page - {departmentValue}").Click();
             WebDriverUtil.WaitForAWhile();
 
         }

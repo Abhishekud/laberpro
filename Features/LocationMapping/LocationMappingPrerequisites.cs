@@ -2,7 +2,7 @@
 
 namespace LaborPro.Automation.Features.LocationMapping
 {
-    public class LocationMapping
+    public class LocationMappingPrerequisites
     {
         [Required]
         public string Location { get; set; }
