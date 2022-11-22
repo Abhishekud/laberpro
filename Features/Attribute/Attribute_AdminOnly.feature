@@ -2,14 +2,14 @@
 Feature: Verify Attribute_AdminOnly Module
 @Setup
 Scenario: 01. Launch Browser and Login to the Application and perform prerequisites
-	Given User "superadmin" is authenticated with "url"
+	Given User "superadmin" is authenticated with application
 	When User setup prerequisites for attribute
 		| Department | Location | Attribute |
 		| GROCERY    | DUNLOP   | SAFETY    |
 	And User logout from the application
   
 Scenario: 02.verify add button is not available
-	When User "admin" is authenticated with "url"
+	When User "admin" is authenticated with application
 	Then User verify add button is not available on attribute page
 	  
 Scenario: 03.verify edit button is not available
@@ -27,7 +27,7 @@ Scenario: 06.verify added location is available
  
 @Cleanup
 Scenario: 07. Cleanup and Logout
-	When User "superadmin" is authenticated with "url"
+	When User "superadmin" is authenticated with application
 	And User delete prerequisite records for attribute
 		| Department | Location | Attribute |
 		| GROCERY    | DUNLOP   | SAFETY    |

@@ -3,11 +3,8 @@ Feature: Verify VolumeDriverMapping Module
 
 @Setup @Smoke
 Scenario: 01. Launch Browser and Login to the Application
-	Given User launched "$browser"
-	When User go to application "$url"
-	Then User enter email: "$username_2" and password: "$password_2"
-	And Verify Login message: "success"
-  
+	Given User "superadmin" is authenticated with application
+
 @Smoke
 Scenario: 02. verify_that_new_created_department_is_available_in_department_dropdown
 	Given User navigates to the List Management tab
@@ -44,7 +41,6 @@ Scenario: 04.verify_add_VolumeDriverMappingset_when_enter_correct_details
 	Then User verify created VolumeDriverMappingSet by name "VolumeDriverMappingset via Automation"
   
 Scenario: 05. Verify_that_respective_VolumeDriver_&_UOM_available_in_dropdown
-  
 	Given User navigates to the VolumeDriver tab
 	When User create new VolumeDriver with below input if not exist
 		| Key        | Value                                    |

@@ -4,14 +4,12 @@ Feature: Verify UnitOfMeasure_ViewOnly Module
 A short summary of the feature
 @Setup
 Scenario: 01. Launch Browser and Login to the Application
-	Given User launched "$browser"
-	When User go to application "$url"
-	Then User enter email: "$username_2" and password: "$password_2"
+	Given User "superadmin" is authenticated with application
 	Then User navigates to the List Management tab
 	And User selects Department
 	And User create new Department with below input if not exist
 		| Key  | Value                                       |
-		| Name | Department To verify UnitOfMeasure_ViewOnly | 
+		| Name | Department To verify UnitOfMeasure_ViewOnly |
 	And User selects UnitOfMeasure
 	And User Selects Created Department "Department To verify UnitOfMeasure_ViewOnly"
 	And User delete UnitOfMeasure "UOM" if exist
@@ -22,7 +20,7 @@ Scenario: 01. Launch Browser and Login to the Application
 	Then User logout from the application
   
 Scenario: 02. Verify_add_button_is_not_available
-	Given User logged in with view only access using username: "$viewonly_username" and password: "$viewonly_password"
+	Given User "viewonly" is authenticated with application
 	When User navigates to the List Management tab
 	Then User selects UnitOfMeasure
 	And User Selects Created Department "Department To verify UnitOfMeasure_ViewOnly"
@@ -44,7 +42,7 @@ Scenario: 04. Verify_delete_button_and_edit_option_is_not_available
 @Cleanup
 Scenario: 05. Logout and Close Browser
 	Given User logout from the application
-	When User enter email: "$username_2" and password: "$password_2"
+	When User "superadmin" is authenticated with application
 	Then User navigates to the List Management tab
 	And User selects UnitOfMeasure
 	And User Selects Created Department "Department To verify UnitOfMeasure_ViewOnly"

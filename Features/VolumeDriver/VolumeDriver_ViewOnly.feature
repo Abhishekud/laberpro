@@ -3,9 +3,7 @@ Feature: Verify VolumeDriver_ViewOnly Module
 
 @Setup
 Scenario: 01. Launch Browser and Login to the Application and perform prerequisites
-	Given User launched "$browser"
-	When User go to application "$url"
-	Then User enter email: "$username_1" and password: "$password_1"
+	Given User "superadmin" is authenticated with application
 	And User navigates to the VolumeDriver tab
 	And User selects Department
 	And User create new Department with below input if not exist
@@ -19,7 +17,7 @@ Scenario: 01. Launch Browser and Login to the Application and perform prerequisi
 	Then User logout from the application
   
 Scenario: 02. Verify_add_button_is_not_available
-	Given User logged in with view only access using username: "$viewonly_username" and password: "$viewonly_password"
+	Given User "viewonly" is authenticated with application
 	When User navigates to the VolumeDriver tab
 	Then User verify add button is not available on volume driver page
   
@@ -34,7 +32,7 @@ Scenario: 04. Verify_delete_button_and_edit_option_is_not_available
 @Cleanup
 Scenario: 05. Logout and Close Browser
 	Given User logout from the application
-	When User enter email: "$username_2" and password: "$password_2"
+	When User "superadmin" is authenticated with application
 	Then User navigates to the VolumeDriver tab
 	And User delete VolumeDriver "VolumeDriver via VolumeDriver_ViewOnly" if exist
 	And User selects Department

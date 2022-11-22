@@ -2,12 +2,12 @@
 Feature: Verify LocationMapping_AdminOnly Module
 @Setup
 Scenario: 01. Launch Browser and Login to the Application and perform prerequisites
-	Given User "superadmin" is authenticated with "url"
+	Given User "superadmin" is authenticated with application
 	When User setup prerequisites with department "CAFE" and location "MAWSON" for location mapping
 	And User logout from the application
   
 Scenario: 02.verify add button is not available
-	When User "admin" is authenticated with "url"
+	When User "admin" is authenticated with application
 	Then User verify add button is not available in "CAFE" on location mapping page
   
 Scenario: 03.verify edit locationmapping sidebar is available
@@ -22,7 +22,7 @@ Scenario: 05.verify save button is not available
   
 @Cleanup
 Scenario: 06. Cleanup and Logout
-	When User "superadmin" is authenticated with "url"
+	When User "superadmin" is authenticated with application
 	And User delete prerequisites department "CAFE" and location "MAWSON" for location mapping
 	And User logout from the application
 	And User close browser
