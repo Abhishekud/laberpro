@@ -26,7 +26,7 @@ namespace LaborPro.Automation.Features.VolumeDriverValueSet
         private const string VolumeDriverValueSetConfirmPopup = "//*[@class='modal-dialog']//*[contains(text(),'Please confirm that you want to delete')]";
         private const string ElementAlert = "//*[@class='form-group has-error']";
         private const string CancelButton = "//button[text()='Cancel']";
-        private const string VolumeDriverValueSetDownload = "//*[@class='page volume-driver-value-sets-list-page']//*[@id='export']//*[@class='fa fa-file-excel-o']";
+        private const string VolumeDriverValueSetDownload = "//*[@role='button']//*[@class='fa fa-file-excel-o']";
         private const string VolumeDriverValueSetDownloadTemplate = "//a[contains(text(),'Download Volume Driver Values Import Template')]";
         private const string ImportErrorModal = "//*[@class='modal-content']//*[text()='Import Errors']";
         private const string ImportErrorModalOkButton = "//*[@class='modal-content']//*[text()='OK']";
@@ -71,14 +71,19 @@ namespace LaborPro.Automation.Features.VolumeDriverValueSet
         public static void ClickOnNewVolumeDriverValueSet()
         {
             LogWriter.WriteLog("Executing VolumeDriverValueSetPage.ClickOnNewVolumeDriverValueSet");
-            var addVolumeDriverValueSet = WebDriverUtil.GetWebElement(AddVolumeDriverValueSet, WebDriverUtil.NO_WAIT,
+            var addVolumeDriverValueSet = WebDriverUtil.GetWebElement(AddVolumeDriverValueSet,
+                WebDriverUtil.TWO_SECOND_WAIT,
                 $"Unable to locate the add volume driver value set button - {AddVolumeDriverValueSet}");
-            var newVolumeDriverValueSet = WebDriverUtil.GetWebElement(NewVolumeDriverValueSet, WebDriverUtil.NO_WAIT,
-                $"Unable to locate the new volume driver value set button - {NewVolumeDriverValueSet}");
-            if (addVolumeDriverValueSet == null && newVolumeDriverValueSet == null) return;
             addVolumeDriverValueSet.Click();
-            newVolumeDriverValueSet.Click();
+            var volumeDriverValueSetPopup = WebDriverUtil.GetWebElement(VolumeDriverValueSetPopup,
+                WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (volumeDriverValueSetPopup == null)
+            {
+                WebDriverUtil.GetWebElement(NewVolumeDriverValueSet, WebDriverUtil.TWO_SECOND_WAIT,
+                    $"Unable to locate the new volume driver value set button - {NewVolumeDriverValueSet}").Click();
+            }
             WebDriverUtil.WaitForAWhile();
+
         }
         public static void VerifyVolumeDriverValueSetPopup()
         {
