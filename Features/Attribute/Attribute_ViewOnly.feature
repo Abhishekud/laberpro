@@ -3,16 +3,14 @@ Feature: Verify Attribute_ViewOnly Module
 
 @Setup
 Scenario: 01. Launch Browser and Login to the Application and perform prerequisites
-	Given User launched "$browser"
-	When User go to application "$url"
-	Then User enter email: "$username_3" and password: "$password_3" 
-	And User navigates to the List Management tab
+ 	Given User "superadmin" is authenticated with application
+    And User navigates to the List Management tab
 	And User selects Department
 	And User create new Department with below input if not exist
 		| Key  | Value                                           |
 		| Name | Department to verify attribute in viewonly mode | 
 	And User navigates to the attribute tab
-	And User select the Department "Department to verify attribute in viewonly mode"
+	Then User select the Department "Department to verify attribute in viewonly mode"
     And User delete attribute "AJT_viewonly" if exist
 	And User add new attribute using below input
 		| Key  | Value        |
@@ -20,8 +18,8 @@ Scenario: 01. Launch Browser and Login to the Application and perform prerequisi
 	And User refresh the page
 	And User logout from the application
 
-Scenario: 02. Verify_add_button_is_not_available
-	Given User logged in with view only access using username: "$viewonly_username" and password: "$viewonly_password"
+Scenario: 02. Verify_add_button_is_not_available 
+	Given User "viewonly" is authenticated with application
 	When User navigates to the attribute tab
 	Then User select the Department "Department to verify attribute in viewonly mode"
 	Then User verify add button is not present in attribute module
@@ -60,7 +58,7 @@ Scenario: 07. Verify_edit_button_is_not_available
 @Cleanup
 Scenario: 08. Logout and Close Browser
 	Given User logout from the application
-	When User enter email: "$username_3" and password: "$password_3"
+ 	When User "superadmin" is authenticated with application
 	Then User navigates to the attribute tab
 	And User select the Department "Department to verify attribute in viewonly mode"
 	And User delete created attribute:"AJT_viewonly"

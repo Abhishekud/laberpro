@@ -2,7 +2,7 @@
 Feature: Verify Location_AdminOnly Module
 @Setup
 Scenario: 01. Launch Browser and Login to the Application
-	Given User "admin" is authenticated with "url"
+	Given User "admin" is authenticated with application
 
 Scenario: 02. verify add button is available
 	Then User verify add button is available on location page

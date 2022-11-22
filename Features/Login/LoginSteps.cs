@@ -24,8 +24,8 @@ namespace LaborPro.Automation.Features.Login
         [Then(@"User go to application ""([^""]*)""")]
         public void GoToApplication(string portal)
         {
-            LogWriter.WriteLog("Executing step: User go to application "+ Util.ProcessInputDataString(portal));
-            SeleniumDriver.Driver().Navigate().GoToUrl(Util.ProcessInputDataString(portal));
+            LogWriter.WriteLog("Executing step: User go to application "+ $"{BaseClass.configuration[portal]}");
+            SeleniumDriver.Driver().Navigate().GoToUrl($"{BaseClass.configuration[portal]}");
         }
 
         [Given(@"User enter email: ""([^""]*)"" and password: ""([^""]*)""")]
@@ -33,8 +33,9 @@ namespace LaborPro.Automation.Features.Login
         [Then(@"User enter email: ""([^""]*)"" and password: ""([^""]*)""")]
         public void EnterEmailAndPassword(string username, string password)
         {
-            LogWriter.WriteLog("Executing step: User enter email: "+ Util.ProcessInputDataString(username) + " and password: **********");
-            LoginPage.PerformLogin(Util.ProcessInputDataString(username), Util.ProcessInputDataString(password));
+            LogWriter.WriteLog("Executing step: User enter email: "+ $"{BaseClass.configuration[username + ":username"]}" + " and password: **********");
+            //LoginPage.PerformLogin(Util.ProcessInputDataString(username), Util.ProcessInputDataString(password));
+            LoginPage.PerformLogin($"{BaseClass.configuration[username + ":username"]}", $"{BaseClass.configuration[username + ":password"]}");
         }
 
         [Given(@"Verify Login message: ""([^""]*)""")]
@@ -69,8 +70,9 @@ namespace LaborPro.Automation.Features.Login
         [Then(@"User logged in with view only access using username: ""([^""]*)"" and password: ""([^""]*)""")]
         public void UserLoggedInWithViewOnlyAccess(string userName, string password)
         {
-            LogWriter.WriteLog("Executing Step: User logged in with view only access using username:" + Util.ProcessInputDataString(userName) + "password: *********");
-            LoginPage.PerformLogin(Util.ProcessInputDataString(userName), Util.ProcessInputDataString(password));
+            LogWriter.WriteLog("Executing Step: User logged in with view only access using username:" + $"{BaseClass.configuration[userName + ":username"]}" + "password: *********");
+            //LoginPage.PerformLogin(Util.ProcessInputDataString(userName), Util.ProcessInputDataString(password));
+            LoginPage.PerformLogin($"{BaseClass.configuration[userName+":username"]}", $"{BaseClass.configuration[userName+":password"]}");
         }
 
         [Given(@"User ""([^""]*)"" is authenticated with ""([^""]*)""")]
@@ -81,7 +83,18 @@ namespace LaborPro.Automation.Features.Login
             var appUrl = $"{BaseClass.configuration[$"{url}"]}";
             LogWriter.WriteLog($"Executing Step: User {user} is authenticated with {appUrl}");
             UserLaunchedBrowser("$browser");
-            GoToApplication(appUrl);
+            GoToApplication(url);
+            LoginPage.PerformLogin($"{BaseClass.configuration[$"{user}:username"]}", $"{BaseClass.configuration[$"{user}:password"]}");
+            LoginPage.VerifyLoginSuccess();
+        }
+        [Given(@"User ""([^""]*)"" is authenticated with application")]
+        [When(@"User ""([^""]*)"" is authenticated with application")]
+        [Then(@"User ""([^""]*)"" is authenticated with application")]
+        public void GivenUserIsAuthenticatedWithApplication(string user)
+        { 
+            LogWriter.WriteLog($"Executing Step: User "+ user + " is authenticated with application");
+            UserLaunchedBrowser("$browser");
+            GoToApplication("url");
             LoginPage.PerformLogin($"{BaseClass.configuration[$"{user}:username"]}", $"{BaseClass.configuration[$"{user}:password"]}");
             LoginPage.VerifyLoginSuccess();
         }

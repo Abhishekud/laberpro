@@ -4,14 +4,10 @@ Feature: Verify VolumeDriverValue Module
 A short summary of the feature
 @Setup @Smoke
 Scenario: 01. Launch Browser and Login to the Application
-	Given User launched "$browser"
-	When User go to application "$url"
-	Then User enter email: "$username_1" and password: "$password_1"
-	And Verify Login message: "success"
+	Given User "superadmin" is authenticated with application
   
 @Smoke
 Scenario: 02. verify_volume_driver_value_scenario_and_standardsuombylocation_scenarios
-  
 	Given User navigates to the List Management tab
 	When User selects Department
 	Then User create new Department with below input if not exist

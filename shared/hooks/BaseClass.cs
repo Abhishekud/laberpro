@@ -46,7 +46,13 @@ namespace LaborPro.Automation.shared.hooks
             LogWriter.WriteLog($"projectDirectory : {GetProjectDirectoryPath()}");
             LogWriter.WriteLog($"Environment - {env}");
             LogWriter.WriteLog($"SuiteType - {suiteType}");
-            configuration = new ConfigurationBuilder().AddJsonFile(Configuration.Init(Configuration.SetEnvironment())).Build();
+            
+            configuration = new ConfigurationBuilder()
+                              .AddJsonFile("appsettings.json")
+                              .AddJsonFile($"appsettings.{env}.json")
+                              .AddEnvironmentVariables()
+                              .Build();
+
             ReportDirectoryCleanup(GetProjectDirectoryPath() + _ReportDirectory);
             DownloadDirectoryCleanup(GetProjectDirectoryPath() + _DownloadDirectory);
             LogWriter.LogCleanup();
