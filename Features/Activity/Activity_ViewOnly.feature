@@ -8,7 +8,7 @@ Scenario: 01. Launch Browser and Login to the Application and perform prerequisi
 	And User logout from the application
    
 Scenario: 02. Verify add button is not available 
-	Given User "viewonly" is authenticated with application
+	When User "viewonly" is authenticated with application
 	Then User verify add button is not available in activity
 	 
 Scenario: 03. Verify delete button and edit option is not available
@@ -17,7 +17,7 @@ Scenario: 03. Verify delete button and edit option is not available
 	
 @Cleanup
 Scenario: 04. Cleanup and Logout
-	Given User "superadmin" is authenticated with application
+	When User "superadmin" is authenticated with application
 	And User delete activity "BITS ACTIVITY"
 	And User logout from the application
 	And User close browser

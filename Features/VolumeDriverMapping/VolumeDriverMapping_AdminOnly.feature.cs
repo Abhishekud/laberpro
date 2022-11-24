@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace LaborPro.Automation.Features.Attribute
+namespace LaborPro.Automation.Features.VolumeDriverMapping
 {
     using TechTalk.SpecFlow;
     using System;
@@ -20,26 +20,26 @@ namespace LaborPro.Automation.Features.Attribute
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Verify Attribute_AdminOnly Module")]
+    [NUnit.Framework.DescriptionAttribute("Verify VolumeDriverMapping_AdminOnly Module")]
     [NUnit.Framework.CategoryAttribute("Regression")]
-    [NUnit.Framework.CategoryAttribute("Attribute_AdminOnly")]
-    public partial class VerifyAttribute_AdminOnlyModuleFeature
+    [NUnit.Framework.CategoryAttribute("VolumeDriverMapping_AdminOnly")]
+    public partial class VerifyVolumeDriverMapping_AdminOnlyModuleFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
                 "Regression",
-                "Attribute_AdminOnly"};
+                "VolumeDriverMapping_AdminOnly"};
         
-#line 1 "Attribute_AdminOnly.feature"
+#line 1 "VolumeDriverMapping_AdminOnly.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Attribute", "Verify Attribute_AdminOnly Module", null, ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/VolumeDriverMapping", "Verify VolumeDriverMapping_AdminOnly Module", null, ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -99,16 +99,18 @@ this.ScenarioInitialize(scenarioInfo);
 #line 5
  testRunner.Given("User \"superadmin\" is authenticated with \"url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table107 = new TechTalk.SpecFlow.Table(new string[] {
                             "Department",
-                            "Location",
-                            "Attribute"});
-                table18.AddRow(new string[] {
-                            "GROCERY",
-                            "DUNLOP",
-                            "SAFETY"});
+                            "UnitsOfMeasure",
+                            "VolumeDriver",
+                            "VolumeDriverMappingSet"});
+                table107.AddRow(new string[] {
+                            "FRUIT AND VEG",
+                            "BANANAS SETUP ITEM",
+                            "FRUIT ITEM SOLD",
+                            "TWO-THIRDS PALLET"});
 #line 6
- testRunner.When("User setup prerequisites for attribute", ((string)(null)), table18, "When ");
+ testRunner.When("User setup prerequisites for volume driver mapping", ((string)(null)), table107, "When ");
 #line hidden
 #line 9
  testRunner.And("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -138,19 +140,20 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("User \"admin\" is authenticated with \"url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 13
- testRunner.Then("User verify add button is not available on attribute page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User verify add button is not available in \"FRUIT AND VEG\" on volume driver mappi" +
+                        "ngs page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("03.verify edit button is not available")]
-        public void _03_VerifyEditButtonIsNotAvailable()
+        [NUnit.Framework.DescriptionAttribute("03.verify edit volume driver mapping sidebar is available")]
+        public void _03_VerifyEditVolumeDriverMappingSidebarIsAvailable()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03.verify edit button is not available", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03.verify edit volume driver mapping sidebar is available", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 15
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -162,19 +165,19 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 16
- testRunner.Then("User verify edit button is not available in \"GROCERY\" on attribute page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User verify edit volume driver mapping sidebar is available in \"FRUIT ITEM SOLD\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("04.verify attribute listing is available")]
-        public void _04_VerifyAttributeListingIsAvailable()
+        [NUnit.Framework.DescriptionAttribute("04.verify save button is not available")]
+        public void _04_VerifySaveButtonIsNotAvailable()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04.verify attribute listing is available", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04.verify save button is not available", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 18
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -186,19 +189,20 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 19
- testRunner.Then("User verify attribute listing is available on attribute page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User verify save button is not available in \"FRUIT ITEM SOLD\" on volume driver ma" +
+                        "pping page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("05.verify checkboxes are disabled")]
-        public void _05_VerifyCheckboxesAreDisabled()
+        [NUnit.Framework.DescriptionAttribute("05.verify delete button and edit option is not available")]
+        public void _05_VerifyDeleteButtonAndEditOptionIsNotAvailable()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05.verify checkboxes are disabled", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05.verify delete button and edit option is not available", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 21
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -210,19 +214,20 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 22
- testRunner.Then("User verify checkboxes are disabled in \"GROCERY\" on attribute page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User verify delete button and edit option is not available in \"FRUIT ITEM SOLD\" o" +
+                        "n volume driver mapping page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("06.verify added location is available")]
-        public void _06_VerifyAddedLocationIsAvailable()
+        [NUnit.Framework.DescriptionAttribute("06.verify volume driver mapping listing is available")]
+        public void _06_VerifyVolumeDriverMappingListingIsAvailable()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06.verify added location is available", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06.verify volume driver mapping listing is available", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 24
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -234,25 +239,21 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 25
- testRunner.Then("User verify added location \"DUNLOP\" is available on attribute page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 26
- testRunner.And("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("User verify volume driver mapping listing is available on volume driver mapping p" +
+                        "age", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("07. Cleanup and Logout")]
-        [NUnit.Framework.CategoryAttribute("Cleanup")]
-        public void _07_CleanupAndLogout()
+        [NUnit.Framework.DescriptionAttribute("07.verify volume driver mapping listing edit option is not available")]
+        public void _07_VerifyVolumeDriverMappingListingEditOptionIsNotAvailable()
         {
-            string[] tagsOfScenario = new string[] {
-                    "Cleanup"};
+            string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("07. Cleanup and Logout", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 29
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("07.verify volume driver mapping listing edit option is not available", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 27
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -262,24 +263,56 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 30
- testRunner.When("User \"superadmin\" is authenticated with \"url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 28
+ testRunner.Then("User verify volume driver mapping listing edit option is not available on volume " +
+                        "driver mapping page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Department",
-                            "Location",
-                            "Attribute"});
-                table19.AddRow(new string[] {
-                            "GROCERY",
-                            "DUNLOP",
-                            "SAFETY"});
-#line 31
- testRunner.And("User delete prerequisite records for attribute", ((string)(null)), table19, "And ");
-#line hidden
-#line 34
+#line 29
  testRunner.And("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 35
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("08. Cleanup and Logout")]
+        [NUnit.Framework.CategoryAttribute("Cleanup")]
+        public void _08_CleanupAndLogout()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "Cleanup"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("08. Cleanup and Logout", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 32
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 33
+ testRunner.Given("User \"superadmin\" is authenticated with \"url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table108 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Department",
+                            "UnitsOfMeasure",
+                            "VolumeDriver",
+                            "VolumeDriverMappingSet"});
+                table108.AddRow(new string[] {
+                            "FRUIT AND VEG",
+                            "BANANAS SETUP ITEM",
+                            "FRUIT ITEM SOLD",
+                            "TWO-THIRDS PALLET"});
+#line 34
+ testRunner.When("User delete prerequisite records for volume driver mapping", ((string)(null)), table108, "When ");
+#line hidden
+#line 37
+ testRunner.And("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 38
  testRunner.And("User close browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }

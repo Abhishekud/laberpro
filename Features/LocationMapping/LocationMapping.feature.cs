@@ -134,8 +134,8 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 11
- testRunner.Then("User verify department \"MEAT\" and record is \"No records available\" on location ma" +
-                        "pping page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("User verify department \"MEAT\" and record is \"No records available\" on location ma" +
+                        "pping page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -159,8 +159,8 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 14
- testRunner.Then("User verify department \"MEAT\" and location \"MASCOT\" are mapped on location mappin" +
-                        "g page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("User verify department \"MEAT\" and location \"MASCOT\" are mapped on location mappin" +
+                        "g page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -196,7 +196,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "STORE SERVICES",
                             "MEAT REDESIGN"});
 #line 17
- testRunner.Then("User verify location mapping", ((string)(null)), table70, "Then ");
+ testRunner.And("User verify location mapping", ((string)(null)), table70, "And ");
 #line hidden
             }
             this.ScenarioCleanup();
