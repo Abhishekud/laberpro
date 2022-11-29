@@ -97,20 +97,20 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 5
- testRunner.Given("User \"superadmin\" is authenticated with \"url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("User \"superadmin\" is authenticated with application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table107 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table106 = new TechTalk.SpecFlow.Table(new string[] {
                             "Department",
                             "UnitsOfMeasure",
                             "VolumeDriver",
                             "VolumeDriverMappingSet"});
-                table107.AddRow(new string[] {
+                table106.AddRow(new string[] {
                             "FRUIT AND VEG",
                             "BANANAS SETUP ITEM",
                             "FRUIT ITEM SOLD",
                             "TWO-THIRDS PALLET"});
 #line 6
- testRunner.When("User setup prerequisites for volume driver mapping", ((string)(null)), table107, "When ");
+ testRunner.When("User setup prerequisites for volume driver mapping", ((string)(null)), table106, "When ");
 #line hidden
 #line 9
  testRunner.And("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -137,7 +137,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 12
- testRunner.When("User \"admin\" is authenticated with \"url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("User \"admin\" is authenticated with application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 13
  testRunner.Then("User verify add button is not available in \"FRUIT AND VEG\" on volume driver mappi" +
@@ -294,20 +294,20 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 33
- testRunner.Given("User \"superadmin\" is authenticated with \"url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("User \"superadmin\" is authenticated with application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table108 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table107 = new TechTalk.SpecFlow.Table(new string[] {
                             "Department",
                             "UnitsOfMeasure",
                             "VolumeDriver",
                             "VolumeDriverMappingSet"});
-                table108.AddRow(new string[] {
+                table107.AddRow(new string[] {
                             "FRUIT AND VEG",
                             "BANANAS SETUP ITEM",
                             "FRUIT ITEM SOLD",
                             "TWO-THIRDS PALLET"});
 #line 34
- testRunner.When("User delete prerequisite records for volume driver mapping", ((string)(null)), table108, "When ");
+ testRunner.When("User delete prerequisite records for volume driver mapping", ((string)(null)), table107, "When ");
 #line hidden
 #line 37
  testRunner.And("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

@@ -97,20 +97,20 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 5
- testRunner.Given("User \"superadmin\" is authenticated with \"url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("User \"superadmin\" is authenticated with application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table109 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table108 = new TechTalk.SpecFlow.Table(new string[] {
                             "Department",
                             "UnitsOfMeasure",
                             "VolumeDriver",
                             "VolumeDriverMappingSet"});
-                table109.AddRow(new string[] {
+                table108.AddRow(new string[] {
                             "BAKERY",
                             "PROPRIETARY CARTON",
                             "PROPRIETARY BAKERY CARTON RECEIVED",
                             "FILL TWO-THIRDS PALLETS"});
 #line 6
- testRunner.When("User setup prerequisites for volume driver mapping", ((string)(null)), table109, "When ");
+ testRunner.When("User setup prerequisites for volume driver mapping", ((string)(null)), table108, "When ");
 #line hidden
 #line 9
  testRunner.And("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -137,7 +137,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 12
- testRunner.When("User \"viewonly\" is authenticated with \"url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("User \"viewonly\" is authenticated with application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 13
  testRunner.Then("User verify add button is not available in department \"BAKERY\" on volume driver m" +
@@ -224,14 +224,14 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("06. Logout and Close Browser")]
+        [NUnit.Framework.DescriptionAttribute("06. Cleanup and Logout")]
         [NUnit.Framework.CategoryAttribute("Cleanup")]
-        public void _06_LogoutAndCloseBrowser()
+        public void _06_CleanupAndLogout()
         {
             string[] tagsOfScenario = new string[] {
                     "Cleanup"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06. Logout and Close Browser", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06. Cleanup and Logout", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 26
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -243,20 +243,20 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 27
- testRunner.Given("User \"superadmin\" is authenticated with \"url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("User \"superadmin\" is authenticated with application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table110 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table109 = new TechTalk.SpecFlow.Table(new string[] {
                             "Department",
                             "UnitsOfMeasure",
                             "VolumeDriver",
                             "VolumeDriverMappingSet"});
-                table110.AddRow(new string[] {
+                table109.AddRow(new string[] {
                             "BAKERY",
                             "PROPRIETARY CARTON",
                             "PROPRIETARY BAKERY CARTON RECEIVED",
                             "FILL TWO-THIRDS PALLETS"});
 #line 28
- testRunner.When("User delete prerequisite records for volume driver mapping", ((string)(null)), table110, "When ");
+ testRunner.When("User delete prerequisite records for volume driver mapping", ((string)(null)), table109, "When ");
 #line hidden
 #line 31
  testRunner.And("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

@@ -99,20 +99,20 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 5
- testRunner.Given("User \"superadmin\" is authenticated with \"url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("User \"superadmin\" is authenticated with application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table105 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table104 = new TechTalk.SpecFlow.Table(new string[] {
                             "Department",
                             "UnitsOfMeasure",
                             "VolumeDriver",
                             "VolumeDriverMappingSet"});
-                table105.AddRow(new string[] {
+                table104.AddRow(new string[] {
                             "FRESH CONVENIENCE",
                             "MILK PALLET",
                             "CHILLED CONVENIENCE ITEM SOLD",
                             "FILL TWO THIRDS PALLETS"});
 #line 6
- testRunner.When("User setup prerequisites for volume driver mapping", ((string)(null)), table105, "When ");
+ testRunner.When("User setup prerequisites for volume driver mapping", ((string)(null)), table104, "When ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -170,9 +170,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line 16
  testRunner.Then("User verify validation message \"Name is required\" on volume driver mapping set po" +
                         "pup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 17
- testRunner.And("", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -252,18 +249,18 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table106 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table105 = new TechTalk.SpecFlow.Table(new string[] {
                             "Department",
                             "UnitsOfMeasure",
                             "VolumeDriver",
                             "VolumeDriverMappingSet"});
-                table106.AddRow(new string[] {
+                table105.AddRow(new string[] {
                             "FRESH CONVENIENCE",
                             "MILK PALLET",
                             "CHILLED CONVENIENCE ITEM SOLD",
                             "FILL TWO THIRDS PALLETS"});
 #line 28
- testRunner.When("User delete prerequisite records for volume driver mapping", ((string)(null)), table106, "When ");
+ testRunner.When("User delete prerequisite records for volume driver mapping", ((string)(null)), table105, "When ");
 #line hidden
 #line 31
  testRunner.And("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

@@ -21,7 +21,6 @@ namespace LaborPro.Automation.Features.Kronos.Tasks
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Verify Tasks Module")]
-    [NUnit.Framework.CategoryAttribute("laborPro")]
     [NUnit.Framework.CategoryAttribute("Regression")]
     [NUnit.Framework.CategoryAttribute("Tasks")]
     public partial class VerifyTasksModuleFeature
@@ -30,7 +29,6 @@ namespace LaborPro.Automation.Features.Kronos.Tasks
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "laborPro",
                 "Regression",
                 "Tasks"};
         
@@ -91,7 +89,7 @@ namespace LaborPro.Automation.Features.Kronos.Tasks
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01. Launch Browser and Login to the Application", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 5
-  this.ScenarioInitialize(scenarioInfo);
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -101,16 +99,7 @@ namespace LaborPro.Automation.Features.Kronos.Tasks
             {
                 this.ScenarioStart();
 #line 6
-    testRunner.Given("User launched \"$browser\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 7
-     testRunner.When("User go to application \"$url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 8
-     testRunner.Then("User enter email: \"$username_4\" and password: \"$password_4\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 9
-      testRunner.And("Verify Login message: \"success\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("User \"superadmin\" is authenticated with application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -125,8 +114,8 @@ namespace LaborPro.Automation.Features.Kronos.Tasks
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02. Verify_that_Click_on_New_Task_Opens_Add_popup.", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 12
-  this.ScenarioInitialize(scenarioInfo);
+#line 8
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -135,17 +124,17 @@ namespace LaborPro.Automation.Features.Kronos.Tasks
             else
             {
                 this.ScenarioStart();
-#line 13
-    testRunner.Given("User navigates to the Tasks tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 9
+ testRunner.Given("User navigates to the Tasks tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 14
-     testRunner.When("User clicks Add Tasks Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 10
+ testRunner.When("User clicks Add Tasks Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 15
-     testRunner.Then("User verify Add Menu Tasks Popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 11
+ testRunner.Then("User verify Add Menu Tasks Popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 16
-      testRunner.And("User clicks cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 12
+ testRunner.And("User clicks cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -160,8 +149,8 @@ namespace LaborPro.Automation.Features.Kronos.Tasks
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03. verify_add_Tasks_when_enter_blank_details", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 19
-  this.ScenarioInitialize(scenarioInfo);
+#line 15
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -170,8 +159,8 @@ namespace LaborPro.Automation.Features.Kronos.Tasks
             else
             {
                 this.ScenarioStart();
-#line 20
-    testRunner.Given("User navigates to the Tasks tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 16
+ testRunner.Given("User navigates to the Tasks tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table60 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
@@ -179,14 +168,14 @@ namespace LaborPro.Automation.Features.Kronos.Tasks
                 table60.AddRow(new string[] {
                             "Name",
                             ""});
+#line 17
+ testRunner.When("User create new Tasks with below input", ((string)(null)), table60, "When ");
+#line hidden
+#line 20
+ testRunner.Then("Verify validation Message: \"Task Name is required.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
 #line 21
-     testRunner.When("User create new Tasks with below input", ((string)(null)), table60, "When ");
-#line hidden
-#line 24
-     testRunner.Then("Verify validation Message: \"Task Name is required.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 25
-      testRunner.And("User clicks cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("User clicks cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -201,8 +190,8 @@ namespace LaborPro.Automation.Features.Kronos.Tasks
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04. verify_add_Tasks_when_enter_correct_details", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 28
-  this.ScenarioInitialize(scenarioInfo);
+#line 24
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -211,11 +200,11 @@ namespace LaborPro.Automation.Features.Kronos.Tasks
             else
             {
                 this.ScenarioStart();
-#line 29
-    testRunner.Given("User navigates to the Tasks tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 25
+ testRunner.Given("User navigates to the Tasks tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 30
-     testRunner.Then("User delete Tasks \"Tasks Scenario\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 26
+ testRunner.Then("User delete Tasks \"Tasks Scenario\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
                 TechTalk.SpecFlow.Table table61 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
@@ -232,14 +221,14 @@ namespace LaborPro.Automation.Features.Kronos.Tasks
                 table61.AddRow(new string[] {
                             "Time Dependency",
                             "Time Dependent"});
-#line 31
-     testRunner.When("User create new Tasks with below input", ((string)(null)), table61, "When ");
+#line 27
+ testRunner.When("User create new Tasks with below input", ((string)(null)), table61, "When ");
 #line hidden
-#line 37
-     testRunner.Then("User verify created Tasks \"Tasks Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 33
+ testRunner.Then("User verify created Tasks \"Tasks Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 38
-      testRunner.And("User delete created Tasks \"Tasks Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 34
+ testRunner.And("User delete created Tasks \"Tasks Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -254,8 +243,8 @@ namespace LaborPro.Automation.Features.Kronos.Tasks
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05. Verify_that_Respective_TaskGroup_is_available_in_Task", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 41
-  this.ScenarioInitialize(scenarioInfo);
+#line 37
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -264,11 +253,11 @@ namespace LaborPro.Automation.Features.Kronos.Tasks
             else
             {
                 this.ScenarioStart();
-#line 42
-    testRunner.Given("User navigates to the TaskGroups tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 38
+ testRunner.Given("User navigates to the TaskGroups tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 43
-     testRunner.Then("User delete TaskGroups \"TaskGroups\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 39
+ testRunner.Then("User delete TaskGroups \"TaskGroups\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
                 TechTalk.SpecFlow.Table table62 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
@@ -288,17 +277,17 @@ namespace LaborPro.Automation.Features.Kronos.Tasks
                 table62.AddRow(new string[] {
                             "Job Name",
                             "Job Name"});
-#line 44
-     testRunner.When("User create new TaskGroups with below input", ((string)(null)), table62, "When ");
+#line 40
+ testRunner.When("User create new TaskGroups with below input", ((string)(null)), table62, "When ");
 #line hidden
-#line 51
-      testRunner.And("User verify created TaskGroups \"TaskGroups\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 47
+ testRunner.And("User verify created TaskGroups \"TaskGroups\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 52
-     testRunner.Then("User navigates to the Tasks tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 48
+ testRunner.Then("User navigates to the Tasks tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 53
-      testRunner.And("User delete Tasks \"Tasks Scenario\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 49
+ testRunner.And("User delete Tasks \"Tasks Scenario\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table63 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
@@ -318,20 +307,20 @@ namespace LaborPro.Automation.Features.Kronos.Tasks
                 table63.AddRow(new string[] {
                             "TaskGroups",
                             "TaskGroups"});
-#line 54
-     testRunner.When("User create new Tasks with below input", ((string)(null)), table63, "When ");
+#line 50
+ testRunner.When("User create new Tasks with below input", ((string)(null)), table63, "When ");
 #line hidden
-#line 61
-     testRunner.Then("User verify created Tasks \"Tasks Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 57
+ testRunner.Then("User verify created Tasks \"Tasks Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 62
-      testRunner.And("User delete created Tasks \"Tasks Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 58
+ testRunner.And("User delete created Tasks \"Tasks Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 63
-     testRunner.Then("User navigates to the TaskGroups tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 59
+ testRunner.Then("User navigates to the TaskGroups tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 64
-      testRunner.And("User delete created TaskGroups by name \"TaskGroups\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 60
+ testRunner.And("User delete created TaskGroups by name \"TaskGroups\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -346,8 +335,8 @@ namespace LaborPro.Automation.Features.Kronos.Tasks
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06. verify_add_Tasks_when_enter_existing_details", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 67
-  this.ScenarioInitialize(scenarioInfo);
+#line 63
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -356,11 +345,11 @@ namespace LaborPro.Automation.Features.Kronos.Tasks
             else
             {
                 this.ScenarioStart();
-#line 68
-    testRunner.Given("User navigates to the Tasks tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 64
+ testRunner.Given("User navigates to the Tasks tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 69
-      testRunner.And("User delete Tasks \"Tasks Exist Scenario\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 65
+ testRunner.And("User delete Tasks \"Tasks Exist Scenario\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table64 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
@@ -377,11 +366,11 @@ namespace LaborPro.Automation.Features.Kronos.Tasks
                 table64.AddRow(new string[] {
                             "Time Dependency",
                             "Time Dependent"});
-#line 70
-     testRunner.When("User create new Tasks with below input", ((string)(null)), table64, "When ");
+#line 66
+ testRunner.When("User create new Tasks with below input", ((string)(null)), table64, "When ");
 #line hidden
-#line 76
-      testRunner.And("User verify created Tasks \"Tasks Exist Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 72
+ testRunner.And("User verify created Tasks \"Tasks Exist Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table65 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
@@ -398,17 +387,17 @@ namespace LaborPro.Automation.Features.Kronos.Tasks
                 table65.AddRow(new string[] {
                             "Time Dependency",
                             "Time Dependent"});
-#line 77
-     testRunner.When("User create new Tasks with below input", ((string)(null)), table65, "When ");
+#line 73
+ testRunner.When("User create new Tasks with below input", ((string)(null)), table65, "When ");
 #line hidden
-#line 83
-     testRunner.Then("Verify validation Message: \"Task Name must be unique.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 79
+ testRunner.Then("Verify validation Message: \"Task Name must be unique.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 84
-      testRunner.And("User clicks cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 80
+ testRunner.And("User clicks cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 85
-      testRunner.And("User delete created Tasks \"Tasks Exist Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 81
+ testRunner.And("User delete created Tasks \"Tasks Exist Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -425,8 +414,8 @@ namespace LaborPro.Automation.Features.Kronos.Tasks
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("07. Logout and Close Browser", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 88
-  this.ScenarioInitialize(scenarioInfo);
+#line 84
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -435,11 +424,11 @@ namespace LaborPro.Automation.Features.Kronos.Tasks
             else
             {
                 this.ScenarioStart();
-#line 89
-     testRunner.When("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 85
+ testRunner.When("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 90
-     testRunner.Then("User close browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 86
+ testRunner.Then("User close browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

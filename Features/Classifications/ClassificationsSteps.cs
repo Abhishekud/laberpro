@@ -17,7 +17,7 @@ namespace LaborPro.Automation.Features.Classifications
             ClassificationsPage.ClickOnListManagementTab();
             ClassificationsPage.ClickOnClassifications();
 
-        }  
+        }
         [Given(@"User create new Classifications with below input")]
         [When(@"User create new Classifications with below input")]
         [Then(@"User create new Classifications with below input")]
@@ -52,7 +52,7 @@ namespace LaborPro.Automation.Features.Classifications
         {
             LogWriter.WriteLog("Executing ClassificationsPage UserDeleteCreatedClassifications");
             ClassificationsPage.DeleteCreatedClassifications(classificationsName);
-        }  
+        }
 
         [Given(@"User delete Classifications ""([^""]*)"" if exist")]
         [When(@"User delete Classifications ""([^""]*)"" if exist")]
@@ -73,22 +73,67 @@ namespace LaborPro.Automation.Features.Classifications
         }
 
 
-        [Given(@"User verify add classification button is not Present")]
-        [When(@"User verify add classification button is not Present")]
-        [Then(@"User verify add classification button is not Present")]
+        [Given(@"User verify add classification button is not available")]
+        [When(@"User verify add classification button is not available")]
+        [Then(@"User verify add classification button is not available")]
         public void VerifyAddButtonIsNotPresent()
         {
             LogWriter.WriteLog("Executing Step User verify Add button is not present");
+            NavigatesToTheClassificationsTab();
             ClassificationsPage.VerifyAddButtonIsNotPresent();
         }
 
-        [Then(@"User verify delete classification button is not Present")]
-        [When(@"User verify delete classification button is not Present")]
-        [Then(@"User verify delete classification button is not Present")]
-        public void VerifyDeleteButtonIsNotPresent()
+        [Then(@"User verify delete classification button is not available in ""([^""]*)""")]
+        [When(@"User verify delete classification button is not available in ""([^""]*)""")]
+        [Given(@"User verify delete classification button is not available in ""([^""]*)""")]
+        public void VerifyDeleteClassificationButtonIsNotAvailableIn(string classificationsName)
         {
             LogWriter.WriteLog("Executing Step User verify Delete Button is not Present");
+            NavigatesToTheClassificationsTab();
+            ClassificationsPage.FindClassificationByName(DataCache.Read(classificationsName));
             ClassificationsPage.VerifyDeleteButtonIsNotPresent();
-        } 
+        }
+
+        [When(@"User create classifications ""([^""]*)""")]
+        [Then(@"User create classifications ""([^""]*)""")]
+        [Given(@"User create classifications ""([^""]*)""")]
+        public void CreateClassifications(string classificationsName)
+        {
+            LogWriter.WriteLog("Executing Step User create classifications " + classificationsName);
+            NavigatesToTheClassificationsTab();
+            ClassificationsPage.AddNewClassificationsWithGivenInput(DataCache.Read(classificationsName));
+        }
+
+        [Then(@"User verify add button is not available on classifications page")]
+        [When(@"User verify add button is not available on classifications page")]
+        [Given(@"User verify add button is not available on classifications page")]
+        public void VerifyAddButtonIsNotAvailableOnClassificationsPage()
+        {
+            LogWriter.WriteLog("Executing Step User verify add button is not available on classifications page");
+            NavigatesToTheClassificationsTab();
+            ClassificationsPage.VerifyAddButtonIsNotAvailable();
+        }
+
+        [Then(@"User verify delete button and edit option is not available in ""([^""]*)"" on classifications page")]
+        [When(@"User verify delete button and edit option is not available in ""([^""]*)"" on classifications page")]
+        [Given(@"User verify delete button and edit option is not available in ""([^""]*)"" on classifications page")]
+        public void VerifyDeleteButtonAndEditOptionIsNotAvailableInOnClassificationsPage(string classificationsName)
+        {
+            LogWriter.WriteLog("Executing Step User verify delete button and edit option is not available in " + classificationsName + " on classifications page");
+            NavigatesToTheClassificationsTab();
+            ClassificationsPage.FindClassificationByName(DataCache.Read(classificationsName));
+            ClassificationsPage.VerifyDeleteButtonAndEditOptionIsNotAvailable();
+        }
+
+        [Given(@"User delete classifications ""([^""]*)""")]
+        [Then(@"User delete classifications ""([^""]*)""")]
+        [When(@"User delete classifications ""([^""]*)""")]
+        public void WhenUserDeleteClassifications(string classificationsName)
+        {
+            LogWriter.WriteLog("Executing Step User delete classifications " + classificationsName);
+            NavigatesToTheClassificationsTab();
+            ClassificationsPage.DeleteClassificationsIfExist(DataCache.Read(classificationsName));
+        }
+
     }
 }

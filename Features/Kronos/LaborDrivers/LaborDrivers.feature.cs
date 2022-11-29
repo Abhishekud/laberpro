@@ -21,7 +21,6 @@ namespace LaborPro.Automation.Features.Kronos.LaborDrivers
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Verify LaborDrivers Module")]
-    [NUnit.Framework.CategoryAttribute("laborPro")]
     [NUnit.Framework.CategoryAttribute("Regression")]
     [NUnit.Framework.CategoryAttribute("LaborDrivers")]
     public partial class VerifyLaborDriversModuleFeature
@@ -30,7 +29,6 @@ namespace LaborPro.Automation.Features.Kronos.LaborDrivers
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "laborPro",
                 "Regression",
                 "LaborDrivers"};
         
@@ -91,7 +89,7 @@ namespace LaborPro.Automation.Features.Kronos.LaborDrivers
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01. Launch Browser and Login to the Application", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 5
-  this.ScenarioInitialize(scenarioInfo);
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -101,16 +99,7 @@ namespace LaborPro.Automation.Features.Kronos.LaborDrivers
             {
                 this.ScenarioStart();
 #line 6
-    testRunner.Given("User launched \"$browser\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 7
-     testRunner.When("User go to application \"$url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 8
-     testRunner.Then("User enter email: \"$username_4\" and password: \"$password_4\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 9
-      testRunner.And("Verify Login message: \"success\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("User \"superadmin\" is authenticated with application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -125,8 +114,8 @@ namespace LaborPro.Automation.Features.Kronos.LaborDrivers
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02. Verify_that_Click_on_New_Labor_Driver_Opens_Add_popup.", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 12
-  this.ScenarioInitialize(scenarioInfo);
+#line 9
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -135,17 +124,17 @@ namespace LaborPro.Automation.Features.Kronos.LaborDrivers
             else
             {
                 this.ScenarioStart();
+#line 10
+ testRunner.Given("User navigates to the LaborDrivers tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 11
+ testRunner.When("User clicks Add LaborDrivers Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 12
+ testRunner.Then("User verify Add Menu Popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
 #line 13
-    testRunner.Given("User navigates to the LaborDrivers tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 14
-     testRunner.When("User clicks Add LaborDrivers Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 15
-     testRunner.Then("User verify Add Menu Popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 16
-      testRunner.And("User clicks cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("User clicks cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -160,8 +149,8 @@ namespace LaborPro.Automation.Features.Kronos.LaborDrivers
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03. verify_add_LaborDrivers_when_enter_blank_details", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 19
-  this.ScenarioInitialize(scenarioInfo);
+#line 16
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -170,8 +159,8 @@ namespace LaborPro.Automation.Features.Kronos.LaborDrivers
             else
             {
                 this.ScenarioStart();
-#line 20
-    testRunner.Given("User navigates to the LaborDrivers tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 17
+ testRunner.Given("User navigates to the LaborDrivers tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table44 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
@@ -179,14 +168,14 @@ namespace LaborPro.Automation.Features.Kronos.LaborDrivers
                 table44.AddRow(new string[] {
                             "Name",
                             ""});
+#line 18
+ testRunner.When("User create new LaborDrivers with below input", ((string)(null)), table44, "When ");
+#line hidden
 #line 21
-     testRunner.When("User create new LaborDrivers with below input", ((string)(null)), table44, "When ");
+ testRunner.Then("Verify validation Message: \"Labor Driver Name is required.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 24
-     testRunner.Then("Verify validation Message: \"Labor Driver Name is required.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 25
-      testRunner.And("User clicks cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 22
+ testRunner.And("User clicks cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -201,8 +190,8 @@ namespace LaborPro.Automation.Features.Kronos.LaborDrivers
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04. Verify_that_if_VolumeDriver_is_selected_fields_get_populated", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 28
-  this.ScenarioInitialize(scenarioInfo);
+#line 25
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -211,8 +200,8 @@ namespace LaborPro.Automation.Features.Kronos.LaborDrivers
             else
             {
                 this.ScenarioStart();
-#line 29
-    testRunner.Given("User navigates to the LaborDrivers tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 26
+ testRunner.Given("User navigates to the LaborDrivers tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table45 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
@@ -223,14 +212,14 @@ namespace LaborPro.Automation.Features.Kronos.LaborDrivers
                 table45.AddRow(new string[] {
                             "Driver Type",
                             "Volume Driver"});
-#line 30
-     testRunner.When("User create new LaborDrivers with below input", ((string)(null)), table45, "When ");
+#line 27
+ testRunner.When("User create new LaborDrivers with below input", ((string)(null)), table45, "When ");
 #line hidden
-#line 34
-     testRunner.Then("User verify Add Menu Popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 31
+ testRunner.Then("User verify Add Menu Popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 35
-      testRunner.And("User clicks cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 32
+ testRunner.And("User clicks cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -245,8 +234,8 @@ namespace LaborPro.Automation.Features.Kronos.LaborDrivers
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05. verify_add_LaborDrivers_when_enter_existing_details", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 38
-  this.ScenarioInitialize(scenarioInfo);
+#line 35
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -255,11 +244,11 @@ namespace LaborPro.Automation.Features.Kronos.LaborDrivers
             else
             {
                 this.ScenarioStart();
-#line 39
-    testRunner.Given("User navigates to the LaborDrivers tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 36
+ testRunner.Given("User navigates to the LaborDrivers tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 40
-     testRunner.Then("User delete LaborDrivers \"LaborDrivers Exist Scenario\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 37
+ testRunner.Then("User delete LaborDrivers \"LaborDrivers Exist Scenario\" if exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
                 TechTalk.SpecFlow.Table table46 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
@@ -282,11 +271,11 @@ namespace LaborPro.Automation.Features.Kronos.LaborDrivers
                 table46.AddRow(new string[] {
                             "Generic Category",
                             "Generic Category"});
-#line 41
-     testRunner.When("User create new LaborDrivers with below input", ((string)(null)), table46, "When ");
+#line 38
+ testRunner.When("User create new LaborDrivers with below input", ((string)(null)), table46, "When ");
 #line hidden
-#line 49
-      testRunner.And("User verify created LaborDrivers \"LaborDrivers Exist Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 46
+ testRunner.And("User verify created LaborDrivers \"LaborDrivers Exist Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table47 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
@@ -309,17 +298,17 @@ namespace LaborPro.Automation.Features.Kronos.LaborDrivers
                 table47.AddRow(new string[] {
                             "Generic Category",
                             "Generic Category"});
-#line 50
-     testRunner.When("User create new LaborDrivers with below input", ((string)(null)), table47, "When ");
+#line 47
+ testRunner.When("User create new LaborDrivers with below input", ((string)(null)), table47, "When ");
 #line hidden
-#line 58
-     testRunner.Then("Verify validation Message: \"Labor Driver Name must be unique.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 55
+ testRunner.Then("Verify validation Message: \"Labor Driver Name must be unique.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 59
-      testRunner.And("User clicks cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 56
+ testRunner.And("User clicks cancel Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 60
-      testRunner.And("User delete created LaborDrivers \"LaborDrivers Exist Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 57
+ testRunner.And("User delete created LaborDrivers \"LaborDrivers Exist Scenario\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -336,8 +325,8 @@ namespace LaborPro.Automation.Features.Kronos.LaborDrivers
                     "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06. Logout and Close Browser", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 63
-  this.ScenarioInitialize(scenarioInfo);
+#line 60
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -346,11 +335,11 @@ namespace LaborPro.Automation.Features.Kronos.LaborDrivers
             else
             {
                 this.ScenarioStart();
-#line 64
-     testRunner.When("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 61
+ testRunner.When("User logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 65
-     testRunner.Then("User close browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 62
+ testRunner.Then("User close browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

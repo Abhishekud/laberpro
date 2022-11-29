@@ -1,7 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-using LaborPro.Automation.shared.hooks;
+﻿using LaborPro.Automation.shared.hooks;
 using LaborPro.Automation.shared.util;
-using OpenQA.Selenium;
 
 namespace LaborPro.Automation.Features.Classifications
 {
@@ -27,12 +25,15 @@ namespace LaborPro.Automation.Features.Classifications
         private const string ListManagementTab = "//a[text()='List Management']";
         private const string ListManagementDropdown = "//select[@id='standardFilingFieldId']";
         private const string ClassificationsValueInLmDropdown = "//select[@id='standardFilingFieldId']//option[@value='CLASSIFICATIONS']";
-        
+        private const string SaveInprogress = "//button[contains(text(),'Saving...')]";
+        private const string DeleteInprogress = "//button[contains(text(),'Deleting...')]";
+
         public static void DeleteClassificationsIfExist(string classificationsName)
         {
             LogWriter.WriteLog("Executing  ClassificationsPage.DeleteClassificationsIfExist");
             WaitForClassificationsAlertCloseIfAny();
-            IWebElement record = WebDriverUtil.GetWebElementAndScroll(string.Format(ClassificationsRecord, classificationsName), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            var record = WebDriverUtil.GetWebElementAndScroll(string.Format(ClassificationsRecord, classificationsName),
+                WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record != null)
             {
                 DeleteCreatedClassifications(classificationsName);
@@ -41,102 +42,113 @@ namespace LaborPro.Automation.Features.Classifications
         public static void ClickOnListManagementTab()
         {
             LogWriter.WriteLog("Executing ClassificationsPage.ClickOnListManagementTab");
-
-
-            if (WebDriverUtil.GetWebElement(ClassificationsPageTitle, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) == null)
+            if (WebDriverUtil.GetWebElement(ClassificationsPageTitle, WebDriverUtil.NO_WAIT,
+                    WebDriverUtil.NO_MESSAGE) != null)
             {
-                WebDriverUtil.GetWebElement(ListManagementTab, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE).Click();
-                WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+                return;
             }
+            WebDriverUtil.GetWebElement(ListManagementTab, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE).Click();
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
         }
         public static void CloseClassificationsDetailSideBar()
         {
-            LogWriter.WriteLog("Executing ClassificationsPage CloseClassificationsDetailSideBar()");
-            IWebElement classificationsDetailsSideBar = WebDriverUtil.GetWebElement(CloseClassificationsDetails, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            LogWriter.WriteLog("Executing ClassificationsPage.CloseClassificationsDetailSideBar()");
+            var classificationsDetailsSideBar = WebDriverUtil.GetWebElement(CloseClassificationsDetails,
+                WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (classificationsDetailsSideBar != null)
             {
                 classificationsDetailsSideBar.Click();
                 WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
             }
-            classificationsDetailsSideBar = WebDriverUtil.GetWebElement(CancelClassificationsDetails, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (classificationsDetailsSideBar != null)
+            classificationsDetailsSideBar = WebDriverUtil.GetWebElement(CancelClassificationsDetails,
+                WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (classificationsDetailsSideBar == null)
             {
-                classificationsDetailsSideBar.Click();
-                WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+                return;
             }
+            classificationsDetailsSideBar.Click();
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
         }
-        
+
         public static void DeleteCreatedClassifications(string classificationsName)
         {
-            LogWriter.WriteLog("Executing ClassificationsPage DeleteCreatedClassifications");
+            LogWriter.WriteLog("Executing ClassificationsPage.DeleteCreatedClassifications");
             var classificationsRecordXpath = string.Format(ClassificationsRecord, classificationsName);
             WebDriverUtil.GetWebElement(classificationsRecordXpath, WebDriverUtil.TWO_SECOND_WAIT,
-            $"Unable to locate Classifications record on Classifications page - {classificationsRecordXpath}").Click();
+            $"Unable to locate classifications record on classifications page - {classificationsRecordXpath}").Click();
 
-            var classificationsDeleteButtonXpath = string.Format(ClassificationsDeleteButton, classificationsName);
-            WebDriverUtil.GetWebElement(classificationsDeleteButtonXpath, WebDriverUtil.ONE_SECOND_WAIT,
-            $"Unable to locate Classifications delete button on Classifications details - {classificationsDeleteButtonXpath}").Click();
-
-
-            IWebElement confirmationPopup = WebDriverUtil.GetWebElement(ClassificationsDeleteConfirmPopup, WebDriverUtil.TWO_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (confirmationPopup != null)
+            WebDriverUtil.GetWebElement(ClassificationsDeleteButton, WebDriverUtil.ONE_SECOND_WAIT,
+            $"Unable to locate classifications delete button on classifications details page - {ClassificationsDeleteButton}").Click();
+            
+            var confirmationPopup = WebDriverUtil.GetWebElement(ClassificationsDeleteConfirmPopup,
+                WebDriverUtil.TWO_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (confirmationPopup == null)
             {
-
-                WebDriverUtil.GetWebElement(ClassificationsDeleteConfirmPopupAccept, WebDriverUtil.TWO_SECOND_WAIT,
-                    $"Unable to locate Confirm button on delete confirmation popup - {ClassificationsDeleteConfirmPopupAccept}").Click();
-                WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-                WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Deleting...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
-                IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-                if (alert == null)
-                {
-                    WebDriverUtil.WaitForWebElementInvisible(ClassificationsDeleteConfirmPopup, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
-                }
-                else
-                {
-                    throw new Exception($"Unable to delete Classifications Error - {alert.Text}");
-                }
+                return;
+            }
+            WebDriverUtil.GetWebElement(ClassificationsDeleteConfirmPopupAccept, WebDriverUtil.TWO_SECOND_WAIT,
+                $"Unable to locate confirm button on delete confirmation popup - {ClassificationsDeleteConfirmPopupAccept}").Click();
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitForWebElementInvisible(DeleteInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            var formAlert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath,
+                WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (formAlert == null)
+            {
+                WebDriverUtil.WaitForWebElementInvisible(ClassificationsDeleteConfirmPopup,
+                    WebDriverUtil.PERFORM_ACTION_TIMEOUT,
+                    "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
+            }
+            else
+            {
+                throw new Exception($"Unable to delete classifications Error - {formAlert.Text}");
             }
         }
         public static void VerifyCreatedClassifications(string classificationsName)
         {
-            LogWriter.WriteLog("Executing ClassificationsPage VerifyCreatedClassifications");
+            LogWriter.WriteLog("Executing ClassificationsPage.VerifyCreatedClassifications");
             var classificationRecordXpath = string.Format(ClassificationsRecord, classificationsName);
             WebDriverUtil.GetWebElement(classificationRecordXpath, WebDriverUtil.DEFAULT_WAIT,
-            $"Unable to locate record on Classifications page - {classificationRecordXpath}");
+            $"Unable to locate record on classifications page - {classificationRecordXpath}");
             BaseClass._AttachScreenshot.Value = true;
             CloseClassificationsDetailSideBar();
         }
 
         public static void FindClassificationByName(string classificationsName)
         {
-            LogWriter.WriteLog("Executing ClassificationsPage FindClassificationByName");
+            LogWriter.WriteLog("Executing ClassificationsPage.FindClassificationByName");
             var classificationRecordXpath = string.Format(ClassificationsRecord, classificationsName);
-            WebDriverUtil.GetWebElement(classificationRecordXpath, WebDriverUtil.DEFAULT_WAIT,
-                $"Unable to locate record on Classifications page - {classificationRecordXpath}").Click();
+            WebDriverUtil.GetWebElementAndScroll(classificationRecordXpath, WebDriverUtil.DEFAULT_WAIT,
+                $"Unable to locate record on classifications page - {classificationRecordXpath}").Click();
         }
         public static void VerifyAddButtonIsNotPresent()
         {
             LogWriter.WriteLog("Executing ClassificationsPage.VerifyAddButtonIsNotPresent");
-            IWebElement addClassification = WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (addClassification != null)
-                throw new Exception("Add Button is found but we expect it should not be present when user login from view only access");
+            var addButton = WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (addButton != null)
+            {
+                throw new Exception("Add button is found but we expect it should not be present when user login from view only access");
+            }
             BaseClass._AttachScreenshot.Value = true;
         }
         public static void VerifyDeleteButtonIsNotPresent()
         {
             LogWriter.WriteLog("Executing ClassificationsPage.VerifyDeleteButtonIsNotPresent");
-            IWebElement deleteClassification = WebDriverUtil.GetWebElement(ClassificationsDeleteButton, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (deleteClassification != null)
-                throw new Exception("Delete Button is found but we expect it should not be present when user login from view only access");
-            BaseClass._AttachScreenshot.Value=true;
+            var deleteButton = WebDriverUtil.GetWebElement(ClassificationsDeleteButton,
+                WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (deleteButton != null)
+            {
+                throw new Exception("Delete button is found but we expect it should not be present when user login from view only access");
+            }
+            BaseClass._AttachScreenshot.Value = true;
         }
 
         public static void AddNewClassificationsWithGivenInputIfNotExist(Table inputData)
         {
-            LogWriter.WriteLog("Executing ClassificationsPage AddNewClassificationsWithGivenInputIfNotExist");
+            LogWriter.WriteLog("Executing ClassificationsPage.AddNewClassificationsWithGivenInputIfNotExist");
             WaitForClassificationsAlertCloseIfAny();
             var dictionary = Util.ConvertToDictionary(inputData);
-            IWebElement record = WebDriverUtil.GetWebElementAndScroll(string.Format(ClassificationsRecord, dictionary["Name"]), WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            var record = WebDriverUtil.GetWebElementAndScroll(string.Format(ClassificationsRecord, dictionary["Name"]),
+                WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (record == null)
             {
                 AddNewClassificationsWithGivenInput(inputData);
@@ -145,7 +157,7 @@ namespace LaborPro.Automation.Features.Classifications
 
         public static void AddNewClassificationsWithGivenInput(Table inputData)
         {
-            LogWriter.WriteLog("Executing ClassificationsPage AddNewClassificationsWithGivenInput");
+            LogWriter.WriteLog("Executing ClassificationsPage.AddNewClassificationsWithGivenInput");
             ClickOnAddButton();
             UserClickOnNewClassificationsMenuLink();
             //Read input data
@@ -155,63 +167,72 @@ namespace LaborPro.Automation.Features.Classifications
             if (Util.ReadKey(dictionary, "Name") != null)
             {
                 WebDriverUtil.GetWebElement(NameInput, WebDriverUtil.NO_WAIT,
-                $"Unable to locate Name input on Classifications page  - {NameInput}")
+                $"Unable to locate name input on classifications page  - {NameInput}")
                     .SendKeys(dictionary["Name"]);
             }
             WebDriverUtil.GetWebElementAndScroll(SaveButton, WebDriverUtil.NO_WAIT,
-                $"Unable to locate save button on Classifications page - {SaveButton}").Click();
+                $"Unable to locate save button on classifications page - {SaveButton}").Click();
             WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
-            WebDriverUtil.WaitForWebElementInvisible("//button[contains(text(),'Saving...')]", WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (WebDriverUtil.GetWebElement(ClassificationsPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) != null)
+            WebDriverUtil.WaitForWebElementInvisible(SaveInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (WebDriverUtil.GetWebElement(ClassificationsPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) ==
+                null)
             {
-                IWebElement errorMessage = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-                if (errorMessage == null)
-                {
-                    IWebElement errorMsg = WebDriverUtil.GetWebElementAndScroll(ElementAlert, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-                    if (errorMsg == null)
-                    {
-                        IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-                        if (alert == null)
-                        {
-                            WebDriverUtil.WaitForWebElementInvisible(ClassificationsPopup, WebDriverUtil.PERFORM_ACTION_TIMEOUT, "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
-                        }
-                        else
-                        {
-                            throw new Exception($"Unable to create new Classifications Error - {alert.Text}");
-                        }
-                    }
-                }
+                return;
+            }
+            var formInputError = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath,
+                WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (formInputError != null)
+            {
+                return;
+            }
+            var formInputFieldError = WebDriverUtil.GetWebElementAndScroll(ElementAlert,
+                WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (formInputFieldError != null)
+            {
+                return;
+            }
+            var formAlert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath,
+                WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (formAlert == null)
+            {
+                WebDriverUtil.WaitForWebElementInvisible(ClassificationsPopup, WebDriverUtil.PERFORM_ACTION_TIMEOUT,
+                    "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
+            }
+            else
+            {
+                throw new Exception($"Unable to create new classifications Error - {formAlert.Text}");
             }
         }
         public static void UserClickOnNewClassificationsMenuLink()
         {
-            LogWriter.WriteLog("Executing ClassificationsPage UserClickOnNewClassificationsMenuLink");
+            LogWriter.WriteLog("Executing ClassificationsPage.UserClickOnNewClassificationsMenuLink");
             WebDriverUtil.GetWebElement(AddClassificationsLink, WebDriverUtil.NO_WAIT,
-            $"Unable to locate NewClassificationsMenu menu link on add menu popup - {AddClassificationsLink}").Click();
+            $"Unable to locate new classifications menu link on add menu popup - {AddClassificationsLink}").Click();
         }
-      
-        
+
+
         public static void ClickOnClassifications()
         {
-            LogWriter.WriteLog("Executing ClassificationsPage ClickOnClassifications");
+            LogWriter.WriteLog("Executing ClassificationsPage.ClickOnClassifications");
             WebDriverUtil.GetWebElement(ListManagementDropdown,
                 WebDriverUtil.NO_WAIT, $"Unable to locate list management dropdown - {ListManagementDropdown}").Click();
             WebDriverUtil.GetWebElement(ClassificationsValueInLmDropdown, WebDriverUtil.NO_WAIT,
-                $"Unable to locate Classifications value - {ClassificationsValueInLmDropdown}").Click();
+                $"Unable to locate classifications value - {ClassificationsValueInLmDropdown}").Click();
 
         }
         public static void ClickOnAddButton()
         {
-            LogWriter.WriteLog("Executing ClassificationsPage ClickOnAddButton");
+            LogWriter.WriteLog("Executing ClassificationsPage.ClickOnAddButton");
             WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT,
-            $"Unable to locate add button on Classifications page  - {AddButton}").Click();
+            $"Unable to locate add button on classifications page  - {AddButton}").Click();
 
         }
         public static void CloseClassificationsForm()
         {
-            LogWriter.WriteLog("Executing ClassificationsPage CloseClassificationsForm");
+            LogWriter.WriteLog("Executing ClassificationsPage.CloseClassificationsForm");
             WaitForClassificationsAlertCloseIfAny();
-            IWebElement formCloseButton = WebDriverUtil.GetWebElement(CloseClassificationsFormButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            var formCloseButton = WebDriverUtil.GetWebElement(CloseClassificationsFormButton, WebDriverUtil.NO_WAIT,
+                WebDriverUtil.NO_MESSAGE);
             if (formCloseButton != null)
             {
                 formCloseButton.Click();
@@ -220,24 +241,99 @@ namespace LaborPro.Automation.Features.Classifications
         }
         public static void ClickOnStandardTab()
         {
-            LogWriter.WriteLog("Executing ClassificationsPage ClickOnStandardTab");
-            IWebElement standardTab = WebDriverUtil.GetWebElement(StandardCollapsedTab, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (standardTab != null)
+            LogWriter.WriteLog("Executing ClassificationsPage.ClickOnStandardTab");
+            var standardTab = WebDriverUtil.GetWebElement(StandardCollapsedTab, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (standardTab == null)
             {
-                standardTab.Click();
-                WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+                return;
             }
+            standardTab.Click();
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
         }
         public static void WaitForClassificationsAlertCloseIfAny()
         {
-            LogWriter.WriteLog("Executing ClassificationsPage WaitForClassificationsAlertCloseIfAny ");
-            IWebElement alert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
-            if (alert != null)
+            LogWriter.WriteLog("Executing ClassificationsPage.WaitForClassificationsAlertCloseIfAny");
+            var formAlert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.NO_WAIT,
+                WebDriverUtil.NO_MESSAGE);
+            if (formAlert == null)
             {
-                WebDriverUtil.GetWebElementAndScroll(NameInput).Click();
-                IWebElement nameTag = WebDriverUtil.GetWebElementAndScroll(NameInput);
-                WebDriverUtil.WaitForWebElementInvisible(ErrorAlertToastXpath, WebDriverUtil.TEN_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                return;
             }
+            WebDriverUtil.GetWebElementAndScroll(NameInput).Click();
+            WebDriverUtil.GetWebElementAndScroll(NameInput);
+            WebDriverUtil.WaitForWebElementInvisible(ErrorAlertToastXpath, WebDriverUtil.TEN_SECOND_WAIT,
+                WebDriverUtil.NO_MESSAGE);
+        }
+
+        public static void AddNewClassificationsWithGivenInput(string classifications)
+        {
+            LogWriter.WriteLog("Executing ClassificationsPage.AddNewClassificationsWithGivenInput");
+            ClickOnAddButton();
+            UserClickOnNewClassificationsMenuLink();
+
+            if (classifications != null)
+            {
+                WebDriverUtil.GetWebElement(NameInput, WebDriverUtil.NO_WAIT,
+                $"Unable to locate name input on classifications page  - {NameInput}")
+                    .SendKeys(Util.ProcessInputData(classifications));
+            }
+            WebDriverUtil.GetWebElementAndScroll(SaveButton, WebDriverUtil.NO_WAIT,
+                $"Unable to locate save button on classifications page - {SaveButton}").Click();
+            WebDriverUtil.WaitFor(WebDriverUtil.ONE_SECOND_WAIT);
+            WebDriverUtil.WaitForWebElementInvisible(SaveInprogress, WebDriverUtil.MAX_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (WebDriverUtil.GetWebElement(ClassificationsPopup, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE) == null)
+            {
+                return;
+            }
+            var formInputError = WebDriverUtil.GetWebElementAndScroll(FormInputFieldErrorXpath, WebDriverUtil.ONE_SECOND_WAIT,
+                WebDriverUtil.NO_MESSAGE);
+            if (formInputError != null)
+            {
+                return;
+            }
+            var formInputFieldError = WebDriverUtil.GetWebElementAndScroll(ElementAlert, WebDriverUtil.ONE_SECOND_WAIT,
+                WebDriverUtil.NO_MESSAGE);
+            if (formInputFieldError != null)
+            {
+                return;
+            }
+            var formAlert = WebDriverUtil.GetWebElementAndScroll(ErrorAlertToastXpath, WebDriverUtil.ONE_SECOND_WAIT,
+                WebDriverUtil.NO_MESSAGE);
+            if (formAlert == null)
+            {
+                WebDriverUtil.WaitForWebElementInvisible(ClassificationsPopup, WebDriverUtil.PERFORM_ACTION_TIMEOUT,
+                    "Timeout - " + WebDriverUtil.PERFORM_ACTION_TIMEOUT + " Sec. Application taking too long time to perform operation");
+            }
+            else
+            {
+                throw new Exception($"Unable to create new classifications Error - {formAlert.Text}");
+            }
+        }
+        public static void VerifyAddButtonIsNotAvailable()
+        {
+            LogWriter.WriteLog("Executing ClassificationsPage.VerifyAddButtonIsNotAvailable");
+            var addButton = WebDriverUtil.GetWebElement(AddButton, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (addButton != null)
+            {
+                throw new Exception("Add button is found but we expect it should not be present when user login from admin only access");
+            }
+            BaseClass._AttachScreenshot.Value = true;
+        }
+        public static void VerifyDeleteButtonAndEditOptionIsNotAvailable()
+        {
+            LogWriter.WriteLog("Executing ClassificationsPage.VerifyDeleteButtonAndEditOptionIsNotAvailable");
+            var deleteButton = WebDriverUtil.GetWebElement(ClassificationsDeleteButton, WebDriverUtil.ONE_SECOND_WAIT,
+                WebDriverUtil.NO_MESSAGE);
+            if (deleteButton != null)
+            {
+                throw new Exception("Delete button is found but we expect it should not be present when user login from admin only access");
+            }
+            var editTextBox = WebDriverUtil.GetWebElement(NameInput, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
+            if (editTextBox.Enabled)
+            {
+                throw new Exception("Edit text box is enabled but we expect it should be disabled when user login from admin only access");
+            }
+            BaseClass._AttachScreenshot.Value = true;
         }
 
     }
