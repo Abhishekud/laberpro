@@ -2,7 +2,7 @@
 Feature: Verify LocationMapping Module
 @Setup
 Scenario: 01. Launch Browser and Login to the Application
-	Given User "superadmin" is authenticated with "url"
+	Given User "superadmin" is authenticated with application
 	And User create prerequisites record for location mapping
 		| Department | Location | CharacteristicSet | VolumeDriverMappingSet |
 		| MEAT       | MASCOT   | STORE SERVICES    | MEAT REDESIGN          |

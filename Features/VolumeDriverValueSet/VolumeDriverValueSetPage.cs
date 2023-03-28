@@ -11,8 +11,7 @@ namespace LaborPro.Automation.Features.VolumeDriverValueSet
         private const string ProfilingCollapsedTab = "//li[contains(@class,'collapsed')]//span[contains(text(),'Profiling')]";
         private const string VolumeDriverValueSetPageTitle = "//*[@class='page-title' and contains( text(),'Volume Driver Value Sets')]";
         private const string VolumeDriverValueSetTab = "//a[text()='Volume Driver Value Sets']";
-        private const string AddVolumeDriverValueSet = "//button[.//*[@class='fa fa-plus']]";
-        private const string NewVolumeDriverValueSet = "//a[text()='New Volume Driver Value Set']";
+        private const string AddVolumeDriverValueSet = "//button[.//*[@class='fa fa-plus']]"; 
         private const string VolumeDriverValueSetPopup = "//*[@role='dialog']//*[@class='modal-title' and contains(text(), 'New Volume Driver Value Set')]";
         private const string SaveButton = "//button[contains(text(),'Save')]";
         private const string FormInputFieldErrorXpath = "//*[contains(@class,'help-block help-block')]";
@@ -53,6 +52,14 @@ namespace LaborPro.Automation.Features.VolumeDriverValueSet
         private const string CloseLocationDetails = "//*[contains(@class,'locations-list-edit-sidebar')]//button[text()='Close']";
         private const string NameInput = "//*[@id='name']";
         private const string AddVolumeDriverButton = "//button[@id='create-volume-drivers']";
+        private const string LOAD_SPINNER = "//i[@class='fa fa-spinner fa-spin']";
+        public static void WaitForLoadingSpinnerInvisible()
+        {
+            if (WebDriverUtil.GetWebElement(LOAD_SPINNER, WebDriverUtil.FIVE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
+            {
+                WebDriverUtil.WaitForWebElementInvisible(LOAD_SPINNER, WebDriverUtil.DEFAULT_WAIT, WebDriverUtil.NO_MESSAGE);
+            }
+        }
         public static void ClickOnProfilingTab()
         {
             LogWriter.WriteLog("Executing VolumeDriverValueSetPage.ClickOnProfilingTab");
@@ -70,20 +77,22 @@ namespace LaborPro.Automation.Features.VolumeDriverValueSet
         }
         public static void ClickOnNewVolumeDriverValueSet()
         {
+            WaitForLoadingSpinnerInvisible();
             LogWriter.WriteLog("Executing VolumeDriverValueSetPage.ClickOnNewVolumeDriverValueSet");
             var addVolumeDriverValueSet = WebDriverUtil.GetWebElement(AddVolumeDriverValueSet,
                 WebDriverUtil.TWO_SECOND_WAIT,
                 $"Unable to locate the add volume driver value set button - {AddVolumeDriverValueSet}");
             addVolumeDriverValueSet.Click();
             var volumeDriverValueSetPopup = WebDriverUtil.GetWebElement(VolumeDriverValueSetPopup,
-                WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
+                WebDriverUtil.FIVE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
             if (volumeDriverValueSetPopup == null)
             {
-                WebDriverUtil.GetWebElement(NewVolumeDriverValueSet, WebDriverUtil.TWO_SECOND_WAIT,
-                    $"Unable to locate the new volume driver value set button - {NewVolumeDriverValueSet}").Click();
+                WebDriverUtil.GetWebElement(AddVolumeDriverValueSet,
+                WebDriverUtil.TWO_SECOND_WAIT,
+                $"Unable to locate the add volume driver value set button - {AddVolumeDriverValueSet}").Click();
             }
             WebDriverUtil.WaitForAWhile();
-
+        
         }
         public static void VerifyVolumeDriverValueSetPopup()
         {

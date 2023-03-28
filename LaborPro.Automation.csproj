@@ -44,7 +44,29 @@
   </ItemGroup>
 
   <ItemGroup>
-    <SpecFlowObsoleteCodeBehindFiles Remove="Features\LocationMapping\LocationMapping_AdminOnly.feature.cs" />
+    <None Remove="appsettings.bits.json" />
+    <None Remove="appsettings.blankdb.json" />
+    <None Remove="appsettings.prereleaseuat.json" />
+    <None Remove="appsettings.uat.json" />
+    <None Remove="resources\config\appsettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="appsettings.bits.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="appsettings.blankdb.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="appsettings.prereleaseuat.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="appsettings.uat.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

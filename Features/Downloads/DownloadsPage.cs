@@ -7,10 +7,10 @@ namespace LaborPro.Automation.Features.Downloads
     {
         const string ACCOUNT_TAB = "//*[@class='page-body']//*[contains(text(),'Account')]";
         const string DOWNLOADS_TAB = "//*[@class='page-body']//*[contains(text(),'Downloads')]";
-        const string KRONOS_TAB = "//*[@class='page-body']//*[contains(text(),'Kronos')]";
+        const string KRONOS_TAB = "//li[contains(@class,'collapsed')]//span[contains(text(),'Kronos')]";
         const string LABOR_STANDARDS_TAB = "//*[@class='page-body']//*[contains(text(),'Labor Standards')]";
 
-        const string LABOR_STANDARD_CHECKBOX = "//td[@colspan='1' and @role='gridcell']//input[@type='checkbox']";
+        const string LABOR_STANDARD_CHECKBOX = "//td[@colspan='1' and @role='gridcell' and @class='k-grid-edit-cell k-grid-content-sticky']//input[@type='checkbox']";
         const string EXPORT_BUTTON = "//*[@id='export']";
         const string WIM_EXPORT_SELECTION = "//a[contains(text(), 'Export WIM File')]";
         const string WIM_DOWNLOAD_RECORD = "//*[@role='presentation']//tr[@data-grid-row-index='0']//*[text()='LaborPro WIM Export']";

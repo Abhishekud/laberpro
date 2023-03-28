@@ -3,9 +3,7 @@ Feature: Verify Classifications_ViewOnly Module
 
 @Setup
 Scenario: 01. Launch Browser and Login to the Application and perform prerequisites
-	Given User launched "$browser"
-	When User go to application "$url"
-	Then User enter email: "$username_1" and password: "$password_1"
+	Given User "superadmin" is authenticated with application
 	And User navigates to the Classifications tab
 	And User create new Classifications with below input if not exist
 		| Key  | Value                                 |
@@ -13,7 +11,7 @@ Scenario: 01. Launch Browser and Login to the Application and perform prerequisi
 	Then User logout from the application
   
 Scenario: 02. Verify_add_button_is_not_available
-	Given User logged in with view only access using username: "$viewonly_username" and password: "$viewonly_password"
+	Given User "viewonly" is authenticated with application
 	When User navigates to the Classifications tab
 	Then User verify add classification button is not Present
   
@@ -25,7 +23,7 @@ Scenario: 03. Verify_delete_button_and_edit_option_is_not_avaiable
 @Cleanup
 Scenario: 04. Logout and Close Browser
 	Given User logout from the application
-	When User enter email: "$username_1" and password: "$password_1"
+	When User "superadmin" is authenticated with application
 	Then User navigates to the Classifications tab
 	And User delete Classifications "Classification_created_via_automation" if exist
 	And User logout from the application

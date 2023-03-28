@@ -8,9 +8,9 @@ namespace LaborPro.Automation.shared.util
     internal class WebDriverUtil
     {
         public static readonly int NO_WAIT = 0;
-        public static readonly int PAGE_LOAD_DEFAULT_WAIT = 30;
+        public static readonly int PAGE_LOAD_DEFAULT_WAIT = 90;
         public static readonly int PERFORM_ACTION_TIMEOUT = 60;
-        public static readonly int DEFAULT_WAIT = 180;
+        public static readonly int DEFAULT_WAIT = 300;
         public static readonly int ONE_SECOND_WAIT = 1;
         public static readonly int TWO_SECOND_WAIT = 2;
         public static readonly int FIVE_SECOND_WAIT = 5;
@@ -19,6 +19,26 @@ namespace LaborPro.Automation.shared.util
         public static readonly int MAX_WAIT = 60;
         public static readonly string NO_MESSAGE = "";
         public static readonly string PAGE_CONTENTS_LOADING_XPATH = "//*[@class='main-content loading']";
+        private const string NewDepartmentInGridAlert = "//*[@class='alert alert-warning' and @role='alert']";
+        private const string NewDepartmentAlertOkButton = "//button[contains(@class,'btn btn-warning')]";
+        public static void IgnoreNewDepartmentInGridAlert()
+        {
+            try
+            {
+                new WebDriverWait(SeleniumDriver.Driver(), TimeSpan.FromSeconds(TWO_SECOND_WAIT));
+                var newDepartmentInGridAlert = SeleniumDriver.Driver().FindElement(By.XPath(NewDepartmentInGridAlert));
+                var newDepartmentAlertOkButton = SeleniumDriver.Driver().FindElement(By.XPath(NewDepartmentAlertOkButton));
+                if (newDepartmentInGridAlert == null)
+                {
+                    return;
+                }
+                newDepartmentAlertOkButton.Click();
+            }
+            catch (Exception ex)
+            {
+                LogWriter.WriteLog(ex.Message);
+            }
+        }
         public static Boolean WaitForWebElement(string xpath, int timeout, string message)
         {
             WaitForWebElementInvisible(PAGE_CONTENTS_LOADING_XPATH, PAGE_LOAD_DEFAULT_WAIT, "Timeout - {0} Page contents is not getting load or it might taking too long time to load!");
@@ -89,6 +109,10 @@ namespace LaborPro.Automation.shared.util
                 if (message != null && message.Length > 0)
                     throw new Exception(message);
             }
+            if (SeleniumDriver.Driver().Url.Contains("location-departments"))
+            {
+                IgnoreNewDepartmentInGridAlert();
+            }
             return element;
         }
         public static IWebElement GetWebElementAndScroll(string xpath, int timeout, string message)
@@ -112,6 +136,10 @@ namespace LaborPro.Automation.shared.util
                 LogWriter.WriteLog(ex.Message);
                 if (message != null && message.Length > 0)
                     throw new Exception(message);
+            }
+            if (SeleniumDriver.Driver().Url.Contains("location-departments"))
+            {
+                IgnoreNewDepartmentInGridAlert();
             }
             return element;
         }

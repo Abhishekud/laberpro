@@ -37,7 +37,7 @@ namespace LaborPro.Automation.Features.Standards
         private const string ConfirmButton = "//*[@class='modal-content']//button[text()='Confirm']";
         private const string StandardElementNameInput = "//*[@class='form-group']//input[@name='name']";
         private const string StandardElementFrequencyInput = "//*[@class='form-group']//input[@name='frequencyFormula']";
-        private const string StandardElementUomInput = "//select[@id='unitOfMeasureId']";
+        private const string StandardElementUomInput = "//*[@class='unit-of-measure form-group']//span[@class='k-input']";
         private const string CreatedStandardElement = "//*[@class='content']//span[contains(text(),'{0}')]";
         private const string StandardElementContent = "//*[@class='content']";
         private const string StandardElementOkButton = "//*[@class='modal-dialog']//button[contains(text(),'OK')]";
@@ -45,8 +45,7 @@ namespace LaborPro.Automation.Features.Standards
         private const string PageLoader = "//*[@title='Submission in progress']";
         private const string ClearFilterButton = "//button[@title='Clear All Filters']";
         private const string StandardElementFrequencyAlert = "//*[@class='form-group has-error']";
-        private const string NewStandardElementForm = "//*[@role='dialog']//h4[contains(text(),'New Estimate')]";
-        private const string StandardElementUomValueInDropdown = "//*[@id='unitOfMeasureId']//option[contains(text(),'{0}')]";
+        private const string NewStandardElementForm = "//*[@role='dialog']//h4[contains(text(),'New Estimate')]"; 
         private const string StandardDetailsSidebarButton = "//*[@class='page-header']//button[@class='btn-default btn btn-default']//i";
         private const string StandardElementTimeInput = "//*[@class='form-group']//input[@id='measuredTimeMeasurementUnits']";
         private const string StandardForm = "//*[@role='dialog']//*[@class='modal-title' and contains(text(),'New Standard')]";
@@ -64,6 +63,7 @@ namespace LaborPro.Automation.Features.Standards
         private const string AddOptionInStandardGroup = "//*[@class='add-standard-item standalone']//*[@class='form-group']//*[@id='groupName']";
         private const string TickOptionInStandardDetail = "//*[@class='fa fa-square-o']";
         private const string SelectOptionInListing = "//*[@class='k-master-row']//*[@aria-colindex='1']";
+        private const string UomInput = "//ul[@role='listbox']/li[contains(text(),'{0}')]";
         public static void ClickOnStandardsTab()
         {
             LogWriter.WriteLog("Executing StandardPage.ClickOnStandardsTab");
@@ -197,6 +197,7 @@ namespace LaborPro.Automation.Features.Standards
         public static void ClickOnNewStandardElement()
         {
             LogWriter.WriteLog("Executing StandardPage.NewStandardElement");
+            CloseStandardsForm();
             if (WebDriverUtil.GetWebElement(NewStandardElements, WebDriverUtil.ONE_SECOND_WAIT,
                     $"Unable to find the new standard element button - {NewStandardElements}") == null) return;
             WebDriverUtil.GetWebElement(NewStandardElements, WebDriverUtil.ONE_SECOND_WAIT, $"unable to find the new standard element button - {NewStandardElements}").Click();
@@ -297,9 +298,11 @@ namespace LaborPro.Automation.Features.Standards
 
             if (Util.ReadKey(dictionary, "Unit of Measure") != null)
             {
-                new SelectElement(WebDriverUtil.GetWebElement(StandardElementUomInput, WebDriverUtil.NO_WAIT,
-                     $"Unable to locate unit of measure input - {StandardElementUomInput}")).SelectByText(dictionary["Unit of Measure"]);
-
+                var uomRecord = string.Format(UomInput, dictionary["Unit of Measure"]);
+                WebDriverUtil.GetWebElement(StandardElementUomInput, WebDriverUtil.NO_WAIT,
+                     $"Unable to locate unit of measure input - {StandardElementUomInput}").Click();
+                WebDriverUtil.GetWebElement(uomRecord, WebDriverUtil.ONE_SECOND_WAIT,
+                   $"Unable to locate uom record - {uomRecord}").Click();
             }
 
             if (Util.ReadKey(dictionary, "Time (Seconds)") != null)
@@ -309,8 +312,6 @@ namespace LaborPro.Automation.Features.Standards
                 WebDriverUtil.GetWebElement(StandardElementTimeInput, WebDriverUtil.NO_WAIT,
                     $"Unable to locate time input - {StandardElementTimeInput}").SendKeys(dictionary["Time (Seconds)"]);
             }
-
-
 
             WebDriverUtil.GetWebElement(SaveButton,
                 WebDriverUtil.NO_WAIT,
@@ -399,37 +400,30 @@ namespace LaborPro.Automation.Features.Standards
         public static void VerifyFrequencyIsEmpty()
         {
             LogWriter.WriteLog("Executing StandardPage.VerifyFrequencyIsEmpty");
-            if(WebDriverUtil.GetWebElement(NewStandardElementForm, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
+            if (WebDriverUtil.GetWebElement(NewStandardElementForm, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE) != null)
             {
                 WebDriverUtil.GetWebElement(StandardElementFrequencyAlert, WebDriverUtil.ONE_SECOND_WAIT, WebDriverUtil.NO_MESSAGE);
-               
+
             }
             BaseClass._AttachScreenshot.Value = true;
 
         }
         public static void VerifyUomInDropDown(string uom)
         {
-            LogWriter.WriteLog("Executing StandardPage.VerifyUOMInDropDown");
-            var standardElementUomValue = string.Format(StandardElementUomValueInDropdown, uom);
+            LogWriter.WriteLog("Executing StandardPage.VerifyUOMInDropDown"); 
+            var uomRecord = string.Format(UomInput,uom);
             if (WebDriverUtil.GetWebElement(NewStandardElementForm, WebDriverUtil.ONE_SECOND_WAIT,
                     WebDriverUtil.NO_MESSAGE) == null)
             {
             }
             else
             {
-                WebDriverUtil.GetWebElement(StandardElementUomInput,
-                    WebDriverUtil.ONE_SECOND_WAIT,
-                    $"Unable to locate units of measure in standard element - {StandardElementUomInput}"
-                ).Click();
-
-                WebDriverUtil.GetWebElement(standardElementUomValue,
-                    WebDriverUtil.ONE_SECOND_WAIT,
-                    $"Unable to locate UOM value in standard element dropdown - {standardElementUomValue}"
-                );
+                WebDriverUtil.GetWebElement(StandardElementUomInput, WebDriverUtil.ONE_SECOND_WAIT,
+                    $"Unable to locate units of measure in standard element - {StandardElementUomInput}").Click();  
+                WebDriverUtil.GetWebElement(uomRecord, WebDriverUtil.ONE_SECOND_WAIT,
+                   $"Unable to locate uom record - {uomRecord}").Click();
             }
-
             BaseClass._AttachScreenshot.Value = true;
-
         }
         public static int FindColumnIndexInStandard(string headerName)
         {
@@ -493,7 +487,7 @@ namespace LaborPro.Automation.Features.Standards
                 throw new Exception("Report button is not found but we expect it should be present when user login from view only access");
             reportButton.Click();
             BaseClass._AttachScreenshot.Value = true;
-            if(previousButton != null)
+            if (previousButton != null)
                 ClickOnPreviousLink();
         }
         public static void ClickOnPreviousLink()
@@ -539,7 +533,7 @@ namespace LaborPro.Automation.Features.Standards
         {
             var selectOption = WebDriverUtil.GetWebElement(SelectOptionInListing, WebDriverUtil.NO_WAIT, WebDriverUtil.NO_MESSAGE);
             if (selectOption == null)
-                throw new Exception("Select option is not found but we expect it should be present when user login from view only access"); 
+                throw new Exception("Select option is not found but we expect it should be present when user login from view only access");
             selectOption.Click();
         }
     }
