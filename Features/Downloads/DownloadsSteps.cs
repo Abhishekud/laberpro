@@ -1,3 +1,4 @@
+using LaborPro.Automation.Features.VolumeDriverValueSet;
 using LaborPro.Automation.shared.util;
 
 namespace LaborPro.Automation.Features.Downloads
@@ -5,14 +6,15 @@ namespace LaborPro.Automation.Features.Downloads
     [Binding]
     public class DownloadsSteps
     {
-        [Given(@"Kronos is enabled and User has requested a WIM export")]
-        public void GivenUserHasRequestedWIM()
+        [Given(@"User has requested a export")]
+        public void GivenUserHasRequestedExport()
         {
-            LogWriter.WriteLog("Executing step 'Kronos is enabled and User has requested a WIM export'");
-            DownloadsPage.ClickOnKronosTab();
-            DownloadsPage.ClickOnLaborStandardsTab();
-            DownloadsPage.SelectOneLaborStandard();
-            DownloadsPage.RequestWIMExport();
+            LogWriter.WriteLog("Executing step 'User has requested a export'");
+            VolumeDriverValueSetPage.CloseVolumeDriverValueSetPopup();
+            VolumeDriverValueSetPage.ClickOnProfilingTab();
+            VolumeDriverValueSetPage.ClickOnVolumeDriverValueSetTab();
+            DownloadsPage.SelectDefaultVolumeDriverValueSet();
+            DownloadsPage.RequestExportOfSelectedVolumeDriverValueSet();
         }
 
         [When(@"User navigates to Downloads tab")]
@@ -23,11 +25,11 @@ namespace LaborPro.Automation.Features.Downloads
             DownloadsPage.ClickOnDownloadsTab();
         }
 
-        [Then(@"User has WIM record on Downloads page")]
-        public void ThenUserHasWIMRecordOnDownloadsPage()
+        [Then(@"User has export record on downloads page")]
+        public void UserHasExportRecordOnDownloadsPage()
         {
-            LogWriter.WriteLog("Executing step 'User has WIM record on Downloads page'");
-            DownloadsPage.VerifyWIMExportExists();
+            LogWriter.WriteLog("Executing step 'User has export record on downloads page'");
+            DownloadsPage.VerifyExportRequestExists();
         }
     }
 }
